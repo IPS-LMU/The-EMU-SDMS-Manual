@@ -1,4 +1,4 @@
-# Applications
+# The EMU-webApp
 
 Some _significant_ applications are demonstrated in this chapter.
 
