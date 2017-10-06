@@ -117,3 +117,7 @@ serve(db)
 to inspect the database with the new annotations. This time, it includes segmentation into words and phonemes, canonical phonetic transcription and realized phonetic transcription.
 
 This chapter described the current best practice of combining SpeechRecorder, MAUS and the EMU-SDMS to fit a typical phonetic project workflow.
+
+```{r echo=FALSE, results='hide', message=FALSE}
+# clean up emuR_demoData
+unlink(file.path(tempdir(), "emuR_demoData"), recursive = TRUE)
