@@ -1,0 +1,114 @@
+%!TEX root = ../diss.tex
+
+% \usetikzlibrary{shapes,arrows, backgrounds}
+
+\tikzstyle{element}=[rectangle, thick,
+                     inner sep=0.1cm, rounded corners]
+\begin{tikzpicture}
+
+  %%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%
+  \node (Text) at (-5, 4) [element] {\textit{Text}\textsubscript{\small{(ITEM)}}:}; 
+
+  \node (amongst_Text) at (0, 4) [element] {\textit{amongst}}; 
+  
+  %%%%%%%%%%%%%%%%%%
+  \node (Syllable) at (-5, 3) [element] {\textit{Syllable}\textsubscript{\small{(ITEM)}}:}; 
+
+  \node (W_Syllable) at (-1, 3) [element, three_color_c3, draw=darkgray] {\textit{W}};
+  
+  \node (S_Syllable) at (1, 3) [element, three_color_c2] {S};
+
+  %%%%%%%%%%%%%%%%%%
+  \node (Phoneme) at (-5, 2) [element] {\textit{Phoneme}\textsubscript{\small{(ITEM)}}:}; 
+
+  \node (V1_Phoneme) at (-2.5, 2) [element] {\textit{V}};
+
+  \node (m_Phoneme) at (-1.5, 2) [element] {\textit{m}};
+  
+  \node (V2_Phoneme) at (-0.5, 2) [element] {\textit{V}};
+  
+  \node (N_Phoneme) at (0.5, 2) [element] {\textit{N}};
+  
+  \node (s_Phoneme) at (1.5, 2) [element] {\textit{s}};
+
+  \node (t_Phoneme) at (2.5, 2) [element] {\textit{t}};
+
+  %%%%%%%%%%%%%%%%%%%
+  \node (Phonetic) at (-5, 1) [element] {\textit{Phonetic}\textsubscript{\small{(SEGMENT)}}:}; 
+
+  \node (V1_Phonetic) at (-2.5, 1) [element] {\textit{V}};
+
+  \node (m_Phonetic) at (-1.5, 1) [element] {\textit{m}};
+  
+  \node (V2_Phonetic) at (-0.5, 1) [element] {\textit{V}};
+  
+  \node (N_Phonetic) at (0.5, 1) [element] {\textit{N}};
+  
+  \node (s_Phonetic) at (1.5, 1) [element] {\textit{s}};
+
+  \node (t_Phonetic) at (2.25, 1) [element, three_color_c1] {\textit{t}};
+
+  \node (h_Phonetic) at (2.75, 1) [element] {\textit{h}};
+
+  %%%%%%%%%%%%%%%%%%%
+  \node (query) at (0, 0) [element, three_color_c1] {\texttt{sl1 = query(emuDBhandle, query = "Phonetic == t")}}; 
+  
+  \node (requeryhier) at (0, -0.5) [element, three_color_c2] {\texttt{sl2 = requery\_hier(emuDBhandle, sl1, level = "Syllable")}};
+  
+  \node (requeryseq) at (0, -1) [element, three_color_c3] {\texttt{sl3 = requery\_seq(emuDBhandle, sl2, offset = -1)}};
+
+  \node (vs) at (0, -1.5) [element] {vs.};
+
+  \node (eql) at (0, -2.3) [element, darkgray, text width=11cm] {\texttt{sl3 = query(emuDBhandle, query = "[\#Syllable =\textasciitilde{} .* -> [Syllable =\textasciitilde{} .* \^{} Phonetic == t]]")}};
+
+
+  %%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%
+  \draw [->, line width=1] (amongst_Text) to (W_Syllable);
+
+  \draw [->, line width=1] (amongst_Text) to (S_Syllable);
+
+  %%%%%%%%%%%%%%%%%%%%
+  \draw [->, line width=1] (W_Syllable) to (V1_Phoneme);
+
+  \draw [->, line width=1] (S_Syllable) to (m_Phoneme);
+  
+  \draw [->, line width=1] (S_Syllable) to (V2_Phoneme);
+
+  \draw [->, line width=1] (S_Syllable) to (N_Phoneme);
+
+  \draw [->, line width=1] (S_Syllable) to (s_Phoneme);
+
+  \draw [->, line width=1] (S_Syllable) to (t_Phoneme);
+
+  %%%%%%%%%%%%%%%%%%%%
+  \draw [->, line width=1] (V1_Phoneme) to (V1_Phonetic);
+
+  \draw [->, line width=1] (m_Phoneme) to (m_Phonetic);
+  
+  \draw [->, line width=1] (V2_Phoneme) to (V2_Phonetic);
+
+  \draw [->, line width=1] (N_Phoneme) to (N_Phonetic);
+
+  \draw [->, line width=1] (s_Phoneme) to (s_Phonetic);
+
+  \draw [->, line width=1] (t_Phoneme) to (t_Phonetic);
+  
+  \draw [->, line width=1] (t_Phoneme) to (h_Phonetic);
+
+ %%%%%%%%%%%%%%%%%%%%
+  % \draw [->, line width=1, three_color_c1] (query.west) to [bend left=20](t_Phonetic);
+  % \draw [->, line width=1, three_color_c2] (requeryhier.west) to [bend left=20](S_Syllable);
+  % \draw [->, line width=1, three_color_c3] (requeryseq.west) to [bend left=30](W_Syllable);
+  % \draw [->, line width=1, darkgray] (eql.west) to [bend left=20](W_Syllable);
+
+  \draw [->, line width=1, dashed, three_color_c2] (t_Phonetic) to [bend left=40](t_Phoneme);
+  \draw [->, line width=1, dashed, three_color_c2] (t_Phoneme) to [bend left=20](S_Syllable);
+  \draw [->, line width=1, dashed, three_color_c3] (S_Syllable) to [bend left=20](W_Syllable);
+
+  \draw [->, line width=1, dashed, darkgray] (t_Phonetic) to [bend right=60](t_Phoneme.east);
+  \draw [->, line width=1, dashed, darkgray] (t_Phoneme) to [bend right=20](S_Syllable);
+  \draw [->, line width=1, dashed, darkgray] (S_Syllable) to [bend right=20](W_Syllable);
+
+\end{tikzpicture}

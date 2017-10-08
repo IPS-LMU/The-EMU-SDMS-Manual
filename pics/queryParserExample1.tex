@@ -1,0 +1,79 @@
+%!TEX root = ../diss.tex
+\begin{tikzpicture}[level distance=1.5cm,
+  level 1/.style={sibling distance=7cm},
+  level 2/.style={sibling distance=4cm}]
+  \tikzstyle{item}=[rectangle, draw=black, rounded corners, text centered, anchor=north]
+
+  \node {\texttt{\textcolor{three_color_c1}{[[Syllable == W -> Syllable == W]} \textcolor{three_color_c3}{\textasciicircum} \textcolor{three_color_c2}{[Phoneme == @ -> \#Phoneme == s]]}}} [grow=down]
+    child {node {\texttt{\textcolor{three_color_c1}{[Syllable == W} \textcolor{three_color_c3}{->} \textcolor{three_color_c2}{Syllable == W]}}}
+      child {node(syl_W1) {\texttt{\textcolor{three_color_c1}{Syllable == W}}}}
+      child {node(syl_W2) {\texttt{\textcolor{three_color_c2}{Syllable == W}}}}
+    }
+    child {node {\texttt{\textcolor{three_color_c1}{[Phoneme == @} \textcolor{three_color_c3}{->} \textcolor{three_color_c2}{\#Phoneme == s]}}}
+      child {node(phon_at) {\texttt{\textcolor{three_color_c1}{Phoneme == @}}}}
+      child {node(phon_s) {\texttt{\textcolor{three_color_c2}{\#Phoneme == s}}}}
+    };
+
+    % first level bottom up
+    % \node [below=of syl_W1](w1_syl_its) {'W' syl. items}; 
+    % \node [below=of syl_W2](w2_syl_its) {'W' syl. items}; 
+    % \node [below=of phon_at](at_phon_its) {'@' phon. items}; 
+    % \node [below=of phon_s](s_phon_its) {'s' phon. items}; 
+
+
+
+  \begin{scope}[yshift=-7.5cm]
+    \node [item](final_seq_its){\textit{W}\textsubscript{items} -\textgreater \textit{W}\textsubscript{items} \textasciicircum \textit{@}\textsubscript{items} -\textgreater \textit{s}\textsubscript{items}} [grow=up]
+      child {node[item](right_seq_its){\textit{@} -\textgreater \textit{s}\textsubscript{sequence of items}}
+        child {node[item](s_phon_its) {\textit{s}\textsubscript{items}}}
+        child {node[item](at_phon_its) {\textit{@}\textsubscript{items}}}
+      }
+      child {node[item](left_seq_its){\textit{W} -\textgreater \textit{W}\textsubscript{sequence of items}}
+        child {node[item](w2_syl_its) {\textit{W}\textsubscript{items}}}
+        child {node[item](w1_syl_its) {\textit{W}\textsubscript{items}}}
+      };
+  \end{scope}
+
+    \node[item](hashtag_items) at (6, -9) {\#\textit{s}\textsubscript{items}};
+    
+    \node[item, draw=white](cqrte) at (0, -9) {\texttt{convert\_queryResultToEmuRsegs()}};
+    % stages
+    \node() at (-7.7, 0) {S1};
+    \node() at (-7.7, -1.5) {S2};
+    \node() at (-7.7, -3) {S3};
+
+    \node() at (-7.7, -5.5) {S4};
+    \node() at (-7.7, -6.7) {S5};
+    \node() at (-7.7, -7.9) {S6};
+    \node() at (-7.7, -9.1) {S7};
+
+    % left/right arrows
+    \node(parse_start) at (7.5, 0) {};
+    \node(parse_end) at (7.5, -3) {};
+
+    \node(exec_start) at (7.5, -5.5) {};
+    \node(exec_end) at (7.5, -8) {};
+
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%
+	% connections
+	\draw [->, dashed] (syl_W1) to node[rotate=25]{\textit{execute SQ}}(w1_syl_its);
+  \draw [->, dashed] (syl_W2) to node[rotate=25]{\textit{execute SQ}}(w2_syl_its);
+  \draw [->, dashed] (phon_at) to node[rotate=25]{\textit{execute SQ}}(at_phon_its);
+  \draw [->, dashed] (phon_s) to node[rotate=25]{\textit{execute SQ}}(s_phon_its);
+	
+  % to # 
+  \draw [->, dashed] (s_phon_its.east) to node[rotate=0]{\textit{insert}} (hashtag_items);
+  \draw [->, dashed] (right_seq_its.east) to node[rotate=0]{\textit{update}} (hashtag_items);
+  \draw [->, dashed] (final_seq_its.east) to node[rotate=0]{\textit{update}} (hashtag_items);
+
+  % cqrte
+  \draw [->, dashed] (final_seq_its) to node[rotate=0]{\textit{}} (cqrte);
+  \draw [->, dashed] (hashtag_items) to node[rotate=0]{\textit{}} (cqrte);
+
+  % 
+  \draw [->] (parse_start) to node[rotate=90, below]{parse query}(parse_end);
+  \draw [->] (exec_start) to node[rotate=90, below]{merge results}(exec_end);
+
+\end{tikzpicture} 

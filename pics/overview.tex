@@ -1,0 +1,28 @@
+%!TEX root = ../WinkelmannCSL_SE_2016.tex
+\begin{tikzpicture}[scale=0.7]
+	\definecolor{emuBlue}{HTML}{0DC5FF}
+	\tikzstyle{emuWebApp}=[rounded corners,fill=emuBlue,inner sep=0.2cm] 	
+	\tikzstyle{rpackage}=[rounded corners,fill=lightgray,inner sep=0.2cm]
+	\tikzstyle{db}=[draw=black,inner sep=0.2cm] 
+
+	\node (emuWebApp) at ( 0, 1) [emuWebApp] {\texttt{EMU-webApp}};
+	
+	\node (wrassp) at ( -3, -2) [rpackage] {\texttt{wrassp}};
+
+	\node (emuR) at ( 3, -2) [rpackage] {\texttt{emuR}};	
+	
+	% \node (center) at ( 2, -2) [emuLVC] {$emuR$};	
+
+	\draw[rounded corners, dashed] (-5,-1.25) rectangle (5, -2.75);
+	\node (R) at ( -5, -1.25) {\pgftext{\includegraphics[scale=0.03]{pics/RlogoNew}}};		
+
+	\node (db) at ( 0, -5) [db] {files comprising \texttt{emuDB}};
+
+	
+	\draw [dotted,<->, line width=1] (db.west) to [bend left=45] node[left]{\small{\textit{Signal proc.}}} (wrassp.west);
+	\draw [dotted,<->, line width=1] (db.east) to [bend right=45] node[right]{\small{\textit{file/DB handling}}}(emuR.east);
+	\draw [dotted,<->, line width=1] (emuR) to node[right]{\small{\textit{websocket connection}}} (emuWebApp);
+	\draw [dotted,<->, line width=1] (wrassp) to node[below]{\small{\textit{Signal proc.}}} (emuR);
+	
+
+\end{tikzpicture}

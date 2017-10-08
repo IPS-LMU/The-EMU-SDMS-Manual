@@ -1,0 +1,155 @@
+%!TEX root = ../diss.tex
+
+\tikzstyle{robj}=[rectangle, thick, fill=robjblue,stroke=grey, text=white,
+                  inner sep=0.1cm, rounded corners]
+
+\tikzstyle{rfun}=[rectangle, thick, fill=rfungrey, text=black,
+                  inner sep=0.1cm, rounded corners]
+
+
+\begin{tikzpicture}[scale=0.8]
+  
+  
+  \definecolor{myc1}{RGB}{27,158,119}
+  \definecolor{myc2}{RGB}{217,95,2}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % hierarchy
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % nodes
+
+  % R nodes
+
+  % boxes
+  \draw[fill=gray, rounded corners] (-8,2.5) rectangle (8, -2.5);
+  \node (emuR) at (-4.3, 2.1) {\texttt{emuR}: \texttt{emuDB} interaction funcs};
+
+  \draw[rounded corners, dashed] (-8.5,3) rectangle (8.5, -3);
+  \node (R) at (-8.5,3) {\pgftext{\includegraphics[scale=0.03]{pics/RlogoNew}}};
+
+  % function nodes
+  \node (loademuDB) at (0, -2) [rfun] {\texttt{load\_emuDB()}};
+
+  \node (emuDBhandle) at (0, 0) [robj] {\texttt{emuDBhandle}};
+
+  \node (gettrackdata) at (-5, -1) [rfun] {\texttt{get\_trackdata()}};
+
+  \node (addlinkdef) at (-5, 1) [rfun] {\texttt{add\_linkDefinition()}};
+
+  \node (dots) at (0, 2) [rfun] {\texttt{\dots}};
+
+  \node (requeryhier) at (5, 1) [rfun] {\texttt{requery\_hier()}};
+
+  \node (query) at (5, -1) [rfun] {\texttt{query()}};
+
+  % \node[text width=5cm] (funs) at (4,0) {
+  %     \begin{tcolorbox}[%
+  %         title={},
+  %         width=\textwidth
+  %     ]
+  %     \begin{itemize}
+  %     \itemsep-10pt
+  %       \item ...
+  %       \item \texttt{dftSpectrum()}
+  %       \item \texttt{forest()}
+  %       \item \texttt{ksvF0()}
+  %       \item ...
+  %     \end{itemize}
+
+  %     \end{tcolorbox}
+  % };
+
+
+  % files / db nodes
+  \node[text width=7cm] (emuDB) at (-4.5,-8) {
+      \begin{tcolorbox}[%
+          title={exampleDB\_emuDB},
+          width=\textwidth
+      ]
+      \begin{tikzpicture}[scale=0.8]
+        \altentry{\textit{exampleDB\_DBconfig.json}}{1}
+        \altentry{\textbf{0002\_ses/}}{1}
+        \altentry{\textbf{bundle2\_bndl/}}{2}
+        \altentry{\textit{bundle2.wav}}{3}
+        \altentry{\textit{\dots}}{3}
+      \end{tikzpicture}
+
+      \end{tcolorbox}
+  };
+
+  \node[text width=6cm] (relModel) at (4.7,-8) {
+      \begin{tcolorbox}[%
+          title={relational annot. struct.},
+          width=\textwidth
+      ] 
+      \begin{small}
+        % items
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{3}{|c|}{\textbf{items table}} \\
+        \hline
+        \dots & item\_id & \dots \\ 
+        \hline
+        \end{tabular}
+        % labels
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{\textbf{labels table}} \\
+        \hline
+        \dots & item\_id & label & \dots \\ 
+        \hline
+        \end{tabular}
+        % links
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{\textbf{links table}} \\
+        \hline
+        \dots & from\_id & to\_id  & \dots\\ 
+        \hline
+        \end{tabular}
+        \\
+        \\
+        \dots
+        \end{small}
+      \end{tcolorbox}
+  };
+
+
+
+
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % links
+  \draw [<->, dotted, line width=1] (emuDB.east) to node[rotate=90, xshift=-1.3cm]{synchronize} (relModel.west); 
+
+  \draw [->, line width=1] (emuDB) to (loademuDB);
+  
+  \draw [->, line width=1] (loademuDB) to (emuDBhandle);
+
+  \draw [->, myc2, line width=1] (emuDBhandle) to [bend right=20] (emuDB);
+
+  \draw [->, myc1, line width=1] (emuDBhandle) to [bend left=20] (relModel);
+
+  % pointing to emuDBhandle
+  \draw [->, myc2, line width=1] (gettrackdata) to  (emuDBhandle);
+
+  \draw [->, myc2, line width=1] (addlinkdef) to  (emuDBhandle);
+
+  \draw [->, myc2, line width=1] (dots) to  [bend right=20](emuDBhandle);
+
+  \draw [->, myc1, line width=1] (dots) to  [bend left=20](emuDBhandle);
+
+  \draw [->, myc1, line width=1] (requeryhier) to  (emuDBhandle);
+
+  \draw [->, myc1, line width=1] (query) to  (emuDBhandle);
+
+  % \draw [<->] (emuDB) to (cache);
+ 
+
+  % \draw [dotted,<->] (emuDB.east) to [bend right=45] node[text width=2.3cm]{\tiny{\texttt{INPUT:} File Path(s)} \tiny{\texttt{OUTPUT:} Data File(s)}} (funs.south);
+
+  
+  
+\end{tikzpicture}

@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html">
-<link rel="next" href="an-overview-of-the-emu-sdms.html">
+<link rel="next" href="an-overview-of-the-emu-sdms-1.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -107,7 +107,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installing-additional-r-packages-that-are-used-throughout-this-course"><i class="fa fa-check"></i><b>1.2</b> Installing additional R-packages that are used throughout this course</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="an-overview-of-the-emu-sdms.html"><a href="an-overview-of-the-emu-sdms.html"><i class="fa fa-check"></i><b>3</b> An overview of the EMU-SDMS</a></li>
+<li class="chapter" data-level="3" data-path="an-overview-of-the-emu-sdms-1.html"><a href="an-overview-of-the-emu-sdms-1.html"><i class="fa fa-check"></i><b>3</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="3.1" data-path="an-overview-of-the-emu-sdms-1.html"><a href="an-overview-of-the-emu-sdms-1.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>3.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="3.2" data-path="an-overview-of-the-emu-sdms-1.html"><a href="an-overview-of-the-emu-sdms-1.html#emu-sdms-system-architecture-and-default-workflow"><i class="fa fa-check"></i><b>3.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="an-overview-of-the-emu-sdms-1.html"><a href="an-overview-of-the-emu-sdms-1.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>3.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html"><i class="fa fa-check"></i><b>4</b> Toolchain SpeechRecorder — MAUS — EMU-SDMS</a><ul>
 <li class="chapter" data-level="4.1" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#what-do-speechrecorder-and-maus-do"><i class="fa fa-check"></i><b>4.1</b> What do SpeechRecorder and MAUS do?</a></li>
 <li class="chapter" data-level="4.2" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#different-types-of-prompts"><i class="fa fa-check"></i><b>4.2</b> Different types of prompts</a></li>
@@ -151,7 +155,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
 <span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
-<img src="bookdown-demo_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
+<img src="The-EMU-SDMS-Manual_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
 <p class="caption">
 Figure 2.1: Here is a nice figure!
 </p>
@@ -315,17 +319,8 @@ Figure 2.1: Here is a nice figure!
 </tr>
 </tbody>
 </table>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2017</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
 
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-bookdown">
-<p>Xie, Yihui. 2017. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
-</div>
-<div id="ref-xie2015">
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
-</div>
 </div>
             </section>
 
@@ -333,7 +328,7 @@ Figure 2.1: Here is a nice figure!
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="an-overview-of-the-emu-sdms.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="an-overview-of-the-emu-sdms-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -365,7 +360,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
 "toc": {
 "collapse": "subsection"
 }

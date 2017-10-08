@@ -1,0 +1,59 @@
+\tikzstyle{element}=[rectangle, thick,
+                     inner sep=0.1cm, rounded corners]
+\begin{tikzpicture}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % nodes
+  % complex
+  \draw[gray] (-5.5, 4.75) rectangle (5.5, -1.75);
+  \node (b) at (-5.5, 4.75){\textbf{B}};
+
+  \node (into_c) at (0, 4) [element] {\textbf{Intonational} \textsubscript{\small{(ITEM)}}};
+
+  \node (interm_c) at (0, 3) [element] {\textbf{Intermediate} \textsubscript{\small{(ITEM)}}};
+
+  \node (word_c) at (0, 2) [element] {\textbf{Word\&Accent\&Text} \textsubscript{\small{(ITEM)}}};
+
+  \node (foot_c) at (-3.5, 2) [element] {\textbf{Foot} \textsubscript{\small{(ITEM)}}};
+
+
+  \node (syl_c) at (0, 1) [element] {\textbf{Syllable} \textsubscript{\small{(ITEM)}}};
+  
+  \node (phoneme_c) at (0, 0) [element] {\textbf{Phoneme} \textsubscript{\small{(ITEM)}}};
+
+  \node (tone_c) at (4, 0) [element] {\textbf{Tone} \textsubscript{\small{(EVENT)}}};
+  
+  \node (phonetic_c) at (0, -1) [element] {\textbf{Phonetic} \textsubscript{\small{(SEGMENT)}}};
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % legends
+
+  % complex
+  \draw[gray] (2.4, 4.2) rectangle (5, 3.3);
+  \node (leg_simp_o2m) at (4.0, 4) [element] {\small{\texttt{ONE\_TO\_MANY}}};
+  \node (leg_sim_m2m) at (4.0, 3.5) [element] {\small{\texttt{MANY\_TO\_MANY}}};
+  \draw [-, line width=1, dashed] (2.5, 4) to (3.0, 4);
+  \draw [-, line width=1, dotted] (2.5, 3.5) to (3.0, 3.5);
+
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % links
+
+  % complex
+  \draw [->, line width=1, dashed] (into_c) to [bend right=20] (interm_c);
+
+  \draw [->, line width=1, dashed] (into_c) to [bend right=20] (foot_c);
+
+  \draw [->, line width=1, dashed] (interm_c) to [bend right=20] (word_c);
+
+  \draw [->, line width=1, dashed] (word_c) to [bend right=20] (syl_c);
+
+  \draw [->, line width=1, dashed] (foot_c) to [bend right=20] (syl_c);
+
+  \draw [->, line width=1, dashed] (syl_c) to [bend right=20] (phoneme_c);
+
+  \draw [->, line width=1, dashed] (syl_c) to [bend left=20] (tone_c);
+
+  \draw [->, line width=1, dotted] (phoneme_c) to [bend right=20] (phonetic_c);
+
+  
+\end{tikzpicture}

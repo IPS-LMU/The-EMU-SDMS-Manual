@@ -1,0 +1,120 @@
+%!TEX root = ../diss.tex
+\tikzstyle{element}=[rectangle, thick,
+                     inner sep=0.1cm, rounded corners]
+\begin{tikzpicture}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % A
+
+  \draw[gray] (-7, 6) rectangle (7, 0.5);
+  \node (a) at (-6.7, 5.7){\textbf{A}};
+
+  %%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%
+  \node (Syllable_a) at (-4, 3) [element] {\textit{Syllable}\textsubscript{\small{(ITEM)}}:}; 
+  
+  \node (S_Syllable_a) at (0, 3) [element] {\textit{S}};
+
+  %%%%%%%%%%%%%%%%%%
+  \node (Phoneme_a) at (-3.75, 2) [circle] {\textit{Phoneme}\textsubscript{\small{(ITEM)}}:}; 
+
+  \node (m_Phoneme_a) at (-1.75, 2) [element] {\textit{m}};
+  
+  \node (V_Phoneme_a) at (-0.75, 2) [element] {\textit{V}};
+  
+  \node (N_Phoneme_a) at (0.25, 2) [element] {\textit{N}}; 
+
+  \node (s_Phoneme_a) at (1.25, 2) [element] {\textit{s}}; 
+
+  \node (t_Phoneme_a) at (2.25, 2) [element] {\textit{t}}; 
+  
+  %%%%%%%%%%%%%%%%%%%
+  \node (Start_true_a) at (-2.75, 5) [element, three_color_c1, draw=three_color_c1] {\small{\texttt{"[Start(Syllable, Phoneme) == TRUE]"}}}; 
+
+  \node (Medial_true_a) at (0, 1) [element, three_color_c1, draw=three_color_c1] {\small{\texttt{"[Medial(Syllable, Phoneme) == TRUE]"}}}; 
+
+  \node (End_true_a) at (2.75, 4) [element, three_color_c1, draw=three_color_c1] {\small{\texttt{"[End(Syllable, Phoneme) == TRUE]"}}}; 
+
+
+  %%%%%%%%%%%%%%%%%%%%
+  \draw [->, line width=1] (S_Syllable_a) to (m_Phoneme_a);
+  
+  \draw [->, line width=1] (S_Syllable_a) to (V_Phoneme_a);
+
+  \draw [->, line width=1] (S_Syllable_a) to (N_Phoneme_a);
+
+  \draw [->, line width=1] (S_Syllable_a) to (s_Phoneme_a);
+  
+  \draw [->, line width=1] (S_Syllable_a) to (t_Phoneme_a);
+  
+  %%%%%%%%%%%%%%%%%%%%
+  \draw [dashed, line width=1, three_color_c1, bend left=5] (Start_true_a.south) to (m_Phoneme_a);
+
+  \draw [dashed, line width=1, three_color_c1, bend right=5] (Medial_true_a.north) to (V_Phoneme_a);
+  \draw [dashed, line width=1, three_color_c1, bend left=5] (Medial_true_a.north) to (N_Phoneme_a);
+  \draw [dashed, line width=1, three_color_c1, bend left=5] (Medial_true_a.north) to (s_Phoneme_a);
+
+  \draw [dashed, line width=1, three_color_c1, bend right=5] (End_true_a.south) to (t_Phoneme_a);
+
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % B
+
+  \draw[gray] (-7, 0) rectangle (7, -6);
+  \node (b) at (-6.7, -0.3){\textbf{B}};
+
+  %%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%
+  \node (Syllable_b) at (-4, -2) [element] {\textit{Syllable}\textsubscript{\small{(ITEM)}}:}; 
+  
+  \node (S_Syllable_b) at (0, -2) [element] {\textit{S}};
+
+  %%%%%%%%%%%%%%%%%%
+  \node (Phoneme_b) at (-3.75, -3) [circle] {\textit{Phoneme}\textsubscript{\small{(ITEM)}}:}; 
+
+  \node (m_Phoneme_b) at (-1.75, -3) [element] {\textit{m}};
+  
+  \node (V_Phoneme_b) at (-0.75, -3) [element] {\textit{V}};
+  
+  \node (N_Phoneme_b) at (0.25, -3) [element] {\textit{N}}; 
+
+  \node (s_Phoneme_b) at (1.25, -3) [element] {\textit{s}}; 
+
+  \node (t_Phoneme_b) at (2.25, -3) [element] {\textit{t}}; 
+
+
+  %%%%%%%%%%%%%%%%%%%
+  \node (Medial_false_b) at (0, -1) [element, three_color_c2, draw=three_color_c2] {\small{\texttt{"[Medial(Syllable, Phoneme) == FALSE]"}}};
+  
+  \node (End_false_b) at (-2.75, -4) [element, three_color_c2, draw=three_color_c2] {\small{\texttt{"[End(Syllable, Phoneme) == FALSE]"}}};
+  
+  \node (Start_false_b) at (2.75, -5) [element, three_color_c2, draw=three_color_c2] {\small{\texttt{"[Start(Syllable, Phoneme) == FALSE]"}}};
+
+
+  %%%%%%%%%%%%%%%%%%%%
+  \draw [->, line width=1] (S_Syllable_b) to (m_Phoneme_b);
+  
+  \draw [->, line width=1] (S_Syllable_b) to (V_Phoneme_b);
+
+  \draw [->, line width=1] (S_Syllable_b) to (N_Phoneme_b);
+
+  \draw [->, line width=1] (S_Syllable_b) to (s_Phoneme_b);
+  
+  \draw [->, line width=1] (S_Syllable_b) to (t_Phoneme_b);
+
+  %%%%%%%%%%%%%%%%%%%%
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (Medial_false_b) to (m_Phoneme_b);
+  \draw [dashed, line width=1, three_color_c2, bend left=5] (Medial_false_b) to (t_Phoneme_b);
+
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (End_false_b.north) to (m_Phoneme_b);
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (End_false_b.north) to (V_Phoneme_b);
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (End_false_b.north) to (N_Phoneme_b);
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (End_false_b.north) to (s_Phoneme_b);
+  
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (Start_false_b.north) to (V_Phoneme_b);
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (Start_false_b.north) to (N_Phoneme_b);
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (Start_false_b.north) to (s_Phoneme_b);
+  \draw [dashed, line width=1, three_color_c2, bend right=5] (Start_false_b.north) to (t_Phoneme_b);
+
+
+\end{tikzpicture}
