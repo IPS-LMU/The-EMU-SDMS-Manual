@@ -120,4 +120,6 @@ This chapter described the current best practice of combining SpeechRecorder, MA
 
 ```{r echo=FALSE, results='hide', message=FALSE}
 # clean up emuR_demoData
+unlink(file.path(tempdir(), "myEmuDatabase_emuDB"), recursive = TRUE)
 unlink(file.path(tempdir(), "emuR_demoData"), recursive = TRUE)
+```
