@@ -10,7 +10,7 @@ library(emuR)
 create_emuRdemoData(dir = tempdir())
 ```
 
-```{r, echo=FALSE, out.width=400}
+```{r, echo=FALSE}
 knitr::include_graphics("pics/EMU-webAppIcon-roundCorners.png")
 ```
 

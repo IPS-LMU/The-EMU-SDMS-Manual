@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The EMU-SDMS Manual</title>
+  <meta name="description" content="This is the course material for a course that introduces users to the EMU-SDMS.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the course material for a course that introduces users to the EMU-SDMS." />
+  <meta name="github-repo" content="IPS-LMU/A_Course_In_The_EMU-SDMS" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="This is the course material for a course that introduces users to the EMU-SDMS." />
+  
+
+
+
+<meta name="date" content="2017-10-09">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="to-create-a-data-table-object-that.html">
+<link rel="next" href="the-segment-list-and-trackdata-object.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The EMU-SDMS Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installing-the-emu-sdms"><i class="fa fa-check"></i><b>1.1</b> Installing the EMU-SDMS</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installing-additional-r-packages-that-are-used-throughout-this-document"><i class="fa fa-check"></i><b>1.2</b> Installing additional R-packages that are used throughout this document</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#version-disclaimer"><i class="fa fa-check"></i><b>1.3</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.4</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-system-architecture-and-default-workflow"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a><ul>
+<li class="chapter" data-level="3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#converting-the-textgrid-collection"><i class="fa fa-check"></i><b>3.1</b> Converting the TextGrid collection</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.2</b> Loading and inspecting the database</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#overview"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-annotation-and-visual-inspection"><i class="fa fa-check"></i><b>3.2.2</b> Database annotation and visual inspection</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-and-autobuilding-the-annotation-structure"><i class="fa fa-check"></i><b>3.3</b> Querying and autobuilding the annotation structure</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.3.1</b> Autobuilding</a></li>
+<li class="chapter" data-level="3.3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.3.2</b> Querying the hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial_sigExtrAndExpl"><i class="fa fa-check"></i><b>3.4</b> Signal extraction and exploration</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="show-dimensions-of-td-vowels-midpoint.html"><a href="show-dimensions-of-td-vowels-midpoint.html"><i class="fa fa-check"></i><b>4</b> show dimensions of td_vowels_midpoint</a></li>
+<li class="chapter" data-level="5" data-path="generate-plot.html"><a href="generate-plot.html"><i class="fa fa-check"></i><b>5</b> generate plot</a></li>
+<li class="chapter" data-level="6" data-path="plot-first-formant-trajectories.html"><a href="plot-first-formant-trajectories.html"><i class="fa fa-check"></i><b>6</b> plot first formant trajectories</a></li>
+<li class="chapter" data-level="7" data-path="create-new-data-frame-that-contains-the-mean.html"><a href="create-new-data-frame-that-contains-the-mean.html"><i class="fa fa-check"></i><b>7</b> create new data frame that contains the mean</a></li>
+<li class="chapter" data-level="8" data-path="values-and-the-corresponding-labels.html"><a href="values-and-the-corresponding-labels.html"><i class="fa fa-check"></i><b>8</b> values and the corresponding labels</a></li>
+<li class="chapter" data-level="9" data-path="load-library.html"><a href="load-library.html"><i class="fa fa-check"></i><b>9</b> load library</a></li>
+<li class="chapter" data-level="10" data-path="create-boxplot-using-ggplot.html"><a href="create-boxplot-using-ggplot.html"><i class="fa fa-check"></i><b>10</b> create boxplot using ggplot</a></li>
+<li class="chapter" data-level="11" data-path="use-create-emurtrackdata-function.html"><a href="use-create-emurtrackdata-function.html"><i class="fa fa-check"></i><b>11</b> use create_emuRtrackdata function</a></li>
+<li class="chapter" data-level="12" data-path="to-create-a-data-table-object-that.html"><a href="to-create-a-data-table-object-that.html"><i class="fa fa-check"></i><b>12</b> to create a data.table object that</a></li>
+<li class="chapter" data-level="13" data-path="contains-all-the-information-of-both.html"><a href="contains-all-the-information-of-both.html"><i class="fa fa-check"></i><b>13</b> contains all the information of both</a></li>
+<li class="chapter" data-level="14" data-path="the-segment-list-and-trackdata-object.html"><a href="the-segment-list-and-trackdata-object.html"><i class="fa fa-check"></i><b>14</b> the segment list and trackdata object</a></li>
+<li class="chapter" data-level="15" data-path="calculate-density.html"><a href="calculate-density.html"><i class="fa fa-check"></i><b>15</b> calculate density</a></li>
+<li class="chapter" data-level="16" data-path="uncomment-to-visualize-distribution.html"><a href="uncomment-to-visualize-distribution.html"><i class="fa fa-check"></i><b>16</b> uncomment to visualize distribution</a></li>
+<li class="chapter" data-level="17" data-path="plotdistrs.html"><a href="plotdistrs.html"><i class="fa fa-check"></i><b>17</b> plot(distrS)</a></li>
+<li class="chapter" data-level="18" data-path="check-that-vowels-in-strong.html"><a href="check-that-vowels-in-strong.html"><i class="fa fa-check"></i><b>18</b> check that vowels in strong</a></li>
+<li class="chapter" data-level="19" data-path="syllables-are-normally-distributed.html"><a href="syllables-are-normally-distributed.html"><i class="fa fa-check"></i><b>19</b> syllables are normally distributed:</a></li>
+<li class="chapter" data-level="20" data-path="no-use-wilcoxon-rank-sum-test-.html"><a href="no-use-wilcoxon-rank-sum-test-.html"><i class="fa fa-check"></i><b>20</b> no, use Wilcoxon rank sum test.</a></li>
+<li class="chapter" data-level="21" data-path="calculate-density-1.html"><a href="calculate-density-1.html"><i class="fa fa-check"></i><b>21</b> calculate density</a></li>
+<li class="chapter" data-level="22" data-path="uncomment-to-visualize-distribution-1.html"><a href="uncomment-to-visualize-distribution-1.html"><i class="fa fa-check"></i><b>22</b> uncomment to visualize distribution</a></li>
+<li class="chapter" data-level="23" data-path="plotdistrw-also-doesnt-look-like-it.html"><a href="plotdistrw-also-doesnt-look-like-it.html"><i class="fa fa-check"></i><b>23</b> plot(distrW) # also doesn’t look like it</a></li>
+<li class="chapter" data-level="24" data-path="check-that-vowels-in-weak.html"><a href="check-that-vowels-in-weak.html"><i class="fa fa-check"></i><b>24</b> check that vowels in weak</a></li>
+<li class="chapter" data-level="25" data-path="syllables-are-normally-distributed-1.html"><a href="syllables-are-normally-distributed-1.html"><i class="fa fa-check"></i><b>25</b> syllables are normally distributed</a></li>
+<li class="chapter" data-level="26" data-path="no-use-wilcoxon-rank-sum-test-1.html"><a href="no-use-wilcoxon-rank-sum-test-1.html"><i class="fa fa-check"></i><b>26</b> no, use Wilcoxon rank sum test.</a></li>
+<li class="chapter" data-level="27" data-path="perform-wilcoxon-rank-sum-test-to-establish.html"><a href="perform-wilcoxon-rank-sum-test-to-establish.html"><i class="fa fa-check"></i><b>27</b> perform Wilcoxon rank sum test to establish</a></li>
+<li class="chapter" data-level="28" data-path="whether-vowel-f1-depends-on-syllable-type.html"><a href="whether-vowel-f1-depends-on-syllable-type.html"><i class="fa fa-check"></i><b>28</b> whether vowel F1 depends on syllable type</a><ul>
+<li class="chapter" data-level="28.1" data-path="whether-vowel-f1-depends-on-syllable-type.html"><a href="whether-vowel-f1-depends-on-syllable-type.html#conclusion"><i class="fa fa-check"></i><b>28.1</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="the-query-system.html"><a href="the-query-system.html"><i class="fa fa-check"></i><b>29</b> The query system</a></li>
+<li class="chapter" data-level="30" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html"><i class="fa fa-check"></i><b>30</b> Toolchain SpeechRecorder — MAUS — EMU-SDMS</a><ul>
+<li class="chapter" data-level="30.1" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#what-do-speechrecorder-and-maus-do"><i class="fa fa-check"></i><b>30.1</b> What do SpeechRecorder and MAUS do?</a></li>
+<li class="chapter" data-level="30.2" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#different-types-of-prompts"><i class="fa fa-check"></i><b>30.2</b> Different types of prompts</a></li>
+<li class="chapter" data-level="30.3" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#combining-the-tools"><i class="fa fa-check"></i><b>30.3</b> Combining the tools</a><ul>
+<li class="chapter" data-level="30.3.1" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#importing-recordings-and-transcriptions-into-emu"><i class="fa fa-check"></i><b>30.3.1</b> Importing recordings and transcriptions into Emu</a></li>
+<li class="chapter" data-level="30.3.2" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#feeding-the-data-into-maus"><i class="fa fa-check"></i><b>30.3.2</b> Feeding the data into MAUS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="placeholder.html"><a href="placeholder.html"><i class="fa fa-check"></i><b>31</b> Placeholder</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="contains-all-the-information-of-both" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> contains all the information of both</h1>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="to-create-a-data-table-object-that.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-segment-list-and-trackdata-object.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-tutorial.Rmd",
+"text": "Edit"
+},
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

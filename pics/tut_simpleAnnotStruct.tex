@@ -1,8 +1,11 @@
-% !Rnw root = ../diss.Rnw
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
 \tikzstyle{element}=[rectangle, thick,
                      inner sep=0.1cm, rounded corners]
 \begin{tikzpicture}
-  
+
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % hierarchy
@@ -13,9 +16,9 @@
   \node (text) at (0, 9) [element] {\textbf{Text} \textsubscript{\small{(ITEM)}}};
 
   \node (syl) at (0, 8) [element] {\textbf{Syllable} \textsubscript{\small{(ITEM)}}};
-  
+
   \node (phoneme) at (0, 7) [element] {\textbf{Phoneme} \textsubscript{\small{(ITEM)}}};
-  
+
   \node (phonetic) at (0, 6) [element] {\textbf{Phonetic} \textsubscript{\small{(SEGMENT)}}};
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,5 +41,7 @@
   \draw [->, line width=1, dotted] (phoneme) to [bend right=20] (phonetic);
 
 
-  
+
 \end{tikzpicture}
+
+\end{document}

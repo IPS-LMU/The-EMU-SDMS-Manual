@@ -1,4 +1,7 @@
-% !Rnw root = ../diss.tex
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
 \tikzstyle{element}=[rectangle,
                      inner sep=0.1cm, rounded corners, fill=white, fill opacity=0.7, text opacity=1]
 \tikzstyle{input_el}=[rectangle, thick,
@@ -17,10 +20,10 @@
   \node[draw=black, text width=2.5cm] (an) at (4, 4) [input_el] {annotations \tiny{(optional)}};
 
   % pics
-  \node [minimum width=6cm, minimum height=6cm](emusdms) at (0, 0) {\pgftext{\includegraphics[scale=0.2]{pics/EMU-webAppIcon-roundCorners}}};
+  \node [minimum width=6cm, minimum height=6cm](emusdms) at (0, 0) {\pgftext{\includegraphics[scale=0.2]{EMU-webAppIcon-roundCorners}}};
 
-  \node [minimum width=1.8cm, minimum height=1.8cm](emuDB) at (0, 0) {\pgftext{\includegraphics[scale=0.2]{pics/databaseSymbol}}};
-  
+  \node [minimum width=1.8cm, minimum height=1.8cm](emuDB) at (0, 0) {\pgftext{\includegraphics[scale=0.2]{databaseSymbol}}};
+
   % overlay
   \node [draw=black, minimum width=4cm](input) at (0, 2.3) [layer] {import routines};
 
@@ -41,15 +44,16 @@
 
   \draw [->] (input) -- (emuDB);
   \draw [->] (emuDB) -- (output);
-  
+
   \draw [->] (output) -- (-4, -4);
   \draw [->] (output) -- (0, -4);
   \draw [->] (output) -- (4, -4);
-  
+
   \draw [dotted] (emuDB) -- (el1);
   \draw [dotted] (emuDB) -- (el2);
   \draw [dotted] (emuDB) -- (el3);
   \draw [dotted] (emuDB) -- (el4);
   \draw [dotted] (emuDB) -- (el5);
-  
+
 \end{tikzpicture}
+\end{document}

@@ -1,0 +1,857 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={The EMU-SDMS Manual},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{The EMU-SDMS Manual}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{}
+  \preauthor{}\postauthor{}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2017-10-09}
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{Prerequisites}\label{prerequisites}
+
+\section{Installing the EMU-SDMS}\label{installing-the-emu-sdms}
+
+1.) R
+
+\begin{itemize}
+\tightlist
+\item
+  Download the R programming language from
+  \href{www.cran.r-project.org}{http://www.cran.r-project.org}
+\item
+  Install the R programming language by executing the downloaded file
+  and following the on-screen instructions.
+\end{itemize}
+
+2.) emuR
+
+\begin{itemize}
+\tightlist
+\item
+  Start up R.
+\item
+  Enter \texttt{install.packages("emuR")} after the
+  \texttt{\textgreater{}} prompt to install the package. (You will only
+  need to repeat this if package updates become available.)
+\item
+  As the \texttt{wrassp} package is a dependency of the \texttt{emuR}
+  package, it does not have to be installed separately.
+\end{itemize}
+
+3.) EMU-webApp (prerequisite)
+
+\begin{itemize}
+\tightlist
+\item
+  The only thing needed to use the EMU-webApp is a current HTML5
+  compatible browser (Chrome/Firefox/Safari/Opera/\ldots{}). However, as
+  most of the development and testing is done using Chrome we recommend
+  using it, as it is by far the best tested browser.
+\end{itemize}
+
+\section{Installing additional R-packages that are used throughout this
+document}\label{installing-additional-r-packages-that-are-used-throughout-this-document}
+
+\begin{itemize}
+\tightlist
+\item
+  ggplot2 for visualization purposes: \texttt{install.packages("emuR")}
+\item
+  dplyr for data manipulation: \texttt{install.packages("dplyr")}
+\end{itemize}
+
+\section{Version disclaimer}\label{version-disclaimer}
+
+This document describes the following versions of the software
+components:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{wrassp}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Package version: 0.1.4
+  \item
+    Git SHA1:
+    \texttt{jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/wrassp/branches/master")\$commit\$sha}
+  \end{itemize}
+\item
+  \texttt{emuR}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Package version: \texttt{packageVersion("emuR")}
+  \item
+    Git SHA1:
+    \texttt{jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/emuR/branches/master")\$commit\$sha}
+  \end{itemize}
+\item
+  \texttt{EMU-webApp}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Version:
+    \texttt{jsonlite::fromJSON("https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/package.json")\$version}
+  \item
+    Git SHA1:
+    \texttt{jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/EMU-webapp/branches/master")\$commit\$sha}
+  \end{itemize}
+\end{itemize}
+
+As the development of the EMU Speech Database Management System is still
+ongoing, be sure you have the correct documentation to go with the
+version you are using.
+
+\section{For developers and people interested in the source
+code}\label{for-developers-and-people-interested-in-the-source-code}
+
+The information on how to install and/or access the source code of the
+developer version including the possibility of accessing the versions
+described in this document (via the Git SHA1 hashes mentioned above) is
+given below.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{wrassp}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Source code is available here:
+    \url{https://github.com/IPS-LMU/wrassp/}
+  \item
+    Install developer version in R:
+    \texttt{install.packages("devtools");\ library("devtools");\ install\_github("IPS-LMU/wrassp")}
+  \item
+    Bug reports: \url{https://github.com/IPS-LMU/wrassp/issues}
+  \end{itemize}
+\item
+  \texttt{emuR}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Source code is available here:
+    \url{https://github.com/IPS-LMU/emuR/}
+  \item
+    Install developer version in R:
+    \texttt{install.packages("devtools");\ library("devtools");\ install\_github("IPS-LMU/emuR")}
+  \item
+    Bug reports: \url{https://github.com/IPS-LMU/emuR/issues}
+  \end{itemize}
+\item
+  \texttt{EMU-webApp}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Source code is available here:
+    \url{https://github.com/IPS-LMU/EMU-webApp/}
+  \item
+    Bug reports: \url{https://github.com/IPS-LMU/EMU-webApp/issues}
+  \end{itemize}
+\end{itemize}
+
+\chapter[An overview of the EMU-SDMS ]{\texorpdfstring{An overview of
+the EMU-SDMS \footnote{Sections of this chapter have been published in
+  \citet{winkelmann:2017aa}}}{An overview of the EMU-SDMS }}\label{chap:overview}
+
+\includegraphics[width=14.22in]{pics/EMU-webAppIcon-roundCorners}
+
+The EMU Speech Database Management System is a collection of software
+tools which aims to be as close to an all-in-one solution for
+generating, manipulating, querying, analyzing and managing speech
+databases as possible. It was developed to fill the void in the
+landscape of software tools for the speech sciences by providing an
+integrated system that is centered around the R language and environment
+for statistical computing and graphics \citep{r-core-team:2016a}. This
+manual contains the documentation for the three software components
+\texttt{wrassp}, \texttt{emuR} and the \texttt{EMU-webApp}. In addition,
+it provides an in-depth description of the \texttt{emuDB} database
+format which is also considered an integral part of the new system.
+These four components comprise the EMU-SDMS and benefit the speech
+sciences and spoken language research by providing an integrated system
+to answer research questions such as: \emph{Given an annotated speech
+database, is vowel height (measured by its correlate, the first formant
+frequency) influenced by whether it appears in a strong or weak
+syllable?}
+
+This manual is targeted at new EMU-SDMS users as well as users familiar
+with the legacy EMU system. In addition, it is aimed at people who are
+interested in the technical details such as data structures/formats and
+implementation strategies, be it for reimplementation purposes or simply
+for a better understanding of the inner workings of the new system. To
+accommodate these different target groups, after initially giving an
+overview of the system, this manual presents a usage tutorial that walks
+the user through the entire process of answering a research question.
+This tutorial will start with a set of \texttt{.wav} audio and Praat
+\texttt{.TextGrid} \citep{boersma:2011a} annotation files and end with a
+statistical analysis to address the hypothesis posed by the research
+question. The following Part \ref{part:mainCompAndConc} of this
+documentation is separated into six chapters that give an in-depth
+explanation of the various components that comprise the EMU-SDMS and
+integral concepts of the new system. These chapters provide a
+tutorial-like overview by providing multiple examples. To give the
+reader a synopsis of the main functions and central objects that are
+provided by EMU-SDMS's main R package \texttt{emuR}, an overview of
+these functions is presented in Part \ref{part:emuRfuncs}. Part
+\ref{part:impl} focuses on the actual implementation of the components
+and is geared towards people interested in the technical details.
+Further examples and file format descriptions are available in various
+appendices. This structure enables the novice EMU-SDMS user to simply
+skip the technical details and still get an in-depth overview of how to
+work with the new system and discover what it is capable of.
+
+A prerequisite that is presumed throughout this document is the reader's
+familiarity with basic terminology in the speech sciences (e.g.,
+familiarity with the international phonetic alphabet (IPA) and how
+speech is annotated at a coarse and fine grained level). Further, we
+assume the reader has a grasp of the basic concepts of the R language
+and environment for statistical computing and graphics. For readers new
+to R, there are multiple, freely available R tutorials online (e.g.,
+\url{https://en.wikibooks.org/wiki/Statistical_Analysis:_an_Introduction_using_R/R_basics}.
+R also has a set of very detailed manuals and tutorials that come
+preinstalled with R. To be able to access R's own ``An Introduction to
+R'' introduction, simply type \texttt{help.start()} into the R console
+and click on the link to the tutorial.
+
+\section{The evolution of the
+EMU-SDMS}\label{the-evolution-of-the-emu-sdms}
+
+The EMU-SDMS has a number of predecessors that have been continuously
+developed over a number of years \citep[e.g.,][\citet{cassidy:1996a},
+\citet{cassidy:sc2001a}, \citet{bombien:2006a},
+\citet{harrington:2010a}, \citet{john:2012a}]{harrington:csl1993a}. The
+components presented here are the completely rewritten and newly
+designed, next incarnation of the EMU system, which we will refer to as
+the EMU Speech Database Management System (EMU-SDMS). The EMU-SDMS keeps
+most of the core concepts of the previous system, which we will refer to
+as the legacy system, in place while improving on things like usability,
+maintainability, scalability, stability, speed and more. We feel the
+redesign and reimplementation elevates the system into a modern set of
+speech and language tools that enables a workflow adapted to the
+challenges confronting speech scientists and the ever growing size of
+speech databases. The redesign has enabled us to implement several
+components of the new EMU-SDMS so that they can be used independently of
+the EMU-SDMS for tasks such as web-based collaborative annotation
+efforts and performing speech signal processing in a statistical
+programming environment. Nevertheless, the main goal of the redesign and
+reimplementation was to provide a modern set of tools that reduces the
+complexity of the tool chain needed to answer spoken language research
+questions down to a few interoperable tools. The tools the EMU-SDMS
+provides are designed to streamline the process of obtaining usable
+data, all from within an environment that can also be used to analyze,
+visualize and statistically evaluate the data.
+
+Upon developing the new system, rather than starting completely from
+scratch it seemed more appropriate to partially reuse the concepts of
+the legacy system in order to achieve our goals. A major observation at
+the time was that the R language and environment for statistical
+computing and graphics \citep{r-core-team:2016a} was gaining more and
+more traction for statistical and data visualization purposes in the
+speech and spoken language research community. However, R was mostly
+only used towards the end of the data analysis chain where data usually
+was pre-converted into a comma-separated values or equivalent file
+format by the user using other tools to calculate, extract and
+pre-process the data. While designing the new EMU-SDMS, we brought R to
+the front of the tool chain to the point just beyond data acquisition.
+This allows the entire data annotation, data extraction and analysis
+process to be completed in R, while keeping the key user requirements in
+mind. Due to the personal experiences gained by using the legacy system
+in various undergraduate courses \citep[course material usually based
+on][]{harrington:2010a}, we learned that the key user requirements were
+data and database portability, a simple installation process, an as
+pleasant as possible user experience and cross-platform availability.
+Supplying all of EMU-SDMS's core functionality in the form of R packages
+that do not rely on external software at runtime seemed to meet all of
+these requirements.
+
+As the early incarnations of the legacy EMU system and its predecessors
+were conceived either at a time that predated the R system or during the
+infancy of R's package ecosystem, the legacy system was implemented as a
+modular yet composite standalone program with a communication and data
+exchange interface to the R/Splus systems \citep[see][ Section 3 for
+details]{cassidy:sc2001a}. Recent developments in the package ecosystem
+of R such as the availability of the \texttt{DBI} package
+\citep{r-special-interest-group-on-databases-r-sig-db:2016a} and the
+related packages \texttt{RSQLite} and \texttt{RPostgreSQL}
+\citep[\citet{conway:2016a}]{wickham:2014a}, as well as the
+\texttt{jsonlite} package \citep{ooms:as2014a} and the \texttt{httpuv}
+package \citep{rstudio:2015a}, have made R an attractive sole target
+platform for the EMU-SDMS. These and other packages provide additional
+functional power that enabled the EMU-SDMS's core functionality to be
+implemented in the form of R packages. The availability of certain R
+packages had a large impact on the architectural design decisions that
+we made for the new system.
+
+R Example @ref(rexample:overview\_install) shows the simple installation
+process which we were able to achieve due to the R package
+infrastructure. Compared to the legacy EMU and other systems, the
+installation process of the entire system has been reduced to a single R
+command. Throughout this documentation we will try to highlight how the
+EMU-SDMS is also able to meet the rest of the above key user
+requirements.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# install the entire EMU-SDMS}
+\CommentTok{# by installing the emuR package}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"emuR"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+It is worth noting that throughout this manual R Example code snippets
+will be given in the form of R Example @ref(rexample:overview\_install).
+These examples represent working R code that allow the reader to follow
+along in a hands-on manor and give a feel for what it is like working
+with the new EMU-SDMS.
+
+\section{EMU-SDMS: System architecture and default
+workflow}\label{emu-sdms-system-architecture-and-default-workflow}
+
+\label{sec:overview_sysArch}
+
+As was previously mentioned, the new EMU-SDMS is made up of four main
+components. The components are the \texttt{emuDB} format; the R packages
+\texttt{wrassp} and \texttt{emuR}; and the web application, the
+\texttt{EMU-webApp}, which is EMU-SDMS's new graphical user interface
+(GUI) component. An overview of the EMU-SDMS's architecture and the
+components' relationships within the system is shown in Figure
+@ref(fig:overview\_archOver). In Figure @ref(fig:overview\_archOver),
+the \texttt{emuR} package plays a central role as it is the only
+component that interacts with all of the other components of the
+EMU-SDMS. It performs file and DB handling for the files that comprise
+an \texttt{emuDB} (see Chapter @ref(chap:annot\_struct\_mod)); it uses
+the \texttt{wrassp} package for signal processing purposes (see Chapter
+\ref{chap:wrassp}); and it can serve \texttt{emuDB}s to the
+\texttt{EMU-webApp} (see Chapter \ref{chap:emu-webApp}).
+
+\begin{figure}
+\centering
+\includegraphics{pics/overview.png}
+\caption{Schematic architecture of the
+EMU-SDMS.(\#fig:overview\_archOver)}
+\end{figure}
+
+Although the system is made of four main components, the user largely
+only interacts directly with the \texttt{EMU-webApp} and the
+\texttt{emuR} package. A summary of the default workflow illustrating
+theses interactions can be seen below:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load database into current R session (\texttt{load\_emuDB()}).
+\item
+  Database annotation / visual inspection (\texttt{serve()}). This opens
+  up the \texttt{EMU-webApp} in the system's default browser.
+\item
+  Query database (\texttt{query()}). This is optionally followed by
+  \texttt{requery\_hier()} or \texttt{requery\_seq()} as necessary (see
+  Chapter \ref{chap:querysys} for details).
+\item
+  Get trackdata (e.g.~formant values) for the result of a query
+  (\texttt{get\_trackdata()}).
+\item
+  Prepare data.
+\item
+  Visually inspect data.
+\item
+  Carry out further analysis and statistical processing.
+\end{enumerate}
+
+Initially the user creates a reference to an \texttt{emuDB} by loading
+it into their current R session using the \texttt{load\_emuDB()}
+function (see step 1). This database reference can then be used to
+either serve (\texttt{serve()}) the database to the \texttt{EMU-webApp}
+or query (\texttt{query()}) the annotations of the \texttt{emuDB} (see
+steps 2 and 3). The result of a query can then be used to either perform
+one or more so-called requeries or extract signal values that correspond
+to the result of a \texttt{query()} or \texttt{requery()} (see step 4).
+Finally, the signal data can undergo further preparation (e.g.,
+correction of outliers) and visual inspection before further analysis
+and statistical processing is carried out (see steps 5, 6 and 7).
+Although the R packages provided by the EMU-SDMS do provide functions
+for steps 4, 5 and 6, it is worth noting that the plethora of R packages
+that the R package ecosystem provides can and should be used to perform
+these duties. The resulting objects of most of the above functions are
+derived \texttt{matrix} or \texttt{data.frame} objects which can be used
+as inputs for hundreds if not thousands of other R functions.
+
+\section{EMU-SDMS: Is it something for
+you?}\label{emu-sdms-is-it-something-for-you}
+
+\label{sec:overview_unique}
+
+Besides providing a fully integrated system, the EMU-SDMS has several
+unique features that set it apart from other current, widely used
+systems \citep[e.g.,][\citet{wittenburg:2006a}, \citet{fromont:2012a},
+\citet{rose:2006a}, \citet{mcauliffe:2016a}]{boersma:2011a}. To our
+knowledge, the EMU-SDMS is the only system that allows the user to model
+their annotation structures based on a hybrid model of time-based
+annotations (such as those offered by Praat's tier-based annotation
+mechanics) and hierarchical timeless annotations. An example of such a
+hybrid annotation structure is displayed in Figure
+@ref(overview\_hybridAnnot). These hybrid annotations benefit the user
+in multiple ways, as they reduce data redundancy and explicitly allow
+relationships to be expressed across annotation levels (see Chapter
+@ref(chap:annot\_struct\_mod) for further information on hierarchical
+annotations and Chapter \ref{chap:querysys} on how to query these
+annotation structures).
+
+\begin{figure}
+\centering
+\includegraphics{The-EMU-SDMS-Manual_files/figure-latex/overview_hybridAnnot-1.pdf}
+\caption{(\#fig:overview\_hybridAnnot)Example of a hybrid annotation
+combining time-based (\emph{Phonetic} level) and hierarchical
+(\emph{Phoneme}, \emph{Syllable}, \emph{Text} levels including the
+inter-level links) annotations.}
+\end{figure}
+
+Further, to our knowledge, the EMU-SDMS is the first system that makes
+use of a web application as its primary GUI for annotating speech. This
+unique approach enables the GUI component to be used in multiple ways.
+It can be used as a stand-alone annotation tool, connected to a loaded
+\texttt{emuDB} via \texttt{emuR}'s \texttt{serve()} function and used to
+communicate to other servers. This enables it to be used as a
+collaborative annotation tool. An in-depth explanation of how this
+component can be used in these three scenarios is given in Chapter
+\ref{chap:emu-webApp}.
+
+As demonstrated in the default workflow of Section
+@ref(sec:overview\_sysArch), an additional unique feature provided by
+EMU-SDMS is the ability use the result of a query to extract derived
+(e.g., formants and RMS values) and complementary signals (e.g.,
+electromagnetic articulography data) that match the segments of a query.
+This, for example, aids the user in answering questions related to
+derived speech signals such as: \emph{Is vowel height (measured by its
+correlate, the first formant frequency) influenced by whether it appears
+in a strong or weak syllable?}. Chapter \ref{chap:tutorial} gives a
+complete walk-through of how to go about answering this question using
+the tools provided by the EMU-SDMS.
+
+The features provided by the EMU-SDMS make it an all-in-one speech
+database management solution that is centered around R. It enriches the
+R platform by providing specialized speech signal processing, speech
+database management, data extraction and speech annotation capabilities.
+By achieving this without relying on any external software sources
+except the web browser, the EMU-SDMS significantly reduces the number of
+tools the speech and spoken language researcher has to deal with and
+helps to simplify answering research questions. As the only prerequisite
+for using the EMU-SDMS is a basic familiarity with the R platform, if
+the above features would improve your workflow, the EMU-SDMS is indeed
+for you.
+
+\chapter[A tutorial on how to use the EMU-SDMS ]{\texorpdfstring{A
+tutorial on how to use the EMU-SDMS \footnote{Sections of this chapter
+  have been published in \citet{winkelmann:2017aa}}}{A tutorial on how to use the EMU-SDMS }}\label{chap:tutorial}
+
+--\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
+--\textgreater{}
+
+--\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
+--\textgreater{} --\textgreater{}
+
+--\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
+--\textgreater{} --\textgreater{}
+
+--\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
+--\textgreater{} --\textgreater{}
+
+--\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
+--\textgreater{} --\textgreater{}
+
+\chapter{The query system}\label{the-query-system}
+
+\chapter{Toolchain SpeechRecorder --- MAUS ---
+EMU-SDMS}\label{toolchain-speechrecorder-maus-emu-sdms}
+
+Most phonetic research projects involve this workflow:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Record speech
+\item
+  Annotate speech using automatic tools
+\item
+  Check and correct the generated annotations by hand
+\item
+  Analyze speech (connecting the primary data with annotations and
+  derived signals)
+\end{enumerate}
+
+The EMU Speech Database Management System is focused on steps 3 and 4 of
+this workflow. For the first two steps, it can very usefully be
+complemented by two other tools:
+\href{http://www.speechrecorder.org/}{SpeechRecorder} and MAUS (or, more
+broadly speaking --- and more correctly, for that matter --- the
+\href{https://clarin.phonetik.uni-muenchen.de/BASWebServices}{BAS Web
+Services}). This chapter introduces how the tools can be combined --- in
+a systematic way, with as little fuss as possible.
+
+\section{What do SpeechRecorder and MAUS
+do?}\label{what-do-speechrecorder-and-maus-do}
+
+``SpeechRecorder is a platform independent audio recording software
+customized to the requirements of speech recordings''
+(\url{http://www.speechrecorder.org/}). To this end, SpeechRecorder lets
+you define prompts that participants will read (or otherwise react to)
+while you are recording them. At the end of a session, instead of one
+large recording of the whole session, you have a set of smaller audio
+recordings, each one representing a single prompt.
+
+MAUS (Munich AUtomatic Segmentation) processes audio recordings with
+corresponding orthographic transcriptions, and outputs (1) a
+corresponding phonetic transcription and (2) a segmentation of the
+signal into individual speech sounds. As such, MAUS is a part of the
+\href{https://clarin.phonetik.uni-muenchen.de/BASWebServices}{BAS Web
+Services}. \footnote{Strictly speaking, MAUS is used in conjunction with
+  G2P and possibly Chunker to achieve this result. The whole package is
+  often referred to as MAUS, however.}
+
+\section{Different types of prompts}\label{different-types-of-prompts}
+
+Prompts are very often sentences that participants read out aloud
+(producing \emph{read speech}). However, this need not be the case.
+Prompts may as well be, for example, images that participants have to
+name or describe, or written questions that participants answer.
+
+In terms of processing, \emph{read speech} has the advantage that the
+researcher already has orthographic transcriptions of all recordings,
+because the prompts \emph{are} the transcriptions (this neglects
+hesitations, misread utterances, etc.).
+
+For all cases besides read speech, transcriptions have to be prepared.
+For read speech, when hesitations etc. need to be considered, the
+existing transcriptions need to be corrected (per token). For the time
+being, this is out of the scope of this book.\footnote{It will be
+  covered, at a later time, in this or a separate chapter.}
+
+\section{Combining the tools}\label{combining-the-tools}
+
+The order of the processing steps is unchangeable: The files have to be
+recorded first, then annotated and then analyzed.
+
+However, there are different ways of passing data around between the
+tools. For example SpeechRecorder might \emph{export} files into emuDB
+format or the EMU-SDMS might \emph{import} files stored in
+SpeechRecorder's format. After all, they are separate tools and can be
+used individually (although the combination makes great sense).
+
+Moreover, sometimes a database grows, and some new files are recorded
+while others have already been annotated or analyzed (which challenges
+the ``unchangeable order of processing steps'').
+
+We can see now that we have to convert our data between different
+formats. We want to benefit from all tools but keep the conversion work
+down to a minimum. In this section, we explain the (currently) best way
+to do this. We will import SpeechRecorder's recordings and prompts into
+the EMU-SDMS and then use emuR to send the data to MAUS and other BAS
+Web Services.
+
+\subsection{Importing recordings and transcriptions into
+Emu}\label{importing-recordings-and-transcriptions-into-emu}
+
+\subsubsection{Using the import\_speechRecorder()
+function}\label{using-the-import_speechrecorder-function}
+
+The \texttt{import\_speechRecorder()} function is in the making, but
+unfortunately not finished yet. We therefore have to resort to the
+second-best way of importing SpeechRecorder's results into Emu:
+
+\subsubsection{Using intermediary text
+files}\label{using-intermediary-text-files}
+
+SpeechRecorder, per default, saves one .wav file for each prompt. With
+additional settings, it will save a .txt file containing the
+corresponding prompt along with each .wav file. This is great because it
+is exactly what MAUS needs as its input.
+
+The following options must be configured \emph{before recordings are
+made}. Note that parts of SpeechRecorder's user interface are in German:
+
+\begin{itemize}
+\tightlist
+\item
+  Under ``Projekt / Einstellungen\ldots{} / Annotation'':
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Under ``Persist'', tick the checkbox that says ``Simple text loader
+    writer for annotation template for MAUS processing''
+  \item
+    Under ``Auto annotation'', tick the checkbox that says ``Prompt
+    template auto annotator'' (note that the two checkboxes are very
+    similar. Make sure to tick the right one.)
+  \end{itemize}
+\item
+  In your script:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If you edit the XML file directly: Make sure each of your
+    \texttt{\textless{}mediaitem\textgreater{}} elements has the
+    attribute \texttt{annotationTemplate="true"}
+  \item
+    If you use the integrated script editor: Make sure to tick the
+    checkbox ``Use as annotation template'' for \emph{every recording}.
+  \end{itemize}
+\end{itemize}
+
+Now, after your recording session, you will have audio and text files.
+In emuR, this combination is called a \emph{txt collection}. We will
+thus use the function \texttt{convert\_txtCollection}, to import
+SpeechRecorder's files into Emu's format. In the following example, we
+will use the sample txt collection included with the emuR package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Load the emuR package}
+\KeywordTok{library}\NormalTok{(emuR)}
+
+\CommentTok{# Create demo data in directory provided by tempdir()}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# Import the sample txt collection.}
+\CommentTok{# When used with real data, sourceDir should point to the RECS directory of your}
+\CommentTok{# SpeechRecorder project.}
+\KeywordTok{convert_txtCollection}\NormalTok{(}\DataTypeTok{dbName =} \StringTok{"myEmuDatabase"}\NormalTok{,}
+                      \DataTypeTok{sourceDir =} \KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"txt_collection"}\NormalTok{),}
+                      \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\NormalTok{dbHandle =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"myEmuDatabase_emuDB"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Now, you have an Emu database. You can inspect it using
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(dbHandle)}
+\end{Highlighting}
+\end{Shaded}
+
+or
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{serve}\NormalTok{(dbHandle)}
+\end{Highlighting}
+\end{Shaded}
+
+The database contains all our recordings, and exactly one type of
+annotation: orthographic transcription. No phonetic transcription, no
+segmentation. The next section will cover that.
+
+\subsection{Feeding the data into
+MAUS}\label{feeding-the-data-into-maus}
+
+The .wav and .txt files could have been uploaded on the
+\href{https://clarin.phonetik.uni-muenchen.de/BASWebServices/\#!/services/Pipeline}{BAS
+web site}, but we will do it using emuR. This is generally less
+error-prone and requires less manual work. Moreover, since it is a
+scripted way of doing things, we can reproduce it reliably.
+
+To process the data, we make use of several of emuR's functions called
+\texttt{runBASwebservice\_...}. They will upload the data to WebMAUS and
+accompanying services and save the results directly inside your existing
+emuDB (this of course takes some time, depending on the size of your
+database and the speed of your internet connection).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{runBASwebservice_g2pForTokenization}\NormalTok{(}\DataTypeTok{handle =} \NormalTok{dbHandle,}
+                                    \DataTypeTok{language =} \StringTok{"eng-US"}\NormalTok{,}
+                                    \DataTypeTok{transcriptionAttributeDefinitionName =} \StringTok{"transcription"}\NormalTok{,}
+                                    \DataTypeTok{orthoAttributeDefinitionName =} \StringTok{"Word"}\NormalTok{)}
+
+\KeywordTok{runBASwebservice_g2pForPronunciation}\NormalTok{(}\DataTypeTok{handle =} \NormalTok{dbHandle,}
+                                     \DataTypeTok{language =} \StringTok{"eng-US"}\NormalTok{,}
+                                     \DataTypeTok{orthoAttributeDefinitionName =} \StringTok{"Word"}\NormalTok{,}
+                                     \DataTypeTok{canoAttributeDefinitionName =} \StringTok{"Canonical"}\NormalTok{)}
+
+\KeywordTok{runBASwebservice_maus}\NormalTok{(}\DataTypeTok{handle =} \NormalTok{dbHandle,}
+                      \DataTypeTok{language =} \StringTok{"eng-US"}\NormalTok{,}
+                      \DataTypeTok{canoAttributeDefinitionName =} \StringTok{"Canonical"}\NormalTok{,}
+                      \DataTypeTok{mausAttributeDefinitionName =} \StringTok{"Phonetic"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+When the services are finished, we can use
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{serve}\NormalTok{(db)}
+\end{Highlighting}
+\end{Shaded}
+
+to inspect the database with the new annotations. This time, it includes
+segmentation into words and phonemes, canonical phonetic transcription
+and realized phonetic transcription.
+
+This chapter described the current best practice of combining
+SpeechRecorder, MAUS and the EMU-SDMS to fit a typical phonetic project
+workflow.
+
+\bibliography{packages.bib,book.bib}
+
+
+\end{document}

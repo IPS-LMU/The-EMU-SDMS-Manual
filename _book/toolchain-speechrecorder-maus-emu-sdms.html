@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The EMU-SDMS Manual</title>
+  <meta name="description" content="This is the course material for a course that introduces users to the EMU-SDMS.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the course material for a course that introduces users to the EMU-SDMS." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="This is the course material for a course that introduces users to the EMU-SDMS." />
+  
+
+
+
+<meta name="date" content="2017-10-09">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="the-query-system.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The EMU-SDMS Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installing-the-emu-sdms"><i class="fa fa-check"></i><b>1.1</b> Installing the EMU-SDMS</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installing-additional-r-packages-that-are-used-throughout-this-document"><i class="fa fa-check"></i><b>1.2</b> Installing additional R-packages that are used throughout this document</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#version-disclaimer"><i class="fa fa-check"></i><b>1.3</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.4</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-system-architecture-and-default-workflow"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a></li>
+<li class="chapter" data-level="4" data-path="the-query-system.html"><a href="the-query-system.html"><i class="fa fa-check"></i><b>4</b> The query system</a></li>
+<li class="chapter" data-level="5" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html"><i class="fa fa-check"></i><b>5</b> Toolchain SpeechRecorder — MAUS — EMU-SDMS</a><ul>
+<li class="chapter" data-level="5.1" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#what-do-speechrecorder-and-maus-do"><i class="fa fa-check"></i><b>5.1</b> What do SpeechRecorder and MAUS do?</a></li>
+<li class="chapter" data-level="5.2" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#different-types-of-prompts"><i class="fa fa-check"></i><b>5.2</b> Different types of prompts</a></li>
+<li class="chapter" data-level="5.3" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#combining-the-tools"><i class="fa fa-check"></i><b>5.3</b> Combining the tools</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#importing-recordings-and-transcriptions-into-emu"><i class="fa fa-check"></i><b>5.3.1</b> Importing recordings and transcriptions into Emu</a></li>
+<li class="chapter" data-level="5.3.2" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#feeding-the-data-into-maus"><i class="fa fa-check"></i><b>5.3.2</b> Feeding the data into MAUS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="toolchain-speechrecorder-maus-emu-sdms" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Toolchain SpeechRecorder — MAUS — EMU-SDMS</h1>
+<p>Most phonetic research projects involve this workflow:</p>
+<ol style="list-style-type: decimal">
+<li>Record speech</li>
+<li>Annotate speech using automatic tools</li>
+<li>Check and correct the generated annotations by hand</li>
+<li>Analyze speech (connecting the primary data with annotations and derived signals)</li>
+</ol>
+<p>The EMU Speech Database Management System is focused on steps 3 and 4 of this workflow. For the first two steps, it can very usefully be complemented by two other tools: <a href="http://www.speechrecorder.org/">SpeechRecorder</a> and MAUS (or, more broadly speaking — and more correctly, for that matter — the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices">BAS Web Services</a>). This chapter introduces how the tools can be combined — in a systematic way, with as little fuss as possible.</p>
+<div id="what-do-speechrecorder-and-maus-do" class="section level2">
+<h2><span class="header-section-number">5.1</span> What do SpeechRecorder and MAUS do?</h2>
+<p>“SpeechRecorder is a platform independent audio recording software customized to the requirements of speech recordings” (<a href="http://www.speechrecorder.org/" class="uri">http://www.speechrecorder.org/</a>). To this end, SpeechRecorder lets you define prompts that participants will read (or otherwise react to) while you are recording them. At the end of a session, instead of one large recording of the whole session, you have a set of smaller audio recordings, each one representing a single prompt.</p>
+<p>MAUS (Munich AUtomatic Segmentation) processes audio recordings with corresponding orthographic transcriptions, and outputs (1) a corresponding phonetic transcription and (2) a segmentation of the signal into individual speech sounds. As such, MAUS is a part of the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices">BAS Web Services</a>.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+</div>
+<div id="different-types-of-prompts" class="section level2">
+<h2><span class="header-section-number">5.2</span> Different types of prompts</h2>
+<p>Prompts are very often sentences that participants read out aloud (producing <em>read speech</em>). However, this need not be the case. Prompts may as well be, for example, images that participants have to name or describe, or written questions that participants answer.</p>
+<p>In terms of processing, <em>read speech</em> has the advantage that the researcher already has orthographic transcriptions of all recordings, because the prompts <em>are</em> the transcriptions (this neglects hesitations, misread utterances, etc.).</p>
+<p>For all cases besides read speech, transcriptions have to be prepared. For read speech, when hesitations etc. need to be considered, the existing transcriptions need to be corrected (per token). For the time being, this is out of the scope of this book.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+</div>
+<div id="combining-the-tools" class="section level2">
+<h2><span class="header-section-number">5.3</span> Combining the tools</h2>
+<p>The order of the processing steps is unchangeable: The files have to be recorded first, then annotated and then analyzed.</p>
+<p>However, there are different ways of passing data around between the tools. For example SpeechRecorder might <em>export</em> files into emuDB format or the EMU-SDMS might <em>import</em> files stored in SpeechRecorder’s format. After all, they are separate tools and can be used individually (although the combination makes great sense).</p>
+<p>Moreover, sometimes a database grows, and some new files are recorded while others have already been annotated or analyzed (which challenges the “unchangeable order of processing steps”).</p>
+<p>We can see now that we have to convert our data between different formats. We want to benefit from all tools but keep the conversion work down to a minimum. In this section, we explain the (currently) best way to do this. We will import SpeechRecorder’s recordings and prompts into the EMU-SDMS and then use emuR to send the data to MAUS and other BAS Web Services.</p>
+<div id="importing-recordings-and-transcriptions-into-emu" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Importing recordings and transcriptions into Emu</h3>
+<div id="using-the-import_speechrecorder-function" class="section level4">
+<h4><span class="header-section-number">5.3.1.1</span> Using the import_speechRecorder() function</h4>
+<p>The <code>import_speechRecorder()</code> function is in the making, but unfortunately not finished yet. We therefore have to resort to the second-best way of importing SpeechRecorder’s results into Emu:</p>
+</div>
+<div id="using-intermediary-text-files" class="section level4">
+<h4><span class="header-section-number">5.3.1.2</span> Using intermediary text files</h4>
+<p>SpeechRecorder, per default, saves one .wav file for each prompt. With additional settings, it will save a .txt file containing the corresponding prompt along with each .wav file. This is great because it is exactly what MAUS needs as its input.</p>
+<p>The following options must be configured <em>before recordings are made</em>. Note that parts of SpeechRecorder’s user interface are in German:</p>
+<ul>
+<li>Under “Projekt / Einstellungen… / Annotation”:
+<ul>
+<li>Under “Persist”, tick the checkbox that says “Simple text loader writer for annotation template for MAUS processing”</li>
+<li>Under “Auto annotation”, tick the checkbox that says “Prompt template auto annotator” (note that the two checkboxes are very similar. Make sure to tick the right one.)</li>
+</ul></li>
+<li>In your script:
+<ul>
+<li>If you edit the XML file directly: Make sure each of your <code>&lt;mediaitem&gt;</code> elements has the attribute <code>annotationTemplate=&quot;true&quot;</code></li>
+<li>If you use the integrated script editor: Make sure to tick the checkbox “Use as annotation template” for <em>every recording</em>.</li>
+</ul></li>
+</ul>
+<p>Now, after your recording session, you will have audio and text files. In emuR, this combination is called a <em>txt collection</em>. We will thus use the function <code>convert_txtCollection</code>, to import SpeechRecorder’s files into Emu’s format. In the following example, we will use the sample txt collection included with the emuR package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load the emuR package</span>
+<span class="kw">library</span>(emuR)
+
+<span class="co"># Create demo data in directory provided by tempdir()</span>
+<span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())
+
+<span class="co"># Import the sample txt collection.</span>
+<span class="co"># When used with real data, sourceDir should point to the RECS directory of your</span>
+<span class="co"># SpeechRecorder project.</span>
+<span class="kw">convert_txtCollection</span>(<span class="dt">dbName =</span> <span class="st">&quot;myEmuDatabase&quot;</span>,
+                      <span class="dt">sourceDir =</span> <span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;txt_collection&quot;</span>),
+                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>())
+
+dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;myEmuDatabase_emuDB&quot;</span>))</code></pre></div>
+<p>Now, you have an Emu database. You can inspect it using</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(dbHandle)</code></pre></div>
+<p>or</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">serve</span>(dbHandle)</code></pre></div>
+<p>The database contains all our recordings, and exactly one type of annotation: orthographic transcription. No phonetic transcription, no segmentation. The next section will cover that.</p>
+</div>
+</div>
+<div id="feeding-the-data-into-maus" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Feeding the data into MAUS</h3>
+<p>The .wav and .txt files could have been uploaded on the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/#!/services/Pipeline">BAS web site</a>, but we will do it using emuR. This is generally less error-prone and requires less manual work. Moreover, since it is a scripted way of doing things, we can reproduce it reliably.</p>
+<p>To process the data, we make use of several of emuR’s functions called <code>runBASwebservice_...</code>. They will upload the data to WebMAUS and accompanying services and save the results directly inside your existing emuDB (this of course takes some time, depending on the size of your database and the speed of your internet connection).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">runBASwebservice_g2pForTokenization</span>(<span class="dt">handle =</span> dbHandle,
+                                    <span class="dt">language =</span> <span class="st">&quot;eng-US&quot;</span>,
+                                    <span class="dt">transcriptionAttributeDefinitionName =</span> <span class="st">&quot;transcription&quot;</span>,
+                                    <span class="dt">orthoAttributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>)
+
+<span class="kw">runBASwebservice_g2pForPronunciation</span>(<span class="dt">handle =</span> dbHandle,
+                                     <span class="dt">language =</span> <span class="st">&quot;eng-US&quot;</span>,
+                                     <span class="dt">orthoAttributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>,
+                                     <span class="dt">canoAttributeDefinitionName =</span> <span class="st">&quot;Canonical&quot;</span>)
+
+<span class="kw">runBASwebservice_maus</span>(<span class="dt">handle =</span> dbHandle,
+                      <span class="dt">language =</span> <span class="st">&quot;eng-US&quot;</span>,
+                      <span class="dt">canoAttributeDefinitionName =</span> <span class="st">&quot;Canonical&quot;</span>,
+                      <span class="dt">mausAttributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>)</code></pre></div>
+<p>When the services are finished, we can use</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">serve</span>(db)</code></pre></div>
+<p>to inspect the database with the new annotations. This time, it includes segmentation into words and phonemes, canonical phonetic transcription and realized phonetic transcription.</p>
+<p>This chapter described the current best practice of combining SpeechRecorder, MAUS and the EMU-SDMS to fit a typical phonetic project workflow.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Strictly speaking, MAUS is used in conjunction with G2P and possibly Chunker to achieve this result. The whole package is often referred to as MAUS, however.<a href="toolchain-speechrecorder-maus-emu-sdms.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>It will be covered, at a later time, in this or a separate chapter.<a href="toolchain-speechrecorder-maus-emu-sdms.html#fnref4">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-query-system.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-spr_maus_emu_chain.Rmd",
+"text": "Edit"
+},
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

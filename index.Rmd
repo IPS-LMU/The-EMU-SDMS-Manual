@@ -8,7 +8,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 fig_caption: yes
-github-repo: IPS-LMU/A_Course_In_The_EMU-SDMS
+#github-repo: IPS-LMU/A_Course_In_The_EMU-SDMS
 description: "This is the course material for a course that introduces users to the EMU-SDMS."
 ---
 # Prerequisites
@@ -45,14 +45,14 @@ This document describes the following versions of the software components:
 
 - `wrassp`
     * Package version: `r packageVersion("wrassp")`
-    * Git SHA1: `r jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/wrassp/branches/master")$commit$sha`
+    * Git SHA1: `jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/wrassp/branches/master")$commit$sha`
 - `emuR`
     * Package version: `packageVersion("emuR")`
-    * Git SHA1: `r jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/emuR/branches/master")$commit$sha`
+    * Git SHA1: `jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/emuR/branches/master")$commit$sha`
 
 - `EMU-webApp`
-    * Version: `r jsonlite::fromJSON("https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/package.json")$version`
-    * Git SHA1: `r jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/EMU-webapp/branches/master")$commit$sha`
+    * Version: `jsonlite::fromJSON("https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/package.json")$version`
+    * Git SHA1: `jsonlite::fromJSON("https://api.github.com/repos/IPS-LMU/EMU-webapp/branches/master")$commit$sha`
 
 As the development of the EMU Speech Database Management System is still ongoing, be sure you have the correct documentation to go with the version you are using.
 
