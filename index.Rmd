@@ -8,36 +8,31 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 fig_caption: yes
-#github-repo: IPS-LMU/A_Course_In_The_EMU-SDMS
+github-repo: IPS-LMU/A_Course_In_The_EMU-SDMS
 description: "This is the course material for a course that introduces users to the EMU-SDMS."
 ---
-# Prerequisites
 
-## Installing the EMU-SDMS
+# Installing the EMU-SDMS
 
-1.) R
+1. `R`
+  - Download the R programming language from  [http://www.cran.r-project.org](www.cran.r-project.org)
+  - Install the R programming language by executing the downloaded file and following the on-screen instructions.
 
-- Download the R programming language from  [http://www.cran.r-project.org](www.cran.r-project.org)
-- Install the R programming language by executing the downloaded file and following the on-screen instructions.
+2. `emuR`
+  - Start up `R`.
+  - Enter `install.packages("emuR")` after the `>` prompt to install the package. (You will only need to repeat this if package updates become available.)
+  - As the `wrassp` package is a dependency of the `emuR` package, it does not have to be installed separately.
 
-
-2.) emuR
-
-- Start up R.
-- Enter `install.packages("emuR")` after the `>` prompt to install the package. (You will only need to repeat this if package updates become available.)
-- As the `wrassp` package is a dependency of the `emuR` package, it does not have to be installed separately.
-
-3.) EMU-webApp (prerequisite)
-
-- The only thing needed to use the EMU-webApp is a current HTML5 compatible browser (Chrome/Firefox/Safari/Opera/...). However, as most of the development and testing is done using Chrome we recommend using it, as it is by far the best tested browser.
+3. `EMU-webApp` (prerequisite)
+  - The only thing needed to use the `EMU-webApp` is a current HTML5 compatible browser (Chrome/Firefox/Safari/Opera/...). However, as most of the development and testing is done using Chrome we recommend using it, as it is by far the best tested browser.
 
 
 
 
 ## Installing additional R-packages that are used throughout this document
 
-- ggplot2 for visualization purposes: `install.packages("emuR")`
-- dplyr for data manipulation: `install.packages("dplyr")`
+- `ggplot2` for visualization purposes: `install.packages("emuR")`
+- `dplyr` for data manipulation: `install.packages("dplyr")`
 
 ## Version disclaimer
 

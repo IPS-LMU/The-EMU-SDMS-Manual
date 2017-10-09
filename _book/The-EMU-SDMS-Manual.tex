@@ -154,11 +154,14 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter{Prerequisites}\label{prerequisites}
+\chapter{Installing the EMU-SDMS}\label{installing-the-emu-sdms}
 
-\section{Installing the EMU-SDMS}\label{installing-the-emu-sdms}
-
-1.) R
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{R}
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -170,7 +173,13 @@
   and following the on-screen instructions.
 \end{itemize}
 
-2.) emuR
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \texttt{emuR}
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -185,15 +194,21 @@
   package, it does not have to be installed separately.
 \end{itemize}
 
-3.) EMU-webApp (prerequisite)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \texttt{EMU-webApp} (prerequisite)
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  The only thing needed to use the EMU-webApp is a current HTML5
-  compatible browser (Chrome/Firefox/Safari/Opera/\ldots{}). However, as
-  most of the development and testing is done using Chrome we recommend
-  using it, as it is by far the best tested browser.
+  The only thing needed to use the \texttt{EMU-webApp} is a current
+  HTML5 compatible browser (Chrome/Firefox/Safari/Opera/\ldots{}).
+  However, as most of the development and testing is done using Chrome
+  we recommend using it, as it is by far the best tested browser.
 \end{itemize}
 
 \section{Installing additional R-packages that are used throughout this
@@ -202,9 +217,11 @@ document}\label{installing-additional-r-packages-that-are-used-throughout-this-d
 \begin{itemize}
 \tightlist
 \item
-  ggplot2 for visualization purposes: \texttt{install.packages("emuR")}
+  \texttt{ggplot2} for visualization purposes:
+  \texttt{install.packages("emuR")}
 \item
-  dplyr for data manipulation: \texttt{install.packages("dplyr")}
+  \texttt{dplyr} for data manipulation:
+  \texttt{install.packages("dplyr")}
 \end{itemize}
 
 \section{Version disclaimer}\label{version-disclaimer}
@@ -597,23 +614,876 @@ the above features would improve your workflow, the EMU-SDMS is indeed
 for you.
 
 \chapter[A tutorial on how to use the EMU-SDMS ]{\texorpdfstring{A
-tutorial on how to use the EMU-SDMS \footnote{Sections of this chapter
-  have been published in \citet{winkelmann:2017aa}}}{A tutorial on how to use the EMU-SDMS }}\label{chap:tutorial}
+tutorial on how to use the EMU-SDMS \footnote{Some examples of this
+  chapter are adapted versions of examples of the \texttt{emuR\_intro}
+  vignette.}}{A tutorial on how to use the EMU-SDMS }}\label{chap:tutorial}
 
---\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
---\textgreater{}
+\begin{figure}
+\centering
+\includegraphics{pics/emuSdmsBirdsEye.png}
+\caption{}
+\end{figure}
 
---\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
---\textgreater{} --\textgreater{}
+Using the tools provided by the EMU-SDMS, this tutorial chapter gives a
+practical step-by-step guide to answering the question: \emph{Given an
+annotated speech database, is vowel height (measured by its correlate,
+the first formant frequency) influenced by whether it appears in a
+strong or weak syllable?} The tutorial only skims over many of the
+concepts and functions provided by the EMU-SDMS. In-depth explanations
+of the various functionalities are given in later chapters of this
+documentation.
 
---\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
---\textgreater{} --\textgreater{}
+As the EMU-SDMS is not concerned with the raw data acquisition, other
+tools such as SpeechRecorder by \citet{draxler:2004a} are first used to
+record speech. However, once audio speech recordings are available, the
+system provides multiple conversion routines for converting existing
+collections of files to the new \texttt{emuDB} format described in
+Chapter \ref{chap:emuDB} and importing them into the new EMU system. The
+current import routines provided by the \texttt{emuDB} package are:
 
---\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
---\textgreater{} --\textgreater{}
+\begin{itemize}
+\tightlist
+\item
+  \texttt{convert\_TextGridCollection()} - Convert TextGrid collections
+  (\texttt{.wav} and \texttt{.TextGrid} files) to the \texttt{emuDB}
+  format,
+\item
+  \texttt{convert\_BPFCollection()} - Convert BPF collections
+  (\texttt{.wav} and \texttt{.par}\} files) to the \texttt{emuDB}
+  format,
+\item
+  \texttt{convert\_txtCollection()} - Convert plain text file
+  collections format (\texttt{.wav} and \texttt{.txt} files) to the
+  \texttt{emuDB} format,
+\item
+  \texttt{convert\_legacyEmuDB()} - Convert the legacy EMU database
+  format to the \texttt{emuDB} format and
+\item
+  \texttt{create\_emuDB()} followed by
+  \texttt{add\_link/levelDefinition} and \texttt{import\_mediaFiles()} -
+  Creating \texttt{emuDB}s from scratch with only audio files present.
+\end{itemize}
 
---\textgreater{} --\textgreater{} --\textgreater{} --\textgreater{}
---\textgreater{} --\textgreater{}
+The \texttt{emuDB} package comes with a set of example files and small
+databases that are used throughout the \texttt{emuDB} documentation,
+including the functions help pages. These can be accessed by typing
+\texttt{help(functionName)} or the short form \texttt{?functionName}. R
+Example @ref(rexample:tutorial\_create\_emuRdemoData) illustrates how to
+create this demo data in a user-specified directory. Throughout the
+examples of this documentation the directory that is provided by the
+base R function \texttt{tempdir()} will be used, as this is available on
+every platform supported by R (see \texttt{?tempdir} for further
+details). As can be inferred from the \texttt{list.dirs()} output in R
+Example @ref(rexample:tutorial\_create\_emuRdemoData), the
+\texttt{emuR\_demoData} directory contains a separate directory
+containing example data for each of the import routines. Additionally,
+it contains a directory containing an \texttt{emuDB} called \emph{ae}
+(the directories name is \texttt{ae\_emuDB}, where \texttt{\_emuDB} is
+the default suffix given to directories containing a \texttt{emuDB}; see
+Chapter \ref{chap:emuDB}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load the package}
+\KeywordTok{library}\NormalTok{(emuR)}
+
+\CommentTok{# create demo data in directory provided by the tempdir() function}
+\CommentTok{# (of course other directory paths may be chosen)}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# create path to demo data directory, which is}
+\CommentTok{# called "emuR_demoData"}
+\NormalTok{demoDataDir =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{)}
+
+\CommentTok{# show demo data directories}
+\KeywordTok{list.dirs}\NormalTok{(demoDataDir, }\DataTypeTok{recursive =} \NormalTok{F, }\DataTypeTok{full.names =} \NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ae_emuDB"            "BPF_collection"      "legacy_ae"          
+## [4] "TextGrid_collection" "txt_collection"
+\end{verbatim}
+
+This tutorial will start by converting a TextGrid collection containing
+seven annotated single-sentence utterances of a single male speaker to
+the \texttt{emuDB} format\footnote{The other input routines are covered
+  in the Section @ref(sec:emuRpackageDetails\_importRoutines).}. In the
+EMU-SDMS, a file collection such as a TextGrid collection refers to a
+set of file pairs where two types of files with different file
+extentions are present (e.g., \texttt{.ext1} and \texttt{.ext2}). It is
+vital that file pairs have the same basenames (e.g., \texttt{A.ext1} and
+\texttt{A.ext2} where \texttt{A} represents the basename) in order for
+the conversion functions to be able to pair up files that belong
+together. As other speech software tools also encourage such file pairs
+\citep[e.g.,][]{kisler:2015a} this is a common collection format in the
+speech sciences. R Example \ref{rexample:showTGcolContent} shows such a
+file collection that is part of \texttt{emuDB}'s demo data. Figure
+@ref(fig:msajc003\_praatTG) shows the content of an annotation as
+displayed by Praat's \texttt{"Draw\ visible\ sound\ and\ Textgrid..."}
+procedure.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create path to TextGrid collection}
+\NormalTok{tgColDir =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(demoDataDir, }\StringTok{"TextGrid_collection"}\NormalTok{)}
+
+\CommentTok{# show content of TextGrid_collection directory}
+\KeywordTok{list.files}\NormalTok{(tgColDir)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "msajc003.TextGrid" "msajc003.wav"      "msajc010.TextGrid"
+##  [4] "msajc010.wav"      "msajc012.TextGrid" "msajc012.wav"     
+##  [7] "msajc015.TextGrid" "msajc015.wav"      "msajc022.TextGrid"
+## [10] "msajc022.wav"      "msajc023.TextGrid" "msajc023.wav"     
+## [13] "msajc057.TextGrid" "msajc057.wav"
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{pics/msajc003_praat.png}
+\caption{TextGrid annotation of the
+\texttt{emuR\_demoData/TextGrid\_collection/\textbackslash{}allowbreak\ msajc003.wav}
+/ \texttt{.TextGrid} file pair containing the tiers (from top to
+bottom): \emph{Utterance}, \emph{Intonational}, \emph{Intermediate},
+\emph{Word}, \emph{Accent}, \emph{Text}, \emph{Syllable},
+\emph{Phoneme}, \emph{Phonetic}, \emph{Tone},
+\emph{Foot}.(\#fig:msajc003\_praatTG)}
+\end{figure}
+
+\section{Converting the TextGrid
+collection}\label{converting-the-textgrid-collection}
+
+The \texttt{convert\_TextGridCollection()} function converts a TextGrid
+collection to the \texttt{emuDB} format. A precondition that all
+\texttt{.TextGrid} files have to fulfill is that they must all contain
+the same tiers. If this is not the case, yet there is an equal tier
+subset that is contained in all the TextGrid files, this equal subset
+may be chosen. For example, if all \texttt{.TextGrid} files contain only
+the tier \texttt{Phonetic:\textbackslash{}\ IntervalTier} the conversion
+will work. However, if a single \texttt{.TextGrid} of the collection has
+the additional tier \texttt{Tone:\ TextTier} the conversion will fail.
+In this case the conversion could be made to work by specifying the
+equal subset (e.g., \texttt{equalSubset\ =\ c("Phonetic")}) and passing
+it on to the \texttt{tierNames} function argument
+\texttt{convert\_TextGridCollection(...,\ tierNames\ =\ equalSubset,\ ...)}.
+As can be seen in Figure @ref(fig:msajc003\_praatTG), the TextGrid files
+provided by the demo data contain eleven tiers. To reduce the complexity
+of the annotations for this tutorial we will only convert the tiers
+\emph{Text} (orthographic word annotations), \emph{Syllable} (strong:
+\emph{S} vs.~weak: \emph{W} syllable annotations), \emph{Phoneme}
+(phoneme level annotations) and \emph{Phonetic} (phonetic annotations)
+utilizing the \texttt{tierNames} parameter. This conversion can be seen
+in R Example @ref(rexample:tutorial\_tgconv).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# convert TextGrid collection to the emuDB format}
+\KeywordTok{convert_TextGridCollection}\NormalTok{(}\DataTypeTok{dir =} \NormalTok{tgColDir,}
+                           \DataTypeTok{dbName =} \StringTok{"myFirst"}\NormalTok{,}
+                           \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(),}
+                           \DataTypeTok{tierNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"Text"}\NormalTok{, }\StringTok{"Syllable"}\NormalTok{,}
+                                         \StringTok{"Phoneme"}\NormalTok{, }\StringTok{"Phonetic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+The above call to \texttt{convert\_TextGridCollection} creates a new
+\texttt{emuDB} directory in the \texttt{tempdir()} directory called
+\texttt{myFirst\_emuDB}. This \texttt{emuDB} contains annotation files
+that contain the same \emph{Text}, \emph{Syllable}, \emph{Phoneme} and
+\emph{Phonetic} segment tiers as the original \texttt{.TextGrid} files
+as well as copies of the original (\texttt{.wav}) audio files. For
+further details about the structure of an \texttt{emuDB}, see Chapter
+\ref{chap:emuDB} of this document.
+
+\section{Loading and inspecting the
+database}\label{loading-and-inspecting-the-database}
+
+As mentioned in Section @ref(sec:overview\_sysArch), the first step when
+working with an \texttt{emuDB} is to load it into the current R session.
+R Example @ref(rexample:tutorial\_loadEmuDB) shows how to load the
+converted TextGrid collection into R using the \texttt{load\_emuDB()}
+function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get path to emuDB called "myFirst"}
+\CommentTok{# that was created by convert_TextGridCollection()}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"myFirst_emuDB"}\NormalTok{)}
+
+\CommentTok{# load emuDB into current R session}
+\NormalTok{dbHandle =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Overview}\label{overview}
+
+Now the \emph{myFirst} \texttt{emuDB} is loaded into R, an overview of
+the current status and configuration of the database can be displayed
+using the \texttt{summary()} function as shown in R Example
+@ref(rexample:tutorial\_summary).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show summary}
+\KeywordTok{summary}\NormalTok{(dbHandle)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Name:     myFirst 
+## UUID:     50e33f00-ae35-43d5-aa30-a84278c33a95 
+## Directory:    /private/var/folders/ll/pw5k9y6x64q5xqys350rz2ph0000gn/T/RtmpAoRAeK/myFirst_emuDB 
+## Session count: 1 
+## Bundle count: 7 
+## Annotation item count:  664 
+## Label count:  664 
+## Link count:  0 
+## 
+## Database configuration:
+## 
+## SSFF track definitions:
+## NULL
+## 
+## Level definitions:
+##       name    type nrOfAttrDefs attrDefNames
+## 1     Text SEGMENT            1        Text;
+## 2 Syllable SEGMENT            1    Syllable;
+## 3  Phoneme SEGMENT            1     Phoneme;
+## 4 Phonetic SEGMENT            1    Phonetic;
+## 
+## Link definitions:
+## NULL
+\end{verbatim}
+
+The extensive output of \texttt{summary()} is split into a top and
+bottom half, where the top half focuses on general information about the
+database (name, directory, annotation item count, etc.) and the bottom
+half displays information about the various Simple Signal File Format
+(SSFF) track, level and link definitions of the \texttt{emuDB}. The
+summary information about the level definitions shows, for instance,
+that the \emph{myFirst} database has a \emph{Text} level of type
+\texttt{SEGMENT} and therefore contains annotation items that have a
+start time and a segment duration. It is worth noting that information
+about the SSFF track, level and link definitions corresponds to the
+output of the \texttt{list\_ssffTrackDefinitions()},
+\texttt{list\_levelDefinitions()} and \texttt{list\_linkDefinitions()}
+functions.
+
+\subsection{Database annotation and visual
+inspection}\label{database-annotation-and-visual-inspection}
+
+The EMU-SDMS has a unique approach to annotating and visually inspecting
+data-bases, as it utilizes a web application called the
+\texttt{EMU-webApp} to act as its GUI. To be able to communicate with
+the web application the \texttt{emuDB} package provides a
+\texttt{serve()} function which is used in R Example
+@ref(rexample:tutorial\_serve).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# serve myFirst emuDB to the EMU-webApp}
+\KeywordTok{serve}\NormalTok{(dbHandle)}
+\end{Highlighting}
+\end{Shaded}
+
+Executing this command will block the R console, automatically open up
+the system's default browser and display the following message in the R
+console:
+
+\begin{verbatim}
+## Navigate your browser to the EMU-webApp URL: 
+##  http://ips-lmu.github.io/EMU-webApp/ (should happen automatically)
+\end{verbatim}
+
+\begin{verbatim}
+## Server connection URL: 
+##  ws://localhost:17890
+\end{verbatim}
+
+\begin{verbatim}
+## To stop the server press the 'clear' button in the 
+## EMU-webApp or close/reload the webApp in your browser.
+\end{verbatim}
+
+The \texttt{EMU-webApp}, which is now connected to the database via the
+\texttt{serve()} function, can be used to visually inspect and annotate
+the \texttt{emuDB}. Figure @ref(fig:tutorial\_emuWebAppMyFirst) displays
+a screenshot of what the \texttt{EMU-webApp} looks like after
+automatically connecting to the server. As the \texttt{EMU-webApp} is a
+very feature-rich software annotation tool, this documentation has a
+whole chapter (see Chapter \ref{chap:emu-webApp}) on how to use it, what
+it is capable of and how to configure it. Further, the web application
+provides its own documentation which can be accessed by clicking the EMU
+icon in the top right hand corner of the application's top menu bar. To
+close the connection and free up the blocked R console, simply click the
+\texttt{clear} button in the top menu bar of the \texttt{EMU-webApp}.
+
+\begin{figure}
+\centering
+\includegraphics{pics/tutorialEmuWebAppMyFirst.png}
+\caption{Screenshot of \texttt{EMU-webApp} displaying \texttt{msajc003}
+bundle of \emph{myFirst}
+\texttt{emuDB}.(\#fig:tutorial\_emuWebAppMyFirst)}
+\end{figure}
+
+\section{Querying and autobuilding the annotation
+structure}\label{querying-and-autobuilding-the-annotation-structure}
+
+An integral step in the default workflow of the EMU-SDMS is querying the
+annotations of a database. The \texttt{emuDB} package implements a
+\texttt{query()} function to accomplish this task. This function
+evaluates an EMU Query Language (EQL) expression and extracts the
+annotation items from the database that match a query expression. As
+Chapter \ref{chap:querysys} gives a detailed description of the query
+mechanics provided by \texttt{emuDB}, this tutorial will only use a very
+small, hopefully easy to understand subset of the EQL.
+
+The output of the \texttt{summary()} command in R Example
+@ref(rexample:tutorial\_summary) and the screenshot in Figure
+@ref(fig:tutorial\_emuWebAppMyFirst) show that the \emph{myFirst}
+\texttt{emuDB} contains four levels of annotations. R Example
+@ref(rexample:tutorial\_simpleQuery) shows four separate queries that
+query various segments on each of the available levels. The query
+expressions all use the matching operator \texttt{==} which returns
+annotation items whose labels match those specified to the right of the
+operator and that belong to the level specified to the left of the
+operator (i.e., \texttt{LEVEL\ ==\ LABEL}; see Chapter
+\ref{chap:querysys} for a detailed description).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query all segments containing the label}
+\CommentTok{# "was" of the "Phonetic" level}
+\NormalTok{sl_text =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =} \NormalTok{dbHandle,}
+                \DataTypeTok{query =} \StringTok{"Text == was"}\NormalTok{)}
+
+\CommentTok{# query all segments containing the label}
+\CommentTok{# "S" (==strong syllable) of the "Syllable" level}
+\NormalTok{sl_syl =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =} \NormalTok{dbHandle,}
+               \DataTypeTok{query =} \StringTok{"Syllable == S"}\NormalTok{)}
+
+\CommentTok{# query all segments containing the label}
+\CommentTok{# "n" on the "Phoneme" level}
+\NormalTok{sl_phoneme =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle,}
+                   \DataTypeTok{query =} \StringTok{"Phoneme == f"}\NormalTok{)}
+
+\CommentTok{# query all segments containing the label}
+\CommentTok{# "n" of the "Phonetic" level}
+\NormalTok{sl_phonetic =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle,}
+                    \DataTypeTok{query =} \StringTok{"Phonetic == n"}\NormalTok{)}
+
+\CommentTok{# show class vector of query result}
+\KeywordTok{class}\NormalTok{(sl_phonetic)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "emuRsegs"   "emusegs"    "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show first entry of sl}
+\KeywordTok{head}\NormalTok{(sl_phonetic, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  myFirst 
+## query was:  Phonetic == n 
+##   labels    start      end session   bundle    level    type
+## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show summary of sl}
+\KeywordTok{summary}\NormalTok{(sl_phonetic)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  myFirst 
+## query was:  Phonetic == n 
+##  with 12 segments
+## 
+## Segment distribution:
+## 
+##  n 
+## 12
+\end{verbatim}
+
+As demonstrated in R Example @ref(rexample:tutorial\_simpleQuery), the
+result of a query is an \texttt{emuRsegs} object, which is a super-class
+of the common \texttt{data.frame}. This object is often referred to as a
+segment list, or ``seglist''. A segment list carries information about
+the extracted annotation items such as the extracted labels, the start
+and end times of the segments, the sessions and bundles the items are
+from and the levels they belong to. An in-depth description of the
+information contained in a segment list is given in Section
+@ref(sec:query\_emuRsegs). R Example
+@ref(rexample:tutorial\_simpleQuery) shows that the \texttt{summary()}
+function can also be applied to a segment list object to get an overview
+of what is contained within it. This can be especially useful when
+dealing with larger segment lists.
+
+\subsection{Autobuilding}\label{autobuilding}
+
+The simple queries illustrated above query segments from a single level
+that match a certain label. However, the EMU-SDMS offers a mechanism for
+performing inter-level queries such as: \emph{Query all Phonetic items
+that contain the label ``n'' and are part of a strong syllable}. For
+such queries to be possible, the EMU-SDMS offers very sophisticated
+annotation structure modeling capabilities, which are described in
+Chapter @ref(chap:annot\_struct\_mod). For the sake of this tutorial we
+will focus on converting the flat segment level annotation structure
+displayed in Figure @ref(fig:tutorial\_emuWebAppMyFirst) to a
+hierarchical form as displayed in Figure
+@ref(fig:tutorial\_violentlyHier), where only the \emph{Phonetic} level
+carries time information and the annotation items on the other levels
+are explicitly linked to each other to form a hierarchical annotation
+structure.
+
+\begin{figure}
+\centering
+\includegraphics{The-EMU-SDMS-Manual_files/figure-latex/tutorial_violentlyHier-1.pdf}
+\caption{(\#fig:tutorial\_violentlyHier)Example of a hierarchical
+annotation of the word \emph{violently} belonging to the \emph{msajc012}
+bundle of the \emph{myFirst} demo \texttt{emuDB}.}
+\end{figure}
+
+As it is a very laborious task to manually link annotation items
+together using the \texttt{EMU-webApp} and the hierarchical information
+is already implicitly contained in the time information of the segments
+and events of each level, we will now use a simple function provided by
+the \texttt{emuDB} package to build these hierarchical structures using
+this information called \texttt{autobuild\_linkFromTimes()}. R Example
+@ref(rexample:tutorial\_autobuild) shows the calls to this function
+which autobuild the hierarchical annotations in the \emph{myFirst}
+database. As a general rule for autobuilding hierarchical annotation
+structures, a good strategy is to start the autobuilding process
+beginning with coarser grained annotation levels (i.e., the
+\emph{Text}/\emph{Syllable} level pair in our example) and work down to
+finer grained annotations (i.e., the \emph{Syllable}/\emph{Phoneme} and
+\emph{Phoneme}/\emph{Phonetic} level pairs in our example). To build
+hierachical annotation structures we need link definitions, which
+together with the level definitions define the annotation structure for
+the entire database (see Chapter @ref(chap:annot\_struct\_mod) for
+further details). The \texttt{autobuild\_linkFromTimes()} calls in R
+Example @ref(rexample:tutorial\_autobuild) use the
+\texttt{newLinkDefType} parameter, which if defined automatically adds a
+link definition to the database.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# invoke autobuild function}
+\CommentTok{# for "Text" and "Syllable" levels}
+\KeywordTok{autobuild_linkFromTimes}\NormalTok{(dbHandle,}
+                        \DataTypeTok{superlevelName =} \StringTok{"Text"}\NormalTok{,}
+                        \DataTypeTok{sublevelName =} \StringTok{"Syllable"}\NormalTok{,}
+                        \DataTypeTok{convertSuperlevel =} \OtherTok{TRUE}\NormalTok{,}
+                        \DataTypeTok{newLinkDefType =} \StringTok{"ONE_TO_MANY"}\NormalTok{)}
+
+\CommentTok{# invoke autobuild function}
+\CommentTok{# for "Syllable" and "Phoneme" levels}
+\KeywordTok{autobuild_linkFromTimes}\NormalTok{(dbHandle,}
+                        \DataTypeTok{superlevelName =} \StringTok{"Syllable"}\NormalTok{,}
+                        \DataTypeTok{sublevelName =} \StringTok{"Phoneme"}\NormalTok{,}
+                        \DataTypeTok{convertSuperlevel =} \OtherTok{TRUE}\NormalTok{,}
+                        \DataTypeTok{newLinkDefType =} \StringTok{"ONE_TO_MANY"}\NormalTok{)}
+
+\CommentTok{# invoke autobuild function}
+\CommentTok{# for "Phoneme" and "Phonetic" levels}
+\KeywordTok{autobuild_linkFromTimes}\NormalTok{(dbHandle,}
+                        \DataTypeTok{superlevelName =} \StringTok{"Phoneme"}\NormalTok{,}
+                        \DataTypeTok{sublevelName =} \StringTok{"Phonetic"}\NormalTok{,}
+                        \DataTypeTok{convertSuperlevel =} \OtherTok{TRUE}\NormalTok{,}
+                        \DataTypeTok{newLinkDefType =} \StringTok{"MANY_TO_MANY"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{pics/tut_simpleAnnotStruct.png}
+\caption{Schematic annotation structure of the \texttt{emuDB} after
+calling the autobuild function in R Example
+@ref(rexample:tutorial\_autobuild).(\#fig:tutorial\_simpleAnnotStruct)}
+\end{figure}
+
+As the \texttt{autobuild\_linkFromTimes()} function automatically
+creates backup levels to avoid the accidental loss of boundary or event
+time information, R Example @ref(rexample:tutorial\_delBackupLevels)
+shows how these backup levels can be removed to clean up the database.
+However, using the \texttt{remove\_levelDefinition()} function with its
+\texttt{force} parameter set to \texttt{TRUE} is a very invasive action.
+Usually this would not be recommended, but for this tutorial we are
+keeping everything as clean as possible.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# list level definitions}
+\CommentTok{# as this reveals the "-autobuildBackup" levels}
+\CommentTok{# added by the autobuild_linkFromTimes() calls}
+\KeywordTok{list_levelDefinitions}\NormalTok{(dbHandle)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                       name    type nrOfAttrDefs              attrDefNames
+## 1                     Text    ITEM            1                     Text;
+## 2                 Syllable    ITEM            1                 Syllable;
+## 3                  Phoneme    ITEM            1                  Phoneme;
+## 4                 Phonetic SEGMENT            1                 Phonetic;
+## 5     Text-autobuildBackup SEGMENT            1     Text-autobuildBackup;
+## 6 Syllable-autobuildBackup SEGMENT            1 Syllable-autobuildBackup;
+## 7  Phoneme-autobuildBackup SEGMENT            1  Phoneme-autobuildBackup;
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# remove the levels containing the "-autobuildBackup"}
+\CommentTok{# suffix}
+\KeywordTok{remove_levelDefinition}\NormalTok{(dbHandle,}
+                       \DataTypeTok{name =} \StringTok{"Text-autobuildBackup"}\NormalTok{,}
+                       \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
+                       \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+
+\KeywordTok{remove_levelDefinition}\NormalTok{(dbHandle,}
+                       \DataTypeTok{name =} \StringTok{"Syllable-autobuildBackup"}\NormalTok{,}
+                       \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
+                       \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+
+\KeywordTok{remove_levelDefinition}\NormalTok{(dbHandle,}
+                       \DataTypeTok{name =} \StringTok{"Phoneme-autobuildBackup"}\NormalTok{,}
+                       \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
+                       \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# list level definitions}
+\KeywordTok{list_levelDefinitions}\NormalTok{(dbHandle)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       name    type nrOfAttrDefs attrDefNames
+## 1     Text    ITEM            1        Text;
+## 2 Syllable    ITEM            1    Syllable;
+## 3  Phoneme    ITEM            1     Phoneme;
+## 4 Phonetic SEGMENT            1    Phonetic;
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# list level definitions}
+\CommentTok{# which were added by the autobuild functions}
+\KeywordTok{list_linkDefinitions}\NormalTok{(dbHandle)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           type superlevelName sublevelName
+## 1  ONE_TO_MANY           Text     Syllable
+## 2  ONE_TO_MANY       Syllable      Phoneme
+## 3 MANY_TO_MANY        Phoneme     Phonetic
+\end{verbatim}
+
+As can be seen by the output of \texttt{list\_levelDefinitions()} and
+\textbackslash{} \texttt{list\_linkDefinitions()} in R Example
+@ref(rexample:tutorial\_autobuild), the annotation structure of the
+\emph{myFirst} \texttt{emuDB} now matches that displayed in Figure
+@ref(fig:tutorial\_simpleAnnotStruct). Using the \texttt{serve()}
+function to open the \texttt{emuDB} in the \texttt{EMU-webApp} followed
+by clicking on the \texttt{show\ hierarchy} button in the top menu (and
+rotating the hierarchy by 90 degrees by clicking the
+\texttt{rotate\ by\ 90\ degrees} button) will result in a view similar
+to the screenshot of Figure
+@ref(fig:tutorial\_EMU-webAppScreenshotTutorialPostAutobHier).
+
+\begin{figure}
+\centering
+\includegraphics{pics/EMU-webAppScreenshotTutorialPostAutobHier.png}
+\caption{Screenshot of \texttt{EMU-webApp} displaying the autobuilt
+hierarchy of the \emph{myFirst}
+\texttt{emuDB}.(\#fig:tutorial\_EMU-webAppScreenshotTutorialPostAutobHier)}
+\end{figure}
+
+\subsection{Querying the hierarchical
+annotations}\label{querying-the-hierarchical-annotations}
+
+Having this hierarchical annotation structure now allows us to formulate
+a query that helps answer the originally stated question: \emph{Given an
+annotated speech database, is vowel height (measured by its correlate,
+the first formant frequency) influenced by whether it appears in a
+strong or weak syllable?}. As stated in the question, we are interested
+in all the vowels in our database. R Example
+@ref(rexample:tutorial\_labelGroupQuery) shows how all the vowels in the
+\emph{myFirst} database are queried.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query the label group on the Phonetic level}
+\CommentTok{# Note that the use of paste0() is optional, as}
+\CommentTok{# it is only used for formatting purposes}
+\NormalTok{sl_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Phonetic == A | E | EC "}\NormalTok{,}
+                                   \StringTok{"| I | V | U | ai | ei | oi "}\NormalTok{,}
+                                   \StringTok{"| i@ | u@ | au | @u | @: "}\NormalTok{,}
+                                   \StringTok{"| @ | '=' | a: | e: | i: "}\NormalTok{,}
+                                   \StringTok{"| o: | u:"}\NormalTok{))}
+
+\CommentTok{# show first entry of sl}
+\KeywordTok{head}\NormalTok{(sl_vowels, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  myFirst 
+## query was:  Phonetic == A | E | EC | I | V | U | ai | ei | oi | i@ | u@ | au | @u | @: | @ | ''='' | a: | e: | i: | o: | u: 
+##   labels   start     end session   bundle    level    type
+## 1      V 187.425 256.925    0000 msajc003 Phonetic SEGMENT
+\end{verbatim}
+
+As the type of syllable (strong vs.~week) for each vowel that was just
+extracted is also needed, we can use the requery functionality of the
+EMU-SDMS (see Chapter \ref{chap:querysys}) to retrieve the syllable type
+for each vowel. A requery essentially moves through a hierarchical
+annotation (vertically or horizontally) starting from the segments that
+are passed into the requery function. R Example
+@ref(rexample:tutorial\_requery) illustrates the usage of the
+hierarchical requery function, \texttt{requery\_hier()}, to retrieve the
+appropriate annotation items from the \emph{Syllable} level.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# hierarchical requery starting from the items in sl_vowels}
+\CommentTok{# and moving up to the "Syllable" level}
+\NormalTok{sl_sylType =}\StringTok{ }\KeywordTok{requery_hier}\NormalTok{(dbHandle,}
+                          \DataTypeTok{seglist =} \NormalTok{sl_vowels,}
+                          \DataTypeTok{level =} \StringTok{"Syllable"}\NormalTok{,}
+                          \DataTypeTok{calcTimes =} \OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# show first entry of sl}
+\KeywordTok{head}\NormalTok{(sl_sylType, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  myFirst 
+## query was:  FROM REQUERY 
+##   labels start end session   bundle    level type
+## 1      W    NA  NA    0000 msajc003 Syllable ITEM
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show that sl_vowel and sl_sylType have the}
+\CommentTok{# same number of row entries}
+\KeywordTok{nrow}\NormalTok{(sl_vowels) ==}\StringTok{ }\KeywordTok{nrow}\NormalTok{(sl_sylType)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+As can be seen by the \texttt{nrow()} comparison in R Example
+@ref(rexample:tutorial\_requery), the segment list returned by the
+\texttt{requery\_hier()} function has the same number of rows as the
+original \texttt{sl\_vowels} segment list. This is important, as each
+row of both segment lists line up and allow us to infer which segment
+belongs to which syllable (e.g., vowel \texttt{sl\_vowels{[}5,{]}}
+belongs to syllable \texttt{sl\_sylType{[}5,{]}}).
+
+\section{Signal extraction and
+exploration}\label{section:tutorial_sigExtrAndExpl}
+
+Now that the vowel and syllable type information including the vowel
+start and end time information has been extracted from the database,
+this information can be used to extract signal data that matches these
+segments. Using the \texttt{emuDB} function \texttt{get\_trackdata()} we
+can calculate the formant values in real time using the formant
+estimation function, \texttt{forest()}, provided by the \texttt{wrassp}
+package (see Chapter \ref{chap:wrassp} for details). R Example
+@ref(rexample:tutorial\_getTrackdata) shows the usage of this function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get formant values for}
+\NormalTok{td_vowels =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(dbHandle,}
+                          \DataTypeTok{seglist =} \NormalTok{sl_vowels,}
+                          \DataTypeTok{onTheFlyFunctionName =} \StringTok{"forest"}\NormalTok{,}
+                          \DataTypeTok{verbose =} \NormalTok{F)}
+
+\CommentTok{# show class vector}
+\KeywordTok{class}\NormalTok{(td_vowels)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "trackdata"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show dimensions}
+\KeywordTok{dim}\NormalTok{(td_vowels)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 81  4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# display all values for fifth segment}
+\NormalTok{td_vowels[}\DecValTok{5}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## trackdata from track: fm 
+## index:
+##  left right
+##     1     9
+## ftime:
+##       start    end
+## [1,] 1422.5 1462.5
+## data:
+##         T1   T2   T3   T4
+## 1422.5 297 2041 2470 3383
+## 1427.5 290 2034 2409 3380
+## 1432.5 288 2044 2277 3380
+## 1437.5 288 1998 2143 3347
+## 1442.5 287 1727 2138 3315
+## 1447.5 287 1633 2119 3338
+## 1452.5 295 1600 2114 3361
+## 1457.5 292 1478 2112 3383
+## 1462.5 290 1339 2071 3372
+\end{verbatim}
+
+As can be seen by the call to the \texttt{class()} function, the
+resulting object is of the type \texttt{trackdata} and has 81 entries.
+This corresponds to the number of rows contained in the segment lists
+extracted above (i.e., \texttt{nrow(sl\_vowels)}). This indicates that
+this object contains data for each of the segments that correspond to
+each of the row entries of the segment lists (i.e.,
+\texttt{td\_vowels{[}5,{]}} are the formant values belonging to
+\texttt{sl\_vowels{[}5,{]}}). As the columns \texttt{T1}, \texttt{T2},
+\texttt{T3}, \texttt{T4} of the printed output of
+\texttt{td\_vowels{[}5,{]}} suggest, the \texttt{forest} function
+estimates four formant values. We will only be concerned with the first
+(column \texttt{T1}) and second (column \texttt{T2}). R Example
+@ref(rexample:tutorial\_dplot) shows a call to \texttt{emuDB}'s
+\texttt{dplot()} function which produces the plot displayed in Figure
+@ref(fig:tutorial\_dplot). The first call to the \texttt{dplot()}
+function plots all 81 first formant trajectories (achieved by indexing
+the first column i.e., \texttt{T1}:
+\texttt{x\ =\ td\_vowels{[},\ 1{]}}). The 81 trajectories are color
+coded by vowel label
+(\texttt{labs\ =\ sl\_vowels\textbackslash{}\$labels}). To clean up the
+cluttered left plot, the second call to the \texttt{dplot()} function
+additionally uses the \texttt{average} parameter to plot only the
+ensemble averages of each vowel label and time-normalizes the
+trajectories (\texttt{normalise\ =\ TRUE}) to an interval between 0 and
+1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# two plots next to each other}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+
+\KeywordTok{dplot}\NormalTok{(}\DataTypeTok{x =} \NormalTok{td_vowels[, }\DecValTok{1}\NormalTok{],}
+      \DataTypeTok{labs =} \NormalTok{sl_vowels$labels,}
+      \DataTypeTok{xlab =} \StringTok{"Duration (ms)"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"F1 (Hz)"}\NormalTok{)}
+
+\KeywordTok{dplot}\NormalTok{(}\DataTypeTok{x =} \NormalTok{td_vowels[, }\DecValTok{1}\NormalTok{],}
+      \DataTypeTok{labs =} \NormalTok{sl_vowels$labels,}
+      \DataTypeTok{normalise =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{average =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{xlab =} \StringTok{"Normalized time"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"F1 (Hz)"}\NormalTok{)}
+
+\CommentTok{# back to single plot}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{The-EMU-SDMS-Manual_files/figure-latex/tutorial_dplot-1.pdf}
+\caption{(\#fig:tutorial\_dplot)\texttt{dplot()} plots of F1
+trajectories. The left plot displays 81 trajectories while the right
+plot displays ensemble averages of each vowel.}
+\end{figure}
+
+Figure @ref(fig:tutorial\_dplot) gives an overview of the second formant
+trajectories by vowel class. For the purpose of data exploration and to
+get an idea of where the individual vowel classes lie on the F2 x F1
+plane, which indirectly provides information about vowel height and
+tongue position, R Example @ref(rexample:tutorial\_eplot) makes use of
+the \texttt{eplot()} function. This produces Figure
+@ref(fig:tutorial\_eplot). To be able to use the \texttt{eplot()}
+function, the \texttt{td\_vowels} object first has to be modified, as it
+contains entire formant trajectories but two dimensional data is needed
+to be able to display it on the F2 x F1 plain. This can, for example, be
+achieved by only extracting temporal mid-point formant values for each
+vowel using the \texttt{get\_trackdata()} function utilizing its
+\texttt{cut} parameter. R Example @ref(rexample:tutorial\_eplot) shows
+an alternative approach using the \texttt{dcut()} function to
+essentially cut the formant trajectories to a specified proportional
+segment. By using only the \texttt{left.time\ =\ 0.5} (and not
+specifying \texttt{right.time}) only the formant values that are closest
+to the temporal mid-point are cut from the trajectories.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# cut formant trajectories at temporal mid-point}
+\NormalTok{td_vowels_midpoint =}\StringTok{ }\KeywordTok{dcut}\NormalTok{(td_vowels,}
+                          \DataTypeTok{left.time =} \FloatTok{0.5}\NormalTok{,}
+                          \DataTypeTok{prop =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# show dimensions of td_vowels_midpoint}
+\KeywordTok{dim}\NormalTok{(td_vowels_midpoint)}
+
+\CommentTok{# generate plot}
+\KeywordTok{eplot}\NormalTok{(}\DataTypeTok{x =} \NormalTok{td_vowels_midpoint[,}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{],}
+      \DataTypeTok{labs =} \NormalTok{sl_vowels$labels,}
+      \DataTypeTok{dopoints =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{xlab=}\StringTok{"F2 (Hz)"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"F1 (Hz)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{The-EMU-SDMS-Manual_files/figure-latex/tutorial_eplot-1.pdf}
+\caption{(\#fig:tutorial\_eplot)95\% ellipses for F2 x F1 data extracted
+from the temporal midpoint separated by vowel.}
+\end{figure}
+
+Figure @ref(fig:tutorial\_eplot) displays the first two formants
+extracted at the temporal midpoint of every vowel in
+\texttt{sl\_vowels}. These formants are plotted on the F2 x F1 plane,
+and their 95\% ellipsis distributions are also shown. Although not
+necessarily applicable to the question posed at the beginning of this
+tutorial, the data exploration using the \texttt{dplot()} and
+\texttt{eplot()} functions can be very helpful tools for providing an
+overview of the data at hand.
+
+\section{Conclusion}\label{conclusion}
+
+The tutorial given in this chapter gave an overview of what it is like
+working with the EMU-SDMS to try to solve a research question. As many
+of the concepts were only briefly explained, it is worth noting that
+explicit explanations of the various components and integral concepts
+are given in following chapters. Further, additional use cases that have
+been taken from the \texttt{emuR\_intro} vignette can be found in
+Appendix @ref(app\_chap:useCases). These use cases act as templates for
+various types of research questions and will hopefully aid the user in
+finding a solution similar to what she or he wishes to achieve.
 
 \chapter{The query system}\label{the-query-system}
 
