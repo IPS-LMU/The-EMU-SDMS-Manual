@@ -7,6 +7,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+fig_caption: yes
 github-repo: IPS-LMU/A_Course_In_The_EMU-SDMS
 description: "This is the course material for a course that introduces users to the EMU-SDMS."
 ---
