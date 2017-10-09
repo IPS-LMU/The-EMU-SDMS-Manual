@@ -55,7 +55,7 @@ This document describes the following versions of the software components:
 
 As the development of the EMU Speech Database Management System is still ongoing, be sure you have the correct documentation to go with the version you are using.
 
-### For developers and people interested in the source code
+## For developers and people interested in the source code
 
 The information on how to install and/or access the source code of the developer version including the possibility of accessing the versions described in this document (via the Git SHA1 hashes mentioned above) is given below.
 

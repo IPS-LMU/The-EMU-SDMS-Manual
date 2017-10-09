@@ -1,3 +1,0 @@
-# Annotation types and the Emu Query-language
-
-We have finished a nice book.
