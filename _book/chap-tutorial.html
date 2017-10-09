@@ -123,7 +123,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.3.2</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial_sigExtrAndExpl"><i class="fa fa-check"></i><b>3.4</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.5</b> Conclusion</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-syllable-types-strong-vs.weak-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.5</b> Vowel height as a function of syllable types (strong vs. weak): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.6</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="the-query-system.html"><a href="the-query-system.html"><i class="fa fa-check"></i><b>4</b> The query system</a></li>
 <li class="chapter" data-level="5" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html"><i class="fa fa-check"></i><b>5</b> Toolchain SpeechRecorder — MAUS — EMU-SDMS</a><ul>
@@ -214,7 +215,7 @@ tgColDir =<span class="st"> </span><span class="kw">file.path</span>(demoDataDir
 </div>
 <div id="converting-the-textgrid-collection" class="section level2">
 <h2><span class="header-section-number">3.1</span> Converting the TextGrid collection</h2>
-<p>The <code>convert_TextGridCollection()</code> function converts a TextGrid collection to the <code>emuDB</code> format. A precondition that all <code>.TextGrid</code> files have to fulfill is that they must all contain the same tiers. If this is not the case, yet there is an equal tier subset that is contained in all the TextGrid files, this equal subset may be chosen. For example, if all <code>.TextGrid</code> files contain only the tier <code>Phonetic:\ IntervalTier</code> the conversion will work. However, if a single <code>.TextGrid</code> of the collection has the additional tier <code>Tone: TextTier</code> the conversion will fail. In this case the conversion could be made to work by specifying the equal subset (e.g., <code>equalSubset = c(&quot;Phonetic&quot;)</code>) and passing it on to the <code>tierNames</code> function argument <code>convert_TextGridCollection(..., tierNames = equalSubset, ...)</code>. As can be seen in Figure @ref(fig:msajc003_praatTG), the TextGrid files provided by the demo data contain eleven tiers. To reduce the complexity of the annotations for this tutorial we will only convert the tiers <em>Text</em> (orthographic word annotations), <em>Syllable</em> (strong: <em>S</em> vs. weak: <em>W</em> syllable annotations), <em>Phoneme</em> (phoneme level annotations) and <em>Phonetic</em> (phonetic annotations) utilizing the <code>tierNames</code> parameter. This conversion can be seen in R Example @ref(rexample:tutorial_tgconv).</p>
+<p>The <code>convert_TextGridCollection()</code> function converts a TextGrid collection to the <code>emuDB</code> format. A precondition that all <code>.TextGrid</code> files have to fulfill is that they must all contain the same tiers. If this is not the case, yet there is an equal tier subset that is contained in all the TextGrid files, this equal subset may be chosen. For example, if all <code>.TextGrid</code> files contain only the tier <code>Phonetic: IntervalTier</code> the conversion will work. However, if a single <code>.TextGrid</code> of the collection has the additional tier <code>Tone: TextTier</code> the conversion will fail. In this case the conversion could be made to work by specifying the equal subset (e.g., <code>equalSubset = c(&quot;Phonetic&quot;)</code>) and passing it on to the <code>tierNames</code> function argument <code>convert_TextGridCollection(..., tierNames = equalSubset, ...)</code>. As can be seen in Figure @ref(fig:msajc003_praatTG), the TextGrid files provided by the demo data contain eleven tiers. To reduce the complexity of the annotations for this tutorial we will only convert the tiers <em>Text</em> (orthographic word annotations), <em>Syllable</em> (strong: <em>S</em> vs. weak: <em>W</em> syllable annotations), <em>Phoneme</em> (phoneme level annotations) and <em>Phonetic</em> (phonetic annotations) utilizing the <code>tierNames</code> parameter. This conversion can be seen in R Example @ref(rexample:tutorial_tgconv).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># convert TextGrid collection to the emuDB format</span>
 <span class="kw">convert_TextGridCollection</span>(<span class="dt">dir =</span> tgColDir,
                            <span class="dt">dbName =</span> <span class="st">&quot;myFirst&quot;</span>,
@@ -238,8 +239,8 @@ dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(path2direc
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show summary</span>
 <span class="kw">summary</span>(dbHandle)</code></pre></div>
 <pre><code>## Name:     myFirst 
-## UUID:     a28984f0-5b77-4272-b1fe-5d34ff1b4ee5 
-## Directory:    /private/var/folders/ll/pw5k9y6x64q5xqys350rz2ph0000gn/T/RtmpAoRAeK/myFirst_emuDB 
+## UUID:     d2cbc252-6d71-4ec2-8e10-35cfb9b550e6 
+## Directory:    /private/var/folders/ll/pw5k9y6x64q5xqys350rz2ph0000gn/T/RtmptzvsXC/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -334,7 +335,6 @@ sl_phonetic =<span class="st"> </span><span class="kw">query</span>(dbHandle,
 <div id="autobuilding" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Autobuilding</h3>
 <p>The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: <em>Query all Phonetic items that contain the label ``n’’ and are part of a strong syllable</em>. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter @ref(chap:annot_struct_mod). For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure @ref(fig:tutorial_emuWebAppMyFirst) to a hierarchical form as displayed in Figure @ref(fig:tutorial_violentlyHier), where only the <em>Phonetic</em> level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.</p>
-<pre><code>## Warning: call dbDisconnect() when finished working with a connection</code></pre>
 <div class="figure">
 <img src="The-EMU-SDMS-Manual_files/figure-html/tutorial_violentlyHier-1.png" alt="Example of a hierarchical annotation of the word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`." width="432" />
 <p class="caption">
@@ -433,20 +433,14 @@ sl_phonetic =<span class="st"> </span><span class="kw">query</span>(dbHandle,
 </div>
 <div id="querying-the-hierarchical-annotations" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Querying the hierarchical annotations</h3>
-<p>Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: <em>Given an annotated speech database, is vowel height (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?</em>. As stated in the question, we are interested in all the vowels in our database. R Example @ref(rexample:tutorial_labelGroupQuery) shows how all the vowels in the <em>myFirst</em> database are queried.</p>
+<p>Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: <em>Given an annotated speech database, is vowel height (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?</em>. To keep things simple, here we will focus only on the vowels <em>i:</em>, <em>o:</em> and <em>V</em> (SAMPA annotation TODO: cite + mention SAMPA annotation above). R Example @ref(rexample:tutorial_labelGroupQuery) shows how all the vowels in the <em>myFirst</em> database are queried.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># query the label group on the Phonetic level</span>
-<span class="co"># Note that the use of paste0() is optional, as</span>
-<span class="co"># it is only used for formatting purposes</span>
-sl_vowels =<span class="st"> </span><span class="kw">query</span>(dbHandle, <span class="kw">paste0</span>(<span class="st">&quot;Phonetic == A | E | EC &quot;</span>,
-                                   <span class="st">&quot;| I | V | U | ai | ei | oi &quot;</span>,
-                                   <span class="st">&quot;| i@ | u@ | au | @u | @: &quot;</span>,
-                                   <span class="st">&quot;| @ | &#39;=&#39; | a: | e: | i: &quot;</span>,
-                                   <span class="st">&quot;| o: | u:&quot;</span>))
+sl_vowels =<span class="st"> </span><span class="kw">query</span>(dbHandle, <span class="st">&quot;Phonetic == i: | o: | V &quot;</span>)
 
 <span class="co"># show first entry of sl</span>
 <span class="kw">head</span>(sl_vowels, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre></div>
 <pre><code>## segment  list from database:  myFirst 
-## query was:  Phonetic == A | E | EC | I | V | U | ai | ei | oi | i@ | u@ | au | @u | @: | @ | &#39;&#39;=&#39;&#39; | a: | e: | i: | o: | u: 
+## query was:  Phonetic == i: | o: | V  
 ##   labels   start     end session   bundle    level    type
 ## 1      V 187.425 256.925    0000 msajc003 Phonetic SEGMENT</code></pre>
 <p>As the type of syllable (strong vs. week) for each vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter <a href="#chap:querysys"><strong>??</strong></a>) to retrieve the syllable type for each vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. R Example @ref(rexample:tutorial_requery) illustrates the usage of the hierarchical requery function, <code>requery_hier()</code>, to retrieve the appropriate annotation items from the <em>Syllable</em> level.</p>
@@ -484,28 +478,46 @@ td_vowels =<span class="st"> </span><span class="kw">get_trackdata</span>(dbHand
 <pre><code>## [1] &quot;trackdata&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show dimensions</span>
 <span class="kw">dim</span>(td_vowels)</code></pre></div>
-<pre><code>## [1] 81  4</code></pre>
+<pre><code>## [1] 12  4</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># display all values for fifth segment</span>
 td_vowels[<span class="dv">5</span>,]</code></pre></div>
 <pre><code>## trackdata from track: fm 
 ## index:
 ##  left right
-##     1     9
+##     1    27
 ## ftime:
 ##       start    end
-## [1,] 1422.5 1462.5
+## [1,] 1187.5 1317.5
 ## data:
-##         T1   T2   T3   T4
-## 1422.5 297 2041 2470 3383
-## 1427.5 290 2034 2409 3380
-## 1432.5 288 2044 2277 3380
-## 1437.5 288 1998 2143 3347
-## 1442.5 287 1727 2138 3315
-## 1447.5 287 1633 2119 3338
-## 1452.5 295 1600 2114 3361
-## 1457.5 292 1478 2112 3383
-## 1462.5 290 1339 2071 3372</code></pre>
-<p>As can be seen by the call to the <code>class()</code> function, the resulting object is of the type <code>trackdata</code> and has 81 entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., <code>nrow(sl_vowels)</code>). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., <code>td_vowels[5,]</code> are the formant values belonging to <code>sl_vowels[5,]</code>). As the columns <code>T1</code>, <code>T2</code>, <code>T3</code>, <code>T4</code> of the printed output of <code>td_vowels[5,]</code> suggest, the <code>forest</code> function estimates four formant values. We will only be concerned with the first (column <code>T1</code>) and second (column <code>T2</code>). R Example @ref(rexample:tutorial_dplot) shows a call to <code>emuDB</code>’s <code>dplot()</code> function which produces the plot displayed in Figure @ref(fig:tutorial_dplot). The first call to the <code>dplot()</code> function plots all 81 first formant trajectories (achieved by indexing the first column i.e., <code>T1</code>: <code>x = td_vowels[, 1]</code>). The 81 trajectories are color coded by vowel label (<code>labs = sl_vowels\$labels</code>). To clean up the cluttered left plot, the second call to the <code>dplot()</code> function additionally uses the <code>average</code> parameter to plot only the ensemble averages of each vowel label and time-normalizes the trajectories (<code>normalise = TRUE</code>) to an interval between 0 and 1.</p>
+##         T1  T2   T3   T4
+## 1187.5 244 928 1827 3417
+## 1192.5 277 903 1832 3402
+## 1197.5 306 884 1851 3215
+## 1202.5 329 862 1873 3194
+## 1207.5 337 833 1897 3209
+## 1212.5 340 816 1913 3269
+## 1217.5 343 798 1931 3310
+## 1222.5 345 768 1942 3300
+## 1227.5 349 745 1936 3019
+## 1232.5 357 745 1930 3227
+## 1237.5 364 750 1931 3182
+## 1242.5 371 760 1934 3271
+## 1247.5 377 779 1941 3327
+## 1252.5 380 801 1946 3339
+## 1257.5 381 819 1953 3346
+## 1262.5 382 832 1961 3354
+## 1267.5 382 841 1973 2900
+## 1272.5 380 849 1993 2936
+## 1277.5 379 855 2016 3390
+## 1282.5 375 860 2031 3076
+## 1287.5 369 865 2054 3166
+## 1292.5 362 880 2079 3271
+## 1297.5 350 909 2120 3325
+## 1302.5 339 930 2179 3357
+## 1307.5 323 940 2198 3354
+## 1312.5 301 940 2180 3300
+## 1317.5 277 950 2228 3295</code></pre>
+<p>As can be seen by the call to the <code>class()</code> function, the resulting object is of the type <code>trackdata</code> and has 12 entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., <code>nrow(sl_vowels)</code>). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., <code>td_vowels[5,]</code> are the formant values belonging to <code>sl_vowels[5,]</code>). As the columns <code>T1</code>, <code>T2</code>, <code>T3</code>, <code>T4</code> of the printed output of <code>td_vowels[5,]</code> suggest, the <code>forest</code> function estimates four formant values. We will only be concerned with the first (column <code>T1</code>) and second (column <code>T2</code>). R Example @ref(rexample:tutorial_dplot) shows a call to <code>emuDB</code>’s <code>dplot()</code> function which produces the plot displayed in Figure @ref(fig:tutorial_dplot). The first call to the <code>dplot()</code> function plots all 12 first formant trajectories (achieved by indexing the first column i.e., <code>T1</code>: <code>x = td_vowels[, 1]</code>). The 12 trajectories are color coded by vowel label (<code>labs = sl_vowels\$labels</code>). To clean up the cluttered left plot, the second call to the <code>dplot()</code> function additionally uses the <code>average</code> parameter to plot only the ensemble averages of each vowel label and time-normalizes the trajectories (<code>normalise = TRUE</code>) to an interval between 0 and 1.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># two plots next to each other</span>
 <span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
 
@@ -529,7 +541,7 @@ td_vowels[<span class="dv">5</span>,]</code></pre></div>
 (#fig:tutorial_dplot)<code>dplot()</code> plots of F1 trajectories. The left plot displays 81 trajectories while the right plot displays ensemble averages of each vowel.
 </p>
 </div>
-<p>Figure @ref(fig:tutorial_dplot) gives an overview of the second formant trajectories by vowel class. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, R Example @ref(rexample:tutorial_eplot) makes use of the <code>eplot()</code> function. This produces Figure @ref(fig:tutorial_eplot). To be able to use the <code>eplot()</code> function, the <code>td_vowels</code> object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the <code>get_trackdata()</code> function utilizing its <code>cut</code> parameter. R Example @ref(rexample:tutorial_eplot) shows an alternative approach using the <code>dcut()</code> function to essentially cut the formant trajectories to a specified proportional segment. By using only the <code>left.time = 0.5</code> (and not specifying <code>right.time</code>) only the formant values that are closest to the temporal mid-point are cut from the trajectories.</p>
+<p>Figure @ref(fig:tutorial_dplot) gives an overview of the first formant trajectories by vowel class. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, R Example @ref(rexample:tutorial_eplot) makes use of the <code>eplot()</code> function. This produces Figure @ref(fig:tutorial_eplot). To be able to use the <code>eplot()</code> function, the <code>td_vowels</code> object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the <code>get_trackdata()</code> function utilizing its <code>cut</code> parameter. R Example @ref(rexample:tutorial_eplot) shows an alternative approach using the <code>dcut()</code> function to essentially cut the formant trajectories to a specified proportional segment. By using only the <code>left.time = 0.5</code> (and not specifying <code>right.time</code>) only the formant values that are closest to the temporal mid-point are cut from the trajectories.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cut formant trajectories at temporal mid-point</span>
 td_vowels_midpoint =<span class="st"> </span><span class="kw">dcut</span>(td_vowels,
                           <span class="dt">left.time =</span> <span class="fl">0.5</span>,
@@ -542,8 +554,9 @@ td_vowels_midpoint =<span class="st"> </span><span class="kw">dcut</span>(td_vow
 <span class="kw">eplot</span>(<span class="dt">x =</span> td_vowels_midpoint[,<span class="dv">1</span>:<span class="dv">2</span>],
       <span class="dt">labs =</span> sl_vowels$labels,
       <span class="dt">dopoints =</span> <span class="ot">TRUE</span>,
-      <span class="dt">xlab=</span><span class="st">&quot;F2 (Hz)&quot;</span>,
-      <span class="dt">ylab =</span> <span class="st">&quot;F1 (Hz)&quot;</span>)</code></pre></div>
+      <span class="dt">formant =</span> T,
+      <span class="dt">xlab=</span><span class="st">&quot;F1 (Hz)&quot;</span>,
+      <span class="dt">ylab =</span> <span class="st">&quot;F2 (Hz)&quot;</span>)</code></pre></div>
 <div class="figure">
 <img src="The-EMU-SDMS-Manual_files/figure-html/tutorial_eplot-1.png" alt="95% ellipses for F2 x F1 data extracted from the temporal midpoint separated by vowel." width="576" />
 <p class="caption">
@@ -551,62 +564,53 @@ td_vowels_midpoint =<span class="st"> </span><span class="kw">dcut</span>(td_vow
 </p>
 </div>
 <p>Figure @ref(fig:tutorial_eplot) displays the first two formants extracted at the temporal midpoint of every vowel in <code>sl_vowels</code>. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distributions are also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the <code>dplot()</code> and <code>eplot()</code> functions can be very helpful tools for providing an overview of the data at hand.</p>
-<!-- ## Vowel height as a function of syllable types (strong vs. weak): evaluation and statistical analysis -->
-<!-- The above data exploration only dealt with the actual vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter does not distinguish between vowel classes but focuses on whether a vowel occurs in a strong or weak syllable. For the sake of this tutorial we will disregard the fact that the vowel class influences the syllable type and only focus on whether a vowel occurred in a syllable labeled *S* (strong) or *W* (weak). For data inspection purposes, R Example \@ref(rexample:tutorial_dplotSylTyp) initially extracts the central 60% (`left.time = 0.2` and `right.time = 0.8`) of the formant trajectories from `td_vowels` using `dcut()` and displays them using `dplot()`. It should be noted that the call to `dplot()` uses the labels of the `sl_sylType` object as opposed to those of `sl_vowels`. This causes the `dplot()` functions to group the trajectories by their syllable type as opposed to their vowel class as displayed in Figure \@ref(fig:tutorial_dplotSylTyp). -->
-<!-- ```{r, rexample:tutorial_dplotSylTyp, eval=FALSE, rexample=TRUE} -->
-<!-- # extract central 60% from formant trajectories -->
-<!-- td_vowelsMidSec = dcut(td_vowels, -->
-<!--                        left.time = 0.2, -->
-<!--                        right.time = 0.8, -->
-<!--                        prop = TRUE) -->
-<!-- # plot first formant trajectories -->
-<!-- dplot(x = td_vowelsMidSec[, 1], -->
-<!--       labs = sl_sylType$labels, -->
-<!--       normalise = TRUE, -->
-<!--       average = TRUE, -->
-<!--       xlab = "Normalized time", -->
-<!--       ylab = "F1 (Hz)") -->
-<!-- ``` -->
-<!-- ```{r, tutorial_dplotSylTyp, fig.cap = "Ensemble averages of F1 contours of all tokens of the central 60\\% of vowels grouped by syllable type (strong (S) vs. weak (W)).", echo=FALSE, fig.width=6, fig.height=3} -->
-<!-- td_vowelsMidSec = dcut(td_vowels, -->
-<!--                        left.time = 0.2, -->
-<!--                        right.time = 0.8, -->
-<!--                        prop = TRUE) -->
-<!-- dplot(x = td_vowelsMidSec[, 1], -->
-<!--       labs = sl_sylType$labels, -->
-<!--       normalise = TRUE, -->
-<!--       average = TRUE, -->
-<!--       xlab = "Normalized time", -->
-<!--       ylab = "F1 (Hz)") -->
-<!-- ``` -->
-<!-- As can be seen in Figure \@ref(fig:tutorial_dplotSylTyp), there seems to be a distinction in F1 trajectory height between vowels in strong syllables and weak syllables. R Example \@ref(rexample:tutorial_boxplot) shows the code to produce a boxplot using the `ggplot2` package to further visually inspect the data (see Figure \@ref(fig:tutorial_boxplot) for the plot produced by R Example \@ref(rexample:tutorial_boxplot)). -->
-<!-- ```{r, rexample:tutorial_boxplot, rexample=TRUE, eval=FALSE} -->
-<!-- # use trapply to calculate the means of the 60% -->
-<!-- # formant trajectories -->
-<!-- td_vowelsMidSec_mean = trapply(td_vowelsMidSec[, 1], -->
-<!--                                fun = mean, -->
-<!--                                simplify = T) -->
-<!-- # create new data frame that contains the mean -->
-<!-- # values and the corresponding labels -->
-<!-- df = data.frame(sylType = sl_sylType$labels, -->
-<!--                 meanF1 = td_vowelsMidSec_mean) -->
-<!-- # load library -->
-<!-- library(ggplot2) -->
-<!-- # create boxplot using ggplot -->
-<!-- ggplot(df, -->
-<!--        aes(sylType, meanF1)) + geom_boxplot() -->
-<!-- ``` -->
-<!-- ```{r, tutorial_boxplot, fig.cap = "Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in strong (S) or weak (W) syllables.", echo=FALSE, fig.width=6, fig.height=3} -->
-<!-- td_vowelsMidSec_mean = trapply(td_vowelsMidSec[, 1], -->
-<!--                                fun = mean, -->
-<!--                                simplify = T) -->
-<!-- df = data.frame(sylType = sl_sylType$labels, -->
-<!--                 meanF1 = td_vowelsMidSec_mean) -->
-<!-- library(ggplot2) -->
-<!-- p = ggplot(df, -->
-<!--         aes(sylType, meanF1)) -->
-<!-- p + geom_boxplot() -->
-<!-- ``` -->
+</div>
+<div id="vowel-height-as-a-function-of-syllable-types-strong-vs.weak-evaluation-and-statistical-analysis" class="section level2">
+<h2><span class="header-section-number">3.5</span> Vowel height as a function of syllable types (strong vs. weak): evaluation and statistical analysis</h2>
+<p>The above data exploration only dealt with the actual vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter does not distinguish between vowel classes but focuses on whether a vowel occurs in a strong or weak syllable. For the sake of this tutorial we will disregard the fact that the vowel class influences the syllable type and only focus on whether a vowel occurred in a syllable labeled <em>S</em> (strong) or <em>W</em> (weak). For data inspection purposes, R Example @ref(rexample:tutorial_dplotSylTyp) initially extracts the central 60% (<code>left.time = 0.2</code> and <code>right.time = 0.8</code>) of the formant trajectories from <code>td_vowels</code> using <code>dcut()</code> and displays them using <code>dplot()</code>. It should be noted that the call to <code>dplot()</code> uses the labels of the <code>sl_sylType</code> object as opposed to those of <code>sl_vowels</code>. This causes the <code>dplot()</code> functions to group the trajectories by their syllable type as opposed to their vowel class as displayed in Figure @ref(fig:tutorial_dplotSylTyp).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract central 60% from formant trajectories</span>
+td_vowelsMidSec =<span class="st"> </span><span class="kw">dcut</span>(td_vowels,
+                       <span class="dt">left.time =</span> <span class="fl">0.2</span>,
+                       <span class="dt">right.time =</span> <span class="fl">0.8</span>,
+                       <span class="dt">prop =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># plot first formant trajectories</span>
+<span class="kw">dplot</span>(<span class="dt">x =</span> td_vowelsMidSec[, <span class="dv">1</span>],
+      <span class="dt">labs =</span> sl_sylType$labels,
+      <span class="dt">normalise =</span> <span class="ot">TRUE</span>,
+      <span class="dt">average =</span> <span class="ot">TRUE</span>,
+      <span class="dt">xlab =</span> <span class="st">&quot;Normalized time&quot;</span>,
+      <span class="dt">ylab =</span> <span class="st">&quot;F1 (Hz)&quot;</span>)</code></pre></div>
+<div class="figure">
+<img src="The-EMU-SDMS-Manual_files/figure-html/tutorial_dplotSylTyp-1.png" alt="Ensemble averages of F1 contours of all tokens of the central 60\% of vowels grouped by syllable type (strong (S) vs. weak (W))." width="576" />
+<p class="caption">
+(#fig:tutorial_dplotSylTyp)Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by syllable type (strong (S) vs. weak (W)).
+</p>
+</div>
+<p>As can be seen in Figure @ref(fig:tutorial_dplotSylTyp), there seems to be a distinction in F1 trajectory height between vowels in strong syllables and weak syllables. R Example @ref(rexample:tutorial_boxplot) shows the code to produce a boxplot using the <code>ggplot2</code> package to further visually inspect the data (see Figure @ref(fig:tutorial_boxplot) for the plot produced by R Example @ref(rexample:tutorial_boxplot)).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use trapply to calculate the means of the 60%</span>
+<span class="co"># formant trajectories</span>
+td_vowelsMidSec_mean =<span class="st"> </span><span class="kw">trapply</span>(td_vowelsMidSec[, <span class="dv">1</span>],
+                               <span class="dt">fun =</span> mean,
+                               <span class="dt">simplify =</span> T)
+
+<span class="co"># create new data frame that contains the mean</span>
+<span class="co"># values and the corresponding labels</span>
+df =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">sylType =</span> sl_sylType$labels,
+                <span class="dt">meanF1 =</span> td_vowelsMidSec_mean)
+
+<span class="co"># load library</span>
+<span class="kw">library</span>(ggplot2)
+
+<span class="co"># create boxplot using ggplot</span>
+<span class="kw">ggplot</span>(df,
+       <span class="kw">aes</span>(sylType, meanF1)) +<span class="st"> </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<div class="figure">
+<img src="The-EMU-SDMS-Manual_files/figure-html/tutorial_boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in strong (S) or weak (W) syllables." width="576" />
+<p class="caption">
+(#fig:tutorial_boxplot)Boxplot produced using <code>ggplot2</code> to visualize the difference in F1 depending on whether the vowel occurs in strong (S) or weak (W) syllables.
+</p>
+</div>
 <!-- To confirm this, R Example \@ref(rexample:tutorial_stats1) presents a simple statistical analysis of the F1 values. First, a Shapiro-Wilk test for normality of the distributions of the F1 for both syllable types is carried out. As neither syllable type is normally distributed, the test for normality is negative in both cases, and a Wilcoxon rank sum test is performed. The density distributions (commented out `plot()` function calls in R Example \@ref(rexample:tutorial_stats1)) are displayed in Figure \@ref(fig:tutorial_stats1). -->
 <!-- ```{r, rexample:tutorial_stats1, rexample=TRUE} -->
 <!-- # replace vowel labels with labels of the -->
@@ -650,7 +654,7 @@ td_vowels_midpoint =<span class="st"> </span><span class="kw">dcut</span>(td_vow
 <!-- As shown by the result of `wilcox.test()` in R Example \@ref(rexample:tutorial_stats1), syllable type (*S* vs. *W*}) has a significant influence on the vowel's F1 (W=271210, p<0.001). Hence, the answer to the initially proposed question: *Given an annotated speech database, is vowel height (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?* is yes! -->
 </div>
 <div id="conclusion" class="section level2">
-<h2><span class="header-section-number">3.5</span> Conclusion</h2>
+<h2><span class="header-section-number">3.6</span> Conclusion</h2>
 <p>The tutorial given in this chapter gave an overview of what it is like working with the EMU-SDMS to try to solve a research question. As many of the concepts were only briefly explained, it is worth noting that explicit explanations of the various components and integral concepts are given in following chapters. Further, additional use cases that have been taken from the <code>emuR_intro</code> vignette can be found in Appendix @ref(app_chap:useCases). These use cases act as templates for various types of research questions and will hopefully aid the user in finding a solution similar to what she or he wishes to achieve.</p>
 
 </div>

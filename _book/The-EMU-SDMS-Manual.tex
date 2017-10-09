@@ -184,7 +184,7 @@
 \begin{itemize}
 \tightlist
 \item
-  Start up R.
+  Start up \texttt{R}.
 \item
   Enter \texttt{install.packages("emuR")} after the
   \texttt{\textgreater{}} prompt to install the package. (You will only
@@ -762,12 +762,12 @@ collection to the \texttt{emuDB} format. A precondition that all
 the same tiers. If this is not the case, yet there is an equal tier
 subset that is contained in all the TextGrid files, this equal subset
 may be chosen. For example, if all \texttt{.TextGrid} files contain only
-the tier \texttt{Phonetic:\textbackslash{}\ IntervalTier} the conversion
-will work. However, if a single \texttt{.TextGrid} of the collection has
-the additional tier \texttt{Tone:\ TextTier} the conversion will fail.
-In this case the conversion could be made to work by specifying the
-equal subset (e.g., \texttt{equalSubset\ =\ c("Phonetic")}) and passing
-it on to the \texttt{tierNames} function argument
+the tier \texttt{Phonetic:\ IntervalTier} the conversion will work.
+However, if a single \texttt{.TextGrid} of the collection has the
+additional tier \texttt{Tone:\ TextTier} the conversion will fail. In
+this case the conversion could be made to work by specifying the equal
+subset (e.g., \texttt{equalSubset\ =\ c("Phonetic")}) and passing it on
+to the \texttt{tierNames} function argument
 \texttt{convert\_TextGridCollection(...,\ tierNames\ =\ equalSubset,\ ...)}.
 As can be seen in Figure @ref(fig:msajc003\_praatTG), the TextGrid files
 provided by the demo data contain eleven tiers. To reduce the complexity
@@ -834,8 +834,8 @@ using the \texttt{summary()} function as shown in R Example
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     50e33f00-ae35-43d5-aa30-a84278c33a95 
-## Directory:    /private/var/folders/ll/pw5k9y6x64q5xqys350rz2ph0000gn/T/RtmpAoRAeK/myFirst_emuDB 
+## UUID:     5952d681-2c6f-4491-a65e-21dc8f15a1f6 
+## Directory:    /private/var/folders/ll/pw5k9y6x64q5xqys350rz2ph0000gn/T/RtmptzvsXC/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -1216,21 +1216,16 @@ Having this hierarchical annotation structure now allows us to formulate
 a query that helps answer the originally stated question: \emph{Given an
 annotated speech database, is vowel height (measured by its correlate,
 the first formant frequency) influenced by whether it appears in a
-strong or weak syllable?}. As stated in the question, we are interested
-in all the vowels in our database. R Example
+strong or weak syllable?}. To keep things simple, here we will focus
+only on the vowels \emph{i:}, \emph{o:} and \emph{V} (SAMPA annotation
+TODO: cite + mention SAMPA annotation above). R Example
 @ref(rexample:tutorial\_labelGroupQuery) shows how all the vowels in the
 \emph{myFirst} database are queried.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# query the label group on the Phonetic level}
-\CommentTok{# Note that the use of paste0() is optional, as}
-\CommentTok{# it is only used for formatting purposes}
-\NormalTok{sl_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"Phonetic == A | E | EC "}\NormalTok{,}
-                                   \StringTok{"| I | V | U | ai | ei | oi "}\NormalTok{,}
-                                   \StringTok{"| i@ | u@ | au | @u | @: "}\NormalTok{,}
-                                   \StringTok{"| @ | '=' | a: | e: | i: "}\NormalTok{,}
-                                   \StringTok{"| o: | u:"}\NormalTok{))}
+\NormalTok{sl_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle, }\StringTok{"Phonetic == i: | o: | V "}\NormalTok{)}
 
 \CommentTok{# show first entry of sl}
 \KeywordTok{head}\NormalTok{(sl_vowels, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
@@ -1239,7 +1234,7 @@ in all the vowels in our database. R Example
 
 \begin{verbatim}
 ## segment  list from database:  myFirst 
-## query was:  Phonetic == A | E | EC | I | V | U | ai | ei | oi | i@ | u@ | au | @u | @: | @ | ''='' | a: | e: | i: | o: | u: 
+## query was:  Phonetic == i: | o: | V  
 ##   labels   start     end session   bundle    level    type
 ## 1      V 187.425 256.925    0000 msajc003 Phonetic SEGMENT
 \end{verbatim}
@@ -1332,7 +1327,7 @@ package (see Chapter \ref{chap:wrassp} for details). R Example
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 81  4
+## [1] 12  4
 \end{verbatim}
 
 \begin{Shaded}
@@ -1346,25 +1341,43 @@ package (see Chapter \ref{chap:wrassp} for details). R Example
 ## trackdata from track: fm 
 ## index:
 ##  left right
-##     1     9
+##     1    27
 ## ftime:
 ##       start    end
-## [1,] 1422.5 1462.5
+## [1,] 1187.5 1317.5
 ## data:
-##         T1   T2   T3   T4
-## 1422.5 297 2041 2470 3383
-## 1427.5 290 2034 2409 3380
-## 1432.5 288 2044 2277 3380
-## 1437.5 288 1998 2143 3347
-## 1442.5 287 1727 2138 3315
-## 1447.5 287 1633 2119 3338
-## 1452.5 295 1600 2114 3361
-## 1457.5 292 1478 2112 3383
-## 1462.5 290 1339 2071 3372
+##         T1  T2   T3   T4
+## 1187.5 244 928 1827 3417
+## 1192.5 277 903 1832 3402
+## 1197.5 306 884 1851 3215
+## 1202.5 329 862 1873 3194
+## 1207.5 337 833 1897 3209
+## 1212.5 340 816 1913 3269
+## 1217.5 343 798 1931 3310
+## 1222.5 345 768 1942 3300
+## 1227.5 349 745 1936 3019
+## 1232.5 357 745 1930 3227
+## 1237.5 364 750 1931 3182
+## 1242.5 371 760 1934 3271
+## 1247.5 377 779 1941 3327
+## 1252.5 380 801 1946 3339
+## 1257.5 381 819 1953 3346
+## 1262.5 382 832 1961 3354
+## 1267.5 382 841 1973 2900
+## 1272.5 380 849 1993 2936
+## 1277.5 379 855 2016 3390
+## 1282.5 375 860 2031 3076
+## 1287.5 369 865 2054 3166
+## 1292.5 362 880 2079 3271
+## 1297.5 350 909 2120 3325
+## 1302.5 339 930 2179 3357
+## 1307.5 323 940 2198 3354
+## 1312.5 301 940 2180 3300
+## 1317.5 277 950 2228 3295
 \end{verbatim}
 
 As can be seen by the call to the \texttt{class()} function, the
-resulting object is of the type \texttt{trackdata} and has 81 entries.
+resulting object is of the type \texttt{trackdata} and has 12 entries.
 This corresponds to the number of rows contained in the segment lists
 extracted above (i.e., \texttt{nrow(sl\_vowels)}). This indicates that
 this object contains data for each of the segments that correspond to
@@ -1378,9 +1391,9 @@ estimates four formant values. We will only be concerned with the first
 @ref(rexample:tutorial\_dplot) shows a call to \texttt{emuDB}'s
 \texttt{dplot()} function which produces the plot displayed in Figure
 @ref(fig:tutorial\_dplot). The first call to the \texttt{dplot()}
-function plots all 81 first formant trajectories (achieved by indexing
+function plots all 12 first formant trajectories (achieved by indexing
 the first column i.e., \texttt{T1}:
-\texttt{x\ =\ td\_vowels{[},\ 1{]}}). The 81 trajectories are color
+\texttt{x\ =\ td\_vowels{[},\ 1{]}}). The 12 trajectories are color
 coded by vowel label
 (\texttt{labs\ =\ sl\_vowels\textbackslash{}\$labels}). To clean up the
 cluttered left plot, the second call to the \texttt{dplot()} function
@@ -1419,7 +1432,7 @@ trajectories. The left plot displays 81 trajectories while the right
 plot displays ensemble averages of each vowel.}
 \end{figure}
 
-Figure @ref(fig:tutorial\_dplot) gives an overview of the second formant
+Figure @ref(fig:tutorial\_dplot) gives an overview of the first formant
 trajectories by vowel class. For the purpose of data exploration and to
 get an idea of where the individual vowel classes lie on the F2 x F1
 plane, which indirectly provides information about vowel height and
@@ -1452,8 +1465,9 @@ to the temporal mid-point are cut from the trajectories.
 \KeywordTok{eplot}\NormalTok{(}\DataTypeTok{x =} \NormalTok{td_vowels_midpoint[,}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{],}
       \DataTypeTok{labs =} \NormalTok{sl_vowels$labels,}
       \DataTypeTok{dopoints =} \OtherTok{TRUE}\NormalTok{,}
-      \DataTypeTok{xlab=}\StringTok{"F2 (Hz)"}\NormalTok{,}
-      \DataTypeTok{ylab =} \StringTok{"F1 (Hz)"}\NormalTok{)}
+      \DataTypeTok{formant =} \NormalTok{T,}
+      \DataTypeTok{xlab=}\StringTok{"F1 (Hz)"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"F2 (Hz)"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1472,6 +1486,92 @@ necessarily applicable to the question posed at the beginning of this
 tutorial, the data exploration using the \texttt{dplot()} and
 \texttt{eplot()} functions can be very helpful tools for providing an
 overview of the data at hand.
+
+\section{Vowel height as a function of syllable types (strong vs.~weak):
+evaluation and statistical
+analysis}\label{vowel-height-as-a-function-of-syllable-types-strong-vs.weak-evaluation-and-statistical-analysis}
+
+The above data exploration only dealt with the actual vowels and
+disregarded the syllable type they occurred in. However, the question in
+the introduction of this chapter does not distinguish between vowel
+classes but focuses on whether a vowel occurs in a strong or weak
+syllable. For the sake of this tutorial we will disregard the fact that
+the vowel class influences the syllable type and only focus on whether a
+vowel occurred in a syllable labeled \emph{S} (strong) or \emph{W}
+(weak). For data inspection purposes, R Example
+@ref(rexample:tutorial\_dplotSylTyp) initially extracts the central 60\%
+(\texttt{left.time\ =\ 0.2} and \texttt{right.time\ =\ 0.8}) of the
+formant trajectories from \texttt{td\_vowels} using \texttt{dcut()} and
+displays them using \texttt{dplot()}. It should be noted that the call
+to \texttt{dplot()} uses the labels of the \texttt{sl\_sylType} object
+as opposed to those of \texttt{sl\_vowels}. This causes the
+\texttt{dplot()} functions to group the trajectories by their syllable
+type as opposed to their vowel class as displayed in Figure
+@ref(fig:tutorial\_dplotSylTyp).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# extract central 60% from formant trajectories}
+\NormalTok{td_vowelsMidSec =}\StringTok{ }\KeywordTok{dcut}\NormalTok{(td_vowels,}
+                       \DataTypeTok{left.time =} \FloatTok{0.2}\NormalTok{,}
+                       \DataTypeTok{right.time =} \FloatTok{0.8}\NormalTok{,}
+                       \DataTypeTok{prop =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# plot first formant trajectories}
+\KeywordTok{dplot}\NormalTok{(}\DataTypeTok{x =} \NormalTok{td_vowelsMidSec[, }\DecValTok{1}\NormalTok{],}
+      \DataTypeTok{labs =} \NormalTok{sl_sylType$labels,}
+      \DataTypeTok{normalise =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{average =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{xlab =} \StringTok{"Normalized time"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"F1 (Hz)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{The-EMU-SDMS-Manual_files/figure-latex/tutorial_dplotSylTyp-1.pdf}
+\caption{(\#fig:tutorial\_dplotSylTyp)Ensemble averages of F1 contours
+of all tokens of the central 60\% of vowels grouped by syllable type
+(strong (S) vs.~weak (W)).}
+\end{figure}
+
+As can be seen in Figure @ref(fig:tutorial\_dplotSylTyp), there seems to
+be a distinction in F1 trajectory height between vowels in strong
+syllables and weak syllables. R Example @ref(rexample:tutorial\_boxplot)
+shows the code to produce a boxplot using the \texttt{ggplot2} package
+to further visually inspect the data (see Figure
+@ref(fig:tutorial\_boxplot) for the plot produced by R Example
+@ref(rexample:tutorial\_boxplot)).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# use trapply to calculate the means of the 60%}
+\CommentTok{# formant trajectories}
+\NormalTok{td_vowelsMidSec_mean =}\StringTok{ }\KeywordTok{trapply}\NormalTok{(td_vowelsMidSec[, }\DecValTok{1}\NormalTok{],}
+                               \DataTypeTok{fun =} \NormalTok{mean,}
+                               \DataTypeTok{simplify =} \NormalTok{T)}
+
+\CommentTok{# create new data frame that contains the mean}
+\CommentTok{# values and the corresponding labels}
+\NormalTok{df =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{sylType =} \NormalTok{sl_sylType$labels,}
+                \DataTypeTok{meanF1 =} \NormalTok{td_vowelsMidSec_mean)}
+
+\CommentTok{# load library}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{# create boxplot using ggplot}
+\KeywordTok{ggplot}\NormalTok{(df,}
+       \KeywordTok{aes}\NormalTok{(sylType, meanF1)) +}\StringTok{ }\KeywordTok{geom_boxplot}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{The-EMU-SDMS-Manual_files/figure-latex/tutorial_boxplot-1.pdf}
+\caption{(\#fig:tutorial\_boxplot)Boxplot produced using
+\texttt{ggplot2} to visualize the difference in F1 depending on whether
+the vowel occurs in strong (S) or weak (W) syllables.}
+\end{figure}
 
 \section{Conclusion}\label{conclusion}
 
