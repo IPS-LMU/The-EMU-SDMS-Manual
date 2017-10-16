@@ -3,6 +3,8 @@
 [^1]: Sections of this chapter have been published in @winkelmann:2017aa
 
 ```{r, echo=FALSE, results='hide', message=FALSE}
+# clean up emuR_demoData (in case it exists)
+unlink(file.path(tempdir(), "emuR_demoData"), recursive = TRUE)
 # load the package
 library(emuR)
 # create demo data in directory provided by the tempdir() function
@@ -46,17 +48,6 @@ It is worth noting that throughout this manual R Example code snippets will be g
 As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the `emuDB` format; the R packages `wrassp` and `emuR`; and the web application, the `EMU-webApp`, which is EMU-SDMS's new graphical user interface (GUI) component. An overview of the EMU-SDMS's architecture and the components' relationships within the system is shown in Figure \@ref(fig:overview_archOver). In Figure \@ref(fig:overview_archOver), the `emuR` package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an `emuDB` (see Chapter \@ref(chap:annot_struct_mod)); it uses the `wrassp` package for signal processing purposes (see Chapter \@ref(chap:wrassp)); and it can serve `emuDB`s to the `EMU-webApp` (see Chapter \@ref(chap:emu-webApp)).
 
 
-<!-- \begin{figure}[hpt] -->
-<!-- \centering -->
-<!--   \input{pics/overview} -->
-<!--   \caption{Schematic architecture of the EMU-SDMS} -->
-<!-- \label{fig:overview_archOver} -->
-<!-- \end{figure} -->
-
-<!-- ```{r, fig:overview_archOver, fig.cap="Schematic architecture of the EMU-SDMS", echo=FALSE} -->
-<!-- knitr::include_graphics("pics/overview.pdf") -->
-<!-- ``` -->
-
 ![Schematic architecture of the EMU-SDMS.(\#fig:overview_archOver)](pics/overview.png)
 
 
@@ -79,8 +70,6 @@ Initially the user creates a reference to an `emuDB` by loading it into their cu
 
 Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems [e.g., @boersma:2011a, @wittenburg:2006a, @fromont:2012a, @rose:2006a, @mcauliffe:2016a]. To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat's tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure \@ref(overview_hybridAnnot). These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter \@ref(chap:annot_struct_mod) for further information on hierarchical annotations and Chapter \@ref(chap:querysys) on how to query these annotation structures).
 
-
-<!-- <<overview_hybridAnnot, fig.cap = "Example of a hybrid annotation combining time-based (\\textit{Phonetic} level) and hierarchical (\\textit{Phoneme}, \\textit{Syllable}, \\textit{Text} levels including the inter-level links) annotations.", echo=FALSE, fig.width=4.5, fig.height=3>>= -->
 ```{r, overview_hybridAnnot, fig.cap = "Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations.", echo=FALSE, fig.width=4.5, fig.height=3}
 library(ggplot2)
 
