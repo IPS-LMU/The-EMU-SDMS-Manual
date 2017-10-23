@@ -17,7 +17,7 @@
 
 ## Installing additional R-packages that are used throughout this document
 
-- `ggplot2` for visualization purposes: `install.packages("emuR")`
+- `ggplot2` for visualization purposes: `install.packages("ggplot2")`
 - `dplyr` for data manipulation: `install.packages("dplyr")`
 
 ## Version disclaimer

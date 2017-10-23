@@ -372,12 +372,11 @@ nrow(td_vowels)
 # segment list entry
 td_vowels$sl_rowIdx
 
-# show head of td_vowels
-head(td_vowels, n = 1)
-
+# show head of data belonging to sl_vowels[5,]
+head(td_vowels[td_vowels$sl_rowIdx == 5,], n = 1)
 ```
 
-As can be seen by the call to the `class()` function, the resulting object is of the type `emuRtrackdata` and has `r nrow(td_vowels)` rows. The `td_vowels$sl_rowIdx` column of the `td_vowels` object is vital as it indicates which row of `td_vowels` belongs to which row in `sl_vowels`. As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `head(td_vowels, n = 1)` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). R Example \@ref(rexample:tutorial_dplot) shows a call to `ggplot()` which produces the plot displayed in Figure \@ref(fig:tutorial_dplot). The call to the `ggplot()` function plots all `r nrow(sl_vowels)` first formant trajectories (achieved by `group = sl_rowIdx`). The `r nrow(sl_vowels)` trajectories are color coded by vowel label (`col = labels`).
+As can be seen by the call to the `class()` function, the resulting object is of the type `emuRtrackdata` and has `r nrow(td_vowels)` rows. The `td_vowels$sl_rowIdx` column of the `td_vowels` object is vital as it indicates which row of `td_vowels` belongs to which row in `sl_vowels`. As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `head(sl_vowels[td_vowels$sl_rowIdx == 5,], n = 1)` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). R Example \@ref(rexample:tutorial_dplot) shows a call to `ggplot()` which produces the plot displayed in Figure \@ref(fig:tutorial_dplot). The call to the `ggplot()` function plots all `r nrow(sl_vowels)` first formant trajectories (achieved by `group = sl_rowIdx`). The `r nrow(sl_vowels)` trajectories are color coded by vowel label (`col = labels`).
 
 
 ```{r, tutorial_dplot, fig.cap = "`dplot()` plots of F1 trajectories. The left plot displays 81 trajectories while the right plot displays ensemble averages of each vowel.", echo=TRUE, fig.width=6, fig.height=6}
@@ -436,7 +435,7 @@ ggplot(td_vowelsWithSylLabels) +
 As can be seen in Figure \@ref(fig:tutorial_dplotSylTyp), there seems to be a distinction in F1 trajectory height between vowels in strong syllables and weak syllables. R Example \@ref(rexample:tutorial_boxplot) shows the code to produce a boxplot using the `dplyr` and `ggplot2` packages to further visually inspect the data (see Figure \@ref(fig:tutorial_boxplot) for the plot produced by R Example \@ref(rexample:tutorial_boxplot)).
 
 
-```{r, tutorial_boxplot, fig.cap = "Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in strong (S) or weak (W) syllables.", echo=FALSE, fig.width=6, fig.height=3}
+```{r, tutorial_boxplot, fig.cap = "Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in strong (S) or weak (W) syllables.", echo=FALSE, fig.width=6, fig.height=3, results='hide', message=FALSE}
 
 library(dplyr)
 # calculate mean of F1 using dplyr
@@ -446,7 +445,8 @@ df = td_vowelsWithSylLabels %>%
 
 # produce boxplot
 ggplot(df, aes(labels, mean)) +
-  geom_boxplot()
+  geom_boxplot() +
+  labs(x = "syllable type", y = "F1 (Hz)")
 ```
 
 TODO: Simple statistical analysis

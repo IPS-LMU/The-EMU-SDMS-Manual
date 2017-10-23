@@ -24,7 +24,7 @@
 
 
 
-<meta name="date" content="2017-10-16">
+<meta name="date" content="2017-10-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -128,12 +128,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="the-query-system.html"><a href="the-query-system.html"><i class="fa fa-check"></i><b>5</b> The query system</a></li>
-<li class="chapter" data-level="6" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html"><i class="fa fa-check"></i><b>6</b> Toolchain SpeechRecorder — MAUS — EMU-SDMS</a><ul>
-<li class="chapter" data-level="6.1" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#what-do-speechrecorder-and-maus-do"><i class="fa fa-check"></i><b>6.1</b> What do SpeechRecorder and MAUS do?</a></li>
-<li class="chapter" data-level="6.2" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#different-types-of-prompts"><i class="fa fa-check"></i><b>6.2</b> Different types of prompts</a></li>
-<li class="chapter" data-level="6.3" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#combining-the-tools"><i class="fa fa-check"></i><b>6.3</b> Combining the tools</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#importing-recordings-and-transcriptions-into-emu"><i class="fa fa-check"></i><b>6.3.1</b> Importing recordings and transcriptions into Emu</a></li>
-<li class="chapter" data-level="6.3.2" data-path="toolchain-speechrecorder-maus-emu-sdms.html"><a href="toolchain-speechrecorder-maus-emu-sdms.html#feeding-the-data-into-maus"><i class="fa fa-check"></i><b>6.3.2</b> Feeding the data into MAUS</a></li>
+<li class="chapter" data-level="6" data-path="the-speechrecorder-maus-emu-sdms-toolchain.html"><a href="the-speechrecorder-maus-emu-sdms-toolchain.html"><i class="fa fa-check"></i><b>6</b> The SpeechRecorder — MAUS — EMU-SDMS Toolchain</a><ul>
+<li class="chapter" data-level="6.1" data-path="the-speechrecorder-maus-emu-sdms-toolchain.html"><a href="the-speechrecorder-maus-emu-sdms-toolchain.html#what-do-speechrecorder-and-maus-do"><i class="fa fa-check"></i><b>6.1</b> What do SpeechRecorder and MAUS do?</a></li>
+<li class="chapter" data-level="6.2" data-path="the-speechrecorder-maus-emu-sdms-toolchain.html"><a href="the-speechrecorder-maus-emu-sdms-toolchain.html#different-types-of-prompts"><i class="fa fa-check"></i><b>6.2</b> Different types of prompts</a></li>
+<li class="chapter" data-level="6.3" data-path="the-speechrecorder-maus-emu-sdms-toolchain.html"><a href="the-speechrecorder-maus-emu-sdms-toolchain.html#combining-the-tools"><i class="fa fa-check"></i><b>6.3</b> Combining the tools</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="the-speechrecorder-maus-emu-sdms-toolchain.html"><a href="the-speechrecorder-maus-emu-sdms-toolchain.html#importing-recordings-and-transcriptions-into-emu"><i class="fa fa-check"></i><b>6.3.1</b> Importing recordings and transcriptions into Emu</a></li>
+<li class="chapter" data-level="6.3.2" data-path="the-speechrecorder-maus-emu-sdms-toolchain.html"><a href="the-speechrecorder-maus-emu-sdms-toolchain.html#feeding-the-data-into-maus"><i class="fa fa-check"></i><b>6.3.2</b> Feeding the data into MAUS</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="placeholder.html"><a href="placeholder.html"><i class="fa fa-check"></i><b>7</b> Placeholder</a></li>
@@ -229,8 +229,8 @@ dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(path2direc
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show summary</span>
 <span class="kw">summary</span>(dbHandle)</code></pre></div>
 <pre><code>## Name:     myFirst 
-## UUID:     e301ddd2-e343-40b2-b700-f66d66c05cda 
-## Directory:    /private/var/folders/ll/pw5k9y6x64q5xqys350rz2ph0000gn/T/RtmpovGxSh/myFirst_emuDB 
+## UUID:     01f8a87a-fe82-412f-94b8-d0d0adb9c875 
+## Directory:    /private/var/folders/ll/pw5k9y6x64q5xqys350rz2ph0000gn/T/RtmpK18Zx5/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -465,19 +465,19 @@ td_vowels$sl_rowIdx</code></pre></div>
 ## [162] 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 11 11 11 11 11
 ## [185] 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 12 12 12 12 12
 ## [208] 12 12 12 12 12 12 12 12 12 12 12 12 12</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show head of td_vowels</span>
-<span class="kw">head</span>(td_vowels, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre></div>
-<pre><code>##    sl_rowIdx labels   start     end          utts
-## 1:         1      V 187.425 256.925 0000:msajc003
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show head of data belonging to sl_vowels[5,]</span>
+<span class="kw">head</span>(td_vowels[td_vowels$sl_rowIdx ==<span class="st"> </span><span class="dv">5</span>,], <span class="dt">n =</span> <span class="dv">1</span>)</code></pre></div>
+<pre><code>##    sl_rowIdx labels    start      end          utts
+## 1:         5     o: 1183.975 1322.425 0000:msajc012
 ##                                 db_uuid session   bundle start_item_id
-## 1: e301ddd2-e343-40b2-b700-f66d66c05cda    0000 msajc003            87
+## 1: 01f8a87a-fe82-412f-94b8-d0d0adb9c875    0000 msajc012           103
 ##    end_item_id    level start_item_seq_idx end_item_seq_idx    type
-## 1:          87 Phonetic                  2                2 SEGMENT
-##    sample_start sample_end sample_rate times_rel times_orig T1   T2   T3
-## 1:         3749       5138       20000         0      187.5  0 1293 2424
+## 1:         103 Phonetic                 15               15 SEGMENT
+##    sample_start sample_end sample_rate times_rel times_orig  T1  T2   T3
+## 1:        23680      26448       20000         0     1187.5 244 928 1827
 ##      T4
-## 1: 3429</code></pre>
-<p>As can be seen by the call to the <code>class()</code> function, the resulting object is of the type <code>emuRtrackdata</code> and has 220 rows. The <code>td_vowels$sl_rowIdx</code> column of the <code>td_vowels</code> object is vital as it indicates which row of <code>td_vowels</code> belongs to which row in <code>sl_vowels</code>. As the columns <code>T1</code>, <code>T2</code>, <code>T3</code>, <code>T4</code> of the printed output of <code>head(td_vowels, n = 1)</code> suggest, the <code>forest</code> function estimates four formant values. We will only be concerned with the first (column <code>T1</code>) and second (column <code>T2</code>). R Example @ref(rexample:tutorial_dplot) shows a call to <code>ggplot()</code> which produces the plot displayed in Figure @ref(fig:tutorial_dplot). The call to the <code>ggplot()</code> function plots all 12 first formant trajectories (achieved by <code>group = sl_rowIdx</code>). The 12 trajectories are color coded by vowel label (<code>col = labels</code>).</p>
+## 1: 3417</code></pre>
+<p>As can be seen by the call to the <code>class()</code> function, the resulting object is of the type <code>emuRtrackdata</code> and has 220 rows. The <code>td_vowels$sl_rowIdx</code> column of the <code>td_vowels</code> object is vital as it indicates which row of <code>td_vowels</code> belongs to which row in <code>sl_vowels</code>. As the columns <code>T1</code>, <code>T2</code>, <code>T3</code>, <code>T4</code> of the printed output of <code>head(sl_vowels[td_vowels$sl_rowIdx == 5,], n = 1)</code> suggest, the <code>forest</code> function estimates four formant values. We will only be concerned with the first (column <code>T1</code>) and second (column <code>T2</code>). R Example @ref(rexample:tutorial_dplot) shows a call to <code>ggplot()</code> which produces the plot displayed in Figure @ref(fig:tutorial_dplot). The call to the <code>ggplot()</code> function plots all 12 first formant trajectories (achieved by <code>group = sl_rowIdx</code>). The 12 trajectories are color coded by vowel label (<code>col = labels</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(td_vowels) +
 <span class="st">  </span><span class="kw">aes</span>(<span class="dt">x=</span>times_rel, <span class="dt">y=</span>T1, <span class="dt">col=</span>labels, <span class="dt">group=</span>sl_rowIdx) +
 <span class="st">  </span><span class="kw">geom_line</span>() +
@@ -507,14 +507,6 @@ td_vowels$sl_rowIdx</code></pre></div>
 </p>
 </div>
 <p>As can be seen in Figure @ref(fig:tutorial_dplotSylTyp), there seems to be a distinction in F1 trajectory height between vowels in strong syllables and weak syllables. R Example @ref(rexample:tutorial_boxplot) shows the code to produce a boxplot using the <code>dplyr</code> and <code>ggplot2</code> packages to further visually inspect the data (see Figure @ref(fig:tutorial_boxplot) for the plot produced by R Example @ref(rexample:tutorial_boxplot)).</p>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
 <div class="figure">
 <img src="The-EMU-SDMS-Manual_files/figure-html/tutorial_boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in strong (S) or weak (W) syllables." width="576" />
 <p class="caption">

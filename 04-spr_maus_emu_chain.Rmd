@@ -1,19 +1,19 @@
-# Toolchain SpeechRecorder — MAUS — EMU-SDMS
+# The  SpeechRecorder — MAUS — EMU-SDMS Toolchain
 
-Most phonetic research projects involve this workflow:
+Most phonetic research projects loosely adhere to the following work flow:
 
 1. Record speech
-1. Annotate speech using automatic tools
-1. Check and correct the generated annotations by hand
-1. Analyze speech (connecting the primary data with annotations and derived signals)
+2. Automatically annotate speech (using ASR / forced alignment techniques)
+3. Manually check and correct the automatically generated annotations
+4. Analyze speech (connecting the primary data with annotations and derived and complementary signals)
 
-The EMU Speech Database Management System is focused on steps 3 and 4 of this workflow. For the first two steps, it can very usefully be complemented by two other tools: [SpeechRecorder](http://www.speechrecorder.org/) and MAUS (or, more broadly speaking — and more correctly, for that matter — the [BAS Web Services](https://clarin.phonetik.uni-muenchen.de/BASWebServices)). This chapter introduces how the tools can be combined — in a systematic way, with as little fuss as possible.
+The EMU Speech Database Management System (EMU-SDMS) is largely focused on steps 3 and 4 of this work flow. However, two other tools can be used in conjunction with the EMU-SDMS to complete the work flow: [SpeechRecorder](http://www.speechrecorder.org/) and MAUS (or, more broadly speaking — and more correctly, for that matter — the [BAS Web Services](https://clarin.phonetik.uni-muenchen.de/BASWebServices)). This chapter describes how these tools can be systematically combined.
 
 ## What do SpeechRecorder and MAUS do?
 
 “SpeechRecorder is a platform independent audio recording software customized to the requirements of speech recordings” (http://www.speechrecorder.org/). To this end, SpeechRecorder lets you define prompts that participants will read (or otherwise react to) while you are recording them. At the end of a session, instead of one large recording of the whole session, you have a set of smaller audio recordings, each one representing a single prompt.
 
-MAUS (Munich AUtomatic Segmentation) processes audio recordings with corresponding orthographic transcriptions, and outputs (1) a corresponding phonetic transcription and (2) a segmentation of the signal into individual speech sounds. As such, MAUS is a part of the [BAS Web Services](https://clarin.phonetik.uni-muenchen.de/BASWebServices). ^[Strictly speaking, MAUS is used in conjunction with G2P and possibly Chunker to achieve this result. The whole package is often referred to as MAUS, however.]
+MAUS (Munich AUtomatic Segmentation) processes audio recordings with corresponding orthographic transcriptions, and outputs (1) a corresponding phonetic transcription and (2) a segmentation of the signal into individual speech sounds. As such, MAUS is a part of the [BAS Web Services](https://clarin.phonetik.uni-muenchen.de/BASWebServices). ^[Strictly speaking, MAUS is used in conjunction with G2P and possibly the Chunker service to achieve this result. The whole package is often referred to as MAUS, however.]
 
 ## Different types of prompts
 
@@ -25,34 +25,28 @@ For all cases besides read speech, transcriptions have to be prepared. For read 
 
 ## Combining the tools
 
-The order of the processing steps is unchangeable: The files have to be recorded first, then annotated and then analyzed.
-
-However, there are different ways of passing data around between the tools. For example SpeechRecorder might *export* files into emuDB format or the EMU-SDMS might *import* files stored in SpeechRecorder’s format. After all, they are separate tools and can be used individually (although the combination makes great sense).
-
-Moreover, sometimes a database grows, and some new files are recorded while others have already been annotated or analyzed (which challenges the “unchangeable order of processing steps”).
-
-We can see now that we have to convert our data between different formats. We want to benefit from all tools but keep the conversion work down to a minimum. In this section, we explain the (currently) best way to do this. We will import SpeechRecorder’s recordings and prompts into the EMU-SDMS and then use emuR to send the data to MAUS and other BAS Web Services.
+The order of the processing steps is immutable: Initially the files have to be recorded, then annotated and then analyzed. However, there are different strategies of passing data between the various tools. For example SpeechRecorder could *export* files into the `emuDB` format (future feature of SpeechRecorder - see online road map) or alternatively the EMU-SDMS could *import* files stored in SpeechRecorder’s format. After all, they are separate tools and can be used individually (although combining them makes a lot of sense). In this section, we describe the best current practice to combine these tools that tries to keep the conversion work down to a minimum. We will import SpeechRecorder’s recordings and prompts into the EMU-SDMS and then use `emuR` to send the data to MAUS and other BAS Web Services.
 
 ### Importing recordings and transcriptions into Emu
 
 #### Using the import_speechRecorder() function
 
-The ```import_speechRecorder()``` function is in the making, but unfortunately not finished yet. We therefore have to resort to the second-best way of importing SpeechRecorder’s results into Emu:
+The ```import_speechRecorder()``` function is in the making, but unfortunately not finished yet. We therefore have to resort to a different strategy for importing SpeechRecorder’s results into Emu:
 
-#### Using intermediary text files
+#### Using intermediary text (`.txt`) files
 
-SpeechRecorder, per default, saves one .wav file for each prompt. With additional settings, it will save a .txt file containing the corresponding prompt along with each .wav file. This is great because it is exactly what MAUS needs as its input.
+SpeechRecorder, per default, saves one `.wav` file for each prompt. With additional settings, it can be made to save an additional `.txt` file containing the corresponding prompt along with each `.wav` file. This is great because it is exactly what MAUS needs as its input.
 
-The following options must be configured *before recordings are made*. Note that parts of SpeechRecorder’s user interface are in German:
+The following options must be configured *before recordings are made*:
 
-- Under “Projekt / Einstellungen... / Annotation”:
-    - Under “Persist”, tick the checkbox that says “Simple text loader writer for annotation template for MAUS processing”
-    - Under “Auto annotation”, tick the checkbox that says “Prompt template auto annotator” (note that the two checkboxes are very similar. Make sure to tick the right one.)
+- Under “Project / Preferences... / Annotation”:
+    - Under “Persist”, tick the check-box that says “Simple text loader writer for annotation template for MAUS processing”
+    - Under “Auto annotation”, tick the check-box that says “Prompt template auto annotator” (note that the two checkboxes are very similar. Make sure to tick the right one.)
 - In your script:
     - If you edit the XML file directly: Make sure each of your ```<mediaitem>``` elements has the attribute ```annotationTemplate="true"```
-    - If you use the integrated script editor: Make sure to tick the checkbox “Use as annotation template” for *every recording*.
+    - If you use the integrated script editor: Make sure to tick the check-box “Use as annotation template” for *every recording*.
 
-Now, after your recording session, you will have audio and text files. In emuR, this combination is called a *txt collection*. We will thus use the function ```convert_txtCollection```, to import SpeechRecorder’s files into Emu’s format. In the following example, we will use the sample txt collection included with the emuR package.
+After your recording session, you will have audio and text files. In `emuR`, this combination is called a *txt collection*. Hence, we will use the function ```convert_txtCollection()``` to convert the *txt collection* produced by SpeechRecorder’s into the `emuDB` format. In the following example, we will use the sample txt collection included with the emuR package.
 
 ```{r results='hide', message=F, warning=F}
 # Load the emuR package
@@ -71,7 +65,7 @@ convert_txtCollection(dbName = "myEmuDatabase",
 dbHandle = load_emuDB(file.path(tempdir(), "myEmuDatabase_emuDB"))
 ```
 
-Now, you have an Emu database. You can inspect it using
+Now, we have an Emu database. You can inspect it using
 
 ```{r results='hide'}
 summary(dbHandle)
@@ -83,13 +77,13 @@ or
 serve(dbHandle)
 ```
 
-The database contains all our recordings, and exactly one type of annotation: orthographic transcription. No phonetic transcription, no segmentation. The next section will cover that.
+The database contains all of our recordings, and exactly one type of annotation: orthographic transcription. No phonetic transcription, no segmentation. The next section is concerned with automatically adding these to the `emuDB`.
 
 ### Feeding the data into MAUS
 
-The .wav and .txt files could have been uploaded on the [BAS web site](https://clarin.phonetik.uni-muenchen.de/BASWebServices/#!/services/Pipeline), but we will do it using emuR. This is generally less error-prone and requires less manual work. Moreover, since it is a scripted way of doing things, we can reproduce it reliably.
+The `.wav` and `.txt` files could have been uploaded on the [BAS web site](https://clarin.phonetik.uni-muenchen.de/BASWebServices/#!/services/Pipeline), but we will do it using `emuR`. This is generally less error-prone and requires less manual work. Moreover, since it is a scripted way of doing things, we can reproduce it reliably.
 
-To process the data, we make use of several of emuR’s functions called ```runBASwebservice_...```. They will upload the data to WebMAUS and accompanying services and save the results directly inside your existing emuDB (this of course takes some time, depending on the size of your database and the speed of your internet connection).
+To process the data, we make use of several of emuR’s functions called ```runBASwebservice_...```. They will upload the data to WebMAUS and accompanying services and save the results directly inside our existing `emuDB` (this of course takes some time, depending on the size of your database and the speed of your internet connection).
 
 ```{r eval=FALSE}
 runBASwebservice_g2pForTokenization(handle = dbHandle,
@@ -116,7 +110,7 @@ serve(db)
 
 to inspect the database with the new annotations. This time, it includes segmentation into words and phonemes, canonical phonetic transcription and realized phonetic transcription.
 
-This chapter described the current best practice of combining SpeechRecorder, MAUS and the EMU-SDMS to fit a typical phonetic project workflow.
+This chapter described the current best practice of combining SpeechRecorder, MAUS and the EMU-SDMS to fit a typical phonetic project work flow.
 
 ```{r echo=FALSE, results='hide', message=FALSE}
 # clean up emuR_demoData
