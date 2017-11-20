@@ -1,4 +1,8 @@
-%!TEX root = ../diss.tex
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\begin{document}
 \begin{tikzpicture}[scale=0.2]
 
 \begin{scope}%[xscale=-1]
@@ -35,11 +39,11 @@
 \node[cloud, aspect=2, draw=black, text width=4cm] at (510.00mm,-900.00mm){It all looks the same to me!};
 
 % icons
-\node (ch) at (320.00mm,-737.00mm) [] {\pgftext{\includegraphics[scale=0.015]{pics/2000px-Google_Chrome_icon.png}}};
+\node (ch) at (320.00mm,-737.00mm) [] {\pgftext{\includegraphics[scale=0.015]{2000px-Google_Chrome_icon.png}}};
 \node (slash1) at (360.00mm,-737.00mm) [] {/};
-\node (ff) at (400.00mm,-737.00mm) [] {\pgftext{\includegraphics[scale=0.06]{pics/firefox-512.png}}};
+\node (ff) at (400.00mm,-737.00mm) [] {\pgftext{\includegraphics[scale=0.06]{firefox-512.png}}};
 \node (slash2) at (440.00mm,-737.00mm) [] {/};
-\node (safari) at (480.00mm,-737.00mm) [] {\pgftext{\includegraphics[scale=0.050]{pics/safari.png}}};
+\node (safari) at (480.00mm,-737.00mm) [] {\pgftext{\includegraphics[scale=0.050]{safari.png}}};
 \node (slashdots) at (530.00mm,-737.00mm) [] {/ \dots};
 
 
@@ -54,3 +58,4 @@
 % \node[ellipse, draw, text width = 3cm] (into_a) at (-0.00mm, -200.00mm) {$\sqrt{-1} = i$};
 
 \end{tikzpicture}
+\end{document}
