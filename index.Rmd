@@ -1,5 +1,7 @@
 --- 
+knit: "bookdown::render_book"
 title: "The EMU-SDMS Manual"
+author: ["Raphael Winkelmann"]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -12,10 +14,6 @@ github-repo: IPS-LMU/The-EMU-SDMS-Manual
 description: "The EMU-SDMS Manual"
 ---
 
+# Welcome {-}
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+Welcome to the EMU-SDMS Manual!

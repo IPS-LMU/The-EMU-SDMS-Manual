@@ -1,4 +1,8 @@
-book_filename: "The-EMU-SDMS-Manual"
-language:
-  ui:
-    chapter_name: "Chapter "
+new_session: yes
+
+rmd_files: [
+  "index.Rmd",
+  "softw_inst.Rmd"
+]
+
+# before_chapter_script: "_common.R"
