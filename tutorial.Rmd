@@ -71,7 +71,7 @@ knitr::include_graphics("pics/msajc003_praat.png")
 
 ## Converting the TextGrid collection
 
-The \texttt{convert\_TextGridCollection()} function converts a TextGrid collection to the `emuDB` format. A precondition that all \texttt{.TextGrid} files have to fulfill is that they must all contain the same tiers. If this is not the case, yet there is an equal tier subset that is contained in all the TextGrid files, this equal subset may be chosen. For example, if all \texttt{.TextGrid} files contain only the tier \texttt{Phonetic:\ IntervalTier} the conversion will work. However, if a single \texttt{.TextGrid} of the collection has the additional tier \texttt{Tone:\ TextTier} the conversion will fail. In this case the conversion could be made to work by specifying the equal subset (e.g., \texttt{equalSubset = c("Phonetic")}) and passing it on to the \texttt{tierNames} function argument \texttt{convert\_TextGridCollection(..., tierNames = equalSubset, ...)}. As can be seen in Figure \ref{fig:msajc003_praatTG}, the TextGrid files provided by the demo data contain eleven tiers. To reduce the complexity of the annotations for this tutorial we will only convert the tiers \textit{Word} (content: \textit{C} vs. function: \textit{F} word annotations), \textit{Syllable} (strong: \textit{S} vs. weak: \textit{W} syllable annotations), \textit{Phoneme} (phoneme level annotations) and \textit{Phonetic} (phonetic annotations using \ac{sampa} symbols - \cite{wells:1997aa}) using the \texttt{tierNames} parameter. This conversion can be seen in R Example \ref{rexample:tutorial_tgconv}.
+The `convert_TextGridCollection()` function converts a TextGrid collection to the `emuDB` format. A precondition that all `.TextGrid` files have to fulfill is that they must all contain the same tiers. If this is not the case, yet there is an equal tier subset that is contained in all the TextGrid files, this equal subset may be chosen. For example, if all `.TextGrid` files contain only the tier `Phonetic: IntervalTier` the conversion will work. However, if a single `.TextGrid` of the collection has the additional tier `Tone: TextTier` the conversion will fail. In this case the conversion could be made to work by specifying the equal subset (e.g., `equalSubset = c("Phonetic")`) and passing it on to the `tierNames` function argument `convert_TextGridCollection(..., tierNames = equalSubset, ...)`. As can be seen in Figure \@ref(fig:msajc003-praatTG), the TextGrid files provided by the demo data contain eleven tiers. To reduce the complexity of the annotations for this tutorial we will only convert the tiers *Word* (content: *C* vs. function: *F* word annotations), *Syllable* (strong: *S* vs. weak: *W* syllable annotations), *Phoneme* (phoneme level annotations) and *Phonetic* (phonetic annotations using Speech Assessment Methods Phonetic Alphabet (SAMPA) symbols - @wells:1997aa) using the `tierNames` parameter. This conversion can be seen in R Example \@ref(rexample:tutorial_tgconv).
 
 
 ```{r rexample:tutorial_tgconv, results='hide', message=FALSE, rexample=TRUE}
@@ -180,7 +180,7 @@ As demonstrated in R Example \@ref(rexample:tutorial_simpleQuery), the result of
 
 The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: *Query all Phonetic items that contain the label "n" and are part of a content word*. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter \@ref(chap:annot-struct-mod). For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure \@ref(fig:tutorial-emuWebAppMyFirst) to a hierarchical form as displayed in Figure \@ref(fig:tutorial-violentlyHier), where only the *Phonetic* level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.
 
-```{r tutorial-violentlyHier, fig.cap = "Example of a hierarchical annotation of the content (==\\textit{C}) word \\textit{violently} belonging to the \\textit{msajc012} bundle of the \\textit{myFirst} demo \`emuDB`.", echo=FALSE, fig.width=4.5, fig.height=3}
+```{r tutorial-violentlyHier, fig.cap = "Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`.", echo=FALSE, fig.width=4.5, fig.height=3}
 library(ggplot2)
 ae = load_emuDB(file.path(tempdir(), "emuR_demoData", "ae_emuDB"), verbose = F)
 
@@ -290,7 +290,7 @@ autobuild_linkFromTimes(dbHandle,
 ```
 
 
-```{r tutorial-simpleAnnotStruct, fig.cap="Schematic annotation structure of the `emuDB` after calling the autobuild function in R Example \\@ref(rexample:tutorial-autobuild).", fig.align="center", echo=FALSE, out.width = "50%"}
+```{r tutorial-simpleAnnotStruct, fig.cap="Schematic annotation structure of the `emuDB` after calling the autobuild function in R Example @ref(rexample:tutorial-autobuild).", fig.align="center", echo=FALSE, out.width = "50%"}
 knitr::include_graphics("pics/tut_simpleAnnotStruct.png")
 ```
 
@@ -459,7 +459,7 @@ eplot(x = td_vowels_midpoint[,1:2],
       )
 ```
 
-```{r tutorial-eplot, results='hide', message=FALSE, fig.cap = "95\\% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments.", echo=FALSE, fig.width=6, fig.height=6}
+```{r tutorial-eplot, results='hide', message=FALSE, fig.cap = "95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments.", echo=FALSE, fig.width=6, fig.height=6}
 td_vowels_midpoint = dcut(td_vowels,
                           left.time = 0.5,
                           prop = TRUE)
@@ -600,7 +600,7 @@ shapiro.test(df[df$wordType == "C",]$meanF1)
 wilcox.test(meanF1 ~ wordType, data = df)
 ```
 
-```{r tutorial-stats1, fig.cap = "Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example \\@ref(rexample:tutorial_stats1).", echo=FALSE, fig.width=6, fig.height=3}
+```{r tutorial-stats1, fig.cap = "Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1).", echo=FALSE, fig.width=6, fig.height=3}
 # two plots next to each other
 par(mfrow = c(1,2))
 
