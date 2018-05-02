@@ -1,4 +1,4 @@
-This repository hold the sources for the EMU-SDMS manual: [https://ips-lmu.github.io/The-EMU-SDMS-Manual/](https://ips-lmu.github.io/The-EMU-SDMS-Manual/)
+This repository holds the sources for the EMU-SDMS manual: [https://ips-lmu.github.io/The-EMU-SDMS-Manual/](https://ips-lmu.github.io/The-EMU-SDMS-Manual/)
 
 # For Developers:
 
