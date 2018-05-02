@@ -4,14 +4,12 @@ title: "The EMU-SDMS Manual"
 author: ["Raphael Winkelmann"]
 description: "The EMU-SDMS Manual"
 url: 'https\://ips-lmu.github.io/The-EMU-SDMS-Manual/'
+github-repo: IPS-LMU/The-EMU-SDMS-Manual
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 bibliography: [book.bib]
-biblio-style: apalike
 link-citations: yes
-fig_caption: yes
-github-repo: IPS-LMU/The-EMU-SDMS-Manual
 ---
 
 # Welcome {-}
@@ -21,7 +19,9 @@ github-repo: IPS-LMU/The-EMU-SDMS-Manual
 knitr::include_graphics("pics/EMU-webAppIcon-roundCorners.png")
 ```
 
-Welcome to the EMU-SDMS Manual!
+Welcome to the EMU-SDMS Manual! 
+
+<span style="color:red"> Disclaimer: This manual is still in the making! It will eventually replace all the vignettes of emuR, wrassp as well as the EMU-webApps own documentation. This manual is intended to consolidate all of this information in one easy to find location that can easily be updated.</span>
 
 
 ```{r setup, include=FALSE}
@@ -31,6 +31,5 @@ knit_hooks$set(rexample = function(before, options, envir) {
   # print("sdjfklsajdflaksdjfklsjdkl-----")
   # if (before) sprintf('\\begin{rexample}\\label{%s}\\hfill{}', options$label) else '\\end{rexample}'
   # if (before) sprintf('<span id=%s></span>', options$label)
-  if (before) sprintf('<h1>%s</h1>', "HI MUM")
 })
 ```

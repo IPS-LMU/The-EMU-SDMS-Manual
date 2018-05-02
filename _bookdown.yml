@@ -2,8 +2,12 @@ new_session: yes
 
 rmd_files: [
   "index.Rmd",
+
   "softw_inst.Rmd",
-  "overview.Rmd"
+  "overview.Rmd",
+  "tutorial.Rmd",
+
+  "bibliography.Rmd"
 ]
 
 # before_chapter_script: "_common.R"
