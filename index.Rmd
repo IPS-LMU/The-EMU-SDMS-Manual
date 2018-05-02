@@ -2,19 +2,24 @@
 knit: "bookdown::render_book"
 title: "The EMU-SDMS Manual"
 author: ["Raphael Winkelmann"]
-date: "`r Sys.Date()`"
+description: "The EMU-SDMS Manual"
+url: 'https\://ips-lmu.github.io/The-EMU-SDMS-Manual/'
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 fig_caption: yes
 github-repo: IPS-LMU/The-EMU-SDMS-Manual
-description: "The EMU-SDMS Manual"
 ---
 
 # Welcome {-}
+
+
+```{r fig.align="center", echo=FALSE, out.width = "35%"}
+knitr::include_graphics("pics/EMU-webAppIcon-roundCorners.png")
+```
 
 Welcome to the EMU-SDMS Manual!
 

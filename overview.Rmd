@@ -8,7 +8,6 @@ library(knitr)
 # chunks labels
 knit_hooks$set(rexample = function(before, options, envir) {
   if (before) sprintf('<h3>%s</h3>', options$label)
-   # if (before) "```{theorim}" else "```"
 })
 ```
 
