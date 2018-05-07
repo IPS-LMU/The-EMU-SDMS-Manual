@@ -16,21 +16,11 @@ output: bookdown::gitbook
 # Welcome {-}
 
 
-```{r fig.align="center", echo=FALSE, out.width = "35%"}
-knitr::include_graphics("pics/EMU-webAppIcon-roundCorners.png")
-```
+<img src="pics/EMU-webAppIcon-roundCorners.png" width="35%" style="display: block; margin: auto;" />
 
 Welcome to the EMU-SDMS Manual! 
 
 <span style="color:red"> Disclaimer: This manual is still in the making! It will eventually replace all the vignettes of emuR, wrassp as well as the EMU-webApp's own documentation. This manual is intended to consolidate all of this information in one easy to find location that can easily be updated as new features are added.</span>
 
 
-```{r setup, include=FALSE}
-library(knitr)
-# chunks labels
-knit_hooks$set(rexample = function(before, options, envir) {
-  # print("sdjfklsajdflaksdjfklsjdkl-----")
-  # if (before) sprintf('\\begin{rexample}\\label{%s}\\hfill{}', options$label) else '\\end{rexample}'
-  # if (before) sprintf('<span id=%s></span>', options$label)
-})
-```
+

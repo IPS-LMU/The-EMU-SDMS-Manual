@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The EMU-SDMS Manual</title>
+  <meta name="description" content="The EMU-SDMS Manual">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The EMU-SDMS Manual" />
+  <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="The EMU-SDMS Manual" />
+  
+
+<meta name="author" content="Raphael Winkelmann">
+
+
+<meta name="date" content="2018-04-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="extract-symbolic-information-we-are-interessted-in.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The EMU-SDMS Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.2" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.2</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-system-architecture-and-default-workflow"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="extract-symbolic-information-we-are-interessted-in.html"><a href="extract-symbolic-information-we-are-interessted-in.html"><i class="fa fa-check"></i><b>3</b> extract symbolic information we are interessted in</a></li>
+<li class="chapter" data-level="4" data-path="extract-the-according-sample-values.html"><a href="extract-the-according-sample-values.html"><i class="fa fa-check"></i><b>4</b> extract the according sample values</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="extract-the-according-sample-values" class="section level1">
+<h1><span class="header-section-number">4</span> extract the according sample values</h1>
+<p>td = get_trackdata(ae, sl_text, “MEDIAFILE_SAMPLES”, resultType = “emuRtrackdata”, verbose = F)
+# create sample numbers
+sampleNrs = seq(sl_text<span class="math inline">\(sample_start, sl_text\)</span>sample_end, 1)</p>
+<p>all_sl = list(sl_phonetic, sl_phoneme, sl_syllable, sl_text)
+all_parents = list(sl_phonetic_parents, sl_phoneme_parents, sl_syllable_parents)</p>
+<p>lab_txt_size = 7
+level_txt_size = 7</p>
+<p>hierta_plot = ggplot(td, aes(x=sampleNrs, y=T1)) + geom_line(colour=“#E7E7E7”) + theme_bw()</p>
+<p>hierta_plot = hierta_plot + theme(axis.line=element_blank(),axis.text.x=element_blank(),
+axis.text.y=element_blank(),axis.ticks=element_blank(),
+axis.title.x=element_blank(),
+axis.title.y=element_blank(),legend.position=“none”,
+panel.background=element_blank(),panel.grid.major=element_blank(),
+panel.grid.minor=element_blank(),plot.background=element_blank())</p>
+<p>for(i in 1:length(all_sl)){
+cur_sl = all_sl[[i]]</p>
+<p>minMaxDist = max(td<span class="math inline">\(T1) - min(td\)</span>T1)
+propMinMaxDist = minMaxDist * 1/length(all_sl)</p>
+<p>cur_y_min = min(td$T1) + (i-1)*propMinMaxDist
+# plot with segments
+if(i %% 2 == 0){
+levelNameX = max(sampleNrs)
+levelVjust = 1.5
+}else{
+levelNameX = min(sampleNrs)
+levelVjust = -0.5
+}</p>
+<p>hierta_plot = hierta_plot + annotate(“text”, x = (cur_sl<span class="math inline">\(sample_start + (cur_sl\)</span>sample_end - cur_sl<span class="math inline">\(sample_start)/2), y = cur_y_min + propMinMaxDist/2, label = paste0(&quot;\\textit{&quot;, cur_sl\)</span>labels, “}”)) +
+annotate(“text”, x = levelNameX, y = cur_y_min + propMinMaxDist/2, label = paste0(“\textit{”, unique(cur_sl$level), “}”), angle=90, vjust=levelVjust)</p>
+<p># first level -&gt; draw time lines
+if(i == 1){
+hierta_plot = hierta_plot + annotate(“segment”, x = cur_sl<span class="math inline">\(sample_start, y = cur_y_min + propMinMaxDist, xend = cur_sl\)</span>sample_start, yend = cur_y_min + propMinMaxDist / 2, colour=“#38363e”) +
+annotate(“segment”, x = cur_sl<span class="math inline">\(sample_start, y = cur_y_min + propMinMaxDist * 3/4, xend = cur_sl\)</span>sample_start + (cur_sl<span class="math inline">\(sample_end - cur_sl\)</span>sample_start)/2, yend = cur_y_min + propMinMaxDist * 3/4, colour=“#38363e”) +
+annotate(“segment”, x = cur_sl<span class="math inline">\(sample_start + (cur_sl\)</span>sample_end - cur_sl<span class="math inline">\(sample_start)/2, y = cur_y_min + propMinMaxDist * 3/4, xend = cur_sl\)</span>sample_start + (cur_sl<span class="math inline">\(sample_end - cur_sl\)</span>sample_start)/2, yend = cur_y_min + propMinMaxDist * 5/8, colour=“#38363e”) +
+annotate(“segment”, x = cur_sl<span class="math inline">\(sample_end, y = cur_y_min + propMinMaxDist/2, xend = cur_sl\)</span>sample_end, yend = cur_y_min, colour=“#888888”) +
+annotate(“segment”, x = cur_sl<span class="math inline">\(sample_end, y = cur_y_min + propMinMaxDist * 1/4, xend = cur_sl\)</span>sample_start + (cur_sl<span class="math inline">\(sample_end - cur_sl\)</span>sample_start)/2, yend = cur_y_min + propMinMaxDist * 1/4, colour=“#888888”) +
+annotate(“segment”, x = cur_sl<span class="math inline">\(sample_start + (cur_sl\)</span>sample_end - cur_sl<span class="math inline">\(sample_start)/2, y = cur_y_min + propMinMaxDist * 1/4, xend = cur_sl\)</span>sample_start + (cur_sl<span class="math inline">\(sample_end - cur_sl\)</span>sample_start)/2, yend = cur_y_min + propMinMaxDist * 3/8, colour=“#888888”)</p>
+<p>}</p>
+<p># SIC fix this
+if(i != length(all_sl)){
+cur_parent = all_parents[[i]]
+parent_y_min = min(td<span class="math inline">\(T1) + (i)*propMinMaxDist  hierta_plot = hierta_plot + annotate(&quot;segment&quot;, x = (cur_sl\)</span>sample_start + (cur_sl<span class="math inline">\(sample_end - cur_sl\)</span>sample_start)/2), y = cur_y_min + propMinMaxDist/2 + propMinMaxDist/4, xend = (cur_parent<span class="math inline">\(sample_start + (cur_parent\)</span>sample_end - cur_parent$sample_start)/2), yend = parent_y_min + propMinMaxDist/2 - propMinMaxDist/4, linetype=“dashed”)
+}</p>
+<p>}</p>
+<p>hierta_plot
+```</p>
+<p>Further, to our knowledge, the EMU-SDMS is the first system that makes use of a web application as its primary  for annotating speech. This unique approach enables the  component to be used in multiple ways. It can be used as a stand-alone annotation tool, connected to a loaded <code>emuDB</code> via <code>emuR</code>’s <code>serve()</code> function and used to communicate to other servers. This enables it to be used as a collaborative annotation tool. An in-depth explanation of how this component can be used in these three scenarios is given in Chapter .</p>
+<p>As demonstrated in the default workflow of Section , an additional unique feature provided by EMU-SDMS is the ability to use the result of a query to extract derived (e.g., formants and RMS values) and complementary signals (e.g., electromagnetic articulography (EMA) data) that match the segments of a query. This, for example, aids the user in answering questions related to derived speech signals such as: <em>Is the vowel height of the vowel i: (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?</em>. Chapter  gives a complete walk-through of how to go about answering this question using the tools provided by the EMU-SDMS.</p>
+<p>The features provided by the EMU-SDMS make it an all-in-one speech database management solution that is centered around R. It enriches the R platform by providing specialized speech signal processing, speech database management, data extraction and speech annotation capabilities. By achieving this without relying on any external software sources except the web browser, the EMU-SDMS significantly reduces the number of tools the speech and spoken language researcher has to deal with and helps to simplify answering research questions. As the only prerequisite for using the EMU-SDMS is a basic familiarity with the R platform, if the above features would improve your workflow, the EMU-SDMS is indeed for you.</p>
+
+<div id="refs" class="references">
+<div>
+<p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/" class="uri">http://www.fon.hum.uva.nl/praat/</a>.</p>
+</div>
+<div>
+<p>Bombien, Lasse, Steve Cassidy, Jonathan Harrington, Tina John, and Sallyanne Palethorpe. 2006. “Recent Developments in the Emu Speech Database System.” In <em>Proc. 11th Sst Conference Auckland</em>, 313–16.</p>
+</div>
+<div>
+<p>Cassidy, Steve, and Jonathan Harrington. 1996. “Emu: An Enhanced Hierarchical Speech Data Management System.” In <em>Proceedings of the Sixth Australian International Conference on Speech Science and Technology</em>, 361–66.</p>
+</div>
+<div>
+<p>———. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1). Elsevier:61–77.</p>
+</div>
+<div>
+<p>Conway, Joe, Dirk Eddelbuettel, Tomoaki Nishiyama, Sameer Kumar Prayaga, and Neil Tiffin. 2016. <em>RPostgreSQL: R Interface to the Postgresql Database System</em>. <a href="https://CRAN.R-project.org/package=RPostgreSQL" class="uri">https://CRAN.R-project.org/package=RPostgreSQL</a>.</p>
+</div>
+<div>
+<p>Fromont, Robert, and Jennifer Hay. 2012. “LaBB-CAT: An Annotation Store.” In <em>Australasian Language Technology Association Workshop 2012</em>. Vol. 113. Citeseer.</p>
+</div>
+<div>
+<p>Harrington, Jonathan. 2010. <em>Phonetic Analysis of Speech Corpora</em>. John Wiley &amp; Sons.</p>
+</div>
+<div>
+<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4). Elsevier:305–31.</p>
+</div>
+<div>
+<p>John, Tina. 2012. “Emu Speech Database System.” PhD thesis, Ludwig Maximilian University of Munich.</p>
+</div>
+<div>
+<p>McAuliffe, Michael, and Morgan Sonderegger. 2016. “Speech Corpus Tools (SCT).” <a href="http://speech-corpus-tools.readthedocs.io/" class="uri">http://speech-corpus-tools.readthedocs.io/</a>.</p>
+</div>
+<div>
+<p>Ooms, Jeroen. 2014. “The Jsonlite Package: A Practical and Consistent Mapping Between Json Data and R Objects.” <em>arXiv:1403.2805 [stat.CO]</em>. <a href="http://arxiv.org/abs/1403.2805" class="uri">http://arxiv.org/abs/1403.2805</a>.</p>
+</div>
+<div>
+<p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="http://www.R-project.org/" class="uri">http://www.R-project.org/</a>.</p>
+</div>
+<div>
+<p>Rose, Yvan, Brian MacWhinney, Rodrigue Byrne, Gregory Hedlund, Keith Maddocks, Philip O’Brien, and Todd Wareham. 2006. “Introducing Phon: A Software Solution for the Study of Phonological Acquisition.” In <em>Proceedings of The... Annual Boston University Conference on Language Development. Boston University Conference on Language Development</em>, 2006:489. NIH Public Access.</p>
+</div>
+<div>
+<p>R Special Interest Group on Databases (R-SIG-DB), Hadley Wickham, and Kirill Müller. 2016. <em>DBI: R Database Interface</em>. <a href="https://CRAN.R-project.org/package=DBI" class="uri">https://CRAN.R-project.org/package=DBI</a>.</p>
+</div>
+<div>
+<p>RStudio, and Inc. 2015. <em>Httpuv: HTTP and Websocket Server Library</em>. <a href="https://CRAN.R-project.org/package=httpuv" class="uri">https://CRAN.R-project.org/package=httpuv</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, David A. James, and Seth Falcon. 2014. <em>RSQLite: SQLite Interface for R</em>. <a href="https://CRAN.R-project.org/package=RSQLite" class="uri">https://CRAN.R-project.org/package=RSQLite</a>.</p>
+</div>
+<div>
+<p>Winkelmann, Raphael, Jonathan Harrington, and Klaus Jänsch. 2017. “EMU-SDMS: Advanced Speech Database Management and Analysis in R.” <em>Computer Speech &amp; Language</em>, –. <a href="https://doi.org/http://dx.doi.org/10.1016/j.csl.2017.01.002" class="uri">https://doi.org/http://dx.doi.org/10.1016/j.csl.2017.01.002</a>.</p>
+</div>
+<div>
+<p>Wittenburg, Peter, Hennie Brugman, Albert Russel, Alex Klassmann, and Han Sloetjes. 2006. “Elan: A Professional Framework for Multimodality Research.” In <em>Proceedings of Lrec</em>. Vol. 2006.</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="extract-symbolic-information-we-are-interessted-in.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/overview.Rmd",
+"text": "Edit"
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
