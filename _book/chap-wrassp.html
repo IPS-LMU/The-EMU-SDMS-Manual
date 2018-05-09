@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The EMU-SDMS Manual</title>
+  <meta name="description" content="The EMU-SDMS Manual">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
+  
+  <meta property="og:description" content="The EMU-SDMS Manual" />
+  <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="The EMU-SDMS Manual" />
+  
+
+<meta name="author" content="Raphael Winkelmann">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chap-sigDataExtr.html">
+<link rel="next" href="chap-emu-webApp.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The EMU-SDMS Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.2" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.2</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="part"><span><b>I Overview and tutorial</b></span></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS [^1]</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#sec:overview-sysArch"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS [^2]</a><ul>
+<li class="chapter" data-level="3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#ae_emudb-bpf_collection-legacy_ae"><i class="fa fa-check"></i><b>3.1</b> [1] “ae_emuDB” “BPF_collection” “legacy_ae”</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#textgrid_collection-txt_collection"><i class="fa fa-check"></i><b>3.2</b> [4] “TextGrid_collection” “txt_collection”</a></li>
+<li class="chapter" data-level="3.3" data-path="chap-tutorial.html"><a href="chap-tutorial.html#msajc003.textgrid-msajc003.wav-msajc010.textgrid"><i class="fa fa-check"></i><b>3.3</b> [1] “msajc003.TextGrid” “msajc003.wav” “msajc010.TextGrid”</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#msajc010.wav-msajc012.textgrid-msajc012.wav"><i class="fa fa-check"></i><b>3.4</b> [4] “msajc010.wav” “msajc012.TextGrid” “msajc012.wav”</a></li>
+<li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#msajc015.textgrid-msajc015.wav-msajc022.textgrid"><i class="fa fa-check"></i><b>3.5</b> [7] “msajc015.TextGrid” “msajc015.wav” “msajc022.TextGrid”</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#msajc022.wav-msajc023.textgrid-msajc023.wav"><i class="fa fa-check"></i><b>3.6</b> [10] “msajc022.wav” “msajc023.TextGrid” “msajc023.wav”</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#msajc057.textgrid-msajc057.wav"><i class="fa fa-check"></i><b>3.7</b> [13] “msajc057.TextGrid” “msajc057.wav”</a></li>
+<li class="chapter" data-level="3.8" data-path="chap-tutorial.html"><a href="chap-tutorial.html#converting-the-textgrid-collection"><i class="fa fa-check"></i><b>3.8</b> Converting the TextGrid collection</a></li>
+<li class="chapter" data-level="3.9" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.9</b> Loading and inspecting the database</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#overview"><i class="fa fa-check"></i><b>3.9.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="chap-tutorial.html"><a href="chap-tutorial.html#name-myfirst"><i class="fa fa-check"></i><b>3.10</b> Name: myFirst</a></li>
+<li class="chapter" data-level="3.11" data-path="chap-tutorial.html"><a href="chap-tutorial.html#uuid-8f7e5aff-1363-4dab-b8c6-513649c35f88"><i class="fa fa-check"></i><b>3.11</b> UUID: 8f7e5aff-1363-4dab-b8c6-513649c35f88</a></li>
+<li class="chapter" data-level="3.12" data-path="chap-tutorial.html"><a href="chap-tutorial.html#directory-privatevarfoldersyk8z9tn7kx6hbcg_9n4c1sld980000gntrtmpnqawsnmyfirst_emudb"><i class="fa fa-check"></i><b>3.12</b> Directory: /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpnqAWsN/myFirst_emuDB</a></li>
+<li class="chapter" data-level="3.13" data-path="chap-tutorial.html"><a href="chap-tutorial.html#session-count-1"><i class="fa fa-check"></i><b>3.13</b> Session count: 1</a></li>
+<li class="chapter" data-level="3.14" data-path="chap-tutorial.html"><a href="chap-tutorial.html#bundle-count-7"><i class="fa fa-check"></i><b>3.14</b> Bundle count: 7</a></li>
+<li class="chapter" data-level="3.15" data-path="chap-tutorial.html"><a href="chap-tutorial.html#annotation-item-count-664"><i class="fa fa-check"></i><b>3.15</b> Annotation item count: 664</a></li>
+<li class="chapter" data-level="3.16" data-path="chap-tutorial.html"><a href="chap-tutorial.html#label-count-664"><i class="fa fa-check"></i><b>3.16</b> Label count: 664</a></li>
+<li class="chapter" data-level="3.17" data-path="chap-tutorial.html"><a href="chap-tutorial.html#link-count-0"><i class="fa fa-check"></i><b>3.17</b> Link count: 0</a></li>
+<li class="chapter" data-level="3.18" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section"><i class="fa fa-check"></i><b>3.18</b> </a></li>
+<li class="chapter" data-level="3.19" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-configuration"><i class="fa fa-check"></i><b>3.19</b> Database configuration:</a></li>
+<li class="chapter" data-level="3.20" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-1"><i class="fa fa-check"></i><b>3.20</b> </a></li>
+<li class="chapter" data-level="3.21" data-path="chap-tutorial.html"><a href="chap-tutorial.html#ssff-track-definitions"><i class="fa fa-check"></i><b>3.21</b> SSFF track definitions:</a></li>
+<li class="chapter" data-level="3.22" data-path="chap-tutorial.html"><a href="chap-tutorial.html#null"><i class="fa fa-check"></i><b>3.22</b> NULL</a></li>
+<li class="chapter" data-level="3.23" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-2"><i class="fa fa-check"></i><b>3.23</b> </a></li>
+<li class="chapter" data-level="3.24" data-path="chap-tutorial.html"><a href="chap-tutorial.html#level-definitions"><i class="fa fa-check"></i><b>3.24</b> Level definitions:</a></li>
+<li class="chapter" data-level="3.25" data-path="chap-tutorial.html"><a href="chap-tutorial.html#name-type-nrofattrdefs-attrdefnames"><i class="fa fa-check"></i><b>3.25</b> name type nrOfAttrDefs attrDefNames</a></li>
+<li class="chapter" data-level="3.26" data-path="chap-tutorial.html"><a href="chap-tutorial.html#word-segment-1-word"><i class="fa fa-check"></i><b>3.26</b> 1 Word SEGMENT 1 Word;</a></li>
+<li class="chapter" data-level="3.27" data-path="chap-tutorial.html"><a href="chap-tutorial.html#syllable-segment-1-syllable"><i class="fa fa-check"></i><b>3.27</b> 2 Syllable SEGMENT 1 Syllable;</a></li>
+<li class="chapter" data-level="3.28" data-path="chap-tutorial.html"><a href="chap-tutorial.html#phoneme-segment-1-phoneme"><i class="fa fa-check"></i><b>3.28</b> 3 Phoneme SEGMENT 1 Phoneme;</a></li>
+<li class="chapter" data-level="3.29" data-path="chap-tutorial.html"><a href="chap-tutorial.html#phonetic-segment-1-phonetic"><i class="fa fa-check"></i><b>3.29</b> 4 Phonetic SEGMENT 1 Phonetic;</a></li>
+<li class="chapter" data-level="3.30" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-3"><i class="fa fa-check"></i><b>3.30</b> </a></li>
+<li class="chapter" data-level="3.31" data-path="chap-tutorial.html"><a href="chap-tutorial.html#link-definitions"><i class="fa fa-check"></i><b>3.31</b> Link definitions:</a></li>
+<li class="chapter" data-level="3.32" data-path="chap-tutorial.html"><a href="chap-tutorial.html#null-1"><i class="fa fa-check"></i><b>3.32</b> NULL</a><ul>
+<li class="chapter" data-level="3.32.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-annotation-and-visual-inspection"><i class="fa fa-check"></i><b>3.32.1</b> Database annotation and visual inspection</a></li>
+</ul></li>
+<li class="chapter" data-level="3.33" data-path="chap-tutorial.html"><a href="chap-tutorial.html#navigate-your-browser-to-the-emu-webapp-url"><i class="fa fa-check"></i><b>3.33</b> Navigate your browser to the EMU-webApp URL:</a></li>
+<li class="chapter" data-level="3.34" data-path="chap-tutorial.html"><a href="chap-tutorial.html#httpips-lmu.github.ioemu-webapp-should-happen-autom"><i class="fa fa-check"></i><b>3.34</b> <a href="http://ips-lmu.github.io/EMU-webApp/" class="uri">http://ips-lmu.github.io/EMU-webApp/</a> (should happen autom…</a></li>
+<li class="chapter" data-level="3.35" data-path="chap-tutorial.html"><a href="chap-tutorial.html#server-connection-url"><i class="fa fa-check"></i><b>3.35</b> Server connection URL:</a></li>
+<li class="chapter" data-level="3.36" data-path="chap-tutorial.html"><a href="chap-tutorial.html#wslocalhost17890"><i class="fa fa-check"></i><b>3.36</b> <a href="ws://localhost:17890" class="uri">ws://localhost:17890</a></a></li>
+<li class="chapter" data-level="3.37" data-path="chap-tutorial.html"><a href="chap-tutorial.html#to-stop-the-server-press-the-clear-button-in-the"><i class="fa fa-check"></i><b>3.37</b> To stop the server press the ‘clear’ button in the</a></li>
+<li class="chapter" data-level="3.38" data-path="chap-tutorial.html"><a href="chap-tutorial.html#emu-webapp-or-closereload-the-webapp-in-your-browser."><i class="fa fa-check"></i><b>3.38</b> EMU-webApp or close/reload the webApp in your browser.</a></li>
+<li class="chapter" data-level="3.39" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-and-autobuilding-the-annotation-structure"><i class="fa fa-check"></i><b>3.39</b> Querying and autobuilding the annotation structure</a></li>
+<li class="chapter" data-level="3.40" data-path="chap-tutorial.html"><a href="chap-tutorial.html#emursegs-emusegs-data.frame"><i class="fa fa-check"></i><b>3.40</b> [1] “emuRsegs” “emusegs” “data.frame”</a></li>
+<li class="chapter" data-level="3.41" data-path="chap-tutorial.html"><a href="chap-tutorial.html#segment-list-from-database-myfirst"><i class="fa fa-check"></i><b>3.41</b> segment list from database: myFirst</a></li>
+<li class="chapter" data-level="3.42" data-path="chap-tutorial.html"><a href="chap-tutorial.html#query-was-phonetic-n"><i class="fa fa-check"></i><b>3.42</b> query was: Phonetic == n</a></li>
+<li class="chapter" data-level="3.43" data-path="chap-tutorial.html"><a href="chap-tutorial.html#labels-start-end-session-bundle-level-type"><i class="fa fa-check"></i><b>3.43</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="3.44" data-path="chap-tutorial.html"><a href="chap-tutorial.html#n-1031.925-1195.925-0000-msajc003-phonetic-segment"><i class="fa fa-check"></i><b>3.44</b> 1 n 1031.925 1195.925 0000 msajc003 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="3.45" data-path="chap-tutorial.html"><a href="chap-tutorial.html#segment-list-from-database-myfirst-1"><i class="fa fa-check"></i><b>3.45</b> segment list from database: myFirst</a></li>
+<li class="chapter" data-level="3.46" data-path="chap-tutorial.html"><a href="chap-tutorial.html#query-was-phonetic-n-1"><i class="fa fa-check"></i><b>3.46</b> query was: Phonetic == n</a></li>
+<li class="chapter" data-level="3.47" data-path="chap-tutorial.html"><a href="chap-tutorial.html#with-12-segments"><i class="fa fa-check"></i><b>3.47</b> with 12 segments</a></li>
+<li class="chapter" data-level="3.48" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-4"><i class="fa fa-check"></i><b>3.48</b> </a></li>
+<li class="chapter" data-level="3.49" data-path="chap-tutorial.html"><a href="chap-tutorial.html#segment-distribution"><i class="fa fa-check"></i><b>3.49</b> Segment distribution:</a></li>
+<li class="chapter" data-level="3.50" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-5"><i class="fa fa-check"></i><b>3.50</b> </a></li>
+<li class="chapter" data-level="3.51" data-path="chap-tutorial.html"><a href="chap-tutorial.html#n"><i class="fa fa-check"></i><b>3.51</b> n</a></li>
+<li class="chapter" data-level="3.52" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-6"><i class="fa fa-check"></i><b>3.52</b> 12</a></li>
+<li class="chapter" data-level="3.53" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.53</b> Autobuilding</a></li>
+<li class="chapter" data-level="3.54" data-path="chap-tutorial.html"><a href="chap-tutorial.html#name-type-nrofattrdefs-attrdefnames-1"><i class="fa fa-check"></i><b>3.54</b> name type nrOfAttrDefs attrDefNames</a></li>
+<li class="chapter" data-level="3.55" data-path="chap-tutorial.html"><a href="chap-tutorial.html#word-item-1-word"><i class="fa fa-check"></i><b>3.55</b> 1 Word ITEM 1 Word;</a></li>
+<li class="chapter" data-level="3.56" data-path="chap-tutorial.html"><a href="chap-tutorial.html#syllable-item-1-syllable"><i class="fa fa-check"></i><b>3.56</b> 2 Syllable ITEM 1 Syllable;</a></li>
+<li class="chapter" data-level="3.57" data-path="chap-tutorial.html"><a href="chap-tutorial.html#phoneme-item-1-phoneme"><i class="fa fa-check"></i><b>3.57</b> 3 Phoneme ITEM 1 Phoneme;</a></li>
+<li class="chapter" data-level="3.58" data-path="chap-tutorial.html"><a href="chap-tutorial.html#phonetic-segment-1-phonetic-1"><i class="fa fa-check"></i><b>3.58</b> 4 Phonetic SEGMENT 1 Phonetic;</a></li>
+<li class="chapter" data-level="3.59" data-path="chap-tutorial.html"><a href="chap-tutorial.html#word-autobuildbackup-segment-1-word-autobuildbackup"><i class="fa fa-check"></i><b>3.59</b> 5 Word-autobuildBackup SEGMENT 1 Word-autobuildBackup;</a></li>
+<li class="chapter" data-level="3.60" data-path="chap-tutorial.html"><a href="chap-tutorial.html#syllable-autobuildbackup-segment-1-syllable-autobuildbackup"><i class="fa fa-check"></i><b>3.60</b> 6 Syllable-autobuildBackup SEGMENT 1 Syllable-autobuildBackup;</a></li>
+<li class="chapter" data-level="3.61" data-path="chap-tutorial.html"><a href="chap-tutorial.html#phoneme-autobuildbackup-segment-1-phoneme-autobuildbackup"><i class="fa fa-check"></i><b>3.61</b> 7 Phoneme-autobuildBackup SEGMENT 1 Phoneme-autobuildBackup;</a></li>
+<li class="chapter" data-level="3.62" data-path="chap-tutorial.html"><a href="chap-tutorial.html#name-type-nrofattrdefs-attrdefnames-2"><i class="fa fa-check"></i><b>3.62</b> name type nrOfAttrDefs attrDefNames</a></li>
+<li class="chapter" data-level="3.63" data-path="chap-tutorial.html"><a href="chap-tutorial.html#word-item-1-word-1"><i class="fa fa-check"></i><b>3.63</b> 1 Word ITEM 1 Word;</a></li>
+<li class="chapter" data-level="3.64" data-path="chap-tutorial.html"><a href="chap-tutorial.html#syllable-item-1-syllable-1"><i class="fa fa-check"></i><b>3.64</b> 2 Syllable ITEM 1 Syllable;</a></li>
+<li class="chapter" data-level="3.65" data-path="chap-tutorial.html"><a href="chap-tutorial.html#phoneme-item-1-phoneme-1"><i class="fa fa-check"></i><b>3.65</b> 3 Phoneme ITEM 1 Phoneme;</a></li>
+<li class="chapter" data-level="3.66" data-path="chap-tutorial.html"><a href="chap-tutorial.html#phonetic-segment-1-phonetic-2"><i class="fa fa-check"></i><b>3.66</b> 4 Phonetic SEGMENT 1 Phonetic;</a></li>
+<li class="chapter" data-level="3.67" data-path="chap-tutorial.html"><a href="chap-tutorial.html#type-superlevelname-sublevelname"><i class="fa fa-check"></i><b>3.67</b> type superlevelName sublevelName</a></li>
+<li class="chapter" data-level="3.68" data-path="chap-tutorial.html"><a href="chap-tutorial.html#one_to_many-word-syllable"><i class="fa fa-check"></i><b>3.68</b> 1 ONE_TO_MANY Word Syllable</a></li>
+<li class="chapter" data-level="3.69" data-path="chap-tutorial.html"><a href="chap-tutorial.html#one_to_many-syllable-phoneme"><i class="fa fa-check"></i><b>3.69</b> 2 ONE_TO_MANY Syllable Phoneme</a></li>
+<li class="chapter" data-level="3.70" data-path="chap-tutorial.html"><a href="chap-tutorial.html#many_to_many-phoneme-phonetic"><i class="fa fa-check"></i><b>3.70</b> 3 MANY_TO_MANY Phoneme Phonetic</a><ul>
+<li class="chapter" data-level="3.70.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.70.1</b> Querying the hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.71" data-path="chap-tutorial.html"><a href="chap-tutorial.html#segment-list-from-database-myfirst-2"><i class="fa fa-check"></i><b>3.71</b> segment list from database: myFirst</a></li>
+<li class="chapter" data-level="3.72" data-path="chap-tutorial.html"><a href="chap-tutorial.html#query-was-phonetic"><i class="fa fa-check"></i><b>3.72</b> query was: Phonetic == @</a></li>
+<li class="chapter" data-level="3.73" data-path="chap-tutorial.html"><a href="chap-tutorial.html#labels-start-end-session-bundle-level-type-1"><i class="fa fa-check"></i><b>3.73</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="3.74" data-path="chap-tutorial.html"><a href="chap-tutorial.html#msajc003-phonetic-segment"><i class="fa fa-check"></i><b>3.74</b> 1 @ 1506.175 1548.425 0000 msajc003 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="3.75" data-path="chap-tutorial.html"><a href="chap-tutorial.html#segment-list-from-database-myfirst-3"><i class="fa fa-check"></i><b>3.75</b> segment list from database: myFirst</a></li>
+<li class="chapter" data-level="3.76" data-path="chap-tutorial.html"><a href="chap-tutorial.html#query-was-from-requery"><i class="fa fa-check"></i><b>3.76</b> query was: FROM REQUERY</a></li>
+<li class="chapter" data-level="3.77" data-path="chap-tutorial.html"><a href="chap-tutorial.html#labels-start-end-session-bundle-level-type-2"><i class="fa fa-check"></i><b>3.77</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="3.78" data-path="chap-tutorial.html"><a href="chap-tutorial.html#f-na-na-0000-msajc003-word-item"><i class="fa fa-check"></i><b>3.78</b> 1 F NA NA 0000 msajc003 Word ITEM</a></li>
+<li class="chapter" data-level="3.79" data-path="chap-tutorial.html"><a href="chap-tutorial.html#true"><i class="fa fa-check"></i><b>3.79</b> [1] TRUE</a></li>
+<li class="chapter" data-level="3.80" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.80</b> Signal extraction and exploration</a></li>
+<li class="chapter" data-level="3.81" data-path="chap-tutorial.html"><a href="chap-tutorial.html#trackdata"><i class="fa fa-check"></i><b>3.81</b> [1] “trackdata”</a></li>
+<li class="chapter" data-level="3.82" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-7"><i class="fa fa-check"></i><b>3.82</b> [1] 28 4</a></li>
+<li class="chapter" data-level="3.83" data-path="chap-tutorial.html"><a href="chap-tutorial.html#trackdata-from-track-fm"><i class="fa fa-check"></i><b>3.83</b> trackdata from track: fm</a></li>
+<li class="chapter" data-level="3.84" data-path="chap-tutorial.html"><a href="chap-tutorial.html#index"><i class="fa fa-check"></i><b>3.84</b> index:</a></li>
+<li class="chapter" data-level="3.85" data-path="chap-tutorial.html"><a href="chap-tutorial.html#left-right"><i class="fa fa-check"></i><b>3.85</b> left right</a></li>
+<li class="chapter" data-level="3.86" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-8"><i class="fa fa-check"></i><b>3.86</b> 1 12</a></li>
+<li class="chapter" data-level="3.87" data-path="chap-tutorial.html"><a href="chap-tutorial.html#ftime"><i class="fa fa-check"></i><b>3.87</b> ftime:</a></li>
+<li class="chapter" data-level="3.88" data-path="chap-tutorial.html"><a href="chap-tutorial.html#start-end"><i class="fa fa-check"></i><b>3.88</b> start end</a></li>
+<li class="chapter" data-level="3.89" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-9"><i class="fa fa-check"></i><b>3.89</b> [1,] 2447.5 2502.5</a></li>
+<li class="chapter" data-level="3.90" data-path="chap-tutorial.html"><a href="chap-tutorial.html#data"><i class="fa fa-check"></i><b>3.90</b> data:</a></li>
+<li class="chapter" data-level="3.91" data-path="chap-tutorial.html"><a href="chap-tutorial.html#t1-t2-t3-t4"><i class="fa fa-check"></i><b>3.91</b> T1 T2 T3 T4</a></li>
+<li class="chapter" data-level="3.92" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-10"><i class="fa fa-check"></i><b>3.92</b> 2447.5 303 1031 2266 3366</a></li>
+<li class="chapter" data-level="3.93" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-11"><i class="fa fa-check"></i><b>3.93</b> 2452.5 289 967 2250 3413</a></li>
+<li class="chapter" data-level="3.94" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-12"><i class="fa fa-check"></i><b>3.94</b> 2457.5 296 905 2273 3503</a></li>
+<li class="chapter" data-level="3.95" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-13"><i class="fa fa-check"></i><b>3.95</b> 2462.5 321 885 2357 3506</a></li>
+<li class="chapter" data-level="3.96" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-14"><i class="fa fa-check"></i><b>3.96</b> 2467.5 316 889 2397 3475</a></li>
+<li class="chapter" data-level="3.97" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-15"><i class="fa fa-check"></i><b>3.97</b> 2472.5 306 863 2348 3548</a></li>
+<li class="chapter" data-level="3.98" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-16"><i class="fa fa-check"></i><b>3.98</b> 2477.5 314 832 2339 3611</a></li>
+<li class="chapter" data-level="3.99" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-17"><i class="fa fa-check"></i><b>3.99</b> 2482.5 325 795 2342 3622</a></li>
+<li class="chapter" data-level="3.100" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-18"><i class="fa fa-check"></i><b>3.100</b> 2487.5 339 760 2322 3681</a></li>
+<li class="chapter" data-level="3.101" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-19"><i class="fa fa-check"></i><b>3.101</b> 2492.5 335 746 2316 3665</a></li>
+<li class="chapter" data-level="3.102" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-20"><i class="fa fa-check"></i><b>3.102</b> 2497.5 341 734 2306 3688</a></li>
+<li class="chapter" data-level="3.103" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-21"><i class="fa fa-check"></i><b>3.103</b> 2502.5 361 733 2304 3692</a></li>
+<li class="chapter" data-level="3.104" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.104</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.105" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-22"><i class="fa fa-check"></i><b>3.105</b> </a></li>
+<li class="chapter" data-level="3.106" data-path="chap-tutorial.html"><a href="chap-tutorial.html#shapiro-wilk-normality-test"><i class="fa fa-check"></i><b>3.106</b> Shapiro-Wilk normality test</a></li>
+<li class="chapter" data-level="3.107" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-23"><i class="fa fa-check"></i><b>3.107</b> </a></li>
+<li class="chapter" data-level="3.108" data-path="chap-tutorial.html"><a href="chap-tutorial.html#data-dfdfwordtype-f-meanf1-w-0.98687-p-value-0.9887-shapiro-wilk-normality-test-data-dfdfwordtype-c-meanf1"><i class="fa fa-check"></i><b>3.108</b> data: df[df$wordType == “F”, ]<span class="math inline">\(meanF1 ## W = 0.98687, p-value = 0.9887 ## ## Shapiro-Wilk normality test ## ## data: df[df\)</span>wordType == “C”, ]$meanF1</a></li>
+<li class="chapter" data-level="3.109" data-path="chap-tutorial.html"><a href="chap-tutorial.html#w-0.66506-p-value-1.506e-05"><i class="fa fa-check"></i><b>3.109</b> W = 0.66506, p-value = 1.506e-05</a></li>
+<li class="chapter" data-level="3.110" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-24"><i class="fa fa-check"></i><b>3.110</b> </a></li>
+<li class="chapter" data-level="3.111" data-path="chap-tutorial.html"><a href="chap-tutorial.html#wilcoxon-rank-sum-test"><i class="fa fa-check"></i><b>3.111</b> Wilcoxon rank sum test</a></li>
+<li class="chapter" data-level="3.112" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section-25"><i class="fa fa-check"></i><b>3.112</b> </a></li>
+<li class="chapter" data-level="3.113" data-path="chap-tutorial.html"><a href="chap-tutorial.html#data-meanf1-by-wordtype"><i class="fa fa-check"></i><b>3.113</b> data: meanF1 by wordType</a></li>
+<li class="chapter" data-level="3.114" data-path="chap-tutorial.html"><a href="chap-tutorial.html#w-121-p-value-0.03752"><i class="fa fa-check"></i><b>3.114</b> W = 121, p-value = 0.03752</a></li>
+<li class="chapter" data-level="3.115" data-path="chap-tutorial.html"><a href="chap-tutorial.html#alternative-hypothesis-true-location-shift-is-not-equal-to-0"><i class="fa fa-check"></i><b>3.115</b> alternative hypothesis: true location shift is not equal to 0</a></li>
+<li class="chapter" data-level="3.116" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.116</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>II Main components and concepts</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html"><i class="fa fa-check"></i><b>4</b> Annotation Structure Modeling [^5]</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#per-database-annotation-structure-definition"><i class="fa fa-check"></i><b>4.1</b> Per database annotation structure definition</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#parallel-labels-and-multiple-attributes"><i class="fa fa-check"></i><b>4.2</b> Parallel labels and multiple attributes</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#metadata-strategy-using-single-bundle-root-nodes"><i class="fa fa-check"></i><b>4.3</b> Metadata strategy using single bundle root nodes</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#conclusion-1"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-emuDB.html"><a href="chap-emuDB.html"><i class="fa fa-check"></i><b>5</b> The <code>emuDB</code> Format [^1-chap:emuDB]</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#database-design"><i class="fa fa-check"></i><b>5.1</b> Database design</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb"><i class="fa fa-check"></i><b>5.2</b> Creating an <code>emuDB</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb-from-scratch"><i class="fa fa-check"></i><b>5.2.1</b> Creating an <code>emuDB</code> from scratch</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromscratch_dbconfig.json"><i class="fa fa-check"></i><b>5.3</b> [1] “fromScratch_DBconfig.json”</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#loading-and-editing-an-empty-database"><i class="fa fa-check"></i><b>5.3.1</b> Loading and editing an empty database</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name-fromscratch"><i class="fa fa-check"></i><b>5.4</b> Name: fromScratch</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-emuDB.html"><a href="chap-emuDB.html#uuid-a77013ad-8b2a-43cf-b57a-18fe541e187a"><i class="fa fa-check"></i><b>5.5</b> UUID: a77013ad-8b2a-43cf-b57a-18fe541e187a</a></li>
+<li class="chapter" data-level="5.6" data-path="chap-emuDB.html"><a href="chap-emuDB.html#directory-privatevarfoldersyk8z9tn7kx6hbcg_9n4c1sld980000gntrtmpsinqo1fromscratch_emudb"><i class="fa fa-check"></i><b>5.6</b> Directory: /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpsINqO1/fromScratch_emuDB</a></li>
+<li class="chapter" data-level="5.7" data-path="chap-emuDB.html"><a href="chap-emuDB.html#session-count-0"><i class="fa fa-check"></i><b>5.7</b> Session count: 0</a></li>
+<li class="chapter" data-level="5.8" data-path="chap-emuDB.html"><a href="chap-emuDB.html#bundle-count-0"><i class="fa fa-check"></i><b>5.8</b> Bundle count: 0</a></li>
+<li class="chapter" data-level="5.9" data-path="chap-emuDB.html"><a href="chap-emuDB.html#annotation-item-count-0"><i class="fa fa-check"></i><b>5.9</b> Annotation item count: 0</a></li>
+<li class="chapter" data-level="5.10" data-path="chap-emuDB.html"><a href="chap-emuDB.html#label-count-0"><i class="fa fa-check"></i><b>5.10</b> Label count: 0</a></li>
+<li class="chapter" data-level="5.11" data-path="chap-emuDB.html"><a href="chap-emuDB.html#link-count-0-1"><i class="fa fa-check"></i><b>5.11</b> Link count: 0</a></li>
+<li class="chapter" data-level="5.12" data-path="chap-emuDB.html"><a href="chap-emuDB.html#section-26"><i class="fa fa-check"></i><b>5.12</b> </a></li>
+<li class="chapter" data-level="5.13" data-path="chap-emuDB.html"><a href="chap-emuDB.html#database-configuration-1"><i class="fa fa-check"></i><b>5.13</b> Database configuration:</a></li>
+<li class="chapter" data-level="5.14" data-path="chap-emuDB.html"><a href="chap-emuDB.html#section-27"><i class="fa fa-check"></i><b>5.14</b> </a></li>
+<li class="chapter" data-level="5.15" data-path="chap-emuDB.html"><a href="chap-emuDB.html#ssff-track-definitions-1"><i class="fa fa-check"></i><b>5.15</b> SSFF track definitions:</a></li>
+<li class="chapter" data-level="5.16" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-2"><i class="fa fa-check"></i><b>5.16</b> NULL</a></li>
+<li class="chapter" data-level="5.17" data-path="chap-emuDB.html"><a href="chap-emuDB.html#section-28"><i class="fa fa-check"></i><b>5.17</b> </a></li>
+<li class="chapter" data-level="5.18" data-path="chap-emuDB.html"><a href="chap-emuDB.html#level-definitions-1"><i class="fa fa-check"></i><b>5.18</b> Level definitions:</a></li>
+<li class="chapter" data-level="5.19" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-3"><i class="fa fa-check"></i><b>5.19</b> NULL</a></li>
+<li class="chapter" data-level="5.20" data-path="chap-emuDB.html"><a href="chap-emuDB.html#section-29"><i class="fa fa-check"></i><b>5.20</b> </a></li>
+<li class="chapter" data-level="5.21" data-path="chap-emuDB.html"><a href="chap-emuDB.html#link-definitions-1"><i class="fa fa-check"></i><b>5.21</b> Link definitions:</a></li>
+<li class="chapter" data-level="5.22" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-4"><i class="fa fa-check"></i><b>5.22</b> NULL</a></li>
+<li class="chapter" data-level="5.23" data-path="chap-emuDB.html"><a href="chap-emuDB.html#emudbhandle"><i class="fa fa-check"></i><b>5.23</b> [1] “emuDBhandle”</a><ul>
+<li class="chapter" data-level="5.23.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#level-definitions-2"><i class="fa fa-check"></i><b>5.23.1</b> Level definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.24" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-5"><i class="fa fa-check"></i><b>5.24</b> NULL</a></li>
+<li class="chapter" data-level="5.25" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name-type-nrofattrdefs-attrdefnames-3"><i class="fa fa-check"></i><b>5.25</b> name type nrOfAttrDefs attrDefNames</a></li>
+<li class="chapter" data-level="5.26" data-path="chap-emuDB.html"><a href="chap-emuDB.html#phonetic-segment-1-phonetic-3"><i class="fa fa-check"></i><b>5.26</b> 1 Phonetic SEGMENT 1 Phonetic;</a></li>
+<li class="chapter" data-level="5.27" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name-type-nrofattrdefs-attrdefnames-4"><i class="fa fa-check"></i><b>5.27</b> name type nrOfAttrDefs attrDefNames</a></li>
+<li class="chapter" data-level="5.28" data-path="chap-emuDB.html"><a href="chap-emuDB.html#phonetic-segment-1-phonetic-4"><i class="fa fa-check"></i><b>5.28</b> 1 Phonetic SEGMENT 1 Phonetic;</a></li>
+<li class="chapter" data-level="5.29" data-path="chap-emuDB.html"><a href="chap-emuDB.html#word-item-1-word-2"><i class="fa fa-check"></i><b>5.29</b> 2 Word ITEM 1 Word;</a></li>
+<li class="chapter" data-level="5.30" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name-level-type-haslabelgroups-haslegallabels"><i class="fa fa-check"></i><b>5.30</b> name level type hasLabelGroups hasLegalLabels</a></li>
+<li class="chapter" data-level="5.31" data-path="chap-emuDB.html"><a href="chap-emuDB.html#phonetic-phonetic-string-false-false"><i class="fa fa-check"></i><b>5.31</b> 1 Phonetic Phonetic STRING FALSE FALSE</a></li>
+<li class="chapter" data-level="5.32" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-6"><i class="fa fa-check"></i><b>5.32</b> NULL</a></li>
+<li class="chapter" data-level="5.33" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name-level-type-haslabelgroups-haslegallabels-1"><i class="fa fa-check"></i><b>5.33</b> name level type hasLabelGroups hasLegalLabels</a></li>
+<li class="chapter" data-level="5.34" data-path="chap-emuDB.html"><a href="chap-emuDB.html#phonetic-phonetic-string-false-false-1"><i class="fa fa-check"></i><b>5.34</b> 1 Phonetic Phonetic STRING FALSE FALSE</a></li>
+<li class="chapter" data-level="5.35" data-path="chap-emuDB.html"><a href="chap-emuDB.html#sampa-phonetic-string-false-false"><i class="fa fa-check"></i><b>5.35</b> 2 SAMPA Phonetic STRING FALSE FALSE</a></li>
+<li class="chapter" data-level="5.36" data-path="chap-emuDB.html"><a href="chap-emuDB.html#na"><i class="fa fa-check"></i><b>5.36</b> [1] NA</a></li>
+<li class="chapter" data-level="5.37" data-path="chap-emuDB.html"><a href="chap-emuDB.html#amongst-any-are-always-and-attracts"><i class="fa fa-check"></i><b>5.37</b> [1] “amongst” “any” “are” “always” “and” “attracts”</a></li>
+<li class="chapter" data-level="5.38" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name-values"><i class="fa fa-check"></i><b>5.38</b> name values</a></li>
+<li class="chapter" data-level="5.39" data-path="chap-emuDB.html"><a href="chap-emuDB.html#longvowels-i-u"><i class="fa fa-check"></i><b>5.39</b> 1 longVowels i:; u:</a></li>
+<li class="chapter" data-level="5.40" data-path="chap-emuDB.html"><a href="chap-emuDB.html#shortvowels-i-u"><i class="fa fa-check"></i><b>5.40</b> 2 shortVowels i; u; @</a></li>
+<li class="chapter" data-level="5.41" data-path="chap-emuDB.html"><a href="chap-emuDB.html#segment-list-from-database-fromscratch"><i class="fa fa-check"></i><b>5.41</b> segment list from database: fromScratch</a></li>
+<li class="chapter" data-level="5.42" data-path="chap-emuDB.html"><a href="chap-emuDB.html#query-was-phonetic-shortvowels"><i class="fa fa-check"></i><b>5.42</b> query was: Phonetic == shortVowels</a></li>
+<li class="chapter" data-level="5.43" data-path="chap-emuDB.html"><a href="chap-emuDB.html#labels-start-end-session-bundle-level-type-3"><i class="fa fa-check"></i><b>5.43</b> [1] labels start end session bundle level type</a></li>
+<li class="chapter" data-level="5.44" data-path="chap-emuDB.html"><a href="chap-emuDB.html#rows-or-0-length-row.names"><i class="fa fa-check"></i><b>5.44</b> &lt;0 rows&gt; (or 0-length row.names)</a><ul>
+<li class="chapter" data-level="5.44.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#link-definitions-2"><i class="fa fa-check"></i><b>5.44.1</b> Link definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.45" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-7"><i class="fa fa-check"></i><b>5.45</b> NULL</a></li>
+<li class="chapter" data-level="5.46" data-path="chap-emuDB.html"><a href="chap-emuDB.html#type-superlevelname-sublevelname-1"><i class="fa fa-check"></i><b>5.46</b> type superlevelName sublevelName</a></li>
+<li class="chapter" data-level="5.47" data-path="chap-emuDB.html"><a href="chap-emuDB.html#one_to_many-word-phonetic"><i class="fa fa-check"></i><b>5.47</b> 1 ONE_TO_MANY Word Phonetic</a><ul>
+<li class="chapter" data-level="5.47.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#file-handling"><i class="fa fa-check"></i><b>5.47.1</b> File handling</a></li>
+</ul></li>
+<li class="chapter" data-level="5.48" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name"><i class="fa fa-check"></i><b>5.48</b> name</a></li>
+<li class="chapter" data-level="5.49" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles"><i class="fa fa-check"></i><b>5.49</b> 1 fromWavFiles</a></li>
+<li class="chapter" data-level="5.50" data-path="chap-emuDB.html"><a href="chap-emuDB.html#session-name"><i class="fa fa-check"></i><b>5.50</b> session name</a></li>
+<li class="chapter" data-level="5.51" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc003"><i class="fa fa-check"></i><b>5.51</b> 1 fromWavFiles msajc003</a></li>
+<li class="chapter" data-level="5.52" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc010"><i class="fa fa-check"></i><b>5.52</b> 2 fromWavFiles msajc010</a></li>
+<li class="chapter" data-level="5.53" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc012"><i class="fa fa-check"></i><b>5.53</b> 3 fromWavFiles msajc012</a></li>
+<li class="chapter" data-level="5.54" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc015"><i class="fa fa-check"></i><b>5.54</b> 4 fromWavFiles msajc015</a></li>
+<li class="chapter" data-level="5.55" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc022"><i class="fa fa-check"></i><b>5.55</b> 5 fromWavFiles msajc022</a></li>
+<li class="chapter" data-level="5.56" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc023"><i class="fa fa-check"></i><b>5.56</b> 6 fromWavFiles msajc023</a></li>
+<li class="chapter" data-level="5.57" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc057"><i class="fa fa-check"></i><b>5.57</b> 7 fromWavFiles msajc057</a></li>
+<li class="chapter" data-level="5.58" data-path="chap-emuDB.html"><a href="chap-emuDB.html#a-tibble-2-x-4"><i class="fa fa-check"></i><b>5.58</b> # A tibble: 2 x 4</a></li>
+<li class="chapter" data-level="5.59" data-path="chap-emuDB.html"><a href="chap-emuDB.html#session-bundle-file-absolute_file_path"><i class="fa fa-check"></i><b>5.59</b> session bundle file absolute_file_path</a></li>
+<li class="chapter" data-level="5.60" data-path="chap-emuDB.html"><a href="chap-emuDB.html#section-30"><i class="fa fa-check"></i><b>5.60</b> * <chr> <chr> <chr> <chr></a></li>
+<li class="chapter" data-level="5.61" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc003-msajc003_annot.json-privatevarfoldersyk8z9tn"><i class="fa fa-check"></i><b>5.61</b> 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn~</a></li>
+<li class="chapter" data-level="5.62" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc003-msajc003.wav-privatevarfoldersyk8z9tn"><i class="fa fa-check"></i><b>5.62</b> 2 fromWavFiles msajc003 msajc003.wav /private/var/folders/yk/8z9tn~</a></li>
+<li class="chapter" data-level="5.63" data-path="chap-emuDB.html"><a href="chap-emuDB.html#section-31"><i class="fa fa-check"></i><b>5.63</b> [1] 7</a></li>
+<li class="chapter" data-level="5.64" data-path="chap-emuDB.html"><a href="chap-emuDB.html#a-tibble-3-x-4"><i class="fa fa-check"></i><b>5.64</b> # A tibble: 3 x 4</a></li>
+<li class="chapter" data-level="5.65" data-path="chap-emuDB.html"><a href="chap-emuDB.html#session-bundle-file-absolute_file_path-1"><i class="fa fa-check"></i><b>5.65</b> session bundle file absolute_file_path</a></li>
+<li class="chapter" data-level="5.66" data-path="chap-emuDB.html"><a href="chap-emuDB.html#section-32"><i class="fa fa-check"></i><b>5.66</b> * <chr> <chr> <chr> <chr></a></li>
+<li class="chapter" data-level="5.67" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc003-msajc003_annot.json-privatevarfoldersyk8z9tn-1"><i class="fa fa-check"></i><b>5.67</b> 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn~</a></li>
+<li class="chapter" data-level="5.68" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc003-msajc003.wav-privatevarfoldersyk8z9tn-1"><i class="fa fa-check"></i><b>5.68</b> 2 fromWavFiles msajc003 msajc003.wav /private/var/folders/yk/8z9tn~</a></li>
+<li class="chapter" data-level="5.69" data-path="chap-emuDB.html"><a href="chap-emuDB.html#fromwavfiles-msajc003-msajc003.zcr-privatevarfoldersyk8z9tn"><i class="fa fa-check"></i><b>5.69</b> 3 fromWavFiles msajc003 msajc003.zcr /private/var/folders/yk/8z9tn~</a><ul>
+<li class="chapter" data-level="5.69.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#ssff-track-definitions-2"><i class="fa fa-check"></i><b>5.69.1</b> SSFF track definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.70" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-8"><i class="fa fa-check"></i><b>5.70</b> NULL</a></li>
+<li class="chapter" data-level="5.71" data-path="chap-emuDB.html"><a href="chap-emuDB.html#name-columnname-fileextension"><i class="fa fa-check"></i><b>5.71</b> name columnName fileExtension</a></li>
+<li class="chapter" data-level="5.72" data-path="chap-emuDB.html"><a href="chap-emuDB.html#zerocrossing-zcr-zcr"><i class="fa fa-check"></i><b>5.72</b> 1 zeroCrossing zcr zcr</a><ul>
+<li class="chapter" data-level="5.72.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#configuring-the-emu-webapp-and-annotating-the-emudb"><i class="fa fa-check"></i><b>5.72.1</b> Configuring the <code>EMU-webApp</code> and annotating the <code>emuDB</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.73" data-path="chap-emuDB.html"><a href="chap-emuDB.html#null-9"><i class="fa fa-check"></i><b>5.73</b> NULL</a></li>
+<li class="chapter" data-level="5.74" data-path="chap-emuDB.html"><a href="chap-emuDB.html#phonetic"><i class="fa fa-check"></i><b>5.74</b> [1] “Phonetic”</a></li>
+<li class="chapter" data-level="5.75" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.75</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query_emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#emursegs-emusegs-data.frame-1"><i class="fa fa-check"></i><b>6.2</b> [1] “emuRsegs” “emusegs” “data.frame”</a></li>
+<li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae"><i class="fa fa-check"></i><b>6.3</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.4" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-syllable-s-text-amongst"><i class="fa fa-check"></i><b>6.4</b> query was: [Syllable == S ^ Text == amongst]</a></li>
+<li class="chapter" data-level="6.5" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-4"><i class="fa fa-check"></i><b>6.5</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-querysys.html"><a href="chap-querysys.html#s-256.925-674.175-0000-msajc003-syllable-item"><i class="fa fa-check"></i><b>6.6</b> 1 S 256.925 674.175 0000 msajc003 Syllable ITEM</a></li>
+<li class="chapter" data-level="6.7" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end"><i class="fa fa-check"></i><b>6.7</b> [1] “labels” “start” “end”</a></li>
+<li class="chapter" data-level="6.8" data-path="chap-querysys.html"><a href="chap-querysys.html#utts-db_uuid-session"><i class="fa fa-check"></i><b>6.8</b> [4] “utts” “db_uuid” “session”</a></li>
+<li class="chapter" data-level="6.9" data-path="chap-querysys.html"><a href="chap-querysys.html#bundle-start_item_id-end_item_id"><i class="fa fa-check"></i><b>6.9</b> [7] “bundle” “start_item_id” “end_item_id”</a></li>
+<li class="chapter" data-level="6.10" data-path="chap-querysys.html"><a href="chap-querysys.html#level-start_item_seq_idx-end_item_seq_idx"><i class="fa fa-check"></i><b>6.10</b> [10] “level” “start_item_seq_idx” “end_item_seq_idx”</a></li>
+<li class="chapter" data-level="6.11" data-path="chap-querysys.html"><a href="chap-querysys.html#type-sample_start-sample_end"><i class="fa fa-check"></i><b>6.11</b> [13] “type” “sample_start” “sample_end”</a></li>
+<li class="chapter" data-level="6.12" data-path="chap-querysys.html"><a href="chap-querysys.html#sample_rate"><i class="fa fa-check"></i><b>6.12</b> [16] “sample_rate”</a></li>
+<li class="chapter" data-level="6.13" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.13</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
+<li class="chapter" data-level="6.13.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.13.1</b> Simple queries</a></li>
+</ul></li>
+<li class="chapter" data-level="6.14" data-path="chap-querysys.html"><a href="chap-querysys.html#event-list-from-database-ae"><i class="fa fa-check"></i><b>6.14</b> event list from database: ae</a></li>
+<li class="chapter" data-level="6.15" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-tone-h"><i class="fa fa-check"></i><b>6.15</b> query was: Tone != H*</a></li>
+<li class="chapter" data-level="6.16" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-5"><i class="fa fa-check"></i><b>6.16</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.17" data-path="chap-querysys.html"><a href="chap-querysys.html#l--1107-0-0000-msajc003-tone-event"><i class="fa fa-check"></i><b>6.17</b> 1 L- 1107 0 0000 msajc003 Tone EVENT</a></li>
+<li class="chapter" data-level="6.18" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-1"><i class="fa fa-check"></i><b>6.18</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.19" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-syllable-s"><i class="fa fa-check"></i><b>6.19</b> query was: Syllable == S</a></li>
+<li class="chapter" data-level="6.20" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-6"><i class="fa fa-check"></i><b>6.20</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.21" data-path="chap-querysys.html"><a href="chap-querysys.html#s-256.925-674.175-0000-msajc003-syllable-item-1"><i class="fa fa-check"></i><b>6.21</b> 1 S 256.925 674.175 0000 msajc003 Syllable ITEM</a></li>
+<li class="chapter" data-level="6.22" data-path="chap-querysys.html"><a href="chap-querysys.html#section-33"><i class="fa fa-check"></i><b>6.22</b> </a></li>
+<li class="chapter" data-level="6.23" data-path="chap-querysys.html"><a href="chap-querysys.html#attaching-package-dplyr"><i class="fa fa-check"></i><b>6.23</b> Attaching package: ‘dplyr’</a></li>
+<li class="chapter" data-level="6.24" data-path="chap-querysys.html"><a href="chap-querysys.html#the-following-objects-are-masked-from-packagestats"><i class="fa fa-check"></i><b>6.24</b> The following objects are masked from ‘package:stats’:</a></li>
+<li class="chapter" data-level="6.25" data-path="chap-querysys.html"><a href="chap-querysys.html#section-34"><i class="fa fa-check"></i><b>6.25</b> </a></li>
+<li class="chapter" data-level="6.26" data-path="chap-querysys.html"><a href="chap-querysys.html#filter-lag"><i class="fa fa-check"></i><b>6.26</b> filter, lag</a></li>
+<li class="chapter" data-level="6.27" data-path="chap-querysys.html"><a href="chap-querysys.html#the-following-objects-are-masked-from-packagebase"><i class="fa fa-check"></i><b>6.27</b> The following objects are masked from ‘package:base’:</a></li>
+<li class="chapter" data-level="6.28" data-path="chap-querysys.html"><a href="chap-querysys.html#section-35"><i class="fa fa-check"></i><b>6.28</b> </a></li>
+<li class="chapter" data-level="6.29" data-path="chap-querysys.html"><a href="chap-querysys.html#intersect-setdiff-setequal-union"><i class="fa fa-check"></i><b>6.29</b> intersect, setdiff, setequal, union</a><ul>
+<li class="chapter" data-level="6.29.1" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.29.1</b> Combining simple queries</a></li>
+</ul></li>
+<li class="chapter" data-level="6.30" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-2"><i class="fa fa-check"></i><b>6.30</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.31" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-phonetic---phonetic-n"><i class="fa fa-check"></i><b>6.31</b> query was: [Phonetic == @ -&gt; Phonetic == n]</a></li>
+<li class="chapter" data-level="6.32" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-7"><i class="fa fa-check"></i><b>6.32</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.33" data-path="chap-querysys.html"><a href="chap-querysys.html#n-1715.425-1791.425-0000-msajc003-phonetic-segment"><i class="fa fa-check"></i><b>6.33</b> 1 @-&gt;n 1715.425 1791.425 0000 msajc003 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="6.34" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-3"><i class="fa fa-check"></i><b>6.34</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.35" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-phonetic---phonetic-n-1"><i class="fa fa-check"></i><b>6.35</b> query was: [#Phonetic == @ -&gt; Phonetic == n]</a></li>
+<li class="chapter" data-level="6.36" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-8"><i class="fa fa-check"></i><b>6.36</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.37" data-path="chap-querysys.html"><a href="chap-querysys.html#msajc003-phonetic-segment-1"><i class="fa fa-check"></i><b>6.37</b> 1 @ 1715.425 1741.425 0000 msajc003 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="6.38" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-4"><i class="fa fa-check"></i><b>6.38</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.39" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-phonetic---phonetic-n-2"><i class="fa fa-check"></i><b>6.39</b> query was: [Phonetic == @ -&gt; #Phonetic == n]</a></li>
+<li class="chapter" data-level="6.40" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-9"><i class="fa fa-check"></i><b>6.40</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.41" data-path="chap-querysys.html"><a href="chap-querysys.html#n-1741.425-1791.425-0000-msajc003-phonetic-segment"><i class="fa fa-check"></i><b>6.41</b> 1 n 1741.425 1791.425 0000 msajc003 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="6.42" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-5"><i class="fa fa-check"></i><b>6.42</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.43" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-text-always-accent-s"><i class="fa fa-check"></i><b>6.43</b> query was: [Text == always &amp; Accent == S]</a></li>
+<li class="chapter" data-level="6.44" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-10"><i class="fa fa-check"></i><b>6.44</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.45" data-path="chap-querysys.html"><a href="chap-querysys.html#always-775.475-1280.175-0000-msajc022-text-item"><i class="fa fa-check"></i><b>6.45</b> 1 always 775.475 1280.175 0000 msajc022 Text ITEM</a></li>
+<li class="chapter" data-level="6.46" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-6"><i class="fa fa-check"></i><b>6.46</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.47" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-phoneme-p-syllable-s"><i class="fa fa-check"></i><b>6.47</b> query was: [Phoneme == p ^ Syllable == S]</a></li>
+<li class="chapter" data-level="6.48" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-11"><i class="fa fa-check"></i><b>6.48</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.49" data-path="chap-querysys.html"><a href="chap-querysys.html#p-558.575-639.575-0000-msajc015-phoneme-item"><i class="fa fa-check"></i><b>6.49</b> 1 p 558.575 639.575 0000 msajc015 Phoneme ITEM</a><ul>
+<li class="chapter" data-level="6.49.1" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_positionQueries"><i class="fa fa-check"></i><b>6.49.1</b> Position queries</a></li>
+</ul></li>
+<li class="chapter" data-level="6.50" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-7"><i class="fa fa-check"></i><b>6.50</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.51" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-startsyllable-phoneme-true"><i class="fa fa-check"></i><b>6.51</b> query was: [Start(Syllable, Phoneme) == TRUE]</a></li>
+<li class="chapter" data-level="6.52" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-12"><i class="fa fa-check"></i><b>6.52</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.53" data-path="chap-querysys.html"><a href="chap-querysys.html#v-187.425-256.925-0000-msajc003-phoneme-item"><i class="fa fa-check"></i><b>6.53</b> 1 V 187.425 256.925 0000 msajc003 Phoneme ITEM</a><ul>
+<li class="chapter" data-level="6.53.1" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_countQueries"><i class="fa fa-check"></i><b>6.53.1</b> Count queries</a></li>
+</ul></li>
+<li class="chapter" data-level="6.54" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-8"><i class="fa fa-check"></i><b>6.54</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.55" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-numsyllable-phoneme-5"><i class="fa fa-check"></i><b>6.55</b> query was: [Num(Syllable, Phoneme) == 5]</a></li>
+<li class="chapter" data-level="6.56" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-13"><i class="fa fa-check"></i><b>6.56</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.57" data-path="chap-querysys.html"><a href="chap-querysys.html#s-256.925-674.175-0000-msajc003-syllable-item-2"><i class="fa fa-check"></i><b>6.57</b> 1 S 256.925 674.175 0000 msajc003 Syllable ITEM</a></li>
+<li class="chapter" data-level="6.58" data-path="chap-querysys.html"><a href="chap-querysys.html#s-739.925-1289.425-0000-msajc003-syllable-item"><i class="fa fa-check"></i><b>6.58</b> 2 S 739.925 1289.425 0000 msajc003 Syllable ITEM</a></li>
+<li class="chapter" data-level="6.59" data-path="chap-querysys.html"><a href="chap-querysys.html#w-2228.475-2753.975-0000-msajc010-syllable-item"><i class="fa fa-check"></i><b>6.59</b> 3 W 2228.475 2753.975 0000 msajc010 Syllable ITEM</a></li>
+<li class="chapter" data-level="6.60" data-path="chap-querysys.html"><a href="chap-querysys.html#s-1890.275-2469.525-0000-msajc022-syllable-item"><i class="fa fa-check"></i><b>6.60</b> 4 S 1890.275 2469.525 0000 msajc022 Syllable ITEM</a></li>
+<li class="chapter" data-level="6.61" data-path="chap-querysys.html"><a href="chap-querysys.html#s-1964.425-2554.175-0000-msajc023-syllable-item"><i class="fa fa-check"></i><b>6.61</b> 5 S 1964.425 2554.175 0000 msajc023 Syllable ITEM</a><ul>
+<li class="chapter" data-level="6.61.1" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_moreComplexQueries"><i class="fa fa-check"></i><b>6.61.1</b> More complex queries</a></li>
+</ul></li>
+<li class="chapter" data-level="6.62" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-9"><i class="fa fa-check"></i><b>6.62</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.63" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-numtext-syllable-3-phoneme-startword-syllable-1---text-his"><i class="fa fa-check"></i><b>6.63</b> query was: [[[Num(Text, Syllable) == 3] ^ [Phoneme == @ ^ Start(Word, Syllable) == 1]] -&gt; #Text = his]</a></li>
+<li class="chapter" data-level="6.64" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-14"><i class="fa fa-check"></i><b>6.64</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.65" data-path="chap-querysys.html"><a href="chap-querysys.html#his-2693.675-2780.725-0000-msajc015-text-item"><i class="fa fa-check"></i><b>6.65</b> 1 his 2693.675 2780.725 0000 msajc015 Text ITEM</a><ul>
+<li class="chapter" data-level="6.65.1" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_deducingTime"><i class="fa fa-check"></i><b>6.65.1</b> Deducing time</a></li>
+</ul></li>
+<li class="chapter" data-level="6.66" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-10"><i class="fa fa-check"></i><b>6.66</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.67" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-intonational-."><i class="fa fa-check"></i><b>6.67</b> query was: Intonational =~ .*</a></li>
+<li class="chapter" data-level="6.68" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-15"><i class="fa fa-check"></i><b>6.68</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.69" data-path="chap-querysys.html"><a href="chap-querysys.html#l-na-na-0000-msajc003-intonational-item"><i class="fa fa-check"></i><b>6.69</b> 1 L% NA NA 0000 msajc003 Intonational ITEM</a><ul>
+<li class="chapter" data-level="6.69.1" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.69.1</b> Requery</a></li>
+</ul></li>
+<li class="chapter" data-level="6.70" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-11"><i class="fa fa-check"></i><b>6.70</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.71" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-from-requery-1"><i class="fa fa-check"></i><b>6.71</b> query was: FROM REQUERY</a></li>
+<li class="chapter" data-level="6.72" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-16"><i class="fa fa-check"></i><b>6.72</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.73" data-path="chap-querysys.html"><a href="chap-querysys.html#e-949.925-1031.925-0000-msajc003-phonetic-segment"><i class="fa fa-check"></i><b>6.73</b> 1 E 949.925 1031.925 0000 msajc003 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="6.74" data-path="chap-querysys.html"><a href="chap-querysys.html#segment-list-from-database-ae-12"><i class="fa fa-check"></i><b>6.74</b> segment list from database: ae</a></li>
+<li class="chapter" data-level="6.75" data-path="chap-querysys.html"><a href="chap-querysys.html#query-was-from-requery-2"><i class="fa fa-check"></i><b>6.75</b> query was: FROM REQUERY</a></li>
+<li class="chapter" data-level="6.76" data-path="chap-querysys.html"><a href="chap-querysys.html#labels-start-end-session-bundle-level-type-17"><i class="fa fa-check"></i><b>6.76</b> labels start end session bundle level type</a></li>
+<li class="chapter" data-level="6.77" data-path="chap-querysys.html"><a href="chap-querysys.html#m-v-n-s-t-h-256.925-674.175-0000-msajc003-phonetic-segment"><i class="fa fa-check"></i><b>6.77</b> 1 m-&gt;V-&gt;N-&gt;s-&gt;t-&gt;H 256.925 674.175 0000 msajc003 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="6.78" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.78</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html"><i class="fa fa-check"></i><b>7</b> Signal data extraction [^1-chap:sigDataExtr]</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#name-columnname-fileextension-1"><i class="fa fa-check"></i><b>7.2</b> name columnName fileExtension</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#dft-dft-dft"><i class="fa fa-check"></i><b>7.3</b> 1 dft dft dft</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#fm-fm-fms"><i class="fa fa-check"></i><b>7.4</b> 2 fm fm fms</a></li>
+<li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#emu-track-data-from-6-segments"><i class="fa fa-check"></i><b>7.5</b> Emu track data from 6 segments</a></li>
+<li class="chapter" data-level="7.6" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-36"><i class="fa fa-check"></i><b>7.6</b> </a></li>
+<li class="chapter" data-level="7.7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#data-is-4-dimensional-from-track-fm"><i class="fa fa-check"></i><b>7.7</b> Data is 4 dimensional from track fm</a></li>
+<li class="chapter" data-level="7.8" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#mean-data-length-is-30.5-samples"><i class="fa fa-check"></i><b>7.8</b> Mean data length is 30.5 samples</a></li>
+<li class="chapter" data-level="7.9" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#emu-track-data-from-6-segments-1"><i class="fa fa-check"></i><b>7.9</b> Emu track data from 6 segments</a></li>
+<li class="chapter" data-level="7.10" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-37"><i class="fa fa-check"></i><b>7.10</b> </a></li>
+<li class="chapter" data-level="7.11" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#data-is-1-dimensional-from-track-mediafile_samples"><i class="fa fa-check"></i><b>7.11</b> Data is 1 dimensional from track MEDIAFILE_SAMPLES</a></li>
+<li class="chapter" data-level="7.12" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#mean-data-length-is-3064.333-samples"><i class="fa fa-check"></i><b>7.12</b> Mean data length is 3064.333 samples</a></li>
+<li class="chapter" data-level="7.13" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.13</b> Adding new tracks</a></li>
+<li class="chapter" data-level="7.14" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#name-columnname-fileextension-2"><i class="fa fa-check"></i><b>7.14</b> name columnName fileExtension</a></li>
+<li class="chapter" data-level="7.15" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#dft-dft-dft-1"><i class="fa fa-check"></i><b>7.15</b> 1 dft dft dft</a></li>
+<li class="chapter" data-level="7.16" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#fm-fm-fms-1"><i class="fa fa-check"></i><b>7.16</b> 2 fm fm fms</a></li>
+<li class="chapter" data-level="7.17" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#f0-f0-f0"><i class="fa fa-check"></i><b>7.17</b> 3 F0 F0 f0</a></li>
+<li class="chapter" data-level="7.18" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#a-tibble-7-x-4"><i class="fa fa-check"></i><b>7.18</b> # A tibble: 7 x 4</a></li>
+<li class="chapter" data-level="7.19" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#session-bundle-file-absolute_file_path-2"><i class="fa fa-check"></i><b>7.19</b> session bundle file absolute_file_path</a></li>
+<li class="chapter" data-level="7.20" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-38"><i class="fa fa-check"></i><b>7.20</b> * <chr> <chr> <chr> <chr></a></li>
+<li class="chapter" data-level="7.21" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#msajc003-msajc003.f0-privatevarfoldersyk8z9tn7kx6hbcg_9n4c"><i class="fa fa-check"></i><b>7.21</b> 1 0000 msajc003 msajc003.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~</a></li>
+<li class="chapter" data-level="7.22" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#msajc010-msajc010.f0-privatevarfoldersyk8z9tn7kx6hbcg_9n4c"><i class="fa fa-check"></i><b>7.22</b> 2 0000 msajc010 msajc010.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~</a></li>
+<li class="chapter" data-level="7.23" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#msajc012-msajc012.f0-privatevarfoldersyk8z9tn7kx6hbcg_9n4c"><i class="fa fa-check"></i><b>7.23</b> 3 0000 msajc012 msajc012.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~</a></li>
+<li class="chapter" data-level="7.24" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#msajc015-msajc015.f0-privatevarfoldersyk8z9tn7kx6hbcg_9n4c"><i class="fa fa-check"></i><b>7.24</b> 4 0000 msajc015 msajc015.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~</a></li>
+<li class="chapter" data-level="7.25" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#msajc022-msajc022.f0-privatevarfoldersyk8z9tn7kx6hbcg_9n4c"><i class="fa fa-check"></i><b>7.25</b> 5 0000 msajc022 msajc022.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~</a></li>
+<li class="chapter" data-level="7.26" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#msajc023-msajc023.f0-privatevarfoldersyk8z9tn7kx6hbcg_9n4c"><i class="fa fa-check"></i><b>7.26</b> 6 0000 msajc023 msajc023.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~</a></li>
+<li class="chapter" data-level="7.27" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#msajc057-msajc057.f0-privatevarfoldersyk8z9tn7kx6hbcg_9n4c"><i class="fa fa-check"></i><b>7.27</b> 7 0000 msajc057 msajc057.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~</a></li>
+<li class="chapter" data-level="7.28" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#emu-track-data-from-6-segments-2"><i class="fa fa-check"></i><b>7.28</b> Emu track data from 6 segments</a></li>
+<li class="chapter" data-level="7.29" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-39"><i class="fa fa-check"></i><b>7.29</b> </a></li>
+<li class="chapter" data-level="7.30" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#data-is-1-dimensional-from-track-f0"><i class="fa fa-check"></i><b>7.30</b> Data is 1 dimensional from track F0</a></li>
+<li class="chapter" data-level="7.31" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#mean-data-length-is-30.5-samples-1"><i class="fa fa-check"></i><b>7.31</b> Mean data length is 30.5 samples</a></li>
+<li class="chapter" data-level="7.32" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.32</b> Calculating tracks on-the-fly</a></li>
+<li class="chapter" data-level="7.33" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#emu-track-data-from-6-segments-3"><i class="fa fa-check"></i><b>7.33</b> Emu track data from 6 segments</a></li>
+<li class="chapter" data-level="7.34" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-40"><i class="fa fa-check"></i><b>7.34</b> </a></li>
+<li class="chapter" data-level="7.35" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#data-is-1-dimensional-from-track-pitch"><i class="fa fa-check"></i><b>7.35</b> Data is 1 dimensional from track pitch</a></li>
+<li class="chapter" data-level="7.36" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#mean-data-length-is-30.5-samples-2"><i class="fa fa-check"></i><b>7.36</b> Mean data length is 30.5 samples</a></li>
+<li class="chapter" data-level="7.37" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.37</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.38" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#trackdata-1"><i class="fa fa-check"></i><b>7.38</b> [1] “trackdata”</a></li>
+<li class="chapter" data-level="7.39" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#a-tibble-1-x-21"><i class="fa fa-check"></i><b>7.39</b> # A tibble: 1 x 21</a></li>
+<li class="chapter" data-level="7.40" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#sl_rowidx-labels-start-end-utts-db_uuid-session-bundle-start_item_id"><i class="fa fa-check"></i><b>7.40</b> sl_rowIdx labels start end utts db_uuid session bundle start_item_id</a></li>
+<li class="chapter" data-level="7.41" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-41"><i class="fa fa-check"></i><b>7.41</b> * <int> <chr> <dbl> <dbl> <chr> <chr> <chr> <chr> <int></a></li>
+<li class="chapter" data-level="7.42" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#ai-863.-1016.-0000-0fc618-0000-msajc-161"><i class="fa fa-check"></i><b>7.42</b> 1 1 ai 863. 1016. 0000:~ 0fc618~ 0000 msajc~ 161</a></li>
+<li class="chapter" data-level="7.43" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#with-12-more-variables-end_item_id-level"><i class="fa fa-check"></i><b>7.43</b> # … with 12 more variables: end_item_id <int>, level <chr>,</a></li>
+<li class="chapter" data-level="7.44" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#start_item_seq_idx-end_item_seq_idx-type"><i class="fa fa-check"></i><b>7.44</b> # start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,</a></li>
+<li class="chapter" data-level="7.45" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#sample_start-sample_end-sample_rate"><i class="fa fa-check"></i><b>7.45</b> # sample_start <int>, sample_end <int>, sample_rate <int>,</a></li>
+<li class="chapter" data-level="7.46" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#times_orig-times_rel-times_norm-t1"><i class="fa fa-check"></i><b>7.46</b> # times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <dbl></a></li>
+<li class="chapter" data-level="7.47" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-42"><i class="fa fa-check"></i><b>7.47</b> [1] 0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80</a></li>
+<li class="chapter" data-level="7.48" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-43"><i class="fa fa-check"></i><b>7.48</b> [18] 85 90 95 100 105 110 115 120 125 130 135 140 145</a></li>
+<li class="chapter" data-level="7.49" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-44"><i class="fa fa-check"></i><b>7.49</b> [1] 867.5 872.5 877.5 882.5 887.5 892.5 897.5 902.5 907.5 912.5</a></li>
+<li class="chapter" data-level="7.50" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-45"><i class="fa fa-check"></i><b>7.50</b> [11] 917.5 922.5 927.5 932.5 937.5 942.5 947.5 952.5 957.5 962.5</a></li>
+<li class="chapter" data-level="7.51" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-46"><i class="fa fa-check"></i><b>7.51</b> [21] 967.5 972.5 977.5 982.5 987.5 992.5 997.5 1002.5 1007.5 1012.5</a></li>
+<li class="chapter" data-level="7.52" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#sl_rowidx-labels-start-end-session-bundle-level-type"><i class="fa fa-check"></i><b>7.52</b> sl_rowIdx labels start end session bundle level type</a></li>
+<li class="chapter" data-level="7.53" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#ai-862.875-1015.825-0000-msajc010-phonetic-segment"><i class="fa fa-check"></i><b>7.53</b> 1 1 ai 862.875 1015.825 0000 msajc010 Phonetic SEGMENT</a></li>
+<li class="chapter" data-level="7.54" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#times_orig-times_rel-times_norm-t1-1"><i class="fa fa-check"></i><b>7.54</b> times_orig times_rel times_norm T1</a></li>
+<li class="chapter" data-level="7.55" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#section-47"><i class="fa fa-check"></i><b>7.55</b> 1 867.5 0 0 134.7854</a></li>
+<li class="chapter" data-level="7.56" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.56</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#file-i0-and-the-asspdataobj"><i class="fa fa-check"></i><b>8.2</b> File I/0 and the <code>AsspDataObj</code></a></li>
+<li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
+<li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code> [^1-chap:emu-webApp]</a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:emu-webApp-mainLayout"><i class="fa fa-check"></i><b>9.1</b> Main layout</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:webApp-generalUsage"><i class="fa fa-check"></i><b>9.2</b> General usage</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#annotating-levels-containing-time-information"><i class="fa fa-check"></i><b>9.2.1</b> Annotating levels containing time information</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#working-with-hierarchical-annotations-2-chapemu-webapp"><i class="fa fa-check"></i><b>9.2.2</b> Working with hierarchical annotations [^2-chap:emu-webApp]</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#configuring-the-emu-webapp"><i class="fa fa-check"></i><b>9.3</b> Configuring the <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppConfigWithEmuR"><i class="fa fa-check"></i><b>9.3.1</b> Basic configurations using <code>emuR</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#name-signalcanvasesorder-levelcanvasesorder"><i class="fa fa-check"></i><b>9.4</b> name signalCanvasesOrder levelCanvasesOrder</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#default-osci-spec-phonetic-tone"><i class="fa fa-check"></i><b>9.5</b> 1 default OSCI; SPEC Phonetic; Tone</a></li>
+<li class="chapter" data-level="9.6" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#phonetic-only-osci-spec-phonetic"><i class="fa fa-check"></i><b>9.6</b> 2 Phonetic-only OSCI; SPEC Phonetic</a></li>
+<li class="chapter" data-level="9.7" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#tone-only-osci-spec-tone"><i class="fa fa-check"></i><b>9.7</b> 3 Tone-only OSCI; SPEC Tone</a></li>
+<li class="chapter" data-level="9.8" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#name-signalcanvasesorder-levelcanvasesorder-1"><i class="fa fa-check"></i><b>9.8</b> name signalCanvasesOrder levelCanvasesOrder</a></li>
+<li class="chapter" data-level="9.9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#default-osci-spec-phonetic-tone-1"><i class="fa fa-check"></i><b>9.9</b> 1 default OSCI; SPEC Phonetic; Tone</a></li>
+<li class="chapter" data-level="9.10" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#phonetic-only-osci-spec-phonetic-1"><i class="fa fa-check"></i><b>9.10</b> 2 Phonetic-only OSCI; SPEC Phonetic</a></li>
+<li class="chapter" data-level="9.11" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#tone-only-osci-spec-tone-1"><i class="fa fa-check"></i><b>9.11</b> 3 Tone-only OSCI; SPEC Tone</a></li>
+<li class="chapter" data-level="9.12" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#tmppersp-osci-spec"><i class="fa fa-check"></i><b>9.12</b> 4 tmpPersp OSCI; SPEC</a><ul>
+<li class="chapter" data-level="9.12.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#signal-canvas-and-level-canvas-order"><i class="fa fa-check"></i><b>9.12.1</b> Signal canvas and level canvas order</a></li>
+</ul></li>
+<li class="chapter" data-level="9.13" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#osci-spec"><i class="fa fa-check"></i><b>9.13</b> [1] “OSCI” “SPEC”</a></li>
+<li class="chapter" data-level="9.14" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#name-signalcanvasesorder-levelcanvasesorder-2"><i class="fa fa-check"></i><b>9.14</b> name signalCanvasesOrder levelCanvasesOrder</a></li>
+<li class="chapter" data-level="9.15" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#default-spec-osci-tone"><i class="fa fa-check"></i><b>9.15</b> 1 default SPEC; OSCI Tone</a></li>
+<li class="chapter" data-level="9.16" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#phonetic-only-osci-spec-phonetic-2"><i class="fa fa-check"></i><b>9.16</b> 2 Phonetic-only OSCI; SPEC Phonetic</a></li>
+<li class="chapter" data-level="9.17" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#tone-only-osci-spec-tone-2"><i class="fa fa-check"></i><b>9.17</b> 3 Tone-only OSCI; SPEC Tone</a></li>
+<li class="chapter" data-level="9.18" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#error-in-set_levelcanvasesorderae-perspectivename-default-order-csyllable-leveldefinition-with-name-syllable-is-not-of-type-segment-or-event"><i class="fa fa-check"></i><b>9.18</b> Error in set_levelCanvasesOrder(ae, perspectiveName = “default”, order = c(“Syllable”)): levelDefinition with name ‘Syllable’ is not of type ‘SEGMENT’ or ‘EVENT’</a></li>
+<li class="chapter" data-level="9.19" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#name-columnname-fileextension-3"><i class="fa fa-check"></i><b>9.19</b> name columnName fileExtension</a></li>
+<li class="chapter" data-level="9.20" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#dft-dft-dft-2"><i class="fa fa-check"></i><b>9.20</b> 1 dft dft dft</a></li>
+<li class="chapter" data-level="9.21" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#fm-fm-fms-2"><i class="fa fa-check"></i><b>9.21</b> 2 fm fm fms</a><ul>
+<li class="chapter" data-level="9.21.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppAdvancedConfig"><i class="fa fa-check"></i><b>9.21.1</b> Advanced configurations made by editing the <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="9.21.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#d-canvas"><i class="fa fa-check"></i><b>9.21.2</b> 2D canvas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.22" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#conclusion-5"><i class="fa fa-check"></i><b>9.22</b> Conclusion</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:wrassp" class="section level1">
+<h1><span class="header-section-number">8</span> The R package <code>wrassp</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h1>
+<p><img src="pics/EMU-webAppEmu_wrassp.png" width="75%" style="display: block; margin: auto;" /></p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<p>This chapter gives an overview and introduction to the <code>wrassp</code> package. The <code>wrassp</code> package is a <code>w</code>rapper for <code>R</code> around Michel Scheffers’ <a href="http://libassp.sourceforge.net/"><code>libassp</code></a> (<code>A</code>dvanced <code>S</code>peech <code>S</code>ignal <code>P</code>rocessor). The <code>libassp</code> library and therefore the <code>wrassp</code> package provide functionality for handling speech signal files in most common audio formats and for performing signal analyses common in the phonetic and speech sciences. As such, <code>wrassp</code> fills a gap in the R package landscape as, to our knowledge, no previous packages provided this specialized functionality. The currently available signal processing functions provided by <code>wrassp</code> are:</p>
+<ul>
+<li><code>acfana()</code>: Analysis of short-term autocorrelation function</li>
+<li><code>afdiff()</code>: Computes the first difference of the signal</li>
+<li><code>affilter()</code>: Filters the audio signal (e.g., low-pass and high-pass)</li>
+<li><code>cepstrum()</code>: Short-term cepstral analysis</li>
+<li><code>cssSpectrum()</code>: Cepstral smoothed version of <code>dftSpectrum()</code></li>
+<li><code>dftSpectrum()</code>: Short-term DFT spectral analysis</li>
+<li><code>forest()</code>: Formant estimation</li>
+<li><code>ksvF0()</code>: F0 analysis of the signal</li>
+<li><code>lpsSpectrum()</code>: Linear predictive smoothed version of <code>dftSpectrum()</code></li>
+<li><code>mhsF0()</code>: Pitch analysis of the speech signal using Michel Scheffers’ <code>M</code>odified <code>H</code>armonic <code>S</code>ieve algorithm</li>
+<li><code>rfcana()</code>: Linear prediction analysis</li>
+<li><code>rmsana()</code>: Analysis of short-term Root Mean Square amplitude</li>
+<li><code>zcrana</code>(): Analysis of the averages of the short-term positive and negative zero-crossing rates</li>
+</ul>
+<p>The available file handling functions are:</p>
+<ul>
+<li><code>read.AsspDataObj()</code>: read a SSFF or audio file into an <code>AsspDataObj</code>, which is the in-memory equivalent of the SSFF or audio file.</li>
+<li><code>write.AsspDataObj()</code>: write an <code>AsspDataObj</code> to file (usually SSFF or audio file formats).</li>
+</ul>
+<p>See R’s <code>help()</code> function for a comprehensive list of every function and object provided by the <code>wrassp</code> package is required (see R Example <a href="#rexample:wrassp-help"><strong>??</strong></a>).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;wrassp&quot;</span>)</a></code></pre></div>
+<p>As the <code>wrassp</code> package can be used independently of the EMU-SDMS this chapter largely focuses on using it as an independent component. However, Section <a href="#sec:wrassp-emu-sdms"><strong>??</strong></a> provides an overview of how the package is integrated into the EMU-SDMS. Further, although the <code>wrassp</code> package has its own set of example audio files (which can be accessed in the directory provided by <code>system.file('extdata', package='wrassp')</code>), this chapter will use the audio and SSFF files that are part of the <code>ae</code> <code>emuDB</code> of the demo data provided by the <code>emuR</code> package. This is done primarily to provide an overview of what it is like using <code>wrassp</code> to work on files in an <code>emuDB</code>. R Example <a href="#rexample:wrassp-loadDemoData"><strong>??</strong></a> shows how to generate this demo data followed by a listing of the files contained in a directory of a single bundle called <code>msajc003</code> (see Chapter @ref(chap:emuDB} for information about the <code>emuDB</code> format). The output of the call to <code>list.files()</code> shows four files where the <code>.dft</code> and <code>.fms</code> files are in the SSFF file format (see Appendix <a href="#subsec:app-chapFileFormatsSSFF"><strong>??</strong></a> for further details). The <code>_annot.json</code> file contains the annotation information, and the <code>.wav</code> file is one of the audio files that will be used in various signal processing examples in this chapter.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># load the emuR package</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># create demo data in directory</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co"># provided by tempdir()</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co"># create path to demo database</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># create path to bundle in database</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">path2bndl =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;0000_ses&quot;</span>, <span class="st">&quot;msajc003_bndl&quot;</span>)</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co"># list files in bundle directory</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="kw">list.files</span>(path2bndl)</a></code></pre></div>
+<pre><code>## [1] &quot;msajc003_annot.json&quot; &quot;msajc003.dft&quot;        &quot;msajc003.fms&quot;       
+## [4] &quot;msajc003.wav&quot;</code></pre>
+</div>
+<div id="file-i0-and-the-asspdataobj" class="section level2">
+<h2><span class="header-section-number">8.2</span> File I/0 and the <code>AsspDataObj</code></h2>
+<p>One of the aims of <code>wrassp</code> is to provide mechanisms for handling speech-related files such as audio files and derived and complementary signal files. To have an in-memory object that can hold these file types in a uniform way the <code>wrassp</code> package provides the <code>AsspDataObj</code> data type. R Example <a href="#rexample:wrassp-read"><strong>??</strong></a> shows how the <code>read.AsspDataObj()</code> can be used to import a <code>.wav</code> audio file.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># load the wrassp package</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">library</span>(wrassp)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># create path to wav file</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">path2wav =<span class="st"> </span><span class="kw">file.path</span>(path2bndl, <span class="st">&quot;msajc003.wav&quot;</span>)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># read audio file</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">au =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(path2wav)</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co"># show class</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="kw">class</span>(au)</a></code></pre></div>
+<pre><code>## [1] &quot;AsspDataObj&quot;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># show print() output of object</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">print</span>(au)</a></code></pre></div>
+<pre><code>## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmp3cBg0K/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Format: WAVE (binary)
+## 58089 records at 20000 Hz
+## Duration: 2.904450 s
+## Number of tracks: 1 
+##   audio (1 fields)</code></pre>
+<p>As can be seen in R Example <a href="#rexample:wrassp-read"><strong>??</strong></a>, the resulting <code>au</code> object is of the class <code>AsspDataObj</code>. The output of <code>print</code> provides additional information about the object, such as its sampling rate, duration, data type and data structure information. Since the file we loaded is audio only, the object contains exactly one track. Further, since it is a mono file, this track only has a single field. We will later encounter different types of data with more than one track and multiple fields per track. R Example <a href="#rexample:wrassp-extrAttrs"><strong>??</strong></a> shows function calls that extract the various attributes from the object (e.g., duration, sampling rate and the number of records).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># show duration</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">dur.AsspDataObj</span>(au)</a></code></pre></div>
+<pre><code>## [1] 2.90445</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># show sampling rate</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">rate.AsspDataObj</span>(au)</a></code></pre></div>
+<pre><code>## [1] 20000</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># show number of records/samples</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">numRecs.AsspDataObj</span>(au)</a></code></pre></div>
+<pre><code>## [1] 58089</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># shorten filePath attribute</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="co"># to 10 chars only to prettify output</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">attr</span>(au, <span class="st">&quot;filePath&quot;</span>)  =<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">substr</span>(<span class="kw">attr</span>(au, <span class="st">&quot;filePath&quot;</span>),</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">                                      <span class="dt">start =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">                                      <span class="dt">stop =</span> <span class="dv">45</span>), <span class="st">&quot;...&quot;</span>)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="co"># show additional attributes</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw">attributes</span>(au)</a></code></pre></div>
+<pre><code>## $names
+## [1] &quot;audio&quot;
+## 
+## $trackFormats
+## [1] &quot;INT16&quot;
+## 
+## $sampleRate
+## [1] 20000
+## 
+## $filePath
+## [1] &quot;/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000g...&quot;
+## 
+## $origFreq
+## [1] 0
+## 
+## $startTime
+## [1] 0
+## 
+## $startRecord
+## [1] 1
+## 
+## $endRecord
+## [1] 58089
+## 
+## $class
+## [1] &quot;AsspDataObj&quot;
+## 
+## $fileInfo
+## [1] 21  2</code></pre>
+<p>The sample values belonging to a trackdata objects tracks are also stored within an <code>AsspDataObj</code> object. As mentioned above, the currently loaded object contains a single mono audio track. Accessing the data belonging to this track, in the form of a matrix, can be achieved using the track’s name in combination with the <code>$</code> notation known from R’s common named <code>list</code> object. Each matrix has the same number of rows as the track has records and as many columns as the track has fields. R Example <a href="#rexample:wrassp-extrData"><strong>??</strong></a> shows how the <code>audio</code> track can be accessed.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># show track names</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">tracks.AsspDataObj</span>(au)</a></code></pre></div>
+<pre><code>## [1] &quot;audio&quot;</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># or an alternative way to show track names</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">names</span>(au)</a></code></pre></div>
+<pre><code>## [1] &quot;audio&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># show dimensions of audio attribute</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">dim</span>(au<span class="op">$</span>audio)</a></code></pre></div>
+<pre><code>## [1] 58089     1</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># show first sample value of audio attribute</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">head</span>(au<span class="op">$</span>audio, <span class="dt">n =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>##      [,1]
+## [1,]   64</code></pre>
+<p>This data can, for example, be used to generate an oscillogram of the audio file as shown in R Example <a href="#rexample:wrassp-plotOsci"><strong>??</strong></a>, which produces Figure <a href="chap-wrassp.html#fig:wrassp-plotOsci">8.1</a>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co"># calculate sample time of every 10th sample</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">samplesIdx =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="kw">numRecs.AsspDataObj</span>(au) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">samplesTime =<span class="st"> </span>samplesIdx <span class="op">/</span><span class="st"> </span><span class="kw">rate.AsspDataObj</span>(au)</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="co"># extract every 10th sample using window() function</span></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">samples =<span class="st"> </span><span class="kw">window</span>(au<span class="op">$</span>audio, <span class="dt">deltat=</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb24-8" data-line-number="8"><span class="co"># plot samples stored in audio attribute</span></a>
+<a class="sourceLine" id="cb24-9" data-line-number="9"><span class="co"># (only plot every 10th sample to accelerate plotting)</span></a>
+<a class="sourceLine" id="cb24-10" data-line-number="10"><span class="kw">plot</span>(samplesTime,</a>
+<a class="sourceLine" id="cb24-11" data-line-number="11">     samples,</a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">     <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</a>
+<a class="sourceLine" id="cb24-13" data-line-number="13">     <span class="dt">xlab =</span> <span class="st">&quot;time (s)&quot;</span>,</a>
+<a class="sourceLine" id="cb24-14" data-line-number="14">     <span class="dt">ylab =</span> <span class="st">&quot;Audio samples (INT16)&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:wrassp-plotOsci"></span>
+<img src="wrassp_files/figure-html/wrassp-plotOsci-1.png" alt="Oscillogram generated from samples stored in the `audio` track of the object `au`." width="576" />
+<p class="caption">
+Figure 8.1: Oscillogram generated from samples stored in the <code>audio</code> track of the object <code>au</code>.
+</p>
+</div>
+<p>The export counterpart to <code>read.AsspDataObj()</code> function is <code>write.AsspDataObj()</code>. It is used to store in-memory <code>AsspDataObj</code> objects to disk and is particularly useful for converting other formats to or storing data in the SSFF file format as described in Section <a href="#sec:wrassp-genSSFF"><strong>??</strong></a>. To show how this function can be used to write a slightly altered version of the <code>au</code> object to a file, R Example <a href="#rexample:wrassp-writeAudio"><strong>??</strong></a> initially multiplies all the sample values of <code>au$audio</code> by a factor of <code>0.5</code>. The resulting <code>AsspDataObj</code> is then written to an audio file in a temporary directory provided by <code>R</code>’s <code>tempdir()</code> function.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># manipulate the audio samples</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">au<span class="op">$</span>audio =<span class="st"> </span>au<span class="op">$</span>audio <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="co"># write to file in directory</span></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="co"># provided by tempdir()</span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5"><span class="kw">write.AsspDataObj</span>(au, <span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&#39;newau.wav&#39;</span>))</a></code></pre></div>
+</div>
+<div id="signal-processing" class="section level2">
+<h2><span class="header-section-number">8.3</span> Signal processing</h2>
+<p>As mentioned in the introduction to this chapter, the <code>wrassp</code> package is capable of more than just the mere importing and exporting of specific signal file formats. This section will focus on demonstrating three of <code>wrassp</code>’s signal processing functions that calculate formant values, their corresponding bandwidths, the fundamental frequency contour and the RMS energy contour. Section <a href="chap-wrassp.html#subsec:wrassp-formants">8.5</a> and <a href="#subsec:wrassp-f0"><strong>??</strong></a> demonstrates signal processing to the audio file saved under <code>path2wav</code>, while Section <a href="chap-wrassp.html#subsec:wrassp-RMS">8.5.2</a> adresses processing all the audio files belonging to the <em>ae</em> <code>emuDB</code>.</p>
+</div>
+<div id="subsec:wrassp-wrasspOutputInfos" class="section level2">
+<h2><span class="header-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</h2>
+<p>The <code>wrassp</code> package comes with the <code>wrasspOutputInfos</code> object, which provides information about the various signal processing functions provided by the package. The <code>wrasspOutputInfos</code> object stores meta information associated with the different signal processing functions <code>wrassp</code> provides. R Example <a href="#rexample:wrassp-outputInfosName"><strong>??</strong></a> shows the names of the <code>wrasspOutputInfos</code> object which correspond to the function names listed in the introduction of this chapter.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># show all function names</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="kw">names</span>(wrasspOutputInfos)</a></code></pre></div>
+<pre><code>##  [1] &quot;acfana&quot;      &quot;afdiff&quot;      &quot;affilter&quot;    &quot;cepstrum&quot;    &quot;cssSpectrum&quot;
+##  [6] &quot;dftSpectrum&quot; &quot;ksvF0&quot;       &quot;mhsF0&quot;       &quot;forest&quot;      &quot;lpsSpectrum&quot;
+## [11] &quot;rfcana&quot;      &quot;rmsana&quot;      &quot;zcrana&quot;</code></pre>
+<p>This object can be useful to get additional information about a specific <code>wrassp</code> function. It contains information about the default file extension (<code>$ext</code>), the tracks produced (<code>$tracks</code>) and the output file type (<code>$outputType</code>). R Example <a href="#rexample:wrassp-outputInfosForest"><strong>??</strong></a> shows this information for the <code>forest()</code> function.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co"># show output info of forest function</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">wrasspOutputInfos<span class="op">$</span>forest</a></code></pre></div>
+<pre><code>## $ext
+## [1] &quot;fms&quot;
+## 
+## $tracks
+## [1] &quot;fm&quot; &quot;bw&quot;
+## 
+## $outputType
+## [1] &quot;SSFF&quot;</code></pre>
+<p>The examples that follow will make use of this <code>wrasspOutputInfos</code> object mainly to acquire the default file extensions given by a specific <code>wrassp</code> signal processing function.</p>
+</div>
+<div id="subsec:wrassp-formants" class="section level2">
+<h2><span class="header-section-number">8.5</span> Formants and their bandwidths</h2>
+<p>The already mentioned <code>forest()</code> is <code>wrassp</code>’s formant estimation function. The default behavior of this formant tracker is to calculate the first four formants and their bandwidths. R Example <a href="#rexample:wrassp-calcFms"><strong>??</strong></a> shows the usage of this function. As the default behavior of every signal processing function provided by <code>wrassp</code> is to store its result to a file, the <code>toFile</code> parameter of <code>forest()</code> is set to <code>FALSE</code> to prevent this behavior. This results in the same <code>AsspDataObj</code> object as when exporting the result to file and then importing the file into R using <code>read.AsspDataObj()</code>, but circumvents the disk reading/writing overhead.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># calculate formants and corresponding bandwidth values</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">fmBwVals =<span class="st"> </span><span class="kw">forest</span>(path2wav, <span class="dt">toFile=</span>F)</a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co"># show class vector</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"><span class="kw">class</span>(fmBwVals)</a></code></pre></div>
+<pre><code>## [1] &quot;AsspDataObj&quot;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co"># show track names</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="kw">tracks.AsspDataObj</span>(fmBwVals)</a></code></pre></div>
+<pre><code>## [1] &quot;fm&quot; &quot;bw&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co"># show dimensions of &quot;fm&quot; track</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="kw">dim</span>(fmBwVals<span class="op">$</span>fm)</a></code></pre></div>
+<pre><code>## [1] 581   4</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="co"># check dimensions of tracks are the same</span></a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">all</span>(<span class="kw">dim</span>(fmBwVals<span class="op">$</span>fm) <span class="op">==</span><span class="st"> </span><span class="kw">dim</span>(fmBwVals<span class="op">$</span>bw))</a></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>As can be seen in R Example <a href="#rexample:wrassp-calcFms"><strong>??</strong></a>, the object resulting from the <code>forest()</code> function is an object of class <code>AsspDataObj</code> with the tracks <code>&quot;fm&quot;</code> (formants) and <code>&quot;bw&quot;</code> (formant bandwidths), where both track matrices have four columns (corresponding to F1, F2, F3 and F4 in the <code>&quot;fm&quot;</code> track and F1<sub>bandwidth</sub>, F2<sub>bandwidth</sub>, F3<sub>bandwidth</sub> and F4<sub>bandwidth</sub> in the <code>&quot;bw&quot;</code> track) and 581 rows. To visualize the calculated formant values, R Example <a href="#rexample:wrassp-plotFms"><strong>??</strong></a> shows how R’s <code>matplot()</code> function can be used to produce Figure <a href="chap-wrassp.html#fig:wrassp-plotFms">8.2</a>.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># plot the formant values</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw">matplot</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="kw">numRecs.AsspDataObj</span>(fmBwVals) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">        <span class="op">/</span><span class="st"> </span><span class="kw">rate.AsspDataObj</span>(fmBwVals)</a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">        <span class="op">+</span><span class="st"> </span><span class="kw">attr</span>(fmBwVals, <span class="st">&quot;startTime&quot;</span>),</a>
+<a class="sourceLine" id="cb38-5" data-line-number="5">        fmBwVals<span class="op">$</span>fm,</a>
+<a class="sourceLine" id="cb38-6" data-line-number="6">        <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</a>
+<a class="sourceLine" id="cb38-7" data-line-number="7">        <span class="dt">xlab =</span> <span class="st">&quot;time (s)&quot;</span>,</a>
+<a class="sourceLine" id="cb38-8" data-line-number="8">        <span class="dt">ylab =</span> <span class="st">&quot;Formant frequency (Hz)&quot;</span>)</a>
+<a class="sourceLine" id="cb38-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb38-10" data-line-number="10"><span class="co"># add legend</span></a>
+<a class="sourceLine" id="cb38-11" data-line-number="11">startFormant =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb38-12" data-line-number="12">endFormant =<span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb38-13" data-line-number="13"><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,</a>
+<a class="sourceLine" id="cb38-14" data-line-number="14">       <span class="dt">legend =</span> <span class="kw">paste0</span>(<span class="st">&quot;F&quot;</span>, startFormant<span class="op">:</span>endFormant),</a>
+<a class="sourceLine" id="cb38-15" data-line-number="15">       <span class="dt">col =</span> startFormant<span class="op">:</span>endFormant,</a>
+<a class="sourceLine" id="cb38-16" data-line-number="16">       <span class="dt">lty =</span> startFormant<span class="op">:</span>endFormant,</a>
+<a class="sourceLine" id="cb38-17" data-line-number="17">       <span class="dt">bg =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:wrassp-plotFms"></span>
+<img src="wrassp_files/figure-html/wrassp-plotFms-1.png" alt="Matrix plot of formant values stored in the `fm` track of `fmBwVals` object." width="576" />
+<p class="caption">
+Figure 8.2: Matrix plot of formant values stored in the <code>fm</code> track of <code>fmBwVals</code> object.
+</p>
+</div>
+<div id="subsec:wrassp_f0" class="section level3">
+<h3><span class="header-section-number">8.5.1</span> Fundamental frequency contour</h3>
+<p>The <code>wrassp</code> package includes two fundamental frequency estimation functions called <code>ksvF0()</code> and <code>mhsF0()</code>. R Example <a href="#rexample:wrassp-calcF0"><strong>??</strong></a> shows the usage of the <code>ksvF0()</code> function, this time not utilizing the <code>toFile</code> parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by <code>wrassp</code> creates a result file in the same directory as the audio file it was processing (except if the <code>outputDirectory</code> parameter is set otherwise). The default extension given by the <code>ksvF0()</code> is stored in <code>wrasspOutputInfos\$ksvF0\$ext</code>, which is used in R Example <a href="#rexample:wrassp-calcF0"><strong>??</strong></a> to create the newly generated file’s path.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># calculate the fundamental frequency contour</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="kw">ksvF0</span>(path2wav)</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co"># create path to newly generated file</span></a>
+<a class="sourceLine" id="cb39-5" data-line-number="5">path2f0file =<span class="st"> </span><span class="kw">file.path</span>(path2bndl,</a>
+<a class="sourceLine" id="cb39-6" data-line-number="6">                    <span class="kw">paste0</span>(<span class="st">&quot;msajc003.&quot;</span>,</a>
+<a class="sourceLine" id="cb39-7" data-line-number="7">                           wrasspOutputInfos<span class="op">$</span>ksvF0<span class="op">$</span>ext))</a>
+<a class="sourceLine" id="cb39-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb39-9" data-line-number="9"><span class="co"># read file from disk</span></a>
+<a class="sourceLine" id="cb39-10" data-line-number="10">f0vals =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(path2f0file)</a></code></pre></div>
+<p>By analogy with to the formant estimation example, R Example <a href="#rexample:wrassp-plotF0"><strong>??</strong></a> shows how the <code>plot()</code> function can be used to visualize this data as in Figure <a href="chap-wrassp.html#fig:wrassp-plotF0">8.3</a>.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># plot the fundamental frequency contour</span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="kw">plot</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="kw">numRecs.AsspDataObj</span>(f0vals) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3">     <span class="op">/</span><span class="st"> </span><span class="kw">rate.AsspDataObj</span>(f0vals) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="st">       </span><span class="kw">attr</span>(f0vals, <span class="st">&quot;startTime&quot;</span>),</a>
+<a class="sourceLine" id="cb40-5" data-line-number="5">     f0vals<span class="op">$</span>F0,</a>
+<a class="sourceLine" id="cb40-6" data-line-number="6">     <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</a>
+<a class="sourceLine" id="cb40-7" data-line-number="7">     <span class="dt">xlab =</span> <span class="st">&quot;time (s)&quot;</span>,</a>
+<a class="sourceLine" id="cb40-8" data-line-number="8">     <span class="dt">ylab =</span> <span class="st">&quot;F0 frequency (Hz)&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:wrassp-plotF0"></span>
+<img src="wrassp_files/figure-html/wrassp-plotF0-1.png" alt="Plot of fundamental frequency values stored in the `F0` track of `f0vals` object." width="576" />
+<p class="caption">
+Figure 8.3: Plot of fundamental frequency values stored in the <code>F0</code> track of <code>f0vals</code> object.
+</p>
+</div>
+</div>
+<div id="subsec:wrassp-RMS" class="section level3">
+<h3><span class="header-section-number">8.5.2</span> RMS energy contour</h3>
+<p>The <code>wrassp</code> function for calculating the short-term root mean square (RMS) amplitude of the signal is called <code>rmsana()</code>. As its usage is analogous to the above examples, here we will focus on using it to calculate the RMS values for all the audio files of the <code>ae</code> <code>emuDB</code>. R Example <a href="#rexample:wrassp-calcRMS"><strong>??</strong></a> initially uses the <code>list.files()</code> function to aquire the file paths for every <code>.wav</code> file in the <code>ae</code> <code>emuDB</code>. As every signal processing function accepts one or multiple file paths, these file paths can simply be passed in as the main argument to the <code>rmsana()</code> function. As all of <code>wrassp</code>’s signal processing functions place their generated files in the same directory as the audio file they process, the <code>rmsana()</code> function will automatically place every <code>.rms</code> into the correct bundle directory.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># list all .wav files in the ae emuDB</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">paths2wavFiles =<span class="st"> </span><span class="kw">list.files</span>(path2ae, <span class="dt">pattern =</span> <span class="st">&quot;.*wav$&quot;</span>,</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">                            <span class="dt">recursive =</span> <span class="ot">TRUE</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb41-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co"># calculate the RMS energy values for all .wav files</span></a>
+<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="kw">rmsana</span>(paths2wavFiles)</a>
+<a class="sourceLine" id="cb41-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb41-8" data-line-number="8"><span class="co"># list new .rms files using</span></a>
+<a class="sourceLine" id="cb41-9" data-line-number="9"><span class="co"># wrasspOutputInfos-&gt;rmsana-&gt;ext</span></a>
+<a class="sourceLine" id="cb41-10" data-line-number="10">rmsFPs =<span class="st"> </span><span class="kw">list.files</span>(path2ae,</a>
+<a class="sourceLine" id="cb41-11" data-line-number="11">                    <span class="dt">pattern =</span> <span class="kw">paste0</span>(<span class="st">&quot;.*&quot;</span>,</a>
+<a class="sourceLine" id="cb41-12" data-line-number="12">                                     wrasspOutputInfos<span class="op">$</span>rmsana<span class="op">$</span>ext),</a>
+<a class="sourceLine" id="cb41-13" data-line-number="13">                    <span class="dt">recursive =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb41-14" data-line-number="14">                    <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb41-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb41-16" data-line-number="16"><span class="co"># read first RMS file</span></a>
+<a class="sourceLine" id="cb41-17" data-line-number="17">rmsvals =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(rmsFPs[<span class="dv">1</span>])</a></code></pre></div>
+<p>R Example <a href="#rexample:wrassp-plotRMS"><strong>??</strong></a> shows how the <code>plot()</code> function can be used to visualize this data as in Figure <a href="chap-wrassp.html#fig:wrassp-plotRMS">8.4</a>.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co"># plot the RMS energy contour</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="kw">plot</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="kw">numRecs.AsspDataObj</span>(rmsvals) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb42-3" data-line-number="3">     <span class="op">/</span><span class="st"> </span><span class="kw">rate.AsspDataObj</span>(rmsvals)</a>
+<a class="sourceLine" id="cb42-4" data-line-number="4">     <span class="op">+</span><span class="st"> </span><span class="kw">attr</span>(rmsvals, <span class="st">&quot;startTime&quot;</span>),</a>
+<a class="sourceLine" id="cb42-5" data-line-number="5">     rmsvals<span class="op">$</span>rms,</a>
+<a class="sourceLine" id="cb42-6" data-line-number="6">     <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</a>
+<a class="sourceLine" id="cb42-7" data-line-number="7">     <span class="dt">xlab =</span> <span class="st">&quot;time (s)&quot;</span>,</a>
+<a class="sourceLine" id="cb42-8" data-line-number="8">     <span class="dt">ylab =</span> <span class="st">&quot;RMS energy (dB)&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:wrassp-plotRMS"></span>
+<img src="wrassp_files/figure-html/wrassp-plotRMS-1.png" alt="Plot of RMS values stored in `rms` track of the `rmsvals` object." width="576" />
+<p class="caption">
+Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rmsvals</code> object.
+</p>
+</div>
+</div>
+</div>
+<div id="sec:wrassp_logging" class="section level2">
+<h2><span class="header-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</h2>
+<p>As it can be extremely important to keep track of information about how certain files are created and calculated, every signal processing function provided by the <code>wrassp</code> package comes with the ability to log its function calls to a specified log file. R Example @ref(rexample:wrassp-logging} shows a call to the <code>ksvF0()</code> function where a single parameter was changed from its default value (<code>windowShift = 10</code>). The content of the created log files (shown by the call to <code>readLines()</code>) contains the function name, time stamp, parameters that were altered and processed file path information. It is worth noting that a log file can be reused for multiple function calls as the log function does not overwrite an existing file but merely appends new log information to it.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="co"># create path to log file in root dir of ae emuDB</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">path2logFile =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;wrassp.log&quot;</span>)</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb43-4" data-line-number="4"><span class="co"># calculate the fundamental frequency contour</span></a>
+<a class="sourceLine" id="cb43-5" data-line-number="5"><span class="kw">ksvF0</span>(path2wav, <span class="dt">windowShift =</span> <span class="dv">10</span>, <span class="dt">forceToLog =</span> T, <span class="dt">optLogFilePath =</span> path2logFile)</a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="co"># display content of log file (first 8 lines)</span></a>
+<a class="sourceLine" id="cb45-2" data-line-number="2"><span class="kw">readLines</span>(path2logFile)[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>]</a></code></pre></div>
+<pre><code>## [1] &quot;&quot;                                  
+## [2] &quot;##################################&quot;
+## [3] &quot;##################################&quot;
+## [4] &quot;######## ksvF0 performed ########&quot; 
+## [5] &quot;Timestamp:  2018-05-09 18:30:13 &quot;  
+## [6] &quot;windowShift : 10 &quot;                 
+## [7] &quot;forceToLog : T &quot;                   
+## [8] &quot; =&gt; on files:&quot;</code></pre>
+</div>
+<div id="sec:wrassp_emu-sdms" class="section level2">
+<h2><span class="header-section-number">8.7</span> Using <code>wrassp</code> in the EMU-SDMS</h2>
+<p>As shown in Section <a href="chap-wrassp.html#subsec:wrassp-RMS">8.5.2</a>, the <code>wrassp</code> signal processing functions can be used to calculate SSFF files and place them into the appropriate bundle directories. The only thing that has to be done to make an <code>emuDB</code> aware of these files is to add an SSFF track definition to the <code>emuDB</code> as shown in R Example <a href="#rexample:wrassp-addSSFF"><strong>??</strong></a>. Once added, this SSFF track can be referenced via the <code>ssffTrackName</code> parameter of the <code>get_trackdata()</code> function as shown in various examples throughout this documentation. It is worth noting that this strategy is not necessarily relevant for applying the same signal processing to an entire <code>emuDB</code>, as this can be achieved using the on-the-fly <code>add_ssffTrackDefinition()</code> method described in R Example <a href="#rexample:wrassp-onTheFly"><strong>??</strong></a>. However, it becomes necessary if certain bundles are to be processed using deviating function parameters. This can, for example, be relevant when setting the minimum and maximum frequencies that are to be considered while estimating the fundamental frequencies (e.g., the <code>maxF</code> and <code>minF</code> of <code>ksvfF0()</code>) for female versus male speakers.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="co"># load emuDB</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae)</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb47-4" data-line-number="4"><span class="co"># add SSFF track defintion</span></a>
+<a class="sourceLine" id="cb47-5" data-line-number="5"><span class="co"># that references the .rms files</span></a>
+<a class="sourceLine" id="cb47-6" data-line-number="6"><span class="co"># calculated above</span></a>
+<a class="sourceLine" id="cb47-7" data-line-number="7"><span class="co"># (i.e. no new files are calculated and added to the emuDB)</span></a>
+<a class="sourceLine" id="cb47-8" data-line-number="8">ext =<span class="st"> </span>wrasspOutputInfos<span class="op">$</span>rmsana<span class="op">$</span>ext</a>
+<a class="sourceLine" id="cb47-9" data-line-number="9">colName =<span class="st"> </span>wrasspOutputInfos<span class="op">$</span>rmsana<span class="op">$</span>tracks[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb47-10" data-line-number="10"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
+<a class="sourceLine" id="cb47-11" data-line-number="11">                        <span class="dt">name =</span> <span class="st">&quot;rms&quot;</span>,</a>
+<a class="sourceLine" id="cb47-12" data-line-number="12">                        <span class="dt">fileExtension =</span> ext,</a>
+<a class="sourceLine" id="cb47-13" data-line-number="13">                        <span class="dt">columnName =</span> colName)</a></code></pre></div>
+<p>A further way to utilize <code>wrassp</code>’s signal processing functions as part of the EMU-SDMS is via the <code>onTheFlyFunctionName</code> and <code>onTheFlyParams</code> parameters of the <code>add_ssffTrackDefinition()</code> and <code>get_trackdata()</code> functions. Using the <code>onTheFlyFunctionName</code> parameter in the <code>add_ssffTrackDefinition()</code> function automatically calculates the SSFF files while also adding the SSFF track definition. Using this parameter with the <code>get_trackdata()</code> function calls the given <code>wrassp</code> function with the <code>toFile</code> parameter set to <code>FALSE</code> and extracts the matching segments and places them in the resulting <code>trackdata</code> or <code>emuRtrackdata</code> object. In many cases, this avoids the necessity of having SSFF track definitions in the <code>emuDB</code>. In both functions, the optional <code>onTheFlyParams</code> parameter can be used to specify the parameters that are passed into the signal processing function. R Example <a href="#rexample:wrassp-onTheFly"><strong>??</strong></a> shows how R’s <code>formals()</code> function can be used to get all the parameters of <code>wrassp</code>’s short-term positive and negative zero-crossing rate (ZCR) analysis function <code>zrcana()</code>. It then changes the default window size parameter to a new value and passes the parameters object into the <code>add_ssffTrackDefinition()</code> and <code>get_trackdata()</code> functions.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># get all parameters of zcrana</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2">zcranaParams =<span class="st"> </span><span class="kw">formals</span>(<span class="st">&quot;zcrana&quot;</span>)</a>
+<a class="sourceLine" id="cb48-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb48-4" data-line-number="4"><span class="co"># show names of parameters</span></a>
+<a class="sourceLine" id="cb48-5" data-line-number="5"><span class="kw">names</span>(zcranaParams)</a></code></pre></div>
+<pre><code>##  [1] &quot;listOfFiles&quot;     &quot;optLogFilePath&quot;  &quot;beginTime&quot;      
+##  [4] &quot;centerTime&quot;      &quot;endTime&quot;         &quot;windowShift&quot;    
+##  [7] &quot;windowSize&quot;      &quot;toFile&quot;          &quot;explicitExt&quot;    
+## [10] &quot;outputDirectory&quot; &quot;forceToLog&quot;      &quot;verbose&quot;</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="co"># change window size from the default</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="co"># value of 25 ms to 50 ms</span></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3">zcranaParams<span class="op">$</span>windowSize =<span class="st"> </span><span class="dv">50</span></a>
+<a class="sourceLine" id="cb50-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb50-5" data-line-number="5"><span class="co"># to have a segment list to work with</span></a>
+<a class="sourceLine" id="cb50-6" data-line-number="6"><span class="co"># query all Phonetic &#39;n&#39; segments</span></a>
+<a class="sourceLine" id="cb50-7" data-line-number="7">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)</a>
+<a class="sourceLine" id="cb50-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb50-9" data-line-number="9"><span class="co"># get trackdata calculating ZCR values on-the-fly</span></a>
+<a class="sourceLine" id="cb50-10" data-line-number="10"><span class="co"># using the above parameters. Note that no files</span></a>
+<a class="sourceLine" id="cb50-11" data-line-number="11"><span class="co"># are generated.</span></a>
+<a class="sourceLine" id="cb50-12" data-line-number="12">td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl,</a>
+<a class="sourceLine" id="cb50-13" data-line-number="13">                   <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;zcrana&quot;</span>,</a>
+<a class="sourceLine" id="cb50-14" data-line-number="14">                   <span class="dt">onTheFlyParams =</span> zcranaParams,</a>
+<a class="sourceLine" id="cb50-15" data-line-number="15">                   <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb50-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb50-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb50-18" data-line-number="18"><span class="co"># add SSFF track definition. Note that</span></a>
+<a class="sourceLine" id="cb50-19" data-line-number="19"><span class="co"># this time files are generated.</span></a>
+<a class="sourceLine" id="cb50-20" data-line-number="20"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
+<a class="sourceLine" id="cb50-21" data-line-number="21">                        <span class="dt">name =</span> <span class="st">&quot;zcr&quot;</span>,</a>
+<a class="sourceLine" id="cb50-22" data-line-number="22">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;zcrana&quot;</span>,</a>
+<a class="sourceLine" id="cb50-23" data-line-number="23">                        <span class="dt">onTheFlyParams =</span> zcranaParams,</a>
+<a class="sourceLine" id="cb50-24" data-line-number="24">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+</div>
+<div id="sec:wrassp_genSSFF" class="section level2">
+<h2><span class="header-section-number">8.8</span> Storing data in the SSFF file format</h2>
+<p>One of the benefits gained by having the <code>AsspDataObj</code> in-memory object is that these objects can be constructed from scratch in R, as they are basically simple <code>list</code> objects. This means, for example, that any set of n-dimensional samples over time can be placed in a <code>AsspDataObj</code> and then stored as an SSFF file using the <code>write.AsspDataObj()</code> function. To show how this can be done, R Example <a href="#rexample:wrassp-genSin"><strong>??</strong></a> creates an arbitrary data sample in the form of a single cycle sine wave between <span class="math inline">\(0\)</span> and <span class="math inline">\(2*pi\)</span> that is made up of 16000 samples and displays it in Figure <a href="chap-wrassp.html#fig:wrassp-genSin">8.5</a>.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">x =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">length.out =</span> <span class="dv">16000</span>)</a>
+<a class="sourceLine" id="cb51-2" data-line-number="2">sineWave =<span class="st"> </span><span class="kw">sin</span>(x)</a>
+<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="kw">plot</span>(x, sineWave, <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>,</a>
+<a class="sourceLine" id="cb51-4" data-line-number="4">     <span class="dt">xlab =</span> <span class="st">&quot;x from 0 to 2*pi&quot;</span>,</a>
+<a class="sourceLine" id="cb51-5" data-line-number="5">     <span class="dt">ylab =</span> <span class="st">&quot;&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:wrassp-genSin"></span>
+<img src="wrassp_files/figure-html/wrassp-genSin-1.png" alt="A single cycle sine wave consisting of 16000 samples." width="576" />
+<p class="caption">
+Figure 8.5: A single cycle sine wave consisting of 16000 samples.
+</p>
+</div>
+<p>Assuming a sample rate of 16 kHz <code>sineWave</code> would result in a sine wave with a frequency of 1 Hz and a duration of one second. R Example <a href="#rexample:wrassp-genAdo"><strong>??</strong></a> shows how a <code>AsspDataObj</code> can be created from scratch and the data in <code>sineWave</code> placed into one of its tracks. It then goes on to write the <code>AsspDataObj</code> object to an SSFF file.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="co"># create empty list object</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">ado =<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4"><span class="co"># add sample rate attribute</span></a>
+<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="kw">attr</span>(ado, <span class="st">&quot;sampleRate&quot;</span>) =<span class="st"> </span><span class="dv">16000</span></a>
+<a class="sourceLine" id="cb52-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb52-7" data-line-number="7"><span class="co"># add start time attribute</span></a>
+<a class="sourceLine" id="cb52-8" data-line-number="8"><span class="kw">attr</span>(ado, <span class="st">&quot;startTime&quot;</span>) =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb52-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb52-10" data-line-number="10"><span class="co"># add start record attribute</span></a>
+<a class="sourceLine" id="cb52-11" data-line-number="11"><span class="kw">attr</span>(ado, <span class="st">&quot;startRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb52-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb52-13" data-line-number="13"><span class="co"># add end record attribute</span></a>
+<a class="sourceLine" id="cb52-14" data-line-number="14"><span class="kw">attr</span>(ado, <span class="st">&quot;endRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">length</span>(sineWave))</a>
+<a class="sourceLine" id="cb52-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb52-16" data-line-number="16"><span class="co"># set class of ado</span></a>
+<a class="sourceLine" id="cb52-17" data-line-number="17"><span class="kw">class</span>(ado) =<span class="st"> &quot;AsspDataObj&quot;</span></a>
+<a class="sourceLine" id="cb52-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb52-19" data-line-number="19"><span class="co"># show available file formats</span></a>
+<a class="sourceLine" id="cb52-20" data-line-number="20">AsspFileFormats</a></code></pre></div>
+<pre><code>##     RAW   ASP_A   ASP_B   XASSP  IPDS_M  IPDS_S    AIFF    AIFC     CSL 
+##       1       2       3       4       5       6       7       8       9 
+##    CSRE    ESPS     ILS     KTH   SWELL   SNACK     SFS     SND      AU 
+##      10      11      12      13      13      13      14      15      15 
+##    NIST  SPHERE PRAAT_S PRAAT_L PRAAT_B    SSFF    WAVE  WAVE_X  XLABEL 
+##      16      16      17      18      19      20      21      22      24 
+##    YORK     UWM 
+##      25      26</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="co"># set file format to SSFF</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="co"># </span><span class="al">NOTE</span><span class="co">: assignment of &quot;SSFF&quot; also possible</span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="kw">AsspFileFormat</span>(ado) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb54-5" data-line-number="5"><span class="co"># set data format (1 == &#39;ascii&#39; and 2 == &#39;binary&#39;)</span></a>
+<a class="sourceLine" id="cb54-6" data-line-number="6"><span class="kw">AsspDataFormat</span>(ado) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb54-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb54-8" data-line-number="8"><span class="co"># set track format specifiers</span></a>
+<a class="sourceLine" id="cb54-9" data-line-number="9"><span class="co"># (available track formats for numbers</span></a>
+<a class="sourceLine" id="cb54-10" data-line-number="10"><span class="co"># that match their C equivalent are:</span></a>
+<a class="sourceLine" id="cb54-11" data-line-number="11"><span class="co"># &quot;UINT8&quot;; &quot;INT8&quot;; &quot;UINT16&quot;; &quot;INT16&quot;;</span></a>
+<a class="sourceLine" id="cb54-12" data-line-number="12"><span class="co"># &quot;UINT24&quot;; &quot;INT24&quot;; &quot;UINT32&quot;; &quot;INT32&quot;;</span></a>
+<a class="sourceLine" id="cb54-13" data-line-number="13"><span class="co"># &quot;UINT64&quot;; &quot;INT64&quot;; &quot;REAL32&quot;; &quot;REAL64&quot;);</span></a>
+<a class="sourceLine" id="cb54-14" data-line-number="14"><span class="kw">attr</span>(ado, <span class="st">&quot;trackFormats&quot;</span>) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;REAL32&quot;</span>)</a>
+<a class="sourceLine" id="cb54-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb54-16" data-line-number="16"><span class="co"># add track</span></a>
+<a class="sourceLine" id="cb54-17" data-line-number="17">ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, <span class="st">&quot;sine&quot;</span>, sineWave, <span class="st">&quot;REAL32&quot;</span>)</a>
+<a class="sourceLine" id="cb54-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb54-19" data-line-number="19"><span class="co"># write AsspDataObj object to file</span></a>
+<a class="sourceLine" id="cb54-20" data-line-number="20"><span class="kw">write.AsspDataObj</span>(<span class="dt">dobj =</span> ado,</a>
+<a class="sourceLine" id="cb54-21" data-line-number="21">                  <span class="dt">file =</span> <span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;example.sine&quot;</span>))</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>Although somewhat of a generic example, R Example <a href="#rexample:wrassp-genAdo"><strong>??</strong></a> shows how to generate an <code>AsspDataObj</code> from scratch. This approach can, for example, be used to read in signal data produced by other software or signal data acquisition devices. Hence, this approach can be used to import many forms of data into the EMU-SDMS. Appendix @ref(sec:app-chap-wrassp-praatsSigProc} shows an example of how this approach can be used to take advantage of Praat’s signal processing capabilities and integrate its output into the EMU-SDMS.</p>
+</div>
+<div id="conclusion-4" class="section level2">
+<h2><span class="header-section-number">8.9</span> Conclusion</h2>
+<p>The <code>wrassp</code> packages enriches the R package landscape by providing functionality for handling speech signal files in most common audio formats and for performing signal analyses common in the phonetic and speech sciences. The EMU-SDMS utilizes the functionality that the <code>wrassp</code> package provides by allowing the user to calculate signals that match the segments of a segment list. This can either be done in real time or by extracting the signals from files. Hence, the <code>wrassp</code> package is an integral part of the EMU-SDMS but can also be used as a standalone package if so desired.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Some examples of this chapter are adapted version of examples given in the <code>wrassp_intro</code> vignette of the <code>wrassp</code> package.<a href="chap-wrassp.html#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-sigDataExtr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-emu-webApp.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/wrassp.Rmd",
+"text": "Edit"
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

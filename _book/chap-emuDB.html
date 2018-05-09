@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The EMU-SDMS Manual</title>
+  <meta name="description" content="The EMU-SDMS Manual">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
+  
+  <meta property="og:description" content="The EMU-SDMS Manual" />
+  <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="The EMU-SDMS Manual" />
+  
+
+<meta name="author" content="Raphael Winkelmann">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chap-annot-struct-mod.html">
+<link rel="next" href="chap-querysys.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The EMU-SDMS Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.2" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.2</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="part"><span><b>I Overview and tutorial</b></span></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#sec:overview-sysArch"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a><ul>
+<li class="chapter" data-level="3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#converting-the-textgrid-collection"><i class="fa fa-check"></i><b>3.1</b> Converting the TextGrid collection</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.2</b> Loading and inspecting the database</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#overview"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-annotation-and-visual-inspection"><i class="fa fa-check"></i><b>3.2.2</b> Database annotation and visual inspection</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-and-autobuilding-the-annotation-structure"><i class="fa fa-check"></i><b>3.3</b> Querying and autobuilding the annotation structure</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.4</b> Autobuilding</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>II Main components and concepts</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html"><i class="fa fa-check"></i><b>4</b> Annotation Structure Modeling</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#per-database-annotation-structure-definition"><i class="fa fa-check"></i><b>4.1</b> Per database annotation structure definition</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#parallel-labels-and-multiple-attributes"><i class="fa fa-check"></i><b>4.2</b> Parallel labels and multiple attributes</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#metadata-strategy-using-single-bundle-root-nodes"><i class="fa fa-check"></i><b>4.3</b> Metadata strategy using single bundle root nodes</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#conclusion-1"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-emuDB.html"><a href="chap-emuDB.html"><i class="fa fa-check"></i><b>5</b> The <code>emuDB</code> Format</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#database-design"><i class="fa fa-check"></i><b>5.1</b> Database design</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb"><i class="fa fa-check"></i><b>5.2</b> Creating an <code>emuDB</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb-from-scratch"><i class="fa fa-check"></i><b>5.2.1</b> Creating an <code>emuDB</code> from scratch</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#loading-and-editing-an-empty-database"><i class="fa fa-check"></i><b>5.2.2</b> Loading and editing an empty database</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#level-definitions"><i class="fa fa-check"></i><b>5.2.3</b> Level definitions</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-emuDB.html"><a href="chap-emuDB.html#link-definitions"><i class="fa fa-check"></i><b>5.2.4</b> Link definitions</a></li>
+<li class="chapter" data-level="5.2.5" data-path="chap-emuDB.html"><a href="chap-emuDB.html#file-handling"><i class="fa fa-check"></i><b>5.2.5</b> File handling</a></li>
+<li class="chapter" data-level="5.2.6" data-path="chap-emuDB.html"><a href="chap-emuDB.html#ssff-track-definitions"><i class="fa fa-check"></i><b>5.2.6</b> SSFF track definitions</a></li>
+<li class="chapter" data-level="5.2.7" data-path="chap-emuDB.html"><a href="chap-emuDB.html#configuring-the-emu-webapp-and-annotating-the-emudb"><i class="fa fa-check"></i><b>5.2.7</b> Configuring the <code>EMU-webApp</code> and annotating the <code>emuDB</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query_emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
+<li class="chapter" data-level="6.2.7" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.2.7</b> Requery</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html"><i class="fa fa-check"></i><b>7</b> Signal data extraction</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#file-i0-and-the-asspdataobj"><i class="fa fa-check"></i><b>8.2</b> File I/0 and the <code>AsspDataObj</code></a></li>
+<li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
+<li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:emu-webApp-mainLayout"><i class="fa fa-check"></i><b>9.1</b> Main layout</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:webApp-generalUsage"><i class="fa fa-check"></i><b>9.2</b> General usage</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#annotating-levels-containing-time-information"><i class="fa fa-check"></i><b>9.2.1</b> Annotating levels containing time information</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#working-with-hierarchical-annotations-2-chapemu-webapp"><i class="fa fa-check"></i><b>9.2.2</b> Working with hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#configuring-the-emu-webapp"><i class="fa fa-check"></i><b>9.3</b> Configuring the <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppConfigWithEmuR"><i class="fa fa-check"></i><b>9.3.1</b> Basic configurations using <code>emuR</code></a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#signal-canvas-and-level-canvas-order"><i class="fa fa-check"></i><b>9.3.2</b> Signal canvas and level canvas order</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppAdvancedConfig"><i class="fa fa-check"></i><b>9.3.3</b> Advanced configurations made by editing the <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="9.3.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#d-canvas"><i class="fa fa-check"></i><b>9.3.4</b> 2D canvas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#conclusion-5"><i class="fa fa-check"></i><b>9.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:emuDB" class="section level1">
+<h1><span class="header-section-number">5</span> The <code>emuDB</code> Format<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></h1>
+<p><img src="pics/EMU-webAppEmu_emuDB.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>This chapter describes the <code>emuDB</code> format, which is the new database format of the EMU-SDMS, and shows how to create and interact with this format. The <code>emuDB</code> format is meant as a simple, general purpose way of storing speech databases that may contain complex, rich, hierarchical annotations as well as derived and complementary speech data. These different components will be described throughout this chapter, and examples will show how to generate and manipulate them. On designing the new EMU system, considerable effort went into designing an appropriate database format. We needed a format that was standardized, well structured, easy to maintain, easy to produce, easy to manipulate and portable.</p>
+<p>We decided on the JavaScript Object Notation (JSON) file format<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> as our primary data source for several reasons. It is simple, standardized, widely-used and text-based as well as machine and human readable. In addition, this portable text format allows expert users to (semi-) automatically process and/or generate annotations. Other tools such as the BAS Webservices <span class="citation">(Kisler, Schiel, and Sloetjes <a href="#ref-kisler:2012a">2012</a>)</span> and SpeechRecorder <span class="citation">(Draxler and Jänsch <a href="#ref-draxler:2004a">2004</a>)</span> have already taken advantage of being able to produce such annotations. Using database back-end options such as relational or graph databases of either the SQL or NoSQL variety as the primary data source for annotations would not directly permit other tools to produce annotations because intermediary exchange file formats would have to be defined to permit this functionality with these back-ends. Our choice of the JSON format was also guided by the decision to incorporate web technologies as part of the EMU-SDMS for which the JSON format is the de facto standard (see Chapter <a href="chap-emu-webApp.html#chap:emu-webApp">9</a>). Further, as the default encoding of the JSON format is UTF-8 the EMU-SDMS fully supports the Unicode character set for any user-defined string within an <code>emuDB</code> (e.g. level names and labels)<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>.</p>
+<p>We chose to use the widely adopted Waveform Audio File Format (<code>WAVE</code>, or more commonly known as <code>WAV</code> due to its filename extension) as our primary media/audio format. Although some components of the EMU-SDMS, notably the <code>wrassp</code> package, can handle various other media/audio formats (see <code>?wrassp::AsspFileFormats</code> for details) this is the only audio file format currently supported by every component of the EMU-SDMS. Nevertheless, the <code>wrassp</code> package can be utilized to convert files from one of it’s other supported file formats to the <code>WAV</code> format.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> Future releases of the EMU-SDMS might include the support of other media/audio formats.</p>
+<p>In contrast to other systems, including the legacy EMU system, we chose to fully standardize the on-disk structure of speech databases with which the system is capable of working. This provides a standardized and structured way of storing speech databases while providing the necessary amount of freedom and separability to accommodate multiple types of data. Further, this standardization enables fast parsing and simplification of file-based error tracking and simplifies database subset and merging operations as well as database portability. An overview of all database interaction functions is given in Section <a href="#sec:emuRpackageDetails-emuDBinteract"><strong>??</strong></a>.</p>
+<div id="database-design" class="section level2">
+<h2><span class="header-section-number">5.1</span> Database design</h2>
+<p>An <code>emuDB</code> consists of a set of files and directories that adhere to a certain structure and naming convention (see Figure <a href="chap-emuDB.html#fig:schematic-emuDB-structure">5.1</a>). The database root directory must include a single <code>_DBconfig.json</code> file that contains the configuration options of the database such as its level definitions, how these levels are linked in the database hierarchy and how the data is to be displayed by the graphical user interface. A detailed description of the <code>_DBconfig.json</code> file is given in Appendix <a href="#subsec:app-chapFileFormatsDBconfig"><strong>??</strong></a>. The database root directory also contains arbitrarily named session directories (except for the obligatory <code>_ses</code> suffix). These session directories can be used to group the recordings of a database in a logical manner. Sessions can be used, for example, to group all recordings from speaker <code>AAA</code> into a session called <code>AAA_ses</code>.</p>
+<div class="figure" style="text-align: center"><span id="fig:schematic-emuDB-structure"></span>
+<img src="pics/db_structure.png" alt="Schematic `emuDB` file and directory structure." width="75%" />
+<p class="caption">
+Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
+</p>
+</div>
+<p>Each session directory can contain any number of <code>_bndl</code> directories (e.g., <code>rec1_bndl</code> <code>rec2_bndl</code> … <code>rec9_bndl</code>). All files belonging to a recording (i.e., all files describing the same timeline) are stored in the same bundle directory. This includes the actual recording (<code>.wav</code>) and can contain optional derived or supplementary signal files in the simple signal file format (SSFF) <span class="citation">(Cassidy <a href="#ref-cassidy:2013a">2013</a>)</span> such as formants (<code>.fms</code>) or the fundamental frequency (<code>.f0</code>), both of which can be calculated using the <code>wrassp</code> package (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a>). Each bundle directory contains the annotation file (<code>_annot.json</code>) of that bundle (i.e., the annotations and the hierarchical linking information; see Appendix <a href="#subsec:app-chapFileFormatsAnnotJSON"><strong>??</strong></a> for a detailed description of the file format). JSON schema files for all the JSON files types used have been developed to ensure the syntactic integrity of the database (see <a href="https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles" class="uri">https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles</a>). All files within a bundle that are associated with that bundle must have the same basename as the <code>_bndl</code> directory prefix. For example, the signal file in bundle <code>rec1_bndl</code> must have the name <code>rec1.wav</code> to be recognized as belonging to the bundle. The optional <code>_emuDBcache.sqlite</code> file in the root directory (see Figure <a href="chap-emuDB.html#fig:schematic-emuDB-structure">5.1</a> contains the relational cache representation of the annotations of the <code>emuDB</code> (see Chapter <a href="#chap:querysys-impl"><strong>??</strong></a> for further details). All files in an <code>_bndl</code> directory that do not follow the above naming conventions will simply be ignored by the database interaction functions of the <code>emuR</code> package.</p>
+</div>
+<div id="creating-an-emudb" class="section level2">
+<h2><span class="header-section-number">5.2</span> Creating an <code>emuDB</code></h2>
+<p>The two main strategies for creating <code>emuDB</code>s are either to convert existing databases or file collections to the new format or to create new databases from scratch where only <code>.wav</code> audio files are present. Chapter <a href="chap-tutorial.html#chap:tutorial">3</a> gave an example of how to create an <code>emuDB</code> from an existing TextGrid file collection and other conversion routines are covered in Section <a href="#sec:emuRpackageDetails-importRoutines"><strong>??</strong></a>. In this chapter we will focus on creating an <code>emuDB</code> from scratch with nothing more than a set of <code>.wav</code> audio files present.</p>
+<div id="creating-an-emudb-from-scratch" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Creating an <code>emuDB</code> from scratch</h3>
+<p>R Example <a href="#rexample:emuDB-create"><strong>??</strong></a> shows how an empty <code>emuDB</code> is created in the directory provided by R’s <code>tempdir()</code> function. As can be seen by the output of the <code>list.files()</code> function, <code>create_emuDB()</code> creates a directory containing a <code>_DBconfig.json</code> file only.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># load package</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="kw">library</span>(emuR, <span class="dt">warn.conflicts =</span> F)</a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4"><span class="co"># create demo data in directory </span></a>
+<a class="sourceLine" id="cb49-5" data-line-number="5"><span class="co"># provided by tempdir()</span></a>
+<a class="sourceLine" id="cb49-6" data-line-number="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb49-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb49-8" data-line-number="8"><span class="co"># create emuDB called &quot;fromScratch&quot;</span></a>
+<a class="sourceLine" id="cb49-9" data-line-number="9"><span class="kw">create_emuDB</span>(<span class="dt">name =</span> <span class="st">&quot;fromScratch&quot;</span>,</a>
+<a class="sourceLine" id="cb49-10" data-line-number="10">             <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb49-11" data-line-number="11">             <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb49-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb49-13" data-line-number="13"><span class="co"># generate path to the empty fromScratch created above</span></a>
+<a class="sourceLine" id="cb49-14" data-line-number="14">dbPath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;fromScratch_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb49-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb49-16" data-line-number="16"><span class="co"># show content of empty fromScratch emuDB</span></a>
+<a class="sourceLine" id="cb49-17" data-line-number="17"><span class="kw">list.files</span>(dbPath)</a></code></pre></div>
+<pre><code>## [1] &quot;fromScratch_DBconfig.json&quot;</code></pre>
+</div>
+<div id="loading-and-editing-an-empty-database" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Loading and editing an empty database</h3>
+<p>The initial step in manipulating and generally interacting with a database is to load the database into the current R session. R Example <a href="#rexample:emuDB-load"><strong>??</strong></a> shows how to load the <em>fromScratch</em> database and shows the empty configuration by displaying the output of the <code>summary()</code> function.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co"># load database</span></a>
+<a class="sourceLine" id="cb51-2" data-line-number="2">dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(dbPath, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb51-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb51-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
+<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
+<pre><code>## Name:     fromScratch 
+## UUID:     947331e3-96ba-4936-aa99-d1fb3502167b 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpRBAvEx/fromScratch_emuDB 
+## Session count: 0 
+## Bundle count: 0 
+## Annotation item count:  0 
+## Label count:  0 
+## Link count:  0 
+## 
+## Database configuration:
+## 
+## SSFF track definitions:
+## NULL
+## 
+## Level definitions:
+## NULL
+## 
+## Link definitions:
+## NULL</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="co"># show class vector of dbHandle</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="kw">class</span>(dbHandle)</a></code></pre></div>
+<pre><code>## [1] &quot;emuDBhandle&quot;</code></pre>
+<p>As can be seen in R Example <a href="#rexample:emuDB-load"><strong>??</strong></a>, the class of a loaded <code>emuDB</code> is <code>emuDBhandle</code>. A <code>emuDBhandle</code> object is used to reference a loaded <code>emuDB</code> in the database interaction functions of the <code>emuR</code> package. In this chapter we will show how to use this <code>emuDBhandle</code> object to perform database manipulation operations. Most of the <code>emuDB</code> manipulation functions follow the following function prefix naming convention:</p>
+<ul>
+<li><code>add_XXX</code> add a new instance of <code>XXX</code> / <code>set_XXX</code> set the current instance of <code>XXX</code>,</li>
+<li><code>list_XXX</code> list the current instances of <code>XXX</code> / <code>get_XXX</code> get the current instance of <code>XXX</code>,</li>
+<li><code>remove_XXX</code> remove existing instances of <code>XXX</code>.</li>
+</ul>
+</div>
+<div id="level-definitions" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Level definitions</h3>
+<p>Unlike other systems, the EMU-SDMS requires the user to formally define the annotation structure for the entire database. An essential structural element of any <code>emuDB</code> are its levels. A level is a more general term for what is often referred to as a tier. It is more general in the sense that people usually expect tiers to contain time information. Levels can either contain time information if they are of the type <code>EVENT</code> or of the type <code>SEGMENT</code> but are timeless if they are of the type <code>ITEM</code> (see Chapter <a href="#chap:annot-struct-mod"><strong>??</strong></a> for further details). It is also worth noting that an <code>emuDB</code> distinguishes between the definition of an annotation structure element and the actual annotations. The definition of an annotation structure element such as a level definition is merely an entry in the <code>_DBconfig.json</code> file which specifies that this level is allowed to be present in the <code>_annot.json</code> files. The levels that are present in an <code>_annot.json</code> file, on the other hand, have to adhere to the definitions in the <code>_DBconfig.json</code>.</p>
+<p>As the <em>fromScratch</em> database (already loaded) does not contain any annotation structural element definitions, R Example <a href="#rexample:emuDB-addLevelDefPhonetic"><strong>??</strong></a> shows how a new level definition called <em>Phonetic</em> of type <code>SEGMENT</code> is added to the <code>emuDB</code>.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="co"># show no level definitions</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="co"># are present</span></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="co"># add level defintion</span></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"><span class="kw">add_levelDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb57-3" data-line-number="3">                    <span class="dt">name =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">                    <span class="dt">type =</span> <span class="st">&quot;SEGMENT&quot;</span>)</a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb57-6" data-line-number="6"><span class="co"># show newly added level definition</span></a>
+<a class="sourceLine" id="cb57-7" data-line-number="7"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
+<pre><code>##       name    type nrOfAttrDefs attrDefNames
+## 1 Phonetic SEGMENT            1    Phonetic;</code></pre>
+<p>R Example @ref(rexample:emuDB-addLevelDefWord} shows how a further level definition is added that will contain the orthographic word transcriptions for the words uttered in our recordings. This level will be of the type <code>ITEM</code>, meaning that elements contained within the level are sequentially ordered but do not contain any time information.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="co"># add level definition</span></a>
+<a class="sourceLine" id="cb59-2" data-line-number="2"><span class="kw">add_levelDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb59-3" data-line-number="3">                    <span class="dt">name =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb59-4" data-line-number="4">                    <span class="dt">type =</span> <span class="st">&quot;ITEM&quot;</span>)</a>
+<a class="sourceLine" id="cb59-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb59-6" data-line-number="6"><span class="co"># list newly added level definition</span></a>
+<a class="sourceLine" id="cb59-7" data-line-number="7"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
+<pre><code>##       name    type nrOfAttrDefs attrDefNames
+## 1 Phonetic SEGMENT            1    Phonetic;
+## 2     Word    ITEM            1        Word;</code></pre>
+<p>The function <code>remove_levelDefinition()</code> can also be used to remove unwanted level definitions. However, as we wish to further use the levels <em>Phonetic</em> and <em>Word</em>, we will not make use of this function here.</p>
+<div id="attribute-definitions" class="section level4">
+<h4><span class="header-section-number">5.2.3.1</span> Attribute definitions</h4>
+<p>Each level definition can contain multiple attributes, the most common, and currently only supported attribute being a label (of type <code>STRING</code>). Thus it is possible to have multiple parallel labels (i.e., attribute definitions) in a single level. This means that a single annotation item instance can contain multiple labels while sharing other properties such as the start and duration information. This can be useful when modeling certain types of data. An example of this would be the <em>Phonetic</em> level created above. It is often the case that databases contain both the phonetic transcript using IPA UTF-8 symbols as well as a transcript using Speech Assessment Methods Phonetic Alphabet (SAMPA) symbols. To avoid redundant time information, both of these annotations can be stored on the same <code>Phonetic</code> level using multiple attribute definitions (i.e., parallel labels). R Example <a href="#rexample:emuDB-listAttrDef"><strong>??</strong></a> shows the current attribute definitions of the <code>Phonetic</code> level.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="co"># list attribute definitions of &#39;Phonetic&#39; level</span></a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">list_attributeDefinitions</span>(dbHandle,</a>
+<a class="sourceLine" id="cb61-3" data-line-number="3">                          <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
+<pre><code>##       name    level   type hasLabelGroups hasLegalLabels
+## 1 Phonetic Phonetic STRING          FALSE          FALSE</code></pre>
+<p>Even though no attribute definition has been added to the <code>Phonetic</code> level, it already contains an attribute definition that has the same name as its level. This attribute definition represents the obligatory primary attribute of that level. As every level must contain an attribute definition that has the same name as its level, it is automatically added by the <code>add_levelDefinition()</code> function. To follow the above example, R Example <a href="#rexample:emuDB-addAttrDef"><strong>??</strong></a> adds a further attribute definition to the <code>Phonetic</code> level that contains the SAMPA versions of our annotations.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># add</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="kw">add_attributeDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb63-3" data-line-number="3">                        <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb63-4" data-line-number="4">                        <span class="dt">name =</span> <span class="st">&quot;SAMPA&quot;</span>)</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># list attribute definitions of &#39;Phonetic&#39; level</span></a>
+<a class="sourceLine" id="cb65-2" data-line-number="2"><span class="kw">list_attributeDefinitions</span>(dbHandle,</a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">                          <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
+<pre><code>##       name    level   type hasLabelGroups hasLegalLabels
+## 1 Phonetic Phonetic STRING          FALSE          FALSE
+## 2    SAMPA Phonetic STRING          FALSE          FALSE</code></pre>
+<!-- % SIC should be subsubsubsection -->
+</div>
+<div id="subsubsec:emuDBlegalLabels" class="section level4">
+<h4><span class="header-section-number">5.2.3.2</span> Legal labels</h4>
+<p>As can be inferred from the columns <code>hasLabelGroups</code> and <code>hasLegalLabels</code> of the output of the above <code>list_attributeDefinitions()</code> function, attribute definitions can also contain two further optional fields. The <code>legalLabels</code> field contains an array of strings that specifies the labels that are legal (i.e., allowed or valid) for the given attribute definition. As the <code>EMU-webApp</code> does not allow the annotator to enter any labels that are not specified in this array, this is a simple way of assuring that a level has a consistent label set. R Example <a href="#rexample:emuDB-setLegalLabels"><strong>??</strong></a> shows how the <code>set_legalLabels</code> and <code>get_legalLabels</code> functions can be used to specify a legal label set for the primary <code>Word</code> attribute definition of the <code>Word</code> level.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="co"># define allowed word labels</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">wordLabels =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;amongst&quot;</span>, <span class="st">&quot;any&quot;</span>, <span class="st">&quot;are&quot;</span>,</a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">               <span class="st">&quot;always&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;attracts&quot;</span>)</a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb67-5" data-line-number="5"><span class="co"># show empty legal labels</span></a>
+<a class="sourceLine" id="cb67-6" data-line-number="6"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
+<a class="sourceLine" id="cb67-7" data-line-number="7"><span class="kw">get_legalLabels</span>(dbHandle,</a>
+<a class="sourceLine" id="cb67-8" data-line-number="8">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb67-9" data-line-number="9">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="co"># set legal labels values</span></a>
+<a class="sourceLine" id="cb69-2" data-line-number="2"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
+<a class="sourceLine" id="cb69-3" data-line-number="3"><span class="kw">set_legalLabels</span>(dbHandle,</a>
+<a class="sourceLine" id="cb69-4" data-line-number="4">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb69-5" data-line-number="5">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb69-6" data-line-number="6">                <span class="dt">legalLabels =</span> wordLabels)</a>
+<a class="sourceLine" id="cb69-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb69-8" data-line-number="8"><span class="co"># show recently added legal labels</span></a>
+<a class="sourceLine" id="cb69-9" data-line-number="9"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
+<a class="sourceLine" id="cb69-10" data-line-number="10"><span class="kw">get_legalLabels</span>(dbHandle,</a>
+<a class="sourceLine" id="cb69-11" data-line-number="11">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb69-12" data-line-number="12">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;amongst&quot;  &quot;any&quot;      &quot;are&quot;      &quot;always&quot;   &quot;and&quot;      &quot;attracts&quot;</code></pre>
+<!-- % should be subsubsub sesion -->
+</div>
+<div id="label-groups" class="section level4">
+<h4><span class="header-section-number">5.2.3.3</span> Label groups</h4>
+<p>A further optional field is the <code>labelGroups</code> field. It contains specifications of groups of labels that can be referenced by a name given to the group while querying the <code>emuDB</code>. R Example <a href="#rexample:emuDB-addLabelGroup"><strong>??</strong></a> shows how the <code>add_attrDefLabelGroup()</code> function is used to add two label groups to the <code>Phonetic</code> attribute definition. One of the groups is used to reference a subset of <em>longVowels</em> and the other to reference a subset of <em>shortVowels</em> on the <code>Phonetic</code> level.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="co"># add long vowels label group</span></a>
+<a class="sourceLine" id="cb71-2" data-line-number="2"><span class="kw">add_attrDefLabelGroup</span>(dbHandle,</a>
+<a class="sourceLine" id="cb71-3" data-line-number="3">                      <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-4" data-line-number="4">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-5" data-line-number="5">                      <span class="dt">labelGroupName =</span> <span class="st">&quot;longVowels&quot;</span>,</a>
+<a class="sourceLine" id="cb71-6" data-line-number="6">                      <span class="dt">labelGroupValues =</span> <span class="kw">c</span>(<span class="st">&quot;i:&quot;</span>, <span class="st">&quot;u:&quot;</span>))</a>
+<a class="sourceLine" id="cb71-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb71-8" data-line-number="8"><span class="co"># add short vowels label group</span></a>
+<a class="sourceLine" id="cb71-9" data-line-number="9"><span class="kw">add_attrDefLabelGroup</span>(dbHandle,</a>
+<a class="sourceLine" id="cb71-10" data-line-number="10">                      <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-11" data-line-number="11">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-12" data-line-number="12">                      <span class="dt">labelGroupName =</span> <span class="st">&quot;shortVowels&quot;</span>,</a>
+<a class="sourceLine" id="cb71-13" data-line-number="13">                      <span class="dt">labelGroupValues =</span> <span class="kw">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;@&quot;</span>))</a>
+<a class="sourceLine" id="cb71-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb71-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb71-16" data-line-number="16"><span class="co"># list current label groups</span></a>
+<a class="sourceLine" id="cb71-17" data-line-number="17"><span class="kw">list_attrDefLabelGroups</span>(dbHandle,</a>
+<a class="sourceLine" id="cb71-18" data-line-number="18">                        <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-19" data-line-number="19">                        <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
+<pre><code>##          name  values
+## 1  longVowels  i:; u:
+## 2 shortVowels i; u; @</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="co"># query all short vowels</span></a>
+<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="co"># Note the result of this query</span></a>
+<a class="sourceLine" id="cb73-3" data-line-number="3"><span class="co"># is empty as no annotations are present</span></a>
+<a class="sourceLine" id="cb73-4" data-line-number="4"><span class="co"># in the &#39;fromScratch&#39; emuDB</span></a>
+<a class="sourceLine" id="cb73-5" data-line-number="5"><span class="kw">query</span>(dbHandle, <span class="st">&quot;Phonetic == shortVowels&quot;</span>)</a></code></pre></div>
+<pre><code>## segment  list from database:  fromScratch 
+## query was:  Phonetic == shortVowels 
+## [1] labels  start   end     session bundle  level   type   
+## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<p>For users who are familiar with or transitioning from the legacy EMU system, it is worth noting that the label groups correspond to the unfavorably named <code>Legal Labels</code> entries of the GTemplate Editor (i.e., legal entries in the <code>.tpl</code> file) of the legacy system. In the new system the <code>legalLabels</code> entries specify the legal or allowed label values of attribute definitions while the <code>labelGroups</code> specify groups of labels that can be referenced by the names given to the groups while performing queries.</p>
+<p>A new feature of the EMU-SDMS is the possibility of defining label groups for the entire <code>emuDB</code> as opposed to a single attribute definition (see <code>?add_labelGroups</code> for further details). This avoids the redundant definition of label groups that should span multiple attribute definitions (e.g., a <em>longVowels</em> subset that is to be queried on a level called <em>Phonetic_1</em> as well as a level called <em>Phonetic_2</em>).</p>
+</div>
+</div>
+<div id="link-definitions" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> Link definitions</h3>
+<p>An essential and very powerful conceptual and structural element of any <code>emuDB</code> is its hierarchy. Using hierarchical structures is highly recommended but not a must. Hierarchical annotations allow for complex, rich data modeling and are often cleaner representations of the annotations at hand. As Chapter <a href="#chap:annot-struct-mod"><strong>??</strong></a> contains in-depth explanations of the annotation modeling capabilities of the EMU-SDMS and Chapter <a href="chap-querysys.html#chap:querysys">6</a> shows how these structures can be queried using <code>emuR</code>’s query mechanics, this chapter will omit an explanation of hierarchical annotation structures. R Example <a href="#rexample:emuDB-addLinkDef"><strong>??</strong></a> shows how a <code>ONE_TO_MANY</code> relationship between the <code>Word</code> and <code>Phonetic</code> in the form of a link definition is added to an <code>emuDB</code>.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="co"># show that currently no link definitions</span></a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"><span class="co"># are present</span></a>
+<a class="sourceLine" id="cb75-3" data-line-number="3"><span class="kw">list_linkDefinitions</span>(dbHandle)</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="co"># add new &quot;ONE_TO_MANY&quot; link definition</span></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="co"># between &quot;Word&quot; and &quot;Phonetic&quot; levels</span></a>
+<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="kw">add_linkDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb77-4" data-line-number="4">                   <span class="dt">type =</span> <span class="st">&quot;ONE_TO_MANY&quot;</span>,</a>
+<a class="sourceLine" id="cb77-5" data-line-number="5">                   <span class="dt">superlevelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb77-6" data-line-number="6">                   <span class="dt">sublevelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a>
+<a class="sourceLine" id="cb77-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb77-8" data-line-number="8"><span class="co"># show newly added link definition</span></a>
+<a class="sourceLine" id="cb77-9" data-line-number="9"><span class="kw">list_linkDefinitions</span>(dbHandle)</a></code></pre></div>
+<pre><code>##          type superlevelName sublevelName
+## 1 ONE_TO_MANY           Word     Phonetic</code></pre>
+<p>A schematic of the simple hierarchical structure of the <em>fromScratch</em> created by R Example <a href="#rexample:emuDB-addLinkDef"><strong>??</strong></a> is displayed in Figure <a href="chap-emuDB.html#fig:emuDB-fromScratchHier">5.2</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:emuDB-fromScratchHier"></span>
+<img src="pics/fromScratchDBgraph.png" alt="A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example ??." width="75%" />
+<p class="caption">
+Figure 5.2: A schematic representation of the simple hierarchical structure of the <em>fromScratch</em> created by the <code>add_linkDefinition()</code> function call in R Example <span class="citation">(<span class="citeproc-not-found" data-reference-id="ref"><strong>???</strong></span>)</span>(rexample:emuDB-addLinkDef).
+</p>
+</div>
+</div>
+<div id="file-handling" class="section level3">
+<h3><span class="header-section-number">5.2.5</span> File handling</h3>
+<p>The previous sections of this chapter defined the simple structure of the <em>fromScratch</em> <code>emuDB</code>. An essential element that is still missing from the <code>emuDB</code> is the actual audio speech data<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. R Example <a href="#rexample:emuDB-importMediaFiles"><strong>??</strong></a> shows how the <code>import_mediaFiles()</code> function can be used to import audio files, referred to as media files in the context of an <code>emuDB</code>, into the <em>fromScratch</em> <code>emuDB</code>.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="co"># get the path to directory containing .wav files</span></a>
+<a class="sourceLine" id="cb79-2" data-line-number="2">wavDir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;txt_collection&quot;</span>)</a>
+<a class="sourceLine" id="cb79-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb79-4" data-line-number="4"><span class="co"># Import media files into emuDB session called fromWavFiles.</span></a>
+<a class="sourceLine" id="cb79-5" data-line-number="5"><span class="co"># Note that the txt_collection directory also contains .txt files.</span></a>
+<a class="sourceLine" id="cb79-6" data-line-number="6"><span class="co"># These are simply ignored by the import_mediaFiles() function.</span></a>
+<a class="sourceLine" id="cb79-7" data-line-number="7"><span class="kw">import_mediaFiles</span>(dbHandle,</a>
+<a class="sourceLine" id="cb79-8" data-line-number="8">                  <span class="dt">dir =</span> wavDir,</a>
+<a class="sourceLine" id="cb79-9" data-line-number="9">                  <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>,</a>
+<a class="sourceLine" id="cb79-10" data-line-number="10">                  <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb79-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb79-12" data-line-number="12"><span class="co"># list session</span></a>
+<a class="sourceLine" id="cb79-13" data-line-number="13"><span class="kw">list_sessions</span>(dbHandle)</a></code></pre></div>
+<pre><code>##           name
+## 1 fromWavFiles</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co"># list bundles</span></a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">list_bundles</span>(dbHandle)</a></code></pre></div>
+<pre><code>##        session     name
+## 1 fromWavFiles msajc003
+## 2 fromWavFiles msajc010
+## 3 fromWavFiles msajc012
+## 4 fromWavFiles msajc015
+## 5 fromWavFiles msajc022
+## 6 fromWavFiles msajc023
+## 7 fromWavFiles msajc057</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="co"># show first two files in the emuDB</span></a>
+<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="kw">library</span>(tibble) <span class="co"># convert to tibble only to prettify output</span></a>
+<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">2</span>))</a></code></pre></div>
+<pre><code>## # A tibble: 2 x 4
+##   session      bundle   file                absolute_file_path            
+## * &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                         
+## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn…
+## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn…</code></pre>
+<p>The <code>import_mediaFiles()</code> call in R Example <a href="#rexample:emuDB-importMediaFiles"><strong>??</strong></a> added a new session called <code>fromWavFiles</code> to the <em>fromScratch</em> <code>emuDB</code> containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every <code>_annot.json</code> file created contains an empty <code>Word</code> and <code>Phonetic</code> level array and the links array is also empty.</p>
+<p>The <code>emuR</code> package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an <code>emuDB</code>. R Example <a href="#rexample:emuDB-addFiles"><strong>??</strong></a> shows how preexisting <code>.zcr</code> files that are produced by <code>wrassp</code>’s <code>zcrana()</code> function can be added to the preexisting session and bundle structure. As the directory referenced by <code>wavDir</code> does not contain any <code>.zcr</code> files, R Example <a href="#rexample:emuDB-addFiles"><strong>??</strong></a> first creates them and then adds them to the <code>emuDB</code> (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="co"># load wrassp package</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">library</span>(wrassp)</a>
+<a class="sourceLine" id="cb85-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb85-4" data-line-number="4"><span class="co"># list all wav files in wavDir</span></a>
+<a class="sourceLine" id="cb85-5" data-line-number="5">wavFilePaths =<span class="st"> </span><span class="kw">list.files</span>(wavDir,</a>
+<a class="sourceLine" id="cb85-6" data-line-number="6">                          <span class="dt">pattern =</span> <span class="st">&quot;.*.wav&quot;</span>,</a>
+<a class="sourceLine" id="cb85-7" data-line-number="7">                          <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb85-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb85-9" data-line-number="9"><span class="co"># calculate zero-crossing-rate files</span></a>
+<a class="sourceLine" id="cb85-10" data-line-number="10"><span class="co"># using zcrana function of wrassp package</span></a>
+<a class="sourceLine" id="cb85-11" data-line-number="11"><span class="kw">zcrana</span>(<span class="dt">listOfFiles =</span> wavFilePaths,</a>
+<a class="sourceLine" id="cb85-12" data-line-number="12">       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="co"># add zcr files to emuDB</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2"><span class="kw">add_files</span>(dbHandle,</a>
+<a class="sourceLine" id="cb87-3" data-line-number="3">          <span class="dt">dir =</span> wavDir,</a>
+<a class="sourceLine" id="cb87-4" data-line-number="4">          <span class="dt">fileExtension =</span> <span class="st">&quot;zcr&quot;</span>,</a>
+<a class="sourceLine" id="cb87-5" data-line-number="5">          <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>)</a>
+<a class="sourceLine" id="cb87-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb87-7" data-line-number="7"><span class="co"># show first three files in emuDB (convert to tibble only</span></a>
+<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="co"># to prettify output)</span></a>
+<a class="sourceLine" id="cb87-9" data-line-number="9"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">3</span>))</a></code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   session      bundle   file                absolute_file_path            
+## * &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                         
+## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn…
+## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn…
+## 3 fromWavFiles msajc003 msajc003.zcr        /private/var/folders/yk/8z9tn…</code></pre>
+</div>
+<div id="ssff-track-definitions" class="section level3">
+<h3><span class="header-section-number">5.2.6</span> SSFF track definitions</h3>
+<p>A further important structural element of any <code>emuDB</code> is use of the so-called SSFF tracks, which are often simply referred to as tracks. These SSFF tracks reference data that is stored in the SSFF (see Appendix <a href="#subsec:app-chapFileFormatsSSFF"><strong>??</strong></a> for a detailed description of the file format) within the <code>_bndl</code> directories. The two main types of data are:</p>
+<ul>
+<li>complementary data that was acquired during the recording such as by EMA or EPG; or</li>
+<li>derived data, that is data that was calculated from the original audio signal such as formant values and their bandwidths or the short-term Root Mean Square amplitude of the signal.</li>
+</ul>
+<p>As Section <a href="#sec:wrassp-emu-sdms"><strong>??</strong></a> covers how the SSFF file output of a <code>wrassp</code> function can be added to an <code>emuDB</code>, an explanation will be omitted here. R Example <a href="#rexample:emuDB-addTrack"><strong>??</strong></a> shows how the <code>.zcr</code> files added in R Example <a href="#rexample:emuDB-addFiles"><strong>??</strong></a> can be added as an SSFF track definition (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># show that no SSFF track definitions</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="co"># are present</span></a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"><span class="kw">list_ssffTrackDefinitions</span>(dbHandle)</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co"># add SSFF track definition to emuDB</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="kw">add_ssffTrackDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb91-3" data-line-number="3">                        <span class="dt">name =</span> <span class="st">&quot;zeroCrossing&quot;</span>,</a>
+<a class="sourceLine" id="cb91-4" data-line-number="4">                        <span class="dt">columnName =</span> <span class="st">&quot;zcr&quot;</span>,</a>
+<a class="sourceLine" id="cb91-5" data-line-number="5">                        <span class="dt">fileExtension =</span> <span class="st">&quot;zcr&quot;</span>)</a>
+<a class="sourceLine" id="cb91-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb91-7" data-line-number="7"><span class="co"># show newly added SSFF track definition</span></a>
+<a class="sourceLine" id="cb91-8" data-line-number="8"><span class="kw">list_ssffTrackDefinitions</span>(dbHandle)</a></code></pre></div>
+<pre><code>##           name columnName fileExtension
+## 1 zeroCrossing        zcr           zcr</code></pre>
+</div>
+<div id="configuring-the-emu-webapp-and-annotating-the-emudb" class="section level3">
+<h3><span class="header-section-number">5.2.7</span> Configuring the <code>EMU-webApp</code> and annotating the <code>emuDB</code></h3>
+<p>As previously mentioned, the current <em>fromScratch</em> <code>emuDB</code> contains only empty levels. In order to start annotating the database, the <code>EMU-webApp</code> has to be configured to display the desired information. Although the configuration of the <code>EMU-webApp</code> is stored in the <code>_DBconfig.json</code> file and is therefore a part of the <code>emuDB</code> format, here we will omit an explanation of the extensive possibilities of configuring the web application (see Chapter <a href="chap-emu-webApp.html#chap:emu-webApp">9</a> for an in-depth explanation). R Example <a href="#rexample:configWebApp"><strong>??</strong></a> shows how the <code>Phonetic</code> level is added to the level canvases order array of the <em>default</em> perspective.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="co"># show empty level canvases order</span></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2"><span class="kw">get_levelCanvasesOrder</span>(dbHandle, <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="co"># set level canvases order to display &quot;Phonetic&quot; level</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="kw">set_levelCanvasesOrder</span>(dbHandle,</a>
+<a class="sourceLine" id="cb95-3" data-line-number="3">                       <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,</a>
+<a class="sourceLine" id="cb95-4" data-line-number="4">                       <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;Phonetic&quot;</span>))</a>
+<a class="sourceLine" id="cb95-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb95-6" data-line-number="6"><span class="co"># show newly added level canvases order</span></a>
+<a class="sourceLine" id="cb95-7" data-line-number="7"><span class="kw">get_levelCanvasesOrder</span>(dbHandle, <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;Phonetic&quot;</code></pre>
+<p>As a final step before beginning the annotation process, the <em>fromScratch</em> <code>emuDB</code> has to be served to the <code>EMU-webApp</code> for annotation and visualization purposes. R Example <a href="#rexample:emuDB-serve"><strong>??</strong></a> shows how this can be achieved using the <code>serve()</code> function.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="co"># serve &quot;fromScratch&quot; emuDB to the EMU-webApp</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="kw">serve</span>(dbHandle)</a></code></pre></div>
+</div>
+</div>
+<div id="conclusion-2" class="section level2">
+<h2><span class="header-section-number">5.3</span> Conclusion</h2>
+<p>This chapter introduced the elements that comprise the new <code>emuDB</code> format and provided a practical overview of the essential database interaction functions provided by the <code>emuR</code> package. We feel the <code>emuDB</code> format provides a general purpose, flexible approach to storing speech databases with the added benefit of being able to directly manipulate and analyse these databases using the tools provided by the EMU-SDMS.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-kisler:2012a">
+<p>Kisler, Thomas, Florian Schiel, and Han Sloetjes. 2012. “Signal Processing via Web Services: The Use Case WebMAUS.” In <em>Proceedings Digital Humanities 2012, Hamburg, Germany</em>, 30–34. Hamburg.</p>
+</div>
+<div id="ref-draxler:2004a">
+<p>Draxler, Chr., and K. Jänsch. 2004. “SpeechRecorder - a Universal Platform Independent Multi-Channel Audio Recording Software.” In <em>Proc. Of the IV. International Conference on Language Resources and Evaluation</em>, 559–62. Lisbon, Portugal.</p>
+</div>
+<div id="ref-cassidy:2013a">
+<p>Cassidy, Steve. 2013. “The Emu Speech Database System Manual: Chapter 9. Simple Signal File Format.” <a href="http://emu.sourceforge.net/manual/chap.ssff.html" class="uri">http://emu.sourceforge.net/manual/chap.ssff.html</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>Sections of this chapter where published in <span class="citation">Winkelmann, Harrington, and Jänsch (<a href="#ref-winkelmann:2017aa">2017</a>)</span> and some examples taken from the <code>emuDB</code> vignette of the <code>emuR</code> package.<a href="chap-emuDB.html#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn9"><p>JSON schema files available here <a href="https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles" class="uri">https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles</a><a href="chap-emuDB.html#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn10"><p>According to the JSON specification (see <a href="https://json.org/" class="uri">https://json.org/</a>) the only characters that have to be escaped within a JSON string are: ’’ (as this marks the start/end of a string), \ (as this is the escape character) or control-characters (\ b = backspace, \f = form feed, \n = new line, \r = carriage return, \t = tab). Unicode characters in their hexadecimal form using the \u followed by for-hex-digits may also be used.<a href="chap-emuDB.html#fnref10" class="footnote-back">↩</a></p></li>
+<li id="fn11"><p>However, if things like resampeling are required we suggest using other tools such as the freely available Sound eXchange (SoX) command line tool (see <a href="http://sox.sourceforge.net/" class="uri">http://sox.sourceforge.net/</a>) to perform these operation<a href="chap-emuDB.html#fnref11" class="footnote-back">↩</a></p></li>
+<li id="fn12"><p>As the <code>EMU-webApp</code> currently only supports mono 16 Bit <code>.wav</code> audio files, we currently recommend using this format only.<a href="chap-emuDB.html#fnref12" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-annot-struct-mod.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-querysys.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/emuDB.Rmd",
+"text": "Edit"
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
