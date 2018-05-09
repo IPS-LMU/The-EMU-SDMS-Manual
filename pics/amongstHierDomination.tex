@@ -1,4 +1,18 @@
-% !Rnw root = ../diss.Rnw
+\documentclass{standalone}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,arrows, backgrounds}
+\begin{document}
+
+% colors
+\definecolor{robjblue}{RGB}{39,109,195}
+\definecolor{rfungrey}{RGB}{203,206,208}
+
+\definecolor{three_color_c1}{RGB}{27,158,119}
+\definecolor{three_color_c2}{RGB}{217,95,2}
+\definecolor{three_color_c3}{RGB}{117,112,179}
+
+\definecolor{emuBlue}{HTML}{0DC5FF}
 
 \tikzstyle{element}=[rectangle, thick,
                      inner sep=0.1cm, rounded corners]
@@ -88,3 +102,5 @@
 \draw [->, line width=1] (t_Phoneme) to (h_Phonetic);
 
 \end{tikzpicture}
+
+\end{document}

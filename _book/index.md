@@ -7,16 +7,17 @@ url: 'https\://ips-lmu.github.io/The-EMU-SDMS-Manual/'
 github-repo: IPS-LMU/The-EMU-SDMS-Manual
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-# documentclass: book
-# bibliography: [book.bib]
-# biblio-style: "apalike"
-# link-citations: yes
+documentclass: book
+bibliography: [book.bib]
+biblio-style: "apalike"
+link-citations: yes
 ---
 
 # Welcome {-}
 
 
-<img src="pics/EMU-webAppIcon-roundCorners.png" width="35%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=0.35\linewidth]{pics/EMU-webAppIcon-roundCorners} \end{center}
 
 Welcome to the EMU-SDMS Manual! 
 

@@ -180,7 +180,7 @@ As demonstrated in R Example \@ref(rexample:tutorial_simpleQuery), the result of
 
 The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: *Query all Phonetic items that contain the label "n" and are part of a content word*. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter \@ref(chap:annot-struct-mod). For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure \@ref(fig:tutorial-emuWebAppMyFirst) to a hierarchical form as displayed in Figure \@ref(fig:tutorial-violentlyHier), where only the *Phonetic* level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.
 
-```{r tutorial-violentlyHier, fig.cap = "Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`.", echo=FALSE, fig.width=4.5, fig.height=3}
+```{r tutorial-violentlyHier, fig.cap = "Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`.", fig.align="center", echo=FALSE, fig.width=4.5, fig.height=3}
 library(ggplot2)
 ae = load_emuDB(file.path(tempdir(), "emuR_demoData", "ae_emuDB"), verbose = F)
 
@@ -339,7 +339,7 @@ knitr::include_graphics("pics/EMU-webAppScreenshotTutorialPostAutobHier.png")
 
 ### Querying the hierarchical annotations
 
-Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?*. R Example \ref{rexample:tutorial_labelGroupQuery} shows how all the *@* vowels in the *myFirst* database are queried.
+Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?*. R Example \ref{rexample:tutorial_labelGroupQuery} shows how all the *\@* vowels in the *myFirst* database are queried.
 
 ```{r rexample:tutorial-labelGroupQuery, rexample=TRUE}
 # query annotation items containing
@@ -350,7 +350,7 @@ sl_vowels = query(dbHandle, "Phonetic == @")
 head(sl_vowels, n = 1)
 ```
 
-As the type of word (content vs. function) for each *@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. R Example \@ref(rexample:tutorial-requery) illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word level.
+As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. R Example \@ref(rexample:tutorial-requery) illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word level.
 
 ```{r rexample:tutorial-requery, rexample=TRUE}
 # hierarchical requery starting from the items in sl_vowels
@@ -393,7 +393,7 @@ dim(td_vowels)
 td_vowels[5,]
 ```
 
-As can be seen by the call to the `class()` function, the resulting object is of the type `trackdata` and has `r nrow(sl_vowels)` entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., `td_vowels[5,]` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels[5,]` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). R Example \@ref(rexample:tutorial-dplot) shows a call to `emuR`'s `dplot()` function which produces the plot displayed in Figure \@ref(fig:tutorial-dplot). The first call to the `dplot()` function plots all `r nrow(sl_vowels)` first formant trajectories (achieved by indexing the first column i.e., `T1`: `x = td_vowels[, 1]`). To clean up the cluttered left plot, the second call to the `dplot()` function additionally uses the `average` parameter to plot only the ensemble averages of all *@* vowels and time-normalizes the trajectories (`normalise = TRUE`) to an interval between 0 and 1.
+As can be seen by the call to the `class()` function, the resulting object is of the type `trackdata` and has `r nrow(sl_vowels)` entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., `td_vowels[5,]` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels[5,]` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). R Example \@ref(rexample:tutorial-dplot) shows a call to `emuR`'s `dplot()` function which produces the plot displayed in Figure \@ref(fig:tutorial-dplot). The first call to the `dplot()` function plots all `r nrow(sl_vowels)` first formant trajectories (achieved by indexing the first column i.e., `T1`: `x = td_vowels[, 1]`). To clean up the cluttered left plot, the second call to the `dplot()` function additionally uses the `average` parameter to plot only the ensemble averages of all *\@* vowels and time-normalizes the trajectories (`normalise = TRUE`) to an interval between 0 and 1.
 
 ```{r rexample:tutorial-dplot, rexample=TRUE, eval=FALSE}
 # two plots next to each other
@@ -418,7 +418,7 @@ par(mfrow = c(1,1))
 ```
 
 
-```{r tutorial-dplot, fig.cap = "`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *@* vowels.", echo=FALSE, fig.width=6, fig.height=6}
+```{r tutorial-dplot, fig.cap = "`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *\\@* vowels.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6}
 formantNr = 1
 
 par(mfrow = c(1,2))
@@ -438,7 +438,7 @@ dplot(x = td_vowels[, 1],
 par(mfrow = c(1,1))
 ```
 
-Figure \@ref(fig:tutorial-dplot) gives an overview of the first formant trajectories of the *@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, R Example \@ref(rexample:tutorial-eplot) makes use of the `eplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `eplot()` function, the `td_vowels` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. R Example \@ref(rexample:tutorial-eplot) shows an alternative approach using the `dcut()` function to essentially cut the formant trajectories to a specified proportional segment. By using only the `left.time = 0.5` (and not specifying `right.time`) only the formant values that are closest to the temporal mid-point are cut from the trajectories.
+Figure \@ref(fig:tutorial-dplot) gives an overview of the first formant trajectories of the *\@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, R Example \@ref(rexample:tutorial-eplot) makes use of the `eplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `eplot()` function, the `td_vowels` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. R Example \@ref(rexample:tutorial-eplot) shows an alternative approach using the `dcut()` function to essentially cut the formant trajectories to a specified proportional segment. By using only the `left.time = 0.5` (and not specifying `right.time`) only the formant values that are closest to the temporal mid-point are cut from the trajectories.
 
 ```{r rexample:tutorial-eplot, rexample=TRUE, eval=FALSE}
 # cut formant trajectories at temporal mid-point
@@ -459,7 +459,7 @@ eplot(x = td_vowels_midpoint[,1:2],
       )
 ```
 
-```{r tutorial-eplot, results='hide', message=FALSE, fig.cap = "95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments.", echo=FALSE, fig.width=6, fig.height=6}
+```{r tutorial-eplot, results='hide', message=FALSE, fig.cap = "95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6}
 td_vowels_midpoint = dcut(td_vowels,
                           left.time = 0.5,
                           prop = TRUE)
@@ -474,12 +474,12 @@ eplot(x = td_vowels_midpoint[,1:2],
 
 ```
 
-Figure \@ref{fig:tutorial-eplot} displays the first two formants extracted at the temporal midpoint of every *@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplot()` and `eplot()` functions can be very helpful tools for providing an overview of the data at hand.
+Figure \@ref{fig:tutorial-eplot} displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplot()` and `eplot()` functions can be very helpful tools for providing an overview of the data at hand.
 
 
 ## Vowel height as a function of word types (content vs. function): evaluation and statistical analysis
 
-The above data exploration only dealt with the actual *@* vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the *@* vowel occurs in a content (labeled *C*) or function (labeled *F*) word. For data inspection purposes, R Example \@ref(rexample:tutorial-dplotSylTyp) initially extracts the central 60% (`left.time = 0.2` and `right.time = 0.8`) of the formant trajectories from `td_vowels` using `dcut()` and displays them using `dplot()`. It should be noted that the call to `dplot()` uses the labels of the `sl_wordType` object as opposed to those of `sl_vowels`. This causes the `dplot()` functions to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \@ref(fig:tutorial_dplotSylTyp).
+The above data exploration only dealt with the actual *\@* vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the *\@* vowel occurs in a content (labeled *C*) or function (labeled *F*) word. For data inspection purposes, R Example \@ref(rexample:tutorial-dplotSylTyp) initially extracts the central 60% (`left.time = 0.2` and `right.time = 0.8`) of the formant trajectories from `td_vowels` using `dcut()` and displays them using `dplot()`. It should be noted that the call to `dplot()` uses the labels of the `sl_wordType` object as opposed to those of `sl_vowels`. This causes the `dplot()` functions to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \@ref(fig:tutorial_dplotSylTyp).
 
 
 ```{r rexample:tutorial-dplotSylTyp, eval=FALSE, rexample=TRUE}
@@ -499,7 +499,7 @@ dplot(x = td_vowelsMidSec[, formantNr],
       ylab = paste("F", formantNr, " (Hz)"))
 ```
 
-```{r tutorial-dplotSylTyp, fig.cap = "Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*)).", echo=FALSE, fig.width=6, fig.height=3}
+```{r tutorial-dplotSylTyp, fig.cap = "Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*)).", fig.align="center", echo=FALSE, fig.width=6, fig.height=3}
 td_vowelsMidSec = dcut(td_vowels,
                        left.time = 0.2,
                        right.time = 0.8,
@@ -541,7 +541,7 @@ ggplot(df, aes(wordType, meanF1)) +
 
 ```
 
-```{r tutorial-boxplot, fig.cap = "Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word.", echo=FALSE, fig.width=6, fig.height=3}
+```{r tutorial-boxplot, fig.cap = "Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word.", fig.align="center", echo=FALSE, fig.width=6, fig.height=3}
 formantNr = 1
 td_vowelsMidSec_mean = trapply(td_vowelsMidSec[, formantNr],
                                fun = mean,
@@ -600,7 +600,7 @@ shapiro.test(df[df$wordType == "C",]$meanF1)
 wilcox.test(meanF1 ~ wordType, data = df)
 ```
 
-```{r tutorial-stats1, fig.cap = "Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1).", echo=FALSE, fig.width=6, fig.height=3}
+```{r tutorial-stats1, fig.cap = "Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1).", fig.align="center", echo=FALSE, fig.width=6, fig.height=3}
 # two plots next to each other
 par(mfrow = c(1,2))
 

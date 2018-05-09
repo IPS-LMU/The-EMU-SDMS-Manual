@@ -9,7 +9,8 @@
 
 
 
-<img src="pics/EMU-webAppIcon-roundCorners.png" width="35%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=0.35\linewidth]{pics/EMU-webAppIcon-roundCorners} \end{center}
 
 
 The EMU Speech Database Management System (EMU-SDMS) is a collection of software tools which aims to be as close to an all-in-one solution for generating, manipulating, querying, analyzing and managing speech databases as possible. It was developed to fill the void in the landscape of software tools for the speech sciences by providing an integrated system that is centered around the R language and environment for statistical computing and graphics (@r-core-team:2016a). This manual contains the documentation for the three software components `wrassp`, `emuR` and the `EMU-webApp`. In addition, it provides an in-depth description of the `emuDB` database format which is also considered an integral part of the new system. These four components comprise the EMU-SDMS and benefit the speech sciences and spoken language research by providing an integrated system to answer research questions such as: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?*
@@ -45,10 +46,14 @@ As was previously mentioned, the new EMU-SDMS is made up of four main components
 
 
 
-<div class="figure" style="text-align: center">
-<img src="pics/overview.png" alt="Schematic architecture of the EMU-SDMS" width="75%" />
-<p class="caption">(\#fig:overview-archOver)Schematic architecture of the EMU-SDMS</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{pics/overview} 
+
+}
+
+\caption{Schematic architecture of the EMU-SDMS}(\#fig:overview-archOver)
+\end{figure}
 
 
 Although the system is made of four main components, the user largely only interacts directly with the `EMU-webApp` and the `emuR` package. A summary of the default workflow illustrating theses interactions can be seen below:
@@ -69,10 +74,14 @@ Initially the user creates a reference to an `emuDB` by loading it into their cu
 Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems (e.g., @boersma:2011a, @wittenburg:2006a, @fromont:2012a, @rose:2006a, @mcauliffe:2016a). To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat's tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure \@ref(fig:overview-hybridAnnot). These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter \ref{chap:annot_struct_mod} for further information on hierarchical annotations and Chapter \ref{chap:querysys} on how to query these annotation structures).
 
 
-<div class="figure" style="text-align: center">
-<img src="overview_files/figure-epub3/overview-hybridAnnot-1.png" alt="Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations." width="75%" />
-<p class="caption">(\#fig:overview-hybridAnnot)Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{overview_files/figure-latex/overview-hybridAnnot-1} 
+
+}
+
+\caption{Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations.}(\#fig:overview-hybridAnnot)
+\end{figure}
 
 Further, to our knowledge, the EMU-SDMS is the first system that makes use of a web application as its primary GUI for annotating speech. This unique approach enables the GUI component to be used in multiple ways. It can be used as a stand-alone annotation tool, connected to a loaded `emuDB` via `emuR`'s `serve()` function and used to communicate to other servers. This enables it to be used as a collaborative annotation tool. An in-depth explanation of how this component can be used in these three scenarios is given in Chapter \@ref(chap:emu-webApp).
 

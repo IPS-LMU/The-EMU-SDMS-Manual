@@ -7,7 +7,8 @@
 
 
 
-<img src="pics/emuSdmsBirdsEye.png" width="65%" style="display: block; margin: auto;" />
+
+\begin{center}\includegraphics[width=0.65\linewidth]{pics/emuSdmsBirdsEye} \end{center}
 
 Using the tools provided by the EMU-SDMS, this tutorial chapter gives a practical step-by-step guide to answering the question: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?* The tutorial only skims over many of the concepts and functions provided by the EMU-SDMS. In-depth explanations of the various functionalities are given in later chapters of this documentation.
 
@@ -69,10 +70,14 @@ list.files(tgColDir)
 ```
 
 
-<div class="figure" style="text-align: center">
-<img src="pics/msajc003_praat.png" alt="TextGrid annotation of the `emuR_demoData/TextGrid_collection/msajc003.wav` / `.TextGrid` file pair containing the tiers (from top to bottom): *Utterance*, *Intonational*, *Intermediate*, *Word*, *Accent*, *Text*, *Syllable*, *Phoneme*, *Phonetic*, *Tone*, *Foot*." width="85%" />
-<p class="caption">(\#fig:msajc003_praatTG)TextGrid annotation of the `emuR_demoData/TextGrid_collection/msajc003.wav` / `.TextGrid` file pair containing the tiers (from top to bottom): *Utterance*, *Intonational*, *Intermediate*, *Word*, *Accent*, *Text*, *Syllable*, *Phoneme*, *Phonetic*, *Tone*, *Foot*.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.85\linewidth]{pics/msajc003_praat} 
+
+}
+
+\caption{TextGrid annotation of the `emuR_demoData/TextGrid_collection/msajc003.wav` / `.TextGrid` file pair containing the tiers (from top to bottom): *Utterance*, *Intonational*, *Intermediate*, *Word*, *Accent*, *Text*, *Syllable*, *Phoneme*, *Phonetic*, *Tone*, *Foot*.}(\#fig:msajc003_praatTG)
+\end{figure}
 
 
 ## Converting the TextGrid collection
@@ -123,8 +128,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 myFirst 
-## UUID:	 ad7f0ad0-3a9a-4a7c-b91c-5d3e3f8bbf7b 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpj2eYYR/myFirst_emuDB 
+## UUID:	 8f7e5aff-1363-4dab-b8c6-513649c35f88 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpnqAWsN/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -182,10 +187,14 @@ Executing this command will block the R console, automatically open up the syste
 The `EMU-webApp`, which is now connected to the database via the `serve()` function, can be used to visually inspect and annotate the `emuDB`. Figure \@ref(fig:tutorial-emuWebAppMyFirst) displays a screenshot of what the `EMU-webApp` looks like after automatically connecting to the server. As the `EMU-webApp` is a very feature-rich software annotation tool, this documentation has a whole chapter (see Chapter \@ref(chap:emu-webApp)) on how to use it, what it is capable of and how to configure it. Further, the web application provides its own documentation which can be accessed by clicking the EMU icon in the top right hand corner of the application's top menu bar. To close the connection and  free up the blocked R console, simply click the `clear` button in the top menu bar of the `EMU-webApp`.
 
 
-<div class="figure" style="text-align: center">
-<img src="pics/tutorialEmuWebAppMyFirst.png" alt="Screenshot of `EMU-webApp` displaying `msajc003` bundle of *myFirst* `emuDB`." width="100%" />
-<p class="caption">(\#fig:tutorial-emuWebAppMyFirst)Screenshot of `EMU-webApp` displaying `msajc003` bundle of *myFirst* `emuDB`.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{pics/tutorialEmuWebAppMyFirst} 
+
+}
+
+\caption{Screenshot of `EMU-webApp` displaying `msajc003` bundle of *myFirst* `emuDB`.}(\#fig:tutorial-emuWebAppMyFirst)
+\end{figure}
 
 
 ## Querying and autobuilding the annotation structure
@@ -259,10 +268,14 @@ As demonstrated in R Example \@ref(rexample:tutorial_simpleQuery), the result of
 
 The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: *Query all Phonetic items that contain the label "n" and are part of a content word*. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter \@ref(chap:annot-struct-mod). For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure \@ref(fig:tutorial-emuWebAppMyFirst) to a hierarchical form as displayed in Figure \@ref(fig:tutorial-violentlyHier), where only the *Phonetic* level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.
 
-<div class="figure">
-<img src="tutorial_files/figure-epub3/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`."  />
-<p class="caption">(\#fig:tutorial-violentlyHier)Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-violentlyHier-1} 
+
+}
+
+\caption{Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`.}(\#fig:tutorial-violentlyHier)
+\end{figure}
 
 
 As it is a very laborious task to manually link annotation items together using the `EMU-webApp` and the hierarchical information is already implicitly contained in the time information of the segments and events of each level, we will now use a function provided by the `emuR` package to build these hierarchical structures using this information called `autobuild_linkFromTimes()`. R Example \@ref(rexample:tutorial-autobuild) shows the calls to this function which autobuild the hierarchical annotations in the *myFirst* database. As a general rule for autobuilding hierarchical annotation structures, a good strategy is to start the autobuilding process beginning with coarser grained annotation levels (i.e., the *Word*/*Syllable* level pair in our example) and work down to finer grained annotations (i.e., the *Syllable*/*Phoneme* and  *Phoneme*/*Phonetic*} level pairs in our example). To build hierachical annotation structures we need link definitions, which together with the level definitions define the annotation structure for the entire database (see Chapter \@ref(chap:annot-struct-mod) for further details). The `autobuild_linkFromTimes()` calls in R Example \@ref(rexample:tutorial-autobuild) use the `newLinkDefType` parameter, which if defined automatically adds a link definition to the database.
@@ -296,10 +309,14 @@ autobuild_linkFromTimes(dbHandle,
 ```
 
 
-<div class="figure" style="text-align: center">
-<img src="pics/tut_simpleAnnotStruct.png" alt="Schematic annotation structure of the `emuDB` after calling the autobuild function in R Example @ref(rexample:tutorial-autobuild)." width="50%" />
-<p class="caption">(\#fig:tutorial-simpleAnnotStruct)Schematic annotation structure of the `emuDB` after calling the autobuild function in R Example @ref(rexample:tutorial-autobuild).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{pics/tut_simpleAnnotStruct} 
+
+}
+
+\caption{Schematic annotation structure of the `emuDB` after calling the autobuild function in R Example @ref(rexample:tutorial-autobuild).}(\#fig:tutorial-simpleAnnotStruct)
+\end{figure}
 
 
 As the `autobuild_linkFromTimes()` function automatically creates backup levels to avoid the accidental loss of boundary or event time information, R Example \@ref(rexample:tutorial_delBackupLevels) shows how these backup levels can be removed to clean up the database. However, using the `remove_levelDefinition()` function with its `force` parameter set to  `TRUE` is a very invasive action. Usually this would not be recommended, but for this tutorial we are keeping everything as clean as possible.
@@ -371,15 +388,19 @@ list_linkDefinitions(dbHandle)
 As can be seen by the output of `list_levelDefinitions()` and `list_linkDefinitions()` in R Example \@ref(rexample:tutorial-autobuild), the annotation structure of the *myFirst* `emuDB` now matches that displayed in Figure \@ref(fig:tutorial_simpleAnnotStruct). Using the `serve()` function to open the `emuDB` in the `EMU-webApp` followed by clicking on the `show hierarchy` button in the top menu (and rotating the hierarchy by 90 degrees by clicking the `rotate by 90 degrees` button) will result in a view similar to the screenshot of Figure \@ref(fig:tutorial-EMU-webAppScreenshotTutorialPostAutobHier).
 
 
-<div class="figure" style="text-align: center">
-<img src="pics/EMU-webAppScreenshotTutorialPostAutobHier.png" alt="Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *myFirst* `emuDB`." width="100%" />
-<p class="caption">(\#fig:webAppScreenshotTutorialPostAutobHier)Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *myFirst* `emuDB`.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{pics/EMU-webAppScreenshotTutorialPostAutobHier} 
+
+}
+
+\caption{Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *myFirst* `emuDB`.}(\#fig:webAppScreenshotTutorialPostAutobHier)
+\end{figure}
 
 
 ### Querying the hierarchical annotations
 
-Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?*. R Example \ref{rexample:tutorial_labelGroupQuery} shows how all the *@* vowels in the *myFirst* database are queried.
+Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?*. R Example \ref{rexample:tutorial_labelGroupQuery} shows how all the *\@* vowels in the *myFirst* database are queried.
 
 <h3>rexample:tutorial-labelGroupQuery</h3>
 
@@ -399,7 +420,7 @@ head(sl_vowels, n = 1)
 ## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT
 ```
 
-As the type of word (content vs. function) for each *@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. R Example \@ref(rexample:tutorial-requery) illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word level.
+As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. R Example \@ref(rexample:tutorial-requery) illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word level.
 
 <h3>rexample:tutorial-requery</h3>
 
@@ -495,7 +516,7 @@ td_vowels[5,]
 ## 2502.5 361  733 2304 3692
 ```
 
-As can be seen by the call to the `class()` function, the resulting object is of the type `trackdata` and has 28 entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., `td_vowels[5,]` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels[5,]` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). R Example \@ref(rexample:tutorial-dplot) shows a call to `emuR`'s `dplot()` function which produces the plot displayed in Figure \@ref(fig:tutorial-dplot). The first call to the `dplot()` function plots all 28 first formant trajectories (achieved by indexing the first column i.e., `T1`: `x = td_vowels[, 1]`). To clean up the cluttered left plot, the second call to the `dplot()` function additionally uses the `average` parameter to plot only the ensemble averages of all *@* vowels and time-normalizes the trajectories (`normalise = TRUE`) to an interval between 0 and 1.
+As can be seen by the call to the `class()` function, the resulting object is of the type `trackdata` and has 28 entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., `td_vowels[5,]` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels[5,]` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). R Example \@ref(rexample:tutorial-dplot) shows a call to `emuR`'s `dplot()` function which produces the plot displayed in Figure \@ref(fig:tutorial-dplot). The first call to the `dplot()` function plots all 28 first formant trajectories (achieved by indexing the first column i.e., `T1`: `x = td_vowels[, 1]`). To clean up the cluttered left plot, the second call to the `dplot()` function additionally uses the `average` parameter to plot only the ensemble averages of all *\@* vowels and time-normalizes the trajectories (`normalise = TRUE`) to an interval between 0 and 1.
 
 <h3>rexample:tutorial-dplot</h3>
 
@@ -522,12 +543,16 @@ par(mfrow = c(1,1))
 ```
 
 
-<div class="figure">
-<img src="tutorial_files/figure-epub3/tutorial-dplot-1.png" alt="`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *@* vowels."  />
-<p class="caption">(\#fig:tutorial-dplot)`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *@* vowels.</p>
-</div>
+\begin{figure}
 
-Figure \@ref(fig:tutorial-dplot) gives an overview of the first formant trajectories of the *@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, R Example \@ref(rexample:tutorial-eplot) makes use of the `eplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `eplot()` function, the `td_vowels` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. R Example \@ref(rexample:tutorial-eplot) shows an alternative approach using the `dcut()` function to essentially cut the formant trajectories to a specified proportional segment. By using only the `left.time = 0.5` (and not specifying `right.time`) only the formant values that are closest to the temporal mid-point are cut from the trajectories.
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-dplot-1} 
+
+}
+
+\caption{`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *\@* vowels.}(\#fig:tutorial-dplot)
+\end{figure}
+
+Figure \@ref(fig:tutorial-dplot) gives an overview of the first formant trajectories of the *\@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, R Example \@ref(rexample:tutorial-eplot) makes use of the `eplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `eplot()` function, the `td_vowels` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. R Example \@ref(rexample:tutorial-eplot) shows an alternative approach using the `dcut()` function to essentially cut the formant trajectories to a specified proportional segment. By using only the `left.time = 0.5` (and not specifying `right.time`) only the formant values that are closest to the temporal mid-point are cut from the trajectories.
 
 <h3>rexample:tutorial-eplot</h3>
 
@@ -550,17 +575,21 @@ eplot(x = td_vowels_midpoint[,1:2],
       )
 ```
 
-<div class="figure">
-<img src="tutorial_files/figure-epub3/tutorial-eplot-1.png" alt="95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments."  />
-<p class="caption">(\#fig:tutorial-eplot)95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments.</p>
-</div>
+\begin{figure}
 
-Figure \@ref{fig:tutorial-eplot} displays the first two formants extracted at the temporal midpoint of every *@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplot()` and `eplot()` functions can be very helpful tools for providing an overview of the data at hand.
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-eplot-1} 
+
+}
+
+\caption{95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments.}(\#fig:tutorial-eplot)
+\end{figure}
+
+Figure \@ref{fig:tutorial-eplot} displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplot()` and `eplot()` functions can be very helpful tools for providing an overview of the data at hand.
 
 
 ## Vowel height as a function of word types (content vs. function): evaluation and statistical analysis
 
-The above data exploration only dealt with the actual *@* vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the *@* vowel occurs in a content (labeled *C*) or function (labeled *F*) word. For data inspection purposes, R Example \@ref(rexample:tutorial-dplotSylTyp) initially extracts the central 60% (`left.time = 0.2` and `right.time = 0.8`) of the formant trajectories from `td_vowels` using `dcut()` and displays them using `dplot()`. It should be noted that the call to `dplot()` uses the labels of the `sl_wordType` object as opposed to those of `sl_vowels`. This causes the `dplot()` functions to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \@ref(fig:tutorial_dplotSylTyp).
+The above data exploration only dealt with the actual *\@* vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the *\@* vowel occurs in a content (labeled *C*) or function (labeled *F*) word. For data inspection purposes, R Example \@ref(rexample:tutorial-dplotSylTyp) initially extracts the central 60% (`left.time = 0.2` and `right.time = 0.8`) of the formant trajectories from `td_vowels` using `dcut()` and displays them using `dplot()`. It should be noted that the call to `dplot()` uses the labels of the `sl_wordType` object as opposed to those of `sl_vowels`. This causes the `dplot()` functions to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \@ref(fig:tutorial_dplotSylTyp).
 
 
 <h3>rexample:tutorial-dplotSylTyp</h3>
@@ -582,10 +611,14 @@ dplot(x = td_vowelsMidSec[, formantNr],
       ylab = paste("F", formantNr, " (Hz)"))
 ```
 
-<div class="figure">
-<img src="tutorial_files/figure-epub3/tutorial-dplotSylTyp-1.png" alt="Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*))."  />
-<p class="caption">(\#fig:tutorial-dplotSylTyp)Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*)).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-dplotSylTyp-1} 
+
+}
+
+\caption{Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*)).}(\#fig:tutorial-dplotSylTyp)
+\end{figure}
 
 As can be seen in Figure \@ref(fig:tutorial-dplotSylTyp), there seems to be a distinction in F1 trajectory height between vowels in content and function words. R Example \@ref(rexample:tutorial-boxplot) shows the code to produce a boxplot using the `ggplot2` package to further visually inspect the data (see Figure \@ref(fig:tutorial-boxplot) for the plot produced by R Example \@ref{rexample:tutorial-boxplot}).
 
@@ -614,10 +647,14 @@ ggplot(df, aes(wordType, meanF1)) +
   labs(x = "Word type", y = paste0("mean F", formantNr, " (Hz)"))
 ```
 
-<div class="figure">
-<img src="tutorial_files/figure-epub3/tutorial-boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word."  />
-<p class="caption">(\#fig:tutorial-boxplot)Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-boxplot-1} 
+
+}
+
+\caption{Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word.}(\#fig:tutorial-boxplot)
+\end{figure}
 
 To confirm or reject this, R Example \@ref(rexample:tutorial-stats1) presents a very simple statistical analysis of the F1 mean values of the 60% mid-section formant trajectories [^4]. First, a Shapiro-Wilk test for normality of the distributions of the F1 means for both word types is carried out. As only one type is normally distributed, a Wilcoxon rank sum test is performed. The density distributions (commented out `plot()` function calls in R Example \@ref(rexample:tutorial-stats1)) are displayed in Figure \@ref(fig:tutorial_stats1).
 
@@ -691,10 +728,14 @@ wilcox.test(meanF1 ~ wordType, data = df)
 ## alternative hypothesis: true location shift is not equal to 0
 ```
 
-<div class="figure">
-<img src="tutorial_files/figure-epub3/tutorial-stats1-1.png" alt="Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1)."  />
-<p class="caption">(\#fig:tutorial-stats1)Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1).</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-stats1-1} 
+
+}
+
+\caption{Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1).}(\#fig:tutorial-stats1)
+\end{figure}
 
 As shown by the result of `wilcox.test()` in R Example \@ref(rexample:tutorial_stats1), word type (*C* vs. *F*) has a significant influence on the vowel's F1 (W=121, p<0.05). Hence, the answer to the initially proposed question: *Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?* is yes!
 

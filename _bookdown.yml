@@ -5,9 +5,16 @@ rmd_files: [
 
   "softw_inst.Rmd",
   "overview.Rmd",
-  "tutorial.Rmd"
+  "tutorial.Rmd",
 
-  #"bibliography.Rmd"
+  "annot_struct.Rmd",
+  "emuDB.Rmd",
+  "query.Rmd",
+  "sigDataExtr.Rmd",
+  "wrassp.Rmd",
+  "emu-webApp.Rmd",
+
+  "bibliography.Rmd"
 ]
 
 # before_chapter_script: "_common.R"

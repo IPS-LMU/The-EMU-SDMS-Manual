@@ -1,4 +1,8 @@
-%!TEX root = ../diss.tex
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\begin{document}
 \begin{tikzpicture}[scale=0.2]
 
 \begin{scope}[xscale=-1, xshift=-450mm]
@@ -78,8 +82,10 @@
 \end{scope}
 
 
-\node [minimum width=1.8cm, minimum height=1.8cm](emuDB) at (0, -900mm) {\pgftext{\includegraphics[scale=0.2]{pics/databaseSymbol}}};
+\node [minimum width=1.8cm, minimum height=1.8cm](emuDB) at (0, -900mm) {\pgftext{\includegraphics[scale=0.2]{databaseSymbol}}};
 
 
 
 \end{tikzpicture}
+
+\end{document}
