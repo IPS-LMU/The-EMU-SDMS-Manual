@@ -1,4 +1,4 @@
-# Installing the EMU-SDMS
+# (PART) Installing the EMU-SDMS {-}
 
 1. R
     - Download the R programming language from  [https://cran.r-project.org/](https://cran.r-project.org/)
