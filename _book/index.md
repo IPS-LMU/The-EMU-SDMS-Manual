@@ -16,8 +16,7 @@ link-citations: yes
 # Welcome {-}
 
 
-
-\begin{center}\includegraphics[width=0.35\linewidth]{pics/EMU-webAppIcon-roundCorners} \end{center}
+<img src="pics/EMU-webAppIcon-roundCorners.png" width="35%" style="display: block; margin: auto;" />
 
 Welcome to the EMU-SDMS Manual! 
 

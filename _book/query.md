@@ -1,19 +1,14 @@
 # The query system {#chap:querysys}
 
-
-\begin{center}\includegraphics[width=0.5\linewidth]{pics/EMU-webAppEmu_query} \end{center}
+<img src="pics/EMU-webAppEmu_query.png" width="50%" style="display: block; margin: auto;" />
 
 This chapter describes the newly implemented query system of the `emuR` package. When developing the new `emuR` package it was essential that it had a query mechanism allowing users to query a database's annotations in a simple manner. The EMU query language (EQL) of the EMU-SDMS arose out of years of developing and improving upon the query language of the legacy system (e.g., @cassidy:sc2001a, @harrington:2010a, @john:2012a). As a result, today we have an expressive, powerful, yet simple to learn and domain-specific query language. The EQL defines a user interface by allowing the user to formulate a formal language expression in the form of a query string. The evaluation of a query string results in a set of annotation items or, alternatively, a sequence of items of a single annotation level in the `emuDB` from which time information, if applicable (see Section \@ref(subsec:query-deducingTime)), has been deduced from the time-bearing sub-level. An example of this is a simple query that extracts all strong syllables (i.e., syllable annotation items containing the label *S* on the *Syllable* level) from a set of hierarchical annotations (see Figure \@ref(fig:amongstHier) for an example of a hierarchical annotation). The respective EQL query string `"Syllable == S"` results in a set of segments containing the annotation label *S*. Due to the temporal inclusion constraint of the domination relationship, the start and end times of the queried segments are derived from the respective items of the *Phonetic* level (i.e., the *m* and *H* nodes in Figure \@ref(fig:amongstHier), as this is the time-bearing sub-level. The EQL described here allows users to query the complex hierarchical annotation structures in their entirety as they are described in Chapter \@ref(chap:annot-struct-mod).
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/amongstHier} 
-
-}
-
-\caption{Simple partial hierarchy of an annotation of the word *amongst* in the *msajc003* bundle in the *ae* demo `emuDB`.}(\#fig:amongstHier)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/amongstHier.png" alt="Simple partial hierarchy of an annotation of the word *amongst* in the *msajc003* bundle in the *ae* demo `emuDB`." width="75%" />
+<p class="caption">(\#fig:amongstHier)Simple partial hierarchy of an annotation of the word *amongst* in the *msajc003* bundle in the *ae* demo `emuDB`.</p>
+</div>
 
 R Example \@ref(rexample:query-loadDemoData) shows how to create the demo data that is provided by the `emuR` package followed by loading an example `emuDB` called *ae* into the current R session. This database will be used in all the examples throughout this chapter.
 
@@ -270,14 +265,10 @@ R Example \@ref(rexample:conjq) does not make use of the result modifier symbol.
 
 Compared to sequence and conjunction queries, a domination query using the operator *^* is not bound to a single level. Instead, it allows users to query annotation items that are directly or indirectly linked over one or more levels. Queries using the domination operator are often referred to as hierarchical queries as they provide the ability to query the hierarchical annotations in a vertical or inter-level manner. Figure \@ref(fig:amongstHierDomintation) shows the same partial hierarchy as Figure \@ref(fig:amongstHier) but highlights the annotational items that are dominated by the strong syllable (*S*) of the *Syllable* level. Such linked hierarchical sub-structures can be queried using hierarchical/domination queries.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/amongstHierDomination} 
-
-}
-
-\caption{Partial hierarchy depicting all annotation items that are dominated by the strong syllable (*S*) of the *Syllable* level (inside dashed box). Items marked 	extcolor{three_color_c1}{green} belong to the 	extcolor{three_color_c1}{*Phoneme*} level, items marked 	extcolor{three_color_c2}{orange} belong to the 	extcolor{three_color_c2}{*Phonetic*} level and the 	extcolor{three_color_c3}{purple} dashed box indicates the set of items that are dominated by *S*.}(\#fig:amongstHierDomintation)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/amongstHierDomination.png" alt="Partial hierarchy depicting all annotation items that are dominated by the strong syllable (*S*) of the *Syllable* level (inside dashed box). Items marked 	extcolor{three_color_c1}{green} belong to the 	extcolor{three_color_c1}{*Phoneme*} level, items marked 	extcolor{three_color_c2}{orange} belong to the 	extcolor{three_color_c2}{*Phonetic*} level and the 	extcolor{three_color_c3}{purple} dashed box indicates the set of items that are dominated by *S*." width="75%" />
+<p class="caption">(\#fig:amongstHierDomintation)Partial hierarchy depicting all annotation items that are dominated by the strong syllable (*S*) of the *Syllable* level (inside dashed box). Items marked 	extcolor{three_color_c1}{green} belong to the 	extcolor{three_color_c1}{*Phoneme*} level, items marked 	extcolor{three_color_c2}{orange} belong to the 	extcolor{three_color_c2}{*Phonetic*} level and the 	extcolor{three_color_c3}{purple} dashed box indicates the set of items that are dominated by *S*.</p>
+</div>
 
 A schematic representation of a simple domination query string that retrieves all annotation items *A* of level `L1` that are dominated by items `B` in level `L2` (i.e., items that are directly or indirectly linked) is `[L1 == A ^{`  L2 == B]}. Although the domination relationship is directed the domination operator is not. This means that either items in `L1` dominate items in `L2` or items in `L2` dominate items in `L1`. Note that link definitions that specify the validity of the domination have to be present in the `emuDB` configuration for this to work (see Chapter \@ref(chap:emuDB) for details). An example of a query string using the domination operator is displayed in R Example \@ref(rexample:domq).
 
@@ -306,14 +297,10 @@ As with the conjunction query, if no result modifier is present, a dominates que
 The EQL has three function terms that specify where in a domination relationship a child level annotation item is allowed to occur. The three function terms are `Start()`, `End()` and `Medial()`. A schematic representation of a query string representing a simple usage of the `Start()`, `End()` and `Medial()` function would be: `POSFCT(L1, L2) == TRUE`. In this representation `POSFCT` is a placeholder for one of the three functions, at which level `L1` must dominate level `L2`. Where `L1` does indeed dominate `L2`, the corresponding item from level `L2` is returned. If the expression is set to `FALSE` (i.e., `POSFCT(L1, L2) == FALSE`), all the items that do not match the condition of `L2` are returned. An illustration of what is returned by each of the position functions depending on if they are set to `TRUE` or `FALSE` is depicted in Figure \@ref(fig:query-positionSimple), while R Example \@ref(rexample:posq) shows an example query using a position query term.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/positionSimple} 
-
-}
-
-\caption{Illustration of what is returned by the `Start()`, `Medial()` and `End()` functions depending if they are set to 	extbf{A:} 	extcolor{three_color_c1}{`TRUE`} (green) or 	extbf{B:} 	extcolor{three_color_c2}{`FALSE`} (orange).}(\#fig:query-positionSimple)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/positionSimple.png" alt="Illustration of what is returned by the `Start()`, `Medial()` and `End()` functions depending if they are set to 	extbf{A:} 	extcolor{three_color_c1}{`TRUE`} (green) or 	extbf{B:} 	extcolor{three_color_c2}{`FALSE`} (orange)." width="75%" />
+<p class="caption">(\#fig:query-positionSimple)Illustration of what is returned by the `Start()`, `Medial()` and `End()` functions depending if they are set to 	extbf{A:} 	extcolor{three_color_c1}{`TRUE`} (green) or 	extbf{B:} 	extcolor{three_color_c2}{`FALSE`} (orange).</p>
+</div>
 
 
 ```r
@@ -338,14 +325,10 @@ head(sl, n = 1)
 A further query component of the EQL are so-called count queries. They allow the user to specify how many child nodes a parent annotation item is allowed to have. Figure \@ref(fig:query_amongstHierCount) displays two syllables, one containing one phoneme and one phonetic annotation item, the other containing five phoneme and six phonetic items. Using EQL's `Num()` function it is possible to specify which of the two syllables should be retrieved, depending on the number of phonemic or phonetic elements to which it is directly or indirectly linked. R Example \@ref(rexample:query_countQuery) shows a query that queries all syllables that contain five phonemes.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/amongstHierCount} 
-
-}
-
-\caption{Partial hierarchy depicting a *Syllable* containing one *Phoneme* and  *Phonetic* item (green) and a *Syllable* containing five *Phoneme* and six *Phonetic* items (orange).}(\#fig:query-amongstHierCount)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/amongstHierCount.png" alt="Partial hierarchy depicting a *Syllable* containing one *Phoneme* and  *Phonetic* item (green) and a *Syllable* containing five *Phoneme* and six *Phonetic* items (orange)." width="75%" />
+<p class="caption">(\#fig:query-amongstHierCount)Partial hierarchy depicting a *Syllable* containing one *Phoneme* and  *Phonetic* item (green) and a *Syllable* containing five *Phoneme* and six *Phonetic* items (orange).</p>
+</div>
 
 A schematic representation of a query string utilizing the count mechanism would be `[Num(L1, L2) == N]`, where `L1` contains `N` annotation items in `L2`. For this type of query to work `L1` has to dominate `L2` (i.e., be a parent level to `L2`). As the query matches a number (`N`), it is also possible to use the operators `>` (more than), `<` (less than) and `!=` (not equal to). The resulting segment list contains items of `L1`.
 
@@ -421,14 +404,10 @@ head(sl, n = 1)
 A popular feature of the legacy system was the ability to use the result of a query to perform an additional query, called a requery, starting from the resulting items of a query. The requery functionality was used to move either sequentially (horizontally) or hierarchically (vertically) through the hierarchical annotation structure. Although this feature technically does not extend the querying functionality (it is possible to formulate EQL queries that yield the same results as a query followed by $1:n$ requeries), requeries benefit the user by breaking down the task of formulating long query terms into multiple, simpler queries. Compared with the legacy system, this feature is implemented in the `emuR` package in a more robust way, as unique item IDs are present in the result of a query, eliminating the need for searching the starting segments based on their time information. Examples of queries and their results within a hierarchical annotation based on a hierarchical and sequential requery as well as their EQL equivalents are illustrated in Figure \@ref(fig:query-requery).
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/requery} 
-
-}
-
-\caption{Three-step (	extcolor{three_color_c1}{query} -> 	extcolor{three_color_c2}{requery_hier} -> 	extcolor{three_color_c3}{requery_seq}) requery procedure, its single 	extcolor{darkgray}{query} counterpart and their color coded movements within the annotation hierarchy.}(\#fig:query-requery)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/requery.png" alt="Three-step (	extcolor{three_color_c1}{query} -&gt; 	extcolor{three_color_c2}{requery_hier} -&gt; 	extcolor{three_color_c3}{requery_seq}) requery procedure, its single 	extcolor{darkgray}{query} counterpart and their color coded movements within the annotation hierarchy." width="75%" />
+<p class="caption">(\#fig:query-requery)Three-step (	extcolor{three_color_c1}{query} -> 	extcolor{three_color_c2}{requery_hier} -> 	extcolor{three_color_c3}{requery_seq}) requery procedure, its single 	extcolor{darkgray}{query} counterpart and their color coded movements within the annotation hierarchy.</p>
+</div>
 
 R Example \@ref(rexample:query-requery) illustrates how the same results of the sequential query `[\#Phonetic =~ .* -> Phonetic == n]` can be achieved using the `requery_seq()` function. Further, it shows how the `requery_hier()` function can be used to move vertically through the annotation structure by starting at the *Syllable* level and retrieving all the *Phonetic* items for the query result.
 

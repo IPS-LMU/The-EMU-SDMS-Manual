@@ -3,20 +3,15 @@
 [^1-chap:sigDataExtr]: Parts of this chapter have been published in @winkelmann:2017aa.
 
 
-
-\begin{center}\includegraphics[width=0.75\linewidth]{pics/EMU-webAppEmu_sigDataExtr} \end{center}
+<img src="pics/EMU-webAppEmu_sigDataExtr.png" width="65%" style="display: block; margin: auto;" />
 
 As mentioned in the default workflow of Chapter \@ref(chap:overview}, after querying the symbolic annotation structure and dereferencing its time information, the result is a set of items with associated time stamps. It was necessary that the `emuR` package contain a mechanism for extracting signal data corresponding to this set of items. As illustrated in Chapter \@ref(chap:wrassp}, `wrassp` provides the R ecosystem with signal data file handling capabilities as well as numerous signal processing routines. `emuR` can use this functionality to either obtain pre-stored signal data or calculate derived signal data that correspond to the result of a query. Figure \@ref(fig:sigDataExtr}A shows a snippet of speech with overlaid annotations where the resulting `SEGMENT` of an example query (e.g., `"Phonetic == ai"`) is highlighted in yellow. Figure \@ref(fig:sigDataExtr)B displays a time parallel derived signal data contour as would be returned by one of `wrassp`'s file handling or signal processing routines. The yellow segment in Figure \@ref(fig:sigDataExtr)B marks the corresponding samples that belong to the `ai` segment of Figure \@ref(fig:sigDataExtr)A.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/sigDataExtr} 
-
-}
-
-\caption{Segment of speech with overlaid annotations and time parallel derived signal data contour.}(\#fig:sigDataExtr)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/sigDataExtr.png" alt="Segment of speech with overlaid annotations and time parallel derived signal data contour." width="75%" />
+<p class="caption">(\#fig:sigDataExtr)Segment of speech with overlaid annotations and time parallel derived signal data contour.</p>
+</div>
 
 R Example \@ref(rexample:sigDataExtr-loadData) shows how to create the demo data that will be used throughout this chapter.
 
@@ -130,13 +125,13 @@ as_tibble(list_files(ae, fileExtension = "f0"))
 ## # A tibble: 7 x 4
 ##   session bundle   file        absolute_file_path                         
 ## * <chr>   <chr>    <chr>       <chr>                                      
-## 1 0000    msajc003 msajc003.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 2 0000    msajc010 msajc010.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 3 0000    msajc012 msajc012.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 4 0000    msajc015 msajc015.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 5 0000    msajc022 msajc022.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 6 0000    msajc023 msajc023.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 7 0000    msajc057 msajc057.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
+## 1 0000    msajc003 msajc003.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
+## 2 0000    msajc010 msajc010.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
+## 3 0000    msajc012 msajc012.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
+## 4 0000    msajc015 msajc015.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
+## 5 0000    msajc022 msajc022.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
+## 6 0000    msajc023 msajc023.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
+## 7 0000    msajc057 msajc057.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
 ```
 
 ```r
@@ -214,7 +209,7 @@ as_tibble(ai_emuRtd_pit[1, ])
 ## # A tibble: 1 x 21
 ##   sl_rowIdx labels start   end utts   db_uuid session bundle start_item_id
 ## *     <int> <chr>  <dbl> <dbl> <chr>  <chr>   <chr>   <chr>          <int>
-## 1         1 ai      863. 1016. 0000:~ 0fc618~ 0000    msajc~           161
+## 1         1 ai      863. 1016. 0000:… 0fc618… 0000    msajc…           161
 ## # ... with 12 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,

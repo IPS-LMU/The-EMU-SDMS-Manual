@@ -3,8 +3,7 @@
 [^1-chap:emuDB]: Sections of this chapter where published in @winkelmann:2017aa and some examples taken from the `emuDB` vignette of the `emuR` package.
 
 
-
-\begin{center}\includegraphics[width=0.75\linewidth]{pics/EMU-webAppEmu_emuDB} \end{center}
+<img src="pics/EMU-webAppEmu_emuDB.png" width="75%" style="display: block; margin: auto;" />
 
 This chapter describes the `emuDB` format, which is the new database format of the EMU-SDMS, and shows how to create and interact with this format. The `emuDB` format is meant as a simple, general purpose way of storing speech databases that may contain complex, rich, hierarchical annotations as well as derived and complementary speech data. These different components will be described throughout this chapter, and examples will show how to generate and manipulate them. On designing the new EMU system, considerable effort went into designing an appropriate database format. We needed a format that was standardized, well structured, easy to maintain, easy to produce, easy to manipulate and portable.
 
@@ -25,14 +24,10 @@ In contrast to other systems, including the legacy EMU system, we chose to fully
 An `emuDB` consists of a set of files and directories that adhere to a certain structure and naming convention (see Figure \@ref(fig:schematic-emuDB-structure)). The database root directory must include a single `_DBconfig.json` file that contains the configuration options of the database such as its level definitions, how these levels are linked in the database hierarchy and how the data is to be displayed by the graphical user interface. A detailed description of the `_DBconfig.json` file is given in Appendix \@ref(subsec:app-chapFileFormatsDBconfig). The database root directory also contains arbitrarily named session directories (except for the obligatory `_ses` suffix). These session directories can be used to group the recordings of a database in a logical manner. Sessions can be used, for example, to group all recordings from speaker `AAA` into a session called `AAA_ses`.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.65\linewidth]{pics/db_structure} 
-
-}
-
-\caption{Schematic `emuDB` file and directory structure.}(\#fig:schematic-emuDB-structure)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/db_structure.png" alt="Schematic `emuDB` file and directory structure." width="65%" />
+<p class="caption">(\#fig:schematic-emuDB-structure)Schematic `emuDB` file and directory structure.</p>
+</div>
 
 Each session directory can contain any number of `_bndl` directories (e.g., `rec1_bndl` `rec2_bndl` ... `rec9_bndl`). All files belonging to a recording (i.e., all files describing the same timeline) are stored in the same bundle directory. This includes the actual recording (`.wav`) and can contain optional derived or supplementary signal files in the simple signal file format (SSFF) [@cassidy:2013a] such as formants (`.fms`) or the fundamental frequency (`.f0`), both of which can be calculated using the `wrassp` package (see Chapter \@ref(chap:wrassp)). Each bundle directory contains the annotation file (`_annot.json`) of that bundle (i.e., the annotations and the hierarchical linking information; see Appendix \@ref(subsec:app-chapFileFormatsAnnotJSON) for a detailed description of the file format). JSON schema files for all the JSON files types used have been developed to ensure the syntactic integrity of the database (see https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles). All files within a bundle that are associated with that bundle must have the same basename as the `_bndl` directory prefix. For example, the signal file in bundle `rec1_bndl` must have the name `rec1.wav` to be recognized as belonging to the bundle. The optional `_emuDBcache.sqlite` file in the root directory (see Figure \@ref(fig:schematic-emuDB-structure) contains the relational cache representation of the annotations of the `emuDB` (see Chapter \@ref(chap:querysys-impl) for further details). All files in an `_bndl` directory that do not follow the above naming conventions will simply be ignored by the database interaction functions of the `emuR` package.
 
@@ -84,8 +79,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 a77013ad-8b2a-43cf-b57a-18fe541e187a 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpsINqO1/fromScratch_emuDB 
+## UUID:	 72842f2b-d675-4e01-8091-5a62039496ca 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpH1NOe0/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -347,14 +342,10 @@ list_linkDefinitions(dbHandle)
 A schematic of the simple hierarchical structure of the *fromScratch* created by R Example \@ref(rexample:emuDB-addLinkDef) is displayed in Figure \@ref(fig:emuDB-fromScratchHier).
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/fromScratchDBgraph} 
-
-}
-
-\caption{A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example @ref(rexample:emuDB-addLinkDef).}(\#fig:emuDB-fromScratchHier)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/fromScratchDBgraph.png" alt="A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example @ref(rexample:emuDB-addLinkDef)." width="50%" />
+<p class="caption">(\#fig:emuDB-fromScratchHier)A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example @ref(rexample:emuDB-addLinkDef).</p>
+</div>
 
 ### File handling
 
@@ -410,8 +401,8 @@ as_tibble(head(list_files(dbHandle), n = 2))
 ## # A tibble: 2 x 4
 ##   session      bundle   file                absolute_file_path            
 ## * <chr>        <chr>    <chr>               <chr>                         
-## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn~
-## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn~
+## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn…
+## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn…
 ```
 
 The `import_mediaFiles()` call in R Example \@ref(rexample:emuDB-importMediaFiles) added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
@@ -455,9 +446,9 @@ as_tibble(head(list_files(dbHandle), n = 3))
 ## # A tibble: 3 x 4
 ##   session      bundle   file                absolute_file_path            
 ## * <chr>        <chr>    <chr>               <chr>                         
-## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn~
-## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn~
-## 3 fromWavFiles msajc003 msajc003.zcr        /private/var/folders/yk/8z9tn~
+## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn…
+## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn…
+## 3 fromWavFiles msajc003 msajc003.zcr        /private/var/folders/yk/8z9tn…
 ```
 
 

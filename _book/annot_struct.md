@@ -5,21 +5,16 @@
 [^5]: Sections of this chapter where previously published in @winkelmann:2017aa
 
 
-
-\begin{center}\includegraphics[width=0.75\linewidth]{pics/EMU-webAppEmu_annotStruct} \end{center}
+<img src="pics/EMU-webAppEmu_annotStruct.png" width="75%" style="display: block; margin: auto;" />
 
 The EMU-SDMS facilitates annotation structure modeling that surpasses that available in many other commonly used systems. This chapter provides an in-depth explanation of the annotation structure modeling capabilities the EMU-SDMS offers. One of the most common approaches for creating time-aligned annotations has been to differentiate between events that occur at a specific point in time but have no duration and segments that start at a point in time and have a duration. These annotation items are then grouped into time-ordered sets that are often referred to as tiers. As certain research questions benefit from different granularities of annotation, the timeline is often used to relate implicitly items from multiple tiers to each other as shown in Figure \@ref(fig:annot-structhybridAnnot)A. While sufficient for single or unrelated tier annotations, we feel this type of representation is not suitable for more complex annotation structures, as it results in unnecessary, redundant data and data sets that are often difficult to analyze. This is because there are no explicit relationships between annotation items, and it is often necessary to introduce error tolerance values to analyze slightly misaligned time values to find relationships iteratively over multiple levels. The main reason for the prevalence of this sub-optimal strategy is largely because the available software tools (e.g., Praat by @boersma:2011a) do not permit any other forms of annotations. These widely used annotation tools often only permit the creation and manipulation of segment and event tiers which in turn has forced users to model their annotation structures on these building blocks alone.
 
 Linguists who deal with speech and language on a purely symbolic level tend to be more familiar with a different type of annotation structure modeling. They often model their structures in the form of a vertically oriented, directed acyclic graph that, but for a few exceptions that are needed for things like elision modeling (e.g., the /ɪ/ elision that may occur between the canonical representation of the word *family* /fæmɪli/ and its phonetic representation [fæmli]), loosely adheres to the formal definition of a tree in the graph-theoretical sense (@knuth:ar1968a) as depicted in Figure \@ref(fig:annot_structhybridAnnot)B. While this form of modeling explicitly defines relationships between annotation items (represented by dashed lines in Figure \@ref(fig:annot_structhybridAnnot)B), it lacks the ability to map these items to the timeline and therefore the matching speech signal.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth,keepaspectratio]{annot_struct_files/figure-latex/annot-structhybridAnnot-1} 
-
-}
-
-\caption{**A:** a purely time-aligned annotation; **B:** a purely timeless, symbolic annotation; **C:** a time-aligned hierarchical annotation.}(\#fig:annot-structhybridAnnot)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="annot_struct_files/figure-epub3/annot-structhybridAnnot-1.png" alt="**A:** a purely time-aligned annotation; **B:** a purely timeless, symbolic annotation; **C:** a time-aligned hierarchical annotation." width="100%" keepaspectratio />
+<p class="caption">(\#fig:annot-structhybridAnnot)**A:** a purely time-aligned annotation; **B:** a purely timeless, symbolic annotation; **C:** a time-aligned hierarchical annotation.</p>
+</div>
 
 
 To our knowledge, the legacy EMU system (@cassidy:sc2001a) and its predecessors (e.g., @harrington:csl1993a) were the first to fuse pragmatically purely time-aligned and symbolic tree-like annotations. This was achieved by providing software tools that allowed for these types of annotation structures to be generated, queried and evaluated. In practice, each annotation item had its own unique identifier within the annotation. These unique IDs could then be used to reference each individual item and link them together using dominance relations to form the hierarchical annotation structure. On the one hand, this dominance relation implies the temporal inclusion of the linked sub-level items and was partially predicated on the *no-crossing constraint* as described in @coleman:lp1991a). This constraint does not permit the crossing of dominance relationships with respect to their sequential ordering (see also Section 4.2 of @cassidy:sc2001a). Since the dominance relations imply temporal inclusion, events can only be children in a parent-child relationship. To allow for timeless annotation items, a further timeless level type was used to complement the segment and event type levels used for time-aligned annotations. Each level of annotation items was stored as an ordered set to ensure the sequential integrity of both the time-aligned and timeless item levels. The legacy system also reduced data redundancy by allowing parallel annotations to be defined in the form of linearly linked levels for any given level (e.g., a segment level bearing SAMPA annotations as well as IPA UTF-8 annotations).
@@ -41,14 +36,10 @@ Unlike other systems, the EMU-SDMS requires the user to define the annotation st
 As mentioned above, the actual annotation files of an `emuDB` contain the annotation items as well as their hierarchical linking information. To be able to check the validity of a connection between two items, the user specifies which links are permitted for the entire database just as for the level definitions. The permitted hierarchical relationships in an `emuDB` are expressed through link definitions between level definitions as part of the database configuration. There are three types of valid hierarchical relationships between levels: `ONE\_TO\_MANY`, `MANY_TO_MANY` and `ONE_TO_ONE`. These link definitions specify the permitted relationships between instances of annotation items of one level and those of another. The structure of the hierarchy that corresponds to the annotation depicted in Figure \@ref(fig:annot_structhybridAnnot)C can be seen in Figure \@ref(fig:annotStruct)A. The structure in Figure \@ref(fig:annotStruct)A is a typical example of an EMU hierarchy where only the \textit{Phonetic} level of type `SEGMENT` contains time information and the others are timeless as they are of the type `ITEM`. The top three levels, *Text*, *Syllable* and *Phoneme*, have a `ONE_TO_MANY` relationship specifying that a single item in the parent level may have a dominance relationship with multiple items in the child level. In this example, the relationship between \textit{Phoneme} and *Phonetic* is `MANY_TO_MANY`: this type of relationship can be used to represent schwa elision and subsequent sonorant syllabification, as when the final syllable of *sudden* is *d@n* at the *Phoneme* level but *dn* at the *Phonetic* level. Figure \@ref(fig:annotStruct)B displays an example of a more complex, intersecting hierarchical structure definition where Abercrombian feet (@abercombie:1967a) are incorporated into the tones and break indices (ToBI) (@beckman:1997aa) prosodic hierarchy by allowing an intonational phrase to be made up of one or more feet (for further details see @harrington:2010a page 98).
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/annotStruct} 
-
-}
-
-\caption{**A:** a schematic representation of the hierarchical structure of an `emuDB` that corresponds to the annotation depicted in @ref(fig:annot-structhybridAnnot)C; **B:** example of a more complex, intersecting hierarchical structure.}(\#fig:annotStruct)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/annotStruct.png" alt="**A:** a schematic representation of the hierarchical structure of an `emuDB` that corresponds to the annotation depicted in @ref(fig:annot-structhybridAnnot)C; **B:** example of a more complex, intersecting hierarchical structure." width="75%" />
+<p class="caption">(\#fig:annotStruct)**A:** a schematic representation of the hierarchical structure of an `emuDB` that corresponds to the annotation depicted in @ref(fig:annot-structhybridAnnot)C; **B:** example of a more complex, intersecting hierarchical structure.</p>
+</div>
 
 Based on our experience, the explicit definition of the annotation structure for every database which was also integral to the legacy system addresses the excessively expressive nature of annotational modeling systems mentioned in @bird:sc2001a. Although, in theory, infinitely large hierarchies can be defined for a database, users of the legacy system typically chose to use only moderately complex annotation structures. The largest hierarchy definitions we have encountered spanned up to fifteen levels while the average amount of levels was between three and five. This self-restriction is largely due to the primary focus of speech and spoken language domain-specific annotations, as the number of annotation levels between chunks of speech above the word level (intonational phrases/sentences/turns/etc.) and the lower levels (phonetic segmentation/EMA gestural landmark annotation/tone annotation/etc.) is a finite set.
 
@@ -58,14 +49,10 @@ Based on our experience, the explicit definition of the annotation structure for
 The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called *Category* might have been included as a separate level from *Word* for marking words' grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate *Stress* tier (description taken from @harrington:2010a page 77). Using `ONE_TO_ONE` link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term "attribute"" (vs. "label") was chosen to have the flexibility of adding attributes that are not of the type `STRING` (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure \@ref(fig:paraLabels} shows the annotation structure modeling difference between linearly linked levels (see Figure \@ref(fig:paraLabels}A) and an annotation structure using multiple attributes (see Figure \@ref(fig:paraLabels}B). Figure \@ref(fig:paraLabels}A shows three separate levels (*Word*, *Accent* and  *Text*) that have a `ONE_TO_ONE` relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., *A1-A3*). Figure \@ref(fig:paraLabels}B shows a single level that has three attribute definitions (*Word*, *Accent* and *Text*) and each annotation item contains three attributes (e.g., *A1-A3*).
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{pics/annotStruct} 
-
-}
-
-\caption{Schematic representation of annotation structure modeling difference between **A:** linearly linked levels and **B:** an annotation structure using multiple attributes.}(\#fig:paraLabels)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/annotStruct.png" alt="Schematic representation of annotation structure modeling difference between **A:** linearly linked levels and **B:** an annotation structure using multiple attributes." width="75%" />
+<p class="caption">(\#fig:paraLabels)Schematic representation of annotation structure modeling difference between **A:** linearly linked levels and **B:** an annotation structure using multiple attributes.</p>
+</div>
 
 It is worth noting that every level definition must have an attribute definition which matches its level name. This primary attribute definition must also be present in every annotation item belonging to a level. As `emuR`'s database interaction functions, such as `add_levelDefinition()`, and the `EMU-webApp` automatically perform the necessary actions this should only be of interest to (semi-)advanced users wishing to automatically generate the `_annot.json` format.
 
@@ -76,14 +63,10 @@ As the legacy EMU system and the new EMU-SDMS do not have an explicit method for
 [^3]: Future versions of `emuR` may allow `_meta.json` files containing meta information in the form of key-value pairs to be placed in either the `_emuDB`, the `_ses` or the `_bndl` directories.
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.65\linewidth]{pics/singleBundleRootNode} 
-
-}
-
-\caption{Hierarchical annotation displaying single bundle root node metadata strategy where the label of the primary attribute definition (*bundle*) is empty, *gender* encodes the speaker's gender, *COB* encodes the speakers city of birth and *age* encodes the speaker's age in the form of a string.}(\#fig:singleBundleRootNode)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="pics/singleBundleRootNode.png" alt="Hierarchical annotation displaying single bundle root node metadata strategy where the label of the primary attribute definition (*bundle*) is empty, *gender* encodes the speaker's gender, *COB* encodes the speakers city of birth and *age* encodes the speaker's age in the form of a string." width="65%" />
+<p class="caption">(\#fig:singleBundleRootNode)Hierarchical annotation displaying single bundle root node metadata strategy where the label of the primary attribute definition (*bundle*) is empty, *gender* encodes the speaker's gender, *COB* encodes the speakers city of birth and *age* encodes the speaker's age in the form of a string.</p>
+</div>
 
 ## Conclusion
 

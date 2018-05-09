@@ -3,7 +3,7 @@
 [^1-chap:sigDataExtr]: Parts of this chapter have been published in @winkelmann:2017aa.
 
 
-```{r fig.align="center", echo=FALSE, out.width = "75%"}
+```{r fig.align="center", echo=FALSE, out.width = "65%"}
 knitr::include_graphics("pics/EMU-webAppEmu_sigDataExtr.png")
 ```
 

@@ -255,7 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> Database design</h2>
 <p>An <code>emuDB</code> consists of a set of files and directories that adhere to a certain structure and naming convention (see Figure <a href="chap-emuDB.html#fig:schematic-emuDB-structure">5.1</a>). The database root directory must include a single <code>_DBconfig.json</code> file that contains the configuration options of the database such as its level definitions, how these levels are linked in the database hierarchy and how the data is to be displayed by the graphical user interface. A detailed description of the <code>_DBconfig.json</code> file is given in Appendix <a href="#subsec:app-chapFileFormatsDBconfig"><strong>??</strong></a>. The database root directory also contains arbitrarily named session directories (except for the obligatory <code>_ses</code> suffix). These session directories can be used to group the recordings of a database in a logical manner. Sessions can be used, for example, to group all recordings from speaker <code>AAA</code> into a session called <code>AAA_ses</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:schematic-emuDB-structure"></span>
-<img src="pics/db_structure.png" alt="Schematic `emuDB` file and directory structure." width="75%" />
+<img src="pics/db_structure.png" alt="Schematic `emuDB` file and directory structure." width="65%" />
 <p class="caption">
 Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 </p>
@@ -296,8 +296,8 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <a class="sourceLine" id="cb51-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
 <a class="sourceLine" id="cb51-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     fromScratch 
-## UUID:     947331e3-96ba-4936-aa99-d1fb3502167b 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpRBAvEx/fromScratch_emuDB 
+## UUID:     5d6284e4-2a5e-43f1-be49-8c80957c1537 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp4qeLlx/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -461,7 +461,7 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 ## 1 ONE_TO_MANY           Word     Phonetic</code></pre>
 <p>A schematic of the simple hierarchical structure of the <em>fromScratch</em> created by R Example <a href="#rexample:emuDB-addLinkDef"><strong>??</strong></a> is displayed in Figure <a href="chap-emuDB.html#fig:emuDB-fromScratchHier">5.2</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:emuDB-fromScratchHier"></span>
-<img src="pics/fromScratchDBgraph.png" alt="A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example ??." width="75%" />
+<img src="pics/fromScratchDBgraph.png" alt="A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example ??." width="50%" />
 <p class="caption">
 Figure 5.2: A schematic representation of the simple hierarchical structure of the <em>fromScratch</em> created by the <code>add_linkDefinition()</code> function call in R Example <span class="citation">(<span class="citeproc-not-found" data-reference-id="ref"><strong>???</strong></span>)</span>(rexample:emuDB-addLinkDef).
 </p>

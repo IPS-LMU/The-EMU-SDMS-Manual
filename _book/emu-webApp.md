@@ -3,7 +3,7 @@
 [^1-chap:emu-webApp]: Sections of this chapter have been published in [@winkelmann:2015d] and some descriptions where taken from the `EMU-webApp`'s own manual.
 
 
-<img src="pics/EMU-webAppEmu_wrassp.png" width="75%" style="display: block; margin: auto;" />
+<img src="pics/EMU-webAppEmu_emu-webApp.png" width="75%" style="display: block; margin: auto;" />
 
 The EMU-SDMS has a unique approach to its GUI in that it utilizes a web application as its primary GUI. This is known as the `EMU-webApp` \citep{winkelmann:2015d}. The `EMU-webApp` is a fully fledged browser-based labeling and correction tool that offers a multitude of labeling and visualization features. These features include unlimited undo/redo, formant correction capabilities, the ability to snap a preselected boundary to the nearest top/bottom boundary, snap a preselected boundary to the nearest zero crossing, and many more. The web application is able to render everything directly in the user's browser, including the calculation and rendering of the spectrogram, as it is written entirely using HTML, CSS and JavaScript. This means it can also be used as a standalone labeling application, as it does not require any server-side calculations or rendering. Further, it is designed to interact with any websocket server that implements the `EMU-webApp` websocket protocol (see Section \@ref(subsec:emu-webAppTheProtocol)). This enables it to be used as a labeling tool for collaborative annotation efforts. Also, as the `EMU-webApp` is cached in the user's browser on the first visit, it does not require any internet connectivity to be able to access the web application unless the user explicitly clears the browser's cache. The URL of the current live version of the `EMU-webApp` is: http://ips-lmu.github.io/EMU-webApp/.
 
@@ -34,7 +34,7 @@ This section introduces the labeling mechanics and general labeling workflow of 
 The `EMU-webApp` has slightly different labeling mechanics compared with other annotation software. Compared to the usual click and drag of segment boundaries and event markers, the web application continuously tracks the movement of the mouse in levels containing time information, highlighting the boundary or event marker that is closest to it by coloring it blue. Figure \@ref(fig:webApp-preSelBoundary) displays this automatic boundary preselection.
 
 <div class="figure" style="text-align: center">
-<img src="pics/preSelBoundary.png" alt="Screenshot of segment level as displayed by the `EMU-webApp` with superimposed mouse cursor displaying the automatic boundary preselection of closest boundary (boundary marked blue)." width="75%" />
+<img src="pics/preSelBoundary.png" alt="Screenshot of segment level as displayed by the `EMU-webApp` with superimposed mouse cursor displaying the automatic boundary preselection of closest boundary (boundary marked blue)." width="40%" />
 <p class="caption">(\#fig:webApp-preSelBoundary)Screenshot of segment level as displayed by the `EMU-webApp` with superimposed mouse cursor displaying the automatic boundary preselection of closest boundary (boundary marked blue).</p>
 </div>
 
@@ -47,7 +47,7 @@ Once a boundary or event is preselected, the user can perform various actions wi
 To add a new boundary or event to a level the user initially has to select the desired level she or he wishes to edit. This is achieved either by using the up and down cursor keys or by single-left-clicking on the desired level. The current preselected level is marked in a darker shade of gray, as is displayed in Figure \@ref(fig:webApp-selectLevel).
 
 <div class="figure" style="text-align: center">
-<img src="pics/selectLevel.png" alt="Screenshot of two levels as displayed by the `EMU-webApp`, where the lower level is preselected (i.e., marked in a darker shade of gray)." width="75%" />
+<img src="pics/selectLevel.png" alt="Screenshot of two levels as displayed by the `EMU-webApp`, where the lower level is preselected (i.e., marked in a darker shade of gray)." width="40%" />
 <p class="caption">(\#fig:webApp-selectLevel)Screenshot of two levels as displayed by the `EMU-webApp`, where the lower level is preselected (i.e., marked in a darker shade of gray).</p>
 </div>
 
@@ -59,7 +59,7 @@ To add a boundary to the currently selected level one first has to select a poin
 The `EMU-webApp` also allows segments and events to be preselected by single-left-clicking the desired item. The web application colors the preselected segments and events yellow to indicate their pre-selection as displayed in Figure \@ref(fig:webApp-preSelSeg).
 
 <div class="figure" style="text-align: center">
-<img src="pics/preSelSeg.png" alt="Screenshot of level as displayed by the `EMU-webApp`, where the /@/ segment is currently preselected as it is marked yellow." width="75%" />
+<img src="pics/preSelSeg.png" alt="Screenshot of level as displayed by the `EMU-webApp`, where the /@/ segment is currently preselected as it is marked yellow." width="40%" />
 <p class="caption">(\#fig:webApp-preSelSeg)Screenshot of level as displayed by the `EMU-webApp`, where the /@/ segment is currently preselected as it is marked yellow.</p>
 </div>
 
@@ -110,7 +110,7 @@ As more complex databases have multiple hierarchical paths through their hierarc
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppHierModalTop.png" alt="Screenshot of top of hierarchy modal window of the `EMU-webApp` in which the area marked 1 shows the drop-down menus for selecting the parallel label for each level and area 2 marks the hierarchy path drop-down menu." width="75%" />
+<img src="pics/emu-webAppHierModalTop.png" alt="Screenshot of top of hierarchy modal window of the `EMU-webApp` in which the area marked 1 shows the drop-down menus for selecting the parallel label for each level and area 2 marks the hierarchy path drop-down menu." width="85%" />
 <p class="caption">(\#fig:webApp-hierModalTop)Screenshot of top of hierarchy modal window of the `EMU-webApp` in which the area marked 1 shows the drop-down menus for selecting the parallel label for each level and area 2 marks the hierarchy path drop-down menu.</p>
 </div>
 
@@ -131,7 +131,7 @@ An item's context menu [^3-chap:emu-webApp] is opened by single-left-clicking it
 [^3-chap:emu-webApp]: The term context menu is used in user interface design to refer to a pop-up menu or pop-up area that provides additional information for the current state (i.e., the current item).
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppHierContextMenu.png" alt="Screenshot of the hierarchy modal window of the `EMU-webApp` displaying an annotation item's context menu." width="75%" />
+<img src="pics/emu-webAppHierContextMenu.png" alt="Screenshot of the hierarchy modal window of the `EMU-webApp` displaying an annotation item's context menu." width="65%" />
 <p class="caption">(\#fig:webApp-hierContextMenu)Screenshot of the hierarchy modal window of the `EMU-webApp` displaying an annotation item's context menu.</p>
 </div>
 
@@ -152,7 +152,7 @@ A central concept for configuring the `EMU-webApp` are so-called `perspective`s.
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppPerspMenu.png" alt="Screenshot of the hierarchy modal window of the `EMU-webApp` displaying an annotation item's context menu." width="75%" />
+<img src="pics/emu-webAppPerspMenu.png" alt="Screenshot of the hierarchy modal window of the `EMU-webApp` displaying an annotation item's context menu." width="25%" />
 <p class="caption">(\#fig:webApp-perspMenu)Screenshot of the hierarchy modal window of the `EMU-webApp` displaying an annotation item's context menu.</p>
 </div>
 
@@ -307,7 +307,7 @@ A screenshot of the current display of the *default* perspective can be seen in 
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppPostOderChange.png" alt="Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases)." width="75%" />
+<img src="pics/emu-webAppPostOderChange.png" alt="Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases)." width="100%" />
 <p class="caption">(\#fig:webApp-postOderChange)Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases).</p>
 </div>
 
@@ -333,7 +333,7 @@ To save space it can be beneficial to overlay one or more signal tracks onto oth
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppOverlay.png" alt="Screenshot of signal canvases display of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases)." width="75%" />
+<img src="pics/emu-webAppOverlay.png" alt="Screenshot of signal canvases display of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases)." width="100%" />
 <p class="caption">(\#fig:webApp-overlay1)Screenshot of signal canvases display of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases).</p>
 </div>
 
@@ -353,7 +353,7 @@ The current mechanism for laying frequency-aligned formant contours over the spe
 ```
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppOverlayFreqAlg.png" alt="Screenshot of signal canvases area of the `EMU-webApp` displaying formant contours that are overlaid on the spectrogram and frequency-aligned." width="75%" />
+<img src="pics/emu-webAppOverlayFreqAlg.png" alt="Screenshot of signal canvases area of the `EMU-webApp` displaying formant contours that are overlaid on the spectrogram and frequency-aligned." width="100%" />
 <p class="caption">(\#fig:webApp-overlay2)Screenshot of signal canvases area of the `EMU-webApp` displaying formant contours that are overlaid on the spectrogram and frequency-aligned.</p>
 </div>
 
@@ -367,7 +367,7 @@ The `EMU-webApp` has an additional canvas which can be configured to display two
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webApp2dCanvas.png" alt="Screenshot of 2D canvas of the `EMU-webApp` displaying two-dimensional EMA data." width="75%" />
+<img src="pics/emu-webApp2dCanvas.png" alt="Screenshot of 2D canvas of the `EMU-webApp` displaying two-dimensional EMA data." width="35%" />
 <p class="caption">(\#fig:webApp-2dCanvas)Screenshot of 2D canvas of the `EMU-webApp` displaying two-dimensional EMA data.</p>
 </div>
 
@@ -402,7 +402,7 @@ The `EMU-webApp` has an additional canvas which can be configured to display two
 The 2D canvas of the `EMU-webApp` can also be configured to display EPG data as displayed in Figure \@ref(fig:webApp-2dEPG). The SSFF file containing the EPG data has to be formated in a specific way. The format is a set of eight bytes per point in time, where each byte represents a row of electrodes on the artificial palate. Each binary bit value per byte indicates whether one of the eight sensors is activated or not (i.e., tongue contact was measured). If data in this format and an SSFF track with the predefined name *EPG* referencing the SSFF files are present, the 2D canvas can be configured to display this data by adding the *EPG* to the `twoDimCanvases:order` array as shown in Listing \@ref(lst:webApp-2dEPG).
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webApp2dEPG.png" alt="Screenshot of 2D canvas of the `EMU-webApp` displaying EPG palate traces." width="75%" />
+<img src="pics/emu-webApp2dEPG.png" alt="Screenshot of 2D canvas of the `EMU-webApp` displaying EPG palate traces." width="35%" />
 <p class="caption">(\#fig:webApp-2dEPG)Screenshot of 2D canvas of the `EMU-webApp` displaying EPG palate traces.</p>
 </div>
 
