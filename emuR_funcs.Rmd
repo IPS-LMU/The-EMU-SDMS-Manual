@@ -1,24 +1,24 @@
-# (PART) Main \texttt{emuR} function and object index {-}
+# (PART) Main `emuR` function and object index {-}
 
 <!-- % !Rnw root = diss.Rnw -->
-<!-- \chapter{\texttt{emuR} - package functions} -->
+<!-- \chapter{`emuR` - package functions} -->
 <!-- \label{chap:emuRpackageDetails} -->
 
-<!-- This chapter gives an overview of the essential functions and central objects provided by the \texttt{emuR} package. It is not meant as a comprehensive list of every function and object provided by \texttt{emuR}, but rather tries to group the essential functions into meaningful categories for easier navigation. The categories presented in this chapter are: -->
+<!-- This chapter gives an overview of the essential functions and central objects provided by the `emuR` package. It is not meant as a comprehensive list of every function and object provided by `emuR`, but rather tries to group the essential functions into meaningful categories for easier navigation. The categories presented in this chapter are: -->
 
 <!-- \begin{itemize} -->
-<!--   \item Import and conversion routines (Section \ref{sec:emuRpackageDetails_importRoutines}), -->
-<!--   \item \texttt{emuDB} interaction and configuration routines (Section \ref{sec:emuRpackageDetails_emuDBinteract}), -->
-<!--   \item \texttt{EMU-webApp} configuration routines (Section \ref{sec:emuRpackageDetails_emuWebAppConfig}), -->
-<!--   \item Data extraction routines (Section \ref{sec:emuRpackageDetails_dataExtr}), -->
-<!--   \item Central objects in \texttt{emuR} (Section \ref{sec:emuRpackageDetails_centralObjects}), and -->
-<!--   \item Export routines (Section \ref{sec:emuRpackageDetails_exportRoutines}). -->
+<!--   \item Import and conversion routines (Section \@ref(sec:emuRpackageDetails_importRoutines)), -->
+<!--   \item `emuDB` interaction and configuration routines (Section \@ref(sec:emuRpackageDetails_emuDBinteract)), -->
+<!--   \item `EMU-webApp` configuration routines (Section \@ref(sec:emuRpackageDetails_emuWebAppConfig)), -->
+<!--   \item Data extraction routines (Section \@ref(sec:emuRpackageDetails_dataExtr)), -->
+<!--   \item Central objects in `emuR` (Section \@ref(sec:emuRpackageDetails_centralObjects)), and -->
+<!--   \item Export routines (Section \@ref(sec:emuRpackageDetails_exportRoutines)). -->
 <!-- \end{itemize} -->
 
-<!-- If a comprehensive list of every function and object provided by the \texttt{emuR} package is required, R's \texttt{help()} function (see R Example \ref{rexample:emuRfuncs_help}) can be used. -->
+<!-- If a comprehensive list of every function and object provided by the `emuR` package is required, R's `help()` function (see R Example \@ref(rexample:emuRfuncs_help)) can be used. -->
 
 
-<!-- <<rexample:emuRfuncs_help, rexample=TRUE, eval=FALSE>>= -->
+<!-- ```{r rexample:emuRfuncs_help, rexample=TRUE, eval=FALSE} -->
 <!-- help(package="emuR") -->
 <!-- @ -->
 
@@ -29,16 +29,16 @@
 <!-- \section{Import and conversion routines} -->
 <!-- \label{sec:emuRpackageDetails_importRoutines} -->
 
-<!-- As most people that are starting to use the \ac{emu-sdms} will probably already have some form of annotated data, we will first show how to convert existing data to the \texttt{emuDB} format. For a guide to creating an \texttt{emuDB} from scratch and for information about this format see Chapter \ref{chap:emuDB}. -->
+<!-- As most people that are starting to use the \ac{emu-sdms} will probably already have some form of annotated data, we will first show how to convert existing data to the `emuDB` format. For a guide to creating an `emuDB` from scratch and for information about this format see Chapter \@ref(chap:emuDB). -->
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- \subsection{Legacy EMU databases} -->
 
-<!-- For people transitioning to \texttt{emuR} from the legacy EMU system, \texttt{emuR} provides a function for converting existing legacy EMU databases to the new \texttt{emuDB} format. R Example \ref{rexample:emuRpackageDetailsConvLegacy} shows how to convert a legacy database that is part of the demo data provided by the \texttt{emuR} package. -->
+<!-- For people transitioning to `emuR` from the legacy EMU system, `emuR` provides a function for converting existing legacy EMU databases to the new `emuDB` format. R Example \@ref(rexample:emuRpackageDetailsConvLegacy) shows how to convert a legacy database that is part of the demo data provided by the `emuR` package. -->
 
 
-<!-- <<rexample:emuRpackageDetailsConvLegacy, results='hide', message=FALSE, rexample=TRUE>>= -->
+<!-- ```{r rexample:emuRpackageDetailsConvLegacy, results='hide', message=FALSE, rexample=TRUE} -->
 <!-- # load the package -->
 <!-- library(emuR) -->
 
@@ -56,10 +56,10 @@
 <!-- convert_legacyEmuDB(emuTplPath = tplPath, targetDir = tempdir()) -->
 <!-- @ -->
 
-<!-- This will create a new \texttt{emuDB} in a temporary directory, provided by R's \texttt{tempdir()} function, containing all the information specified in the \texttt{.tpl} file. The name of the new \texttt{emuDB} is the same as the basename of the \texttt{.tpl} file from which it was generated. In other words, if the template file of the legacy EMU database has path \texttt{A} and the directory to which the converted database is to be written has path \texttt{B}, then  \texttt{convert\_legacyEmuDB(emuTplPath = "A", targetdir = "B")} will create an \texttt{emuDB} directory in \texttt{B} from the information stored in  \texttt{A}. -->
+<!-- This will create a new `emuDB` in a temporary directory, provided by R's `tempdir()` function, containing all the information specified in the `.tpl` file. The name of the new `emuDB` is the same as the basename of the `.tpl` file from which it was generated. In other words, if the template file of the legacy EMU database has path `A` and the directory to which the converted database is to be written has path `B`, then  `convert_legacyEmuDB(emuTplPath = "A", targetdir = "B")` will create an `emuDB` directory in `B` from the information stored in  `A`. -->
 
 
-<!-- <<echo=FALSE, results='hide'>>= -->
+<!-- ```{r echo=FALSE, results='hide'} -->
 <!-- # remove the newly generated emuDB -->
 <!-- unlink(file.path(tempdir(), "ae_emuDB"), recursive = TRUE) -->
 <!-- @ -->
@@ -68,9 +68,9 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- \subsection{TextGrid collections} -->
 
-<!-- A further function provided is the \texttt{convert\_TextGridCollection()} function. This function converts an existing \texttt{.TextGrid} and \texttt{.wav} file collection to the \texttt{emuDB} format. In order to pair the correct files together the \texttt{.TextGrid} files and the \texttt{.wav} files must have the same name (i.e., file name without extension). A further restriction is that the tiers contained within all the \texttt{.TextGrid} files have to be equal in name and type (equal subsets can be chosen using the \texttt{tierNames} argument of the function). For example, if all \texttt{.TextGrid} files contain the tiers \texttt{Syl: IntervalTier}, \texttt{Phonetic: IntervalTier} and \texttt{Tone: TextTier} the conversion will work. However, if a single \texttt{.TextGrid} of the collection has the additional tier \texttt{Word: IntervalTier} the conversion will fail, although it can be made to work by specifying the equal tier subset \texttt{equalSubset = c(`Syl', `Phonetic', `Tone')} and passing it into the function argument \texttt{convert\_TextGridCollection(..., tierNames = equalSubset, ...)}. R Example \ref{rexample:emuRpackageDetailsConvTGcol} shows how to convert a TextGrid collection to the \texttt{emuDB} format. -->
+<!-- A further function provided is the `convert_TextGridCollection()` function. This function converts an existing `.TextGrid` and `.wav` file collection to the `emuDB` format. In order to pair the correct files together the `.TextGrid` files and the `.wav` files must have the same name (i.e., file name without extension). A further restriction is that the tiers contained within all the `.TextGrid` files have to be equal in name and type (equal subsets can be chosen using the `tierNames` argument of the function). For example, if all `.TextGrid` files contain the tiers `Syl: IntervalTier`, `Phonetic: IntervalTier` and `Tone: TextTier` the conversion will work. However, if a single `.TextGrid` of the collection has the additional tier `Word: IntervalTier` the conversion will fail, although it can be made to work by specifying the equal tier subset `equalSubset = c(`Syl', `Phonetic', `Tone')` and passing it into the function argument `convert\_TextGridCollection(..., tierNames = equalSubset, ...)`. R Example \@ref(rexample:emuRpackageDetailsConvTGcol) shows how to convert a TextGrid collection to the `emuDB` format. -->
 
-<!-- <<rexample:emuRpackageDetailsConvTGcol, results='hide', message=FALSE, rexample=TRUE>>= -->
+<!-- ```{r rexample:emuRpackageDetailsConvTGcol, results='hide', message=FALSE, rexample=TRUE} -->
 <!-- # get the path to a directory containing  -->
 <!-- # .wav & .TextGrid files that is part of the demo data -->
 <!-- path2directory = file.path(tempdir(),  -->
@@ -82,10 +82,10 @@
 <!--                            targetDir = tempdir()) -->
 <!-- @ -->
 
-<!-- R Example \ref{rexample:emuRpackageDetailsConvTGcol} will create a new \texttt{emuDB} in the directory \texttt{tempdir()} called \texttt{myTGcolDB}. The \texttt{emuDB} will contain all the tier information from the \texttt{.TextGrid} files but will not contain hierarchical information, as \texttt{.TextGrid} files do not contain any linking information. It is worth noting that it is possible to semi-automatically generate links between time-bearing levels using the \texttt{autobuild\_linkFromTimes()} function. An example of this was given in Chapter \ref{chap:tutorial}. -->
-<!-- R Example \ref{rexample:emuRpackageDetailsConvTGcol} creates a new \texttt{emuDB} in the directory \texttt{tempdir()} called \texttt{myTGcolDB}. The \texttt{emuDB} contains all the tier information from the \texttt{.TextGrid} files no hierarchical information, as \texttt{.TextGrid} files do not contain any linking information. Further, it is possible to semi-automatically generate links between time-bearing levels using the \texttt{autobuild\_linkFromTimes()} function. An example of this was given in Chapter \ref{chap:tutorial}. -->
+<!-- R Example \@ref(rexample:emuRpackageDetailsConvTGcol) will create a new `emuDB` in the directory `tempdir()` called `myTGcolDB`. The `emuDB` will contain all the tier information from the `.TextGrid` files but will not contain hierarchical information, as `.TextGrid` files do not contain any linking information. It is worth noting that it is possible to semi-automatically generate links between time-bearing levels using the `autobuild_linkFromTimes()` function. An example of this was given in Chapter \@ref(chap:tutorial). -->
+<!-- R Example \@ref(rexample:emuRpackageDetailsConvTGcol) creates a new `emuDB` in the directory `tempdir()` called `myTGcolDB`. The `emuDB` contains all the tier information from the `.TextGrid` files no hierarchical information, as `.TextGrid` files do not contain any linking information. Further, it is possible to semi-automatically generate links between time-bearing levels using the `autobuild\_linkFromTimes()` function. An example of this was given in Chapter \@ref(chap:tutorial). -->
 
-<!-- <<echo=FALSE, results='hide', message=FALSE>>= -->
+<!-- ```{r echo=FALSE, results='hide', message=FALSE} -->
 <!-- # remove the newly generated emuDB -->
 <!-- unlink(file.path(tempdir(), "myTGcolDB_emuDB"), recursive = TRUE) -->
 <!-- @ -->
@@ -94,9 +94,9 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- \subsection{BPF collections} -->
 
-<!-- Similar to the \texttt{convert\_TextGridCollection()} function, the \texttt{emuR} package also provides a function for converting file collections consisting of \acf{bpf} and \texttt{.wav} files to the \texttt{emuDB} format. R Example \ref{rexample:emuRpackageDetailsConvBPFcol} shows how this can be achieved. -->
+<!-- Similar to the `convert_TextGridCollection()` function, the `emuR` package also provides a function for converting file collections consisting of \acf{bpf} and `.wav` files to the `emuDB` format. R Example \@ref(rexample:emuRpackageDetailsConvBPFcol) shows how this can be achieved. -->
 
-<!-- <<rexample:emuRpackageDetailsConvBPFcol, results='hide', message=FALSE, rexample=TRUE>>= -->
+<!-- ```{r rexample:emuRpackageDetailsConvBPFcol, results='hide', message=FALSE, rexample=TRUE} -->
 <!-- # get the path to a directory containing  -->
 <!-- # .wav & .par files that is part of the demo data -->
 <!-- path2directory = file.path(tempdir(),  -->
@@ -108,9 +108,9 @@
 <!--                       targetDir = tempdir(), verbose = F) -->
 <!-- @ -->
 
-<!-- As the BPF format also permits annotation items to be linked to one another, this conversion function can optionally preserve this hierarchical information by specifying the \texttt{refLevel} argument. -->
+<!-- As the BPF format also permits annotation items to be linked to one another, this conversion function can optionally preserve this hierarchical information by specifying the `refLevel` argument. -->
 
-<!-- <<echo=F, results='hide', message=FALSE>>= -->
+<!-- ```{r echo=F, results='hide', message=FALSE} -->
 <!-- # remove the newly generated emuDB as we will not be needing it -->
 <!-- # throughout the rest of this vignette -->
 <!-- unlink(file.path(tempdir(), "myBPF-DB_emuDB"), recursive = TRUE) -->
@@ -120,9 +120,9 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- \subsection{txt collections} -->
 
-<!-- A further conversion routine provided by the \texttt{emuR} package is the \\\texttt{convert\_txtCollection()} function. As with other file collection conversion functions, it converts file pair collections but this time consisting of plain text \texttt{.txt} and \texttt{.wav} files to the \texttt{emuDB} format. Compared to other conversion routines it behaves slightly differently, as unformatted plain text files do not contain any time information. It therefore places all the annotations of a single \texttt{.txt} file into a single timeless annotation item on a level of type \texttt{ITEM} called \textit{bundle}. -->
+<!-- A further conversion routine provided by the `emuR` package is the `convert_txtCollection()` function. As with other file collection conversion functions, it converts file pair collections but this time consisting of plain text `.txt` and `.wav` files to the `emuDB` format. Compared to other conversion routines it behaves slightly differently, as unformatted plain text files do not contain any time information. It therefore places all the annotations of a single `.txt` file into a single timeless annotation item on a level of type `ITEM` called *bundle*. -->
 
-<!-- <<rexample:emuR_funcsTxtCol, results='hide', message=FALSE, rexample=TRUE>>= -->
+<!-- ```{r rexample:emuR_funcsTxtCol, results='hide', message=FALSE, rexample=TRUE} -->
 <!-- # get the path to a directory containing .wav & .par  -->
 <!-- # files that is part of the demo data -->
 <!-- path2directory = file.path(tempdir(), -->
@@ -137,16 +137,16 @@
 <!--                       verbose = F) -->
 <!-- @ -->
 
-<!-- Using this conversion routine creates a bare-bone, single route node \texttt{emuDB} which either can be further manually annotated or automatically hierarchically annotated using the \texttt{runBASwebservice\_*}\footnote{Functions contributed by Nina Pörner.} functions of \texttt{emuR}. It is worth noting that these functions are already part of the \texttt{emuR} package; however, they are still considered to have a beta status which is why they are omitted from this documentation. In future versions of this documentation a section or chapter will be dedicated to using the BAS Webservices \citep{kisler:2012a} to automatically generate a hierarchical annotation structure for an entire \texttt{emuDB}. -->
+<!-- Using this conversion routine creates a bare-bone, single route node `emuDB` which either can be further manually annotated or automatically hierarchically annotated using the `runBASwebservice_*`\footnote{Functions contributed by Nina Pörner.} functions of `emuR`. It is worth noting that these functions are already part of the `emuR` package; however, they are still considered to have a beta status which is why they are omitted from this documentation. In future versions of this documentation a section or chapter will be dedicated to using the BAS Webservices \citep{kisler:2012a} to automatically generate a hierarchical annotation structure for an entire `emuDB`. -->
 
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-<!-- \section{\texttt{emuDB} interaction and configuration routines} -->
+<!-- \section{`emuDB` interaction and configuration routines} -->
 <!-- \label{sec:emuRpackageDetails_emuDBinteract} -->
 
-<!-- This section provides a tabular overview of all the \texttt{emuDB} interaction routines provided by the \texttt{emuR} package and also provides a short description of each function or group of functions. -->
+<!-- This section provides a tabular overview of all the `emuDB` interaction routines provided by the `emuR` package and also provides a short description of each function or group of functions. -->
 
 <!-- \begin{longtable}[c]{@{}lll@{}} -->
 <!-- \toprule -->
@@ -159,144 +159,144 @@
 <!-- \midrule -->
 <!-- \endhead -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add/list/remove\_attrDefLabelGroup()} -->
+<!-- `add/list/remove_attrDefLabelGroup()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add / list / remove label group to / of / from \texttt{attributeDefinition} of \texttt{emuDB} -->
+<!-- Add / list / remove label group to / of / from `attributeDefinition` of `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add/list/remove\_labelGroup()} -->
+<!-- `add/list/remove_labelGroup()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add / list / remove global label group to / of / from \texttt{emuDB} -->
+<!-- Add / list / remove global label group to / of / from `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add/list/remove\_levelDefinition()} -->
+<!-- `add/list/remove_levelDefinition()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add / list / remove level definition to / of / from \texttt{emuDB} -->
+<!-- Add / list / remove level definition to / of / from `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add/list/remove\_linkDefinition()} -->
+<!-- `add/list/remove_linkDefinition()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add / list / remove link definition to / of / from \texttt{emuDB} -->
+<!-- Add / list / remove link definition to / of / from `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add/list/ remove\_ssffTrackDefinition()} -->
+<!-- `add/list/ remove_ssffTrackDefinition()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add / list / remove \ac{ssff} track definition to / of / from \texttt{emuDB} -->
+<!-- Add / list / remove \ac{ssff} track definition to / of / from `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add/list/rename/ remove\_attributeDefinition()} -->
+<!-- `add/list/rename/remove_attributeDefinition()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add / list / rename / remove attribute definition to / of / from \texttt{emuDB} -->
+<!-- Add / list / rename / remove attribute definition to / of / from `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add\_files()} -->
+<!-- `add_files()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add files to \texttt{emuDB} -->
+<!-- Add files to `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{autobuild\_linkFromTimes()}  -->
+<!-- `autobuild_linkFromTimes()`  -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Autobuild links between two levels using their time information \texttt{emuDB} -->
+<!-- Autobuild links between two levels using their time information `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{create\_emuDB()} -->
+<!-- `create_emuDB()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Create empty \texttt{emuDB} -->
+<!-- Create empty `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{duplicate\_level()} -->
+<!-- `duplicate_level()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
 <!-- Duplicate level -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{import\_mediaFiles()} -->
+<!-- `import_mediaFiles()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Import media files to \texttt{emuDB} -->
+<!-- Import media files to `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{list\_bundles()} -->
+<!-- `list_bundles()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- List bundles of \texttt{emuDB} -->
+<!-- List bundles of `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{list\_files()} -->
+<!-- `list_files()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- List files of \texttt{emuDB} -->
+<!-- List files of `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{list\_sessions()} -->
+<!-- `list_sessions()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- List sessions of \texttt{emuDB} -->
+<!-- List sessions of `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{load\_emuDB()} -->
+<!-- `load_emuDB()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Load \texttt{emuDB} -->
+<!-- Load `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{replace\_itemLabels()} -->
+<!-- `replace_itemLabels()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
 <!-- Replace item labels -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{set/get/remove\_legalLabels()} -->
+<!-- `set/get/remove_legalLabels()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Set / get / remove legal labels of attribute definition of \texttt{emuDB} -->
+<!-- Set / get / remove legal labels of attribute definition of `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{rename\_emuDB()} -->
+<!-- `rename_emuDB()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Rename \texttt{emuDB} -->
+<!-- Rename `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 
 <!-- \bottomrule -->
 
-<!-- \caption{Overview of the \texttt{emuDB} interaction routines provided by \texttt{emuR}.} -->
+<!-- \caption{Overview of the `emuDB` interaction routines provided by `emuR`.} -->
 <!-- \label{table:emuRpackageDetails_emuDBinteract} -->
 <!-- \end{longtable} -->
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-<!-- \section{\texttt{EMU-webApp} configuration routines} -->
+<!-- \section{`EMU-webApp` configuration routines} -->
 <!-- \label{sec:emuRpackageDetails_emuWebAppConfig} -->
 
-<!-- This section provides a tabular overview of all the \texttt{EMU-webApp} configuration routines provided by the \texttt{emuR} package and also provides a short description of each function or group of functions. See Chapter \ref{chap:emu-webApp} for examples of how to use these functions. -->
+<!-- This section provides a tabular overview of all the `EMU-webApp` configuration routines provided by the `emuR` package and also provides a short description of each function or group of functions. See Chapter \@ref(chap:emu-webApp) for examples of how to use these functions. -->
 
 <!-- \begin{longtable}[c]{@{}lll@{}} -->
 <!-- \toprule -->
@@ -309,33 +309,33 @@
 <!-- \midrule -->
 <!-- \endhead -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{add/list/remove\_perspective()} -->
+<!-- `add/list/remove_perspective()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Add / list / remove perspective to / of / from \texttt{emuDB} -->
+<!-- Add / list / remove perspective to / of / from `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{set/get\_levelCanvasesOrder()} -->
+<!-- `set/get_levelCanvasesOrder()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Set / get level canvases order for \texttt{EMU-webApp} of \texttt{emuDB} -->
+<!-- Set / get level canvases order for `EMU-webApp` of `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{set/get\_signalCanvasesOrder()} -->
+<!-- `set/get_signalCanvasesOrder()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Set / get signal canvases order for \texttt{EMU-webApp} of \texttt{emuDB} -->
+<!-- Set / get signal canvases order for `EMU-webApp` of `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 
 <!-- \bottomrule -->
-<!-- \caption{Overview of the \texttt{EMU-webApp} configuration functions provided by \texttt{emuR}.} -->
+<!-- \caption{Overview of the `EMU-webApp` configuration functions provided by `emuR`.} -->
 <!-- \label{table:emuRpackageDetails_emuWebAppConfig} -->
 <!-- \end{longtable} -->
 
-<!-- It is worth noting that the legal labels configuration of the \texttt{emuDB} configuration will also affect how the \texttt{EMU-webApp} behaves, as it will not permit any other labels to be entered except those defined as legal labels. -->
+<!-- It is worth noting that the legal labels configuration of the `emuDB` configuration will also affect how the `EMU-webApp` behaves, as it will not permit any other labels to be entered except those defined as legal labels. -->
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
@@ -343,7 +343,7 @@
 <!-- \section{Data extraction routines} -->
 <!-- \label{sec:emuRpackageDetails_dataExtr} -->
 
-<!-- This section provides a tabular overview of all the data extraction routines provided by the \texttt{emuR} package and also provides a short description of each function or group of functions. See Chapter \ref{chap:querysys} and Chapter \ref{chap:sigDataExtr} for multiple examples of how the various data extraction routines can be used. -->
+<!-- This section provides a tabular overview of all the data extraction routines provided by the `emuR` package and also provides a short description of each function or group of functions. See Chapter \@ref(chap:querysys) and Chapter \@ref(chap:sigDataExtr) for multiple examples of how the various data extraction routines can be used. -->
 
 
 <!-- \begin{longtable}[c]{@{}lll@{}} -->
@@ -357,44 +357,44 @@
 <!-- \midrule -->
 <!-- \endhead -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{query()} -->
+<!-- `query()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Query \texttt{emuDB} -->
+<!-- Query `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{requery\_hier()} -->
+<!-- `requery_hier()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Requery hierarchical context of a segment list in an \texttt{emuDB} -->
+<!-- Requery hierarchical context of a segment list in an `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{requery\_seq()} -->
+<!-- `requery\_seq()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Requery sequential context of segment list in an \texttt{emuDB} -->
+<!-- Requery sequential context of segment list in an `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{get\_trackdata()} -->
+<!-- `get_trackdata()` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- Get trackdata from loaded \texttt{emuDB} -->
+<!-- Get trackdata from loaded `emuDB` -->
 <!-- \strut\end{minipage}\tabularnewline -->
 
 <!-- \bottomrule -->
-<!-- \caption{Overview of the data extraction functions provided by \texttt{emuR}.} -->
+<!-- \caption{Overview of the data extraction functions provided by `emuR`.} -->
 <!-- \label{table:emuRpackageDetails_dataExtr} -->
 <!-- \end{longtable} -->
 
-<!-- An overview of how the various data extraction functions in the \texttt{emuR} package interact is displayed in Figure \ref{fig:emuRpackageDetails_dataExtrRel}. It is an updated version of a figure presented in \cite{harrington:2010a} on page 121 that additionally shows the output type of various post-processing functions (e.g., \texttt{dcut()}). -->
+<!-- An overview of how the various data extraction functions in the `emuR` package interact is displayed in Figure \@ref(fig:emuRpackageDetails_dataExtrRel). It is an updated version of a figure presented in \cite{harrington:2010a} on page 121 that additionally shows the output type of various post-processing functions (e.g., `dcut()`). -->
 
 <!-- \begin{figure}[hpt] -->
 <!-- \centering -->
 <!--   \input{pics/keyFuncsRel} -->
-<!--   \caption{Relationship between various key functions in \texttt{emuR} and their output. Figure is an updated version of Figure 5.7 in \cite{harrington:2010a}} on page 121. -->
+<!--   \caption{Relationship between various key functions in `emuR` and their output. Figure is an updated version of Figure 5.7 in \cite{harrington:2010a}} on page 121. -->
 <!-- \label{fig:emuRpackageDetails_dataExtrRel} -->
 <!-- \end{figure} -->
 
@@ -404,7 +404,7 @@
 <!-- \section{Central objects} -->
 <!-- \label{sec:emuRpackageDetails_centralObjects} -->
 
-<!-- This section provides a tabular overview of the central objects  provided by the \texttt{emuR} package and also provides a short description of each object. See Chapter \ref{chap:querysys} and \ref{chap:sigDataExtr} for examples of functions returning these objects and how they can be used. -->
+<!-- This section provides a tabular overview of the central objects  provided by the `emuR` package and also provides a short description of each object. See Chapter \@ref(chap:querysys) and \@ref(chap:sigDataExtr) for examples of functions returning these objects and how they can be used. -->
 
 <!-- \begin{longtable}[c]{@{}lll@{}} -->
 <!-- \toprule -->
@@ -417,28 +417,28 @@
 <!-- \midrule -->
 <!-- \endhead -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{emuRsegs} -->
+<!-- `emuRsegs` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- A \texttt{emuR} segment list is a list of segment descriptions. Each segment descriptions describes a sequence of annotation items. The list is usually a result of an \texttt{emuDB} query using the \texttt{query()} function. -->
+<!-- A `emuR` segment list is a list of segment descriptions. Each segment descriptions describes a sequence of annotation items. The list is usually a result of an `emuDB` query using the `query()` function. -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{trackdata} -->
+<!-- `trackdata` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- A track data object is the result of \texttt{get\_trackdata()} and usually contains the extracted signal data tracks belonging to segments of a segment list. -->
+<!-- A track data object is the result of `get_trackdata()` and usually contains the extracted signal data tracks belonging to segments of a segment list. -->
 <!-- \strut\end{minipage}\tabularnewline -->
 <!-- \hline -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- \texttt{emuRtrackdata} -->
+<!-- `emuRtrackdata` -->
 <!-- \strut\end{minipage} & -->
 <!-- \begin{minipage}[t]{0.50\columnwidth}\raggedright\strut -->
-<!-- A \texttt{emuR} track data object is the result of \texttt{get\_trackdata()} if the \texttt{resultType} parameter is set to \texttt{emuRtrackdata} or the result of an explicit call to \texttt{create\_emuRtrackdata}. Compared to the \texttt{trackdata} object it is a sub-class of a \texttt{data.table}/\texttt{data.frame} which is meant to ease integration with other packages for further processing. It can be viewed as an amalgamation of an \texttt{emuRsegs} and a \texttt{trackdata} object as it contains the information stored in both objects (see also \texttt{?create\_emuRtrackdata()}). -->
+<!-- A `emuR` track data object is the result of `get_trackdata()` if the `resultType` parameter is set to `emuRtrackdata` or the result of an explicit call to `create_emuRtrackdata`. Compared to the `trackdata` object it is a sub-class of a `data.table`/`data.frame` which is meant to ease integration with other packages for further processing. It can be viewed as an amalgamation of an `emuRsegs` and a `trackdata` object as it contains the information stored in both objects (see also `?create_emuRtrackdata()`). -->
 <!-- \strut\end{minipage}\tabularnewline -->
 
 <!-- \bottomrule -->
-<!-- \caption{Overview of the central objects of the \texttt{emuR} package.} -->
+<!-- \caption{Overview of the central objects of the `emuR` package.} -->
 <!-- \label{table:emuRpackageDetails_centralObjects} -->
 <!-- \end{longtable} -->
 
@@ -450,10 +450,10 @@
 <!-- \section{Export routines} -->
 <!-- \label{sec:emuRpackageDetails_exportRoutines} -->
 
-<!-- Although associated with data loss, the \texttt{emuR} package provides an export routine to the common TextGrid collection format called \texttt{export\_TextGridCollection()}. While exporting is sometimes unavoidable, it is essential that users are aware that exporting to other formats which do not support or only partially support hierarchical annotations structures will lead to the loss of the explicit linking information. Although the \texttt{autobuild\_linkFromTimes()} can partially recreate some of the hierarchical structure, it is advised that the export routine be used with extreme caution. R Example \ref{rexample:emuR_funcsExport} shows how \texttt{export\_TextGridCollection()} can be used to export the levels \textit{Text}, \textit{Syllable} and \textit{Phonetic} of the \textit{ae} demo \texttt{emuDB} to a TextGrid collection. Figure \ref{fig:emuRfuncs_msajc003_fromExport} show the content of the created \texttt{msajc003.TextGrid} file as displayed by Praat's \texttt{"Draw visible sound and Textgrid..."} procedure. -->
+<!-- Although associated with data loss, the `emuR` package provides an export routine to the common TextGrid collection format called `export_TextGridCollection()`. While exporting is sometimes unavoidable, it is essential that users are aware that exporting to other formats which do not support or only partially support hierarchical annotations structures will lead to the loss of the explicit linking information. Although the `autobuild_linkFromTimes()` can partially recreate some of the hierarchical structure, it is advised that the export routine be used with extreme caution. R Example \@ref(rexample:emuR_funcsExport) shows how `export_TextGridCollection()` can be used to export the levels *Text*, *Syllable* and *Phonetic* of the *ae* demo `emuDB` to a TextGrid collection. Figure \@ref(fig:emuRfuncs_msajc003_fromExport) show the content of the created `msajc003.TextGrid` file as displayed by Praat's `"Draw visible sound and Textgrid..."` procedure. -->
 
 
-<!-- <<rexample:emuR_funcsExport, results='hide', message=FALSE, rexample=TRUE>>= -->
+<!-- ```{r rexample:emuR_funcsExport, results='hide', message=FALSE, rexample=TRUE} -->
 <!-- # get the path to "ae" emuDB -->
 <!-- path2ae = file.path(tempdir(), "emuR_demoData", "ae_emuDB") -->
 
@@ -473,11 +473,11 @@
 <!-- \begin{figure}[hpt]  -->
 <!-- \centering -->
 <!-- \includegraphics[scale=0.9]{pics/msajc003_fromExport} -->
-<!-- \caption{TextGrid annotation generated by the \texttt{export\_TextGridCollection()} function containing the tiers (from top to bottom): \textit{Text}, \textit{Syllable}, \textit{Phonetic}.} -->
+<!-- \caption{TextGrid annotation generated by the `export_TextGridCollection()` function containing the tiers (from top to bottom): *Text*, *Syllable*, *Phonetic*.} -->
 <!-- \label{fig:emuRfuncs_msajc003_fromExport} -->
 <!-- \end{figure} -->
 
-<!-- Depending on user requirements, additional export routines might be added to the \texttt{emuR} in the future. -->
+<!-- Depending on user requirements, additional export routines might be added to the `emuR` in the future. -->
 
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
@@ -485,9 +485,9 @@
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- \section{Conclusion} -->
 
-<!-- This chapter provided an overview of the essential functions and central objects, grouped into meaningful categories, provided by the \texttt{emuR} package. It is meant as a quick reference for the user to quickly find functions she or he is interested in. -->
+<!-- This chapter provided an overview of the essential functions and central objects, grouped into meaningful categories, provided by the `emuR` package. It is meant as a quick reference for the user to quickly find functions she or he is interested in. -->
 
-<!-- <<echo=FALSE, results='hide', message=FALSE>>= -->
+<!-- ```{r echo=FALSE, results='hide', message=FALSE} -->
 <!-- # disconnect to avoid file locking to sqliteDB that causes unlink -->
 <!-- # to fail under windows -->
 <!-- # DBI::dbDisconnect(dbHandle$connection) -->
