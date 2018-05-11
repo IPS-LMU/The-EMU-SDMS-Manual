@@ -242,12 +242,6 @@ A noteworthy difference between the legacy and the new EMU system is how hierarc
 
 where the textcolor{three_color_c1}{first number} (green) of each line was the parent's ID and the textcolor{three_color_c2}{following numbers} (orange) indicated the annotation items the parent was linked to. However, it was not just links to the items on the child level that were stored in each line. Rather, a link to all children of all levels below the parent level was stored for each parent item. This was likely due to performance benefits in parsing and mapping onto the internal structures used by the legacy query engine. A schematic representation of this form of linking is displayed in Figure \@ref(fig:query-redundant)A. As these redundant links are prone to errors while updating the data model and lead to a convoluted annotation structure models (see excessive use of dashed lines in Figure \@ref(fig:query-redundant)A), we chose to eliminate them and opted for the cleaner, non-redundant representation displayed in Figure \@ref(fig:query-redundant)B. Although this led to a more complex query parser engine for hierarchical queries and functions, we feel it is a cleaner, more accurate and more robust data representation.
 
-<!-- \begin{figure}[hpt] -->
-<!-- \centering -->
-<!-- \input{pics/aeGraph_redundant.tex} -->
-<!-- \caption{Schematic of hierarchy graph *ae*; \textbf{A}: legacy redundant strategy vs. \textbf{A}: cleaner non-redundant strategy.} -->
-<!-- \label{fig:query_redundant} -->
-<!-- \end{figure} -->
 
 ```{r query-redundant, fig.cap="Schematic of hierarchy graph *ae*; \textbf{A}: legacy redundant strategy vs. \textbf{A}: cleaner non-redundant strategy.", fig.align="center", echo=FALSE, out.width = "75%"}
 knitr::include_graphics("pics/aeGraph_redundant.png")
