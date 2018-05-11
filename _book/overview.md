@@ -1,8 +1,8 @@
 # (PART) Overview and tutorial {-}
 
-# An overview of the EMU-SDMS [^1]{#chap:overview}
+# An overview of the EMU-SDMS [^1-chap:overview]{#chap:overview}
 
-[^1]: Sections of this chapter have been published in @winkelmann:2017aa
+[^1-chap:overview]: Sections of this chapter have been published in @winkelmann:2017aa
 
 
 

@@ -1,4 +1,11 @@
-%!TEX root = ../diss.tex
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+
+\usetikzlibrary{automata, shapes, arrows, backgrounds, positioning}
+\begin{document}
+
+
 
 \tikzstyle{robj}=[rectangle, thick, fill=robjblue,stroke=grey, text=white,
                   inner sep=0.1cm, rounded corners]
@@ -6,6 +13,40 @@
 \tikzstyle{rfun}=[rectangle, thick, fill=rfungrey, text=black,
                   inner sep=0.1cm, rounded corners]
 
+
+% colors
+\definecolor{robjblue}{RGB}{39,109,195}
+\definecolor{rfungrey}{RGB}{203,206,208}
+
+\definecolor{three_color_c1}{RGB}{27,158,119}
+\definecolor{three_color_c2}{RGB}{217,95,2}
+\definecolor{three_color_c3}{RGB}{117,112,179}
+
+\definecolor{emuBlue}{HTML}{0DC5FF}
+
+% define tikz dir tree
+\newcounter{treeline}
+
+\newcommand{\treeroot}[1]{% Title
+\node[above] at (0,0) {#1};%
+\setcounter{treeline}{0}
+}
+
+\newcommand{\treeentry}[2]{% Title, Level
+\draw[->] (#2-1,-\value{treeline}/2) -- (#2-1,-\value{treeline}/2-0.5) -- (#2+0.5,-\value{treeline}/2-0.5) node[right] {#1};
+\stepcounter{treeline}
+}
+
+\newcommand{\altentry}[2]{% Title, Level
+\draw[->] (#2-1,-\value{treeline}/2) -- (#2-1,-\value{treeline}/2-0.5) -- (#2+0.5,-\value{treeline}/2-0.5) node[right] {#1};
+\foreach \x in {1,...,#2}
+{   \draw (\x-1,-\value{treeline}/2) -- (\x-1,-\value{treeline}/2-0.5);
+}
+\stepcounter{treeline}
+}
+
+\def\vec#1{\ensuremath{\bm{{#1}}}}
+\def\mat#1{\vec{#1}}
 
 \begin{tikzpicture}[scale=0.8]
   
@@ -27,7 +68,7 @@
   \node (emuR) at (-4.3, 2.1) {\texttt{emuR}: \texttt{emuDB} interaction funcs};
 
   \draw[rounded corners, dashed] (-8.5,3) rectangle (8.5, -3);
-  \node (R) at (-8.5,3) {\pgftext{\includegraphics[scale=0.03]{pics/RlogoNew}}};
+  \node (R) at (-8.5,3) {\pgftext{\includegraphics[scale=0.03]{RlogoNew}}};
 
   % function nodes
   \node (loademuDB) at (0, -2) [rfun] {\texttt{load\_emuDB()}};
@@ -153,3 +194,5 @@
   
   
 \end{tikzpicture}
+
+\end{document}

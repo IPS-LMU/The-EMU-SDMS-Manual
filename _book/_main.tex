@@ -849,8 +849,8 @@ rexample:tutorial\_summary
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     e08ab9c7-c7b1-491d-8913-d3513bc304c9 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpBjTbDw/myFirst_emuDB 
+## UUID:     455a2bd9-3808-4ed9-94dd-cd7266cc27c6 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmptamTat/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2259,8 +2259,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     00679cb4-b359-4664-aeb8-6a45838e88d4 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpNlbdBL/fromScratch_emuDB 
+## UUID:     26d35e47-460f-4df0-9809-54a7a9025152 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpPBlIcv/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4388,7 +4388,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpRmE6rC/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpyvnALX/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4927,7 +4927,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-05-09 18:46:54 "  
+## [5] "Timestamp:  2018-05-11 18:50:56 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -6050,6 +6050,573 @@ also be used to display annotation data that is hosted on any web server
   utilize the URL parameters.}. Because of these features, we feel the
 \texttt{EMU-webApp} is a valuable contribution to the speech and spoken
 language software tool landscape.
+
+\hypertarget{part-main-emur-function-and-object-index}{%
+\chapter*{\texorpdfstring{(PART) Main \texttt{emuR} function and object
+index}{(PART) Main emuR function and object index}}\label{part-main-emur-function-and-object-index}}
+
+\hypertarget{chap:emuRpackageDetails}{%
+\chapter{\texorpdfstring{\texttt{emuR} - package
+functions}{emuR - package functions}}\label{chap:emuRpackageDetails}}
+
+This chapter gives an overview of the essential functions and central
+objects provided by the \texttt{emuR} package. It is not meant as a
+comprehensive list of every function and object provided by
+\texttt{emuR}, but rather tries to group the essential functions into
+meaningful categories for easier navigation. The categories presented in
+this chapter are:
+
+\begin{itemize}
+\tightlist
+\item
+  Import and conversion routines (Section
+  \ref{sec:emuRpackageDetails-importRoutines}),
+\item
+  \texttt{emuDB} interaction and configuration routines (Section
+  \ref{sec:emuRpackageDetails-emuDBinteract}),
+\item
+  \texttt{EMU-webApp} configuration routines (Section
+  \ref{sec:emuRpackageDetails-emuWebAppConfig}),
+\item
+  Data extraction routines (Section
+  \ref{sec:emuRpackageDetails-dataExtr}),
+\item
+  Central objects in \texttt{emuR} (Section
+  \ref{sec:emuRpackageDetails-centralObjects}), and
+\item
+  Export routines (Section \ref{sec:emuRpackageDetails-exportRoutines}).
+\end{itemize}
+
+If a comprehensive list of every function and object provided by the
+\texttt{emuR} package is required, R's \texttt{help()} function (see R
+Example \ref{rexample:emuRfuncs-help}) can be used.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{help}\NormalTok{(}\DataTypeTok{package=}\StringTok{"emuR"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:emuRpackageDetails-importRoutines}{%
+\section{Import and conversion
+routines}\label{sec:emuRpackageDetails-importRoutines}}
+
+As most people that are starting to use the EMU-SDMS will probably
+already have some form of annotated data, we will first show how to
+convert existing data to the \texttt{emuDB} format. For a guide to
+creating an \texttt{emuDB} from scratch and for information about this
+format see Chapter \ref{chap:emuDB}.
+
+\hypertarget{legacy-emu-databases}{%
+\subsection{Legacy EMU databases}\label{legacy-emu-databases}}
+
+For people transitioning to \texttt{emuR} from the legacy EMU system,
+\texttt{emuR} provides a function for converting existing legacy EMU
+databases to the new \texttt{emuDB} format. R Example
+\ref{rexample:emuRpackageDetailsConvLegacy} shows how to convert a
+legacy database that is part of the demo data provided by the
+\texttt{emuR} package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load the package}
+\KeywordTok{library}\NormalTok{(emuR)}
+
+\CommentTok{# create demo data in directory provided by the tempdir() function}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# get the path to a .tpl file of}
+\CommentTok{# a legacy EMU database that is part of the demo data}
+\NormalTok{tplPath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(),}
+                    \StringTok{"emuR_demoData"}\NormalTok{,}
+                    \StringTok{"legacy_ae"}\NormalTok{,}
+                    \StringTok{"ae.tpl"}\NormalTok{)}
+
+\CommentTok{# convert this legacy EMU database to the emuDB format}
+\KeywordTok{convert_legacyEmuDB}\NormalTok{(}\DataTypeTok{emuTplPath =}\NormalTok{ tplPath, }\DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+This will create a new \texttt{emuDB} in a temporary directory, provided
+by R's \texttt{tempdir()} function, containing all the information
+specified in the \texttt{.tpl} file. The name of the new \texttt{emuDB}
+is the same as the basename of the \texttt{.tpl} file from which it was
+generated. In other words, if the template file of the legacy EMU
+database has path \texttt{A} and the directory to which the converted
+database is to be written has path \texttt{B}, then
+\texttt{convert\_legacyEmuDB(emuTplPath\ =\ "A",\ targetdir\ =\ "B")}
+will create an \texttt{emuDB} directory in \texttt{B} from the
+information stored in \texttt{A}.
+
+\hypertarget{textgrid-collections}{%
+\subsection{TextGrid collections}\label{textgrid-collections}}
+
+A further function provided is the
+\texttt{convert\_TextGridCollection()} function. This function converts
+an existing \texttt{.TextGrid} and \texttt{.wav} file collection to the
+\texttt{emuDB} format. In order to pair the correct files together the
+\texttt{.TextGrid} files and the \texttt{.wav} files must have the same
+name (i.e., file name without extension). A further restriction is that
+the tiers contained within all the \texttt{.TextGrid} files have to be
+equal in name and type (equal subsets can be chosen using the
+\texttt{tierNames} argument of the function). For example, if all
+\texttt{.TextGrid} files contain the tiers \texttt{Syl:\ IntervalTier},
+\texttt{Phonetic:\ IntervalTier} and \texttt{Tone:\ TextTier} the
+conversion will work. However, if a single \texttt{.TextGrid} of the
+collection has the additional tier \texttt{Word:\ IntervalTier} the
+conversion will fail, although it can be made to work by specifying the
+equal tier subset
+\texttt{equalSubset\ =\ c(\textquotesingle{}Syl\textquotesingle{},\ \textquotesingle{}Phonetic\textquotesingle{},\ \textquotesingle{}Tone\textquotesingle{})}
+and passing it into the function argument
+\texttt{convert\textbackslash{}\_TextGridCollection(...,\ tierNames\ =\ equalSubset,\ ...)}.
+R Example \ref{rexample:emuRpackageDetailsConvTGcol} shows how to
+convert a TextGrid collection to the \texttt{emuDB} format.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get the path to a directory containing}
+\CommentTok{# .wav & .TextGrid files that is part of the demo data}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(),}
+                           \StringTok{"emuR_demoData"}\NormalTok{,}
+                           \StringTok{"TextGrid_collection"}\NormalTok{)}
+
+\CommentTok{# convert this TextGridCollection to the emuDB format}
+\KeywordTok{convert_TextGridCollection}\NormalTok{(path2directory, }\DataTypeTok{dbName =} \StringTok{"myTGcolDB"}\NormalTok{,}
+                           \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+R Example \ref{rexample:emuRpackageDetailsConvTGcol} will create a new
+\texttt{emuDB} in the directory \texttt{tempdir()} called
+\texttt{myTGcolDB}. The \texttt{emuDB} will contain all the tier
+information from the \texttt{.TextGrid} files but will not contain
+hierarchical information, as \texttt{.TextGrid} files do not contain any
+linking information. It is worth noting that it is possible to
+semi-automatically generate links between time-bearing levels using the
+\texttt{autobuild\_linkFromTimes()} function. An example of this was
+given in Chapter \ref{chap:tutorial}. R Example
+\ref{rexample:emuRpackageDetailsConvTGcol} creates a new \texttt{emuDB}
+in the directory \texttt{tempdir()} called \texttt{myTGcolDB}. The
+\texttt{emuDB} contains all the tier information from the
+\texttt{.TextGrid} files no hierarchical information, as
+\texttt{.TextGrid} files do not contain any linking information.
+Further, it is possible to semi-automatically generate links between
+time-bearing levels using the \texttt{autobuild\_linkFromTimes()}
+function. An example of this was given in Chapter \ref{chap:tutorial}.
+
+\hypertarget{bpf-collections}{%
+\subsection{BPF collections}\label{bpf-collections}}
+
+Similar to the \texttt{convert\_TextGridCollection()} function, the
+\texttt{emuR} package also provides a function for converting file
+collections consisting of BPF and \texttt{.wav} files to the
+\texttt{emuDB} format. R Example
+\ref{rexample:emuRpackageDetailsConvBPFcol} shows how this can be
+achieved.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get the path to a directory containing}
+\CommentTok{# .wav & .par files that is part of the demo data}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(),}
+                           \StringTok{"emuR_demoData"}\NormalTok{,}
+                           \StringTok{"BPF_collection"}\NormalTok{)}
+
+\CommentTok{# convert this BPFCollection to the emuDB format}
+\KeywordTok{convert_BPFCollection}\NormalTok{(path2directory, }\DataTypeTok{dbName =} \StringTok{'myBPF-DB'}\NormalTok{,}
+                      \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(), }\DataTypeTok{verbose =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+As the BPF format also permits annotation items to be linked to one
+another, this conversion function can optionally preserve this
+hierarchical information by specifying the \texttt{refLevel} argument.
+
+\hypertarget{txt-collections}{%
+\subsection{txt collections}\label{txt-collections}}
+
+A further conversion routine provided by the \texttt{emuR} package is
+the \texttt{convert\_txtCollection()} function. As with other file
+collection conversion functions, it converts file pair collections but
+this time consisting of plain text \texttt{.txt} and \texttt{.wav} files
+to the \texttt{emuDB} format. Compared to other conversion routines it
+behaves slightly differently, as unformatted plain text files do not
+contain any time information. It therefore places all the annotations of
+a single \texttt{.txt} file into a single timeless annotation item on a
+level of type \texttt{ITEM} called \emph{bundle}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get the path to a directory containing .wav & .par}
+\CommentTok{# files that is part of the demo data}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(),}
+                           \StringTok{"emuR_demoData"}\NormalTok{,}
+                           \StringTok{"txt_collection"}\NormalTok{)}
+
+\CommentTok{# convert this txtCollection to the emuDB format}
+\KeywordTok{convert_txtCollection}\NormalTok{(}\DataTypeTok{sourceDir =}\NormalTok{ path2directory,}
+                      \DataTypeTok{dbName =} \StringTok{"txtCol"}\NormalTok{,}
+                      \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(),}
+                      \DataTypeTok{attributeDefinitionName =} \StringTok{"transcription"}\NormalTok{,}
+                      \DataTypeTok{verbose =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+Using this conversion routine creates a bare-bone, single route node
+\texttt{emuDB} which either can be further manually annotated or
+automatically hierarchically annotated using the
+\texttt{runBASwebservice\_*}\footnote{Functions contributed by Nina
+  Pörner.} functions of \texttt{emuR}. It is worth noting that these
+functions are already part of the \texttt{emuR} package; however, they
+are still considered to have a beta status which is why they are omitted
+from this documentation. In future versions of this documentation a
+section or chapter will be dedicated to using the BAS Webservices
+\citep{kisler:2012a} to automatically generate a hierarchical annotation
+structure for an entire \texttt{emuDB}.
+
+\hypertarget{sec:emuRpackageDetails-emuDBinteract}{%
+\section{\texorpdfstring{\texttt{emuDB} interaction and configuration
+routines}{emuDB interaction and configuration routines}}\label{sec:emuRpackageDetails-emuDBinteract}}
+
+This section provides a tabular overview of all the \texttt{emuDB}
+interaction routines provided by the \texttt{emuR} package and also
+provides a short description of each function or group of functions.
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\label{tab:emuRpackageDetails-emuDBinteract}Overview of the \texttt{emuDB}
+interaction routines provided by \texttt{emuR}.
+
+Functions
+
+Description
+
+\texttt{add/list/remove\_attrDefLabelGroup()}
+
+Add / list / remove label group to / of / from
+\texttt{attributeDefinition} of \texttt{emuDB}
+
+\texttt{add/list/remove\_labelGroup()}
+
+Add / list / remove global label group to / of / from \texttt{emuDB}
+
+\texttt{add/list/remove\_levelDefinition()}
+
+Add / list / remove level definition to / of / from \texttt{emuDB}
+
+\texttt{add/list/remove\_linkDefinition()}
+
+Add / list / remove link definition to / of / from \texttt{emuDB}
+
+\texttt{add/list/\ remove\_ssffTrackDefinition()}
+
+Add / list / remove SSFF track definition to / of / from \texttt{emuDB}
+
+\texttt{add/list/rename/remove\_attributeDefinition()}
+
+Add / list / rename / remove attribute definition to / of / from
+\texttt{emuDB}
+
+\texttt{add\_files()}
+
+Add files to \texttt{emuDB}
+
+\texttt{autobuild\_linkFromTimes()}
+
+Autobuild links between two levels using their time information
+\texttt{emuDB}
+
+\texttt{create\_emuDB()}
+
+Create empty \texttt{emuDB}
+
+\texttt{duplicate\_level()}
+
+Duplicate level
+
+\texttt{import\_mediaFiles()}
+
+Import media files to \texttt{emuDB}
+
+\texttt{list\_bundles()}
+
+List bundles of \texttt{emuDB}
+
+\texttt{list\_files()}
+
+List files of \texttt{emuDB}
+
+\texttt{list\_sessions()}
+
+List sessions of \texttt{emuDB}
+
+\texttt{load\_emuDB()}
+
+Load \texttt{emuDB}
+
+\texttt{replace\_itemLabels()}
+
+Replace item labels
+
+\texttt{set/get/remove\_legalLabels()}
+
+Set / get / remove legal labels of attribute definition of
+\texttt{emuDB}
+
+\texttt{rename\_emuDB()}
+
+Rename \texttt{emuDB}
+
+\hypertarget{sec:emuRpackageDetails-emuWebAppConfig}{%
+\section{\texorpdfstring{\texttt{EMU-webApp} configuration
+routines}{EMU-webApp configuration routines}}\label{sec:emuRpackageDetails-emuWebAppConfig}}
+
+This section provides a tabular overview of all the \texttt{EMU-webApp}
+configuration routines provided by the \texttt{emuR} package and also
+provides a short description of each function or group of functions. See
+Chapter \ref{chap:emu-webApp} for examples of how to use these
+functions.
+
+\label{tab:emuRpackageDetails-emuWebAppConfig}Overview of the
+\texttt{EMU-webApp} configuration functions provided by \texttt{emuR}.
+
+Functions
+
+Description
+
+\texttt{add/list/remove\_perspective()}
+
+Add / list / remove perspective to / of / from \texttt{emuDB}
+
+\texttt{set/get\_levelCanvasesOrder()}
+
+Set / get level canvases order for \texttt{EMU-webApp} of \texttt{emuDB}
+
+\texttt{set/get\_signalCanvasesOrder()}
+
+Set / get signal canvases order for \texttt{EMU-webApp} of
+\texttt{emuDB}
+
+It is worth noting that the legal labels configuration of the
+\texttt{emuDB} configuration will also affect how the
+\texttt{EMU-webApp} behaves, as it will not permit any other labels to
+be entered except those defined as legal labels.
+
+\hypertarget{sec:emuRpackageDetails-dataExtr}{%
+\section{Data extraction
+routines}\label{sec:emuRpackageDetails-dataExtr}}
+
+This section provides a tabular overview of all the data extraction
+routines provided by the \texttt{emuR} package and also provides a short
+description of each function or group of functions. See Chapter
+\ref{chap:querysys} and Chapter \ref{chap:sigDataExtr} for multiple
+examples of how the various data extraction routines can be used.
+
+\label{tab:emuRpackageDetails-dataExtr}Overview of the data extraction
+functions provided by \texttt{emuR}.
+
+Functions
+
+Description
+
+\texttt{query()}
+
+Query \texttt{emuDB}
+
+\texttt{requery\_hier()}
+
+Requery hierarchical context of a segment list in an \texttt{emuDB}
+
+\texttt{requery\_seq()}
+
+Requery sequential context of segment list in an \texttt{emuDB}
+
+\texttt{get\_trackdata()}
+
+Get trackdata from loaded \texttt{emuDB}
+
+An overview of how the various data extraction functions in the
+\texttt{emuR} package interact is displayed in Figure
+\ref{fig:emuRpackageDetails-dataExtrRel}. It is an updated version of a
+figure presented in \citet{harrington:2010a} on page 121 that
+additionally shows the output type of various post-processing functions
+(e.g., \texttt{dcut()}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{pics/keyFuncsRel} 
+
+}
+
+\caption{Relationship between various key functions in `emuR` and their output. Figure is an updated version of Figure 5.7 in @harrington:2010a on page 121.}\label{fig:emuRpackageDetails-dataExtrRel}
+\end{figure}
+
+\hypertarget{sec:emuRpackageDetails-centralObjects}{%
+\section{Central objects}\label{sec:emuRpackageDetails-centralObjects}}
+
+This section provides a tabular overview of the central objects provided
+by the \texttt{emuR} package and also provides a short description of
+each object. See Chapter \ref{chap:querysys} and \ref{chap:sigDataExtr}
+for examples of functions returning these objects and how they can be
+used.
+
+\label{tab:emuRpackageDetails-centralObjects}Overview of the central objects
+of the \texttt{emuR} package.
+
+Object
+
+Description
+
+\texttt{emuRsegs}
+
+A \texttt{emuR} segment list is a list of segment descriptions. Each
+segment descriptions describes a sequence of annotation items. The list
+is usually a result of an \texttt{emuDB} query using the
+\texttt{query()} function.
+
+\texttt{trackdata}
+
+A track data object is the result of \texttt{get\_trackdata()} and
+usually contains the extracted signal data tracks belonging to segments
+of a segment list.
+
+\texttt{emuRtrackdata}
+
+A \texttt{emuR} track data object is the result of
+\texttt{get\_trackdata()} if the \texttt{resultType} parameter is set to
+\texttt{emuRtrackdata} or the result of an explicit call to
+\texttt{create\_emuRtrackdata}. Compared to the \texttt{trackdata}
+object it is a sub-class of a \texttt{data.table}/\texttt{data.frame}
+which is meant to ease integration with other packages for further
+processing. It can be viewed as an amalgamation of an \texttt{emuRsegs}
+and a \texttt{trackdata} object as it contains the information stored in
+both objects (see also \texttt{?create\_emuRtrackdata()}).
+
+\hypertarget{sec:emuRpackageDetails-exportRoutines}{%
+\section{Export routines}\label{sec:emuRpackageDetails-exportRoutines}}
+
+Although associated with data loss, the \texttt{emuR} package provides
+an export routine to the common TextGrid collection format called
+\texttt{export\_TextGridCollection()}. While exporting is sometimes
+unavoidable, it is essential that users are aware that exporting to
+other formats which do not support or only partially support
+hierarchical annotations structures will lead to the loss of the
+explicit linking information. Although the
+\texttt{autobuild\_linkFromTimes()} can partially recreate some of the
+hierarchical structure, it is advised that the export routine be used
+with extreme caution. R Example \ref{rexample:emuR-funcsExport} shows
+how \texttt{export\_TextGridCollection()} can be used to export the
+levels \emph{Text}, \emph{Syllable} and \emph{Phonetic} of the \emph{ae}
+demo \texttt{emuDB} to a TextGrid collection. Figure
+\ref{fig:emuRfuncs-msajc003-fromExport} show the content of the created
+\texttt{msajc003.TextGrid} file as displayed by Praat's
+\texttt{"Draw\ visible\ sound\ and\ Textgrid..."} procedure.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get the path to "ae" emuDB}
+\NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
+
+\CommentTok{# load "ae" emuDB}
+\NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae)}
+
+\CommentTok{# export the levels "Text", "Syllable"}
+\CommentTok{# and "Phonetic" to a TextGrid collection}
+\KeywordTok{export_TextGridCollection}\NormalTok{(ae,}
+                          \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(),}
+                          \DataTypeTok{attributeDefinitionNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"Text"}\NormalTok{,}
+                                                       \StringTok{"Syllable"}\NormalTok{,}
+                                                       \StringTok{"Phonetic"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\textbackslash{}begin\{figure\}
+
+\{\centering \includegraphics[width=0.75\linewidth]{pics/msajc003_fromExport}
+
+\}
+
+\textbackslash{}caption\{TextGrid annotation generated by the
+\texttt{export\_TextGridCollection()} function containing the tiers
+(from top to bottom): \emph{Text}, \emph{Syllable},
+\emph{Phonetic}.\}\label{fig:emuRfuncs-msajc003-fromExport}
+\textbackslash{}end\{figure\}
+
+Depending on user requirements, additional export routines might be
+added to the \texttt{emuR} in the future.
+
+\hypertarget{conclusion-6}{%
+\section{Conclusion}\label{conclusion-6}}
+
+This chapter provided an overview of the essential functions and central
+objects, grouped into meaningful categories, provided by the
+\texttt{emuR} package. It is meant as a quick reference for the user to
+quickly find functions she or he is interested in.
+
+\hypertarget{part-implementationx}{%
+\part{Implementationx}\label{part-implementationx}}
+
+\hypertarget{chap:querysys_impl}{%
+\chapter[Implementation of the query system
+]{\texorpdfstring{Implementation of the query system \footnote{Sections
+  of this chapter have been published in \citet{winkelmann:2017aa}.}}{Implementation of the query system }}\label{chap:querysys_impl}}
+
+Compatibly with other query languages, the EQL defines the user a
+front-end interface and infers the query's results from its semantics.
+However, a query language does not define any data structures or specify
+how the query engine is to be implemented. As mentioned in Chapter
+\ref{chap:overview}, a major user requirement was database portability,
+simple package installation, tolerable run times over complex queries,
+and a system that did not rely on external software at runtime. The only
+available back-end implementation that met those needs and was also
+available as an R package at the time was (R)SQLite (\citet{hipp:2007a},
+\citet{wickham:2014a}). As (R)SQLite is a relational database management
+system, \texttt{emuR}'s query system could not be implemented so as to
+use directly the primary data sources of an \texttt{emuDB}, that is, the
+JSON files described in Chapter \ref{chap:emuDB}. A syncing mechanism
+that maps the primary data sources to a relational form for querying
+purposes had to be implemented. This relational form is referred to as
+the \texttt{emuDBcache} in the context of an \texttt{emuDB}. The data
+sources are synchronized while an \texttt{emuDB} is being loaded and
+when changes are made to the annotation files. To address load time
+issues, we implemented a file check-sum mechanism which only reloads and
+synchronizes annotation files that have a changed MD5-sum
+\citep{rivest:1992a}. Figure \ref{fig:query-schematic-emuR-structure} is
+a schematic representation of how the various \texttt{emuDB} interaction
+functions interact with either the file representation or the relational
+cache.
+
+\textbackslash{}begin\{figure\}
+
+\{\centering \includegraphics[width=0.75\linewidth]{pics/emuRstruct}
+
+\}
+
+\textbackslash{}caption\{Schematic architecture of \texttt{emuDB}
+interaction functions of the \texttt{emuR} package.
+textcolor\{three-color-c2\}\{Orange\} paths show examples of functions
+interacting with the files of the \texttt{emuDB}, while
+extcolor\{three-color-c1\}\{green\} paths show functions accessing the
+relational annotation structure. Actions like saving a changed
+annotation using the \texttt{EMU-webApp} first save the
+\texttt{\_annot.json} to disk then update the relational annotation
+structure.\}\label{fig:query-schematic-emuR-structure}
+\textbackslash{}end\{figure\}
 
 \bibliography{book.bib}
 

@@ -14,6 +14,10 @@ rmd_files: [
   "wrassp.Rmd",
   "emu-webApp.Rmd",
 
+  "emuR_funcs.Rmd",
+
+  "query_impl.Rmd",
+
   "bibliography.Rmd"
 ]
 

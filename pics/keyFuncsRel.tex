@@ -1,5 +1,8 @@
-%!TEX root = ../diss.tex
+\documentclass{standalone}
+\usepackage{tikz}
 
+\usetikzlibrary{shapes,arrows, backgrounds, positioning}
+\begin{document}
 % \usetikzlibrary{shapes,arrows, backgrounds}
 
 \begin{tikzpicture}[node distance=3.5cm]
@@ -69,3 +72,5 @@
   \draw [->, line width=1] (requery) to [bend right=45] node[xshift=0.3cm]{\textit{or}} (seglist);
   
 \end{tikzpicture}
+
+\end{document}
