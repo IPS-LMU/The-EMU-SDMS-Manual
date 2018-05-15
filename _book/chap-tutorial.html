@@ -255,6 +255,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.2.4" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples-1"><i class="fa fa-check"></i><b>13.2.4</b> Examples</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>V Appendices</b></span></li>
+<li class="chapter" data-level="14" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html"><i class="fa fa-check"></i><b>14</b> Use cases</a><ul>
+<li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
+<li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
+<li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -362,8 +369,8 @@ rexample:tutorial_summary
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># show summary</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     myFirst 
-## UUID:     98da9fbc-00bc-4f1b-9ef5-b7c97ee338c6 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpJi4qwo/myFirst_emuDB 
+## UUID:     4e4d3c84-c309-4b97-a544-53c833e70f70 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpyIdUjq/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -460,14 +467,14 @@ rexample:tutorial-simpleQuery
 </div>
 <div id="autobuilding" class="section level2">
 <h2><span class="header-section-number">3.4</span> Autobuilding</h2>
-<p>The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: <em>Query all Phonetic items that contain the label “n” and are part of a content word</em>. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter <a href="#chap:annot-struct-mod"><strong>??</strong></a>. For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure <a href="chap-tutorial.html#fig:tutorial-emuWebAppMyFirst">3.1</a> to a hierarchical form as displayed in Figure <a href="chap-tutorial.html#fig:tutorial-violentlyHier">3.2</a>, where only the <em>Phonetic</em> level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.</p>
+<p>The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: <em>Query all Phonetic items that contain the label “n” and are part of a content word</em>. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a>. For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure <a href="chap-tutorial.html#fig:tutorial-emuWebAppMyFirst">3.1</a> to a hierarchical form as displayed in Figure <a href="chap-tutorial.html#fig:tutorial-violentlyHier">3.2</a>, where only the <em>Phonetic</em> level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.</p>
 <div class="figure" style="text-align: center"><span id="fig:tutorial-violentlyHier"></span>
 <img src="tutorial_files/figure-html/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`." width="432" />
 <p class="caption">
 Figure 3.2: Example of a hierarchical annotation of the content (==<em>C</em>) word <em>violently</em> belonging to the <em>msajc012</em> bundle of the <em>myFirst</em> demo <code>emuDB</code>.
 </p>
 </div>
-<p>As it is a very laborious task to manually link annotation items together using the <code>EMU-webApp</code> and the hierarchical information is already implicitly contained in the time information of the segments and events of each level, we will now use a function provided by the <code>emuR</code> package to build these hierarchical structures using this information called <code>autobuild_linkFromTimes()</code>. R Example <a href="#rexample:tutorial-autobuild"><strong>??</strong></a> shows the calls to this function which autobuild the hierarchical annotations in the <em>myFirst</em> database. As a general rule for autobuilding hierarchical annotation structures, a good strategy is to start the autobuilding process beginning with coarser grained annotation levels (i.e., the <em>Word</em>/<em>Syllable</em> level pair in our example) and work down to finer grained annotations (i.e., the <em>Syllable</em>/<em>Phoneme</em> and <em>Phoneme</em>/<em>Phonetic</em>} level pairs in our example). To build hierachical annotation structures we need link definitions, which together with the level definitions define the annotation structure for the entire database (see Chapter <a href="#chap:annot-struct-mod"><strong>??</strong></a> for further details). The <code>autobuild_linkFromTimes()</code> calls in R Example <a href="#rexample:tutorial-autobuild"><strong>??</strong></a> use the <code>newLinkDefType</code> parameter, which if defined automatically adds a link definition to the database.</p>
+<p>As it is a very laborious task to manually link annotation items together using the <code>EMU-webApp</code> and the hierarchical information is already implicitly contained in the time information of the segments and events of each level, we will now use a function provided by the <code>emuR</code> package to build these hierarchical structures using this information called <code>autobuild_linkFromTimes()</code>. R Example <a href="#rexample:tutorial-autobuild"><strong>??</strong></a> shows the calls to this function which autobuild the hierarchical annotations in the <em>myFirst</em> database. As a general rule for autobuilding hierarchical annotation structures, a good strategy is to start the autobuilding process beginning with coarser grained annotation levels (i.e., the <em>Word</em>/<em>Syllable</em> level pair in our example) and work down to finer grained annotations (i.e., the <em>Syllable</em>/<em>Phoneme</em> and <em>Phoneme</em>/<em>Phonetic</em>} level pairs in our example). To build hierachical annotation structures we need link definitions, which together with the level definitions define the annotation structure for the entire database (see Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a> for further details). The <code>autobuild_linkFromTimes()</code> calls in R Example <a href="#rexample:tutorial-autobuild"><strong>??</strong></a> use the <code>newLinkDefType</code> parameter, which if defined automatically adds a link definition to the database.</p>
 <h3>
 rexample:tutorial-autobuild
 </h3>
@@ -832,7 +839,7 @@ Figure 3.9: Plots of density distributions of vowels in content words (left plot
 <hr />
 <ol start="2">
 <li id="fn2"><p>Some examples of this chapter are adapted versions of examples of the <code>emuR_intro</code> vignette.<a href="chap-tutorial.html#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>Future versions of <code>emuR</code> may allow <code>_meta.json</code> files containing meta information in the form of key-value pairs to be placed in either the <code>_emuDB</code>, the <code>_ses</code> or the <code>_bndl</code> directories.<a href="chap-tutorial.html#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>The other input routines are covered in the Section @ref(sec:emuRpackageDetails_importRoutines).<a href="chap-tutorial.html#fnref3" class="footnote-back">↩</a></p></li>
 <li id="fn4"><p>It is worth noting that the sample size in this toy example is quite small. This obviously influences the outcome of the simple statistical analysis that is performed here.<a href="chap-tutorial.html#fnref4" class="footnote-back">↩</a></p></li>
 </ol>
 </div>

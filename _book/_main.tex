@@ -705,10 +705,8 @@ rexample:tutorial-create-emuRdemoData
 
 This tutorial will start by converting a TextGrid collection containing
 seven annotated single-sentence utterances of a single male speaker to
-the \texttt{emuDB} format\footnote{Future versions of \texttt{emuR} may
-  allow \texttt{\_meta.json} files containing meta information in the
-  form of key-value pairs to be placed in either the \texttt{\_emuDB},
-  the \texttt{\_ses} or the \texttt{\_bndl} directories.}. In the
+the \texttt{emuDB} format\footnote{The other input routines are covered
+  in the Section @ref(sec:emuRpackageDetails\_importRoutines).}. In the
 EMU-SDMS, a file collection such as a TextGrid collection refers to a
 set of file pairs where two types of files with different file
 extentions are present (e.g., \texttt{.ext1} and \texttt{.ext2}). It is
@@ -849,8 +847,8 @@ rexample:tutorial\_summary
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     e24a42a8-dd2d-4358-8ca7-f9866bf005a9 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpfb765T/myFirst_emuDB 
+## UUID:     17d18fcb-bb80-4b98-b668-48d8ccb5cf5c 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpEMGVYw/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -1731,10 +1729,10 @@ finding a solution similar to what she or he wishes to achieve.
 \part{Main components and
 concepts}\label{part-main-components-and-concepts}}
 
-\hypertarget{chap:annot_struct_mod}{%
+\hypertarget{chap:annot-struct-mod}{%
 \chapter[Annotation Structure Modeling ]{\texorpdfstring{Annotation
 Structure Modeling \footnote{Sections of this chapter where previously
-  published in \citet{winkelmann:2017aa}}}{Annotation Structure Modeling }}\label{chap:annot_struct_mod}}
+  published in \citet{winkelmann:2017aa}}}{Annotation Structure Modeling }}\label{chap:annot-struct-mod}}
 
 \begin{center}\includegraphics[width=0.75\linewidth]{pics/EMU-webAppEmu_annotStruct} \end{center}
 
@@ -2259,8 +2257,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     cc5ef3b4-79bd-4330-bb0b-b72c2037d5c6 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpXeiHpe/fromScratch_emuDB 
+## UUID:     fdc878b5-115b-47aa-bbf0-a0bd7b008780 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpcqamXA/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4388,7 +4386,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpXrUeDA/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpogQSkJ/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4927,7 +4925,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-05-15 18:28:32 "  
+## [5] "Timestamp:  2018-05-15 19:59:10 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -7292,6 +7290,591 @@ a preview of the automatically segmented speech files.
   annotJSON example:
   \url{http://ips-lmu.github.io/EMU-webApp/?audioGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003.wav\&labelGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003_annot.json\&labelType=annotJSON}
 \end{itemize}
+
+\hypertarget{part-appendices}{%
+\part{Appendices}\label{part-appendices}}
+
+\hypertarget{app-chap:useCases}{%
+\chapter{Use cases}\label{app-chap:useCases}}
+
+To add to the tutorial of Chapter \ref{chap:tutorial}, this chapter will
+present a few short use cases extracted and updated from the
+\texttt{emuR\_intro} vignette. These use cases are meant as practical
+guides to answering research questions and are to be viewed as generic
+template procedures that can be altered and applied to similar research
+questions. They are meant to give practical examples of what it is like
+working with the EMU-SDMS to answer research questions common in speech
+and spoken language research. Every use case will start off by asking a
+question about the \emph{ae} demo database and will continue by walking
+through the process of answering this question by using the mechanics
+the \texttt{emuR} package provides. The four questions this chapter will
+address are:
+
+\begin{itemize}
+\tightlist
+\item
+  Section \ref{sec:app-chap-useCases-q1}: What is the average length of
+  all \emph{n} phonetic segments in the \emph{ae} \texttt{emuDB}?
+\item
+  Section \ref{sec:app-chap-useCases-q2}: What does the F1 and F2
+  distribution of all phonetic segments that contain the labels
+  \emph{I}, \emph{o:}, \emph{u:}, \emph{V} or \emph{@} look like?
+\item
+  Section \ref{sec:app-chap-useCases-q3}: What words do the phonetic
+  segments that carry the labels \emph{s}, \emph{z}, \emph{S} or
+  \emph{Z} in the \emph{ae} \texttt{emuDB} occur in and what is their
+  phonetic context?
+\item
+  Section \ref{sec:app-chap-useCases-q4}: Do the phonetic segments that
+  carry the labels \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the
+  \emph{ae} \texttt{emuDB} differ with respect to their first spectral
+  moment? \textbackslash{}end\{itemize\}
+\end{itemize}
+
+R Example \ref{rexample:app-chap-useCasesLoadData} shows how the
+\texttt{emuR} demo data used in this chapter is created.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load the package }
+\KeywordTok{library}\NormalTok{(emuR)}
+
+\CommentTok{# create demo data in directory provided by the tempdir() function}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# get the path to emuDB called 'ae' that is part of the demo data}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
+
+\CommentTok{# load emuDB into current R session}
+\NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:app-chap-useCases-q1}{%
+\section{\texorpdfstring{What is the average length of all \emph{n}
+phonetic segments in the \emph{ae}
+\texttt{emuDB}?}{What is the average length of all n phonetic segments in the ae emuDB?}}\label{sec:app-chap-useCases-q1}}
+
+The first thing that has to be done to address this fairly simple
+question is to query the database for all \emph{n} segments. This can be
+achieved using the \texttt{query()} function as shown in R Example
+\ref{rexample:usecases-uc1query}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query segments}
+\NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\DataTypeTok{query =} \StringTok{"Phonetic == n"}\NormalTok{)}
+
+\CommentTok{# show first row of sl}
+\KeywordTok{head}\NormalTok{(sl, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  ae 
+## query was:  Phonetic == n 
+##   labels    start      end session   bundle    level    type
+## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
+\end{verbatim}
+
+The second argument of the \texttt{query()} contains a string that
+represents an EQL statement. This fairly simple EQL statement consists
+of \texttt{==}, which is the equality operator of the EQL, and on the
+right hand side of the operator the label \emph{n} that we are looking
+for.
+
+The \texttt{query()} function returns an object of the class
+\texttt{emuRsegs} that is a superclass of the well known
+\texttt{data.frame}. The various columns of this object should be fairly
+self-explanatory: \texttt{labels} displays the extracted labels,
+\texttt{start} and \texttt{end} are the start time and end times in
+milliseconds of each segment and so on. We can now use the information
+in this object to calculate the mean durations of these segments as
+shown in R Example \ref{rexample:usecases-uc1eval}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculate durations}
+\NormalTok{d =}\StringTok{ }\KeywordTok{dur}\NormalTok{(sl)}
+
+\CommentTok{# calculate mean}
+\KeywordTok{mean}\NormalTok{(d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 67.05833
+\end{verbatim}
+
+\hypertarget{sec:app-chap-useCases-q2}{%
+\section{\texorpdfstring{What does the F1 and F2 distribution of all
+phonetic segments that contain the labels \emph{I}, \emph{o:},
+\emph{u:}, \emph{V} or \emph{@} look
+like?}{What does the F1 and F2 distribution of all phonetic segments that contain the labels I, o:, u:, V or @ look like?}}\label{sec:app-chap-useCases-q2}}
+
+Once again we will initially query the \texttt{emuDB} to retrieve the
+segments we are interested in as shown in R Example
+\ref{rexample:usecases-uc2query}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query emuDB}
+\NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\DataTypeTok{query =} \StringTok{"Phonetic == I|o:|u:|V|@"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now that the necessary segment information has been extracted, the
+\texttt{get\textbackslash{}\_trackdata()} function can be used to
+calculate the formant values for these segments as displayed in R
+Example \ref{rexample:usecases-uc2gettd}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get formant values for these segments}
+\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, sl,}
+                   \DataTypeTok{onTheFlyFunctionName =} \StringTok{"forest"}\NormalTok{,}
+                   \DataTypeTok{resultType =} \StringTok{"emuRtrackdata"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In this example, the \texttt{get\_trackdata()} function uses a formant
+estimation function called \texttt{forest()} to calculate the formant
+values in real time. This signal processing function is part of the
+\texttt{wrassp} package, which is used by the \texttt{emuR} package to
+perform signal processing duties with the \texttt{get\_trackdata()}
+command (see Chapter \ref{chap:wrassp} for details).
+
+If the \texttt{resultType} parameter is set to \texttt{emuRtrackdata} in
+the call to \texttt{get\textbackslash{}\_trackdata()}, an object of the
+class \texttt{emuRtrackdata} is returned. The class vector of the
+\texttt{td} object is displayed in R Example
+\ref{rexample:usecases-uc2class}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show class vector of td}
+\KeywordTok{class}\NormalTok{(td)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "emuRtrackdata" "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show first line of td}
+\KeywordTok{head}\NormalTok{(td, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   sl_rowIdx labels   start     end session   bundle    level    type
+## 1         1      V 187.425 256.925    0000 msajc003 Phonetic SEGMENT
+##   times_orig times_rel times_norm T1   T2   T3   T4
+## 1      187.5         0          0  0 1293 2424 3429
+\end{verbatim}
+
+As the \texttt{emuRtrackdata} class is a superclass to the common
+\texttt{data.table} and \texttt{data.frame} classes, packages like
+\texttt{ggplot2} can be used to visualize our F1 and F2 distribution as
+shown in R Example \ref{rexample:usecases-uc2plot} (see Figure
+\ref{fig:usecases-uc2plot} for the resulting plot).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load package}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{# scatter plot of F1 and F2 values using ggplot}
+\KeywordTok{ggplot}\NormalTok{(td, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{T2, }\DataTypeTok{y=}\NormalTok{T1, }\DataTypeTok{label=}\NormalTok{td}\OperatorTok{$}\NormalTok{labels)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour=}\KeywordTok{factor}\NormalTok{(labels))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_reverse}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"F2(Hz)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1(Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{colour=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics{app_chap-useCases_files/figure-latex/usecases-uc2plot-1} 
+
+}
+
+\caption{F1 by F2 distribution for *I*, *o:*, *u:*, *V* and *@*.}\label{fig:usecases-uc2plot}
+\end{figure}
+
+\hypertarget{sec:app-chap-useCases-q3}{%
+\section{\texorpdfstring{What words do the phonetic segments that carry
+the labels \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the \emph{ae}
+\texttt{emuDB} occur in and what is their phonetic
+context?}{What words do the phonetic segments that carry the labels s, z, S or Z in the ae emuDB occur in and what is their phonetic context?}}\label{sec:app-chap-useCases-q3}}
+
+As with the previous use cases, the initial step is to query the
+database to extract the relevant segments as shown in R Example
+@ref(rexample:usecases\_uc3query).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query segments}
+\NormalTok{sibil =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae,}\StringTok{"Phonetic==s|z|S|Z"}\NormalTok{)}
+
+\CommentTok{# show first element of sibil}
+\KeywordTok{head}\NormalTok{(sibil, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  ae 
+## query was:  Phonetic==s|z|S|Z 
+##   labels   start     end session   bundle    level    type
+## 1      s 483.425 566.925    0000 msajc003 Phonetic SEGMENT
+\end{verbatim}
+
+The \texttt{requery\_hier()} function can now be used to perform a
+hierarchical requery using the set resulting from the initial query.
+This requery follows the hierarchical links of the annotations in the
+database to find the linked annotation items on a different level. R
+Example @ref(rexample:usecases\_uc3requery1) shows how this can
+achieved.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# perform requery}
+\NormalTok{words =}\StringTok{ }\KeywordTok{requery_hier}\NormalTok{(ae, sibil, }\DataTypeTok{level =} \StringTok{"Word"}\NormalTok{)}
+
+\CommentTok{# show first element of words}
+\KeywordTok{head}\NormalTok{(words, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  ae 
+## query was:  FROM REQUERY 
+##   labels   start     end session   bundle level type
+## 1      C 187.425 674.175    0000 msajc003  Word ITEM
+\end{verbatim}
+
+As seen in R Example \ref{rexample:usecases-uc3requery1}, the result is
+not quite what one would expect as it does not contain the orthographic
+word transcriptions but a classification of the words into content words
+(\emph{C}) and function words (\emph{F}). Calling the \texttt{summary()}
+function on the \texttt{emuDBhandle} object \texttt{ae} would show that
+the \emph{Words} level has multiple attribute definitions indicating
+that each annotation item in the \emph{Words} level has multiple
+parallel labels defined for it. R Example
+\ref{rexample:usecases-uc3requery2} shows an additional requery that
+queries the \emph{Text} attribute definition instead.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# perform requery}
+\NormalTok{words =}\StringTok{ }\KeywordTok{requery_hier}\NormalTok{(ae, sibil, }\DataTypeTok{level =} \StringTok{"Text"}\NormalTok{)}
+
+\CommentTok{# show first element of words}
+\KeywordTok{head}\NormalTok{(words, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  ae 
+## query was:  FROM REQUERY 
+##    labels   start     end session   bundle level type
+## 1 amongst 187.425 674.175    0000 msajc003  Text ITEM
+\end{verbatim}
+
+As seen in R Example @ref(rexample:usecases\_uc3requery2), the first
+segment in \texttt{sibil} occurred in the word \emph{amongst}, which
+starts at 187.475 ms and ends at 674.225 ms. It is worth noting that
+this two-step querying procedure (\texttt{query()} followed by
+\texttt{requery\_hier()}) can also be completed in a single hierarchical
+query using the dominance operator (\^{}).
+
+As we have answered the first part of the question, R Example
+@ref(rexample:usecases\_uc3requerySeqLeft) will extract the context to
+the left of the extracted sibilants by using the \texttt{requery\_seq()}
+function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get left context by off setting the }
+\CommentTok{# annotation items in sibil one unit to the left}
+\NormalTok{leftContext =}\StringTok{ }\KeywordTok{requery_seq}\NormalTok{(ae, sibil, }\DataTypeTok{offset =} \DecValTok{-1}\NormalTok{)}
+
+\CommentTok{# show first element of leftContext}
+\KeywordTok{head}\NormalTok{(leftContext, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  ae 
+## query was:  FROM REQUERY 
+##   labels   start     end session   bundle    level    type
+## 1      N 426.675 483.425    0000 msajc003 Phonetic SEGMENT
+\end{verbatim}
+
+R Example \ref{rexample:usecases-uc3requerySeqRight} attempts to extract
+the right context in the same manner as R Example
+\ref{rexample:usecases-uc3requerySeqLeft}, but in this case we encounter
+a problem.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# get right context by off-setting the }
+\CommentTok{# annotation items in sibil one unit to the right}
+\NormalTok{rightContext =}\StringTok{ }\KeywordTok{requery_seq}\NormalTok{(ae, sibil, }\DataTypeTok{offset =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in requery_seq(ae, sibil, offset = 1): 4 of the requested sequence(s) is/are out of boundaries.
+## Set parameter 'ignoreOutOfBounds=TRUE' to get residual result segments that lie within the bounds.
+\end{verbatim}
+
+As can be seen by the error message in R Example
+\ref{rexample:usecases-uc3requerySeqRight}, four of the sibilants occur
+at the very end of the recording and therefore have no phonetic
+post-context. The remaining post-contexts can be retrieved by setting
+the \texttt{ignoreOutOfBounds} argument to \texttt{TRUE} as displayed in
+R Example \ref{rexample:usecases-uc3requerySeqRight2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rightContext =}\StringTok{ }\KeywordTok{requery_seq}\NormalTok{(ae, sibil,}
+                           \DataTypeTok{offset =} \DecValTok{1}\NormalTok{,}
+                           \DataTypeTok{ignoreOutOfBounds =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in requery_seq(ae, sibil, offset = 1, ignoreOutOfBounds = TRUE):
+## Length of requery segment list (28) differs from input list (32)! These
+## segments where lost while deriving their time (no )
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show first element of rightContext}
+\KeywordTok{head}\NormalTok{(rightContext, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  ae 
+## query was:  FROM REQUERY 
+##   labels   start     end session   bundle    level    type
+## 1      t 566.925 596.675    0000 msajc003 Phonetic SEGMENT
+\end{verbatim}
+
+However, the resulting \texttt{rightContext} and the original
+\texttt{sibil} objects are not aligned any more. It is therefore
+dangerous to use this option by default, as one often relies on the rows
+in multiple \texttt{emuRsegs} objects that were created from each other
+by using either \texttt{requery\_hier()} or \texttt{requery\_seq()} to
+be aligned with each other (i.e., that the same row index implicitly
+indicates a relationship).
+
+\hypertarget{sec:app-chap-useCases-q4}{%
+\section{\texorpdfstring{Do the phonetic segments labeled \emph{s},
+\emph{z}, \emph{S} or \emph{Z} in the \emph{ae} \texttt{emuDB} differ
+with respect to their first spectral
+moment?\protect\textbackslash{}footnote\{The original version of this
+use case was written by Florian Schiel as part of the
+\texttt{emuR\_intro} vignette that is part of the \texttt{emuR}
+package.}{Do the phonetic segments labeled s, z, S or Z in the ae emuDB differ with respect to their first spectral moment?\textbackslash{}footnote\{The original version of this use case was written by Florian Schiel as part of the emuR\_intro vignette that is part of the emuR package.}}\label{sec:app-chap-useCases-q4}}
+
+Once again, the segments of interest are queried first. R Example
+\ref{rexample:usecases-uc4query} shows how this can be achieved, this
+time using the new regular expression operand of the EQL (see Chapter
+\ref{chap:querysys} for details).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sibil =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae,}\StringTok{"Phonetic =~ '[szSZ]'"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+R Example \ref{rexample:usecases-uc4gettd} shows how the
+\texttt{get\_trackdata()} function can be used to calculate the Discrete
+Fourier Transform values for the extracted segments.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dftTd =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
+                      \DataTypeTok{seglist =}\NormalTok{ sibil,}
+                      \DataTypeTok{onTheFlyFunctionName =} \StringTok{'dftSpectrum'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+As the \texttt{resultType} parameter was not explicitly set, an object
+of the class \texttt{trackdata} is returned. This object, just like an
+object of the class \texttt{emuRtrackdata}, contains the extracted
+trackdata information. Compared to the \texttt{emuRtrackdata} class,
+however, the object is not ``flat'' and in the form of a
+\texttt{data.table} or \texttt{data.frame} but has a more nested
+structure (see \texttt{?trackdata} for more details).
+
+Since we want to analyze sibilant spectral data we will now reduce the
+spectral range of the data to 1000 - 10000 Hz. This is due to the fact
+that there is a lot of unwanted noise in the lower bands that is
+irrelevant for the problem at hand and can even skew the end results. To
+achieve this we can use a property of a \texttt{trackdata} object that
+also carries the class \texttt{spectral}, which means that it is indexed
+using frequencies. R Example \ref{rexample:usecases-uc4index} shows how
+to use this feature to extract the relevant spectral frequencies of the
+\texttt{trackdata} object.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dftTdRelFreq =}\StringTok{ }\NormalTok{dftTd[, }\DecValTok{1000}\OperatorTok{:}\DecValTok{10000}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+R Example \ref{rexample:usecases-uc4fapply} shows how the
+\texttt{fapply()} function can be used to apply the \texttt{moments()}
+function to all elements of \texttt{dftTdRelFreq}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dftTdRelFreqMom =}\StringTok{ }\KeywordTok{fapply}\NormalTok{(dftTdRelFreq, moments, }\DataTypeTok{minval =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+The resulting \texttt{dftTdRelFreqMom} object is once again a
+\texttt{trackdata} object of the same length as the
+\texttt{dftTdRelFreq} \texttt{trackdata} object. It contains the first
+four spectral moments as shown in R Example
+\ref{rexample:usecases-uc4showMoments}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show first row of data belonging }
+\CommentTok{# to first element of dftTdRelFreqMom}
+\NormalTok{dftTdRelFreqMom[}\DecValTok{1}\NormalTok{]}\OperatorTok{$}\NormalTok{data[}\DecValTok{1}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  5.335375e+03  6.469573e+06  6.097490e-02 -1.103308e+00
+\end{verbatim}
+
+The information stored in the \texttt{dftTdRelFreqMom} and
+\texttt{sibil} objects can now be used to plot a time-normalized version
+of the first spectral moment trajectories, color coded by sibilant
+class, using \texttt{emuR}'s \texttt{dplot()} function. R Example
+\ref{rexample:usecases-uc4dplot1} shows the R code that produces Figure
+\ref{fig:usecases-uc4dplot1}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dplot}\NormalTok{(dftTdRelFreqMom[, }\DecValTok{1}\NormalTok{],}
+\NormalTok{      sibil}\OperatorTok{$}\NormalTok{labels,}
+      \DataTypeTok{normalise =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{xlab =} \StringTok{"Normalized Time [%]"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"1st spectral moment [Hz]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics{app_chap-useCases_files/figure-latex/usecases-uc4dplot1-1} 
+
+}
+
+\caption{Time-normalized first spectral moment trajectories color coded by sibilant class.}\label{fig:usecases-uc4dplot1}
+\end{figure}
+
+As one might expect, the first spectral moment (the center of gravity)
+is significantly lower for postalveolar \emph{S} and \emph{Z} (green and
+blue lines) than for alveolar \emph{s} and \emph{z} (black and red
+lines).
+
+R Example \ref{rexample:usecases-uc4dplot2} shows how to create an
+alternative plot (see Figure \ref{fig:usecases-uc4dplot2}) that averages
+the trajectories into ensemble averages per sibilant class by setting
+the \texttt{average} parameter of \texttt{dplot()} to \texttt{TRUE}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dplot}\NormalTok{(dftTdRelFreqMom[,}\DecValTok{1}\NormalTok{],}
+\NormalTok{      sibil}\OperatorTok{$}\NormalTok{labels,}
+      \DataTypeTok{normalise =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{average =} \OtherTok{TRUE}\NormalTok{,}
+      \DataTypeTok{xlab =} \StringTok{"Normalized Time [%]"}\NormalTok{,}
+      \DataTypeTok{ylab =} \StringTok{"1st spectral moment [Hz]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics{app_chap-useCases_files/figure-latex/usecases-uc4dplot2-1} 
+
+}
+
+\caption{Time-normalized first spectral moment ensemble average trajectories per sibilant class.}\label{fig:usecases-uc4dplot2}
+\end{figure}
+
+As can be seen from the previous two plots (Figure
+\ref{fig:usecases-uc4dplot1} and \ref{fig:usecases-uc4dplot2}),
+transitions to and from a sort of steady state around the temporal
+midpoint of the sibilants are clearly visible. To focus on this steady
+state part of the sibilant we will now extract those spectral moments
+that fall between the proportional timepoints 0.2 and 0.8 of each
+segment (i.e., the central 60\%) using the \texttt{dcut()} function as
+is shown in R Example \ref{rexample:usecases-uc4dcut}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# cut out the middle 60% portion}
+\NormalTok{dftTdRelFreqMomMid =}\StringTok{ }\KeywordTok{dcut}\NormalTok{(dftTdRelFreqMom,}
+                          \DataTypeTok{left.time =} \FloatTok{0.2}\NormalTok{,}
+                          \DataTypeTok{right.time =} \FloatTok{0.8}\NormalTok{,}
+                          \DataTypeTok{prop =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+Finally, R Example \ref{rexample:usecases-uc4trapply} shows how to
+calculate the averages of these trajectories using the
+\texttt{trapply()} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{meanFirstMoments =}\StringTok{ }\KeywordTok{trapply}\NormalTok{(dftTdRelFreqMomMid[,}\DecValTok{1}\NormalTok{],}
+                           \DataTypeTok{fun =}\NormalTok{ mean,}
+                           \DataTypeTok{simplify =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+As the resulting \texttt{meanFirstMoments} vector has the same length as
+the initial \texttt{sibil} segment list, we can now easily visualize
+these values in the form of a boxplot. R Example
+\ref{rexample:usecases-uc4boxplot} shows the R code that produces Figure
+\ref{fig:usecases-uc4boxplot}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(meanFirstMoments }\OperatorTok{~}\StringTok{ }\NormalTok{sibil}\OperatorTok{$}\NormalTok{labels, }
+        \DataTypeTok{xlab =} \StringTok{"Sibilant class labels"}\NormalTok{,}
+        \DataTypeTok{ylab =} \StringTok{"First spectral moment values [Hz]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics{app_chap-useCases_files/figure-latex/usecases-uc4boxplot-1} 
+
+}
+
+\caption{Boxplots of the first spectral moments grouped by their sibilant class.}\label{fig:usecases-uc4boxplot}
+\end{figure}
+
+As final remark, it is worth noting that using the
+\texttt{emuRtrackdata} \texttt{resultType} (not the \texttt{trackdata}
+\texttt{resultType}) of \texttt{get\_trackdata()} function we could have
+performed a comparable analysis by utilizing packages such as
+\texttt{dplyr} for \texttt{data.table} or \texttt{data.frame}
+manipulation and \texttt{lattice} or \texttt{ggplot2} for data
+visualisation.
 
 \bibliography{book.bib}
 

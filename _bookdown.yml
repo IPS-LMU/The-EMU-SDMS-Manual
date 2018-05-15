@@ -20,6 +20,8 @@ rmd_files: [
   "wrassp_impl.Rmd",
   "emu-webApp_impl.Rmd",
 
+  "app_chap-useCases.Rmd",
+
   "bibliography.Rmd"
 ]
 

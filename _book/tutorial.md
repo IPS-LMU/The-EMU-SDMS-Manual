@@ -1,6 +1,6 @@
-# A tutorial on how to use the EMU-SDMS [^2]{#chap:tutorial}
+# A tutorial on how to use the EMU-SDMS [^1-chap:tutorial]{#chap:tutorial}
 
-[^2]: Some examples of this chapter are adapted versions of examples of the `emuR_intro` vignette.
+[^1-chap:tutorial]: Some examples of this chapter are adapted versions of examples of the `emuR_intro` vignette.
 
 
 
@@ -45,10 +45,10 @@ list.dirs(demoDataDir, recursive = F, full.names = F)
 ## [4] "TextGrid_collection" "txt_collection"
 ```
 
-This tutorial will start by converting a TextGrid collection containing seven annotated single-sentence utterances of a single male speaker to the `emuDB` format[^3]. In the EMU-SDMS, a file collection such as a TextGrid collection refers to a set of file pairs where two types of files with different file extentions are present (e.g., `.ext1` and `.ext2`). It is vital that file pairs have the same basenames (e.g., `A.ext1` and `A.ext2` where `A` represents the basename) in order for the conversion functions to be able to pair up files that belong together. As other speech software tools also encourage such file pairs (e.g., @kisler:2015a) this is a common collection format in the speech sciences. R Example \ref{rexample:showTGcolContent} shows such a file collection that is part of `emuR`'s demo data. Figure \@ref(fig:msajc003_praatTG) shows the content of an annotation as displayed by Praat's `"Draw visible sound and Textgrid..."` procedure.
+This tutorial will start by converting a TextGrid collection containing seven annotated single-sentence utterances of a single male speaker to the `emuDB` format[^2-chap:tutorial]. In the EMU-SDMS, a file collection such as a TextGrid collection refers to a set of file pairs where two types of files with different file extentions are present (e.g., `.ext1` and `.ext2`). It is vital that file pairs have the same basenames (e.g., `A.ext1` and `A.ext2` where `A` represents the basename) in order for the conversion functions to be able to pair up files that belong together. As other speech software tools also encourage such file pairs (e.g., @kisler:2015a) this is a common collection format in the speech sciences. R Example \ref{rexample:showTGcolContent} shows such a file collection that is part of `emuR`'s demo data. Figure \@ref(fig:msajc003_praatTG) shows the content of an annotation as displayed by Praat's `"Draw visible sound and Textgrid..."` procedure.
 
 
-[^3]: The other input routines are covered in the Section \@ref(sec:emuRpackageDetails_importRoutines).
+[^2-chap:tutorial]: The other input routines are covered in the Section \@ref(sec:emuRpackageDetails_importRoutines).
 
 <h3>rexample:showTGcolContent</h3>
 
@@ -123,8 +123,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 myFirst 
-## UUID:	 11a61ea0-4477-4d1f-92cf-7a1a980a37b4 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpLmG0Ej/myFirst_emuDB 
+## UUID:	 21ab3230-a512-416e-9d45-adaebb174248 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpJ90jz2/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -619,9 +619,9 @@ ggplot(df, aes(wordType, meanF1)) +
 <p class="caption">(\#fig:tutorial-boxplot)Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word.</p>
 </div>
 
-To confirm or reject this, R Example \@ref(rexample:tutorial-stats1) presents a very simple statistical analysis of the F1 mean values of the 60% mid-section formant trajectories [^4]. First, a Shapiro-Wilk test for normality of the distributions of the F1 means for both word types is carried out. As only one type is normally distributed, a Wilcoxon rank sum test is performed. The density distributions (commented out `plot()` function calls in R Example \@ref(rexample:tutorial-stats1)) are displayed in Figure \@ref(fig:tutorial_stats1).
+To confirm or reject this, R Example \@ref(rexample:tutorial-stats1) presents a very simple statistical analysis of the F1 mean values of the 60% mid-section formant trajectories [^3-chap:tutorial]. First, a Shapiro-Wilk test for normality of the distributions of the F1 means for both word types is carried out. As only one type is normally distributed, a Wilcoxon rank sum test is performed. The density distributions (commented out `plot()` function calls in R Example \@ref(rexample:tutorial-stats1)) are displayed in Figure \@ref(fig:tutorial_stats1).
 
-[^4]: It is worth noting that the sample size in this toy example is quite small. This obviously influences the outcome of the simple statistical analysis that is performed here.
+[^3-chap:tutorial]: It is worth noting that the sample size in this toy example is quite small. This obviously influences the outcome of the simple statistical analysis that is performed here.
 
 <h3>rexample:tutorial-stats1</h3>
 
