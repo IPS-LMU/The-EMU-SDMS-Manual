@@ -1,4 +1,4 @@
-# (PART) Implementationx {-}
+# (PART) Implementation {-}
 
 # Implementation of the query system [^1-chap:querysys_impl]{#chap:querysys_impl}
 
@@ -6,13 +6,6 @@
 
 
 Compatibly with other query languages, the EQL defines the user a front-end interface and infers the query's results from its semantics. However, a query language does not define any data structures or specify how the query engine is to be implemented. As mentioned in Chapter \@ref(chap:overview), a major user requirement was database portability, simple package installation, tolerable run times over complex queries, and a system that did not rely on external software at runtime. The only available back-end implementation that met those needs and was also available as an R package at the time was (R)SQLite (@hipp:2007a, @wickham:2014a). As (R)SQLite is a relational database management system, `emuR`'s query system could not be implemented so as to use directly the primary data sources of an `emuDB`, that is, the JSON files described in Chapter \@ref(chap:emuDB). A syncing mechanism that maps the primary data sources to a relational form for querying purposes had to be implemented. This relational form is referred to as the `emuDBcache` in the context of an `emuDB`. The data sources are synchronized while an `emuDB` is being loaded and when changes are made to the annotation files. To address load time issues, we implemented a file check-sum mechanism which only reloads and synchronizes annotation files that have a changed MD5-sum [@rivest:1992a]. Figure \@ref(fig:query-schematic-emuR-structure) is a schematic representation of how the various `emuDB` interaction functions interact with either the file representation or the relational cache.
-
-<!-- \begin{figure}[hpt] -->
-<!-- \centering -->
-<!--   \input{pics/emuRstruct} -->
-<!--   \caption{Schematic architecture of `emuDB` interaction functions of the `emuR` package. \textcolor{three_color_c2}{Orange} paths show examples of functions interacting with the files of the `emuDB`, while \textcolor{three_color_c1}{green} paths show functions accessing the relational annotation structure. Actions like saving a changed annotation using the `EMU-webApp` first save the `\_annot.json` to disk then update the relational annotation structure.} -->
-<!--   \label{fig:query_schematic_emuR_structure} -->
-<!-- \end{figure} -->
 
 <div class="figure" style="text-align: center">
 <img src="pics/emuRstruct.png" alt="Schematic architecture of `emuDB` interaction functions of the `emuR` package. textcolor{three-color-c2}{Orange} paths show examples of functions interacting with the files of the `emuDB`, while 	extcolor{three-color-c1}{green} paths show functions accessing the relational annotation structure. Actions like saving a changed annotation using the `EMU-webApp` first save the `_annot.json` to disk then update the relational annotation structure." width="75%" />
@@ -27,25 +20,39 @@ The relational form of the annotation structure is split into six tables in the 
 
 1. `emu_db`: containing `emuDB` information (columns: `uuid`, `name`),
 
-<!-- \begin{tabular}{|c|c|} -->
-<!--   \hline -->
-<!--   \textbf{uuid} & \textbf{name} \\  -->
-<!--   \hline -->
-<!--   0fc618dc-8980-414d-8c7a-144a649ce199 & ae \\ -->
-<!--   \hline -->
-<!-- \end{tabular} -->
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> uuid </th>
+   <th style="text-align:left;"> name </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0fc618dc-8980-414d-8c7a-144a649ce199 </td>
+   <td style="text-align:left;"> ae </td>
+  </tr>
+</tbody>
+</table>
 
 2. `session`: containing `session` information (columns: `db_uuid`, `name`),
 
-<!-- \begin{tabular}{|c|c|} -->
-<!--   \hline -->
-<!--   \textbf{db\_uuid} & \textbf{name} \\  -->
-<!--   \hline -->
-<!--   0fc618dc-8980-414d-8c7a-144a649ce199 & 0000 \\ -->
-<!--   \hline -->
-<!--   \dots & \dots \\ -->
-<!--   \hline -->
-<!-- \end{tabular} -->
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> db_uuid </th>
+   <th style="text-align:left;"> name </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0fc618dc-8980-414d-8c7a-144a649ce199 </td>
+   <td style="text-align:left;"> 0000 </td>
+  </tr>
+</tbody>
+</table>
+
 
 3. `bundle`: containing `bundle` information (columns: `db_uuid`, `session`, `name`, `annotates`, `sample_rate`, `md5\_annot\_json`),
 
@@ -59,52 +66,61 @@ The relational form of the annotation structure is split into six tables in the 
 <!--   \hline -->
 <!-- \end{tabular} -->
 
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> db_uuid </th>
+   <th style="text-align:left;"> session </th>
+   <th style="text-align:left;"> name </th>
+   <th style="text-align:left;"> annotates </th>
+   <th style="text-align:left;"> sample_rate </th>
+   <th style="text-align:left;"> md5_annot_json </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0fc618dc-8980-414d-8c7a-144a649ce199 </td>
+   <td style="text-align:left;"> 0000 </td>
+   <td style="text-align:left;"> msajc003 </td>
+   <td style="text-align:left;"> msajc003.wav </td>
+   <td style="text-align:left;"> 20000 </td>
+   <td style="text-align:left;"> 785c7cdb6d4bd5e8b5cd7c56a5946ddf </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ... </td>
+   <td style="text-align:left;"> ... </td>
+   <td style="text-align:left;"> ... </td>
+   <td style="text-align:left;"> ... </td>
+   <td style="text-align:left;"> ... </td>
+   <td style="text-align:left;"> ... </td>
+  </tr>
+</tbody>
+</table>
+
 4. `items`: containing all annotation items of `emuDB` (columns: `db_uuid`, `session`, `bundle`, `item_id`, `level`, `type`, `seq_idx`, `sample_rate`, `sample_point`, `sample_start`, `sample_dur`),
 
-<!-- \begin{tabular}{|c|c|c|c|c|c|c} -->
-<!--   \hline -->
-<!--   \textbf{db\_uuid} & \textbf{session} & \textbf{bundle} & \textbf{item\_id} & \textbf{level} & \textbf{type} \\  -->
-<!--   \hline -->
-<!--   0fc61\dots & 0000 & msajc003 & 147 & Phonetic & SEGMENT & \\ -->
-<!--   \hline -->
-<!--   \dots & \dots & \dots & \dots & \dots & \dots \\ -->
-<!--   \hline -->
-<!-- \end{tabular} -->
 
-<!-- \begin{tabular}{c|c|c|c|c|} -->
-<!--   \hline -->
-<!--   \textbf{seq\_idx} &\textbf{sample\_rate} & \textbf{sample\_point} & \textbf{sample\_start} & \textbf{sample\_dur} \\  -->
-<!--   \hline -->
-<!--   1 & 20000 & NA & 3749 & 1389 \\ -->
-<!--   \hline -->
-<!--   \dots & \dots & \dots & \dots & \dots \\ -->
-<!--   \hline -->
-<!-- \end{tabular} -->
+
+db_uuid                                session   bundle     item_id   level      type      seq_idx   sample_rate   sample_point   sample_start   sample_dur 
+-------------------------------------  --------  ---------  --------  ---------  --------  --------  ------------  -------------  -------------  -----------
+0fc618dc-8980-414d-8c7a-144a649ce199   0000      msajc003   147       Phonetic   SEGMENT   1         20000         NA             3749           1389       
+...                                    ...       ...        ...       ...        ...       ...       ...           ...            ...            ...        
 
 5. `labels`: containing all labels belonging to all items (columns: `db_uuid`, `session`, `bundle`, `item_id`, `label_idx`, `name`, `label`), and
 
-<!-- \begin{tabular}{|c|c|c|c|c|c|c|} -->
-<!--   \hline -->
-<!--   \textbf{db\_uuid} & \textbf{session} & \textbf{bundle} & \textbf{item\_id} & \textbf{label\_idx} & \textbf{name} & \textbf{label} \\  -->
-<!--   \hline -->
-<!--   0fc61\dots & 0000 & msajc003 & 147 & 1 & Phonetic & V \\ -->
-<!--   \hline -->
-<!--   \dots & \dots & \dots & \dots & \dots & \dots & \dots \\ -->
-<!--   \hline -->
-<!-- \end{tabular} -->
+
+db_uuid                                session   bundle     item_id   label_idx   name       label 
+-------------------------------------  --------  ---------  --------  ----------  ---------  ------
+0fc618dc-8980-414d-8c7a-144a649ce199   0000      msajc003   147       1           Phonetic   V     
+...                                    ...       ...        ...       ...         ...        ...   
 
 6. `links`: containing all links between annotation items of `emuDB` (columns: `db_uuid`, `session`, `bundle`, `from_id`, `to_id`, `label`).
 
-<!-- \begin{tabular}{|c|c|c|c|c|c|c|} -->
-<!--   \hline -->
-<!--   \textbf{db\_uuid} & \textbf{session} & \textbf{bundle} & \textbf{from\_id} & \textbf{to\_id} & \textbf{label} \\ -->
-<!--   \hline -->
-<!--   0fc61\dots & 0000 & msajc003 & 8 & 7 & NA \\ -->
-<!--   \hline -->
-<!--   \dots & \dots & \dots & \dots & \dots & \dots \\ -->
-<!--   \hline -->
-<!-- \end{tabular} -->
-<!-- \\ -->
+
+db_uuid                                session   bundle     from_id    to_id  label 
+-------------------------------------  --------  ---------  --------  ------  ------
+0fc618dc-8980-414d-8c7a-144a649ce199   0000      msajc003   8              7  NA    
+...                                    ...       ...        ...            7  NA    
 
 While performing a query the engine uses an aggregate key to address every annotation item and its labels (`db_uuid`, `session`, `bundle`, `item_id`) and a similar aggregate key to dereference the links (`db_uuid`, `session`, `bundle`, `from_id` / `to_id`) which connect items. As the records in relational tables are not intrinsically ordered a further aggregate key is used to address the annotation item via its index and level (`uuid`, `session`, `bundle`, `level` / `seq_idx`). This is used, for example, during sequential queries to provide an ordering of the individual annotation items. It is worth noting that a plethora of other tables are created at query time to store various temporary results of a query. However, these tables are created as temporary tables during the query and are deleted on completion which means they are not permanently stored in the `emuDBcache`.
 
@@ -114,13 +130,11 @@ The query engine parses an EQL query expression while simultaneously executing p
 
 The main strategy of the query expression parser is to recursively parse and split an EQL expression into left and right sub-expressions until a so-called Simple Query (SQ term is found and can be executed (see EBNF in Appendix \@ref(app-chap:EQL-EBNF) for more information on the elements comprising the EQL). This is done by determining the operator which is the first to be evaluated on the current expression. This operator is determined by the sub-expression grouping provided by the bracketing. Each sub-expression is then considered to be a fully valid EQL expression and once again parsed. Figure \@ref(fig:query-queryParserExample1), which is split into seven stages (marked S1-S7), shows the example EQL expression being parsed (S1-S3) and the resulting items being merged to meet the requirements of the individual operator (S4-S6) of the original query. S1 to S3 show the splitting operator character (e.g., textcolor{three_color_c3}{`->`} in purple) which splits the expression into a textcolor{three_color_c1}{left} (green) and textcolor{three_color_c2}{right} (orange) sub-expression.
 
-<!-- \begin{figure}[hpt] -->
-<!-- \centering -->
-<!-- \input{pics/queryParserExample1} -->
-<!-- \caption{Example of how the query expression parser parses and evaluates an EQL expression and merges the result according to the respective EQL operators.} -->
-<!-- \label{fig:query_queryParserExample1} -->
-<!-- \end{figure} -->
 
+<div class="figure" style="text-align: center">
+<img src="pics/queryParserExample1.png" alt="Example of how the query expression parser parses and evaluates an EQL expression and merges the result according to the respective EQL operators." width="100%" />
+<p class="caption">(\#fig:query-queryParserExample1)Example of how the query expression parser parses and evaluates an EQL expression and merges the result according to the respective EQL operators.</p>
+</div>
 
 The result modifier symbol (`#`) is noteworthy for its extra treatment by the query engine as it places an exact copy of the items marked by it into its own intermediary result storage (see \#*s*~items~ node on S7 in Figure \@ref(fig:query-queryParserExample1)). After performing the database operations necessary to do the various merging operation which are performed on the intermediary results, this storage is updated by removing items from it that are no longer present due to the merging operation. As a final step, the query engine evaluates if there are items present in the intermediary result storage created by the presence of the result modifier symbol. If so, these items are used to create an `emuRsegs` object by deriving the time information and extracting the necessary information from the intermediate result storage. If no items are present in the result modifier storage, the query engine uses the items provided by the final merging procedure in S3 instead (which is not the case in the example used in Figure \@ref(fig:query-queryParserExample1)).
 
@@ -128,8 +142,8 @@ A detailed description of how this query expression parser functions is presente
 
 [^2-chap:querysys_impl]: The R code that implements this pseudo code can be found here: https://github.com/IPS-LMU/emuR/blob/master/R/emuR-query.database.R.
 
-<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-<!-- % -->
+
+
 <!-- \begin{algorithm} -->
 <!--     \caption{Pseudo Code for Query Engine Algorithm - Part 1} -->
 <!--     \begin{algorithmic}[1] % The number tells where the line numbering should start -->
@@ -187,6 +201,66 @@ A detailed description of how this query expression parser functions is presente
 <!--     \label{alg:query_implQueryEnginePC_p1} -->
 <!-- \end{algorithm} -->
 
+
+<!-- ```{Rcpp query-implQueryEnginePC-p1, eval=FALSE} -->
+<!-- // %%%%%%%%%%%%%%%%%%% -->
+<!-- query_DbEqlFUNCQ(query){ -->
+<!--   // place all parent level items into tmp table -->
+<!--   // place all child level items into tmp table -->
+<!--   query_DbHier(parentItemsTable), childItemsTable); -->
+<!--   if(Start, End or Medial query){ -->
+<!--     // extract parent items and place in tmp result table -->
+<!--   } -->
+<!--   else{ -->
+<!--     // extract child items and place in tmp result table -->
+<!--   } -->
+<!-- } -->
+<!-- // %%%%%%%%%%%%%%%%%%% -->
+<!-- query_DbEqlLABELQ(query){ -->
+<!--   // splitLabels gets split labels at | -->
+<!--   forEach(splitLabels){ -->
+<!-- 		if(operator is $==$, $=$ or $!=$){ -->
+<!-- 	    // extract items that contain labels which are equal or unequal to label -->
+<!-- 		} -->
+<!--     else if(operator is =~ or !~){ -->
+<!-- 	    // extract items that contain labels that match or don't match RegEx -->
+<!--     } -->
+<!--     // merge results in tmp table -->
+<!--   } -->
+<!-- } -->
+<!-- // %%%%%%%%%%%%%%%%%%% -->
+<!-- query_DbEqlSQ(query){ -->
+<!-- 	if(query contains round brackets){ -->
+<!-- 		query_DbEqlFUNCQ(query) -->
+<!-- 	}else{ -->
+<!-- 		query_DbEqlLABELQ(query) -->
+<!-- 	} -->
+<!-- } -->
+<!-- // %%%%%%%%%%%%%%%%%%% -->
+<!-- query_DbEqlCONJQ(query){ -->
+<!-- 	// gets split query at & -->
+<!-- 	forEach(splitItems){ -->
+<!-- 		query_DbEqlSQ(splitItems) -->
+<!-- 		// merge results in tmp table -->
+<!-- 	} -->
+<!-- } -->
+<!-- %%%%%%%%%%%%%%%%%%% -->
+<!-- query_DbHier(leftTable, rightTable){ -->
+<!--   // hp gets extract hier. paths conn. leftTable and rightTable level names -->
+<!--   forEach(child and parent level pairs in hp){ -->
+<!--     // connect child and parent items using links table -->
+<!--     // reduce to min seq. idx (left side of trapeze) -->
+<!--     // and to max seq. idx (right side of trapeze) -->
+<!--   } -->
+<!-- } -->
+
+<div class="figure" style="text-align: center">
+<img src="pics/algorithm1.png" alt="Pseudo Code for Query Engine Algorithm - Part 1" width="90%" />
+<p class="caption">(\#fig:query-implQueryEnginePC-p1)Pseudo Code for Query Engine Algorithm - Part 1</p>
+</div>
+
+<!-- ``` -->
+
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <!-- % -->
 <!-- \begin{algorithm} -->
@@ -228,27 +302,61 @@ A detailed description of how this query expression parser functions is presente
 <!--     \label{alg:query_implQueryEnginePC_p2} -->
 <!-- \end{algorithm} -->
 
+<!-- ```{Rcpp query-implQueryEnginePC-p2} -->
+<!-- query_DbEqlInBracket(query){ -->
+<!--   // qTrim gets remove outer square brackets -->
+<!--   // leftQuery, rightQuery gets split qTrim at cur. operator -->
+<!--   query_databaseWithEql(leftQuery) // recursive part of query -->
+<!--   query_databaseWithEql(rightQuery) // recursive part of query -->
+<!--   if(cur. operator is domintation operator){ -->
+<!--     query_DbHier(leftQueryResultTable, rightQueryResultTable) -->
+<!--   }else if(cur. operator is seq. operator){ -->
+<!--     // find seq. of leftQueryResultTable and rightQueryResultTable items -->
+<!--   } -->
+<!--     query_databaseWithEql($qTrim) -->
+<!--   } -->
+<!-- } -->
+<!-- %%%%%%%%%%%%%%%%%%%% -->
+<!-- query_DbWithEql(query){ -->
+<!--   if(query isn't wrapped in brackets){ -->
+<!-- 	  query_DbEqlCONJQ(query) -->
+<!--   }else{ -->
+<!-- 	  query_DbEqlInBracket(query) -->
+<!--   } -->
+<!-- } -->
+<!-- %%%%%%%%%%%%%%%%%%%% -->
+<!-- query(query, sesPattern, bndlPattern){ -->
+<!-- 	// filter items in relational tables by sesPattern -->
+<!-- 	// filter items in relational tables by bndlPattern -->
+<!--   query_DbWithEql(query) -->
+<!--   // seglist gets  -->
+<!--   convert_queryResultToEmuRsegs(tmpResultTableName) -->
+<!--   return(seglist) -->
+<!-- } -->
+<!-- ``` -->
+
+<div class="figure" style="text-align: center">
+<img src="pics/algorithm2.png" alt="Pseudo Code for Query Engine Algorithm - Part 2" width="90%" />
+<p class="caption">(\#fig:query-implQueryEnginePC-p2)Pseudo Code for Query Engine Algorithm - Part 2</p>
+</div>
+
+
 ## Redundant links {#subsec:query-redundantLinks}
 
 A noteworthy difference between the legacy and the new EMU system is how hierarchies are stored. The legacy system stored the linking information of a hierarchy in so-called hierarchical label files, which were plain text files that used the `.hlb` extensions. Within the label files this information was stored in space/blank separated lines:
 
-<!-- \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`$=3\catcode`^=7\catcode`_=8}] -->
-<!-- \textcolor{three_color_c1}{111} \textcolor{three_color_c2}{139 140 141 173 174 175 185} -->
-<!-- \textcolor{three_color_c1}{112} \textcolor{three_color_c2}{142 143 176 177} -->
-<!-- \textcolor{three_color_c1}{113} \textcolor{three_color_c2}{144 145 146 178 179 180} -->
-<!-- \textcolor{three_color_c1}{114} \textcolor{three_color_c2}{147} -->
-<!-- \textcolor{three_color_c1}{115} \textcolor{three_color_c2}{148} -->
-<!-- \textcolor{three_color_c1}{116} \textcolor{three_color_c2}{149}, -->
-<!-- \end{Verbatim} -->
+```
+\textcolor{three_color_c1}{111} \textcolor{three_color_c2}{139 140 141 173 174 175 185}
+\textcolor{three_color_c1}{112} \textcolor{three_color_c2}{142 143 176 177}
+\textcolor{three_color_c1}{113} \textcolor{three_color_c2}{144 145 146 178 179 180}
+\textcolor{three_color_c1}{114} \textcolor{three_color_c2}{147}
+\textcolor{three_color_c1}{115} \textcolor{three_color_c2}{148}
+\textcolor{three_color_c1}{116} \textcolor{three_color_c2}{149},
+```
+
 
 where the textcolor{three_color_c1}{first number} (green) of each line was the parent's ID and the textcolor{three_color_c2}{following numbers} (orange) indicated the annotation items the parent was linked to. However, it was not just links to the items on the child level that were stored in each line. Rather, a link to all children of all levels below the parent level was stored for each parent item. This was likely due to performance benefits in parsing and mapping onto the internal structures used by the legacy query engine. A schematic representation of this form of linking is displayed in Figure \@ref(fig:query-redundant)A. As these redundant links are prone to errors while updating the data model and lead to a convoluted annotation structure models (see excessive use of dashed lines in Figure \@ref(fig:query-redundant)A), we chose to eliminate them and opted for the cleaner, non-redundant representation displayed in Figure \@ref(fig:query-redundant)B. Although this led to a more complex query parser engine for hierarchical queries and functions, we feel it is a cleaner, more accurate and more robust data representation.
 
-<!-- \begin{figure}[hpt] -->
-<!-- \centering -->
-<!-- \input{pics/aeGraph_redundant.tex} -->
-<!-- \caption{Schematic of hierarchy graph *ae*; \textbf{A}: legacy redundant strategy vs. \textbf{A}: cleaner non-redundant strategy.} -->
-<!-- \label{fig:query_redundant} -->
-<!-- \end{figure} -->
 
 <div class="figure" style="text-align: center">
 <img src="pics/aeGraph_redundant.png" alt="Schematic of hierarchy graph *ae*; 	extbf{A}: legacy redundant strategy vs. 	extbf{A}: cleaner non-redundant strategy." width="75%" />

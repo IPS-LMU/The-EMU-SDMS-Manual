@@ -849,8 +849,8 @@ rexample:tutorial\_summary
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     455a2bd9-3808-4ed9-94dd-cd7266cc27c6 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmptamTat/myFirst_emuDB 
+## UUID:     e24a42a8-dd2d-4358-8ca7-f9866bf005a9 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpfb765T/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2259,8 +2259,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     26d35e47-460f-4df0-9809-54a7a9025152 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpPBlIcv/fromScratch_emuDB 
+## UUID:     cc5ef3b4-79bd-4330-bb0b-b72c2037d5c6 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpXeiHpe/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4388,7 +4388,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpyvnALX/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpXrUeDA/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4927,7 +4927,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-05-11 18:50:56 "  
+## [5] "Timestamp:  2018-05-15 18:28:32 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -6568,8 +6568,8 @@ objects, grouped into meaningful categories, provided by the
 \texttt{emuR} package. It is meant as a quick reference for the user to
 quickly find functions she or he is interested in.
 
-\hypertarget{part-implementationx}{%
-\part{Implementationx}\label{part-implementationx}}
+\hypertarget{part-implementation}{%
+\part{Implementation}\label{part-implementation}}
 
 \hypertarget{chap:querysys_impl}{%
 \chapter[Implementation of the query system
@@ -6617,6 +6617,681 @@ annotation using the \texttt{EMU-webApp} first save the
 \texttt{\_annot.json} to disk then update the relational annotation
 structure.\}\label{fig:query-schematic-emuR-structure}
 \textbackslash{}end\{figure\}
+
+Despite the disadvantages of cache invalidation problems, there are
+several advantages to having an object relational mapping between the
+JSON-based annotation structure of an \texttt{emuDB} and a relation
+table representation. One is that the user still has full access to the
+files within the directory structure of the \texttt{emuDB}. This means
+that external tools can be used to script, manipulate or simply interact
+with these files. This would not be the case if the files were stored in
+databases in a way that requires (semi-)advanced programming knowledge
+that might be beyond the capabilities of many users. Moreover, we can
+provide expert users with the option of using other relational database
+engines such as PostgreSQL, including all their performance-tweaking
+abilities, as their relational cache. This is especially valuable for
+handling very large speech databases.
+
+The relational form of the annotation structure is split into six tables
+in the relational database to avoid data redundancy. The six tables are:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{emu\_db}: containing \texttt{emuDB} information (columns:
+  \texttt{uuid}, \texttt{name}),
+\end{enumerate}
+
+uuid
+
+name
+
+0fc618dc-8980-414d-8c7a-144a649ce199
+
+ae
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \texttt{session}: containing \texttt{session} information (columns:
+  \texttt{db\_uuid}, \texttt{name}),
+\end{enumerate}
+
+db\_uuid
+
+name
+
+0fc618dc-8980-414d-8c7a-144a649ce199
+
+0000
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \texttt{bundle}: containing \texttt{bundle} information (columns:
+  \texttt{db\_uuid}, \texttt{session}, \texttt{name},
+  \texttt{annotates}, \texttt{sample\_rate},
+  \texttt{md5\textbackslash{}\_annot\textbackslash{}\_json}),
+\end{enumerate}
+
+db\_uuid
+
+session
+
+name
+
+annotates
+
+sample\_rate
+
+md5\_annot\_json
+
+0fc618dc-8980-414d-8c7a-144a649ce199
+
+0000
+
+msajc003
+
+msajc003.wav
+
+20000
+
+785c7cdb6d4bd5e8b5cd7c56a5946ddf
+
+\ldots{}
+
+\ldots{}
+
+\ldots{}
+
+\ldots{}
+
+\ldots{}
+
+\ldots{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  \texttt{items}: containing all annotation items of \texttt{emuDB}
+  (columns: \texttt{db\_uuid}, \texttt{session}, \texttt{bundle},
+  \texttt{item\_id}, \texttt{level}, \texttt{type}, \texttt{seq\_idx},
+  \texttt{sample\_rate}, \texttt{sample\_point}, \texttt{sample\_start},
+  \texttt{sample\_dur}),
+\end{enumerate}
+
+\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l}
+\hline
+db\_uuid & session & bundle & item\_id & level & type & seq\_idx & sample\_rate & sample\_point & sample\_start & sample\_dur\\
+\hline
+0fc618dc-8980-414d-8c7a-144a649ce199 & 0000 & msajc003 & 147 & Phonetic & SEGMENT & 1 & 20000 & NA & 3749 & 1389\\
+\hline
+... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ...\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  \texttt{labels}: containing all labels belonging to all items
+  (columns: \texttt{db\_uuid}, \texttt{session}, \texttt{bundle},
+  \texttt{item\_id}, \texttt{label\_idx}, \texttt{name},
+  \texttt{label}), and
+\end{enumerate}
+
+\begin{tabular}{l|l|l|l|l|l|l}
+\hline
+db\_uuid & session & bundle & item\_id & label\_idx & name & label\\
+\hline
+0fc618dc-8980-414d-8c7a-144a649ce199 & 0000 & msajc003 & 147 & 1 & Phonetic & V\\
+\hline
+... & ... & ... & ... & ... & ... & ...\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  \texttt{links}: containing all links between annotation items of
+  \texttt{emuDB} (columns: \texttt{db\_uuid}, \texttt{session},
+  \texttt{bundle}, \texttt{from\_id}, \texttt{to\_id}, \texttt{label}).
+\end{enumerate}
+
+\begin{tabular}{l|l|l|l|r|l}
+\hline
+db\_uuid & session & bundle & from\_id & to\_id & label\\
+\hline
+0fc618dc-8980-414d-8c7a-144a649ce199 & 0000 & msajc003 & 8 & 7 & NA\\
+\hline
+... & ... & ... & ... & 7 & NA\\
+\hline
+\end{tabular}
+
+While performing a query the engine uses an aggregate key to address
+every annotation item and its labels (\texttt{db\_uuid},
+\texttt{session}, \texttt{bundle}, \texttt{item\_id}) and a similar
+aggregate key to dereference the links (\texttt{db\_uuid},
+\texttt{session}, \texttt{bundle}, \texttt{from\_id} / \texttt{to\_id})
+which connect items. As the records in relational tables are not
+intrinsically ordered a further aggregate key is used to address the
+annotation item via its index and level (\texttt{uuid},
+\texttt{session}, \texttt{bundle}, \texttt{level} / \texttt{seq\_idx}).
+This is used, for example, during sequential queries to provide an
+ordering of the individual annotation items. It is worth noting that a
+plethora of other tables are created at query time to store various
+temporary results of a query. However, these tables are created as
+temporary tables during the query and are deleted on completion which
+means they are not permanently stored in the \texttt{emuDBcache}.
+
+\hypertarget{sec:query-queryExpressionParser}{%
+\section{Query expression
+parser}\label{sec:query-queryExpressionParser}}
+
+The query engine parses an EQL query expression while simultaneously
+executing partial query expressions. This ad-hoc string evaluation
+parsing strategy is different from multiple other query systems which
+incorporate a query planner stage to pre-parse and optimize the query
+execution stage (e.g., \citet{hipp:2007a}, \citet{conway:2016a}).
+Although no pre-optimization can be performed, this strategy simplifies
+the execution of a query as it follows a constant heuristic evaluation
+strategy. This section describes this heuristic evaluation and parsing
+strategy based on the EQL expression
+\texttt{{[}{[}Syllable\ ==\ W\ -\textgreater{}\ Syllable\ ==\ W{]}\ \^{}\ {[}Phoneme\ ==\ @\ -\textgreater{}\ \#Phoneme\ ==\ s{]}{]}}.
+
+The main strategy of the query expression parser is to recursively parse
+and split an EQL expression into left and right sub-expressions until a
+so-called Simple Query (SQ term is found and can be executed (see EBNF
+in Appendix \ref{app-chap:EQL-EBNF} for more information on the elements
+comprising the EQL). This is done by determining the operator which is
+the first to be evaluated on the current expression. This operator is
+determined by the sub-expression grouping provided by the bracketing.
+Each sub-expression is then considered to be a fully valid EQL
+expression and once again parsed. Figure
+\ref{fig:query-queryParserExample1}, which is split into seven stages
+(marked S1-S7), shows the example EQL expression being parsed (S1-S3)
+and the resulting items being merged to meet the requirements of the
+individual operator (S4-S6) of the original query. S1 to S3 show the
+splitting operator character (e.g.,
+textcolor\{three\_color\_c3\}\{\texttt{-\textgreater{}}\} in purple)
+which splits the expression into a textcolor\{three\_color\_c1\}\{left\}
+(green) and textcolor\{three\_color\_c2\}\{right\} (orange)
+sub-expression.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{pics/queryParserExample1} 
+
+}
+
+\caption{Example of how the query expression parser parses and evaluates an EQL expression and merges the result according to the respective EQL operators.}\label{fig:query-queryParserExample1}
+\end{figure}
+
+The result modifier symbol (\texttt{\#}) is noteworthy for its extra
+treatment by the query engine as it places an exact copy of the items
+marked by it into its own intermediary result storage (see
+\#\emph{s}\textsubscript{items} node on S7 in Figure
+\ref{fig:query-queryParserExample1}). After performing the database
+operations necessary to do the various merging operation which are
+performed on the intermediary results, this storage is updated by
+removing items from it that are no longer present due to the merging
+operation. As a final step, the query engine evaluates if there are
+items present in the intermediary result storage created by the presence
+of the result modifier symbol. If so, these items are used to create an
+\texttt{emuRsegs} object by deriving the time information and extracting
+the necessary information from the intermediate result storage. If no
+items are present in the result modifier storage, the query engine uses
+the items provided by the final merging procedure in S3 instead (which
+is not the case in the example used in Figure
+\ref{fig:query-queryParserExample1}).
+
+A detailed description of how this query expression parser functions is
+presented in a pseudo code representation in Algorithms
+\ref{alg:query-implQueryEnginePC-p1} and
+\ref{alg:query-implQueryEnginePC-p2}\footnote{The R code that implements
+  this pseudo code can be found here:
+  \url{https://github.com/IPS-LMU/emuR/blob/master/R/emuR-query.database.R}.}.
+For simplicity, this representation ignores the treatment of the result
+modifier symbol (\#) and focuses on the parsing and evaluation strategy
+of the query expression parser. As stated previously, the presence of
+the result modifier before an SQ triggers the query engine to place a
+copy of the result of that SQ into an additional result table, which is
+then updated throughout the rest of the query. The starting point for
+every query is the \texttt{query()} function (see line
+\ref{alg:query-implQueryEnginePC-p2:line:query} in Algorithm
+\ref{alg:query-implQueryEnginePC-p2}). This function places the filtered
+items, links and labels entries that are relevant for the current query
+into temporary tables. Depending on which query terms and operators are
+found, the EQL query engine uses the various sub-routines displayed in
+Algorithms \ref{alg:query-implQueryEnginePC-p1} and
+\ref{alg:query-implQueryEnginePC-p2} to parse and evaluate the EQL
+expression.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{pics/algorithm1} 
+
+}
+
+\caption{Pseudo Code for Query Engine Algorithm - Part 1}\label{fig:query-implQueryEnginePC-p1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{pics/algorithm2} 
+
+}
+
+\caption{Pseudo Code for Query Engine Algorithm - Part 2}\label{fig:query-implQueryEnginePC-p2}
+\end{figure}
+
+\hypertarget{subsec:query-redundantLinks}{%
+\section{Redundant links}\label{subsec:query-redundantLinks}}
+
+A noteworthy difference between the legacy and the new EMU system is how
+hierarchies are stored. The legacy system stored the linking information
+of a hierarchy in so-called hierarchical label files, which were plain
+text files that used the \texttt{.hlb} extensions. Within the label
+files this information was stored in space/blank separated lines:
+
+\begin{verbatim}
+\textcolor{three_color_c1}{111} \textcolor{three_color_c2}{139 140 141 173 174 175 185}
+\textcolor{three_color_c1}{112} \textcolor{three_color_c2}{142 143 176 177}
+\textcolor{three_color_c1}{113} \textcolor{three_color_c2}{144 145 146 178 179 180}
+\textcolor{three_color_c1}{114} \textcolor{three_color_c2}{147}
+\textcolor{three_color_c1}{115} \textcolor{three_color_c2}{148}
+\textcolor{three_color_c1}{116} \textcolor{three_color_c2}{149},
+\end{verbatim}
+
+where the textcolor\{three\_color\_c1\}\{first number\} (green) of each
+line was the parent's ID and the
+textcolor\{three\_color\_c2\}\{following numbers\} (orange) indicated
+the annotation items the parent was linked to. However, it was not just
+links to the items on the child level that were stored in each line.
+Rather, a link to all children of all levels below the parent level was
+stored for each parent item. This was likely due to performance benefits
+in parsing and mapping onto the internal structures used by the legacy
+query engine. A schematic representation of this form of linking is
+displayed in Figure \ref{fig:query-redundant}A. As these redundant links
+are prone to errors while updating the data model and lead to a
+convoluted annotation structure models (see excessive use of dashed
+lines in Figure \ref{fig:query-redundant}A), we chose to eliminate them
+and opted for the cleaner, non-redundant representation displayed in
+Figure \ref{fig:query-redundant}B. Although this led to a more complex
+query parser engine for hierarchical queries and functions, we feel it
+is a cleaner, more accurate and more robust data representation.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{pics/aeGraph_redundant} 
+
+}
+
+\caption{Schematic of hierarchy graph *ae*;     extbf{A}: legacy redundant strategy vs.     extbf{A}: cleaner non-redundant strategy.}\label{fig:query-redundant}
+\end{figure}
+
+\hypertarget{chap:wrassp_impl}{%
+\chapter{\texorpdfstring{\texttt{wrassp}
+implementation}{wrassp implementation}}\label{chap:wrassp_impl}}
+
+The \texttt{libassp} was originally written by Michel Scheffers as a C
+library which could be linked against or compiled into separate
+executable signal processing command line tools. To extend the legacy
+EMU system, the \texttt{libassp} it was integrated into it by using the
+Tcl Extension Architecture (TEA) to create a native extension to the Tcl
+programming language. The bulk of this work was done by Lasse Bombien in
+collaboration with Michel Scheffers. Lasse Bombien also implemented the
+\texttt{tkassp} user interface module as part of the legacy EMU system
+to allow the user full access to the functionality of the
+\texttt{libassp} from a GUI. The \texttt{wrassp} R package was written
+by Lasse Bombien and Raphael Winkelmann based on a similar approach as
+the \texttt{tclassp} port using the TEA. Since the \texttt{libassp} was
+put under the GPL version 3 (see
+\url{https://www.gnu.org/licenses/gpl-3.0.en.html}) by Michel Scheffers,
+the \texttt{wrassp} also carries this license.
+
+\hypertarget{the-libassp-port}{%
+\section{\texorpdfstring{The \texttt{libassp}
+port}{The libassp port}}\label{the-libassp-port}}
+
+Here, we briefly describe our strategy for porting the \texttt{libassp}
+to R. The port of the \texttt{libassp} to the R eco-system was achieved
+using the foreign language interface provided by the R system as is
+described in the R Extensions manual (see
+\url{https://cran.r-project.org/doc/manuals/r-release/R-exts.htmlWriting}).
+To port the various signal processing routines provided by the
+\texttt{libassp} and to avoid code redundancy a single C function called
+\texttt{performAssp()} was created. This function acts as a C wrapper
+function interface to \texttt{libassp}'s internal functions and handles
+the data conversion between \texttt{libassp}'s internal and R's data
+structures. However, to provide the user with a clear and concise API we
+chose to implement separate R functions for every signal processing
+function. This also allowed us to formulate more concise manual entries
+for each of the signal processing function provided by \texttt{wrassp}.
+R Example \ref{rexample:wrassp-genWrapper} is a pseudo-code example of
+the layout of each signal processing function \texttt{wrassp} provides.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{##' roxygen2 documentation for genericWrasspFun}
+\NormalTok{genericWrasspSigProcFun =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(listOfFiles,}
+\NormalTok{                                   ...,}
+                                   \DataTypeTok{forceToLog =}\NormalTok{ useWrasspLogger)\{}
+  
+\NormalTok{  ###########################}
+  \CommentTok{# perform parameter checks}
+  \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.null}\NormalTok{(listOfFiles)) \{}
+        \KeywordTok{stop}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"listOfFiles is NULL! ..."}\NormalTok{))}
+\NormalTok{  \}}
+  \CommentTok{# ...}
+  
+  \CommentTok{# call performAssp}
+\NormalTok{  externalRes =}\StringTok{ }\KeywordTok{invisible}\NormalTok{(}\KeywordTok{.External}\NormalTok{(}\StringTok{"performAssp"}\NormalTok{, listOfFiles, }
+                                    \DataTypeTok{fname =} \StringTok{"forest"}\NormalTok{, ...))}
+  
+  
+\NormalTok{  ############################}
+  \CommentTok{# write options to options log file}
+  \ControlFlowTok{if}\NormalTok{ (forceToLog)\{}
+\NormalTok{      optionsGivenAsArgs =}\StringTok{ }\KeywordTok{as.list}\NormalTok{(}\KeywordTok{match.call}\NormalTok{(}
+        \DataTypeTok{expand.dots =} \OtherTok{TRUE}\NormalTok{))}
+      \KeywordTok{wrassp.logger}\NormalTok{(optionsGivenAsArgs[[}\DecValTok{1}\NormalTok{]], }
+\NormalTok{                    optionsGivenAsArgs[}\OperatorTok{-}\DecValTok{1}\NormalTok{],}
+\NormalTok{                    optLogFilePath, listOfFiles)}
+\NormalTok{  \}    }
+  
+  \KeywordTok{return}\NormalTok{(externalRes)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+To provide access to the file handling capabilities of the
+\texttt{libassp}, we implemented two C interface functions called
+\texttt{getDObj2()} (where \texttt{2} is simply used as a function
+version marker) and \texttt{writeDObj()}. These functions use
+\texttt{libassp}'s \texttt{asspFOpen()}, \texttt{asspFFill()},
+\texttt{asspFWrite()} and \texttt{asspFClose()} function to read and
+write files supported by the \texttt{libassp} from and to files on disk
+into R. The public API functions \texttt{read.AsspDataObj()} and
+\texttt{write.AsspDataObj()} are the R wrapper functions around
+\texttt{getDObj2()} and \texttt{writeDObj()}.
+
+To be able to access some of \texttt{libassp}'s internal variables
+further wrapper functions were implemented. It was necessary to have
+access to these variables to be able to perform adequate parameter
+checks in various functions. R Example \ref{rexample:wrassp-cInfoFuncs}
+shows these functions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load the wrassp package}
+\KeywordTok{library}\NormalTok{(wrassp)}
+
+\CommentTok{# show AsspWindowTypes}
+\KeywordTok{AsspWindowTypes}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "RECTANGLE" "PARABOLA"  "COS"       "HANN"      "COS_4"    
+##  [6] "HAMMING"   "BLACKMAN"  "BLACK_X"   "BLACK_M3"  "BLACK_M4" 
+## [11] "NUTTAL_3"  "NUTTAL_4"  "KAISER2_0" "KAISER3_0" "KAISER4_0"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show wrasspOutputInfos}
+\KeywordTok{AsspLpTypes}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ARF" "LAR" "LPC" "RFC"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show wrasspOutputInfos}
+\KeywordTok{AsspSpectTypes}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "DFT" "LPS" "CSS" "CEP"
+\end{verbatim}
+
+The \texttt{wrassp} package provides two R objects that contain useful
+information regarding the supported file format types
+(\texttt{AsspFileFormats}) and the output created by the various signal
+processing functions. R Example \ref{rexample:wrassp-info} shows the
+content of these two objects.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show AsspFileFormats}
+\NormalTok{AsspFileFormats}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     RAW   ASP_A   ASP_B   XASSP  IPDS_M  IPDS_S    AIFF    AIFC     CSL 
+##       1       2       3       4       5       6       7       8       9 
+##    CSRE    ESPS     ILS     KTH   SWELL   SNACK     SFS     SND      AU 
+##      10      11      12      13      13      13      14      15      15 
+##    NIST  SPHERE PRAAT_S PRAAT_L PRAAT_B    SSFF    WAVE  WAVE_X  XLABEL 
+##      16      16      17      18      19      20      21      22      24 
+##    YORK     UWM 
+##      25      26
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# show first element of wrasspOutputInfos}
+\NormalTok{wrasspOutputInfos[[}\DecValTok{1}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ext
+## [1] "acf"
+## 
+## $tracks
+## [1] "acf"
+## 
+## $outputType
+## [1] "SSFF"
+\end{verbatim}
+
+As a final remark, it is worth noting that porting the C library
+\texttt{libassp} to R enables the functions provided by the
+\texttt{wrassp} package to run at near native speeds on every platform
+supported by R and avoids almost any interpreter overhead.
+
+\hypertarget{chap:emu-webAppImplementation}{%
+\chapter{\texorpdfstring{\texttt{EMU-webApp}
+implementation}{EMU-webApp implementation}}\label{chap:emu-webAppImplementation}}
+
+Here, we briefly describe our strategy for implementing the
+\texttt{EMU-webApp}. The \texttt{EMU-webApp} is written entirely in
+HTML, Javascript and CSS. To ease testing and to enable easy integration
+and extendability we chose to use the AngularJS Javascript framework
+\citep{google:2014a}. Most of the components of the \texttt{EMU-webApp}
+(e.g., the spectrogram display) are implemented as so-called Angular
+directives. This means that, apart from dependencies on data service
+classes that have to be made available, these components are reusable
+and can be integrated into other web applications. The
+\texttt{EMU-webApp} makes extensive use of Angular data bindings to keep
+the display and the various data services in sync with each other. It is
+also worth noting that we chose to use the SASS (see
+\url{http://sass-lang.com/}) preprocessor to compile \texttt{.sass}
+files to CSS. This enabled us to use things like mixins, variables and
+inheritance for a more concise stylesheet management and generation.
+
+The main reason we chose the JSON file format as the main file type for
+the EMU-SDMS is because we wanted a web application as the main GUI of
+the new system. Using JSON files enables the \texttt{EMU-webApp} to
+directly use the annotation and configuration files that are part of an
+\texttt{emuDB} without manipulating or reformatting the data.
+
+The rest of this chapter will focus on the communication protocol and
+the URL parameters provided by the \texttt{EMU-webApp}. These should be
+of special interest to developers as they describe how to communicate
+with the web application and how to use the web application to display
+data that is hosted on other http web servers.
+
+\hypertarget{subsec:emu-webAppTheProtocol}{%
+\section[Communication protocol]{\texorpdfstring{Communication
+protocol\footnote{This section has been published in
+  \citet{winkelmann:2015d}.}}{Communication protocol}}\label{subsec:emu-webAppTheProtocol}}
+
+A large benefit gained by choosing the browser as the user interface is
+the ability to easily interact with a server using standard web
+protocols, such as http, https or websockets. In order to standardize
+the data exchange with a server, we have developed a simple
+request-response communication protocol on top of the websocket
+standard. This decision was strongly guided by the availability of the
+\texttt{httpuv} R package \citep{rstudio:2015a}. Our protocol defines a
+set of JSON objects for both the requests and responses. A subset of the
+request-response actions, most of them triggered by the client after
+connection, are displayed in Table \ref{table:protocol-commands}.
+
+Protocol\_Command
+
+Comments
+
+\texttt{GETPROTOCOL}
+
+Check if the server implements the correct protocol
+
+\texttt{GETDOUSERMANAGEMENT}
+
+See if the server handles user management (if yes, then this prompts a
+login dialog \$ ightarrow\$ \texttt{LOGONUSER}
+
+\texttt{GETGLOBALDBCONFIG}
+
+Request the configuration file for the current connection
+
+\texttt{GETBUNDLELIST}
+
+Request the list of available bundles for current connection
+
+\texttt{GETBUNDLE}
+
+Request data belonging to a specific bundle name
+
+\texttt{SAVEBUNDLE}
+
+Save data belonging to a specific bundle name
+
+This protocol definition makes collaborative annotation efforts
+possible, as developers can easily implement servers for communicating
+with the \texttt{EMU-webApp}. Using this protocol allows a database to
+be hosted by a single server anywhere on the globe that then can be made
+available to a theoretically infinite number of users working on
+separate accounts logging individual annotations, time and date of
+changes and other activities such as comments added to problematic
+cases. Tasks can be allocated to and unlocked for each individual user
+by the project leader. As such, user management in collaborative
+projects is substantially simplified and trackable compared with other
+currently available software for annotation.
+
+The \texttt{emuR} package implements this websocket protocol as part of
+the \texttt{serve()} function utilizing the \texttt{httpuv} package.
+Further example implementations of this websocket protocol are provided
+as part of the source code repository of the \texttt{EMU-webApp} (see
+\url{https://github.com/IPS-LMU/EMU-webApp/tree/master/exampleServers}).
+A in-depth description of the protocol which includes descriptions of
+each request and response JSON object can be found in Appendix
+\ref{app-chap:wsProtocol}.
+
+\hypertarget{url-parameters}{%
+\section{URL parameters}\label{url-parameters}}
+
+The \texttt{EMU-webApp} currently implements several URL parameters (see
+\url{https://en.wikipedia.org/wiki/Query_string} for more information)
+as part of its URL query string. This section describes the currently
+implemented parameters and gives some accompanying examples.
+
+\hypertarget{websocket-server-parameters}{%
+\subsection{Websocket server
+parameters}\label{websocket-server-parameters}}
+
+The current URL parameters that affect the websocket server connection
+are:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{serverUrl}=\emph{URL} is a URL pointing to a websocket server
+  that implements the EMU-webApp websocket protocol, and
+\item
+  \textbf{autoConnect}=\emph{true / false} automatically connects to a
+  websocket server URL specified in the \textbf{serverUrl} parameter. If
+  the \textbf{serverUrl} parameter is not set the web application
+  defaults to the entry in its \texttt{default\_emuwebappConfig.json}.
+\end{itemize}
+
+\hypertarget{examples}{%
+\subsection{Examples}\label{examples}}
+
+\begin{itemize}
+\tightlist
+\item
+  auto connect to local wsServer:
+  \url{http://ips-lmu.github.io/EMU-webApp/?autoConnect=true\&serverUrl=ws:\%2F\%2Flocalhost:17890}
+\end{itemize}
+
+\hypertarget{label-file-preview-parameters}{%
+\subsection{Label file preview
+parameters}\label{label-file-preview-parameters}}
+
+The current URL parameters for using the \texttt{EMU-webApp} to
+visualize files that are hosted on other http servers are:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{audioGetUrl}=\emph{URL} GET URL that will respond with
+  \texttt{.wav} file,
+\item
+  \textbf{labelGetUrl}=\emph{URL} GET URL that will respond with
+  label/annotation file,
+\item
+  \textbf{DBconfigGetURL}=\emph{URL} GET URL that will respond with
+  \texttt{\_DBconfig.json} file, and
+\item
+  \textbf{labelType}=\emph{TEXTGRID / annotJSON} specifies the type of
+  annotation file.
+\end{itemize}
+
+This mechanism is, for example, currently being used by the WebMAUS
+web-services of the BASWebServices (see
+\url{https://clarin.phonetik.uni-muenchen.de/BASWebServices}) to provide
+a preview of the automatically segmented speech files.
+
+\hypertarget{examples-1}{%
+\subsection{Examples}\label{examples-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  TextGrid example:
+  \url{http://ips-lmu.github.io/EMU-webApp/?audioGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/oldFormat/msajc003/msajc003.wav\&labelGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/oldFormat/msajc003/msajc003.TextGrid\&labelType=TEXTGRID}
+\item
+  annotJSON example:
+  \url{http://ips-lmu.github.io/EMU-webApp/?audioGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003.wav\&labelGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003_annot.json\&labelType=annotJSON}
+\end{itemize}
 
 \bibliography{book.bib}
 
