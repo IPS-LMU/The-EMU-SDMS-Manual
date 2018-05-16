@@ -847,8 +847,8 @@ rexample:tutorial\_summary
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     56a63024-6d78-4bc6-81d8-4b20f8a4e008 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp5BM94q/myFirst_emuDB 
+## UUID:     f34d6f52-4fbb-4d69-b3d3-37c356d42d7d 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpuxCV78/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2257,8 +2257,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     bb262816-c540-406e-b6a2-fb5f20cd2871 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpWRCNZ0/fromScratch_emuDB 
+## UUID:     ea22551d-66cf-47f2-9ae3-eb4a5b195c14 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpBdnCjy/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4386,7 +4386,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpHRbFSN/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmp0YMGBD/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4925,7 +4925,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-05-16 15:31:07 "  
+## [5] "Timestamp:  2018-05-16 19:56:49 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -7876,6 +7876,1422 @@ performed a comparable analysis by utilizing packages such as
 manipulation and \texttt{lattice} or \texttt{ggplot2} for data
 visualisation.
 
+\hypertarget{app_chap:fileFormats}{%
+\chapter{File Formats}\label{app_chap:fileFormats}}
+
+\hypertarget{file-descriptions}{%
+\section{File descriptions}\label{file-descriptions}}
+
+\hypertarget{subsec:app-chapFileFormatsDBconfig}{%
+\subsection{\texorpdfstring{\texttt{\_DBconfig.json}}{\_DBconfig.json}}\label{subsec:app-chapFileFormatsDBconfig}}
+
+The \texttt{\_DBconfig.json} file contains the configuration options of
+the database. People familiar with the legacy EMU system will recognize
+this as the replacement file for the legacy template (\texttt{.tpl})
+file. By convention, variables or strings written entirely in capital
+letters indicate a constant variable that usually has a special meaning.
+This is also the case with strings like this found in the
+\texttt{\_DBconfig.json} (\texttt{"STRING"}, \texttt{"ITEM"}
+,\texttt{"SEGMENT"}, \texttt{"EVENT"}, \texttt{"OSCI"}, \ldots{} ).
+
+The \texttt{\_DBconfig.json} file contains the following fields:
+
+\begin{itemize}
+\item
+  \texttt{"name"} specifies the name of the database
+\item
+  \texttt{"UUID"} a unique ID given to each database
+\item
+  \texttt{"mediafileExtension"} the main mediafileExtension (currently
+  only uncompressed \texttt{.wav} files are supported in every component
+  of the EMU system. This is also the recommended audio format for the
+  {emu-sdms}.)
+\item
+  \texttt{"ssffTrackDefinitions"} an array of definitions defining the
+  SSFF tracks of the database. Each \texttt{ssffTrackDefinition}
+  consists of:
+
+  \begin{itemize}
+  \item
+    \texttt{"name"} the name of the \texttt{ssffTrackDefinition}
+  \item
+    \texttt{"columnName"} the name of the column of the matching SSFF
+    file. For more information on the columns the various functions of
+    the \texttt{wrassp} produce, see the track fields of the
+    \texttt{wrasspOutputInfos} object that is part of the
+    \texttt{wrassp} package. Further, although the SSFF is a binary file
+    format, it has a plain text header. This means that if you open a
+    SSFF file in the text editor of your choice, you will be able to see
+    the columns contained within it. Another way of accessing column
+    information about a specific SSFF file is to use the \texttt{wrassp}
+    function \texttt{res~=~read.AsspDataObj(/path/2/SSFF/file)} to read
+    the file from the file system. \texttt{names(res)} will then give
+    you the names of the columns present in this file. In the context of
+    the SSFF, we use the term ``column'', while in the context of the
+    EMU system we use either ``track'' or ``SSFF track''. Both refer to
+    the same data.
+  \item
+    \texttt{"fileExtention"} the file extension of the matching SSFF
+    file. See also \texttt{?wrasspOutputInfos} for the default
+    extensions produced by the \texttt{wrassp} functions.
+  \end{itemize}
+\item
+  \texttt{"levelDefinitions"} array of definitions defining the levels
+  of the database. Each \texttt{"levelDefinitions"} consists of:
+
+  \begin{itemize}
+  \item
+    \texttt{"name"} The name of the \texttt{levelDefinition}.
+  \item
+    \texttt{"type"} Specifies the type of level (either \texttt{"ITEM"}
+    \textbar{} \texttt{"EVENT"} \textbar{} \texttt{"SEGMENT"}).
+  \item
+    \texttt{"attributeDefinitions"} an array of definitions defining the
+    attributes of the level. Each \texttt{attributeDefinition} consists
+    of:
+
+    \begin{itemize}
+    \item
+      \texttt{"name"} The name of the \texttt{"attributeDefinition"}.
+    \item
+      \texttt{"type"} Specifies the type of the attribute (currently
+      only \texttt{"STRING"} permitted)
+    \item
+      \texttt{"labelGroups"} An (optional) array containing label group
+      definitions. These can be used as a shorthand notation for
+      querying certain groups of labels and comprise the following:
+
+      \begin{itemize}
+      \item
+        \texttt{"name"} The name of the label group. This will be the
+        value used in a query to refer to this group.
+      \item
+        \texttt{"values"} An array of strings representing the labels.
+      \end{itemize}
+    \item
+      \texttt{"legalLabels"} An (optional) array of strings specifying
+      which labels are valid or legal for this attribute definition.
+    \end{itemize}
+  \item
+    \texttt{"anagestConfig"} If specified (optional), this will convert
+    the level into a special type of level for labeling articulatory
+    data. This will also serve as a marker for the EMU-webApp to treat
+    this level differently. This optional field may only be set for
+    levels of the type \texttt{"EVENT"}.
+
+    \begin{itemize}
+    \item
+      \texttt{"verticalPosSsffTrackName"} The name of the SSFF track
+      containing the vertical position data.
+    \item
+      \texttt{"velocitySsffTrackName"} The name of the SSFF track
+      containing the velocity data.
+    \item
+      \texttt{"autoLinkLevelName"} The name of the level to which
+      created events will be linked.
+    \item
+      \texttt{"multiplicationFactor"} The factor to multiply with
+      (either \texttt{-1} \texttt{1}).
+    \item
+      \texttt{"threshold"} A value between 0 and 1 defining the absolute
+      threshold.
+    \item
+      \texttt{"gestureOnOffsetLabels"} An array containing two strings
+      that specify the on- and offset labels.
+    \item
+      \texttt{"maxVelocityOnOffsetLabels"} An array containing two
+      strings that specify the on- and offset labels.
+    \item
+      \texttt{"constrictionPlateauBeginEndLabels"} An array containing
+      two strings that specify the begin- and end labels.
+    \item
+      \texttt{"maxConstrictionLabel"} A string specifying the maximum
+      constriction label.
+    \end{itemize}
+  \end{itemize}
+\item
+  \texttt{"linkDefinitions"} An array of the definitions defining the
+  links between levels of the database. The combination of all link
+  definitions specifies the hierarchy of the database. Each
+  \texttt{linkDefinition} consists of:
+
+  \begin{itemize}
+  \item
+    \texttt{"type"} Specifies the type of link (either
+    \texttt{"ONE\_TO\_MANY"} \texttt{"MANY\_TO\_MANY"}
+    \texttt{"ONE\_TO\_ONE"}).
+  \item
+    \texttt{"superlevelName"} Specifies the name of the super-level.
+  \item
+    \texttt{"sublevelName"} Specifies the name of the sub-level.
+  \end{itemize}
+\item
+  \texttt{"labelGroups"} An (optional) array containing label group
+  definitions. These can be used as a shorthand notation for querying
+  certain groups of labels. Compared to the \texttt{"labelGroups"},
+  which can be defined within an \texttt{attributeDefinition}, the
+  \texttt{labelGroups} defined here are globally defined for the entire
+  database as follows:
+
+  \begin{itemize}
+  \item
+    \texttt{"name"} The name of the label group.
+  \item
+    \texttt{"values"} An array of strings containing labels.
+  \end{itemize}
+\item
+  \texttt{"EMUwebAppConfig"} Specifies the configuration options
+  intended for the\\
+  \texttt{EMU-webApp} (i.e., how the database is to be displayed). This
+  field can contain all the configurations options that are specified in
+  the EMU-webApp's configuration schema (see
+  \url{https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles}).
+  The \texttt{"EMUwebAppConfig"} contains the following fields:
+
+  \begin{itemize}
+  \item
+    \texttt{"main"} Main behavior options:
+
+    \begin{itemize}
+    \item
+      \texttt{"autoConnect"}: Auto connect to the \texttt{"serverUrl"}
+      on the initial load of the webApp to automatically load a database
+      (mainly used for development).
+    \item
+      \texttt{"serverUrl"}: The default server URL that is displayed in
+      the connect modal window (and used if \texttt{"autoConnect"} is
+      set to \texttt{true}). The default:
+      \texttt{"ws://localhost:17890"} points to the server started by
+      the \texttt{serve()} function of the \texttt{emuR} package.
+    \item
+      \texttt{"serverTimeoutInterval"}: The maximum amount of time the
+      \texttt{EMU-webApp} waits (in milliseconds) for the server to
+      respond.
+    \item
+      \texttt{"comMode"}: Specifies the communication mode the
+      \texttt{EMU-webApp} is in. Currently the only option that is
+      available is \texttt{"WS"} (websocket).
+    \item
+      \texttt{"catchMouseForKeyBinding"}: Check if mouse has to be in
+      labeler for key bindings to work.
+    \end{itemize}
+  \item
+    \texttt{"keyMappings"} Keyboard shortcut definitions. For the sake
+    of brevity, not every key-code is shown (see schema:
+    \url{https://github.com/IPS-LMU/EMU-webApp/blob/master/dist/schemaFiles/emuwebappConfigSchema.json}
+    for extensive list).
+
+    \begin{itemize}
+    \item
+      \texttt{"toggleSideBarLeft"} integer value that represents the
+      key-code that toggles the left side bar (== bundleList side bar)
+    \item
+      \texttt{"toggleSideBarRight"} integer value that represents the
+      key-code that toggles the right side bar (== perspective side bar)
+    \item
+      \ldots{}
+    \end{itemize}
+  \item
+    \texttt{"spectrogramSettings"} Specifies the default settings of the
+    spectrogram. The possible settings are:
+
+    \begin{itemize}
+    \item
+      \texttt{"windowSizeInSecs"} Specifies the window size in seconds.
+    \item
+      \texttt{"rangeFrom"} Specifies the lowest frequency (in Hz) that
+      will be displayed by the spectrogram.
+    \item
+      \texttt{"rangeTo"} Specifies the highest frequency (in Hz) that
+      will be displayed by the spectrogram.
+    \item
+      \texttt{"dynamicRange"} Specifies the dynamic rang for maximum
+      decibel dynamic range.
+    \item
+      \texttt{"window"} Specifies the window type (\texttt{"BARTLETT"}
+      \texttt{"BARTLETTHANN"} \texttt{"BLACKMAN"} \texttt{"COSINE"}
+      \texttt{"GAUSS"} \texttt{"HAMMING"} \texttt{"HANN"}
+      \texttt{"LANCZOS"} \texttt{"RECTANGULAR"} \texttt{"TRIANGULAR"}).
+    \item
+      \texttt{"preEmphasisFilterFactor"} Specifies the preemphasis
+      factor (in formula: s'(k) = s(k) - preEmphasisFilterFactor *
+      s(k-1) ).
+    \item
+      \texttt{"transparency"} Specifies the transparency of the
+      spectrogram (integer from 0 to 255).
+    \item
+      \texttt{"drawHeatMapColors"} (optional) Defines whether the
+      spectrogram should be drawn using heat-map colors (either true or
+      false)
+    \item
+      \texttt{"heatMapColorAnchors"} (optional) Specifies the heat-map
+      color anchors (array of the form
+      \texttt{{[}{[}255,\ 0,\ 0{]},\ {[}0,\ 255,\ 0{]},\ {[}0,\ 0,\ 255{]}{]}})
+    \end{itemize}
+  \item
+    \texttt{"perspectives"} An array containing perspective
+    configurations. Each \texttt{"perspective"} consists of:
+
+    \begin{itemize}
+    \item
+      \texttt{"name"} Name of the perspective.
+    \item
+      \texttt{"signalCanvases"} Configuration options for the
+      \texttt{signalCanvases}.
+
+      \begin{itemize}
+      \item
+        \texttt{"order"} An array specifying the order in which the
+        {ssff} tracks are to be displayed. Note that the {ssff} track
+        names ``OSCI'' and ``SPEC'' are always available in addition to
+        the {ssff} track defined in the database.
+      \item
+        \texttt{"assign"} An array of configuration options that assign
+        one {ssff} track to another, effectively creating a visual
+        overlay of one track over another. Each array element consists
+        of:
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\begin{verbatim}
+     -   `"minMaxValLims"` An array of configuration options to
+            limit the y-axis range that is displayed for a specified
+            SSFF track.
+\end{verbatim}
+
+\begin{verbatim}
+     -   `"contourLims"` An array containing contour limit values
+            that specify an index range that is to be displayed. As
+            a track or column can contain multi-dimensional data
+            (e.g. four formant values per time stamp, 256 DFT values
+            per time stamp, etc.) it is possible to specify an index
+            range that specifies which values should be displayed
+            (e.g., display formant 2 through 4).
+\end{verbatim}
+
+\begin{verbatim}
+     -   `"contourColors"` An array to specify colors of
+            individual contours. This overrides the default of
+            automatically calculating distinct colors for each
+            contour.
+\end{verbatim}
+
+\begin{verbatim}
+ -   `"levelCanvases"` Configuration options for the
+        `levelCanvases`:
+\end{verbatim}
+
+\begin{verbatim}
+ -   `"twoDimCanvases"` Configuration options for the 2D canvas.
+
+        -   `"order"` An array specifying the order in which the
+            levels are to be displayed. Note that currently only a
+            single\
+            `twoDimDrawingDefinition` can be displayed so this array
+            can currently only contain a single element.
+
+        -   `"twoDimDrawingDefinitions"` An array containing two
+            dimensional drawing definitions. Each two dimensional
+            drawing definition consists of:
+\end{verbatim}
+
+\begin{itemize}
+\item
+  \texttt{"labelCanvasConfig"} Configuration options for the label
+  canvases:
+
+  \begin{itemize}
+  \item
+    \texttt{"addTimeMode"} The mode in which time to boundaries is added
+    and subtracted (\texttt{"absolute"} or \texttt{"relative"}).
+  \item
+    \texttt{"addTimeValue"}: The amount of samples added to or
+    subtracted from boundaries.
+  \item
+    \texttt{"newSegmentName"} The value given to the default label if a
+    new SEGMENT is added (default is ``'' == empty string).
+  \item
+    \texttt{"newEventName"} The value given to the default label if a
+    new EVENT is added (default is ``'' == empty string).
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item
+  \texttt{"restrictions"}:
+
+  \begin{itemize}
+  \item
+    \texttt{"playback"} A boolean value specifying whether to allow
+    audio playback.
+  \item
+    \texttt{"correctionTool"} A boolean value specifying whether
+    correction tools are available.
+  \item
+    \texttt{"editItemSize"} A boolean value specifying whether to allow
+    the size of a \texttt{SEGMENT} or \texttt{EVENT} to be changed
+    (i.e., move boundaries).
+  \item
+    \texttt{"editItemName"} A boolean value specifying whether to allow
+    the label of an \texttt{ITEM} to be changed.
+  \item
+    \texttt{"deleteItemBoundary"} A boolean value specifying whether to
+    allow the deletion of boundaries.
+  \item
+    \texttt{"deleteItem"} A boolean value specifying whether to allow
+    the deletion of entire \texttt{ITEM}s
+  \item
+    \texttt{"deleteLevel"} A boolean value specifying whether to allow
+    the deletion of entire levels.
+  \item
+    \texttt{"addItem"} A boolean value specifying whether to allow new
+    \texttt{ITEM}s to be added.
+  \item
+    \texttt{"drawCrossHairs"} A boolean value specifying whether to draw
+    the cross hairs on signal canvases.
+  \item
+    \texttt{"drawSampleNrs"} A boolean value specifying whether to draw
+    the sample numbers in the OSCI canvas if zoomed in close enough to
+    see samples (mainly for debugging and development purposes).
+  \item
+    \texttt{"drawZeroLine"} A boolean value specifying whether to draw
+    the zero value line in OSCI canvas.
+  \item
+    \texttt{"bundleComments"} A boolean value specifying whether to
+    allow the annotator to add comments to bundles she or he has
+    annotated. A bundle comment field will show up in the bundle list
+    side bar for each bundle if this is set to true. Note that the
+    server has to support saving these comments, which the
+    \texttt{serve()} function of the \texttt{emuR} package does not.
+  \item
+    \texttt{"bundleFinishedEditing"} A boolean value specifying whether
+    to allow the annotator to mark when she or he has finished
+    annotating a bundle. A finished editing toggle button will show up
+    in the bundle list side bar for each bundle if this is set to
+    \texttt{true}. Note that the server has to support saving these
+    comments which the \texttt{serve()} function of the \texttt{emuR}
+    package does not.
+  \item
+    \texttt{"showPerspectivesSidebar"} A boolean value specifying
+    whether to show the perspectives side bar.
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item
+  \texttt{"activeButtons"} Specifies which top- or bottom-menu buttons
+  should be displayed by the \texttt{EMU-webApp}.
+
+  \begin{itemize}
+  \item
+    \texttt{"addLevelSeg"} A boolean value specifying whether to show
+    the \texttt{add\ SEGMENT\ level} button in the top menu bar.
+  \item
+    \texttt{"addLevelEvent"} A boolean value specifying whether to show
+    the \texttt{add\ EVENT\ level\ button} in the top menu bar.
+  \item
+    \texttt{"renameSelLevel"} A boolean value specifying whether to
+    allow the user to rename the currently selected level.
+  \item
+    \texttt{"downloadTextGrid"} A boolean value specifying whether to
+    allow the user to download the current annotation as a
+    \texttt{.TextGrid} file by displaying a \texttt{download\ TextGrid}
+    button in the top menu bar.
+  \item
+    \texttt{"downloadAnnotation"} A boolean value specifying whether to
+    allow the user to download the current annotation as an
+    \texttt{\_annot.json} file by displaying a
+    \texttt{download\ annotJSON} button in the top menu bar.
+  \item
+    \texttt{"specSettings"} A boolean value specifying whether to
+    display the \texttt{spec.\ settings} button in the top menu bar.
+  \item
+    \texttt{"connect"} A boolean value specifying whether to display the
+    \texttt{connect} button in the top menu bar.
+  \item
+    \texttt{"clear"} A boolean value specifying whether to display the
+    \texttt{clear} button in the top menu bar.
+  \item
+    \texttt{"deleteSingleLevel"} A boolean value specifying whether to
+    allow the user to delete a level containing time information.
+  \item
+    \texttt{"resizeSingleLevel"} A boolean value specifying whether to
+    allow the user to resize a level.
+  \item
+    \texttt{"saveSingleLevel"} A boolean value specifying whether to
+    allow the user to download a single level in the ESPS/waves+ format.
+  \item
+    \texttt{"resizeSignalCanvas"} A boolean value specifying whether to
+    allow the user to resize the \texttt{signalCanvases}
+    (\texttt{"OSCI"}, \texttt{"SPEC"}, \ldots{}).
+  \item
+    \texttt{"openDemoDB"} A boolean value specifying whether to show the
+    \texttt{open\ demoDB} button.
+  \item
+    \texttt{"saveBundle"} A boolean value specifying whether to show the
+    save button in bundle list side bar for each bundle.
+  \item
+    \texttt{"openMenu"} A boolean value specifying whether open bundle
+    list side bar button is displayed.
+  \item
+    \texttt{"showHierarchy"} A boolean value specifying whether to
+    display the \texttt{show\ hierarchy} button.
+  \end{itemize}
+\item
+  \texttt{"demoDBs"} An array of strings specifying which demoDBs to
+  display in the \texttt{open~demo} drop-down menu. Currently available
+  demo databases are \texttt{{[}"ae",~"ema",~"epgdorsal"{]}}.
+\end{itemize}
+
+\hypertarget{subsec:app_chapFileFormatsAnnotJSON}{%
+\subsection{\texorpdfstring{\texttt{\_annot.json}}{\_annot.json}}\label{subsec:app_chapFileFormatsAnnotJSON}}
+
+The \texttt{\_annot.json} files contain the actual annotation
+information as well as the hierarchical linking information. Legacy EMU
+users should note that all the information that used to be split into
+several ESPS/waves+ label files and a \texttt{.hlb} file is now
+contained in this single file.
+
+The \texttt{\_annot.json} file contains the following fields:
+
+\begin{itemize}
+\item
+  \texttt{"name"} Specifies the name of the annotation file (has to be
+  equal to the bundle directory prefix as well as the
+  \texttt{\_annot.json} prefix).
+\item
+  \texttt{"annotates"} Specifies the (relative) media file path that
+  this \texttt{\_annot.json} file annotates.
+\item
+  \texttt{"sampleRate"} Specifies the sample rate of the annotation
+  (should be the same as the sample rate of the file listed in
+  \texttt{"annotates"}).
+\item
+  \texttt{"levels"} Contains an array of level annotation informations.
+  Each element consists of:
+
+  \begin{itemize}
+  \item
+    \texttt{"name"} Specifies the name of the level.
+  \item
+    \texttt{"items"} An array containing the annotation items of the
+    level.
+
+    \begin{itemize}
+    \item
+      \texttt{"id"} The unique ID of the item (only unique within an
+      \texttt{\_annot.json} file or bundle, not globally for the
+      \texttt{emuDB}).
+    \item
+      \texttt{"sampleStart"} Contains start sample value of
+      \texttt{SEGMENT} item.
+    \item
+      \texttt{"sampleDur"} Contains sample duration value of
+      \texttt{SEGMENT} item. Note that the \texttt{EMU-webApp} does not
+      support overlapping \texttt{SEGMENT}s or \texttt{SEGMENT}
+      sequences containing gaps. This infers that each sample is
+      explicitly and unambiguously associated with a single
+      \texttt{SEGMENT}. This means that the \texttt{sampleStart} value
+      of a following \texttt{SEGMENT} has to be \texttt{sampleStart} +
+      \texttt{sampleDur} + 1 of the previous \texttt{SEGMENT}. When
+      converting the sample values to time values, the \texttt{start}
+      time value is calculated with the formula
+      \(start = \frac{sampleStart}{sampleRate} - \frac{0.5}{sampleRate}\)
+      and the \texttt{end} time value with the formula
+      \(end = \frac{sampleStart + sampleDur}{sampleRate} + \frac{0.5}{ sampleRate}\).
+      This is done to have gapless time values for successive
+      \texttt{SEGMENT}s. To avoid a negative time value when dealing
+      with the first sample of an audio file (\texttt{sampleStart} value
+      of \(0\)), the \texttt{start} time value is simply set to \(0\) in
+      this case. The \texttt{start} and \texttt{end} time value
+      calculation is performed by both the query engine of \texttt{emuR}
+      if the \texttt{calcTimes} parameter is set to \texttt{TRUE} and
+      the \texttt{EMU-webApp} to display the time information in the
+      signal canvases.
+    \item
+      \texttt{"samplePoint"} Contains sample point values of
+      \texttt{EVENT} items. When calculating the \texttt{start} time
+      values for \texttt{EVENT}s the following formula is used:
+      \(start = \frac{samplePoint}{sampleRate}\)
+    \item
+      \texttt{"labels"} An array containing labels that belong to this
+      item. Each element consists of:
+
+      \begin{itemize}
+      \item
+        \texttt{"name"} Specifies the \texttt{attributeDefinition} that
+        this label is for.
+      \item
+        \texttt{"value"} Specifies the label value.
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\item
+  \texttt{"links"} An array containing links between two items. These
+  links have to adhere to the links specified in
+  \texttt{linkDefinitions} of the corresponding \texttt{emuDB}. Each
+  link consists of:
+
+  \begin{itemize}
+  \item
+    \texttt{"fromID"} The ID value of the item to link from (i.e., item
+    in super-level).
+  \item
+    \texttt{"toID"} The ID value of item to link to (i.e., item in
+    sub-level).
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{subsec:app_chapFileFormatsSSFF}{%
+\subsection{The SSFF file format}\label{subsec:app_chapFileFormatsSSFF}}
+
+The SSFF file format is a binary file format which has a plain text
+header. This means that the header is human-readable and can be viewed
+with any text editor including common UNIX command line tools such as
+\texttt{less} or \texttt{cat}. Within R it is possible to view the
+header by using R's \texttt{readLines()} function as displayed in R
+Example \ref{rexample:wrassp-readSSFF}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load the emuR and wrassp packages}
+\KeywordTok{library}\NormalTok{(emuR, }\DataTypeTok{warn.conflicts =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(wrassp)}
+
+\CommentTok{# create demo data in directory }
+\CommentTok{# provided by tempdir()}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# create path to demo database}
+\NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
+
+\CommentTok{# create path to bundle in database}
+\NormalTok{path2bndl =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(path2ae, }\StringTok{"0000_ses"}\NormalTok{, }\StringTok{"msajc003_bndl"}\NormalTok{)}
+
+\CommentTok{# create path to .fms file }
+\NormalTok{path2fmsFile =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(path2bndl, }
+                        \KeywordTok{paste0}\NormalTok{(}\StringTok{"msajc003."}\NormalTok{, }
+\NormalTok{                               wrasspOutputInfos}\OperatorTok{$}\NormalTok{forest}\OperatorTok{$}\NormalTok{ext))}
+
+\CommentTok{# read in first 8 lines of .fms file.}
+\CommentTok{# Note that the header length may vary in other SSFF files.}
+\KeywordTok{readLines}\NormalTok{(path2fmsFile, }\DataTypeTok{n =} \DecValTok{8}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SSFF -- (c) SHLRC"            "Machine IBM-PC"              
+## [3] "Record_Freq 200.0"            "Start_Time 0.0025"           
+## [5] "Column fm SHORT 4"            "Column bw SHORT 4"           
+## [7] "Original_Freq DOUBLE 20000.0" "-----------------"
+\end{verbatim}
+
+The general line item structure of the plain text head of an SSFF file
+can be described as follows:
+
+\begin{itemize}
+\item
+  \texttt{SSFF\ –\ (c)\ SHLRC} (required line): File type marker.
+\item
+  \texttt{Machine\ IBM-PC} (required line): System architecture of the
+  machine that generated the file. This is mainly used to specify the
+  endianness of the data block (see below). \texttt{Machine\ IBM-PC}
+  indicates little-endian and \texttt{Machine\ SPARC} indicates
+  big-endian. To date, we have not encountered other machine types.
+\item
+  \texttt{Record\_Freq\ SR} (required line): Sample rate of current file
+  in Hz. If, for example, \texttt{SR} is 200.0 (see R Example
+  \ref{rexample:wrassp-readSSFF}) then the sample rate is 200 Hz.
+\item
+  \texttt{Start\_Time\ ST} (required line): Time of first sample block
+  in data block in seconds. This often deviates from 0.0 as
+  \texttt{wrassp}'s windowed signal processing functions start with the
+  first window centered around \texttt{windowShift} / 2. If the
+  \texttt{windowShift} parameter's default value is 5 ms, the start time
+  \texttt{ST} of the first sample block will be 0.0025 sec (see R
+  Example \ref{rexample:wrassp-readSSFF}).
+\item
+  \texttt{Column\ CN\ CDT\ CDL} (required line(s)): A \texttt{Column}
+  line entry contains four space-separated values, where \texttt{Column}
+  is the initial key word value. The second value, \texttt{CN}
+  (\texttt{fm} in R Example \ref{rexample:wrassp-readSSFF}), specifies
+  the name for the column; the third, \texttt{CDT} (\texttt{SHORT} in R
+  Example \ref{rexample:wrassp-readSSFF}), indicates the column's data
+  type; and the fourth, \texttt{CDL} (\texttt{4} in R Example
+  \ref{rexample:wrassp-readSSFF}), is the column's data length in bytes.
+  As can be seen in R Example \ref{rexample:wrassp-readSSFF}, it is
+  quite common for SSFF files to have multiple column entries. The
+  sequence of these entries is relevant, as it specifies the sequence of
+  the data in the binary data block (see below).
+\item
+  \texttt{NAME\ DT\ DV} (optional line(s)): Optional single value
+  definitions that have a \texttt{NAME}, a data type \texttt{DT} and a
+  data value \texttt{DV} (see \texttt{Original\_Freq\ DOUBLE\ 20000.0}
+  in R Example \ref{rexample:wrassp-readSSFF} specifying the original
+  sample rate of the audio file the \texttt{.fms} file was generated
+  from).
+\item
+  \texttt{Comment\ CHAR\ string\ of\ variable\ length} (optional
+  line(s)): The \texttt{Comment\ CHAR} allows for comment strings to be
+  added to the header.
+\item
+  \texttt{—————–} (required line): marks the end of the plain text
+  header.
+\end{itemize}
+
+The binary data block of the SSFF file format stores its data in a
+so-called interleaved fashion. This means it does not store the binary
+data belonging to every column in a separate data block. Rather, it
+interleaves the columns to form sample blocks that occur at the same
+point in time. Figure \ref{fig:wrassp-ssffDataBlock} displays a sequence
+of short integer values where the subscript text indicates the index in
+the sequence. This sequence represents a schematic representation of the
+data block of the \texttt{.fms} file of R Example
+\ref{fig:wrassp-ssffDataBlock}. The first four
+{\texttt{INT16}\textsubscript{\texttt{1-4}}} (green) blocks represent
+the first four \texttt{INT16} formant values that belong to the
+\texttt{fm} column and the next four
+{\texttt{INT16}\textsubscript{\texttt{5-8}}} (orange) represent the
+first four bandwidth values belonging to the \texttt{bm} column.
+Therefore, the dashed square marks the first sample block (i.e., the
+first eight F1, F2, F3 and F4; and F1\textsubscript{bandwidth},
+F2\textsubscript{bandwidth}, F3\textsubscript{bandwidth} and
+F4\textsubscript{bandwidth} values) that occur at the time specified by
+the \texttt{Start\_Time\ 0.0025} header entry. The time of all
+subsequent sample blocks of eight \texttt{INT16} values (e.g.,
+\texttt{INT16}\textsubscript{\texttt{9-16}}) can be calculated as
+follows:
+\texttt{0.0025\ (==\ Start\_Time)\ +\ 1\ /\ 200.0\ (==\ Record\_Freq)\ *\ sample\ block\ index}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{pics/ssffDataBlock} 
+
+}
+
+\caption{Schematic representation of the data block of the `msajc003.fms` file of R Example ref{rexample:wrassp-readSSFF}.}\label{fig:wrassp-ssffDataBlock}
+\end{figure}
+
+\hypertarget{example-files}{%
+\section{Example files}\label{example-files}}
+
+\hypertarget{subsec:app-chapExampleFilesBundleList}{%
+\subsection{\texorpdfstring{\texttt{\_bundleList.json}}{\_bundleList.json}}\label{subsec:app-chapExampleFilesBundleList}}
+
+Compared to the \texttt{\_DBconfig.json} and \texttt{\_annot.json}
+files, the \texttt{\_bndl.json} format is not part of the \texttt{emuDB}
+database specification. Rather, it is part of the
+\texttt{EMU-webApp-websocket-protocol} and is used as a standardized
+format to transport information about all the available bundles to the
+\texttt{EMU-webApp}. It is not meant as an on-disk file format but
+rather should be generated on-demand by the server implementing the
+\texttt{EMU-webApp-websocket-protocol}. A schematic example of a
+\texttt{\_bndl.json} file is displayed in Listing
+\ref{lst:bndlListJSON}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OtherTok{[}
+  \FunctionTok{\{}
+  \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"msajc003"}\FunctionTok{,}
+  \DataTypeTok{"session"}\FunctionTok{:} \StringTok{"0000"}\FunctionTok{,}
+  \DataTypeTok{"finishedEditing"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+  \DataTypeTok{"comment"}\FunctionTok{:} \StringTok{""}\FunctionTok{,}
+  \DataTypeTok{"timeAnchors"}\FunctionTok{:} \OtherTok{[}
+    \FunctionTok{\{}
+      \DataTypeTok{"sample_start"}\FunctionTok{:} \DecValTok{1000}\FunctionTok{,}
+      \DataTypeTok{"sample_end"}\FunctionTok{:} \DecValTok{2000}
+    \FunctionTok{\}}\OtherTok{,} \ErrorTok{...}
+  \OtherTok{]}
+  \FunctionTok{\}}\OtherTok{,}
+  \FunctionTok{\{}
+  \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"msajc010"}\FunctionTok{,}
+  \DataTypeTok{"session"}\FunctionTok{:} \StringTok{"0000"}\FunctionTok{,}
+  \DataTypeTok{"finishedEditing"}\FunctionTok{:} \KeywordTok{false}\FunctionTok{,}
+  \DataTypeTok{"comment"}\FunctionTok{:} \StringTok{""}
+  \FunctionTok{\}}
+\OtherTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{subsec:app_chapExampleFilesBndlJSON}{%
+\subsection{\texorpdfstring{\texttt{\_bndl.json}}{\_bndl.json}}\label{subsec:app_chapExampleFilesBndlJSON}}
+
+Compared to the \texttt{\_DBconfig.json} and \texttt{\_annot.json}
+files, the \texttt{\_bndl.json} format is not part of the \texttt{emuDB}
+database specification. Rather, it is part of the
+\texttt{EMU-webApp-websocket-protocol} and is used as a standardized
+format to transport all the data belonging to a single bundle to the
+\texttt{EMU-webApp}. It is not meant as an on-disk file format by rather
+should generated on-demand by the server implementing the
+\texttt{EMU-webApp-websocket-protocol}. A schematic example of a
+\texttt{\_bndl.json} file is displayed in Listing \ref{lst:bndlJSON}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+ \DataTypeTok{"ssffFiles"}\FunctionTok{:} \OtherTok{[}
+  \FunctionTok{\{}
+   \DataTypeTok{"fileExtension"}\FunctionTok{:} \StringTok{"fms"}\FunctionTok{,}
+   \DataTypeTok{"encoding"}\FunctionTok{:} \StringTok{"BASE64"}\FunctionTok{,}
+   \DataTypeTok{"data"}\FunctionTok{:} \StringTok{"U1N..."}
+  \FunctionTok{\}}
+ \OtherTok{]}\FunctionTok{,}
+ \DataTypeTok{"mediaFile"}\FunctionTok{:} \FunctionTok{\{}
+  \DataTypeTok{"encoding"}\FunctionTok{:} \StringTok{"BASE64"}\FunctionTok{,}
+  \DataTypeTok{"data"}\FunctionTok{:} \StringTok{"Ukl..."}
+ \FunctionTok{\},}
+ \DataTypeTok{"annotation"}\FunctionTok{:} \ErrorTok{contentOfAnnot.json}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{contentOfAnnot.json} in Listing \ref{lst:bndlJSON} refers to the
+content of a \texttt{\_annot.json} file.
+
+\hypertarget{app-chap:wsProtocol}{%
+\chapter[The \texttt{EMU-webApp-websocket-protocol} Version 2.0
+]{\texorpdfstring{The \texttt{EMU-webApp-websocket-protocol} Version 2.0
+\footnote{This appendix chapter is an updated version of a similar
+  description that is part of the \texttt{EMU-webApp} manual.}}{The EMU-webApp-websocket-protocol Version 2.0 }}\label{app-chap:wsProtocol}}
+
+This chapter describes the \texttt{EMU-webApp-websocket-protocol} in its
+current version.
+
+\hypertarget{protocol-overview}{%
+\section{Protocol overview}\label{protocol-overview}}
+
+The \texttt{EMU-webApp-websocket-protocol} consists of a set of
+request-response JSON files that control the interaction between the
+client (the \texttt{EMU-webApp}) and a server supporting the protocol. A
+graph depicting the protocol is shown in the Figure
+\ref{fig:app-chapWsProtocolGraph}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{pics/protocol} 
+
+}
+
+\caption{Schematic of the `EMU-webApp-websocket-protocol`.}\label{fig:app-chapWsProtocolGraph}
+\end{figure}
+
+\hypertarget{protocol-commands}{%
+\section{Protocol commands}\label{protocol-commands}}
+
+\hypertarget{getprotocol}{%
+\subsection{\texorpdfstring{\texttt{GETPROTOCOL}}{GETPROTOCOL}}\label{getprotocol}}
+
+Initial request to see if client and server speak the same protocol.
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'GETPROTOCOL'}\OperatorTok{,}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'protocol'}\OperatorTok{:} \StringTok{'EMU-webApp-websocket-protocol'}\OperatorTok{,}
+    \StringTok{'version'}\OperatorTok{:} \StringTok{'0.0.2'}
+  \OperatorTok{\},}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{getdousermanagement}{%
+\subsection{\texorpdfstring{\texttt{GETDOUSERMANAGEMENT}}{GETDOUSERMANAGEMENT}}\label{getdousermanagement}}
+
+Ask server if it wishes to perform user management (will toggle user
+login modal window if \texttt{data} is \texttt{YES}).
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'GETDOUSERMANAGEMENT'}\OperatorTok{,}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:} \StringTok{'NO'}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{logonuser}{%
+\subsection{\texorpdfstring{\texttt{LOGONUSER}}{LOGONUSER}}\label{logonuser}}
+
+Ask server to log user on. Username and password are sent to server
+(please only use \texttt{wss} to avoid password being sent in plain
+text!). This protocol command is sent by the user login modal window.
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'LOGONUSER'}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'userName'}\OperatorTok{:} \StringTok{'smith'}\OperatorTok{,}
+    \StringTok{'pwd'}\OperatorTok{:}\StringTok{'mySecretPwd'}
+  \OperatorTok{\},}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:} \StringTok{'BADUSERNAME'} \OperatorTok{|} \StringTok{'BADPASSWORD'} \OperatorTok{|} \StringTok{'LOGGEDON'}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{getglobaldbconfig}{%
+\subsection{\texorpdfstring{\texttt{GETGLOBALDBCONFIG}}{GETGLOBALDBCONFIG}}\label{getglobaldbconfig}}
+
+Request the \texttt{\_DBconfig.json} file.
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'GETGLOBALDBCONFIG'}\OperatorTok{,}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:}\NormalTok{ configData}\OperatorTok{,}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In the above Listing, \texttt{configData} represents the Javascript
+object that is the \texttt{\_DBconfig.json} file of the respective
+database.
+
+\hypertarget{getbundlelist}{%
+\subsection{\texorpdfstring{\texttt{GETBUNDLELIST}}{GETBUNDLELIST}}\label{getbundlelist}}
+
+Next a \texttt{\_bundleList.json} is requested containing the available
+bundles. The information contained in this file is what is displayed in
+the bundle list side bar. An example of a \texttt{\_bundleList.json}
+file is shown in Appendix \ref{subsec:app-chapExampleFilesBundleList}.
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'GETBUNDLELIST'}\OperatorTok{,}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:}\NormalTok{ bundleList}\OperatorTok{,}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{getbundle}{%
+\subsection{\texorpdfstring{\texttt{GETBUNDLE}}{GETBUNDLE}}\label{getbundle}}
+
+After receiving the \texttt{\_bundleList.json} file by default, the
+first bundle in the file is requested in the form of a
+\texttt{\_bndl.json} file. This request is also sent when the user
+clicks a bundle in the bundle list side bar of the \texttt{EMU-webApp}.
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'GETBUNDLE'}\OperatorTok{,}
+  \StringTok{'name'}\OperatorTok{:} \StringTok{'msajc003'}\OperatorTok{,}
+  \StringTok{'session'}\OperatorTok{:} \StringTok{'0000'}\OperatorTok{,}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:}\NormalTok{ bundleData}\OperatorTok{,}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In the Listing above \texttt{bundleData} is the Javascript object
+containing all SSFF files (encoded as a base64 strings) and audio
+(encoded as a base64 string) and \texttt{\_annot.json} that are
+associated with this bundle. An example of \texttt{\_bndl.json} is given
+in Appendix \ref{subsec:app-chapExampleFilesBndlJSON}.
+
+\hypertarget{savebundle}{%
+\subsection{\texorpdfstring{\texttt{SAVEBUNDLE}}{SAVEBUNDLE}}\label{savebundle}}
+
+This function should be called if the user saves a loaded bundle (by
+pushing the save button in the bundle list side bar).
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'SAVEBUNDLE'}\OperatorTok{,}
+  \StringTok{'data'}\OperatorTok{:}\NormalTok{ bundleData}\OperatorTok{,}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+In the Listing above \texttt{bundleData} is a Javascript object that
+corresponds to a \texttt{\_bndl.json} file. As currently only
+annotations and formant tracks can be altered by the
+\texttt{EMU-webApp}, only the \texttt{\_annot.json} and formant track
+SSFF file (if applicable) are sent to the server to be saved.
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{disconnectwarning}{%
+\subsection{\texorpdfstring{\texttt{DISCONNECTWARNING}}{DISCONNECTWARNING}}\label{disconnectwarning}}
+
+Function that tells the server that it is about to disconnect. This is
+currently needed because the \texttt{httpuv} R package cannot listen to
+the websocket's own ``close'' event.
+
+\begin{itemize}
+\tightlist
+\item
+  Request (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'type'}\OperatorTok{:} \StringTok{'DISCONNECTWARNING'}
+  \StringTok{'callbackID'}\OperatorTok{:} \StringTok{'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Response (sent JSON file):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'SUCCESS'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{''}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{error-handling}{%
+\subsection{Error handling}\label{error-handling}}
+
+If an error occurs with any of the request types above, a response
+should still be sent to the client. The status of this response should
+be set to \texttt{ERROR} and an error message should be given in the
+message field. This message will then be displayed by the
+\texttt{EMU-webApp}.
+
+\begin{itemize}
+\tightlist
+\item
+  ERROR response:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\{}
+  \StringTok{'callbackID'}\OperatorTok{:} \VariableTok{request}\NormalTok{.}\AttributeTok{callbackID}\OperatorTok{,}
+  \StringTok{'status'}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{'type'}\OperatorTok{:} \StringTok{'ERROR'}\OperatorTok{,}
+    \StringTok{'message'}\OperatorTok{:} \StringTok{'An error occured trying to read a file from disk. Please make sure: /path/to/file exists or check the config...}
+  \OperatorTok{\}}
+\OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{app-chap:EQL-EBNF}{%
+\chapter[EQL EBNF ]{\texorpdfstring{EQL EBNF \footnote{The EBNF
+  presented here is an updated version of the EBNF of the \texttt{EQL}
+  vignette.}}{EQL EBNF }}\label{app-chap:EQL-EBNF}}
+
+This chapter presents the EBNF \citep{garshol:2003a} that describes
+version 2 of the EQL. As the original EBNF adapted from
+\citet{john:2012a} was written in German, some of the abbreviation terms
+were translated into English abbreviations (e.g., \texttt{DOMA} is the
+abbreviation for the German term \textbf{Dom}inanz\textbf{a}bfrage and
+the newly translated \texttt{DOMQ} is the abbreviation for the English
+term \textbf{dom}ination \textbf{q}uery).
+
+\hypertarget{terminal-symbols-of-eql2-operators-and-their-meaning}{%
+\section{Terminal symbols of EQL2 (operators) and their
+meaning}\label{terminal-symbols-of-eql2-operators-and-their-meaning}}
+
+The terminal symbols described below are listed in descending order by
+their binding priority.
+
+Symbol
+
+Meaning
+
+\texttt{\#}
+
+Result modifier (projection)
+
+\texttt{,}
+
+Parameter list separator
+
+\texttt{==}
+
+Equality (new in version 2 of the EQL; added for cleaner syntax)
+
+\texttt{=}
+
+Equality (optional; for backwards compatibility)
+
+\texttt{!=}
+
+Inequality
+
+\texttt{=\textasciitilde{}}
+
+Regular expression matching
+
+\texttt{!\textasciitilde{}}
+
+Regular expression non-matching
+
+\texttt{\&gt;}
+
+Greater than
+
+\texttt{\&gt;=}
+
+Equal to or greater than
+
+\texttt{\&lt;}
+
+Less than
+
+\texttt{\&gt;=}
+
+Equal to or less than
+
+\texttt{\textbar{}}
+
+Alternatives separator
+
+\texttt{\&amp;}
+
+Conjunction of equal rank
+
+\texttt{\^{}}
+
+Dominance conjunction
+
+\texttt{-\&gt;}
+
+Sequence operator
+
+\hypertarget{terminal-symbols-of-eql2-brackets-and-their-meanings.}{%
+\section{Terminal symbols of EQL2 (brackets) and their
+meanings.}\label{terminal-symbols-of-eql2-brackets-and-their-meanings.}}
+
+Symbol
+
+Meaning
+
+\texttt{\textquotesingle{}}
+
+Quotes literal string
+
+\texttt{(}
+
+Function parameter list opening bracket
+
+\texttt{)}
+
+Function parameter list closing bracket
+
+\texttt{{[}}
+
+Sequence or dominance-enclosing opening bracket
+
+\texttt{{]}}
+
+Sequence or dominance-enclosing closing bracket
+
+\hypertarget{terminal-symbols-of-eql2-functions-and-their-meanings.}{%
+\section{Terminal symbols of EQL2 (functions) and their
+meanings.}\label{terminal-symbols-of-eql2-functions-and-their-meanings.}}
+
+Symbol
+
+Meaning
+
+\texttt{Start}
+
+Start
+
+\texttt{Medial}
+
+Medial
+
+\texttt{End}
+
+Final
+
+\texttt{Num}
+
+Count
+
+\hypertarget{formal-description-of-emu-query-language-version-2}{%
+\section{Formal description of EMU Query Language Version
+2}\label{formal-description-of-emu-query-language-version-2}}
+
+EBNF\_term
+
+Abbreviation
+
+Conditions
+
+\texttt{EQL\ =\ CONJQ\ \textbar{}\ SEQQ\ \textbar{}\ DOMQ;}
+
+\textbf{E}MU \textbf{Q}uery \textbf{L}anguage
+
+\texttt{DOMQ\ =\ \&quot;{[}\&quot;,\ (\ CONJQ\ \textbar{}\ DOMQ\ \textbar{}\ SEQQ\ ),\ \&quot;\^{}\&quot;,\ (\ CONJQ\ \textbar{}\ DOMQ\ \textbar{}\ SEQQ\ ),\ \&quot;{]}\&quot;;}
+
+\textbf{dom}inance \textbf{q}uery
+
+levels must be hierarchically associated
+
+\texttt{SEQQ\ =\ \&quot;{[}\&quot;,\ (\ CONJQ\ \textbar{}\ SEQQ\ \textbar{}\ DOMQ\ ),\ \&quot;-\&gt;\&quot;,\ (\ CONJQ\ \textbar{}\ SEQQ\ \textbar{}\ DOMQ\ ),\ \&quot;{]}\&quot;;}
+
+\textbf{seq}uential \textbf{q}uery
+
+levels must be linearly associated
+
+\texttt{CONJQ\ =\ \{\ \&quot;{[}\&quot;\ \},\ SQ,\ \{\ \&quot;\&amp;\&quot;,\ SQ\ \},\ \{\ \&quot;{]}\&quot;\ \};}
+
+\textbf{conj}unction \textbf{q}uery
+
+levels must be linearly associated
+
+\texttt{SQ\ =\ LABELQ\ \textbar{}\ FUNCQ;}
+
+\textbf{s}imple \textbf{q}uery
+
+\texttt{LABELQ\ =\ {[}\ \&quot;\#\&quot;\ {]},\ LEVEL,\ (\ \&quot;=\&quot;\ \textbar{}\ \&quot;==\&quot;\ \textbar{}\ \&quot;!=\&quot;\ \textbar{}\ \&quot;=\textasciitilde{}\&quot;\ \textbar{}\ \&quot;!\textasciitilde{}\&quot;\ ),\ LABELALTERNATIVES;}
+
+\textbf{label} \textbf{q}uery
+
+\texttt{FUNCQ\ =\ POSQ\ \textbar{}\ NUMQ;}
+
+\textbf{fun}ction \textbf{q}uery
+
+\texttt{POSQ\ =\ POSFCT,\ \&quot;(\&quot;,\ LEVEL,\ \&quot;,\&quot;,\ LEVEL,\ \&quot;)\&quot;,\ \&quot;=\&quot;,\ \&quot;0\&quot;\ \textbar{}\ \&quot;1\&quot;;}
+
+\textbf{position} \textbf{q}uery
+
+levels must be hierarchically associated; second level determines
+semantics
+
+\texttt{NUMQ\ =\ \&quot;Num\&quot;,\ \&quot;(\&quot;,\ LEVEL,\ \&quot;,\&quot;,\ LEVEL,\ \&quot;)\&quot;,\ COP,\ INTPN;}
+
+\textbf{number} \textbf{q}uery
+
+levels must be hierarchically associated; first level determines
+semantics
+
+\texttt{LABELALTERNATIVES\ =\ LABEL\ ,\ \{\ \&quot;\textbar{}\&quot;,\ LABEL\ \};}
+
+\textbf{label alternatives}
+
+\texttt{LABEL\ =\ LABELING\ \textbar{}\ (\ \&quot;\textquotesingle{}\&quot;,\ LABELING,\ \&quot;\textquotesingle{}\&quot;\ );}
+
+\textbf{label}
+
+levels must be part of the database structure; \texttt{LABELING} is an
+arbitrary character string or a label group class configured in the
+emuDB; result modifier \texttt{\#} may only occur once
+
+\texttt{POSFCT\ =\ \&quot;Start\&quot;\ \textbar{}\ \&quot;Medial\&quot;\ \textbar{}\ \&quot;End\&quot;;}
+
+\textbf{pos}ition \textbf{f}un\textbf{ct}ion
+
+\texttt{COP\ =\ \&quot;=\&quot;\ \textbar{}\ \&quot;==\&quot;\ \textbar{}\ \&quot;!=\&quot;\ \textbar{}\ \&quot;\&gt;\&quot;\ \textbar{}\ \&quot;\&lt;\&quot;\ \textbar{}\ \&quot;\&lt;=\&quot;\ \textbar{}\ \&quot;\&gt;=\&quot;;}
+
+\textbf{c}omparison \textbf{o}perator
+
+\texttt{INTPN\ =\ \&quot;0\&quot;\ \textbar{}\ INTP;}
+
+\textbf{int}eger \textbf{p}ositive with \textbf{n}ull
+
+\texttt{INTP\ =\ DIGIT-\&quot;0\&quot;,\ \{\ DIGIT\ \};}
+
+\textbf{int}eger \textbf{p}ositive
+
+\texttt{DIGIT\ =\ \&quot;0\&quot;\ \textbar{}\ \&quot;1\&quot;\ \textbar{}\ \&quot;2\&quot;\ \textbar{}\ \&quot;3\&quot;\ \textbar{}\ \&quot;4\&quot;\ \textbar{}\ \&quot;5\&quot;\ \textbar{}\ \&quot;6\&quot;\ \textbar{}\ \&quot;7\&quot;\ \textbar{}\ \&quot;8\&quot;\ \textbar{}\ \&quot;9\&quot;;}
+
+\textbf{digit}
+
+\textbf{INFO:} The \texttt{LABELING} term used in the \texttt{LABEL}
+EBNF term can represent any character string that is present in the
+annotation. As this can be any combination of Unicode characters, we
+chose not to explicitly list them as part of the EBNF.
+
+\hypertarget{restrictions}{%
+\section{Restrictions}\label{restrictions}}
+
+A query may only contain a single result modifier \texttt{\#} (hashtag).
+
 \hypertarget{app-chap:eql}{%
 \chapter{EQL: further examples}\label{app-chap:eql}}
 
@@ -9299,6 +10715,175 @@ ordered by the fields utts and start.
     \texttt{query("andosl",\ "Text\ =\textasciitilde{}\ .*tz.*")}
   \end{itemize}
 \end{itemize}
+
+\hypertarget{app-chap:wrassp}{%
+\chapter{\texorpdfstring{\texttt{wrassp}}{wrassp}}\label{app-chap:wrassp}}
+
+\hypertarget{sec:app-chap-wrassp-praatsSigProc}{%
+\section{Using Praat's signal processing routines in the
+EMU-SDMS}\label{sec:app-chap-wrassp-praatsSigProc}}
+
+R Example @ref(rexample:app-chap-wrassp\_praatToFormants) shows how
+generating an \texttt{AsspDataObj} from scratch can be used in a
+function to place data from other sources into SSFF files. In this case
+it uses the \texttt{PraatR} R package (see
+\url{http://www.aaronalbin.com/praatr/index.html}) to execute Praat's
+\texttt{"To\ Formant\ (burg)..."} function to then store the data to a
+comma separated file using \texttt{"Down\ to\ Table..."}. The generated
+table is then read into R and the appropriate columns are placed into
+tracks of a \texttt{AsspDataObj} object. The
+\texttt{PraatToFormants2AsspDataObj} can be viewed as a template
+function as it can easily be adapted to use other functions provided by
+Praat or even other external tools.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{###################################}
+\CommentTok{# uncomment and execute the next }
+\CommentTok{# two lines to install PraatR}
+\CommentTok{# library(devtools)}
+\CommentTok{# install_github('usagi5886/PraatR')}
+\KeywordTok{library}\NormalTok{(PraatR)}
+\KeywordTok{library}\NormalTok{(wrassp)}
+\KeywordTok{library}\NormalTok{(tools)}
+
+\NormalTok{PraatToFormants2AsspDataObj <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path,}
+                                        \DataTypeTok{command =} 
+                                          \StringTok{"To Formant (burg)..."}\NormalTok{,}
+                                        \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }
+                                                         \DecValTok{5}\NormalTok{, }\DecValTok{5500}\NormalTok{, }
+                                                         \FloatTok{0.025}\NormalTok{, }\DecValTok{50}\NormalTok{), }
+                                        \DataTypeTok{columnNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"fm"}\NormalTok{, }\StringTok{"bw"}\NormalTok{))\{}
+  
+\NormalTok{  tmp1FileName =}\StringTok{ "tmp.ooTextFile"}
+\NormalTok{  tmp2FileName =}\StringTok{ "tmp.table"}
+  
+\NormalTok{  tmp1FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName)}
+\NormalTok{  tmp2FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName)}
+  
+  \CommentTok{# remove tmp files if they already exist}
+  \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName))}
+  \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName))}
+  
+  \CommentTok{# generate ooTextFile}
+  \KeywordTok{praat}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ command, }
+        \DataTypeTok{input=}\NormalTok{path, }
+        \DataTypeTok{arguments =}\NormalTok{ arguments, }
+        \DataTypeTok{output =}\NormalTok{ tmp1FilePath)}
+  
+  \CommentTok{# convert to Table}
+  \KeywordTok{praat}\NormalTok{(}\StringTok{"Down to Table..."}\NormalTok{,}
+        \DataTypeTok{input =}\NormalTok{ tmp1FilePath,}
+        \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(F, T, }\DecValTok{6}\NormalTok{, F, }\DecValTok{3}\NormalTok{, T, }\DecValTok{3}\NormalTok{, T), }
+        \DataTypeTok{output =}\NormalTok{ tmp2FilePath,}
+        \DataTypeTok{filetype=}\StringTok{"comma-separated"}\NormalTok{)}
+  
+  \CommentTok{# get vals}
+\NormalTok{  df =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(tmp2FilePath, }\DataTypeTok{stringsAsFactors=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{  df[df }\OperatorTok{==}\StringTok{ '--undefined--'}\NormalTok{] =}\StringTok{ }\DecValTok{0}
+  
+\NormalTok{  fmVals =}\StringTok{ }\NormalTok{df[,}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{11}\NormalTok{)]}
+\NormalTok{  fmVals =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(fmVals), }\ControlFlowTok{function}\NormalTok{(x)\{}
+    \KeywordTok{as.integer}\NormalTok{(fmVals[,x])}
+\NormalTok{    \})}
+  \KeywordTok{colnames}\NormalTok{(fmVals) =}\StringTok{ }\OtherTok{NULL}
+\NormalTok{  bwVals =}\StringTok{ }\KeywordTok{data.matrix}\NormalTok{(df[,}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{12}\NormalTok{)])}
+\NormalTok{  bwVals =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(bwVals), }\ControlFlowTok{function}\NormalTok{(x)\{}
+    \KeywordTok{as.integer}\NormalTok{(bwVals[,x])}
+\NormalTok{    \})}
+  \KeywordTok{colnames}\NormalTok{(bwVals) =}\StringTok{ }\OtherTok{NULL}
+  
+  \CommentTok{# get start time}
+\NormalTok{  startTime =}\StringTok{ }\NormalTok{df[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
+
+  \CommentTok{# create AsspDataObj}
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+  
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"trackFormats"}\NormalTok{) =}\KeywordTok{c}\NormalTok{(}\StringTok{"INT16"}\NormalTok{, }\StringTok{"INT16"}\NormalTok{)}
+  
+  \ControlFlowTok{if}\NormalTok{(arguments[[}\DecValTok{1}\NormalTok{]] }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
+\NormalTok{    sR =}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{(}\FloatTok{0.25} \OperatorTok{*}\StringTok{ }\NormalTok{arguments[[}\DecValTok{4}\NormalTok{]])}
+\NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
+\NormalTok{    sR =}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{arguments[[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{  \}}
+  
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"sampleRate"}\NormalTok{) =}\StringTok{ }\NormalTok{sR}
+  
+\NormalTok{  tmpObj =}\StringTok{ }\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"origFreq"}\NormalTok{) =}\StringTok{ }\KeywordTok{attr}\NormalTok{(tmpObj, }\StringTok{"sampleRate"}\NormalTok{)}
+  
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{startTime}
+  
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startRecord"}\NormalTok{) =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+  
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"endRecord"}\NormalTok{) =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(fmVals))}
+  
+  \KeywordTok{class}\NormalTok{(ado) =}\StringTok{ "AsspDataObj"}
+  
+  \KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
+  \KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+  
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{1}\NormalTok{], fmVals, }\StringTok{"INT16"}\NormalTok{)}
+  
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{2}\NormalTok{], bwVals, }\StringTok{"INT16"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(ado)}
+\NormalTok{\}}
+
+\NormalTok{########################################}
+\CommentTok{# Use of function on 'ae' emuDB}
+\KeywordTok{library}\NormalTok{(emuR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'emuR'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:base':
+## 
+##     norm
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create demo data in tempdir()}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# create path to demo database}
+\NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
+
+\CommentTok{# list all .wav files in the ae emuDB}
+\NormalTok{paths2wavFiles =}\StringTok{ }\KeywordTok{list.files}\NormalTok{(path2ae, }\DataTypeTok{pattern =} \StringTok{"*.wav$"}\NormalTok{, }
+                            \DataTypeTok{recursive =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{full.names =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# loop through files}
+\ControlFlowTok{for}\NormalTok{(fp }\ControlFlowTok{in}\NormalTok{ paths2wavFiles)\{}
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{PraatToFormants2AsspDataObj}\NormalTok{(fp)}
+\NormalTok{  newPath =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\KeywordTok{file_path_sans_ext}\NormalTok{(fp), }\StringTok{'.praatFms'}\NormalTok{)}
+  \CommentTok{# print(paste0(fp, ' -> ', newPath)) # uncomment for simple log}
+  \KeywordTok{write.AsspDataObj}\NormalTok{(ado, }\DataTypeTok{file =}\NormalTok{ newPath)}
+\NormalTok{\}}
+
+\CommentTok{# load emuDB}
+\NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# add SSFF track definition}
+\KeywordTok{add_ssffTrackDefinition}\NormalTok{(ae, }
+                        \DataTypeTok{name =} \StringTok{"praatFms"}\NormalTok{, }
+                        \DataTypeTok{columnName =} \StringTok{"fm"}\NormalTok{,}
+                        \DataTypeTok{fileExtension =} \StringTok{"praatFms"}\NormalTok{)}
+
+\CommentTok{# test query + get_trackdata}
+\NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic == n"}\NormalTok{)}
+
+\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, sl, }\DataTypeTok{ssffTrackName =} \StringTok{"praatFms"}\NormalTok{, }\DataTypeTok{verbose =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{\{r\ echo=FALSE,\ results=\textquotesingle{}hide\textquotesingle{},\ message=FALSE\textgreater{}\textgreater{}=\ \#\ clean\ up\ emuR\_demoData\ unlink(file.path(tempdir(),\ "emuR\_demoData"),\ recursive\ =\ TRUE)}
 
 \bibliography{book.bib}
 

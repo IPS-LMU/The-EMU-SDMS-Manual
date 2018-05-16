@@ -21,7 +21,11 @@ rmd_files: [
   "emu-webApp_impl.Rmd",
 
   "app_chap-useCases.Rmd",
+  "app_chap-fileFormats.Rmd",
+  "app_chap-wsProtocol.Rmd",
+  "app_chap-ebnf.Rmd",
   "app_chap-eql.Rmd",
+  "app_chap-wrassp.Rmd",
 
   "bibliography.Rmd"
 ]
