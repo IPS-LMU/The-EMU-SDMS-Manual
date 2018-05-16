@@ -123,8 +123,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 myFirst 
-## UUID:	 21ab3230-a512-416e-9d45-adaebb174248 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpJ90jz2/myFirst_emuDB 
+## UUID:	 77ece9f6-95ef-448e-877d-15acd768bf15 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp436rAg/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 

@@ -12,7 +12,7 @@
   <meta property="og:title" content="The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
-  
+  <meta property="og:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
   <meta property="og:description" content="The EMU-SDMS Manual" />
   <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
 
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="The EMU-SDMS Manual" />
   
   <meta name="twitter:description" content="The EMU-SDMS Manual" />
-  
+  <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
 
 <meta name="author" content="Raphael Winkelmann">
 
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="chap-emu-webAppImplementation.html">
-<link rel="next" href="references.html">
+<link rel="next" href="app-chap-eql.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -261,6 +261,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
 <li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
 <li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="app-chap-eql.html"><a href="app-chap-eql.html"><i class="fa fa-check"></i><b>15</b> EQL: further examples</a><ul>
+<li class="chapter" data-level="15.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-equality-inequality-matching-non-matching-queries-single-argument"><i class="fa fa-check"></i><b>15.1</b> Simple equality, inequality, matching and non-matching queries (single-argument)</a></li>
+<li class="chapter" data-level="15.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#sequence-queries-using-the---sequence-operator"><i class="fa fa-check"></i><b>15.2</b> Sequence queries using the -&gt; sequence operator</a></li>
+<li class="chapter" data-level="15.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#subsequent-sequence-queries-using-nesting-of-the---sequence-operator"><i class="fa fa-check"></i><b>15.3</b> Subsequent sequence queries using nesting of the <code>-&gt;</code> sequence operator</a></li>
+<li class="chapter" data-level="15.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#conjunction-operator"><i class="fa fa-check"></i><b>15.4</b> Conjunction operator &amp;</a></li>
+<li class="chapter" data-level="15.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#domination-operator-hierarchical-queries"><i class="fa fa-check"></i><b>15.5</b> Domination operator ^ (hierarchical queries)</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-domination"><i class="fa fa-check"></i><b>15.5.1</b> Simple domination</a></li>
+<li class="chapter" data-level="15.5.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#multiple-domination"><i class="fa fa-check"></i><b>15.5.2</b> Multiple domination</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position"><i class="fa fa-check"></i><b>15.6</b> Position</a><ul>
+<li class="chapter" data-level="15.6.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-usage-of-start-end-and-medial"><i class="fa fa-check"></i><b>15.6.1</b> Simple usage of <code>Start()</code>, <code>End()</code> and <code>Medial()</code></a></li>
+<li class="chapter" data-level="15.6.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean"><i class="fa fa-check"></i><b>15.6.2</b> Position and boolean &amp;</a></li>
+<li class="chapter" data-level="15.6.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean-1"><i class="fa fa-check"></i><b>15.6.3</b> Position and boolean ^</a></li>
+<li class="chapter" data-level="15.6.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and-boolean"><i class="fa fa-check"></i><b>15.6.4</b> Count and boolean <code>&amp;</code></a></li>
+<li class="chapter" data-level="15.6.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and"><i class="fa fa-check"></i><b>15.6.5</b> Count and ^</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="app-chap-eql.html"><a href="app-chap-eql.html#combinations"><i class="fa fa-check"></i><b>15.7</b> Combinations</a><ul>
+<li class="chapter" data-level="15.7.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---domination-and-sequence"><i class="fa fa-check"></i><b>15.7.1</b> ^ and -&gt; (domination and sequence)</a></li>
+<li class="chapter" data-level="15.7.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---and-domination-and-sequence-and-boolean"><i class="fa fa-check"></i><b>15.7.2</b> ^ and -&gt; and &amp; (domination and sequence and boolean &amp;)</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="app-chap-eql.html"><a href="app-chap-eql.html#a-few-more-questions-and-answers"><i class="fa fa-check"></i><b>15.8</b> A few more questions and answers</a></li>
+<li class="chapter" data-level="15.9" data-path="app-chap-eql.html"><a href="app-chap-eql.html#differences-to-the-legacy-emu-query-language"><i class="fa fa-check"></i><b>15.9</b> Differences to the legacy EMU query language</a><ul>
+<li class="chapter" data-level="15.9.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#function-call-syntax"><i class="fa fa-check"></i><b>15.9.1</b> Function call syntax</a></li>
+<li class="chapter" data-level="15.9.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#empty-result"><i class="fa fa-check"></i><b>15.9.2</b> Empty result</a></li>
+<li class="chapter" data-level="15.9.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#the-result-modifier-hash-tag"><i class="fa fa-check"></i><b>15.9.3</b> The result modifier hash tag <code>#</code></a></li>
+<li class="chapter" data-level="15.9.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#interpretation-of-the-hash-tag-in-conjunction-operator-queries"><i class="fa fa-check"></i><b>15.9.4</b> Interpretation of the hash tag <code>#</code> in conjunction operator queries</a></li>
+<li class="chapter" data-level="15.9.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu"><i class="fa fa-check"></i><b>15.9.5</b> legacy EMU</a></li>
+</ul></li>
+<li class="chapter" data-level="15.10" data-path="app-chap-eql.html"><a href="app-chap-eql.html#bugs-in-legacy-emu-function-emu.query"><i class="fa fa-check"></i><b>15.10</b> Bugs in legacy EMU function <code>emu.query()</code></a><ul>
+<li class="chapter" data-level="15.10.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#alternative-labels-in-inequality-queries"><i class="fa fa-check"></i><b>15.10.1</b> Alternative labels in inequality queries</a></li>
+<li class="chapter" data-level="15.10.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu-1"><i class="fa fa-check"></i><b>15.10.2</b> legacy EMU</a></li>
+<li class="chapter" data-level="15.10.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#emur-1"><i class="fa fa-check"></i><b>15.10.3</b> emuR</a></li>
+<li class="chapter" data-level="15.10.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#errors-caused-by-missing-or-superfluous-blanks-or-parentheses"><i class="fa fa-check"></i><b>15.10.4</b> Errors caused by missing or superfluous blanks or parentheses</a></li>
+<li class="chapter" data-level="15.10.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#order-of-result-segment-list"><i class="fa fa-check"></i><b>15.10.5</b> Order of result segment list</a></li>
+<li class="chapter" data-level="15.10.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#additional-features"><i class="fa fa-check"></i><b>15.10.6</b> Additional features</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -503,7 +540,7 @@ Figure 14.4: Boxplots of the first spectral moments grouped by their sibilant cl
         </div>
       </div>
 <a href="chap-emu-webAppImplementation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="app-chap-eql.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

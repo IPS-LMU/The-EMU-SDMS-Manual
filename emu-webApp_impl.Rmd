@@ -10,6 +10,7 @@ The rest of this chapter will focus on the communication protocol and the URL pa
 
 [^1-subsec:emu-webAppTheProtocol]: This section has been published in @winkelmann:2015d.
 
+
 A large benefit gained by choosing the browser as the user interface is the ability to easily interact with a server using standard web protocols, such as http, https or websockets. In order to standardize the data exchange with a server, we have developed a simple request-response communication protocol on top of the websocket standard. This decision was strongly guided by the availability of the `httpuv` R package [@rstudio:2015a]. Our protocol defines a set of JSON objects for both the requests and responses. A subset of the request-response actions, most of them triggered by the client after connection, are displayed in Table \@ref(table:protocol-commands).
 
 <!-- \begin{table}[ht!] -->

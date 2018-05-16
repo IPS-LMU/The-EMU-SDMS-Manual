@@ -21,6 +21,7 @@ rmd_files: [
   "emu-webApp_impl.Rmd",
 
   "app_chap-useCases.Rmd",
+  "app_chap-eql.Rmd",
 
   "bibliography.Rmd"
 ]

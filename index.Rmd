@@ -4,6 +4,7 @@ title: "The EMU-SDMS Manual"
 author: ["Raphael Winkelmann"]
 description: "The EMU-SDMS Manual"
 url: 'https\://ips-lmu.github.io/The-EMU-SDMS-Manual/'
+cover-image: pics/EMU-webAppIcon-roundCorners.png
 github-repo: IPS-LMU/The-EMU-SDMS-Manual
 site: bookdown::bookdown_site
 output: bookdown::gitbook

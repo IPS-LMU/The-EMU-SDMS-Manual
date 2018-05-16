@@ -847,8 +847,8 @@ rexample:tutorial\_summary
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     17d18fcb-bb80-4b98-b668-48d8ccb5cf5c 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpEMGVYw/myFirst_emuDB 
+## UUID:     56a63024-6d78-4bc6-81d8-4b20f8a4e008 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp5BM94q/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2257,8 +2257,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     fdc878b5-115b-47aa-bbf0-a0bd7b008780 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpcqamXA/fromScratch_emuDB 
+## UUID:     bb262816-c540-406e-b6a2-fb5f20cd2871 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpWRCNZ0/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4386,7 +4386,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpogQSkJ/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpHRbFSN/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4925,7 +4925,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-05-15 19:59:10 "  
+## [5] "Timestamp:  2018-05-16 15:31:07 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -7875,6 +7875,1430 @@ performed a comparable analysis by utilizing packages such as
 \texttt{dplyr} for \texttt{data.table} or \texttt{data.frame}
 manipulation and \texttt{lattice} or \texttt{ggplot2} for data
 visualisation.
+
+\hypertarget{app-chap:eql}{%
+\chapter{EQL: further examples}\label{app-chap:eql}}
+
+Below are examples of query strings that have been adapted from
+\citet{cassidy:sc2001a} and \citet{harrington:2002aa} and which are
+displayed as questions and answers. All examples use the \emph{ae} demo
+\texttt{emuDB}, which is provided by the \texttt{emuR} package, and were
+extracted from the \texttt{EQL} vignette of the \texttt{emuR} package.
+Descriptions (some of them duplicates of those in Chapter
+\ref{chap:querysys}) of the various syntaxes and query components are
+also included for easier reading. R Example
+\ref{rexample:app-chap-eqlLoadData} shows how to access the \emph{ae}
+demo \texttt{emuDB}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load the package }
+\KeywordTok{library}\NormalTok{(emuR)}
+
+\CommentTok{# create demo data in directory provided by the tempdir() function}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# get the path to emuDB called 'ae' that is part of the demo data}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
+
+\CommentTok{# load emuDB into current R session}
+\NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{simple-equality-inequality-matching-non-matching-queries-single-argument}{%
+\section{Simple equality, inequality, matching and non-matching queries
+(single-argument)}\label{simple-equality-inequality-matching-non-matching-queries-single-argument}}
+
+The syntax of a simple, equality, inequality, matching and non-matching
+query is \texttt{{[}L\ OPERATOR\ A{]}} where \texttt{L} specifies a
+level (or alternatively the name of a parallel attribute definition),
+\texttt{OPERATOR} is one of the following operators: \texttt{==}
+(equality); \texttt{!=} (inequality); \texttt{=\textasciitilde{}}
+(matching) or \texttt{!\textasciitilde{}} (non-matching), and \texttt{A}
+is an expression specifying the labels of the annotation items of
+\texttt{L}.
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items containing
+  the label ``m'' in the ``Phonetic'' level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae, }
+      \DataTypeTok{query =} \StringTok{"[Phonetic == m]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items containing
+  the label ``m'' or ``n'' in the ``Phonetic'' level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae, }
+      \DataTypeTok{query =} \StringTok{"[Phonetic == m | n]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items that do not
+  contain the label ``m'' or ``n''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae, }
+      \DataTypeTok{query =} \StringTok{"[Phonetic != m | n]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items in the
+  ``Syllable'' level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae, }
+      \DataTypeTok{query =} \StringTok{"[Syllable =~ .*]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items that begin
+  with ``a'' in the ``Text'' level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text =~ a.*]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items that do not
+  begin with ``a'' in the ``Text'' level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text !~ a.*]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The above examples use three operators that are new to the EQL as of
+version 2. One is the \texttt{==} equal operator, which has the same
+meaning as the \texttt{=} operator of the EQL version 1 (which is also
+still available) while providing a cleaner, more precise syntax. The
+other two are \texttt{=\textasciitilde{}} and
+\texttt{!\textasciitilde{}}, which are the new matching and non-matching
+regular expression operators. Further, it is worth noting that the use
+of parentheses, blanks or characters that represent operands used by the
+EQL (see EBNF in Appendix \ref{app-chap:EQL-EBNF}) as part of a label
+matching string (the string on the right hand side of one of the
+operands mentioned above), must be placed in additional single quotation
+marks to escape these characters. For example, searching for the items
+containing the labels \texttt{O\_\textquotesingle{}} on the Phonetic
+level could not be written as
+\texttt{"{[}Phonetic\ ==\ O\_\textquotesingle{}{]}"} but would have to
+be written as
+\texttt{"{[}Phonetic\ ==\ \textquotesingle{}O\_\textquotesingle{}\textquotesingle{}{]}"}.
+Reversing the order of single vs.~double quotation marks is currently
+not supported, that is
+\texttt{\textquotesingle{}{[}Phonetic\ ==\ "O\_\textquotesingle{}"{]}\textquotesingle{}}
+will currently not work. Hence, to avoid this issue only double
+quotation marks for the outer wrapping of the query string should be
+used.
+
+\hypertarget{sequence-queries-using-the---sequence-operator}{%
+\section{Sequence queries using the -\textgreater{} sequence
+operator}\label{sequence-queries-using-the---sequence-operator}}
+
+The syntax of a query string using the \texttt{-\textgreater{}} sequence
+operator is \texttt{{[}L\ ==\ A\ -\textgreater{}\ L\ ==\ B{]}}, where
+item \texttt{A} on level \texttt{L} precedes item \texttt{B} on level
+\texttt{L}. For a sequential query to work both arguments must be on the
+same level (alternatively, parallel attribute definitions of the same
+level may also be chosen).
+
+Example \textbf{Q} \& \textbf{A}'s:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all sequences of items
+  containing the label ``@'' followed by items containing the label
+  ``n'' on the ``Phonetic'' level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: all row entries in the resulting }
+\CommentTok{# segment list have the start time of "@", the }
+\CommentTok{# end time of "n", and their labels will be "@->n"}
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phonetic == @ -> Phonetic == n]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{Same as the question above but this time we are only
+  interested in the items containing the label ``@'' in the sequences.}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: all row entries in the resulting}
+\CommentTok{# segment list have the start time of "@", the}
+\CommentTok{# end time of "@" and their labels will also be "@"}
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[#Phonetic == @ -> Phonetic == n]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{Same as the first question but this time we are only
+  interested in the items containing the label ``n''.}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: all row entries in the resulting}
+\CommentTok{# segment list have the start time of "n", the}
+\CommentTok{# end time of "n" and their labels will also be "n"}
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phonetic == @ -> #Phonetic == n]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}{%
+\section{\texorpdfstring{Subsequent sequence queries using nesting of
+the \texttt{-\textgreater{}} sequence
+operator}{Subsequent sequence queries using nesting of the -\textgreater{} sequence operator}}\label{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}}
+
+The general strategy for constructing a query string that retrieves
+subsequent sequences of labels is to nest multiple sequences while
+paying close attention to the correct placement of the parentheses. An
+abstract version of such a query string for the subsequent sequence of
+arguments \texttt{A1}, \texttt{A2}, \texttt{A3} and \texttt{A4} would
+be:
+\texttt{{[}{[}{[}{[}A1\ -\textgreater{}\ A2{]}\ -\textgreater{}\ A3{]}\ -\textgreater{}\ A4{]}\ -\textgreater{}\ A5{]}}
+where each argument (e.g. \texttt{A1}) represents an equality,
+inequality, matching or non-matching expression on the same level
+(alternatively, parallel attribute definitions of the same level may
+also be chosen).
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all sequences of items
+  containing the labels ``@'', ``n'' and ``s'' on the ``Phonetic''
+  level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[[Phonetic == @ -> Phonetic == n] -> Phonetic == s]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all sequences of items
+  containing the labels ``to'', ``offer'' and ``any'' on the ``Text''
+  level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[[Text == to -> Text == offer] -> Text == any]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all sequences of items
+  containing labels ``offer'' followed by two arbitrary labels followed
+  by ``resistance''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
+\CommentTok{# as it is only used for formating purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[[Text == offer -> Text => .*] "}\NormalTok{,}
+                 \StringTok{"-> Text => .*] -> Text == resistance]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+As the EQL1 did not have a regular expression operator, users often
+resorted to using queries such as \texttt{{[}Phonetic\ !=\ XXX{]}}
+(where XXX is a label that was not part of the label set of the
+\emph{Phonetic} level) to match every label on the \texttt{Phonetic}
+level. Although this is still possible in the EQL2, we strongly
+recommend using regular expressions as they provide a much clearer and
+more precise syntax and are less error-prone.
+
+\hypertarget{conjunction-operator}{%
+\section{Conjunction operator \&}\label{conjunction-operator}}
+
+The syntax of a query string using the conjunction operator can
+schematically be written as:
+\texttt{{[}L\ ==\ A\ \&\ L\_a2\ ==\ B\ \&\ L\_a3\ ==\ C\ \&\ L\_a4\ ==\ D\ \&\ ...\ \&\ L\_an\ ==\ N{]}},
+where items on level \texttt{L} have the label \texttt{A} (technically
+belonging to the first attribute of that level, i.e., \texttt{L\_a1},
+which per default has the same name as its level) also have the
+attributes \texttt{B}, \texttt{C}, \texttt{D}, \ldots\{\}, \texttt{N}.
+As with the sequence operator all expressions must be on the same level
+(i.e., parallel attribute definitions of the same level indicated by the
+\texttt{a2\ -\ an} may to be chosen).
+
+The conjunction operator is used to combine query conditions on the same
+level. This makes sense in two cases:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  when to combining different attributes of the same level:
+  \texttt{"{[}Phonetic\ ==\ l\ \&\ sonorant\ ==\ T{]}"} when
+  \emph{Sonorant} is an additional attribute of level \emph{Phonetic};
+\item
+  when combining a basic query with a function (see sections Position
+  and Count below):
+  \texttt{"{[}phonetic\ ==\ l\ \&\ Start(word,\ phonetic)\ ==\ 1{]}"}.
+\end{enumerate}
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items containing
+  the label ``always'' in the ``Text'' attribute definition which also
+  have the label ``C'' on a parallel attribute definition called
+  ``Word''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text == always & Word == C]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items of the
+  attribute definition ``Text'' of the level ``Word'' that were also
+  labeled as function words (labeled ``F'' in the ``Word'' level)?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text =~ .* & Word == F]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items of the
+  attribute definition ``Text'' of the level ``Word'' that were also
+  labeled as content words (labeled ``C'' in the ``Word'' level) and as
+  accented (labeled ``S'' in the attribute definition ``Accent'' of the
+  same level)?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text =~ .* & Word == C & Accent == S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{domination-operator-hierarchical-queries}{%
+\section{Domination operator \^{} (hierarchical
+queries)}\label{domination-operator-hierarchical-queries}}
+
+A schematic representation of a simple domination query string that
+retrieves all items containing label \texttt{A} of level \texttt{L1}
+that are dominated by (i.e., are directly or indirectly linked to) items
+containing the label \texttt{B} in level \texttt{L2} is
+\texttt{{[}L1\ ==\ A\ \^{}\ L2\ ==\ B{]}}. The domination operator is
+not directional, meaning that either items in \texttt{L1} dominate items
+in \texttt{L2} or items in \texttt{L2} dominate items in \texttt{L1}.
+Note that link definitions that specify the validity of the domination
+have to be present in the emuDB for this to work.
+
+\hypertarget{simple-domination}{%
+\subsection{Simple domination}\label{simple-domination}}
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items containing
+  the label ``p'' in the ``Phoneme'' level that occur in strong
+  syllables (i.e., dominated by/linked to items of the level
+  ``Syllable'' that contain the label ``S'')?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == p ^ Syllable == S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all syllable items
+  which contain a Phoneme item labeled ``p''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable =~ .* ^ Phoneme == p]"}\NormalTok{) }
+\CommentTok{# or }
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == p ^ #Syllable =~ .*]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all syllable items
+  which do not contain a Phoneme item labeled ``k'' or ``p'' or ``t''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable =~ .* ^ Phoneme != p | t| k]"}\NormalTok{)}
+\CommentTok{# or }
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme != p | t | k ^ #Syllable =~ .*]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Even though the domination operator is not directional, what you place
+to the left and right of the operator does have an impact on the result.
+If no result modifier (the hash tag \texttt{\textbackslash{}\#}) is
+used, the query engine will automatically assume that the expression to
+the left of the operator specifies what is to be returned. This means
+that the schematic query string
+\texttt{{[}L1\ ==\ A\ \^{}\ L2\ ==\ B{]}} is semantically equal to the
+query string
+\texttt{{[}\textbackslash{}\#L1\ ==\ A\ \^{}\ L2\ ==\ B{]}}. As it is
+more explicit to mark the desired result we recommend you always use the
+result modifier where possible.
+
+\hypertarget{multiple-domination}{%
+\subsection{Multiple domination}\label{multiple-domination}}
+
+The general strategy when constructing a query string that specifies
+multiple domination relations of items is to nest multiple domination
+expressions while paying close attention to the correct placement of the
+parentheses. A dominance relationship sequence or the arguments
+\texttt{A1}, \texttt{A2}, \texttt{A3}, \texttt{A4}, can therefore be
+noted as:
+\texttt{"{[}{[}{[}{[}A1\ \^{}\ A2{]}\ \^{}\ A3{]}\ \^{}\ A4{]}\ \^{}\ A5{]}"}
+where \texttt{A1} is dominated by \texttt{A2} and \texttt{A3} and so on.
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all items on the
+  ``Phonetic'' level that are part of a strong syllable (labeled ``S'')
+  and belong to the words ``amongst'' or ``beautiful''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of R's paste0() function is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[#Phonetic =~ .* ^ Syllable == S] "}\NormalTok{,}
+                 \StringTok{"^ Text == amongst | beautiful]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{The same as the question above but this time we want
+  the ``Text'' items.}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of R's paste0() function is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[Phonetic =~ .* ^ Syllable == S] "}\NormalTok{,}
+                 \StringTok{"^ #Text == amongst | beautiful]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{position}{%
+\section{Position}\label{position}}
+
+The EQL has three function terms to specify where in a domination
+relationship a child level item is allowed to occur. The three function
+terms are \texttt{Start()}, \texttt{End()} and \texttt{Medial()}.
+
+\hypertarget{simple-usage-of-start-end-and-medial}{%
+\subsection{\texorpdfstring{Simple usage of \texttt{Start()},
+\texttt{End()} and
+\texttt{Medial()}}{Simple usage of Start(), End() and Medial()}}\label{simple-usage-of-start-end-and-medial}}
+
+A schematic representation of a query string representing a simple usage
+of the \texttt{Start()}, \texttt{End()} and \texttt{Medial()} function
+would be: \texttt{"POSFCT(L1,\ L2)\ ==\ 1"} or
+\texttt{"POSFCT(L1,\ L2)\ ==\ TRUE"}. In this representation
+\texttt{POSFCT} is a placeholder for one of the three functions where
+the level \texttt{L1} must dominate level \texttt{L2}. The
+\texttt{==\ 1} / \texttt{==\ TRUE} part of the query string indicates
+that if a match is found (match is \texttt{TRUE} or \texttt{==\ 1}), the
+according item of level \texttt{L2} is returned. If this expression is
+set to \texttt{==\ 0} / \texttt{==\ FALSE} (\texttt{FALSE}), all the
+items that do not match the condition of \texttt{L2} will be returned. A
+visualization of what is returned by the various options of the three
+functions is displayed in Figure \ref{fig:query-amongstHierCount}.
+
+As using \texttt{1} and \texttt{0} for \texttt{TRUE} and \texttt{FALSE}
+is not that intuitive to many R users, the EQL version 2 optionally
+allows for the values \texttt{TRUE}/\texttt{T} and
+\texttt{FALSE}/\texttt{F} to be used instead of \texttt{1} and
+\texttt{0}. This syntax should be more familiar to most R users.
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all word-initial
+  syllables?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Start(Word, Syllable) == TRUE]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all word-initial
+  phonemes?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Start(Word, Phoneme) == TRUE]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all non-word-initial
+  syllables?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Start(Word, Syllable) == FALSE]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all word-final
+  syllables?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[End(Word, Syllable) == TRUE]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all word-medial
+  syllables?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Medial(Word, Syllable) == TRUE]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{position-and-boolean}{%
+\subsection{Position and boolean \&}\label{position-and-boolean}}
+
+The syntax for combining a position function with the boolean operator
+is \texttt{{[}L\ ==\ E\ \&\ Start(L,\ L2)\ ==\ TRUE{]}}, where item
+\texttt{E} on level \texttt{L} occurs at the beginning of item
+\texttt{L}. Once again, \texttt{L} has to dominate \texttt{L2}
+(optionally, parallel attribute definitions of the same level may also
+be chosen).
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``n'' Phoneme
+  items at the beginning of a syllable?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == n & Start(Syllable, Phoneme) == 1]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all word-final ``m''
+  Phoneme items?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == m & End(Word, Phoneme) == 1]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all non-word-final
+  ``S'' syllables?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable == S & End(Word, Syllable) == 0]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{position-and-boolean-1}{%
+\subsection{Position and boolean \^{}}\label{position-and-boolean-1}}
+
+The syntax for combining a position function with the boolean
+hierarchical operator is
+\texttt{{[}L\ ==\ E\ \^{}\ Start(L1,\ L2)\ ==\ 1{]}}, where level
+\texttt{L} and level \texttt{L2} refer to different levels where either
+\texttt{L} dominates \texttt{L2}, or \texttt{L2} dominates \texttt{L}.
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``p'' Phoneme
+  items which occur in the first syllable of the word?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == p ^ Start(Word, Syllable) == 1]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all phonemes which do
+  not occur in the last syllable of the word?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme =~ .* ^ End(Word, Syllable) == 0]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Count
+
+A schematic representation of a query string using the count mechanism
+looks like \texttt{{[}Num(L1,\ L2)\ ==\ N{]}}, where \texttt{L1}
+contains \texttt{N} items in \texttt{L2}. For this type of query to
+work, \texttt{L1} has to dominate \texttt{L2}. As the query matches a
+number (\texttt{N}), it is also possible to use the operators
+\texttt{\textgreater{}}\} (more than), \texttt{\textless{}} (less than)
+and \texttt{!=} (not equal). The resulting segment list contains items
+of \texttt{L1}.
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all words that contain
+  four syllables?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Num(Word, Syllable) == 4]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all syllables that
+  contain more than six phonemes?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Num(Syllable, Phoneme) > 6]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{count-and-boolean}{%
+\subsection{\texorpdfstring{Count and boolean
+\texttt{\&}}{Count and boolean \&}}\label{count-and-boolean}}
+
+A schematic representation of a query string combining the count and the
+boolean operators looks like
+\texttt{{[}L\ ==\ E\ \&\ Num(L1,\ L2)\ ==\ N{]}}, where items \texttt{E}
+on level \texttt{L} are dominated by \texttt{L1} and \texttt{L1}
+contains \texttt{N} \texttt{L2} items. Further, \texttt{L1} dominates
+\texttt{L2} on the condition that \texttt{L} and \texttt{L1} (not
+\texttt{L2}) refer to the same level (parallel attribute definitions of
+the same level may also be chosen).
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve the ``Text'' of all
+  words which consist of more than five phonemes?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text =~ .* & Num(Text, Phoneme) > 5]"}\NormalTok{) }
+\CommentTok{# or }
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text =~ .* & Num(Word, Phoneme) > 5]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all strong syllables
+  that contain five phonemes?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable == S & Num(Syllable, Phoneme) == 5]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{count-and}{%
+\subsection{Count and \^{}}\label{count-and}}
+
+A schematic representation of a query string combining the count and the
+boolean operators is \texttt{{[}L\ ==\ E\ \^{}\ Num(L1,\ L2)\ ==\ N{]}}
+where items \texttt{E} on level \texttt{L} are dominated by \texttt{L1}
+and \texttt{L1} contains \texttt{N} \texttt{L2} items. Further,
+\texttt{L1} dominates \texttt{L2} on the condition that \texttt{L} and
+\texttt{L1} do \textbf{not} refer to the same level.
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``m'' phonemes in
+  three-syllable words?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == m ^ Num(Word, Syllable) == 3]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``W'' syllables in
+  words of three syllables or less?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable = W ^ Num(Word, Syllable) <= 3]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all words containing
+  syllables which contain four phonemes?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text =~ .* ^ Num(Syllable, Phoneme) == 4]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{combinations}{%
+\section{Combinations}\label{combinations}}
+
+\hypertarget{and---domination-and-sequence}{%
+\subsection{\^{} and -\textgreater{} (domination and
+sequence)}\label{and---domination-and-sequence}}
+
+A schematic representation of a query string combining the domination
+and the sequence operators is
+\texttt{{[}{[}A1\ \^{}\ A2{]}\ -\textgreater{}\ A3{]}}, where
+\texttt{A1} and \texttt{A3} refer to the same level (parallel attribute
+definitions of the same level may also be chosen).
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``m'' preceding
+  ``p'' when ``m'' is part of an ``S'' syllable?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[[Phoneme == m -> Phoneme =~ p] ^ Syllable == S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``s'' preceding
+  ``t'' when ``t'' is part of a ``W'' syllable?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == s -> [Phoneme == t ^ Syllable == W]]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``S'' syllables,
+  containing an ``s'' phoneme and preceding an ``S'' syllable?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[[#Syllable == S ^ Phoneme == s] -> Syllable == S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{Same question as above but this time we want all
+  ``s'' items where ``s'' is part of a ``S'' syllable and the ``S''
+  syllable precedes another ``S'' syllable.}
+\item
+  \textbf{A}:
+  \texttt{"{[}{[}Phoneme\ ==\ s\ \^{}\ Syllable\ ==\ S{]}\ -\textgreater{}\ Syllable\ ==\ S{]}"}
+  would cause an error as \texttt{Phoneme\ ==\ s} and
+  \texttt{Syllable\ ==\ S} are not on the same level. Therefore, the
+  correct answer is:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[[Syllable == S ^ #Phoneme == s] -> Syllable == S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{and---and-domination-and-sequence-and-boolean}{%
+\subsection{\^{} and -\textgreater{} and \& (domination and sequence and
+boolean \&)}\label{and---and-domination-and-sequence-and-boolean}}
+
+Example questions and answers:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve the ``Text'' of all
+  words beginning with a ``@'' on the ``Phoneme'' level?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[Text =~ .* ^ Phoneme == @ "}\NormalTok{,}
+                 \StringTok{"& Start(Text, Phoneme) == 1]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all word-initial ``m''
+  items in a ``S'' syllable preceding ``o:''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[Phoneme == m & Start(Word, Phoneme) == 1 "}\NormalTok{,}
+                 \StringTok{"-> Phoneme == o:] ^ Syllable == S]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{Same question as the question above, but this time
+  we want the ``Text'' items.}\textbackslash{}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[[Phoneme == m & Start(Word, Phoneme) == 1 "}\NormalTok{,}
+                 \StringTok{"-> Phoneme == o:] ^ Syllable == S] "}\NormalTok{,}
+                 \StringTok{"^ #Text =~ .*]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{a-few-more-questions-and-answers}{%
+\section{A few more questions and
+answers}\label{a-few-more-questions-and-answers}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``m'' or ``n''
+  phonemes which occur in the word-medial position?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Phoneme == m | n & Medial(Word, Phoneme) == 1]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``H'' phonetic
+  segments followed by an arbitrary segment and then by either ``I'' or
+  ``U''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[Phonetic == H -> Phonetic =~ .*] "}\NormalTok{,}
+                 \StringTok{"-> Phonetic == I | U]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all syllables which do
+  not occur in word-medial positions?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable =~ .* & Medial(Word, Syllable) == 0]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve the ``Text'' items of
+  all words containing two syllables?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text =~ .* & Num(Text, Syllable) == 2]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve the ``Text'' items of
+  all accented words following ``the''?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Text == the -> #Text =~ .* & Accent == S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``S'' (strong)
+  syllables consisting of five phonemes?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable = S ^ Num(Word, Phoneme) == 5]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all ``W'' (weak)
+  syllables containing a ``@'' phoneme?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae, }\StringTok{"[Syllable == W ^ Phoneme == @]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all Phonetic items
+  belonging to a ``W'' (weak) syllable?}\textbackslash{}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(ae,}\StringTok{"[Phonetic =~ .* ^ #Syllable == W]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve ``W'' (weak) syllables
+  in word-final position occurring in three-syllable words?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[Syllable == W & End(Word, Syllable) == 1 "}\NormalTok{,}
+                 \StringTok{"^ Num(Word, Syllable) == 3]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Q}: \emph{What is the query to retrieve all phonemes
+  dominating ``H'' Phonetic items at the beginning of a syllable and
+  occurring in accented (``S'') words?}
+\item
+  \textbf{A}:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
+\CommentTok{# as it is only used for formatting purposes}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[[Phoneme =~ .* ^ Phonetic == H] "}\NormalTok{,}
+                 \StringTok{"^ Start(Word, Syllable) == 1] ^ Accent == S]"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{differences-to-the-legacy-emu-query-language}{%
+\section{Differences to the legacy EMU query
+language}\label{differences-to-the-legacy-emu-query-language}}
+
+In this section summarizes the major changes concerning the query
+mechanics of \texttt{emuR} compared to the legacy R package \texttt{emu}
+Version 4.2. This section is mainly aimed at users transitioning to
+\texttt{emuR} from the legacy system.
+
+\hypertarget{function-call-syntax}{%
+\subsection{Function call syntax}\label{function-call-syntax}}
+
+In \texttt{emuR} it is necessary to load an \texttt{emuDB} into the
+current R session before being able to use the \texttt{query()}
+function. This is achieved using the \texttt{load\_emuDB()} function.
+This was not necessary using the legacy \texttt{emu.query()} function.
+
+\hypertarget{empty-result}{%
+\subsection{Empty result}\label{empty-result}}
+
+The \texttt{query} function of \texttt{emuR} returns an empty segment
+list (row count is zero) if the query does not match any items. If the
+legacy EMU function \texttt{emu.query()} did not find any matches it,
+returned an error with the message:
+
+\begin{verbatim}
+## Can't find the query results in emu.query: there may have 
+## been a problem with the query command.
+\end{verbatim}
+
+\hypertarget{the-result-modifier-hash-tag}{%
+\subsection{\texorpdfstring{The result modifier hash tag
+\texttt{\#}}{The result modifier hash tag \#}}\label{the-result-modifier-hash-tag}}
+
+Compared to the legacy EMU system, which allowed multiple occurrences of
+the hash tag \texttt{\textbackslash{}\#} to be present in a query
+string, the \texttt{query()} function only allows a single result
+modifier. This ensures that only consistent result sets are returned
+(i.e., all items belong to a single level). However, if multiple result
+sets in one segment list are desired, this can easily be achieved by
+concatenating the result sets of separate queries using the
+\texttt{rbind()} function.
+
+\hypertarget{interpretation-of-the-hash-tag-in-conjunction-operator-queries}{%
+\subsection{\texorpdfstring{Interpretation of the hash tag \texttt{\#}
+in conjunction operator
+queries}{Interpretation of the hash tag \# in conjunction operator queries}}\label{interpretation-of-the-hash-tag-in-conjunction-operator-queries}}
+
+\hypertarget{legacy-emu}{%
+\subsection{legacy EMU}\label{legacy-emu}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{emu.query}\NormalTok{(}\DataTypeTok{template =} \StringTok{"andosl"}\NormalTok{, }
+          \DataTypeTok{pattern =} \StringTok{"*"}\NormalTok{,}
+          \DataTypeTok{query =} \StringTok{"[Text=spring & #Accent=S]"}\NormalTok{)}\ErrorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+yielded:
+
+\begin{verbatim}
+## moving data from Tcl to R
+## Read 1 records
+## segment  list from database:  andosl
+## query was:  [Text=spring & #Accent=S]
+##   labels    start      end     utts
+## 1 spring 2288.959 2704.466 msajc094
+\end{verbatim}
+
+and
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{emu.query}\NormalTok{(}\DataTypeTok{template =} \StringTok{"andosl"}\NormalTok{,}
+          \DataTypeTok{pattern =} \StringTok{"*"}\NormalTok{,}
+          \DataTypeTok{query =} \StringTok{"[#Text=spring & #Accent=S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+yielded the identical:
+
+\begin{verbatim}
+## moving data from Tcl to R
+## Read 1 records
+## segment  list from database:  andosl
+## query was:  [#Text=spring & #Accent=S]
+##   labels    start      end     utts
+## 1 spring 2288.959 2704.466 msajc094
+\end{verbatim}
+
+Hence, the hash tag \texttt{\#} had no effect.
+
+\hypertarget{emur}{%
+\subsubsection{emuR}\label{emur}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ andosl,}
+      \DataTypeTok{query =} \StringTok{"[Text == spring & #Accent == S]"}\NormalTok{,}
+      \DataTypeTok{resultType =} \StringTok{"emusegs"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  andosl
+## query was:  [Text=spring & #Accent=S]
+##   labels    start      end          utts
+## 1      S 2288.975 2704.475 0000:msajc094
+\end{verbatim}
+
+Returns the same item but with the label of the hashed attribute
+definition name. The second legacy example is not a valid \texttt{emuR}
+query (two hash tags) and will return an error message.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(}\DataTypeTok{dbName =} \StringTok{"andosl"}\NormalTok{,}
+      \DataTypeTok{query =} \StringTok{"[#Text == spring & #Accent == S]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in query.database.eql.KONJA(dbConfig, qTrim) :
+## Only one hashtag allowed in linear query term: #Text=spring & #Accent=S
+\end{verbatim}
+
+\hypertarget{bugs-in-legacy-emu-function-emu.query}{%
+\section{\texorpdfstring{Bugs in legacy EMU function
+\texttt{emu.query()}}{Bugs in legacy EMU function emu.query()}}\label{bugs-in-legacy-emu-function-emu.query}}
+
+\hypertarget{alternative-labels-in-inequality-queries}{%
+\subsection{Alternative labels in inequality
+queries}\label{alternative-labels-in-inequality-queries}}
+
+Example:
+
+\hypertarget{legacy-emu-1}{%
+\subsection{legacy EMU}\label{legacy-emu-1}}
+
+It appears that the OR operator \texttt{\textbar{}} was mistakenly
+ignored when used in conjunction with the inequality operator
+\texttt{!=}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{emu.query}\NormalTok{(}\DataTypeTok{template =} \StringTok{"ae"}\NormalTok{,}
+          \DataTypeTok{pattern =} \StringTok{"*"}\NormalTok{,}
+          \DataTypeTok{query =} \StringTok{"[Text != beautiful | futile ^ Phoneme = u:]"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+yielded:
+
+\begin{verbatim}
+## moving data from Tcl to R
+## Read 4 records
+## segment  list from database:  ae
+## query was:  [Text!=beautiful|futile ^ Phoneme=u:]
+##      labels    start      end     utts
+## 1       new  475.802  666.743 msajc057
+## 2    futile  571.999 1091.000 msajc010
+## 3        to 1091.000 1222.389 msajc010
+## 4 beautiful 2033.739 2604.489 msajc003
+\end{verbatim}
+
+\hypertarget{emur-1}{%
+\subsection{emuR}\label{emur-1}}
+
+The query engine of the \texttt{emuR} package respects the presence of
+the OR operator in such queries:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae,}
+      \DataTypeTok{query =} \StringTok{"[Text != beautiful | futile ^ Phoneme == u:]"}\NormalTok{,}
+      \DataTypeTok{resultType =} \StringTok{"emusegs"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## segment  list from database:  ae
+## query was:  [Text!=beautiful|futile ^ Phoneme=u:]
+##   labels    start      end          utts
+## 1     to 1091.025 1222.375 0000:msajc010
+## 2    new  475.825  666.725 0000:msajc057
+\end{verbatim}
+
+\hypertarget{errors-caused-by-missing-or-superfluous-blanks-or-parentheses}{%
+\subsection{Errors caused by missing or superfluous blanks or
+parentheses}\label{errors-caused-by-missing-or-superfluous-blanks-or-parentheses}}
+
+Some queries in the legacy EMU system required blanks around certain
+operators to be present or absent as well as parentheses to be present
+or absent. If this was not the case the legacy query engine sometimes
+returned cryptic errors, sometimes crashing the current R session. The
+query engine of the \texttt{emuR} package is much more robust against
+missing or superfluous blanks or parentheses.
+
+\hypertarget{order-of-result-segment-list}{%
+\subsection{Order of result segment
+list}\label{order-of-result-segment-list}}
+
+To our knowledge, the order of a segment list in the legacy EMU system
+was never predictable or explicitly defined. In the new system, if the
+result type of the \texttt{query()} function is set to
+\texttt{"emuRsegs"} the resulting list is ordered by UUID, session,
+bundle and sample start position. If the parameter \texttt{calcTimes} is
+set to \texttt{FALSE} it is ordered by UUID, session, bundle, level,
+seq\_idx. If it is set to \texttt{"emusegs"} the resulting list is
+ordered by the fields utts and start.
+
+\hypertarget{additional-features}{%
+\subsection{Additional features}\label{additional-features}}
+
+\begin{itemize}
+\tightlist
+\item
+  The query mechanics of \texttt{emuR} accepts the double equal
+  character string \texttt{==} (recommended) as well as the single
+  \texttt{=} equal character string as an equal operator.
+\item
+  The EQL2 is capable of querying labels by matching regular expressions
+  using the \texttt{=\textasciitilde{}} (matching) and
+  \texttt{!\textasciitilde{}} (non-matching) operators. It is worth
+  noting that the regular expression pattern is always meant to consume
+  the entire label string i.e.~wrapping the RegEx in
+  \texttt{"\^{}\ RegEx\ \$"} is not necessary. If substring matching is
+  desired this must be formulated explicitly (e.g.
+  \texttt{".*substring.*"})
+
+  \begin{itemize}
+  \tightlist
+  \item
+    For example:
+    \texttt{query("andosl",\ "Text\ =\textasciitilde{}\ .*tz.*")}
+  \end{itemize}
+\end{itemize}
 
 \bibliography{book.bib}
 
