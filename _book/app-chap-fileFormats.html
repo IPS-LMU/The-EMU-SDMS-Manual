@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The EMU-SDMS Manual</title>
+  <meta name="description" content="The EMU-SDMS Manual">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
+  <meta property="og:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
+  <meta property="og:description" content="The EMU-SDMS Manual" />
+  <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="The EMU-SDMS Manual" />
+  <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
+
+<meta name="author" content="Raphael Winkelmann">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="app-chap-useCases.html">
+<link rel="next" href="app-chap-wsProtocol.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The EMU-SDMS Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.2" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.2</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="part"><span><b>I Overview and tutorial</b></span></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#sec:overview-sysArch"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a><ul>
+<li class="chapter" data-level="3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#converting-the-textgrid-collection"><i class="fa fa-check"></i><b>3.1</b> Converting the TextGrid collection</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.2</b> Loading and inspecting the database</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#overview"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-annotation-and-visual-inspection"><i class="fa fa-check"></i><b>3.2.2</b> Database annotation and visual inspection</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-and-autobuilding-the-annotation-structure"><i class="fa fa-check"></i><b>3.3</b> Querying and autobuilding the annotation structure</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.4</b> Autobuilding</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>II Main components and concepts</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html"><i class="fa fa-check"></i><b>4</b> Annotation Structure Modeling</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#per-database-annotation-structure-definition"><i class="fa fa-check"></i><b>4.1</b> Per database annotation structure definition</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#parallel-labels-and-multiple-attributes"><i class="fa fa-check"></i><b>4.2</b> Parallel labels and multiple attributes</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#metadata-strategy-using-single-bundle-root-nodes"><i class="fa fa-check"></i><b>4.3</b> Metadata strategy using single bundle root nodes</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#conclusion-1"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-emuDB.html"><a href="chap-emuDB.html"><i class="fa fa-check"></i><b>5</b> The <code>emuDB</code> Format</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#database-design"><i class="fa fa-check"></i><b>5.1</b> Database design</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb"><i class="fa fa-check"></i><b>5.2</b> Creating an <code>emuDB</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb-from-scratch"><i class="fa fa-check"></i><b>5.2.1</b> Creating an <code>emuDB</code> from scratch</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#loading-and-editing-an-empty-database"><i class="fa fa-check"></i><b>5.2.2</b> Loading and editing an empty database</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#level-definitions"><i class="fa fa-check"></i><b>5.2.3</b> Level definitions</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-emuDB.html"><a href="chap-emuDB.html#link-definitions"><i class="fa fa-check"></i><b>5.2.4</b> Link definitions</a></li>
+<li class="chapter" data-level="5.2.5" data-path="chap-emuDB.html"><a href="chap-emuDB.html#file-handling"><i class="fa fa-check"></i><b>5.2.5</b> File handling</a></li>
+<li class="chapter" data-level="5.2.6" data-path="chap-emuDB.html"><a href="chap-emuDB.html#ssff-track-definitions"><i class="fa fa-check"></i><b>5.2.6</b> SSFF track definitions</a></li>
+<li class="chapter" data-level="5.2.7" data-path="chap-emuDB.html"><a href="chap-emuDB.html#configuring-the-emu-webapp-and-annotating-the-emudb"><i class="fa fa-check"></i><b>5.2.7</b> Configuring the <code>EMU-webApp</code> and annotating the <code>emuDB</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query_emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
+<li class="chapter" data-level="6.2.7" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.2.7</b> Requery</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html"><i class="fa fa-check"></i><b>7</b> Signal data extraction</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#file-i0-and-the-asspdataobj"><i class="fa fa-check"></i><b>8.2</b> File I/0 and the <code>AsspDataObj</code></a></li>
+<li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
+<li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:emu-webApp-mainLayout"><i class="fa fa-check"></i><b>9.1</b> Main layout</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:webApp-generalUsage"><i class="fa fa-check"></i><b>9.2</b> General usage</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#annotating-levels-containing-time-information"><i class="fa fa-check"></i><b>9.2.1</b> Annotating levels containing time information</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#working-with-hierarchical-annotations-2-chapemu-webapp"><i class="fa fa-check"></i><b>9.2.2</b> Working with hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#configuring-the-emu-webapp"><i class="fa fa-check"></i><b>9.3</b> Configuring the <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppConfigWithEmuR"><i class="fa fa-check"></i><b>9.3.1</b> Basic configurations using <code>emuR</code></a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#signal-canvas-and-level-canvas-order"><i class="fa fa-check"></i><b>9.3.2</b> Signal canvas and level canvas order</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppAdvancedConfig"><i class="fa fa-check"></i><b>9.3.3</b> Advanced configurations made by editing the <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="9.3.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#d-canvas"><i class="fa fa-check"></i><b>9.3.4</b> 2D canvas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#conclusion-5"><i class="fa fa-check"></i><b>9.4</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>III Main <code>emuR</code> function and object index</b></span></li>
+<li class="chapter" data-level="10" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html"><i class="fa fa-check"></i><b>10</b> <code>emuR</code> - package functions</a><ul>
+<li class="chapter" data-level="10.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-importRoutines"><i class="fa fa-check"></i><b>10.1</b> Import and conversion routines</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#legacy-emu-databases"><i class="fa fa-check"></i><b>10.1.1</b> Legacy EMU databases</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#textgrid-collections"><i class="fa fa-check"></i><b>10.1.2</b> TextGrid collections</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#bpf-collections"><i class="fa fa-check"></i><b>10.1.3</b> BPF collections</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#txt-collections"><i class="fa fa-check"></i><b>10.1.4</b> txt collections</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-emuDBinteract"><i class="fa fa-check"></i><b>10.2</b> <code>emuDB</code> interaction and configuration routines</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-emuWebAppConfig"><i class="fa fa-check"></i><b>10.3</b> <code>EMU-webApp</code> configuration routines</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-dataExtr"><i class="fa fa-check"></i><b>10.4</b> Data extraction routines</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-centralObjects"><i class="fa fa-check"></i><b>10.5</b> Central objects</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-exportRoutines"><i class="fa fa-check"></i><b>10.6</b> Export routines</a></li>
+<li class="chapter" data-level="10.7" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#conclusion-6"><i class="fa fa-check"></i><b>10.7</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>IV Implementation</b></span></li>
+<li class="chapter" data-level="11" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html"><i class="fa fa-check"></i><b>11</b> Implementation of the query system</a><ul>
+<li class="chapter" data-level="11.1" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#sec:query-queryExpressionParser"><i class="fa fa-check"></i><b>11.1</b> Query expression parser</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#subsec:query-redundantLinks"><i class="fa fa-check"></i><b>11.2</b> Redundant links</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html"><i class="fa fa-check"></i><b>12</b> <code>wrassp</code> implementation</a><ul>
+<li class="chapter" data-level="12.1" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html#the-libassp-port"><i class="fa fa-check"></i><b>12.1</b> The <code>libassp</code> port</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html"><i class="fa fa-check"></i><b>13</b> <code>EMU-webApp</code> implementation</a><ul>
+<li class="chapter" data-level="13.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#subsec:emu-webAppTheProtocol"><i class="fa fa-check"></i><b>13.1</b> Communication protocol</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#url-parameters"><i class="fa fa-check"></i><b>13.2</b> URL parameters</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#websocket-server-parameters"><i class="fa fa-check"></i><b>13.2.1</b> Websocket server parameters</a></li>
+<li class="chapter" data-level="13.2.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples"><i class="fa fa-check"></i><b>13.2.2</b> Examples</a></li>
+<li class="chapter" data-level="13.2.3" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#label-file-preview-parameters"><i class="fa fa-check"></i><b>13.2.3</b> Label file preview parameters</a></li>
+<li class="chapter" data-level="13.2.4" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples-1"><i class="fa fa-check"></i><b>13.2.4</b> Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Appendices</b></span></li>
+<li class="chapter" data-level="14" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html"><i class="fa fa-check"></i><b>14</b> Use cases</a><ul>
+<li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
+<li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
+<li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
+<li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsDBconfig"><i class="fa fa-check"></i><b>15.1.1</b> <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
+<li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#example-files"><i class="fa fa-check"></i><b>15.2</b> Example files</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBundleList"><i class="fa fa-check"></i><b>15.2.1</b> <code>_bundleList.json</code></a></li>
+<li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html"><i class="fa fa-check"></i><b>16</b> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a><ul>
+<li class="chapter" data-level="16.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-overview"><i class="fa fa-check"></i><b>16.1</b> Protocol overview</a></li>
+<li class="chapter" data-level="16.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-commands"><i class="fa fa-check"></i><b>16.2</b> Protocol commands</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getprotocol"><i class="fa fa-check"></i><b>16.2.1</b> <code>GETPROTOCOL</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getdousermanagement"><i class="fa fa-check"></i><b>16.2.2</b> <code>GETDOUSERMANAGEMENT</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#logonuser"><i class="fa fa-check"></i><b>16.2.3</b> <code>LOGONUSER</code></a></li>
+<li class="chapter" data-level="16.2.4" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getglobaldbconfig"><i class="fa fa-check"></i><b>16.2.4</b> <code>GETGLOBALDBCONFIG</code></a></li>
+<li class="chapter" data-level="16.2.5" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getbundlelist"><i class="fa fa-check"></i><b>16.2.5</b> <code>GETBUNDLELIST</code></a></li>
+<li class="chapter" data-level="16.2.6" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getbundle"><i class="fa fa-check"></i><b>16.2.6</b> <code>GETBUNDLE</code></a></li>
+<li class="chapter" data-level="16.2.7" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#savebundle"><i class="fa fa-check"></i><b>16.2.7</b> <code>SAVEBUNDLE</code></a></li>
+<li class="chapter" data-level="16.2.8" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#disconnectwarning"><i class="fa fa-check"></i><b>16.2.8</b> <code>DISCONNECTWARNING</code></a></li>
+<li class="chapter" data-level="16.2.9" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#error-handling"><i class="fa fa-check"></i><b>16.2.9</b> Error handling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html"><i class="fa fa-check"></i><b>17</b> EQL EBNF</a><ul>
+<li class="chapter" data-level="17.1" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-operators-and-their-meaning"><i class="fa fa-check"></i><b>17.1</b> Terminal symbols of EQL2 (operators) and their meaning</a></li>
+<li class="chapter" data-level="17.2" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-brackets-and-their-meanings."><i class="fa fa-check"></i><b>17.2</b> Terminal symbols of EQL2 (brackets) and their meanings.</a></li>
+<li class="chapter" data-level="17.3" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-functions-and-their-meanings."><i class="fa fa-check"></i><b>17.3</b> Terminal symbols of EQL2 (functions) and their meanings.</a></li>
+<li class="chapter" data-level="17.4" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#formal-description-of-emu-query-language-version-2"><i class="fa fa-check"></i><b>17.4</b> Formal description of EMU Query Language Version 2</a></li>
+<li class="chapter" data-level="17.5" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#restrictions"><i class="fa fa-check"></i><b>17.5</b> Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="app-chap-eql.html"><a href="app-chap-eql.html"><i class="fa fa-check"></i><b>18</b> EQL: further examples</a><ul>
+<li class="chapter" data-level="18.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-equality-inequality-matching-non-matching-queries-single-argument"><i class="fa fa-check"></i><b>18.1</b> Simple equality, inequality, matching and non-matching queries (single-argument)</a></li>
+<li class="chapter" data-level="18.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#sequence-queries-using-the---sequence-operator"><i class="fa fa-check"></i><b>18.2</b> Sequence queries using the -&gt; sequence operator</a></li>
+<li class="chapter" data-level="18.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#subsequent-sequence-queries-using-nesting-of-the---sequence-operator"><i class="fa fa-check"></i><b>18.3</b> Subsequent sequence queries using nesting of the <code>-&gt;</code> sequence operator</a></li>
+<li class="chapter" data-level="18.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#conjunction-operator"><i class="fa fa-check"></i><b>18.4</b> Conjunction operator &amp;</a></li>
+<li class="chapter" data-level="18.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#domination-operator-hierarchical-queries"><i class="fa fa-check"></i><b>18.5</b> Domination operator ^ (hierarchical queries)</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-domination"><i class="fa fa-check"></i><b>18.5.1</b> Simple domination</a></li>
+<li class="chapter" data-level="18.5.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#multiple-domination"><i class="fa fa-check"></i><b>18.5.2</b> Multiple domination</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position"><i class="fa fa-check"></i><b>18.6</b> Position</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-usage-of-start-end-and-medial"><i class="fa fa-check"></i><b>18.6.1</b> Simple usage of <code>Start()</code>, <code>End()</code> and <code>Medial()</code></a></li>
+<li class="chapter" data-level="18.6.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean"><i class="fa fa-check"></i><b>18.6.2</b> Position and boolean &amp;</a></li>
+<li class="chapter" data-level="18.6.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean-1"><i class="fa fa-check"></i><b>18.6.3</b> Position and boolean ^</a></li>
+<li class="chapter" data-level="18.6.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and-boolean"><i class="fa fa-check"></i><b>18.6.4</b> Count and boolean <code>&amp;</code></a></li>
+<li class="chapter" data-level="18.6.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and"><i class="fa fa-check"></i><b>18.6.5</b> Count and ^</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="app-chap-eql.html"><a href="app-chap-eql.html#combinations"><i class="fa fa-check"></i><b>18.7</b> Combinations</a><ul>
+<li class="chapter" data-level="18.7.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---domination-and-sequence"><i class="fa fa-check"></i><b>18.7.1</b> ^ and -&gt; (domination and sequence)</a></li>
+<li class="chapter" data-level="18.7.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---and-domination-and-sequence-and-boolean"><i class="fa fa-check"></i><b>18.7.2</b> ^ and -&gt; and &amp; (domination and sequence and boolean &amp;)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="app-chap-eql.html"><a href="app-chap-eql.html#a-few-more-questions-and-answers"><i class="fa fa-check"></i><b>18.8</b> A few more questions and answers</a></li>
+<li class="chapter" data-level="18.9" data-path="app-chap-eql.html"><a href="app-chap-eql.html#differences-to-the-legacy-emu-query-language"><i class="fa fa-check"></i><b>18.9</b> Differences to the legacy EMU query language</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#function-call-syntax"><i class="fa fa-check"></i><b>18.9.1</b> Function call syntax</a></li>
+<li class="chapter" data-level="18.9.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#empty-result"><i class="fa fa-check"></i><b>18.9.2</b> Empty result</a></li>
+<li class="chapter" data-level="18.9.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#the-result-modifier-hash-tag"><i class="fa fa-check"></i><b>18.9.3</b> The result modifier hash tag <code>#</code></a></li>
+<li class="chapter" data-level="18.9.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#interpretation-of-the-hash-tag-in-conjunction-operator-queries"><i class="fa fa-check"></i><b>18.9.4</b> Interpretation of the hash tag <code>#</code> in conjunction operator queries</a></li>
+<li class="chapter" data-level="18.9.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu"><i class="fa fa-check"></i><b>18.9.5</b> legacy EMU</a></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="app-chap-eql.html"><a href="app-chap-eql.html#bugs-in-legacy-emu-function-emu.query"><i class="fa fa-check"></i><b>18.10</b> Bugs in legacy EMU function <code>emu.query()</code></a><ul>
+<li class="chapter" data-level="18.10.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#alternative-labels-in-inequality-queries"><i class="fa fa-check"></i><b>18.10.1</b> Alternative labels in inequality queries</a></li>
+<li class="chapter" data-level="18.10.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu-1"><i class="fa fa-check"></i><b>18.10.2</b> legacy EMU</a></li>
+<li class="chapter" data-level="18.10.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#emur-1"><i class="fa fa-check"></i><b>18.10.3</b> emuR</a></li>
+<li class="chapter" data-level="18.10.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#errors-caused-by-missing-or-superfluous-blanks-or-parentheses"><i class="fa fa-check"></i><b>18.10.4</b> Errors caused by missing or superfluous blanks or parentheses</a></li>
+<li class="chapter" data-level="18.10.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#order-of-result-segment-list"><i class="fa fa-check"></i><b>18.10.5</b> Order of result segment list</a></li>
+<li class="chapter" data-level="18.10.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#additional-features"><i class="fa fa-check"></i><b>18.10.6</b> Additional features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="app_chap:fileFormats" class="section level1">
+<h1><span class="header-section-number">15</span> File Formats</h1>
+<div id="file-descriptions" class="section level2">
+<h2><span class="header-section-number">15.1</span> File descriptions</h2>
+<div id="subsec:app-chapFileFormatsDBconfig" class="section level3">
+<h3><span class="header-section-number">15.1.1</span> <code>_DBconfig.json</code></h3>
+<p>The <code>_DBconfig.json</code> file contains the configuration options of the database. People familiar with the legacy EMU system will recognize this as the replacement file for the legacy template (<code>.tpl</code>) file. By convention, variables or strings written entirely in capital letters indicate a constant variable that usually has a special meaning. This is also the case with strings like this found in the <code>_DBconfig.json</code> (<code>&quot;STRING&quot;</code>, <code>&quot;ITEM&quot;</code> ,<code>&quot;SEGMENT&quot;</code>, <code>&quot;EVENT&quot;</code>, <code>&quot;OSCI&quot;</code>, … ).</p>
+<p>The <code>_DBconfig.json</code> file contains the following fields:</p>
+<!-- max indentation seems to be 4 -->
+<ul>
+<li><p><code>&quot;name&quot;</code> specifies the name of the database</p></li>
+<li><p><code>&quot;UUID&quot;</code> a unique ID given to each database</p></li>
+<li><p><code>&quot;mediafileExtension&quot;</code> the main mediafileExtension (currently only uncompressed <code>.wav</code> files are supported in every component of the EMU system. This is also the recommended audio format for the <span acronym-label="emu-sdms" acronym-form="singular+short">emu-sdms</span>.)</p></li>
+<li><p><code>&quot;ssffTrackDefinitions&quot;</code> an array of definitions defining the SSFF tracks of the database. Each <code>ssffTrackDefinition</code> consists of:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> the name of the <code>ssffTrackDefinition</code></p></li>
+<li><p><code>&quot;columnName&quot;</code> the name of the column of the matching SSFF file. For more information on the columns the various functions of the <code>wrassp</code> produce, see the track fields of the <code>wrasspOutputInfos</code> object that is part of the <code>wrassp</code> package. Further, although the SSFF is a binary file format, it has a plain text header. This means that if you open a SSFF file in the text editor of your choice, you will be able to see the columns contained within it. Another way of accessing column information about a specific SSFF file is to use the <code>wrassp</code> function <code>res = read.AsspDataObj(/path/2/SSFF/file)</code> to read the file from the file system. <code>names(res)</code> will then give you the names of the columns present in this file. In the context of the SSFF, we use the term “column”, while in the context of the EMU system we use either “track” or “SSFF track”. Both refer to the same data.</p></li>
+<li><p><code>&quot;fileExtention&quot;</code> the file extension of the matching SSFF file. See also <code>?wrasspOutputInfos</code> for the default extensions produced by the <code>wrassp</code> functions.</p></li>
+</ul></li>
+<li><p><code>&quot;levelDefinitions&quot;</code> array of definitions defining the levels of the database. Each <code>&quot;levelDefinitions&quot;</code> consists of:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> The name of the <code>levelDefinition</code>.</p></li>
+<li><p><code>&quot;type&quot;</code> Specifies the type of level (either <code>&quot;ITEM&quot;</code> | <code>&quot;EVENT&quot;</code> | <code>&quot;SEGMENT&quot;</code>).</p></li>
+<li><p><code>&quot;attributeDefinitions&quot;</code> an array of definitions defining the
+attributes of the level. Each <code>attributeDefinition</code> consists of:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> The name of the <code>&quot;attributeDefinition&quot;</code>.</p></li>
+<li><p><code>&quot;type&quot;</code> Specifies the type of the attribute (currently only
+<code>&quot;STRING&quot;</code> permitted)</p></li>
+<li><p><code>&quot;labelGroups&quot;</code> An (optional) array containing label group
+definitions. These can be used as a shorthand notation for
+querying certain groups of labels and comprise the
+following:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> The name of the label group. This will be the
+value used in a query to refer to this group.</p></li>
+<li><p><code>&quot;values&quot;</code> An array of strings representing the labels.</p></li>
+</ul></li>
+<li><p><code>&quot;legalLabels&quot;</code> An (optional) array of strings specifying
+which labels are valid or legal for this attribute
+definition.</p></li>
+</ul></li>
+<li><p><code>&quot;anagestConfig&quot;</code> If specified (optional), this will convert the
+level into a special type of level for labeling articulatory
+data. This will also serve as a marker for the EMU-webApp to
+treat this level differently. This optional field may only be
+set for levels of the type <code>&quot;EVENT&quot;</code>.</p>
+<ul>
+<li><p><code>&quot;verticalPosSsffTrackName&quot;</code> The name of the
+SSFF
+track containing the vertical position data.</p></li>
+<li><p><code>&quot;velocitySsffTrackName&quot;</code> The name of the
+SSFF
+track containing the velocity data.</p></li>
+<li><p><code>&quot;autoLinkLevelName&quot;</code> The name of the level to which created
+events will be linked.</p></li>
+<li><p><code>&quot;multiplicationFactor&quot;</code> The factor to multiply with (either
+<code>-1</code> <code>1</code>).</p></li>
+<li><p><code>&quot;threshold&quot;</code> A value between 0 and 1 defining the absolute
+threshold.</p></li>
+<li><p><code>&quot;gestureOnOffsetLabels&quot;</code> An array containing two strings
+that specify the on- and offset labels.</p></li>
+<li><p><code>&quot;maxVelocityOnOffsetLabels&quot;</code> An array containing two
+strings that specify the on- and offset labels.</p></li>
+<li><p><code>&quot;constrictionPlateauBeginEndLabels&quot;</code> An array containing
+two strings that specify the begin- and end labels.</p></li>
+<li><p><code>&quot;maxConstrictionLabel&quot;</code> A string specifying the maximum
+constriction label.</p></li>
+</ul></li>
+</ul></li>
+<li><p><code>&quot;linkDefinitions&quot;</code> An array of the definitions defining the links
+between levels of the database. The combination of all link
+definitions specifies the hierarchy of the database. Each
+<code>linkDefinition</code> consists of:</p>
+<ul>
+<li><p><code>&quot;type&quot;</code> Specifies the type of link (either <code>&quot;ONE_TO_MANY&quot;</code>
+<code>&quot;MANY_TO_MANY&quot;</code> <code>&quot;ONE_TO_ONE&quot;</code>).</p></li>
+<li><p><code>&quot;superlevelName&quot;</code> Specifies the name of the super-level.</p></li>
+<li><p><code>&quot;sublevelName&quot;</code> Specifies the name of the sub-level.</p></li>
+</ul></li>
+<li><p><code>&quot;labelGroups&quot;</code> An (optional) array containing label group
+definitions. These can be used as a shorthand notation for querying
+certain groups of labels. Compared to the <code>&quot;labelGroups&quot;</code>, which can
+be defined within an <code>attributeDefinition</code>, the <code>labelGroups</code>
+defined here are globally defined for the entire database as
+follows:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> The name of the label group.</p></li>
+<li><p><code>&quot;values&quot;</code> An array of strings containing labels.</p></li>
+</ul></li>
+<li><p><code>&quot;EMUwebAppConfig&quot;</code> Specifies the configuration options intended for
+the<br />
+<code>EMU-webApp</code> (i.e., how the database is to be displayed). This field
+can contain all the configurations options that are specified in the
+EMU-webApp’s configuration schema (see
+<a href="https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles" class="uri">https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles</a>).
+The <code>&quot;EMUwebAppConfig&quot;</code> contains the following fields:</p>
+<ul>
+<li><p><code>&quot;main&quot;</code> Main behavior options:</p>
+<ul>
+<li><p><code>&quot;autoConnect&quot;</code>: Auto connect to the <code>&quot;serverUrl&quot;</code> on the
+initial load of the webApp to automatically load a database
+(mainly used for development).</p></li>
+<li><p><code>&quot;serverUrl&quot;</code>: The default server URL that is displayed in
+the connect modal window (and used if <code>&quot;autoConnect&quot;</code> is set
+to <code>true</code>). The default: <code>&quot;ws://localhost:17890&quot;</code> points to
+the server started by the <code>serve()</code> function of the <code>emuR</code>
+package.</p></li>
+<li><p><code>&quot;serverTimeoutInterval&quot;</code>: The maximum amount of time the
+<code>EMU-webApp</code> waits (in milliseconds) for the server to
+respond.</p></li>
+<li><p><code>&quot;comMode&quot;</code>: Specifies the communication mode the
+<code>EMU-webApp</code> is in. Currently the only option that is
+available is <code>&quot;WS&quot;</code> (websocket).</p></li>
+<li><p><code>&quot;catchMouseForKeyBinding&quot;</code>: Check if mouse has to be in
+labeler for key bindings to work.</p></li>
+</ul></li>
+<li><p><code>&quot;keyMappings&quot;</code> Keyboard shortcut definitions. For the sake of
+brevity, not every key-code is shown (see schema:
+<a href="https://github.com/IPS-LMU/EMU-webApp/blob/master/dist/schemaFiles/emuwebappConfigSchema.json" class="uri">https://github.com/IPS-LMU/EMU-webApp/blob/master/dist/schemaFiles/emuwebappConfigSchema.json</a>
+for extensive list).</p>
+<ul>
+<li><p><code>&quot;toggleSideBarLeft&quot;</code> integer value that represents the
+key-code that toggles the left side bar (== bundleList side
+bar)</p></li>
+<li><p><code>&quot;toggleSideBarRight&quot;</code> integer value that represents the
+key-code that toggles the right side bar (== perspective
+side bar)</p></li>
+<li><p>…</p></li>
+</ul></li>
+<li><p><code>&quot;spectrogramSettings&quot;</code> Specifies the default settings of the
+spectrogram. The possible settings are:</p>
+<ul>
+<li><p><code>&quot;windowSizeInSecs&quot;</code> Specifies the window size in seconds.</p></li>
+<li><p><code>&quot;rangeFrom&quot;</code> Specifies the lowest frequency (in Hz) that
+will be displayed by the spectrogram.</p></li>
+<li><p><code>&quot;rangeTo&quot;</code> Specifies the highest frequency (in Hz) that
+will be displayed by the spectrogram.</p></li>
+<li><p><code>&quot;dynamicRange&quot;</code> Specifies the dynamic rang for maximum
+decibel dynamic range.</p></li>
+<li><p><code>&quot;window&quot;</code> Specifies the window type (<code>&quot;BARTLETT&quot;</code>
+<code>&quot;BARTLETTHANN&quot;</code> <code>&quot;BLACKMAN&quot;</code> <code>&quot;COSINE&quot;</code> <code>&quot;GAUSS&quot;</code>
+<code>&quot;HAMMING&quot;</code> <code>&quot;HANN&quot;</code> <code>&quot;LANCZOS&quot;</code> <code>&quot;RECTANGULAR&quot;</code>
+<code>&quot;TRIANGULAR&quot;</code>).</p></li>
+<li><p><code>&quot;preEmphasisFilterFactor&quot;</code> Specifies the preemphasis factor
+(in formula: s’(k) = s(k) - preEmphasisFilterFactor *
+s(k-1) ).</p></li>
+<li><p><code>&quot;transparency&quot;</code> Specifies the transparency of the
+spectrogram (integer from 0 to 255).</p></li>
+<li><p><code>&quot;drawHeatMapColors&quot;</code> (optional) Defines whether the
+spectrogram should be drawn using heat-map colors (either
+true or false)</p></li>
+<li><p><code>&quot;heatMapColorAnchors&quot;</code> (optional) Specifies the heat-map color anchors (array of the form <code>[[255, 0, 0], [0, 255, 0], [0, 0, 255]]</code>)</p></li>
+</ul></li>
+<li><p><code>&quot;perspectives&quot;</code> An array containing perspective configurations.
+Each <code>&quot;perspective&quot;</code> consists of:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> Name of the perspective.</p></li>
+<li><p><code>&quot;signalCanvases&quot;</code> Configuration options for the
+<code>signalCanvases</code>.</p>
+<ul>
+<li><p><code>&quot;order&quot;</code> An array specifying the order in which the
+<span acronym-label="ssff" acronym-form="singular+short">ssff</span> tracks are to be
+displayed. Note that the <span acronym-label="ssff" acronym-form="singular+short">ssff</span> track names “OSCI” and
+“SPEC” are always available in addition to the
+<span acronym-label="ssff" acronym-form="singular+short">ssff</span> track defined in the
+database.</p></li>
+<li><p><code>&quot;assign&quot;</code> An array of configuration options that assign
+one <span acronym-label="ssff" acronym-form="singular+short">ssff</span> track to another,
+effectively creating a visual overlay of one track over
+another. Each array element consists of:</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<!--                 -   `"signalCanvasName"` The name of the signal -->
+<!--                     specified in the `"order"` array. -->
+<!--                 -   `"ssffTrackName"` The name of the -->
+<!--                     [ssff]{acronym-label="ssff" -->
+<!--                     acronym-form="singular+short"} track to overlay onto -->
+<!--                     `"signalCanvasName"`. -->
+<pre><code>     -   `&quot;minMaxValLims&quot;` An array of configuration options to
+            limit the y-axis range that is displayed for a specified
+            SSFF track.</code></pre>
+<!--                 -   `"ssffTrackName"`: A name specifying which ssffTrack -->
+<!--                     should be limited. -->
+<!--                 -   `"minVal"`: The minimum value which defines the -->
+<!--                     lower y-axis limit. -->
+<pre><code>     -   `&quot;contourLims&quot;` An array containing contour limit values
+            that specify an index range that is to be displayed. As
+            a track or column can contain multi-dimensional data
+            (e.g. four formant values per time stamp, 256 DFT values
+            per time stamp, etc.) it is possible to specify an index
+            range that specifies which values should be displayed
+            (e.g., display formant 2 through 4).</code></pre>
+<!--                 -   `"ssffTrackName"` A name specifying which ssffTrack -->
+<!--                     should be limited. -->
+<!--                 -   `"minContourIdx"` The minimum contour index to -->
+<!--                     display (starts at index 0). -->
+<!--                 -   `"maxContourIdx"` The maximum contour index to -->
+<!--                     display. -->
+<pre><code>     -   `&quot;contourColors&quot;` An array to specify colors of
+            individual contours. This overrides the default of
+            automatically calculating distinct colors for each
+            contour.</code></pre>
+<!--                 -   `"ssffTrackName"` The name of the `ssffTrackName` -->
+<!--                     for which colors are defined. -->
+<!--                 -   `"colors"` An array of RGB strings (e.g. -->
+<!--                     `["rgb(238,130,238)"`, `"rgb(127,255,212)"]`) that -->
+<!--                     specify the color of the contour (first value = -->
+<!--                     first contour color and so on). -->
+<pre><code> -   `&quot;levelCanvases&quot;` Configuration options for the
+        `levelCanvases`:</code></pre>
+<!--             -   `"order"` An array specifying the order in which the -->
+<!--                 levels are to be displayed. Note that only levels of the -->
+<!--                 type `EVENT` or `SEGMENT` can be displayed as -->
+<!--                 `levelCanvases`. -->
+<pre><code> -   `&quot;twoDimCanvases&quot;` Configuration options for the 2D canvas.
+
+        -   `&quot;order&quot;` An array specifying the order in which the
+            levels are to be displayed. Note that currently only a
+            single\
+            `twoDimDrawingDefinition` can be displayed so this array
+            can currently only contain a single element.
+
+        -   `&quot;twoDimDrawingDefinitions&quot;` An array containing two
+            dimensional drawing definitions. Each two dimensional
+            drawing definition consists of:</code></pre>
+<!--                 -   `"dots"` An array containing dot definitions. Each -->
+<!--                     dot definition consist of: -->
+<!--                     -   `"name"` The name of the dot. -->
+<!--                     -   `"xSsffTrack"` The `ssffTrackName` of the track -->
+<!--                         that contains the x axis values. -->
+<!--                     -   `"xContourNr"` The contour number of the track -->
+<!--                         that contains the x-axis values. -->
+<!--                     -   `"ySsffTrack"` The `ssffTrackName` of the track -->
+<!--                         that contains the y-axis values. -->
+<!--                     -   `"yContourNr"` The contour number of the track -->
+<!--                         that contains the y-axis values. -->
+<!--                     -   `"color"` The RGB color string specifying the -->
+<!--                         color given to dot. -->
+<!--                 -   `"connectLines"` An array specifying which of the -->
+<!--                     dots specified in the `"dots"` definition array -->
+<!--                     should be connected by a line. -->
+<!--                     -   `"fromDot"` The dot from which the line should -->
+<!--                         start. -->
+<!--                     -   `"toDot"` The dot at which the line should end. -->
+<!--                     -   `"color"` The RGB string defining the color of -->
+<!--                         the line. -->
+<!--                 -   `"staticDots"` An array containing static dot -->
+<!--                     definitions: -->
+<!--                     -   `"name"` The name of the static dots. -->
+<!--                     -   `"xNameCoordinate"` An x-coordinate specifying -->
+<!--                         the location at which name should be drawn. -->
+<!--                     -   `"yNameCoordinate"` y-coordinate specifying the -->
+<!--                         location at which name should be drawn. -->
+<!--                     -   `"xCoordinates"` An array of x-coordinates (e.g. -->
+<!--                         `[300, 300, 900, 900, 300]`). -->
+<!--                     -   `"yCoordinates"` An array of y-coordinates (e.g. -->
+<!--                         `[880, 2540, 2540, 880, 880]`). -->
+<!--                     -   `"connect"` A boolean value that specifies -->
+<!--                         whether or not to connect the static dots with -->
+<!--                         lines. -->
+<!--                     -   `"color"` An RGB string specifying the color of -->
+<!--                         static dots. -->
+<!--                 -   `"staticContours"` An array containing static -->
+<!--                     contour definitions: -->
+<!--                     -   `"name"` The name of static contour. -->
+<!--                     -   `"xSsffTrack"` The `ssffTrackName` of the track -->
+<!--                         that contains the x-axis values. -->
+<!--                     -   `"xContourNr"` The contour number of the track -->
+<!--                         that contains the x-axis values. -->
+<!--                     -   `"ySsffTrack"` The `ssffTrackName` of the track -->
+<!--                         that contains the y-axis values. -->
+<!--                     -   `"yContourNr"` The contour number of the track -->
+<!--                         that contains the y-axis values. -->
+<!--                     -   `"connect"` A boolean value that specifies -->
+<!--                         whether or not to connect the static dots with -->
+<!--                         lines. -->
+<!--                     -   `"color"` An RGB string specifying color of the -->
+<!--                         static contour. -->
+<ul>
+<li><p><code>&quot;labelCanvasConfig&quot;</code> Configuration options for the label
+canvases:</p>
+<ul>
+<li><p><code>&quot;addTimeMode&quot;</code> The mode in which time to boundaries is
+added and subtracted (<code>&quot;absolute&quot;</code> or <code>&quot;relative&quot;</code>).</p></li>
+<li><p><code>&quot;addTimeValue&quot;</code>: The amount of samples added to or
+subtracted from boundaries.</p></li>
+<li><p><code>&quot;newSegmentName&quot;</code> The value given to the default label if a
+new SEGMENT is added (default is “” == empty string).</p></li>
+<li><p><code>&quot;newEventName&quot;</code> The value given to the default label if a
+new EVENT is added (default is “” == empty string).</p></li>
+</ul></li>
+</ul>
+<ul>
+<li><p><code>&quot;restrictions&quot;</code>:</p>
+<ul>
+<li><p><code>&quot;playback&quot;</code> A boolean value specifying whether to allow
+audio playback.</p></li>
+<li><p><code>&quot;correctionTool&quot;</code> A boolean value specifying whether
+correction tools are available.</p></li>
+<li><p><code>&quot;editItemSize&quot;</code> A boolean value specifying whether to allow
+the size of a <code>SEGMENT</code> or <code>EVENT</code> to be changed (i.e., move
+boundaries).</p></li>
+<li><p><code>&quot;editItemName&quot;</code> A boolean value specifying whether to allow
+the label of an <code>ITEM</code> to be changed.</p></li>
+<li><p><code>&quot;deleteItemBoundary&quot;</code> A boolean value specifying whether to
+allow the deletion of boundaries.</p></li>
+<li><p><code>&quot;deleteItem&quot;</code> A boolean value specifying whether to allow
+the deletion of entire <code>ITEM</code>s</p></li>
+<li><p><code>&quot;deleteLevel&quot;</code> A boolean value specifying whether to allow
+the deletion of entire levels.</p></li>
+<li><p><code>&quot;addItem&quot;</code> A boolean value specifying whether to allow new
+<code>ITEM</code>s to be added.</p></li>
+<li><p><code>&quot;drawCrossHairs&quot;</code> A boolean value specifying whether to
+draw the cross hairs on signal canvases.</p></li>
+<li><p><code>&quot;drawSampleNrs&quot;</code> A boolean value specifying whether to draw
+the sample numbers in the OSCI canvas if zoomed in close
+enough to see samples (mainly for debugging and development
+purposes).</p></li>
+<li><p><code>&quot;drawZeroLine&quot;</code> A boolean value specifying whether to draw
+the zero value line in OSCI canvas.</p></li>
+<li><p><code>&quot;bundleComments&quot;</code> A boolean value specifying whether to
+allow the annotator to add comments to bundles she or he has
+annotated. A bundle comment field will show up in the bundle
+list side bar for each bundle if this is set to true. Note
+that the server has to support saving these comments, which
+the <code>serve()</code> function of the <code>emuR</code> package does not.</p></li>
+<li><p><code>&quot;bundleFinishedEditing&quot;</code> A boolean value specifying whether
+to allow the annotator to mark when she or he has finished
+annotating a bundle. A finished editing toggle button will
+show up in the bundle list side bar for each bundle if this
+is set to <code>true</code>. Note that the server has to support saving
+these comments which the <code>serve()</code> function of the <code>emuR</code>
+package does not.</p></li>
+<li><p><code>&quot;showPerspectivesSidebar&quot;</code> A boolean value specifying
+whether to show the perspectives side bar.</p></li>
+</ul></li>
+</ul>
+<ul>
+<li><p><code>&quot;activeButtons&quot;</code> Specifies which top- or bottom-menu buttons
+should be displayed by the <code>EMU-webApp</code>.</p>
+<ul>
+<li><p><code>&quot;addLevelSeg&quot;</code> A boolean value specifying whether to show
+the <code>add SEGMENT level</code> button in the top menu bar.</p></li>
+<li><p><code>&quot;addLevelEvent&quot;</code> A boolean value specifying whether to show
+the <code>add EVENT level button</code> in the top menu bar.</p></li>
+<li><p><code>&quot;renameSelLevel&quot;</code> A boolean value specifying whether to
+allow the user to rename the currently selected level.</p></li>
+<li><p><code>&quot;downloadTextGrid&quot;</code> A boolean value specifying whether to
+allow the user to download the current annotation as a
+<code>.TextGrid</code> file by displaying a <code>download TextGrid</code> button
+in the top menu bar.</p></li>
+<li><p><code>&quot;downloadAnnotation&quot;</code> A boolean value specifying whether to
+allow the user to download the current annotation as an
+<code>_annot.json</code> file by displaying a <code>download annotJSON</code>
+button in the top menu bar.</p></li>
+<li><p><code>&quot;specSettings&quot;</code> A boolean value specifying whether to
+display the <code>spec. settings</code> button in the top menu bar.</p></li>
+<li><p><code>&quot;connect&quot;</code> A boolean value specifying whether to display
+the <code>connect</code> button in the top menu bar.</p></li>
+<li><p><code>&quot;clear&quot;</code> A boolean value specifying whether to display the
+<code>clear</code> button in the top menu bar.</p></li>
+<li><p><code>&quot;deleteSingleLevel&quot;</code> A boolean value specifying whether to
+allow the user to delete a level containing time
+information.</p></li>
+<li><p><code>&quot;resizeSingleLevel&quot;</code> A boolean value specifying whether to
+allow the user to resize a level.</p></li>
+<li><p><code>&quot;saveSingleLevel&quot;</code> A boolean value specifying whether to
+allow the user to download a single level in the ESPS/waves+
+format.</p></li>
+<li><p><code>&quot;resizeSignalCanvas&quot;</code> A boolean value specifying whether to
+allow the user to resize the <code>signalCanvases</code> (<code>&quot;OSCI&quot;</code>,
+<code>&quot;SPEC&quot;</code>, …).</p></li>
+<li><p><code>&quot;openDemoDB&quot;</code> A boolean value specifying whether to show
+the <code>open demoDB</code> button.</p></li>
+<li><p><code>&quot;saveBundle&quot;</code> A boolean value specifying whether to show
+the save button in bundle list side bar for each bundle.</p></li>
+<li><p><code>&quot;openMenu&quot;</code> A boolean value specifying whether open bundle
+list side bar button is displayed.</p></li>
+<li><p><code>&quot;showHierarchy&quot;</code> A boolean value specifying whether to
+display the <code>show hierarchy</code> button.</p></li>
+</ul></li>
+<li><p><code>&quot;demoDBs&quot;</code> An array of strings specifying which demoDBs to display
+in the <code>open demo</code> drop-down menu. Currently available demo
+databases are <code>[&quot;ae&quot;, &quot;ema&quot;, &quot;epgdorsal&quot;]</code>.</p></li>
+</ul>
+</div>
+<div id="subsec:app_chapFileFormatsAnnotJSON" class="section level3">
+<h3><span class="header-section-number">15.1.2</span> <code>_annot.json</code></h3>
+<p>The <code>_annot.json</code> files contain the actual annotation information as
+well as the hierarchical linking information. Legacy EMU users should
+note that all the information that used to be split into several
+ESPS/waves+ label files and a <code>.hlb</code> file is now contained in this
+single file.</p>
+<p>The <code>_annot.json</code> file contains the following fields:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> Specifies the name of the annotation file (has to be equal
+to the bundle directory prefix as well as the <code>_annot.json</code> prefix).</p></li>
+<li><p><code>&quot;annotates&quot;</code> Specifies the (relative) media file path that this
+<code>_annot.json</code> file annotates.</p></li>
+<li><p><code>&quot;sampleRate&quot;</code> Specifies the sample rate of the annotation (should
+be the same as the sample rate of the file listed in <code>&quot;annotates&quot;</code>).</p></li>
+<li><p><code>&quot;levels&quot;</code> Contains an array of level annotation informations. Each
+element consists of:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> Specifies the name of the level.</p></li>
+<li><p><code>&quot;items&quot;</code> An array containing the annotation items of the level.</p>
+<ul>
+<li><p><code>&quot;id&quot;</code> The unique ID of the item (only unique within an
+<code>_annot.json</code> file or bundle, not globally for the <code>emuDB</code>).</p></li>
+<li><p><code>&quot;sampleStart&quot;</code> Contains start sample value of <code>SEGMENT</code>
+item.</p></li>
+<li><p><code>&quot;sampleDur&quot;</code> Contains sample duration value of <code>SEGMENT</code>
+item. Note that the <code>EMU-webApp</code> does not support
+overlapping <code>SEGMENT</code>s or <code>SEGMENT</code> sequences containing
+gaps. This infers that each sample is explicitly and
+unambiguously associated with a single <code>SEGMENT</code>. This means
+that the <code>sampleStart</code> value of a following <code>SEGMENT</code> has to
+be <code>sampleStart</code> + <code>sampleDur</code> + 1 of the previous
+<code>SEGMENT</code>. When converting the sample values to time values,
+the <code>start</code> time value is calculated with the formula
+<span class="math inline">\(start = \frac{sampleStart}{sampleRate} - \frac{0.5}{sampleRate}\)</span>
+and the <code>end</code> time value with the formula
+<span class="math inline">\(end = \frac{sampleStart + sampleDur}{sampleRate} + \frac{0.5}{ sampleRate}\)</span>.
+This is done to have gapless time values for successive
+<code>SEGMENT</code>s. To avoid a negative time value when dealing with
+the first sample of an audio file (<code>sampleStart</code> value of
+<span class="math inline">\(0\)</span>), the <code>start</code> time value is simply set to <span class="math inline">\(0\)</span> in this
+case. The <code>start</code> and <code>end</code> time value calculation is
+performed by both the query engine of <code>emuR</code> if the
+<code>calcTimes</code> parameter is set to <code>TRUE</code> and the <code>EMU-webApp</code>
+to display the time information in the signal canvases.</p></li>
+<li><p><code>&quot;samplePoint&quot;</code> Contains sample point values of <code>EVENT</code>
+items. When calculating the <code>start</code> time values for <code>EVENT</code>s
+the following formula is used:
+<span class="math inline">\(start = \frac{samplePoint}{sampleRate}\)</span></p></li>
+<li><p><code>&quot;labels&quot;</code> An array containing labels that belong to this
+item. Each element consists of:</p>
+<ul>
+<li><p><code>&quot;name&quot;</code> Specifies the <code>attributeDefinition</code> that this
+label is for.</p></li>
+<li><p><code>&quot;value&quot;</code> Specifies the label value.</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><code>&quot;links&quot;</code> An array containing links between two items. These links have to adhere to the links specified in <code>linkDefinitions</code> of the corresponding <code>emuDB</code>. Each link consists of:</p>
+<ul>
+<li><p><code>&quot;fromID&quot;</code> The ID value of the item to link from (i.e., item in super-level).</p></li>
+<li><p><code>&quot;toID&quot;</code> The ID value of item to link to (i.e., item in sub-level).</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="subsec:app_chapFileFormatsSSFF" class="section level3">
+<h3><span class="header-section-number">15.1.3</span> The SSFF file format</h3>
+<p>The SSFF file format is a binary file format which has a plain text header. This means that the header is human-readable and can be viewed with any text editor including common UNIX command line tools such as <code>less</code> or <code>cat</code>. Within R it is possible to view the header by using R’s <code>readLines()</code> function as displayed in R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a>.</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="co"># load the emuR and wrassp packages</span></a>
+<a class="sourceLine" id="cb298-2" data-line-number="2"><span class="kw">library</span>(emuR, <span class="dt">warn.conflicts =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="kw">library</span>(wrassp)</a>
+<a class="sourceLine" id="cb298-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb298-5" data-line-number="5"><span class="co"># create demo data in directory </span></a>
+<a class="sourceLine" id="cb298-6" data-line-number="6"><span class="co"># provided by tempdir()</span></a>
+<a class="sourceLine" id="cb298-7" data-line-number="7"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb298-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb298-9" data-line-number="9"><span class="co"># create path to demo database</span></a>
+<a class="sourceLine" id="cb298-10" data-line-number="10">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb298-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb298-12" data-line-number="12"><span class="co"># create path to bundle in database</span></a>
+<a class="sourceLine" id="cb298-13" data-line-number="13">path2bndl =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;0000_ses&quot;</span>, <span class="st">&quot;msajc003_bndl&quot;</span>)</a>
+<a class="sourceLine" id="cb298-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb298-15" data-line-number="15"><span class="co"># create path to .fms file </span></a>
+<a class="sourceLine" id="cb298-16" data-line-number="16">path2fmsFile =<span class="st"> </span><span class="kw">file.path</span>(path2bndl, </a>
+<a class="sourceLine" id="cb298-17" data-line-number="17">                        <span class="kw">paste0</span>(<span class="st">&quot;msajc003.&quot;</span>, </a>
+<a class="sourceLine" id="cb298-18" data-line-number="18">                               wrasspOutputInfos<span class="op">$</span>forest<span class="op">$</span>ext))</a>
+<a class="sourceLine" id="cb298-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb298-20" data-line-number="20"><span class="co"># read in first 8 lines of .fms file.</span></a>
+<a class="sourceLine" id="cb298-21" data-line-number="21"><span class="co"># Note that the header length may vary in other SSFF files.</span></a>
+<a class="sourceLine" id="cb298-22" data-line-number="22"><span class="kw">readLines</span>(path2fmsFile, <span class="dt">n =</span> <span class="dv">8</span>)</a></code></pre></div>
+<pre><code>## [1] &quot;SSFF -- (c) SHLRC&quot;            &quot;Machine IBM-PC&quot;              
+## [3] &quot;Record_Freq 200.0&quot;            &quot;Start_Time 0.0025&quot;           
+## [5] &quot;Column fm SHORT 4&quot;            &quot;Column bw SHORT 4&quot;           
+## [7] &quot;Original_Freq DOUBLE 20000.0&quot; &quot;-----------------&quot;</code></pre>
+<p>The general line item structure of the plain text head of an SSFF file can be described as follows:</p>
+<ul>
+<li><p><code>SSFF – (c) SHLRC</code> (required line): File type marker.</p></li>
+<li><p><code>Machine IBM-PC</code> (required line): System architecture of the machine that generated the file. This is mainly used to specify the endianness of the data block (see below). <code>Machine IBM-PC</code> indicates little-endian and <code>Machine SPARC</code> indicates big-endian. To date, we have not encountered other machine types.</p></li>
+<li><p><code>Record_Freq SR</code> (required line): Sample rate of current file in Hz. If, for example, <code>SR</code> is 200.0 (see R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a>) then the sample rate is 200 Hz.</p></li>
+<li><p><code>Start_Time ST</code> (required line): Time of first sample block in data block in seconds. This often deviates from 0.0 as <code>wrassp</code>’s windowed signal processing functions start with the first window centered around <code>windowShift</code> / 2. If the <code>windowShift</code> parameter’s default value is 5 ms, the start time <code>ST</code> of the first sample block will be 0.0025 sec (see R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a>).</p></li>
+<li><p><code>Column CN CDT CDL</code> (required line(s)): A <code>Column</code> line entry contains four space-separated values, where <code>Column</code> is the initial key word value. The second value, <code>CN</code> (<code>fm</code> in R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a>), specifies the name for the column; the third, <code>CDT</code> (<code>SHORT</code> in R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a>), indicates the column’s data type; and the fourth, <code>CDL</code> (<code>4</code> in R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a>), is the column’s data length in bytes. As can be seen in R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a>, it is quite common for SSFF files to have multiple column entries. The sequence of these entries is relevant, as it specifies the sequence of the data in the binary data block (see below).</p></li>
+<li><p><code>NAME DT DV</code> (optional line(s)): Optional single value definitions that have a <code>NAME</code>, a data type <code>DT</code> and a data value <code>DV</code> (see <code>Original_Freq DOUBLE 20000.0</code> in R Example <a href="#rexample:wrassp-readSSFF"><strong>??</strong></a> specifying the original sample rate of the audio file the <code>.fms</code> file was generated from).</p></li>
+<li><p><code>Comment CHAR string of variable length</code> (optional line(s)): The <code>Comment CHAR</code> allows for comment strings to be added to the header.</p></li>
+<li><p><code>—————–</code> (required line): marks the end of the plain text header.</p></li>
+</ul>
+<p>The binary data block of the SSFF file format stores its data in a so-called interleaved fashion. This means it does not store the binary data belonging to every column in a separate data block. Rather, it interleaves the columns to form sample blocks that occur at the same point in time. Figure <a href="app-chap-fileFormats.html#fig:wrassp-ssffDataBlock">15.1</a> displays a sequence of short integer values where the subscript text indicates the index in the sequence. This sequence represents a schematic representation of the data block of the <code>.fms</code> file of R Example <a href="app-chap-fileFormats.html#fig:wrassp-ssffDataBlock">15.1</a>. The first four <span style="color: three_color_c1"><code>INT16</code><sub><code>1-4</code></sub></span> (green) blocks represent the first four <code>INT16</code> formant values that belong to the <code>fm</code> column and the next four <span style="color: three_color_c2"><code>INT16</code><sub><code>5-8</code></sub></span> (orange) represent the first four bandwidth values belonging to the <code>bm</code> column. Therefore, the dashed square marks the first sample block (i.e., the first eight F1, F2, F3 and F4; and F1<sub>bandwidth</sub>, F2<sub>bandwidth</sub>, F3<sub>bandwidth</sub> and F4<sub>bandwidth</sub> values) that occur at the time specified by the <code>Start_Time 0.0025</code> header entry. The time of all subsequent sample blocks of eight <code>INT16</code> values (e.g., <code>INT16</code><sub><code>9-16</code></sub>) can be calculated as follows:
+<code>0.0025 (== Start_Time) + 1 / 200.0 (== Record_Freq) * sample block index</code>.</p>
+<div class="figure" style="text-align: center"><span id="fig:wrassp-ssffDataBlock"></span>
+<img src="pics/ssffDataBlock.png" alt="Schematic representation of the data block of the `msajc003.fms` file of R Example ref{rexample:wrassp-readSSFF}." width="100%" />
+<p class="caption">
+Figure 15.1: Schematic representation of the data block of the <code>msajc003.fms</code> file of R Example ref{rexample:wrassp-readSSFF}.
+</p>
+</div>
+</div>
+</div>
+<div id="example-files" class="section level2">
+<h2><span class="header-section-number">15.2</span> Example files</h2>
+<div id="subsec:app-chapExampleFilesBundleList" class="section level3">
+<h3><span class="header-section-number">15.2.1</span> <code>_bundleList.json</code></h3>
+<p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport information about all the available bundles to the <code>EMU-webApp</code>. It is not meant as an on-disk file format but rather should be generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in Listing <a href="#lst:bndlListJSON"><strong>??</strong></a>.</p>
+<!-- caption="Schematic example of a \_bundleList.json file" language="json" label="lst:bndlListJSON" startFrom="1" -->
+<div class="sourceCode" id="cb300"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb300-2" data-line-number="2">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb300-3" data-line-number="3">  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc003&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-4" data-line-number="4">  <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-5" data-line-number="5">  <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-6" data-line-number="6">  <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-7" data-line-number="7">  <span class="dt">&quot;timeAnchors&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb300-8" data-line-number="8">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb300-9" data-line-number="9">      <span class="dt">&quot;sample_start&quot;</span><span class="fu">:</span> <span class="dv">1000</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-10" data-line-number="10">      <span class="dt">&quot;sample_end&quot;</span><span class="fu">:</span> <span class="dv">2000</span></a>
+<a class="sourceLine" id="cb300-11" data-line-number="11">    <span class="fu">}</span><span class="ot">,</span> <span class="er">...</span></a>
+<a class="sourceLine" id="cb300-12" data-line-number="12">  <span class="ot">]</span></a>
+<a class="sourceLine" id="cb300-13" data-line-number="13">  <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb300-14" data-line-number="14">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb300-15" data-line-number="15">  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc010&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-16" data-line-number="16">  <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-17" data-line-number="17">  <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb300-18" data-line-number="18">  <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb300-19" data-line-number="19">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb300-20" data-line-number="20"><span class="ot">]</span></a></code></pre></div>
+</div>
+<div id="subsec:app_chapExampleFilesBndlJSON" class="section level3">
+<h3><span class="header-section-number">15.2.2</span> <code>_bndl.json</code></h3>
+<p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport all the data belonging to a single bundle to the <code>EMU-webApp</code>. It is not meant as an on-disk file format by rather should generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in Listing <a href="#lst:bndlJSON"><strong>??</strong></a>.</p>
+<!-- lst:bndlJSON caption="Schematic example of a _bndl.json file" language="json" startFrom="1" -->
+<div class="sourceCode" id="cb301"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb301-2" data-line-number="2"> <span class="dt">&quot;ssffFiles&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb301-3" data-line-number="3">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb301-4" data-line-number="4">   <span class="dt">&quot;fileExtension&quot;</span><span class="fu">:</span> <span class="st">&quot;fms&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb301-5" data-line-number="5">   <span class="dt">&quot;encoding&quot;</span><span class="fu">:</span> <span class="st">&quot;BASE64&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb301-6" data-line-number="6">   <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="st">&quot;U1N...&quot;</span></a>
+<a class="sourceLine" id="cb301-7" data-line-number="7">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb301-8" data-line-number="8"> <span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb301-9" data-line-number="9"> <span class="dt">&quot;mediaFile&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb301-10" data-line-number="10">  <span class="dt">&quot;encoding&quot;</span><span class="fu">:</span> <span class="st">&quot;BASE64&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb301-11" data-line-number="11">  <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="st">&quot;Ukl...&quot;</span></a>
+<a class="sourceLine" id="cb301-12" data-line-number="12"> <span class="fu">},</span></a>
+<a class="sourceLine" id="cb301-13" data-line-number="13"> <span class="dt">&quot;annotation&quot;</span><span class="fu">:</span> <span class="er">contentOfAnnot.json</span></a>
+<a class="sourceLine" id="cb301-14" data-line-number="14"><span class="fu">}</span></a></code></pre></div>
+<p><code>contentOfAnnot.json</code> in Listing <a href="#lst:bndlJSON"><strong>??</strong></a> refers to the content of a <code>_annot.json</code> file.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="app-chap-useCases.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="app-chap-wsProtocol.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/app_chap-fileFormats.Rmd",
+"text": "Edit"
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
