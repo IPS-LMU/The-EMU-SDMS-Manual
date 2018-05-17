@@ -251,7 +251,7 @@ components:
   \item
     Version: 0.1.12
   \item
-    Git SHA1: 7b044a9f9fe19f2eb6d03ec6ec3f20d5b1d25db2
+    Git SHA1: 655415e55543274670d8871ee5c30c46c60fd1ae
   \end{itemize}
 \end{itemize}
 
@@ -847,8 +847,8 @@ rexample:tutorial\_summary
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     f34d6f52-4fbb-4d69-b3d3-37c356d42d7d 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpuxCV78/myFirst_emuDB 
+## UUID:     7e9f1a2b-756d-458e-8da2-a6544f648864 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpIr5Xn6/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2257,8 +2257,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     ea22551d-66cf-47f2-9ae3-eb4a5b195c14 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpBdnCjy/fromScratch_emuDB 
+## UUID:     2514a558-e98b-4555-9a4b-f7a355b51a54 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpmoktGD/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4386,7 +4386,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmp0YMGBD/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmptLY6Jc/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4925,7 +4925,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-05-16 19:56:49 "  
+## [5] "Timestamp:  2018-05-17 12:33:28 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -8150,194 +8150,331 @@ The \texttt{\_DBconfig.json} file contains the following fields:
         one {ssff} track to another, effectively creating a visual
         overlay of one track over another. Each array element consists
         of:
+      \item
+        \texttt{"signalCanvasName"} The name of the signal specified in
+        the \texttt{"order"} array. (NOTE: indentation level reduced by
+        1 to avoid max indentation problems)
+      \item
+        \texttt{"ssffTrackName"} The name of the SSFF track to overlay
+        onto \texttt{"signalCanvasName"}. (NOTE: indentation level
+        reduced by 1 to avoid max indentation problems)
+      \item
+        \texttt{"minMaxValLims"} An array of configuration options to
+        limit the y-axis range that is displayed for a specified SSFF
+        track.
+      \item
+        \texttt{"ssffTrackName"}: A name specifying which ssffTrack
+        should be limited. (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
+      \item
+        \texttt{"minVal"}: The minimum value which defines the lower
+        y-axis limit. (NOTE: indentation level reduced by 1 to avoid max
+        indentation problems)
+      \item
+        \texttt{"contourLims"} An array containing contour limit values
+        that specify an index range that is to be displayed. As a track
+        or column can contain multi-dimensional data (e.g.~four formant
+        values per time stamp, 256 DFT values per time stamp, etc.) it
+        is possible to specify an index range that specifies which
+        values should be displayed (e.g., display formant 2 through 4).
+      \item
+        \texttt{"ssffTrackName"} A name specifying which ssffTrack
+        should be limited. (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
+      \item
+        \texttt{"minContourIdx"} The minimum contour index to display
+        (starts at index 0). (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
+      \item
+        \texttt{"maxContourIdx"} The maximum contour index to display.
+        (NOTE: indentation level reduced by 1 to avoid max indentation
+        problems)
+      \item
+        \texttt{"contourColors"} An array to specify colors of
+        individual contours. This overrides the default of automatically
+        calculating distinct colors for each contour.
+      \item
+        \texttt{"ssffTrackName"} The name of the \texttt{ssffTrackName}
+        for which colors are defined. (NOTE: indentation level reduced
+        by 1 to avoid max indentation problems)
+      \item
+        \texttt{"colors"} An array of RGB strings (e.g.
+        \texttt{{[}"rgb(238,130,238)"}, \texttt{"rgb(127,255,212)"{]}})
+        that specify the color of the contour (first value = first
+        contour color and so on). (NOTE: indentation level reduced by 1
+        to avoid max indentation problems)
+      \end{itemize}
+    \item
+      \texttt{"levelCanvases"} Configuration options for the
+      \texttt{levelCanvases}:
+
+      \begin{itemize}
+      \tightlist
+      \item
+        \texttt{"order"} An array specifying the order in which the
+        levels are to be displayed. Note that only levels of the type
+        \texttt{EVENT} or \texttt{SEGMENT} can be displayed as
+        \texttt{levelCanvases}. (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
+      \end{itemize}
+    \item
+      \texttt{"twoDimCanvases"} Configuration options for the 2D canvas.
+
+      \begin{itemize}
+      \item
+        \texttt{"order"} An array specifying the order in which the
+        levels are to be displayed. Note that currently only a single\\
+        \texttt{twoDimDrawingDefinition} can be displayed so this array
+        can currently only contain a single element.
+      \item
+        \texttt{"twoDimDrawingDefinitions"} An array containing two
+        dimensional drawing definitions. Each two dimensional drawing
+        definition consists of:
+      \item
+        \texttt{"dots"} An array containing dot definitions. Each dot
+        definition consist of: (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
+      \item
+        \texttt{"name"} The name of the dot.(NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"xSsffTrack"} The \texttt{ssffTrackName} of the track
+        that contains the x axis values. (NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"xContourNr"} The contour number of the track that
+        contains the x-axis values. (NOTE: indentation level reduced by
+        2 to avoid max indentation problems)
+      \item
+        \texttt{"ySsffTrack"} The \texttt{ssffTrackName} of the track
+        that contains the y-axis values. (NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"yContourNr"} The contour number of the track that
+        contains the y-axis values.(NOTE: indentation level reduced by 2
+        to avoid max indentation problems)
+      \item
+        \texttt{"color"} The RGB color string specifying the color given
+        to dot. (NOTE: indentation level reduced by 2 to avoid max
+        indentation problems)
+      \item
+        \texttt{"connectLines"} An array specifying which of the dots
+        specified in the \texttt{"dots"} definition array should be
+        connected by a line. (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
+      \item
+        \texttt{"fromDot"} The dot from which the line should start.
+        (NOTE: indentation level reduced by 2 to avoid max indentation
+        problems)
+      \item
+        \texttt{"toDot"} The dot at which the line should end. (NOTE:
+        indentation level reduced by 2 to avoid max indentation
+        problems)
+      \item
+        \texttt{"color"} The RGB string defining the color of the line.
+        (NOTE: indentation level reduced by 2 to avoid max indentation
+        problems)
+      \item
+        \texttt{"staticDots"} An array containing static dot
+        definitions:(NOTE: indentation level reduced by 1 to avoid max
+        indentation problems)
+      \item
+        \texttt{"name"} The name of the static dots. (NOTE: indentation
+        level reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"xNameCoordinate"} An x-coordinate specifying the
+        location at which name should be drawn. (NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"yNameCoordinate"} y-coordinate specifying the location
+        at which name should be drawn. (NOTE: indentation level reduced
+        by 2 to avoid max indentation problems)
+      \item
+        \texttt{"xCoordinates"} An array of x-coordinates (e.g.
+        \texttt{{[}300,~300,~900,~900,~300{]}}). (NOTE: indentation
+        level reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"yCoordinates"} An array of y-coordinates (e.g.
+        \texttt{{[}880,~2540,~2540,~880,~880{]}}). (NOTE: indentation
+        level reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"connect"} A boolean value that specifies whether or not
+        to connect the static dots with lines. (NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"color"} An RGB string specifying the color of static
+        dots. (NOTE: indentation level reduced by 2 to avoid max
+        indentation problems)
+      \item
+        \texttt{"staticContours"} An array containing static contour
+        definitions: (NOTE: indentation level reduced by 1 to avoid max
+        indentation problems)
+      \item
+        \texttt{"name"} The name of static contour. (NOTE: indentation
+        level reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"xSsffTrack"} The \texttt{ssffTrackName} of the track
+        that contains the x-axis values. (NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"xContourNr"} The contour number of the track that
+        contains the x-axis values. (NOTE: indentation level reduced by
+        2 to avoid max indentation problems)
+      \item
+        \texttt{"ySsffTrack"} The \texttt{ssffTrackName} of the track
+        that contains the y-axis values. (NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"yContourNr"} The contour number of the track that
+        contains the y-axis values. (NOTE: indentation level reduced by
+        2 to avoid max indentation problems)
+      \item
+        \texttt{"connect"} A boolean value that specifies whether or not
+        to connect the static dots with lines. (NOTE: indentation level
+        reduced by 2 to avoid max indentation problems)
+      \item
+        \texttt{"color"} An RGB string specifying color of the static
+        contour. (NOTE: indentation level reduced by 2 to avoid max
+        indentation problems)
       \end{itemize}
     \end{itemize}
-  \end{itemize}
-\end{itemize}
+  \item
+    \texttt{"labelCanvasConfig"} Configuration options for the label
+    canvases:
 
-\begin{verbatim}
-     -   `"minMaxValLims"` An array of configuration options to
-            limit the y-axis range that is displayed for a specified
-            SSFF track.
-\end{verbatim}
+    \begin{itemize}
+    \item
+      \texttt{"addTimeMode"} The mode in which time to boundaries is
+      added and subtracted (\texttt{"absolute"} or \texttt{"relative"}).
+    \item
+      \texttt{"addTimeValue"}: The amount of samples added to or
+      subtracted from boundaries.
+    \item
+      \texttt{"newSegmentName"} The value given to the default label if
+      a new SEGMENT is added (default is ``'' == empty string).
+    \item
+      \texttt{"newEventName"} The value given to the default label if a
+      new EVENT is added (default is ``'' == empty string).
+    \end{itemize}
+  \item
+    \texttt{"restrictions"}:
 
-\begin{verbatim}
-     -   `"contourLims"` An array containing contour limit values
-            that specify an index range that is to be displayed. As
-            a track or column can contain multi-dimensional data
-            (e.g. four formant values per time stamp, 256 DFT values
-            per time stamp, etc.) it is possible to specify an index
-            range that specifies which values should be displayed
-            (e.g., display formant 2 through 4).
-\end{verbatim}
+    \begin{itemize}
+    \item
+      \texttt{"playback"} A boolean value specifying whether to allow
+      audio playback.
+    \item
+      \texttt{"correctionTool"} A boolean value specifying whether
+      correction tools are available.
+    \item
+      \texttt{"editItemSize"} A boolean value specifying whether to
+      allow the size of a \texttt{SEGMENT} or \texttt{EVENT} to be
+      changed (i.e., move boundaries).
+    \item
+      \texttt{"editItemName"} A boolean value specifying whether to
+      allow the label of an \texttt{ITEM} to be changed.
+    \item
+      \texttt{"deleteItemBoundary"} A boolean value specifying whether
+      to allow the deletion of boundaries.
+    \item
+      \texttt{"deleteItem"} A boolean value specifying whether to allow
+      the deletion of entire \texttt{ITEM}s
+    \item
+      \texttt{"deleteLevel"} A boolean value specifying whether to allow
+      the deletion of entire levels.
+    \item
+      \texttt{"addItem"} A boolean value specifying whether to allow new
+      \texttt{ITEM}s to be added.
+    \item
+      \texttt{"drawCrossHairs"} A boolean value specifying whether to
+      draw the cross hairs on signal canvases.
+    \item
+      \texttt{"drawSampleNrs"} A boolean value specifying whether to
+      draw the sample numbers in the OSCI canvas if zoomed in close
+      enough to see samples (mainly for debugging and development
+      purposes).
+    \item
+      \texttt{"drawZeroLine"} A boolean value specifying whether to draw
+      the zero value line in OSCI canvas.
+    \item
+      \texttt{"bundleComments"} A boolean value specifying whether to
+      allow the annotator to add comments to bundles she or he has
+      annotated. A bundle comment field will show up in the bundle list
+      side bar for each bundle if this is set to true. Note that the
+      server has to support saving these comments, which the
+      \texttt{serve()} function of the \texttt{emuR} package does not.
+    \item
+      \texttt{"bundleFinishedEditing"} A boolean value specifying
+      whether to allow the annotator to mark when she or he has finished
+      annotating a bundle. A finished editing toggle button will show up
+      in the bundle list side bar for each bundle if this is set to
+      \texttt{true}. Note that the server has to support saving these
+      comments which the \texttt{serve()} function of the \texttt{emuR}
+      package does not.
+    \item
+      \texttt{"showPerspectivesSidebar"} A boolean value specifying
+      whether to show the perspectives side bar.
+    \end{itemize}
+  \item
+    \texttt{"activeButtons"} Specifies which top- or bottom-menu buttons
+    should be displayed by the \texttt{EMU-webApp}.
 
-\begin{verbatim}
-     -   `"contourColors"` An array to specify colors of
-            individual contours. This overrides the default of
-            automatically calculating distinct colors for each
-            contour.
-\end{verbatim}
-
-\begin{verbatim}
- -   `"levelCanvases"` Configuration options for the
-        `levelCanvases`:
-\end{verbatim}
-
-\begin{verbatim}
- -   `"twoDimCanvases"` Configuration options for the 2D canvas.
-
-        -   `"order"` An array specifying the order in which the
-            levels are to be displayed. Note that currently only a
-            single\
-            `twoDimDrawingDefinition` can be displayed so this array
-            can currently only contain a single element.
-
-        -   `"twoDimDrawingDefinitions"` An array containing two
-            dimensional drawing definitions. Each two dimensional
-            drawing definition consists of:
-\end{verbatim}
-
-\begin{itemize}
-\item
-  \texttt{"labelCanvasConfig"} Configuration options for the label
-  canvases:
-
-  \begin{itemize}
-  \item
-    \texttt{"addTimeMode"} The mode in which time to boundaries is added
-    and subtracted (\texttt{"absolute"} or \texttt{"relative"}).
-  \item
-    \texttt{"addTimeValue"}: The amount of samples added to or
-    subtracted from boundaries.
-  \item
-    \texttt{"newSegmentName"} The value given to the default label if a
-    new SEGMENT is added (default is ``'' == empty string).
-  \item
-    \texttt{"newEventName"} The value given to the default label if a
-    new EVENT is added (default is ``'' == empty string).
-  \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-\item
-  \texttt{"restrictions"}:
-
-  \begin{itemize}
-  \item
-    \texttt{"playback"} A boolean value specifying whether to allow
-    audio playback.
-  \item
-    \texttt{"correctionTool"} A boolean value specifying whether
-    correction tools are available.
-  \item
-    \texttt{"editItemSize"} A boolean value specifying whether to allow
-    the size of a \texttt{SEGMENT} or \texttt{EVENT} to be changed
-    (i.e., move boundaries).
-  \item
-    \texttt{"editItemName"} A boolean value specifying whether to allow
-    the label of an \texttt{ITEM} to be changed.
-  \item
-    \texttt{"deleteItemBoundary"} A boolean value specifying whether to
-    allow the deletion of boundaries.
-  \item
-    \texttt{"deleteItem"} A boolean value specifying whether to allow
-    the deletion of entire \texttt{ITEM}s
-  \item
-    \texttt{"deleteLevel"} A boolean value specifying whether to allow
-    the deletion of entire levels.
-  \item
-    \texttt{"addItem"} A boolean value specifying whether to allow new
-    \texttt{ITEM}s to be added.
-  \item
-    \texttt{"drawCrossHairs"} A boolean value specifying whether to draw
-    the cross hairs on signal canvases.
-  \item
-    \texttt{"drawSampleNrs"} A boolean value specifying whether to draw
-    the sample numbers in the OSCI canvas if zoomed in close enough to
-    see samples (mainly for debugging and development purposes).
-  \item
-    \texttt{"drawZeroLine"} A boolean value specifying whether to draw
-    the zero value line in OSCI canvas.
-  \item
-    \texttt{"bundleComments"} A boolean value specifying whether to
-    allow the annotator to add comments to bundles she or he has
-    annotated. A bundle comment field will show up in the bundle list
-    side bar for each bundle if this is set to true. Note that the
-    server has to support saving these comments, which the
-    \texttt{serve()} function of the \texttt{emuR} package does not.
-  \item
-    \texttt{"bundleFinishedEditing"} A boolean value specifying whether
-    to allow the annotator to mark when she or he has finished
-    annotating a bundle. A finished editing toggle button will show up
-    in the bundle list side bar for each bundle if this is set to
-    \texttt{true}. Note that the server has to support saving these
-    comments which the \texttt{serve()} function of the \texttt{emuR}
-    package does not.
-  \item
-    \texttt{"showPerspectivesSidebar"} A boolean value specifying
-    whether to show the perspectives side bar.
-  \end{itemize}
-\end{itemize}
-
-\begin{itemize}
-\item
-  \texttt{"activeButtons"} Specifies which top- or bottom-menu buttons
-  should be displayed by the \texttt{EMU-webApp}.
-
-  \begin{itemize}
-  \item
-    \texttt{"addLevelSeg"} A boolean value specifying whether to show
-    the \texttt{add\ SEGMENT\ level} button in the top menu bar.
-  \item
-    \texttt{"addLevelEvent"} A boolean value specifying whether to show
-    the \texttt{add\ EVENT\ level\ button} in the top menu bar.
-  \item
-    \texttt{"renameSelLevel"} A boolean value specifying whether to
-    allow the user to rename the currently selected level.
-  \item
-    \texttt{"downloadTextGrid"} A boolean value specifying whether to
-    allow the user to download the current annotation as a
-    \texttt{.TextGrid} file by displaying a \texttt{download\ TextGrid}
-    button in the top menu bar.
-  \item
-    \texttt{"downloadAnnotation"} A boolean value specifying whether to
-    allow the user to download the current annotation as an
-    \texttt{\_annot.json} file by displaying a
-    \texttt{download\ annotJSON} button in the top menu bar.
-  \item
-    \texttt{"specSettings"} A boolean value specifying whether to
-    display the \texttt{spec.\ settings} button in the top menu bar.
-  \item
-    \texttt{"connect"} A boolean value specifying whether to display the
-    \texttt{connect} button in the top menu bar.
-  \item
-    \texttt{"clear"} A boolean value specifying whether to display the
-    \texttt{clear} button in the top menu bar.
-  \item
-    \texttt{"deleteSingleLevel"} A boolean value specifying whether to
-    allow the user to delete a level containing time information.
-  \item
-    \texttt{"resizeSingleLevel"} A boolean value specifying whether to
-    allow the user to resize a level.
-  \item
-    \texttt{"saveSingleLevel"} A boolean value specifying whether to
-    allow the user to download a single level in the ESPS/waves+ format.
-  \item
-    \texttt{"resizeSignalCanvas"} A boolean value specifying whether to
-    allow the user to resize the \texttt{signalCanvases}
-    (\texttt{"OSCI"}, \texttt{"SPEC"}, \ldots{}).
-  \item
-    \texttt{"openDemoDB"} A boolean value specifying whether to show the
-    \texttt{open\ demoDB} button.
-  \item
-    \texttt{"saveBundle"} A boolean value specifying whether to show the
-    save button in bundle list side bar for each bundle.
-  \item
-    \texttt{"openMenu"} A boolean value specifying whether open bundle
-    list side bar button is displayed.
-  \item
-    \texttt{"showHierarchy"} A boolean value specifying whether to
-    display the \texttt{show\ hierarchy} button.
+    \begin{itemize}
+    \item
+      \texttt{"addLevelSeg"} A boolean value specifying whether to show
+      the \texttt{add\ SEGMENT\ level} button in the top menu bar.
+    \item
+      \texttt{"addLevelEvent"} A boolean value specifying whether to
+      show the \texttt{add\ EVENT\ level\ button} in the top menu bar.
+    \item
+      \texttt{"renameSelLevel"} A boolean value specifying whether to
+      allow the user to rename the currently selected level.
+    \item
+      \texttt{"downloadTextGrid"} A boolean value specifying whether to
+      allow the user to download the current annotation as a
+      \texttt{.TextGrid} file by displaying a
+      \texttt{download\ TextGrid} button in the top menu bar.
+    \item
+      \texttt{"downloadAnnotation"} A boolean value specifying whether
+      to allow the user to download the current annotation as an
+      \texttt{\_annot.json} file by displaying a
+      \texttt{download\ annotJSON} button in the top menu bar.
+    \item
+      \texttt{"specSettings"} A boolean value specifying whether to
+      display the \texttt{spec.\ settings} button in the top menu bar.
+    \item
+      \texttt{"connect"} A boolean value specifying whether to display
+      the \texttt{connect} button in the top menu bar.
+    \item
+      \texttt{"clear"} A boolean value specifying whether to display the
+      \texttt{clear} button in the top menu bar.
+    \item
+      \texttt{"deleteSingleLevel"} A boolean value specifying whether to
+      allow the user to delete a level containing time information.
+    \item
+      \texttt{"resizeSingleLevel"} A boolean value specifying whether to
+      allow the user to resize a level.
+    \item
+      \texttt{"saveSingleLevel"} A boolean value specifying whether to
+      allow the user to download a single level in the ESPS/waves+
+      format.
+    \item
+      \texttt{"resizeSignalCanvas"} A boolean value specifying whether
+      to allow the user to resize the \texttt{signalCanvases}
+      (\texttt{"OSCI"}, \texttt{"SPEC"}, \ldots{}).
+    \item
+      \texttt{"openDemoDB"} A boolean value specifying whether to show
+      the \texttt{open\ demoDB} button.
+    \item
+      \texttt{"saveBundle"} A boolean value specifying whether to show
+      the save button in bundle list side bar for each bundle.
+    \item
+      \texttt{"openMenu"} A boolean value specifying whether open bundle
+      list side bar button is displayed.
+    \item
+      \texttt{"showHierarchy"} A boolean value specifying whether to
+      display the \texttt{show\ hierarchy} button.
+    \end{itemize}
   \end{itemize}
 \item
   \texttt{"demoDBs"} An array of strings specifying which demoDBs to

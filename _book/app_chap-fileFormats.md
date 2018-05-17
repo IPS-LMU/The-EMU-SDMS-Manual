@@ -8,8 +8,6 @@ The `_DBconfig.json` file contains the configuration options of the database. Pe
 
 The `_DBconfig.json` file contains the following fields:
 
-<!-- max indentation seems to be 4 -->
-
 -   `"name"` specifies the name of the database
 
 -   `"UUID"` a unique ID given to each database
@@ -212,23 +210,19 @@ The `_DBconfig.json` file contains the following fields:
                 effectively creating a visual overlay of one track over
                 another. Each array element consists of:
 
-<!--                 -   `"signalCanvasName"` The name of the signal -->
-<!--                     specified in the `"order"` array. -->
+            -   `"signalCanvasName"` The name of the signal specified in the `"order"` array. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                 -   `"ssffTrackName"` The name of the -->
-<!--                     [ssff]{acronym-label="ssff" -->
-<!--                     acronym-form="singular+short"} track to overlay onto -->
-<!--                     `"signalCanvasName"`. -->
+            -   `"ssffTrackName"` The name of the SSFF track to overlay onto `"signalCanvasName"`. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
             -   `"minMaxValLims"` An array of configuration options to
                 limit the y-axis range that is displayed for a specified
                 SSFF track.
 
-<!--                 -   `"ssffTrackName"`: A name specifying which ssffTrack -->
-<!--                     should be limited. -->
+            -   `"ssffTrackName"`: A name specifying which ssffTrack should be limited. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                 -   `"minVal"`: The minimum value which defines the -->
-<!--                     lower y-axis limit. -->
+
+            -   `"minVal"`: The minimum value which defines the lower y-axis limit. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
+
 
             -   `"contourLims"` An array containing contour limit values
                 that specify an index range that is to be displayed. As
@@ -238,35 +232,25 @@ The `_DBconfig.json` file contains the following fields:
                 range that specifies which values should be displayed
                 (e.g., display formant 2 through 4).
 
-<!--                 -   `"ssffTrackName"` A name specifying which ssffTrack -->
-<!--                     should be limited. -->
+            -   `"ssffTrackName"` A name specifying which ssffTrack should be limited. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                 -   `"minContourIdx"` The minimum contour index to -->
-<!--                     display (starts at index 0). -->
+            -   `"minContourIdx"` The minimum contour index to display (starts at index 0). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                 -   `"maxContourIdx"` The maximum contour index to -->
-<!--                     display. -->
+            -   `"maxContourIdx"` The maximum contour index to display. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
             -   `"contourColors"` An array to specify colors of
                 individual contours. This overrides the default of
                 automatically calculating distinct colors for each
                 contour.
 
-<!--                 -   `"ssffTrackName"` The name of the `ssffTrackName` -->
-<!--                     for which colors are defined. -->
+            -   `"ssffTrackName"` The name of the `ssffTrackName` for which colors are defined. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                 -   `"colors"` An array of RGB strings (e.g. -->
-<!--                     `["rgb(238,130,238)"`, `"rgb(127,255,212)"]`) that -->
-<!--                     specify the color of the contour (first value = -->
-<!--                     first contour color and so on). -->
+            -   `"colors"` An array of RGB strings (e.g. `["rgb(238,130,238)"`, `"rgb(127,255,212)"]`) that specify the color of the contour (first value = first contour color and so on). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
         -   `"levelCanvases"` Configuration options for the
             `levelCanvases`:
 
-<!--             -   `"order"` An array specifying the order in which the -->
-<!--                 levels are to be displayed. Note that only levels of the -->
-<!--                 type `EVENT` or `SEGMENT` can be displayed as -->
-<!--                 `levelCanvases`. -->
+            -   `"order"` An array specifying the order in which the levels are to be displayed. Note that only levels of the type `EVENT` or `SEGMENT` can be displayed as `levelCanvases`. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
         -   `"twoDimCanvases"` Configuration options for the 2D canvas.
 
@@ -280,85 +264,59 @@ The `_DBconfig.json` file contains the following fields:
                 dimensional drawing definitions. Each two dimensional
                 drawing definition consists of:
 
-<!--                 -   `"dots"` An array containing dot definitions. Each -->
-<!--                     dot definition consist of: -->
+            -   `"dots"` An array containing dot definitions. Each dot definition consist of: (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                     -   `"name"` The name of the dot. -->
+            -   `"name"` The name of the dot.(NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"xSsffTrack"` The `ssffTrackName` of the track -->
-<!--                         that contains the x axis values. -->
+            -   `"xSsffTrack"` The `ssffTrackName` of the track that contains the x axis values. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"xContourNr"` The contour number of the track -->
-<!--                         that contains the x-axis values. -->
+            -   `"xContourNr"` The contour number of the track that contains the x-axis values. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"ySsffTrack"` The `ssffTrackName` of the track -->
-<!--                         that contains the y-axis values. -->
+            -   `"ySsffTrack"` The `ssffTrackName` of the track that contains the y-axis values. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"yContourNr"` The contour number of the track -->
-<!--                         that contains the y-axis values. -->
+            -   `"yContourNr"` The contour number of the track that contains the y-axis values.(NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"color"` The RGB color string specifying the -->
-<!--                         color given to dot. -->
+            -   `"color"` The RGB color string specifying the color given to dot. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                 -   `"connectLines"` An array specifying which of the -->
-<!--                     dots specified in the `"dots"` definition array -->
-<!--                     should be connected by a line. -->
+            -   `"connectLines"` An array specifying which of the dots specified in the `"dots"` definition array should be connected by a line. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                     -   `"fromDot"` The dot from which the line should -->
-<!--                         start. -->
+            -   `"fromDot"` The dot from which the line should start. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"toDot"` The dot at which the line should end. -->
+            -   `"toDot"` The dot at which the line should end. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"color"` The RGB string defining the color of -->
-<!--                         the line. -->
+            -   `"color"` The RGB string defining the color of the line. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                 -   `"staticDots"` An array containing static dot -->
-<!--                     definitions: -->
+            -   `"staticDots"` An array containing static dot definitions:(NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                     -   `"name"` The name of the static dots. -->
+            -   `"name"` The name of the static dots. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"xNameCoordinate"` An x-coordinate specifying -->
-<!--                         the location at which name should be drawn. -->
+            -   `"xNameCoordinate"` An x-coordinate specifying the location at which name should be drawn. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"yNameCoordinate"` y-coordinate specifying the -->
-<!--                         location at which name should be drawn. -->
+            -   `"yNameCoordinate"` y-coordinate specifying the location at which name should be drawn. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"xCoordinates"` An array of x-coordinates (e.g. -->
-<!--                         `[300, 300, 900, 900, 300]`). -->
+            -   `"xCoordinates"` An array of x-coordinates (e.g. `[300, 300, 900, 900, 300]`). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"yCoordinates"` An array of y-coordinates (e.g. -->
-<!--                         `[880, 2540, 2540, 880, 880]`). -->
+            -   `"yCoordinates"` An array of y-coordinates (e.g. `[880, 2540, 2540, 880, 880]`). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"connect"` A boolean value that specifies -->
-<!--                         whether or not to connect the static dots with -->
-<!--                         lines. -->
+            -   `"connect"` A boolean value that specifies whether or not to connect the static dots with lines. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"color"` An RGB string specifying the color of -->
-<!--                         static dots. -->
+            -   `"color"` An RGB string specifying the color of static dots. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                 -   `"staticContours"` An array containing static -->
-<!--                     contour definitions: -->
+            -   `"staticContours"` An array containing static contour definitions: (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-<!--                     -   `"name"` The name of static contour. -->
+            -   `"name"` The name of static contour. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"xSsffTrack"` The `ssffTrackName` of the track -->
-<!--                         that contains the x-axis values. -->
+            -   `"xSsffTrack"` The `ssffTrackName` of the track that contains the x-axis values. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"xContourNr"` The contour number of the track -->
-<!--                         that contains the x-axis values. -->
+            -   `"xContourNr"` The contour number of the track that contains the x-axis values. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"ySsffTrack"` The `ssffTrackName` of the track -->
-<!--                         that contains the y-axis values. -->
+            -   `"ySsffTrack"` The `ssffTrackName` of the track that contains the y-axis values. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"yContourNr"` The contour number of the track -->
-<!--                         that contains the y-axis values. -->
+            -   `"yContourNr"` The contour number of the track that contains the y-axis values. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"connect"` A boolean value that specifies -->
-<!--                         whether or not to connect the static dots with -->
-<!--                         lines. -->
+            -   `"connect"` A boolean value that specifies whether or not to connect the static dots with lines. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
-<!--                     -   `"color"` An RGB string specifying color of the -->
-<!--                         static contour. -->
+            -   `"color"` An RGB string specifying color of the static contour. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
 
     -   `"labelCanvasConfig"` Configuration options for the label
         canvases:
