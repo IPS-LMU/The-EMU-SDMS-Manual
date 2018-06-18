@@ -353,17 +353,16 @@ the user through the entire process of answering a research question.
 This tutorial will start with a set of \texttt{.wav} audio and Praat
 \texttt{.TextGrid} (\citet{boersma:2011a}) annotation files and end with
 a statistical analysis to address the hypothesis posed by the research
-question. The following Part \ref{part:mainCompAndConc} of this
-documentation is separated into six chapters that give an in-depth
-explanation of the various components that comprise the EMU-SDMS and
-integral concepts of the new system. These chapters provide a
-tutorial-like overview by providing multiple examples. To give the
-reader a synopsis of the main functions and central objects that are
-provided by EMU-SDMS's main R package \texttt{emuR}, an overview of
-these functions is presented in Part \ref{part:emuRfuncs}. Part
-\ref{part:impl} focuses on the actual implementation of the components
-and is geared towards people interested in the technical details.
-Further examples and file format descriptions are available in various
+question. The following Part I of this documentation is separated into
+six chapters that give an in-depth explanation of the various components
+that comprise the EMU-SDMS and integral concepts of the new system.
+These chapters provide a tutorial-like overview by providing multiple
+examples. To give the reader a synopsis of the main functions and
+central objects that are provided by EMU-SDMS's main R package
+\texttt{emuR}, an overview of these functions is presented in Part II.
+Part III focuses on the actual implementation of the components and is
+geared towards people interested in the technical details. Further
+examples and file format descriptions are available in various
 appendices. This structure enables the novice EMU-SDMS user to simply
 skip the technical details and still get an in-depth overview of how to
 work with the new system and discover what it is capable of.
@@ -847,8 +846,8 @@ rexample:tutorial\_summary
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     7e9f1a2b-756d-458e-8da2-a6544f648864 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpIr5Xn6/myFirst_emuDB 
+## UUID:     ff15331a-ce6e-4f0e-8b62-a978cc9874ac 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpmODvl2/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2257,8 +2256,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     2514a558-e98b-4555-9a4b-f7a355b51a54 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpmoktGD/fromScratch_emuDB 
+## UUID:     206dbd5f-51a0-439e-b557-f093bc38db67 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpqUdckw/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4386,7 +4385,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmptLY6Jc/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpR9sg69/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4925,7 +4924,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-05-17 12:33:28 "  
+## [5] "Timestamp:  2018-06-18 13:46:40 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -5568,8 +5567,15 @@ showing certain elements for certain labeling tasks can be beneficial.
 Figure \ref{fig:webApp-perspMenu} displays a screenshot of the
 \texttt{perspective}s side bar menu of the \texttt{EMU-webApp} which
 displays the three \texttt{perspective}s of the \emph{ae}
-\texttt{emuDB}. The \emph{default} perspective displays both the
-\emph{Phonetic} and the \emph{Tone} levels where as the
+\texttt{emuDB}\footnote{See the
+  \href{http://hdl.handle.net/11858/00-1779-0000-0006-BF00-E}{BAS CLARIN
+  Repository} for a further example of an application using the
+  \texttt{EMU-webApp-websocket-protocol} to display repository data in
+  the \texttt{EMU-webApp}. See the
+  \href{http://hdl.handle.net/11858/00-1779-0000-0028-421B-4}{BAS Web
+  Services} for an example of an application that creates links that
+  utilize the URL parameters.}. The \emph{default} perspective displays
+both the \emph{Phonetic} and the \emph{Tone} levels where as the
 \emph{Phonetic-only} and the \emph{Tone-only} only display these levels
 individually.
 

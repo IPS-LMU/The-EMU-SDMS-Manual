@@ -361,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The main reason we chose the JSON file format as the main file type for the EMU-SDMS is because we wanted a web application as the main GUI of the new system. Using JSON files enables the <code>EMU-webApp</code> to directly use the annotation and configuration files that are part of an <code>emuDB</code> without manipulating or reformatting the data.</p>
 <p>The rest of this chapter will focus on the communication protocol and the URL parameters provided by the <code>EMU-webApp</code>. These should be of special interest to developers as they describe how to communicate with the web application and how to use the web application to display data that is hosted on other http web servers.</p>
 <div id="subsec:emu-webAppTheProtocol" class="section level2">
-<h2><span class="header-section-number">13.1</span> Communication protocol<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a></h2>
+<h2><span class="header-section-number">13.1</span> Communication protocol<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></h2>
 <p>A large benefit gained by choosing the browser as the user interface is the ability to easily interact with a server using standard web protocols, such as http, https or websockets. In order to standardize the data exchange with a server, we have developed a simple request-response communication protocol on top of the websocket standard. This decision was strongly guided by the availability of the <code>httpuv</code> R package <span class="citation">(RStudio and Inc. <a href="#ref-rstudio:2015a">2015</a>)</span>. Our protocol defines a set of JSON objects for both the requests and responses. A subset of the request-response actions, most of them triggered by the client after connection, are displayed in Table <a href="#table:protocol-commands"><strong>??</strong></a>.</p>
 <!-- \begin{table}[ht!] -->
 <!-- \centering -->
@@ -498,8 +498,8 @@ Save data belonging to a specific bundle name
 </div>
 <div class="footnotes">
 <hr />
-<ol start="23">
-<li id="fn23"><p>This section has been published in <span class="citation">Winkelmann and Raess (<a href="#ref-winkelmann:2015d">2015</a>)</span>.<a href="chap-emu-webAppImplementation.html#fnref23" class="footnote-back">↩</a></p></li>
+<ol start="24">
+<li id="fn24"><p>This section has been published in <span class="citation">Winkelmann and Raess (<a href="#ref-winkelmann:2015d">2015</a>)</span>.<a href="chap-emu-webAppImplementation.html#fnref24" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
