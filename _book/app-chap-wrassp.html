@@ -176,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
-<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query_emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
 <li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
 <li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
@@ -360,137 +360,137 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sec:app-chap-wrassp-praatsSigProc" class="section level2">
 <h2><span class="header-section-number">19.1</span> Using Praat’s signal processing routines in the EMU-SDMS</h2>
 <p>R Example @ref(rexample:app-chap-wrassp_praatToFormants) shows how generating an <code>AsspDataObj</code> from scratch can be used in a function to place data from other sources into SSFF files. In this case it uses the <code>PraatR</code> R package (see <a href="http://www.aaronalbin.com/praatr/index.html" class="uri">http://www.aaronalbin.com/praatr/index.html</a>) to execute Praat’s <code>&quot;To Formant (burg)...&quot;</code> function to then store the data to a comma separated file using <code>&quot;Down to Table...&quot;</code>. The generated table is then read into R and the appropriate columns are placed into tracks of a <code>AsspDataObj</code> object. The <code>PraatToFormants2AsspDataObj</code> can be viewed as a template function as it can easily be adapted to use other functions provided by Praat or even other external tools.</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1">###################################</a>
-<a class="sourceLine" id="cb382-2" data-line-number="2"><span class="co"># uncomment and execute the next </span></a>
-<a class="sourceLine" id="cb382-3" data-line-number="3"><span class="co"># two lines to install PraatR</span></a>
-<a class="sourceLine" id="cb382-4" data-line-number="4"><span class="co"># library(devtools)</span></a>
-<a class="sourceLine" id="cb382-5" data-line-number="5"><span class="co"># install_github(&#39;usagi5886/PraatR&#39;)</span></a>
-<a class="sourceLine" id="cb382-6" data-line-number="6"><span class="kw">library</span>(PraatR)</a>
-<a class="sourceLine" id="cb382-7" data-line-number="7"><span class="kw">library</span>(wrassp)</a>
-<a class="sourceLine" id="cb382-8" data-line-number="8"><span class="kw">library</span>(tools)</a>
-<a class="sourceLine" id="cb382-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb382-10" data-line-number="10">PraatToFormants2AsspDataObj &lt;-<span class="st"> </span><span class="cf">function</span>(path,</a>
-<a class="sourceLine" id="cb382-11" data-line-number="11">                                        <span class="dt">command =</span> </a>
-<a class="sourceLine" id="cb382-12" data-line-number="12">                                          <span class="st">&quot;To Formant (burg)...&quot;</span>,</a>
-<a class="sourceLine" id="cb382-13" data-line-number="13">                                        <span class="dt">arguments =</span> <span class="kw">list</span>(<span class="fl">0.0</span>, </a>
-<a class="sourceLine" id="cb382-14" data-line-number="14">                                                         <span class="dv">5</span>, <span class="dv">5500</span>, </a>
-<a class="sourceLine" id="cb382-15" data-line-number="15">                                                         <span class="fl">0.025</span>, <span class="dv">50</span>), </a>
-<a class="sourceLine" id="cb382-16" data-line-number="16">                                        <span class="dt">columnNames =</span> <span class="kw">c</span>(<span class="st">&quot;fm&quot;</span>, <span class="st">&quot;bw&quot;</span>)){</a>
-<a class="sourceLine" id="cb382-17" data-line-number="17">  </a>
-<a class="sourceLine" id="cb382-18" data-line-number="18">  tmp1FileName =<span class="st"> &quot;tmp.ooTextFile&quot;</span></a>
-<a class="sourceLine" id="cb382-19" data-line-number="19">  tmp2FileName =<span class="st"> &quot;tmp.table&quot;</span></a>
-<a class="sourceLine" id="cb382-20" data-line-number="20">  </a>
-<a class="sourceLine" id="cb382-21" data-line-number="21">  tmp1FilePath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp1FileName)</a>
-<a class="sourceLine" id="cb382-22" data-line-number="22">  tmp2FilePath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp2FileName)</a>
-<a class="sourceLine" id="cb382-23" data-line-number="23">  </a>
-<a class="sourceLine" id="cb382-24" data-line-number="24">  <span class="co"># remove tmp files if they already exist</span></a>
-<a class="sourceLine" id="cb382-25" data-line-number="25">  <span class="kw">unlink</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp1FileName))</a>
-<a class="sourceLine" id="cb382-26" data-line-number="26">  <span class="kw">unlink</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp2FileName))</a>
-<a class="sourceLine" id="cb382-27" data-line-number="27">  </a>
-<a class="sourceLine" id="cb382-28" data-line-number="28">  <span class="co"># generate ooTextFile</span></a>
-<a class="sourceLine" id="cb382-29" data-line-number="29">  <span class="kw">praat</span>(<span class="dt">command =</span> command, </a>
-<a class="sourceLine" id="cb382-30" data-line-number="30">        <span class="dt">input=</span>path, </a>
-<a class="sourceLine" id="cb382-31" data-line-number="31">        <span class="dt">arguments =</span> arguments, </a>
-<a class="sourceLine" id="cb382-32" data-line-number="32">        <span class="dt">output =</span> tmp1FilePath)</a>
-<a class="sourceLine" id="cb382-33" data-line-number="33">  </a>
-<a class="sourceLine" id="cb382-34" data-line-number="34">  <span class="co"># convert to Table</span></a>
-<a class="sourceLine" id="cb382-35" data-line-number="35">  <span class="kw">praat</span>(<span class="st">&quot;Down to Table...&quot;</span>,</a>
-<a class="sourceLine" id="cb382-36" data-line-number="36">        <span class="dt">input =</span> tmp1FilePath,</a>
-<a class="sourceLine" id="cb382-37" data-line-number="37">        <span class="dt">arguments =</span> <span class="kw">list</span>(F, T, <span class="dv">6</span>, F, <span class="dv">3</span>, T, <span class="dv">3</span>, T), </a>
-<a class="sourceLine" id="cb382-38" data-line-number="38">        <span class="dt">output =</span> tmp2FilePath,</a>
-<a class="sourceLine" id="cb382-39" data-line-number="39">        <span class="dt">filetype=</span><span class="st">&quot;comma-separated&quot;</span>)</a>
-<a class="sourceLine" id="cb382-40" data-line-number="40">  </a>
-<a class="sourceLine" id="cb382-41" data-line-number="41">  <span class="co"># get vals</span></a>
-<a class="sourceLine" id="cb382-42" data-line-number="42">  df =<span class="st"> </span><span class="kw">read.csv</span>(tmp2FilePath, <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb382-43" data-line-number="43">  df[df <span class="op">==</span><span class="st"> &#39;--undefined--&#39;</span>] =<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb382-44" data-line-number="44">  </a>
-<a class="sourceLine" id="cb382-45" data-line-number="45">  fmVals =<span class="st"> </span>df[,<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)]</a>
-<a class="sourceLine" id="cb382-46" data-line-number="46">  fmVals =<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">colnames</span>(fmVals), <span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb382-47" data-line-number="47">    <span class="kw">as.integer</span>(fmVals[,x])</a>
-<a class="sourceLine" id="cb382-48" data-line-number="48">    })</a>
-<a class="sourceLine" id="cb382-49" data-line-number="49">  <span class="kw">colnames</span>(fmVals) =<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb382-50" data-line-number="50">  bwVals =<span class="st"> </span><span class="kw">data.matrix</span>(df[,<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)])</a>
-<a class="sourceLine" id="cb382-51" data-line-number="51">  bwVals =<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">colnames</span>(bwVals), <span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb382-52" data-line-number="52">    <span class="kw">as.integer</span>(bwVals[,x])</a>
-<a class="sourceLine" id="cb382-53" data-line-number="53">    })</a>
-<a class="sourceLine" id="cb382-54" data-line-number="54">  <span class="kw">colnames</span>(bwVals) =<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb382-55" data-line-number="55">  </a>
-<a class="sourceLine" id="cb382-56" data-line-number="56">  <span class="co"># get start time</span></a>
-<a class="sourceLine" id="cb382-57" data-line-number="57">  startTime =<span class="st"> </span>df[<span class="dv">1</span>,<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb382-58" data-line-number="58"></a>
-<a class="sourceLine" id="cb382-59" data-line-number="59">  <span class="co"># create AsspDataObj</span></a>
-<a class="sourceLine" id="cb382-60" data-line-number="60">  ado =<span class="st"> </span><span class="kw">list</span>()</a>
-<a class="sourceLine" id="cb382-61" data-line-number="61">  </a>
-<a class="sourceLine" id="cb382-62" data-line-number="62">  <span class="kw">attr</span>(ado, <span class="st">&quot;trackFormats&quot;</span>) =<span class="kw">c</span>(<span class="st">&quot;INT16&quot;</span>, <span class="st">&quot;INT16&quot;</span>)</a>
-<a class="sourceLine" id="cb382-63" data-line-number="63">  </a>
-<a class="sourceLine" id="cb382-64" data-line-number="64">  <span class="cf">if</span>(arguments[[<span class="dv">1</span>]] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb382-65" data-line-number="65">    sR =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>(<span class="fl">0.25</span> <span class="op">*</span><span class="st"> </span>arguments[[<span class="dv">4</span>]])</a>
-<a class="sourceLine" id="cb382-66" data-line-number="66">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb382-67" data-line-number="67">    sR =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>arguments[[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb382-68" data-line-number="68">  }</a>
-<a class="sourceLine" id="cb382-69" data-line-number="69">  </a>
-<a class="sourceLine" id="cb382-70" data-line-number="70">  <span class="kw">attr</span>(ado, <span class="st">&quot;sampleRate&quot;</span>) =<span class="st"> </span>sR</a>
-<a class="sourceLine" id="cb382-71" data-line-number="71">  </a>
-<a class="sourceLine" id="cb382-72" data-line-number="72">  tmpObj =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(path)</a>
-<a class="sourceLine" id="cb382-73" data-line-number="73">  <span class="kw">attr</span>(ado, <span class="st">&quot;origFreq&quot;</span>) =<span class="st"> </span><span class="kw">attr</span>(tmpObj, <span class="st">&quot;sampleRate&quot;</span>)</a>
-<a class="sourceLine" id="cb382-74" data-line-number="74">  </a>
-<a class="sourceLine" id="cb382-75" data-line-number="75">  <span class="kw">attr</span>(ado, <span class="st">&quot;startTime&quot;</span>) =<span class="st"> </span>startTime</a>
-<a class="sourceLine" id="cb382-76" data-line-number="76">  </a>
-<a class="sourceLine" id="cb382-77" data-line-number="77">  <span class="kw">attr</span>(ado, <span class="st">&quot;startRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb382-78" data-line-number="78">  </a>
-<a class="sourceLine" id="cb382-79" data-line-number="79">  <span class="kw">attr</span>(ado, <span class="st">&quot;endRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">nrow</span>(fmVals))</a>
-<a class="sourceLine" id="cb382-80" data-line-number="80">  </a>
-<a class="sourceLine" id="cb382-81" data-line-number="81">  <span class="kw">class</span>(ado) =<span class="st"> &quot;AsspDataObj&quot;</span></a>
-<a class="sourceLine" id="cb382-82" data-line-number="82">  </a>
-<a class="sourceLine" id="cb382-83" data-line-number="83">  <span class="kw">AsspFileFormat</span>(ado) &lt;-<span class="st"> &quot;SSFF&quot;</span></a>
-<a class="sourceLine" id="cb382-84" data-line-number="84">  <span class="kw">AsspDataFormat</span>(ado) &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb382-85" data-line-number="85">  </a>
-<a class="sourceLine" id="cb382-86" data-line-number="86">  ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, columnNames[<span class="dv">1</span>], fmVals, <span class="st">&quot;INT16&quot;</span>)</a>
-<a class="sourceLine" id="cb382-87" data-line-number="87">  </a>
-<a class="sourceLine" id="cb382-88" data-line-number="88">  ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, columnNames[<span class="dv">2</span>], bwVals, <span class="st">&quot;INT16&quot;</span>)</a>
-<a class="sourceLine" id="cb382-89" data-line-number="89">  </a>
-<a class="sourceLine" id="cb382-90" data-line-number="90">  <span class="kw">return</span>(ado)</a>
-<a class="sourceLine" id="cb382-91" data-line-number="91">}</a>
-<a class="sourceLine" id="cb382-92" data-line-number="92"></a>
-<a class="sourceLine" id="cb382-93" data-line-number="93">########################################</a>
-<a class="sourceLine" id="cb382-94" data-line-number="94"><span class="co"># Use of function on &#39;ae&#39; emuDB</span></a>
-<a class="sourceLine" id="cb382-95" data-line-number="95"><span class="kw">library</span>(emuR)</a></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1">###################################</a>
+<a class="sourceLine" id="cb380-2" data-line-number="2"><span class="co"># uncomment and execute the next </span></a>
+<a class="sourceLine" id="cb380-3" data-line-number="3"><span class="co"># two lines to install PraatR</span></a>
+<a class="sourceLine" id="cb380-4" data-line-number="4"><span class="co"># library(devtools)</span></a>
+<a class="sourceLine" id="cb380-5" data-line-number="5"><span class="co"># install_github(&#39;usagi5886/PraatR&#39;)</span></a>
+<a class="sourceLine" id="cb380-6" data-line-number="6"><span class="kw">library</span>(PraatR)</a>
+<a class="sourceLine" id="cb380-7" data-line-number="7"><span class="kw">library</span>(wrassp)</a>
+<a class="sourceLine" id="cb380-8" data-line-number="8"><span class="kw">library</span>(tools)</a>
+<a class="sourceLine" id="cb380-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb380-10" data-line-number="10">PraatToFormants2AsspDataObj &lt;-<span class="st"> </span><span class="cf">function</span>(path,</a>
+<a class="sourceLine" id="cb380-11" data-line-number="11">                                        <span class="dt">command =</span> </a>
+<a class="sourceLine" id="cb380-12" data-line-number="12">                                          <span class="st">&quot;To Formant (burg)...&quot;</span>,</a>
+<a class="sourceLine" id="cb380-13" data-line-number="13">                                        <span class="dt">arguments =</span> <span class="kw">list</span>(<span class="fl">0.0</span>, </a>
+<a class="sourceLine" id="cb380-14" data-line-number="14">                                                         <span class="dv">5</span>, <span class="dv">5500</span>, </a>
+<a class="sourceLine" id="cb380-15" data-line-number="15">                                                         <span class="fl">0.025</span>, <span class="dv">50</span>), </a>
+<a class="sourceLine" id="cb380-16" data-line-number="16">                                        <span class="dt">columnNames =</span> <span class="kw">c</span>(<span class="st">&quot;fm&quot;</span>, <span class="st">&quot;bw&quot;</span>)){</a>
+<a class="sourceLine" id="cb380-17" data-line-number="17">  </a>
+<a class="sourceLine" id="cb380-18" data-line-number="18">  tmp1FileName =<span class="st"> &quot;tmp.ooTextFile&quot;</span></a>
+<a class="sourceLine" id="cb380-19" data-line-number="19">  tmp2FileName =<span class="st"> &quot;tmp.table&quot;</span></a>
+<a class="sourceLine" id="cb380-20" data-line-number="20">  </a>
+<a class="sourceLine" id="cb380-21" data-line-number="21">  tmp1FilePath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp1FileName)</a>
+<a class="sourceLine" id="cb380-22" data-line-number="22">  tmp2FilePath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp2FileName)</a>
+<a class="sourceLine" id="cb380-23" data-line-number="23">  </a>
+<a class="sourceLine" id="cb380-24" data-line-number="24">  <span class="co"># remove tmp files if they already exist</span></a>
+<a class="sourceLine" id="cb380-25" data-line-number="25">  <span class="kw">unlink</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp1FileName))</a>
+<a class="sourceLine" id="cb380-26" data-line-number="26">  <span class="kw">unlink</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp2FileName))</a>
+<a class="sourceLine" id="cb380-27" data-line-number="27">  </a>
+<a class="sourceLine" id="cb380-28" data-line-number="28">  <span class="co"># generate ooTextFile</span></a>
+<a class="sourceLine" id="cb380-29" data-line-number="29">  <span class="kw">praat</span>(<span class="dt">command =</span> command, </a>
+<a class="sourceLine" id="cb380-30" data-line-number="30">        <span class="dt">input=</span>path, </a>
+<a class="sourceLine" id="cb380-31" data-line-number="31">        <span class="dt">arguments =</span> arguments, </a>
+<a class="sourceLine" id="cb380-32" data-line-number="32">        <span class="dt">output =</span> tmp1FilePath)</a>
+<a class="sourceLine" id="cb380-33" data-line-number="33">  </a>
+<a class="sourceLine" id="cb380-34" data-line-number="34">  <span class="co"># convert to Table</span></a>
+<a class="sourceLine" id="cb380-35" data-line-number="35">  <span class="kw">praat</span>(<span class="st">&quot;Down to Table...&quot;</span>,</a>
+<a class="sourceLine" id="cb380-36" data-line-number="36">        <span class="dt">input =</span> tmp1FilePath,</a>
+<a class="sourceLine" id="cb380-37" data-line-number="37">        <span class="dt">arguments =</span> <span class="kw">list</span>(F, T, <span class="dv">6</span>, F, <span class="dv">3</span>, T, <span class="dv">3</span>, T), </a>
+<a class="sourceLine" id="cb380-38" data-line-number="38">        <span class="dt">output =</span> tmp2FilePath,</a>
+<a class="sourceLine" id="cb380-39" data-line-number="39">        <span class="dt">filetype=</span><span class="st">&quot;comma-separated&quot;</span>)</a>
+<a class="sourceLine" id="cb380-40" data-line-number="40">  </a>
+<a class="sourceLine" id="cb380-41" data-line-number="41">  <span class="co"># get vals</span></a>
+<a class="sourceLine" id="cb380-42" data-line-number="42">  df =<span class="st"> </span><span class="kw">read.csv</span>(tmp2FilePath, <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb380-43" data-line-number="43">  df[df <span class="op">==</span><span class="st"> &#39;--undefined--&#39;</span>] =<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb380-44" data-line-number="44">  </a>
+<a class="sourceLine" id="cb380-45" data-line-number="45">  fmVals =<span class="st"> </span>df[,<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>)]</a>
+<a class="sourceLine" id="cb380-46" data-line-number="46">  fmVals =<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">colnames</span>(fmVals), <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb380-47" data-line-number="47">    <span class="kw">as.integer</span>(fmVals[,x])</a>
+<a class="sourceLine" id="cb380-48" data-line-number="48">    })</a>
+<a class="sourceLine" id="cb380-49" data-line-number="49">  <span class="kw">colnames</span>(fmVals) =<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb380-50" data-line-number="50">  bwVals =<span class="st"> </span><span class="kw">data.matrix</span>(df[,<span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)])</a>
+<a class="sourceLine" id="cb380-51" data-line-number="51">  bwVals =<span class="st"> </span><span class="kw">sapply</span>(<span class="kw">colnames</span>(bwVals), <span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb380-52" data-line-number="52">    <span class="kw">as.integer</span>(bwVals[,x])</a>
+<a class="sourceLine" id="cb380-53" data-line-number="53">    })</a>
+<a class="sourceLine" id="cb380-54" data-line-number="54">  <span class="kw">colnames</span>(bwVals) =<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb380-55" data-line-number="55">  </a>
+<a class="sourceLine" id="cb380-56" data-line-number="56">  <span class="co"># get start time</span></a>
+<a class="sourceLine" id="cb380-57" data-line-number="57">  startTime =<span class="st"> </span>df[<span class="dv">1</span>,<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb380-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb380-59" data-line-number="59">  <span class="co"># create AsspDataObj</span></a>
+<a class="sourceLine" id="cb380-60" data-line-number="60">  ado =<span class="st"> </span><span class="kw">list</span>()</a>
+<a class="sourceLine" id="cb380-61" data-line-number="61">  </a>
+<a class="sourceLine" id="cb380-62" data-line-number="62">  <span class="kw">attr</span>(ado, <span class="st">&quot;trackFormats&quot;</span>) =<span class="kw">c</span>(<span class="st">&quot;INT16&quot;</span>, <span class="st">&quot;INT16&quot;</span>)</a>
+<a class="sourceLine" id="cb380-63" data-line-number="63">  </a>
+<a class="sourceLine" id="cb380-64" data-line-number="64">  <span class="cf">if</span>(arguments[[<span class="dv">1</span>]] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb380-65" data-line-number="65">    sR =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>(<span class="fl">0.25</span> <span class="op">*</span><span class="st"> </span>arguments[[<span class="dv">4</span>]])</a>
+<a class="sourceLine" id="cb380-66" data-line-number="66">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb380-67" data-line-number="67">    sR =<span class="st"> </span><span class="dv">1</span> <span class="op">/</span><span class="st"> </span>arguments[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb380-68" data-line-number="68">  }</a>
+<a class="sourceLine" id="cb380-69" data-line-number="69">  </a>
+<a class="sourceLine" id="cb380-70" data-line-number="70">  <span class="kw">attr</span>(ado, <span class="st">&quot;sampleRate&quot;</span>) =<span class="st"> </span>sR</a>
+<a class="sourceLine" id="cb380-71" data-line-number="71">  </a>
+<a class="sourceLine" id="cb380-72" data-line-number="72">  tmpObj =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(path)</a>
+<a class="sourceLine" id="cb380-73" data-line-number="73">  <span class="kw">attr</span>(ado, <span class="st">&quot;origFreq&quot;</span>) =<span class="st"> </span><span class="kw">attr</span>(tmpObj, <span class="st">&quot;sampleRate&quot;</span>)</a>
+<a class="sourceLine" id="cb380-74" data-line-number="74">  </a>
+<a class="sourceLine" id="cb380-75" data-line-number="75">  <span class="kw">attr</span>(ado, <span class="st">&quot;startTime&quot;</span>) =<span class="st"> </span>startTime</a>
+<a class="sourceLine" id="cb380-76" data-line-number="76">  </a>
+<a class="sourceLine" id="cb380-77" data-line-number="77">  <span class="kw">attr</span>(ado, <span class="st">&quot;startRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb380-78" data-line-number="78">  </a>
+<a class="sourceLine" id="cb380-79" data-line-number="79">  <span class="kw">attr</span>(ado, <span class="st">&quot;endRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">nrow</span>(fmVals))</a>
+<a class="sourceLine" id="cb380-80" data-line-number="80">  </a>
+<a class="sourceLine" id="cb380-81" data-line-number="81">  <span class="kw">class</span>(ado) =<span class="st"> &quot;AsspDataObj&quot;</span></a>
+<a class="sourceLine" id="cb380-82" data-line-number="82">  </a>
+<a class="sourceLine" id="cb380-83" data-line-number="83">  <span class="kw">AsspFileFormat</span>(ado) &lt;-<span class="st"> &quot;SSFF&quot;</span></a>
+<a class="sourceLine" id="cb380-84" data-line-number="84">  <span class="kw">AsspDataFormat</span>(ado) &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb380-85" data-line-number="85">  </a>
+<a class="sourceLine" id="cb380-86" data-line-number="86">  ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, columnNames[<span class="dv">1</span>], fmVals, <span class="st">&quot;INT16&quot;</span>)</a>
+<a class="sourceLine" id="cb380-87" data-line-number="87">  </a>
+<a class="sourceLine" id="cb380-88" data-line-number="88">  ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, columnNames[<span class="dv">2</span>], bwVals, <span class="st">&quot;INT16&quot;</span>)</a>
+<a class="sourceLine" id="cb380-89" data-line-number="89">  </a>
+<a class="sourceLine" id="cb380-90" data-line-number="90">  <span class="kw">return</span>(ado)</a>
+<a class="sourceLine" id="cb380-91" data-line-number="91">}</a>
+<a class="sourceLine" id="cb380-92" data-line-number="92"></a>
+<a class="sourceLine" id="cb380-93" data-line-number="93">########################################</a>
+<a class="sourceLine" id="cb380-94" data-line-number="94"><span class="co"># Use of function on &#39;ae&#39; emuDB</span></a>
+<a class="sourceLine" id="cb380-95" data-line-number="95"><span class="kw">library</span>(emuR)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;emuR&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:base&#39;:
 ## 
 ##     norm</code></pre>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1"><span class="co"># create demo data in tempdir()</span></a>
-<a class="sourceLine" id="cb385-2" data-line-number="2"><span class="kw">create_emuRdemoData</span>(<span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb385-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb385-4" data-line-number="4"><span class="co"># create path to demo database</span></a>
-<a class="sourceLine" id="cb385-5" data-line-number="5">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb385-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb385-7" data-line-number="7"><span class="co"># list all .wav files in the ae emuDB</span></a>
-<a class="sourceLine" id="cb385-8" data-line-number="8">paths2wavFiles =<span class="st"> </span><span class="kw">list.files</span>(path2ae, <span class="dt">pattern =</span> <span class="st">&quot;*.wav$&quot;</span>, </a>
-<a class="sourceLine" id="cb385-9" data-line-number="9">                            <span class="dt">recursive =</span> <span class="ot">TRUE</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb385-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb385-11" data-line-number="11"><span class="co"># loop through files</span></a>
-<a class="sourceLine" id="cb385-12" data-line-number="12"><span class="cf">for</span>(fp <span class="cf">in</span> paths2wavFiles){</a>
-<a class="sourceLine" id="cb385-13" data-line-number="13">  ado =<span class="st"> </span><span class="kw">PraatToFormants2AsspDataObj</span>(fp)</a>
-<a class="sourceLine" id="cb385-14" data-line-number="14">  newPath =<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">file_path_sans_ext</span>(fp), <span class="st">&#39;.praatFms&#39;</span>)</a>
-<a class="sourceLine" id="cb385-15" data-line-number="15">  <span class="co"># print(paste0(fp, &#39; -&gt; &#39;, newPath)) # uncomment for simple log</span></a>
-<a class="sourceLine" id="cb385-16" data-line-number="16">  <span class="kw">write.AsspDataObj</span>(ado, <span class="dt">file =</span> newPath)</a>
-<a class="sourceLine" id="cb385-17" data-line-number="17">}</a>
-<a class="sourceLine" id="cb385-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb385-19" data-line-number="19"><span class="co"># load emuDB</span></a>
-<a class="sourceLine" id="cb385-20" data-line-number="20">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb385-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb385-22" data-line-number="22"><span class="co"># add SSFF track definition</span></a>
-<a class="sourceLine" id="cb385-23" data-line-number="23"><span class="kw">add_ssffTrackDefinition</span>(ae, </a>
-<a class="sourceLine" id="cb385-24" data-line-number="24">                        <span class="dt">name =</span> <span class="st">&quot;praatFms&quot;</span>, </a>
-<a class="sourceLine" id="cb385-25" data-line-number="25">                        <span class="dt">columnName =</span> <span class="st">&quot;fm&quot;</span>,</a>
-<a class="sourceLine" id="cb385-26" data-line-number="26">                        <span class="dt">fileExtension =</span> <span class="st">&quot;praatFms&quot;</span>)</a>
-<a class="sourceLine" id="cb385-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb385-28" data-line-number="28"><span class="co"># test query + get_trackdata</span></a>
-<a class="sourceLine" id="cb385-29" data-line-number="29">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)</a>
-<a class="sourceLine" id="cb385-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb385-31" data-line-number="31">td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl, <span class="dt">ssffTrackName =</span> <span class="st">&quot;praatFms&quot;</span>, <span class="dt">verbose =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1"><span class="co"># create demo data in tempdir()</span></a>
+<a class="sourceLine" id="cb383-2" data-line-number="2"><span class="kw">create_emuRdemoData</span>(<span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb383-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb383-4" data-line-number="4"><span class="co"># create path to demo database</span></a>
+<a class="sourceLine" id="cb383-5" data-line-number="5">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb383-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb383-7" data-line-number="7"><span class="co"># list all .wav files in the ae emuDB</span></a>
+<a class="sourceLine" id="cb383-8" data-line-number="8">paths2wavFiles =<span class="st"> </span><span class="kw">list.files</span>(path2ae, <span class="dt">pattern =</span> <span class="st">&quot;*.wav$&quot;</span>, </a>
+<a class="sourceLine" id="cb383-9" data-line-number="9">                            <span class="dt">recursive =</span> <span class="ot">TRUE</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb383-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb383-11" data-line-number="11"><span class="co"># loop through files</span></a>
+<a class="sourceLine" id="cb383-12" data-line-number="12"><span class="cf">for</span>(fp <span class="cf">in</span> paths2wavFiles){</a>
+<a class="sourceLine" id="cb383-13" data-line-number="13">  ado =<span class="st"> </span><span class="kw">PraatToFormants2AsspDataObj</span>(fp)</a>
+<a class="sourceLine" id="cb383-14" data-line-number="14">  newPath =<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">file_path_sans_ext</span>(fp), <span class="st">&#39;.praatFms&#39;</span>)</a>
+<a class="sourceLine" id="cb383-15" data-line-number="15">  <span class="co"># print(paste0(fp, &#39; -&gt; &#39;, newPath)) # uncomment for simple log</span></a>
+<a class="sourceLine" id="cb383-16" data-line-number="16">  <span class="kw">write.AsspDataObj</span>(ado, <span class="dt">file =</span> newPath)</a>
+<a class="sourceLine" id="cb383-17" data-line-number="17">}</a>
+<a class="sourceLine" id="cb383-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb383-19" data-line-number="19"><span class="co"># load emuDB</span></a>
+<a class="sourceLine" id="cb383-20" data-line-number="20">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb383-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb383-22" data-line-number="22"><span class="co"># add SSFF track definition</span></a>
+<a class="sourceLine" id="cb383-23" data-line-number="23"><span class="kw">add_ssffTrackDefinition</span>(ae, </a>
+<a class="sourceLine" id="cb383-24" data-line-number="24">                        <span class="dt">name =</span> <span class="st">&quot;praatFms&quot;</span>, </a>
+<a class="sourceLine" id="cb383-25" data-line-number="25">                        <span class="dt">columnName =</span> <span class="st">&quot;fm&quot;</span>,</a>
+<a class="sourceLine" id="cb383-26" data-line-number="26">                        <span class="dt">fileExtension =</span> <span class="st">&quot;praatFms&quot;</span>)</a>
+<a class="sourceLine" id="cb383-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb383-28" data-line-number="28"><span class="co"># test query + get_trackdata</span></a>
+<a class="sourceLine" id="cb383-29" data-line-number="29">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)</a>
+<a class="sourceLine" id="cb383-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb383-31" data-line-number="31">td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl, <span class="dt">ssffTrackName =</span> <span class="st">&quot;praatFms&quot;</span>, <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p><code>{r echo=FALSE, results='hide', message=FALSE&gt;&gt;= # clean up emuR_demoData unlink(file.path(tempdir(), &quot;emuR_demoData&quot;), recursive = TRUE)</code></p>
 
 </div>

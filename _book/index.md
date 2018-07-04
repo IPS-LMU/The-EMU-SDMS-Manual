@@ -16,12 +16,9 @@ link-citations: yes
 
 # Welcome {-}
 
+The EMU Speech Database Management System (EMU-SDMS) is a collection of software tools which aims to be as close to an all-in-one solution for generating, manipulating, querying, analyzing and managing speech databases as possible. This manual introduces and describes the various components of this system.
 
 <img src="pics/EMU-webAppIcon-roundCorners.png" width="35%" style="display: block; margin: auto;" />
-
-Welcome to the EMU-SDMS Manual! 
-
-<span style="color:red"> Disclaimer: This manual is still in the making! It will eventually replace all the vignettes of emuR, wrassp as well as the EMU-webApp's own documentation. This manual is intended to consolidate all of this information in one easy to find location that can easily be updated as new features are added.</span>
 
 
 

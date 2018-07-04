@@ -7,8 +7,6 @@
 
 
 
-
-
 <img src="pics/EMU-webAppIcon-roundCorners.png" width="35%" style="display: block; margin: auto;" />
 
 
@@ -26,9 +24,8 @@ Upon developing the new system, rather than starting completely from scratch it 
 
 As the early incarnations of the legacy EMU system and its predecessors were conceived either at a time that predated the R system or during the infancy of R's package ecosystem, the legacy system was implemented as a modular yet composite standalone program with a communication and data exchange interface to the R/Splus systems (see @cassidy:sc2001a Section 3 for details). Recent developments in the package ecosystem of R such as the availability of the `DBI` package (@r-special-interest-group-on-databases-r-sig-db:2016a) and the related packages `RSQLite` and `RPostgreSQL` (@wickham:2014a, @conway:2016a), as well as the `jsonlite` package (@ooms:as2014a) and the `httpuv` package (@rstudio:2015a), have made R an attractive sole target platform for the EMU-SDMS. These and other packages provide additional functional power that enabled the EMU-SDMS's core functionality to be implemented in the form of R packages. The availability of certain R packages had a large impact on the architectural design decisions that we made for the new system.
 
-R Example \ref{rexample:overview-install} shows the simple installation process which we were able to achieve due to the R package infrastructure. Compared to the legacy EMU and other systems, the installation process of the entire system has been reduced to a single R command. Throughout this documentation we will try to highlight how the EMU-SDMS is also able to meet the rest of the above key user requirements.
+The R code snippet below shows the simple installation process which we were able to achieve due to the R package infrastructure. Compared to the legacy EMU and other systems, the installation process of the entire system has been reduced to a single R command. Throughout this documentation we will try to highlight how the EMU-SDMS is also able to meet the rest of the above key user requirements.
 
-<h3>rexample:overview-install</h3>
 
 ```r
 # install the entire EMU-SDMS
@@ -36,7 +33,7 @@ R Example \ref{rexample:overview-install} shows the simple installation process 
 install.packages("emuR")
 ```
 
-It is worth noting that throughout this manual R Example code snippets will be given in the form of R Example \@ref(rexample:overview-install). These examples represent working R code that allow the reader to follow along in a hands-on manor and give a feel for what it is like working with the new EMU-SDMS.
+It is worth noting that throughout this manual R code snippets will be given in the form of the above snippet. These examples represent working R code that allow the reader to follow along in a hands-on manor and give a feel for what it is like working with the new EMU-SDMS.
 
 
 ## EMU-SDMS: System architecture and default workflow{#sec:overview-sysArch}
