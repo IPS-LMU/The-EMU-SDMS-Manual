@@ -79,8 +79,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 f7db2e91-0ed5-4452-ac44-16c7b07e3a31 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpMMJKsF/fromScratch_emuDB 
+## UUID:	 d83c7ba9-401b-4fa0-b4ee-a9b9afc9bbd2 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpxiwXqV/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 

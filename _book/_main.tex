@@ -827,8 +827,8 @@ using the \texttt{summary()} function as shown the below R code snippet.
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     66dfa2b9-241e-4886-950d-da1235c73452 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpINu7ji/myFirst_emuDB 
+## UUID:     e15bc63a-48d8-4bca-a223-12b975d7f103 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpOo7fzt/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -1712,9 +1712,9 @@ occur between the canonical representation of the word \emph{family}
 /fæmɪli/ and its phonetic representation {[}fæmli{]}), loosely adheres
 to the formal definition of a tree in the graph-theoretical sense
 (\citet{knuth:ar1968a}) as depicted in Figure
-@ref(fig:annot\_structhybridAnnot)B. While this form of modeling
+\ref{fig:annot-structhybridAnnot}B. While this form of modeling
 explicitly defines relationships between annotation items (represented
-by dashed lines in Figure @ref(fig:annot\_structhybridAnnot)B), it lacks
+by dashed lines in Figure \ref{fig:annot-structhybridAnnot}B), it lacks
 the ability to map these items to the timeline and therefore the
 matching speech signal.
 
@@ -1765,11 +1765,11 @@ unique identifier which is used to link items across levels. These
 building blocks provide the user with a general purpose annotation
 modeling tool that allows complex annotation structures to be modeled
 that best represent the data. An example of a time-aligned hierarchical
-annotation is depicted in Figure @ref(fig:annot\_structhybridAnnot)C,
+annotation is depicted in Figure \ref{fig:annot-structhybridAnnot}C,
 which essentially combines the annotation of Figure
-@ref(fig:annot\_structhybridAnnot)B with the most granular time-bearing
-level (i.e.~the ``Phonetic'' level) of Figure
-@ref(fig:annot\_structhybridAnnot)A.
+\ref{fig:annot-structhybridAnnot}B with the most granular time-bearing
+level (i.e.~the \emph{``Phonetic''} level) of Figure
+\ref{fig:annot-structhybridAnnot}A.
 
 In accordance with other approaches (among others see
 \citet{bird:sc2001a}, \citet{zipser:2010a}, \citet{ide:nle2004a}), the
@@ -1843,15 +1843,14 @@ database just as for the level definitions. The permitted hierarchical
 relationships in an \texttt{emuDB} are expressed through link
 definitions between level definitions as part of the database
 configuration. There are three types of valid hierarchical relationships
-between levels: \texttt{ONE\textbackslash{}\_TO\textbackslash{}\_MANY},
-\texttt{MANY\_TO\_MANY} and \texttt{ONE\_TO\_ONE}. These link
-definitions specify the permitted relationships between instances of
-annotation items of one level and those of another. The structure of the
-hierarchy that corresponds to the annotation depicted in Figure
-@ref(fig:annot\_structhybridAnnot)C can be seen in Figure
-\ref{fig:annotStruct}A. The structure in Figure \ref{fig:annotStruct}A
-is a typical example of an EMU hierarchy where only the
-\textit{Phonetic} level of type \texttt{SEGMENT} contains time
+between levels: \texttt{ONE\_TO\_MANY}, \texttt{MANY\_TO\_MANY} and
+\texttt{ONE\_TO\_ONE}. These link definitions specify the permitted
+relationships between instances of annotation items of one level and
+those of another. The structure of the hierarchy that corresponds to the
+annotation depicted in Figure \ref{fig:annot-structhybridAnnot}C can be
+seen in Figure \ref{fig:annotStruct}A. The structure in Figure
+\ref{fig:annotStruct}A is a typical example of an EMU hierarchy where
+only the \textit{Phonetic} level of type \texttt{SEGMENT} contains time
 information and the others are timeless as they are of the type
 \texttt{ITEM}. The top three levels, \emph{Text}, \emph{Syllable} and
 \emph{Phoneme}, have a \texttt{ONE\_TO\_MANY} relationship specifying
@@ -1876,7 +1875,7 @@ details see \citet{harrington:2010a} page 98).
 
 }
 
-\caption{**A:** a schematic representation of the hierarchical structure of an `emuDB` that corresponds to the annotation depicted in \ref{fig:annot-structhybridAnnot}C; **B:** example of a more complex, intersecting hierarchical structure.}\label{fig:annotStruct}
+\caption{**A:** a schematic representation of the hierarchical structure of an `emuDB` that corresponds to the annotation depicted in figure 4.1C; **B:** example of a more complex, intersecting hierarchical structure.}\label{fig:annotStruct}
 \end{figure}
 
 Based on our experience, the explicit definition of the annotation
@@ -1913,18 +1912,18 @@ an additional, cleaner concept that reduces the extra level overhead has
 been implemented that allows every annotation item to carry multiple
 attributes (i.e., labels). Further, using this construct reduces the
 number of levels, items and links and therefore the hierarchical
-complexity of an annotation. The generic term ``attribute''" (vs.
+complexity of an annotation. The generic term ``attribute'' (vs.
 ``label'') was chosen to have the flexibility of adding attributes that
 are not of the type \texttt{STRING} (i.e., labels) to the annotation
 modeling capabilities of the EMU-SDMS in future versions. Figure
-@ref(fig:paraLabels\} shows the annotation structure modeling difference
-between linearly linked levels (see Figure @ref(fig:paraLabels\}A) and
-an annotation structure using multiple attributes (see Figure
-@ref(fig:paraLabels\}B). Figure @ref(fig:paraLabels\}A shows three
+\ref{fig:paraLabels} shows the annotation structure modeling difference
+between linearly linked levels (see Figure \ref{fig:paraLabels}A) and an
+annotation structure using multiple attributes (see Figure
+\ref{fig:paraLabels}B). Figure \ref{fig:paraLabels}A shows three
 separate levels (\emph{Word}, \emph{Accent} and \emph{Text}) that have a
 \texttt{ONE\_TO\_ONE} relationship. Each of their annotation items is
 linked to exactly one annotation item in the child level (e.g.,
-\emph{A1-A3}). Figure @ref(fig:paraLabels\}B shows a single level that
+\emph{A1-A3}). Figure \ref{fig:paraLabels}B shows a single level that
 has three attribute definitions (\emph{Word}, \emph{Accent} and
 \emph{Text}) and each annotation item contains three attributes (e.g.,
 \emph{A1-A3}).
@@ -1965,8 +1964,8 @@ EMU-SDMS, this single annotation item can hold any meta data associated
 with the bundle. Additionally linking the item to all the annotation
 items of its child level effectively makes it a parent to every item of
 the hierarchy. This linking information can later be exploited to query
-only bundles with matching meta data (see Chapter @ref(chap:querysys\}
-for details). Figure @ref(fig:singleBundleRootNode\} displays a
+only bundles with matching meta data (see Chapter \ref{chap:querysys}
+for details). Figure \ref{fig:singleBundleRootNode} displays a
 hierarchical annotation where the top level (\texttt{bundle}) contains
 information about the speaker's \texttt{gender}, the city of birth
 (\texttt{COB}) and \texttt{age}.
@@ -2198,8 +2197,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     1a67e2ba-662e-4f0e-8202-34fbcdfe3ced 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmprfyOrg/fromScratch_emuDB 
+## UUID:     1ccb5d35-5964-4555-8e44-92e5caf6a264 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpsLOT5U/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4327,7 +4326,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpxacACD/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmpks3L0n/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4866,7 +4865,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-07-04 15:49:39 "  
+## [5] "Timestamp:  2018-07-04 16:51:17 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
