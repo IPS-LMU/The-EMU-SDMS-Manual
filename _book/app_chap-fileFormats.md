@@ -1,4 +1,4 @@
-# File Formats {#app_chap:fileFormats}
+# File Formats {#app-chap:fileFormats}
 
 ## File descriptions
 
@@ -451,7 +451,7 @@ The `_DBconfig.json` file contains the following fields:
     in the `open demo` drop-down menu. Currently available demo
     databases are `["ae", "ema", "epgdorsal"]`.
 
-### `_annot.json` {#subsec:app_chapFileFormatsAnnotJSON}
+### `_annot.json` {#subsec:app-chapFileFormatsAnnotJSON}
 
 The `_annot.json` files contain the actual annotation information as
 well as the hierarchical linking information. Legacy EMU users should
@@ -523,7 +523,7 @@ The `_annot.json` file contains the following fields:
 
     -   `"toID"` The ID value of item to link to (i.e., item in sub-level).
 
-### The SSFF file format {#subsec:app_chapFileFormatsSSFF}
+### The SSFF file format {#subsec:app-chapFileFormatsSSFF}
 
 The SSFF file format is a binary file format which has a plain text header. This means that the header is human-readable and can be viewed with any text editor including common UNIX command line tools such as `less` or `cat`. Within R it is possible to view the header by using R's `readLines()` function as displayed in R Example \@ref(rexample:wrassp-readSSFF).
 
@@ -618,7 +618,7 @@ Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` forma
 ]
 ```
 
-### `_bndl.json` {#subsec:app_chapExampleFilesBndlJSON}
+### `_bndl.json` {#subsec:app-chapExampleFilesBndlJSON}
 
 Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` format is not part of the `emuDB` database specification. Rather, it is part of the `EMU-webApp-websocket-protocol` and is used as a standardized format to transport all the data belonging to a single bundle to the `EMU-webApp`. It is not meant as an on-disk file format by rather should generated on-demand by the server implementing the `EMU-webApp-websocket-protocol`. A schematic example of a `_bndl.json` file is displayed in Listing \@ref(lst:bndlJSON).
 

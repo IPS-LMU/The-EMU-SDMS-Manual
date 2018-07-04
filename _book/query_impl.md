@@ -1,6 +1,6 @@
 # (PART) Implementation {-}
 
-# Implementation of the query system [^1-chap:querysys_impl]{#chap:querysys_impl}
+# Implementation of the query system [^1-chap:querysys_impl]{#chap:querysys-impl}
 
 [^1-chap:querysys_impl]: Sections of this chapter have been published in @winkelmann:2017aa.
 

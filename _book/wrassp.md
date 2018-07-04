@@ -93,7 +93,7 @@ print(au)
 ```
 
 ```
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpetEa8m/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpCUbZ3E/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -483,13 +483,13 @@ readLines(path2logFile)[1:8]
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-07-04 16:54:51 "  
+## [5] "Timestamp:  2018-07-04 18:14:52 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
 ```
 
-## Using `wrassp` in the EMU-SDMS {#sec:wrassp_emu-sdms}
+## Using `wrassp` in the EMU-SDMS {#sec:wrassp-emu-sdms}
 
 As shown in Section \@ref(subsec:wrassp-RMS), the `wrassp` signal processing functions can be used to calculate SSFF files and place them into the appropriate bundle directories. The only thing that has to be done to make an `emuDB` aware of these files is to add an SSFF track definition to the `emuDB` as shown in R Example \@ref(rexample:wrassp-addSSFF). Once added, this SSFF track can be referenced via the `ssffTrackName` parameter of the `get_trackdata()` function as shown in various examples throughout this documentation. It is worth noting that this strategy is not necessarily relevant for applying the same signal processing to an entire `emuDB`, as this can be achieved using the on-the-fly `add_ssffTrackDefinition()` method described in R Example \@ref(rexample:wrassp-onTheFly). However, it becomes necessary if certain bundles are to be processed using deviating function parameters. This can, for example, be relevant when setting the minimum and maximum frequencies that are to be considered while estimating the fundamental frequencies (e.g., the `maxF` and `minF` of `ksvfF0()`) for female versus male speakers.
 

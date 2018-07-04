@@ -205,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
-<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
+<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
 <li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
@@ -265,12 +265,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
 <li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
 <li class="chapter" data-level="15.1.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsDBconfig"><i class="fa fa-check"></i><b>15.1.1</b> <code>_DBconfig.json</code></a></li>
-<li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
-<li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
+<li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
+<li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
 </ul></li>
 <li class="chapter" data-level="15.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#example-files"><i class="fa fa-check"></i><b>15.2</b> Example files</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBundleList"><i class="fa fa-check"></i><b>15.2.1</b> <code>_bundleList.json</code></a></li>
-<li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
+<li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html"><i class="fa fa-check"></i><b>16</b> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a><ul>
@@ -355,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap:querysys_impl" class="section level1">
+<div id="chap:querysys-impl" class="section level1">
 <h1><span class="header-section-number">11</span> Implementation of the query system<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a></h1>
 <p>Compatibly with other query languages, the EQL defines the user a front-end interface and infers the query’s results from its semantics. However, a query language does not define any data structures or specify how the query engine is to be implemented. As mentioned in Chapter <a href="chap-overview.html#chap:overview">2</a>, a major user requirement was database portability, simple package installation, tolerable run times over complex queries, and a system that did not rely on external software at runtime. The only available back-end implementation that met those needs and was also available as an R package at the time was (R)SQLite (<span class="citation">Hipp and Kennedy (<a href="#ref-hipp:2007a">2007</a>)</span>, <span class="citation">Wickham, James, and Falcon (<a href="#ref-wickham:2014a">2014</a>)</span>). As (R)SQLite is a relational database management system, <code>emuR</code>’s query system could not be implemented so as to use directly the primary data sources of an <code>emuDB</code>, that is, the JSON files described in Chapter <a href="chap-emuDB.html#chap:emuDB">5</a>. A syncing mechanism that maps the primary data sources to a relational form for querying purposes had to be implemented. This relational form is referred to as the <code>emuDBcache</code> in the context of an <code>emuDB</code>. The data sources are synchronized while an <code>emuDB</code> is being loaded and when changes are made to the annotation files. To address load time issues, we implemented a file check-sum mechanism which only reloads and synchronizes annotation files that have a changed MD5-sum <span class="citation">(Rivest <a href="#ref-rivest:1992a">1992</a>)</span>. Figure <a href="chap-querysys-impl.html#fig:query-schematic-emuR-structure">11.1</a> is a schematic representation of how the various <code>emuDB</code> interaction functions interact with either the file representation or the relational cache.</p>
 <div class="figure" style="text-align: center"><span id="fig:query-schematic-emuR-structure"></span>

@@ -205,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
-<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
+<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
 <li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
@@ -265,12 +265,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
 <li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
 <li class="chapter" data-level="15.1.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsDBconfig"><i class="fa fa-check"></i><b>15.1.1</b> <code>_DBconfig.json</code></a></li>
-<li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
-<li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
+<li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
+<li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
 </ul></li>
 <li class="chapter" data-level="15.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#example-files"><i class="fa fa-check"></i><b>15.2</b> Example files</a><ul>
 <li class="chapter" data-level="15.2.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBundleList"><i class="fa fa-check"></i><b>15.2.1</b> <code>_bundleList.json</code></a></li>
-<li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app_chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
+<li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html"><i class="fa fa-check"></i><b>16</b> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a><ul>
@@ -511,7 +511,7 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <a class="sourceLine" id="cb306-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
 <a class="sourceLine" id="cb306-7" data-line-number="7">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb306-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
-<p>In the Listing above <code>bundleData</code> is the Javascript object containing all SSFF files (encoded as a base64 strings) and audio (encoded as a base64 string) and <code>_annot.json</code> that are associated with this bundle. An example of <code>_bndl.json</code> is given in Appendix <a href="#subsec:app-chapExampleFilesBndlJSON"><strong>??</strong></a>.</p>
+<p>In the Listing above <code>bundleData</code> is the Javascript object containing all SSFF files (encoded as a base64 strings) and audio (encoded as a base64 string) and <code>_annot.json</code> that are associated with this bundle. An example of <code>_bndl.json</code> is given in Appendix <a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON">15.2.2</a>.</p>
 </div>
 <div id="savebundle" class="section level3">
 <h3><span class="header-section-number">16.2.7</span> <code>SAVEBUNDLE</code></h3>

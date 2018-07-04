@@ -827,8 +827,8 @@ using the \texttt{summary()} function as shown the below R code snippet.
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     e15bc63a-48d8-4bca-a223-12b975d7f103 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpOo7fzt/myFirst_emuDB 
+## UUID:     e30eed4a-0ece-4886-83e8-0552a00ef0cb 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmphBWhXJ/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2037,9 +2037,9 @@ and labels)\footnote{According to the JSON specification (see
   \url{https://json.org/}) the only characters that have to be escaped
   within a JSON string are: '' (as this marks the start/end of a
   string), \textbackslash{} (as this is the escape character) or
-  control-characters (\textbackslash{} b = backspace, \textbackslash{}f
-  = form feed, \textbackslash{}n = new line, \textbackslash{}r =
-  carriage return, \textbackslash{}t = tab). Unicode characters in their
+  control-characters (\textbackslash{}b = backspace, \textbackslash{}f =
+  form feed, \textbackslash{}n = new line, \textbackslash{}r = carriage
+  return, \textbackslash{}t = tab). Unicode characters in their
   hexadecimal form using the \textbackslash{}u followed by
   for-hex-digits may also be used.}.
 
@@ -2143,9 +2143,9 @@ a set of \texttt{.wav} audio files present.
 \subsection{\texorpdfstring{Creating an \texttt{emuDB} from
 scratch}{Creating an emuDB from scratch}}\label{creating-an-emudb-from-scratch}}
 
-R Example \ref{rexample:emuDB-create} shows how an empty \texttt{emuDB}
-is created in the directory provided by R's \texttt{tempdir()} function.
-As can be seen by the output of the \texttt{list.files()} function,
+The R code snippet below shows how an empty \texttt{emuDB} is created in
+the directory provided by R's \texttt{tempdir()} function. As can be
+seen by the output of the \texttt{list.files()} function,
 \texttt{create\_emuDB()} creates a directory containing a
 \texttt{\_DBconfig.json} file only.
 
@@ -2180,10 +2180,10 @@ As can be seen by the output of the \texttt{list.files()} function,
 database}\label{loading-and-editing-an-empty-database}}
 
 The initial step in manipulating and generally interacting with a
-database is to load the database into the current R session. R Example
-\ref{rexample:emuDB-load} shows how to load the \emph{fromScratch}
-database and shows the empty configuration by displaying the output of
-the \texttt{summary()} function.
+database is to load the database into the current R session. The R code
+below shows how to load the \emph{fromScratch} database and shows the
+empty configuration by displaying the output of the \texttt{summary()}
+function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2197,8 +2197,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     1ccb5d35-5964-4555-8e44-92e5caf6a264 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpsLOT5U/fromScratch_emuDB 
+## UUID:     92150650-c1c2-4af4-a522-c31d58492c2f 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpWdg1tI/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -2228,14 +2228,13 @@ the \texttt{summary()} function.
 ## [1] "emuDBhandle"
 \end{verbatim}
 
-As can be seen in R Example \ref{rexample:emuDB-load}, the class of a
-loaded \texttt{emuDB} is \texttt{emuDBhandle}. A \texttt{emuDBhandle}
-object is used to reference a loaded \texttt{emuDB} in the database
-interaction functions of the \texttt{emuR} package. In this chapter we
-will show how to use this \texttt{emuDBhandle} object to perform
-database manipulation operations. Most of the \texttt{emuDB}
-manipulation functions follow the following function prefix naming
-convention:
+As can be seen in the above R code example, the class of a loaded
+\texttt{emuDB} is \texttt{emuDBhandle}. A \texttt{emuDBhandle} object is
+used to reference a loaded \texttt{emuDB} in the database interaction
+functions of the \texttt{emuR} package. In this chapter we will show how
+to use this \texttt{emuDBhandle} object to perform database manipulation
+operations. Most of the \texttt{emuDB} manipulation functions follow the
+following function prefix naming convention:
 
 \begin{itemize}
 \tightlist
@@ -2270,10 +2269,9 @@ levels that are present in an \texttt{\_annot.json} file, on the other
 hand, have to adhere to the definitions in the \texttt{\_DBconfig.json}.
 
 As the \emph{fromScratch} database (already loaded) does not contain any
-annotation structural element definitions, R Example
-\ref{rexample:emuDB-addLevelDefPhonetic} shows how a new level
-definition called \emph{Phonetic} of type \texttt{SEGMENT} is added to
-the \texttt{emuDB}.
+annotation structural element definitions, the R code snippet below
+shows how a new level definition called \emph{Phonetic} of type
+\texttt{SEGMENT} is added to the \texttt{emuDB}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2304,11 +2302,11 @@ the \texttt{emuDB}.
 ## 1 Phonetic SEGMENT            1    Phonetic;
 \end{verbatim}
 
-R Example @ref(rexample:emuDB-addLevelDefWord\} shows how a further
-level definition is added that will contain the orthographic word
-transcriptions for the words uttered in our recordings. This level will
-be of the type \texttt{ITEM}, meaning that elements contained within the
-level are sequentially ordered but do not contain any time information.
+The example below shows how a further level definition is added that
+will contain the orthographic word transcriptions for the words uttered
+in our recordings. This level will be of the type \texttt{ITEM}, meaning
+that elements contained within the level are sequentially ordered but do
+not contain any time information.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2348,9 +2346,9 @@ case that databases contain both the phonetic transcript using IPA UTF-8
 symbols as well as a transcript using Speech Assessment Methods Phonetic
 Alphabet (SAMPA) symbols. To avoid redundant time information, both of
 these annotations can be stored on the same \texttt{Phonetic} level
-using multiple attribute definitions (i.e., parallel labels). R Example
-\ref{rexample:emuDB-listAttrDef} shows the current attribute definitions
-of the \texttt{Phonetic} level.
+using multiple attribute definitions (i.e., parallel labels). The next R
+code snippet shows the current attribute definitions of the
+\texttt{Phonetic} level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2371,10 +2369,9 @@ that has the same name as its level. This attribute definition
 represents the obligatory primary attribute of that level. As every
 level must contain an attribute definition that has the same name as its
 level, it is automatically added by the \texttt{add\_levelDefinition()}
-function. To follow the above example, R Example
-\ref{rexample:emuDB-addAttrDef} adds a further attribute definition to
-the \texttt{Phonetic} level that contains the SAMPA versions of our
-annotations.
+function. To follow the above example, the next R code snippet adds a
+further attribute definition to the \texttt{Phonetic} level that
+contains the SAMPA versions of our annotations.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2414,11 +2411,10 @@ field contains an array of strings that specifies the labels that are
 legal (i.e., allowed or valid) for the given attribute definition. As
 the \texttt{EMU-webApp} does not allow the annotator to enter any labels
 that are not specified in this array, this is a simple way of assuring
-that a level has a consistent label set. R Example
-\ref{rexample:emuDB-setLegalLabels} shows how the
-\texttt{set\_legalLabels} and \texttt{get\_legalLabels} functions can be
-used to specify a legal label set for the primary \texttt{Word}
-attribute definition of the \texttt{Word} level.
+that a level has a consistent label set. The following R code snippet
+shows how the \texttt{set\_legalLabels} and \texttt{get\_legalLabels}
+functions can be used to specify a legal label set for the primary
+\texttt{Word} attribute definition of the \texttt{Word} level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2464,12 +2460,12 @@ attribute definition of the \texttt{Word} level.
 
 A further optional field is the \texttt{labelGroups} field. It contains
 specifications of groups of labels that can be referenced by a name
-given to the group while querying the \texttt{emuDB}. R Example
-\ref{rexample:emuDB-addLabelGroup} shows how the
-\texttt{add\_attrDefLabelGroup()} function is used to add two label
-groups to the \texttt{Phonetic} attribute definition. One of the groups
-is used to reference a subset of \emph{longVowels} and the other to
-reference a subset of \emph{shortVowels} on the \texttt{Phonetic} level.
+given to the group while querying the \texttt{emuDB}. The R code below
+shows how the \texttt{add\_attrDefLabelGroup()} function is used to add
+two label groups to the \texttt{Phonetic} attribute definition. One of
+the groups is used to reference a subset of \emph{longVowels} and the
+other to reference a subset of \emph{shortVowels} on the
+\texttt{Phonetic} level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2546,10 +2542,10 @@ annotations at hand. As Chapter \ref{chap:annot-struct-mod} contains
 in-depth explanations of the annotation modeling capabilities of the
 EMU-SDMS and Chapter \ref{chap:querysys} shows how these structures can
 be queried using \texttt{emuR}'s query mechanics, this chapter will omit
-an explanation of hierarchical annotation structures. R Example
-\ref{rexample:emuDB-addLinkDef} shows how a \texttt{ONE\_TO\_MANY}
-relationship between the \texttt{Word} and \texttt{Phonetic} in the form
-of a link definition is added to an \texttt{emuDB}.
+an explanation of hierarchical annotation structures. The following R
+code shows how a \texttt{ONE\_TO\_MANY} relationship between the
+\texttt{Word} and \texttt{Phonetic} in the form of a link definition is
+added to an \texttt{emuDB}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2583,8 +2579,8 @@ of a link definition is added to an \texttt{emuDB}.
 \end{verbatim}
 
 A schematic of the simple hierarchical structure of the
-\emph{fromScratch} created by R Example \ref{rexample:emuDB-addLinkDef}
-is displayed in Figure \ref{fig:emuDB-fromScratchHier}.
+\emph{fromScratch} created by the above R code is displayed in Figure
+\ref{fig:emuDB-fromScratchHier}.
 
 \textbackslash{}begin\{figure\}
 
@@ -2594,9 +2590,8 @@ is displayed in Figure \ref{fig:emuDB-fromScratchHier}.
 
 \textbackslash{}caption\{A schematic representation of the simple
 hierarchical structure of the \emph{fromScratch} created by the
-\texttt{add\_linkDefinition()} function call in R Example
-\citet{ref}(rexample:emuDB-addLinkDef).\}\label{fig:emuDB-fromScratchHier}
-\textbackslash{}end\{figure\}
+\texttt{add\_linkDefinition()} function call in above R code
+snippet.\}\label{fig:emuDB-fromScratchHier} \textbackslash{}end\{figure\}
 
 \hypertarget{file-handling}{%
 \subsection{File handling}\label{file-handling}}
@@ -2606,10 +2601,10 @@ the \emph{fromScratch} \texttt{emuDB}. An essential element that is
 still missing from the \texttt{emuDB} is the actual audio speech
 data\footnote{As the \texttt{EMU-webApp} currently only supports mono 16
   Bit \texttt{.wav} audio files, we currently recommend using this
-  format only.}. R Example \ref{rexample:emuDB-importMediaFiles} shows
-how the \texttt{import\_mediaFiles()} function can be used to import
-audio files, referred to as media files in the context of an
-\texttt{emuDB}, into the \emph{fromScratch} \texttt{emuDB}.
+  format only.}. The following R code example shows how the
+\texttt{import\_mediaFiles()} function can be used to import audio
+files, referred to as media files in the context of an \texttt{emuDB},
+into the \emph{fromScratch} \texttt{emuDB}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2668,8 +2663,7 @@ audio files, referred to as media files in the context of an
 ## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn~
 \end{verbatim}
 
-The \texttt{import\_mediaFiles()} call in R Example
-\ref{rexample:emuDB-importMediaFiles} added a new session called
+The \texttt{import\_mediaFiles()} call above added a new session called
 \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB}
 containing a new bundle for each of the imported media files. The
 annotations of every bundle, despite containing empty levels, adhere to
@@ -2679,14 +2673,13 @@ the structure specified above. This means that every
 
 The \texttt{emuR} package also provides a mechanism for adding files to
 preexisting bundle directories, as this can be quite tedious to perform
-manually due to the nested directory structure of an \texttt{emuDB}. R
-Example \ref{rexample:emuDB-addFiles} shows how preexisting
-\texttt{.zcr} files that are produced by \texttt{wrassp}'s
-\texttt{zcrana()} function can be added to the preexisting session and
-bundle structure. As the directory referenced by \texttt{wavDir} does
-not contain any \texttt{.zcr} files, R Example
-\ref{rexample:emuDB-addFiles} first creates them and then adds them to
-the \texttt{emuDB} (see Chapter \ref{chap:wrassp} for further details).
+manually due to the nested directory structure of an \texttt{emuDB}. The
+following R code shows how preexisting \texttt{.zcr} files that are
+produced by \texttt{wrassp}'s \texttt{zcrana()} function can be added to
+the preexisting session and bundle structure. As the directory
+referenced by \texttt{wavDir} does not contain any \texttt{.zcr} files,
+the next R code example first creates them and then adds them to the
+\texttt{emuDB} (see Chapter \ref{chap:wrassp} for further details).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2755,10 +2748,10 @@ types of data are:
 
 As Section \ref{sec:wrassp-emu-sdms} covers how the SSFF file output of
 a \texttt{wrassp} function can be added to an \texttt{emuDB}, an
-explanation will be omitted here. R Example
-\ref{rexample:emuDB-addTrack} shows how the \texttt{.zcr} files added in
-R Example \ref{rexample:emuDB-addFiles} can be added as an SSFF track
-definition (see Chapter \ref{chap:wrassp} for further details).
+explanation will be omitted here. The following R code snippet shows how
+the \texttt{.zcr} files added in the R example above can be added as an
+SSFF track definition (see Chapter \ref{chap:wrassp} for further
+details).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2802,10 +2795,9 @@ information. Although the configuration of the \texttt{EMU-webApp} is
 stored in the \texttt{\_DBconfig.json} file and is therefore a part of
 the \texttt{emuDB} format, here we will omit an explanation of the
 extensive possibilities of configuring the web application (see Chapter
-\ref{chap:emu-webApp} for an in-depth explanation). R Example
-\ref{rexample:configWebApp} shows how the \texttt{Phonetic} level is
-added to the level canvases order array of the \emph{default}
-perspective.
+\ref{chap:emu-webApp} for an in-depth explanation). The R code snippet
+below shows how the \texttt{Phonetic} level is added to the level
+canvases order array of the \emph{default} perspective.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2836,9 +2828,9 @@ perspective.
 
 As a final step before beginning the annotation process, the
 \emph{fromScratch} \texttt{emuDB} has to be served to the
-\texttt{EMU-webApp} for annotation and visualization purposes. R Example
-\ref{rexample:emuDB-serve} shows how this can be achieved using the
-\texttt{serve()} function.
+\texttt{EMU-webApp} for annotation and visualization purposes. The code
+below shows how this can be achieved using the \texttt{serve()}
+function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4326,7 +4318,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmpks3L0n/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpUz1qO1/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4865,15 +4857,15 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-07-04 16:51:17 "  
+## [5] "Timestamp:  2018-07-04 18:11:09 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
 \end{verbatim}
 
-\hypertarget{sec:wrassp_emu-sdms}{%
+\hypertarget{sec:wrassp-emu-sdms}{%
 \section{\texorpdfstring{Using \texttt{wrassp} in the
-EMU-SDMS}{Using wrassp in the EMU-SDMS}}\label{sec:wrassp_emu-sdms}}
+EMU-SDMS}{Using wrassp in the EMU-SDMS}}\label{sec:wrassp-emu-sdms}}
 
 As shown in Section \ref{subsec:wrassp-RMS}, the \texttt{wrassp} signal
 processing functions can be used to calculate SSFF files and place them
@@ -6514,10 +6506,10 @@ quickly find functions she or he is interested in.
 \hypertarget{part-implementation}{%
 \part{Implementation}\label{part-implementation}}
 
-\hypertarget{chap:querysys_impl}{%
+\hypertarget{chap:querysys-impl}{%
 \chapter[Implementation of the query system
 ]{\texorpdfstring{Implementation of the query system \footnote{Sections
-  of this chapter have been published in \citet{winkelmann:2017aa}.}}{Implementation of the query system }}\label{chap:querysys_impl}}
+  of this chapter have been published in \citet{winkelmann:2017aa}.}}{Implementation of the query system }}\label{chap:querysys-impl}}
 
 Compatibly with other query languages, the EQL defines the user a
 front-end interface and infers the query's results from its semantics.
@@ -7821,8 +7813,8 @@ performed a comparable analysis by utilizing packages such as
 manipulation and \texttt{lattice} or \texttt{ggplot2} for data
 visualisation.
 
-\hypertarget{app_chap:fileFormats}{%
-\chapter{File Formats}\label{app_chap:fileFormats}}
+\hypertarget{app-chap:fileFormats}{%
+\chapter{File Formats}\label{app-chap:fileFormats}}
 
 \hypertarget{file-descriptions}{%
 \section{File descriptions}\label{file-descriptions}}
@@ -8427,8 +8419,8 @@ The \texttt{\_DBconfig.json} file contains the following fields:
   demo databases are \texttt{{[}"ae",~"ema",~"epgdorsal"{]}}.
 \end{itemize}
 
-\hypertarget{subsec:app_chapFileFormatsAnnotJSON}{%
-\subsection{\texorpdfstring{\texttt{\_annot.json}}{\_annot.json}}\label{subsec:app_chapFileFormatsAnnotJSON}}
+\hypertarget{subsec:app-chapFileFormatsAnnotJSON}{%
+\subsection{\texorpdfstring{\texttt{\_annot.json}}{\_annot.json}}\label{subsec:app-chapFileFormatsAnnotJSON}}
 
 The \texttt{\_annot.json} files contain the actual annotation
 information as well as the hierarchical linking information. Legacy EMU
@@ -8526,8 +8518,8 @@ The \texttt{\_annot.json} file contains the following fields:
   \end{itemize}
 \end{itemize}
 
-\hypertarget{subsec:app_chapFileFormatsSSFF}{%
-\subsection{The SSFF file format}\label{subsec:app_chapFileFormatsSSFF}}
+\hypertarget{subsec:app-chapFileFormatsSSFF}{%
+\subsection{The SSFF file format}\label{subsec:app-chapFileFormatsSSFF}}
 
 The SSFF file format is a binary file format which has a plain text
 header. This means that the header is human-readable and can be viewed
@@ -8698,8 +8690,8 @@ rather should be generated on-demand by the server implementing the
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{subsec:app_chapExampleFilesBndlJSON}{%
-\subsection{\texorpdfstring{\texttt{\_bndl.json}}{\_bndl.json}}\label{subsec:app_chapExampleFilesBndlJSON}}
+\hypertarget{subsec:app-chapExampleFilesBndlJSON}{%
+\subsection{\texorpdfstring{\texttt{\_bndl.json}}{\_bndl.json}}\label{subsec:app-chapExampleFilesBndlJSON}}
 
 Compared to the \texttt{\_DBconfig.json} and \texttt{\_annot.json}
 files, the \texttt{\_bndl.json} format is not part of the \texttt{emuDB}

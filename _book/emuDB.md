@@ -11,7 +11,7 @@ We decided on the JavaScript Object Notation (JSON) file format[^2-chap:emuDB] a
 
 [^2-chap:emuDB]: JSON schema files available here https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles
 
-[^3-chap:emuDB]: According to the JSON specification (see https://json.org/) the only characters that have to be escaped within a JSON string are: '' (as this marks the start/end of a string), \\  (as this is the escape character) or control-characters (\\ b = backspace, \\f = form feed, \\n = new line, \\r = carriage return, \\t = tab). Unicode characters in their hexadecimal form using the \\u followed by for-hex-digits may also be used.
+[^3-chap:emuDB]: According to the JSON specification (see https://json.org/) the only characters that have to be escaped within a JSON string are: '' (as this marks the start/end of a string), \\  (as this is the escape character) or control-characters (\\b = backspace, \\f = form feed, \\n = new line, \\r = carriage return, \\t = tab). Unicode characters in their hexadecimal form using the \\u followed by for-hex-digits may also be used.
 
 We chose to use the widely adopted Waveform Audio File Format (`WAVE`, or more commonly known as `WAV` due to its filename extension) as our primary media/audio format. Although some components of the EMU-SDMS, notably the `wrassp` package, can handle various other media/audio formats (see `?wrassp::AsspFileFormats` for details) this is the only audio file format currently supported by every component of the EMU-SDMS. Nevertheless, the `wrassp` package can be utilized to convert files from one of it's other supported file formats to the `WAV` format [^4-chap:emuDB]. Future releases of the EMU-SDMS might include the support of other media/audio formats.
 
@@ -37,7 +37,7 @@ The two main strategies for creating `emuDB`s are either to convert existing dat
 
 ### Creating an `emuDB` from scratch
 
-R Example \@ref(rexample:emuDB-create) shows how an empty `emuDB` is created in the directory provided by R's `tempdir()` function. As can be seen by the output of the `list.files()` function, `create_emuDB()` creates a directory containing a `_DBconfig.json` file only.
+The R code snippet below shows how an empty `emuDB` is created in the directory provided by R's `tempdir()` function. As can be seen by the output of the `list.files()` function, `create_emuDB()` creates a directory containing a `_DBconfig.json` file only.
 
 
 ```r
@@ -66,7 +66,7 @@ list.files(dbPath)
 
 ### Loading and editing an empty database
 
-The initial step in manipulating and generally interacting with a database is to load the database into the current R session. R Example \@ref(rexample:emuDB-load) shows how to load the *fromScratch* database and shows the empty configuration by displaying the output of the `summary()` function.
+The initial step in manipulating and generally interacting with a database is to load the database into the current R session. The R code below shows how to load the *fromScratch* database and shows the empty configuration by displaying the output of the `summary()` function.
 
 
 ```r
@@ -79,8 +79,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 d83c7ba9-401b-4fa0-b4ee-a9b9afc9bbd2 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpxiwXqV/fromScratch_emuDB 
+## UUID:	 c768fcf3-6b92-4024-89b4-c7ccb250439d 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpy6112l/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -108,7 +108,7 @@ class(dbHandle)
 ## [1] "emuDBhandle"
 ```
 
-As can be seen in R Example \@ref(rexample:emuDB-load), the class of a loaded `emuDB` is `emuDBhandle`. A `emuDBhandle` object is used to reference a loaded `emuDB` in the database interaction functions of the `emuR` package. In this chapter we will show how to use this `emuDBhandle` object to perform database manipulation operations. Most of the `emuDB` manipulation functions follow the following function prefix naming convention:
+As can be seen in the above R code example, the class of a loaded `emuDB` is `emuDBhandle`. A `emuDBhandle` object is used to reference a loaded `emuDB` in the database interaction functions of the `emuR` package. In this chapter we will show how to use this `emuDBhandle` object to perform database manipulation operations. Most of the `emuDB` manipulation functions follow the following function prefix naming convention:
 
 - `add_XXX` add a new instance of `XXX` / `set_XXX` set the current instance of `XXX`,
 - `list_XXX` list the current instances of `XXX` / `get_XXX` get the current instance of `XXX`,
@@ -118,7 +118,7 @@ As can be seen in R Example \@ref(rexample:emuDB-load), the class of a loaded `e
 
 Unlike other systems, the EMU-SDMS requires the user to formally define the annotation structure for the entire database. An essential structural element of any `emuDB` are its levels. A level is a more general term for what is often referred to as a tier. It is more general in the sense that people usually expect tiers to contain time information. Levels can either contain time information if they are of the type `EVENT` or of the type `SEGMENT` but are timeless if they are of the type `ITEM` (see Chapter \@ref(chap:annot-struct-mod) for further details). It is also worth noting that an `emuDB` distinguishes between the definition of an annotation structure element and the actual annotations. The definition of an annotation structure element such as a level definition is merely an entry in the `_DBconfig.json` file which specifies that this level is allowed to be present in the `_annot.json` files. The levels that are present in an `_annot.json` file, on the other hand, have to adhere to the definitions in the `_DBconfig.json`.
 
-As the *fromScratch* database (already loaded) does not contain any annotation structural element definitions, R Example \@ref(rexample:emuDB-addLevelDefPhonetic) shows how a new level definition called *Phonetic* of type `SEGMENT` is added to the `emuDB`.
+As the *fromScratch* database (already loaded) does not contain any annotation structural element definitions, the R code snippet below shows how a new level definition called *Phonetic* of type `SEGMENT` is added to the `emuDB`.
 
 
 ```r
@@ -146,7 +146,7 @@ list_levelDefinitions(dbHandle)
 ## 1 Phonetic SEGMENT            1    Phonetic;
 ```
 
-R Example \@ref(rexample:emuDB-addLevelDefWord} shows how a further level definition is added that will contain the orthographic word transcriptions for the words uttered in our recordings. This level will be of the type `ITEM`, meaning that elements contained within the level are sequentially ordered but do not contain any time information.
+The example below shows how a further level definition is added that will contain the orthographic word transcriptions for the words uttered in our recordings. This level will be of the type `ITEM`, meaning that elements contained within the level are sequentially ordered but do not contain any time information.
 
 
 ```r
@@ -170,7 +170,7 @@ The function `remove_levelDefinition()` can also be used to remove unwanted leve
 
 #### Attribute definitions
 
-Each level definition can contain multiple attributes, the most common, and currently only supported attribute being a label (of type `STRING`). Thus it is possible to have multiple parallel labels (i.e., attribute definitions) in a single level. This means that a single annotation item instance can contain multiple labels while sharing other properties such as the start and duration information. This can be useful when modeling certain types of data. An example of this would be the *Phonetic* level created above. It is often the case that databases contain both the phonetic transcript using IPA UTF-8 symbols as well as a transcript using Speech Assessment Methods Phonetic Alphabet (SAMPA) symbols. To avoid redundant time information, both of these annotations can be stored on the same `Phonetic` level using multiple attribute definitions (i.e., parallel labels). R Example \@ref(rexample:emuDB-listAttrDef) shows the current attribute definitions of the `Phonetic` level.
+Each level definition can contain multiple attributes, the most common, and currently only supported attribute being a label (of type `STRING`). Thus it is possible to have multiple parallel labels (i.e., attribute definitions) in a single level. This means that a single annotation item instance can contain multiple labels while sharing other properties such as the start and duration information. This can be useful when modeling certain types of data. An example of this would be the *Phonetic* level created above. It is often the case that databases contain both the phonetic transcript using IPA UTF-8 symbols as well as a transcript using Speech Assessment Methods Phonetic Alphabet (SAMPA) symbols. To avoid redundant time information, both of these annotations can be stored on the same `Phonetic` level using multiple attribute definitions (i.e., parallel labels). The next R code snippet shows the current attribute definitions of the `Phonetic` level.
 
 
 
@@ -185,7 +185,7 @@ list_attributeDefinitions(dbHandle,
 ## 1 Phonetic Phonetic STRING          FALSE          FALSE
 ```
 
-Even though no attribute definition has been added to the `Phonetic` level, it already contains an attribute definition that has the same name as its level. This attribute definition represents the obligatory primary attribute of that level. As every level must contain an attribute definition that has the same name as its level, it is automatically added by the `add_levelDefinition()` function. To follow the above example, R Example \@ref(rexample:emuDB-addAttrDef) adds a further attribute definition to the `Phonetic` level that contains the SAMPA versions of our annotations.
+Even though no attribute definition has been added to the `Phonetic` level, it already contains an attribute definition that has the same name as its level. This attribute definition represents the obligatory primary attribute of that level. As every level must contain an attribute definition that has the same name as its level, it is automatically added by the `add_levelDefinition()` function. To follow the above example, the next R code snippet adds a further attribute definition to the `Phonetic` level that contains the SAMPA versions of our annotations.
 
 
 ```r
@@ -214,7 +214,7 @@ list_attributeDefinitions(dbHandle,
 <!-- % SIC should be subsubsubsection -->
 #### Legal labels {#subsubsec:emuDBlegalLabels}
 
-As can be inferred from the columns `hasLabelGroups` and `hasLegalLabels` of the output of the above `list_attributeDefinitions()` function, attribute definitions can also contain two further optional fields. The `legalLabels` field contains an array of strings that specifies the labels that are legal (i.e., allowed or valid) for the given attribute definition. As the `EMU-webApp` does not allow the annotator to enter any labels that are not specified in this array, this is a simple way of assuring that a level has a consistent label set. R Example \@ref(rexample:emuDB-setLegalLabels) shows how the `set_legalLabels` and `get_legalLabels` functions can be used to specify a legal label set for the primary `Word` attribute definition of the `Word` level.
+As can be inferred from the columns `hasLabelGroups` and `hasLegalLabels` of the output of the above `list_attributeDefinitions()` function, attribute definitions can also contain two further optional fields. The `legalLabels` field contains an array of strings that specifies the labels that are legal (i.e., allowed or valid) for the given attribute definition. As the `EMU-webApp` does not allow the annotator to enter any labels that are not specified in this array, this is a simple way of assuring that a level has a consistent label set. The following R code snippet shows how the `set_legalLabels` and `get_legalLabels` functions can be used to specify a legal label set for the primary `Word` attribute definition of the `Word` level.
 
 
 ```r
@@ -256,7 +256,7 @@ get_legalLabels(dbHandle,
 <!-- % should be subsubsub sesion -->
 #### Label groups
 
-A further optional field is the `labelGroups` field. It contains specifications of groups of labels that can be referenced by a name given to the group while querying the `emuDB`. R Example \@ref(rexample:emuDB-addLabelGroup) shows how the `add_attrDefLabelGroup()` function is used to add two label groups to the `Phonetic` attribute definition. One of the groups is used to reference a subset of *longVowels* and the other to reference a subset of *shortVowels* on the `Phonetic` level.
+A further optional field is the `labelGroups` field. It contains specifications of groups of labels that can be referenced by a name given to the group while querying the `emuDB`. The R code below shows how the `add_attrDefLabelGroup()` function is used to add two label groups to the `Phonetic` attribute definition. One of the groups is used to reference a subset of *longVowels* and the other to reference a subset of *shortVowels* on the `Phonetic` level.
 
 
 ```r
@@ -309,7 +309,7 @@ A new feature of the EMU-SDMS is the possibility of defining label groups for th
 
 ### Link definitions
 
-An essential and very powerful conceptual and structural element of any `emuDB` is its hierarchy. Using hierarchical structures is highly recommended but not a must. Hierarchical annotations allow for complex, rich data modeling and are often cleaner representations of the annotations at hand. As Chapter \@ref(chap:annot-struct-mod) contains in-depth explanations of the annotation modeling capabilities of the EMU-SDMS and Chapter \@ref(chap:querysys) shows how these structures can be queried using `emuR`'s query mechanics, this chapter will omit an explanation of hierarchical annotation structures. R Example \@ref(rexample:emuDB-addLinkDef) shows how a `ONE_TO_MANY` relationship between the `Word` and `Phonetic` in the form of a link definition is added to an `emuDB`.
+An essential and very powerful conceptual and structural element of any `emuDB` is its hierarchy. Using hierarchical structures is highly recommended but not a must. Hierarchical annotations allow for complex, rich data modeling and are often cleaner representations of the annotations at hand. As Chapter \@ref(chap:annot-struct-mod) contains in-depth explanations of the annotation modeling capabilities of the EMU-SDMS and Chapter \@ref(chap:querysys) shows how these structures can be queried using `emuR`'s query mechanics, this chapter will omit an explanation of hierarchical annotation structures. The following R code shows how a `ONE_TO_MANY` relationship between the `Word` and `Phonetic` in the form of a link definition is added to an `emuDB`.
 
 
 ```r
@@ -339,17 +339,17 @@ list_linkDefinitions(dbHandle)
 ## 1 ONE_TO_MANY           Word     Phonetic
 ```
 
-A schematic of the simple hierarchical structure of the *fromScratch* created by R Example \@ref(rexample:emuDB-addLinkDef) is displayed in Figure \@ref(fig:emuDB-fromScratchHier).
+A schematic of the simple hierarchical structure of the *fromScratch* created by the above R code is displayed in Figure \@ref(fig:emuDB-fromScratchHier).
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/fromScratchDBgraph.png" alt="A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example @ref(rexample:emuDB-addLinkDef)." width="50%" />
-<p class="caption">(\#fig:emuDB-fromScratchHier)A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in R Example @ref(rexample:emuDB-addLinkDef).</p>
+<img src="pics/fromScratchDBgraph.png" alt="A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in above R code snippet." width="50%" />
+<p class="caption">(\#fig:emuDB-fromScratchHier)A schematic representation of the simple hierarchical structure of the *fromScratch* created by the `add_linkDefinition()` function call in above R code snippet.</p>
 </div>
 
 ### File handling
 
-The previous sections of this chapter defined the simple structure of the *fromScratch* `emuDB`. An essential element that is still missing from the `emuDB` is the actual audio speech data[^5-chap:emuDB]. R Example \@ref(rexample:emuDB-importMediaFiles) shows how the `import_mediaFiles()` function can be used to import audio files, referred to as media files in the context of an `emuDB`, into the *fromScratch* `emuDB`.
+The previous sections of this chapter defined the simple structure of the *fromScratch* `emuDB`. An essential element that is still missing from the `emuDB` is the actual audio speech data[^5-chap:emuDB]. The following R code example shows how the `import_mediaFiles()` function can be used to import audio files, referred to as media files in the context of an `emuDB`, into the *fromScratch* `emuDB`.
 
 [^5-chap:emuDB]: As the `EMU-webApp` currently only supports mono 16 Bit `.wav` audio files, we currently recommend using this format only.
 
@@ -405,9 +405,9 @@ as_tibble(head(list_files(dbHandle), n = 2))
 ## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn…
 ```
 
-The `import_mediaFiles()` call in R Example \@ref(rexample:emuDB-importMediaFiles) added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
+The `import_mediaFiles()` call above added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
 
-The `emuR` package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an `emuDB`. R Example \@ref(rexample:emuDB-addFiles) shows how preexisting `.zcr` files that are produced by `wrassp`'s `zcrana()` function can be added to the preexisting session and bundle structure. As the directory referenced by `wavDir` does not contain any `.zcr` files, R Example \@ref(rexample:emuDB-addFiles) first creates them and then adds them to the `emuDB` (see Chapter \@ref(chap:wrassp) for further details).
+The `emuR` package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an `emuDB`. The following R code shows how preexisting `.zcr` files that are produced by `wrassp`'s `zcrana()` function can be added to the preexisting session and bundle structure. As the directory referenced by `wavDir` does not contain any `.zcr` files, the next R code example first creates them and then adds them to the `emuDB` (see Chapter \@ref(chap:wrassp) for further details).
 
 
 
@@ -459,7 +459,7 @@ A further important structural element of any `emuDB` is use of the so-called SS
 - complementary data that was acquired during the recording such as by EMA or EPG; or
 - derived data, that is data that was calculated from the original audio signal such as formant values and their bandwidths or the short-term Root Mean Square amplitude of the signal.
 
-As Section \@ref(sec:wrassp-emu-sdms) covers how the SSFF file output of a `wrassp` function can be added to an `emuDB`, an explanation will be omitted here. R Example \@ref(rexample:emuDB-addTrack) shows how the `.zcr` files added in R Example \@ref(rexample:emuDB-addFiles) can be added as an SSFF track definition (see Chapter \@ref(chap:wrassp) for further details).
+As Section \@ref(sec:wrassp-emu-sdms) covers how the SSFF file output of a `wrassp` function can be added to an `emuDB`, an explanation will be omitted here. The following R code snippet shows how the `.zcr` files added in the R example above can be added as an SSFF track definition (see Chapter \@ref(chap:wrassp) for further details).
 
 
 ```r
@@ -490,7 +490,7 @@ list_ssffTrackDefinitions(dbHandle)
 
 ### Configuring the `EMU-webApp` and annotating the `emuDB`
 
-As previously mentioned, the current *fromScratch* `emuDB` contains only empty levels. In order to start annotating the database, the `EMU-webApp` has to be configured to display the desired information. Although the configuration of the `EMU-webApp` is stored in the `_DBconfig.json` file and is therefore a part of the `emuDB` format, here we will omit an explanation of the extensive possibilities of configuring the web application (see Chapter \@ref(chap:emu-webApp) for an in-depth explanation). R Example \@ref(rexample:configWebApp) shows how the `Phonetic` level is added to the level canvases order array of the *default* perspective.
+As previously mentioned, the current *fromScratch* `emuDB` contains only empty levels. In order to start annotating the database, the `EMU-webApp` has to be configured to display the desired information. Although the configuration of the `EMU-webApp` is stored in the `_DBconfig.json` file and is therefore a part of the `emuDB` format, here we will omit an explanation of the extensive possibilities of configuring the web application (see Chapter \@ref(chap:emu-webApp) for an in-depth explanation). The R code snippet below shows how the `Phonetic` level is added to the level canvases order array of the *default* perspective.
 
 
 ```r
@@ -516,7 +516,7 @@ get_levelCanvasesOrder(dbHandle, perspectiveName = "default")
 ## [1] "Phonetic"
 ```
 
-As a final step before beginning the annotation process, the *fromScratch* `emuDB` has to be served to the `EMU-webApp` for annotation and visualization purposes. R Example \@ref(rexample:emuDB-serve) shows how this can be achieved using the `serve()` function.
+As a final step before beginning the annotation process, the *fromScratch* `emuDB` has to be served to the `EMU-webApp` for annotation and visualization purposes. The code below shows how this can be achieved using the `serve()` function.
 
 
 ```r
