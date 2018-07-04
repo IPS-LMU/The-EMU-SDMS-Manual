@@ -816,8 +816,7 @@ collection into R using the \texttt{load\_emuDB()} function.
 
 Now the \emph{myFirst} \texttt{emuDB} is loaded into R, an overview of
 the current status and configuration of the database can be displayed
-using the \texttt{summary()} function as shown in R Example
-@ref(rexample:tutorial\_summary).
+using the \texttt{summary()} function as shown the below R code snippet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -828,8 +827,8 @@ using the \texttt{summary()} function as shown in R Example
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     0bbf3cef-596e-4b2e-8cfb-9facdf12f8bd 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpmBI4mg/myFirst_emuDB 
+## UUID:     66dfa2b9-241e-4886-950d-da1235c73452 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpINu7ji/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -926,21 +925,20 @@ annotations of a database. The \texttt{emuR} package implements a
 \texttt{query()} function to accomplish this task. This function
 evaluates an EMU Query Language (EQL) expression and extracts the
 annotation items from the database that match a query expression. As
-Chapter \ref{chap:querysys} gives a detailed description of the query
+chapter \ref{chap:querysys} gives a detailed description of the query
 mechanics provided by \texttt{emuR}, this tutorial will only use a very
 small, hopefully easy to understand subset of the EQL.
 
-The output of the \texttt{summary()} command in R Example
-@ref(rexample:tutorial\_summary) and the screenshot in Figure
-\ref{fig:tutorial-emuWebAppMyFirst} show that the \emph{myFirst}
-\texttt{emuDB} contains four levels of annotations. The R code snippet
-below shows four separate queries that query various segments on each of
-the available levels. The query expressions all use the matching
-operator \texttt{==} which returns annotation items whose labels match
-those specified to the right of the operator and that belong to the
-level specified to the left of the operator (i.e.,
-\texttt{LEVEL\ ==\ LABEL}; see Chapter \ref{chap:querysys} for a
-detailed description).
+The output of the \texttt{summary()} command in the R code snippet below
+and the screenshot in Figure \ref{fig:tutorial-emuWebAppMyFirst} show
+that the \emph{myFirst} \texttt{emuDB} contains four levels of
+annotations. The R code snippet below shows four separate queries that
+query various segments on each of the available levels. The query
+expressions all use the matching operator \texttt{==} which returns
+annotation items whose labels match those specified to the right of the
+operator and that belong to the level specified to the left of the
+operator (i.e., \texttt{LEVEL\ ==\ LABEL}; see Chapter
+\ref{chap:querysys} for a detailed description).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1233,10 +1231,10 @@ was just extracted is also needed, we can use the requery functionality
 of the EMU-SDMS (see Chapter \ref{chap:querysys}) to retrieve the word
 type for each \emph{@} vowel. A requery essentially moves through a
 hierarchical annotation (vertically or horizontally) starting from the
-segments that are passed into the requery function. R Example
-\ref{rexample:tutorial-requery} illustrates the usage of the
-hierarchical requery function, \texttt{requery\_hier()}, to retrieve the
-appropriate annotation items from the *Word level.
+segments that are passed into the requery function. The R code below
+illustrates the usage of the hierarchical requery function,
+\texttt{requery\_hier()}, to retrieve the appropriate annotation items
+from the *Word level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1362,12 +1360,11 @@ each of the row entries of the segment lists (i.e.,
 \texttt{T3}, \texttt{T4} of the printed output of
 \texttt{td\_vowels{[}5,{]}} suggest, the \texttt{forest} function
 estimates four formant values. We will only be concerned with the first
-(column \texttt{T1}) and second (column \texttt{T2}). R Example
-\ref{rexample:tutorial-dplot} shows a call to \texttt{emuR}'s
-\texttt{dplot()} function which produces the plot displayed in Figure
-\ref{fig:tutorial-dplot}. The first call to the \texttt{dplot()}
-function plots all 28 first formant trajectories (achieved by indexing
-the first column i.e., \texttt{T1}:
+(column \texttt{T1}) and second (column \texttt{T2}). The below R code
+shows a call to \texttt{emuR}'s \texttt{dplot()} function which produces
+the plot displayed in Figure \ref{fig:tutorial-dplot}. The first call to
+the \texttt{dplot()} function plots all 28 first formant trajectories
+(achieved by indexing the first column i.e., \texttt{T1}:
 \texttt{x\ =\ td\_vowels{[},\ 1{]}}). To clean up the cluttered left
 plot, the second call to the \texttt{dplot()} function additionally uses
 the \texttt{average} parameter to plot only the ensemble averages of all
@@ -1411,20 +1408,20 @@ Figure \ref{fig:tutorial-dplot} gives an overview of the first formant
 trajectories of the \emph{@} vowels. For the purpose of data exploration
 and to get an idea of where the individual vowel classes lie on the F2 x
 F1 plane, which indirectly provides information about vowel height and
-tongue position, R Example \ref{rexample:tutorial-eplot} makes use of
-the \texttt{eplot()} function. This produces Figure
-\ref{fig:tutorial-eplot}. To be able to use the \texttt{eplot()}
-function, the \texttt{td\_vowels} object first has to be modified, as it
-contains entire formant trajectories but two dimensional data is needed
-to be able to display it on the F2 x F1 plain. This can, for example, be
-achieved by only extracting temporal mid-point formant values for each
-vowel using the \texttt{get\_trackdata()} function utilizing its
-\texttt{cut} parameter. The R code snippet below shows an alternative
-approach using the \texttt{dcut()} function to essentially cut the
-formant trajectories to a specified proportional segment. By using only
-the \texttt{left.time\ =\ 0.5} (and not specifying \texttt{right.time})
-only the formant values that are closest to the temporal mid-point are
-cut from the trajectories.
+tongue position, the R code below makes use of the \texttt{eplot()}
+function. This produces Figure \ref{fig:tutorial-eplot}. To be able to
+use the \texttt{eplot()} function, the \texttt{td\_vowels} object first
+has to be modified, as it contains entire formant trajectories but two
+dimensional data is needed to be able to display it on the F2 x F1
+plain. This can, for example, be achieved by only extracting temporal
+mid-point formant values for each vowel using the
+\texttt{get\_trackdata()} function utilizing its \texttt{cut} parameter.
+The R code snippet below shows an alternative approach using the
+\texttt{dcut()} function to essentially cut the formant trajectories to
+a specified proportional segment. By using only the
+\texttt{left.time\ =\ 0.5} (and not specifying \texttt{right.time}) only
+the formant values that are closest to the temporal mid-point are cut
+from the trajectories.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1639,24 +1636,22 @@ below) are displayed in Figure \ref{fig:tutorial-stats1}.
 ## alternative hypothesis: true location shift is not equal to 0
 \end{verbatim}
 
-\textbackslash{}begin\{figure\}
+\begin{figure}
 
-\{\centering \includegraphics{tutorial_files/figure-latex/tutorial-stats1-1}
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-stats1-1} 
 
-\}
+}
 
-\textbackslash{}caption\{Plots of density distributions of vowels in
-content words (left plot) and vowels in function words (right plot) in R
-Example \citet{ref}(rexample:tutorial\_stats1).\}\label{fig:tutorial-stats1}
-\textbackslash{}end\{figure\}
+\caption{Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code.}\label{fig:tutorial-stats1}
+\end{figure}
 
-As shown by the result of \texttt{wilcox.test()} in R Example
-@ref(rexample:tutorial\_stats1), word type (\emph{C} vs. \emph{F}) has a
-significant influence on the vowel's F1 (W=121, p\textless{}0.05).
-Hence, the answer to the initially proposed question: \emph{Given an
-annotated speech database, is vowel height of the vowel @ (measured by
-its correlate, the first formant frequency) influenced by whether it
-appears in a content or function word?} is yes!
+As shown by the result of \texttt{wilcox.test()} in the above R code,
+word type (\emph{C} vs. \emph{F}) has a significant influence on the
+vowel's F1 (W=121, p\textless{}0.05). Hence, the answer to the initially
+proposed question: \emph{Given an annotated speech database, is vowel
+height of the vowel @ (measured by its correlate, the first formant
+frequency) influenced by whether it appears in a content or function
+word?} is yes!
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
@@ -2203,8 +2198,8 @@ the \texttt{summary()} function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     ab543345-7daf-47a7-ac5c-0a6cbc6914f8 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpewo6rm/fromScratch_emuDB 
+## UUID:     1a67e2ba-662e-4f0e-8202-34fbcdfe3ced 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmprfyOrg/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4332,7 +4327,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmp8DABqk/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpxacACD/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4871,7 +4866,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-07-04 15:26:33 "  
+## [5] "Timestamp:  2018-07-04 15:49:39 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"

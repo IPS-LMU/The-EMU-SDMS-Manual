@@ -104,7 +104,7 @@ dbHandle = load_emuDB(path2directory, verbose = FALSE)
 
 ### Overview
 
-Now the *myFirst* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as shown in R Example \@ref(rexample:tutorial_summary).
+Now the *myFirst* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as shown the below R code snippet.
 
 
 
@@ -115,8 +115,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 myFirst 
-## UUID:	 fd3bdcf0-51ad-48f4-a76b-043a7568e2e3 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp611d4l/myFirst_emuDB 
+## UUID:	 32d4f2f3-abd1-4775-93e0-ff707cec1f25 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmplROl6b/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -175,9 +175,9 @@ The `EMU-webApp`, which is now connected to the database via the `serve()` funct
 
 ## Querying and autobuilding the annotation structure
 
-An integral step in the default workflow of the EMU-SDMS is querying the annotations of a database. The `emuR` package implements a `query()` function to accomplish this task. This function evaluates an EMU Query Language (EQL) expression and extracts the annotation items from the database that match a query expression. As Chapter \@ref(chap:querysys) gives a detailed description of the query mechanics provided by `emuR`, this tutorial will only use a very small, hopefully easy to understand subset of the EQL.
+An integral step in the default workflow of the EMU-SDMS is querying the annotations of a database. The `emuR` package implements a `query()` function to accomplish this task. This function evaluates an EMU Query Language (EQL) expression and extracts the annotation items from the database that match a query expression. As chapter \@ref(chap:querysys) gives a detailed description of the query mechanics provided by `emuR`, this tutorial will only use a very small, hopefully easy to understand subset of the EQL.
 
-The output of the `summary()` command in R Example \@ref(rexample:tutorial_summary) and the screenshot in Figure \@ref(fig:tutorial-emuWebAppMyFirst) show that the *myFirst* `emuDB` contains four levels of annotations. The R code snippet below shows four separate queries that query various segments on each of the available levels. The query expressions all use the matching operator `==` which returns annotation items whose labels match those specified to the right of the operator and that belong to the level specified to the left of the operator (i.e., `LEVEL == LABEL`; see Chapter \@ref(chap:querysys) for a detailed description).
+The output of the `summary()` command in the R code snippet below and the screenshot in Figure \@ref(fig:tutorial-emuWebAppMyFirst) show that the *myFirst* `emuDB` contains four levels of annotations. The R code snippet below shows four separate queries that query various segments on each of the available levels. The query expressions all use the matching operator `==` which returns annotation items whose labels match those specified to the right of the operator and that belong to the level specified to the left of the operator (i.e., `LEVEL == LABEL`; see Chapter \@ref(chap:querysys) for a detailed description).
 
 
 ```r
@@ -380,7 +380,7 @@ head(sl_vowels, n = 1)
 ## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT
 ```
 
-As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. R Example \@ref(rexample:tutorial-requery) illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word level.
+As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word level.
 
 
 ```r
@@ -474,7 +474,7 @@ td_vowels[5,]
 ## 2502.5 361  733 2304 3692
 ```
 
-As can be seen by the call to the `class()` function, the resulting object is of the type `trackdata` and has 28 entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., `td_vowels[5,]` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels[5,]` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). R Example \@ref(rexample:tutorial-dplot) shows a call to `emuR`'s `dplot()` function which produces the plot displayed in Figure \@ref(fig:tutorial-dplot). The first call to the `dplot()` function plots all 28 first formant trajectories (achieved by indexing the first column i.e., `T1`: `x = td_vowels[, 1]`). To clean up the cluttered left plot, the second call to the `dplot()` function additionally uses the `average` parameter to plot only the ensemble averages of all *\@* vowels and time-normalizes the trajectories (`normalise = TRUE`) to an interval between 0 and 1.
+As can be seen by the call to the `class()` function, the resulting object is of the type `trackdata` and has 28 entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., `td_vowels[5,]` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels[5,]` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). The below R code shows a call to `emuR`'s `dplot()` function which produces the plot displayed in Figure \@ref(fig:tutorial-dplot). The first call to the `dplot()` function plots all 28 first formant trajectories (achieved by indexing the first column i.e., `T1`: `x = td_vowels[, 1]`). To clean up the cluttered left plot, the second call to the `dplot()` function additionally uses the `average` parameter to plot only the ensemble averages of all *\@* vowels and time-normalizes the trajectories (`normalise = TRUE`) to an interval between 0 and 1.
 
 
 ```r
@@ -505,7 +505,7 @@ par(mfrow = c(1,1))
 <p class="caption">(\#fig:tutorial-dplot)`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *\@* vowels.</p>
 </div>
 
-Figure \@ref(fig:tutorial-dplot) gives an overview of the first formant trajectories of the *\@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, R Example \@ref(rexample:tutorial-eplot) makes use of the `eplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `eplot()` function, the `td_vowels` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. The R code snippet below shows an alternative approach using the `dcut()` function to essentially cut the formant trajectories to a specified proportional segment. By using only the `left.time = 0.5` (and not specifying `right.time`) only the formant values that are closest to the temporal mid-point are cut from the trajectories.
+Figure \@ref(fig:tutorial-dplot) gives an overview of the first formant trajectories of the *\@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, the R code below makes use of the `eplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `eplot()` function, the `td_vowels` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. The R code snippet below shows an alternative approach using the `dcut()` function to essentially cut the formant trajectories to a specified proportional segment. By using only the `left.time = 0.5` (and not specifying `right.time`) only the formant values that are closest to the temporal mid-point are cut from the trajectories.
 
 
 ```r
@@ -666,11 +666,11 @@ wilcox.test(meanF1 ~ wordType, data = df)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-stats1-1.png" alt="Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1)."  />
-<p class="caption">(\#fig:tutorial-stats1)Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) in R Example @ref(rexample:tutorial_stats1).</p>
+<img src="tutorial_files/figure-epub3/tutorial-stats1-1.png" alt="Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code."  />
+<p class="caption">(\#fig:tutorial-stats1)Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code.</p>
 </div>
 
-As shown by the result of `wilcox.test()` in R Example \@ref(rexample:tutorial_stats1), word type (*C* vs. *F*) has a significant influence on the vowel's F1 (W=121, p<0.05). Hence, the answer to the initially proposed question: *Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?* is yes!
+As shown by the result of `wilcox.test()` in the above R code, word type (*C* vs. *F*) has a significant influence on the vowel's F1 (W=121, p<0.05). Hence, the answer to the initially proposed question: *Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?* is yes!
 
 
 ## Conclusion
