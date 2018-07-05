@@ -426,8 +426,8 @@ Figure 3.1: TextGrid annotation of the <code>emuR_demoData/TextGrid_collection/m
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># show summary</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     myFirst 
-## UUID:     9ac372f2-3bd5-4779-a6c3-0b49ea6e2726 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpttgwnu/myFirst_emuDB 
+## UUID:     45b2cc37-c3fd-4040-ba0c-27f8554d3258 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpqDAj3u/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -619,7 +619,7 @@ Figure 3.5: Screenshot of <code>EMU-webApp</code> displaying the autobuilt hiera
 ## query was:  Phonetic == @ 
 ##   labels    start      end session   bundle    level    type
 ## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT</code></pre>
-<p>As the type of word (content vs. function) for each <em>@</em> vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter <a href="chap-querysys.html#chap:querysys">6</a>) to retrieve the word type for each <em>@</em> vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, <code>requery_hier()</code>, to retrieve the appropriate annotation items from the *Word level.</p>
+<p>As the type of word (content vs. function) for each <em>@</em> vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter <a href="chap-querysys.html#chap:querysys">6</a>) to retrieve the word type for each <em>@</em> vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, <code>requery_hier()</code>, to retrieve the appropriate annotation items from the <em>Word</em> level.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># hierarchical requery starting from the items in sl_vowels</span></a>
 <a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co"># and moving up to the &quot;Word&quot; level</span></a>
 <a class="sourceLine" id="cb27-3" data-line-number="3">sl_wordType =<span class="st"> </span><span class="kw">requery_hier</span>(dbHandle,</a>

@@ -214,15 +214,17 @@ The `_DBconfig.json` file contains the following fields:
 
             -   `"ssffTrackName"` The name of the SSFF track to overlay onto `"signalCanvasName"`. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-            -   `"minMaxValLims"` An array of configuration options to
-                limit the y-axis range that is displayed for a specified
-                SSFF track.
+            -   `"minMaxValLims"` An array of configuration options to limit the y-axis range that is displayed for a specified SSFF track.
 
             -   `"ssffTrackName"`: A name specifying which ssffTrack should be limited. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
 
-
             -   `"minVal"`: The minimum value which defines the lower y-axis limit. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
-
+            
+            -   `"horizontalLines"`: Add horizontal lines to ssffTrack
+            
+            -   `"ssffTrackName"`: The name of the SSFF track to draw horizontal lines on. (NOTE: indentation level reduced by 1 to avoid max indentation problems) 
+            
+            -   `"yValues"`: array of number specifying the y values of the horizontal lines (NOTE: indentation level reduced by 1 to avoid max indentation problems) 
 
             -   `"contourLims"` An array containing contour limit values
                 that specify an index range that is to be displayed. As

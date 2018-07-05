@@ -249,7 +249,7 @@ components:
   \item
     Version: 0.1.12
   \item
-    Git SHA1: 655415e55543274670d8871ee5c30c46c60fd1ae
+    Git SHA1: 7ee913c514b60cecb9faf43d7acb1379005d2971
   \end{itemize}
 \end{itemize}
 
@@ -827,8 +827,8 @@ using the \texttt{summary()} function as shown the below R code snippet.
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     e30eed4a-0ece-4886-83e8-0552a00ef0cb 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmphBWhXJ/myFirst_emuDB 
+## UUID:     f2db97d5-22de-4e6e-b609-2ff8085dadf6 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpCRLMJ3/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -1234,7 +1234,7 @@ hierarchical annotation (vertically or horizontally) starting from the
 segments that are passed into the requery function. The R code below
 illustrates the usage of the hierarchical requery function,
 \texttt{requery\_hier()}, to retrieve the appropriate annotation items
-from the *Word level.
+from the \emph{Word} level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2197,8 +2197,8 @@ function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     92150650-c1c2-4af4-a522-c31d58492c2f 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpWdg1tI/fromScratch_emuDB 
+## UUID:     1e04e9d1-aa6b-45b5-9154-b1abdf16b4f9 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmplXjZTu/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4318,7 +4318,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpUz1qO1/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmppbz54h/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4857,7 +4857,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-07-04 18:11:09 "  
+## [5] "Timestamp:  2018-07-05 14:32:23 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -8107,6 +8107,16 @@ The \texttt{\_DBconfig.json} file contains the following fields:
         \texttt{"minVal"}: The minimum value which defines the lower
         y-axis limit. (NOTE: indentation level reduced by 1 to avoid max
         indentation problems)
+      \item
+        \texttt{"horizontalLines"}: Add horizontal lines to ssffTrack
+      \item
+        \texttt{"ssffTrackName"}: The name of the SSFF track to draw
+        horizontal lines on. (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
+      \item
+        \texttt{"yValues"}: array of number specifying the y values of
+        the horizontal lines (NOTE: indentation level reduced by 1 to
+        avoid max indentation problems)
       \item
         \texttt{"contourLims"} An array containing contour limit values
         that specify an index range that is to be displayed. As a track
