@@ -488,7 +488,7 @@ The `_annot.json` file contains the following fields:
         -   `"sampleDur"` Contains sample duration value of `SEGMENT`
             item. Note that the `EMU-webApp` does not support
             overlapping `SEGMENT`s or `SEGMENT` sequences containing
-            gaps. This infers that each sample is explicitly and
+            gaps. This implies that each sample is explicitly and
             unambiguously associated with a single `SEGMENT`. This means
             that the `sampleStart` value of a following `SEGMENT` has to
             be `sampleStart` + `sampleDur` + 1 of the previous
@@ -501,7 +501,13 @@ The `_annot.json` file contains the following fields:
             `SEGMENT`s. To avoid a negative time value when dealing with
             the first sample of an audio file (`sampleStart` value of
             $0$), the `start` time value is simply set to $0$ in this
-            case. The `start` and `end` time value calculation is
+            case. One implication of this design is that there can be no zero-length 
+            segments. If for example a `SEGMENT` has sampleStart: 1420 and 
+            sampleDur: 0, it will be considered to start at the 
+            start time of sample 1420 - \frac{0.5}{sampleRate} and end at 
+            the end time of sample 1420 + \frac{0.5}{sampleRate}. The actual 
+            duration in seconds is therefore expressed as $\frac{sampleDur + 1}{sampleRate}$.
+            The `start` and `end` time value calculation is
             performed by both the query engine of `emuR` if the
             `calcTimes` parameter is set to `TRUE` and the `EMU-webApp`
             to display the time information in the signal canvases.
