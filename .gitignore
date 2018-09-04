@@ -12,3 +12,4 @@
 #bookdown*
 tmp-pdfcrop-*
 .Rproj.user
+.DS_Store
