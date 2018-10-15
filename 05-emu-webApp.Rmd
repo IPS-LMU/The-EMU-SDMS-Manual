@@ -12,7 +12,7 @@ The EMU-SDMS has a unique approach to its GUI in that it utilizes a web applicat
 
 The main screen of the EMU-webApp can be split into five areas. Figure \ref{fig:emu_web_emuWebAppLayout} shows a screenshot of the EMU-webApp's main screen displaying these five areas while displaying a bundle of the *ae* demo database. This database is served to the \texttt{EMU-webApp} by invoking the `serve()` command as shown in R Example \ref{rexample:webApp_serve}. The left side bar (area marked 1 in Figure \ref{fig:emu_web_emuWebAppLayout}) represents the bundle list side bar which, if connected to a database, displays the currently available bundles grouped by their sessions. The top and bottom menu bars (areas marked 2 and 5 in Figure \ref{fig:emu_web_emuWebAppLayout}) display the currently available menu options, where the bottom menu bar contains the audio navigation and playback controls and also includes a scrollable mini map of the oscillogram. Area 3 of Figure \ref{fig:emu_web_emuWebAppLayout} displays the signal canvas area currently displaying the oscillogram and the spectrogram. Other signal contours such as formant frequency contours and fundamental frequency contours are also displayed in this area. Area 4 of Figure \ref{fig:emu_web_emuWebAppLayout} displays the area in which levels containing time information are displayed. It is worth noting that the main screen of the EMU-webApp does not display any levels that do not contain time information. The hierarchical annotation can be displayed and edited by clicking the `show hierarchy` button in the top menu bar (see Figure \ref{fig:webApp_hierModal} for an example of how the hierarchy is displayed).
 
-```{r, rexample:webApp_serve, rexample=TRUE, eval=FALSE}
+```{r, eval=FALSE}
 # serve ae emuDB to EMU-webApp
 serve(ae)
 ```
@@ -200,10 +200,10 @@ A central concept for configuring the EMU-webApp are so-called `perspective`s. E
 ### Basic configurations using emuR
 <!-- \label{subsec:emu-webAppConfigWithEmuR} -->
 
-R Example \ref{rexample:webApp_loadDemoData} shows how to create and load the demo data that will be used throughout the rest of this chapter.
+The R code below shows how to create and load the demo data that will be used throughout the rest of this chapter.
 
 
-```{r, rexample:webApp_loadDemoData, rexample=TRUE, results='hide', message=FALSE}
+```{r results='hide', message=FALSE}
 # load package
 library(emuR)
 
@@ -217,18 +217,18 @@ path2ae = file.path(tempdir(), "emuR_demoData", "ae_emuDB")
 ae = load_emuDB(path2ae, verbose = F)
 ```
 
-As mentioned above, the EMU-webApp subdivides different ways to look at an emuDB into so-called `perspective`s. Users can switch between these `perspective`s in the web application. They contain, for example, information on what levels are displayed, which SSFF tracks are drawn. R Example \ref{rexample:webApp_listPersp} shows how the current `perspective`s can be listed using the `list_perspectives()` function.
+As mentioned above, the EMU-webApp subdivides different ways to look at an emuDB into so-called `perspective`s. Users can switch between these `perspective`s in the web application. They contain, for example, information on what levels are displayed, which SSFF tracks are drawn. The R code below shows how the current `perspective`s can be listed using the `list_perspectives()` function.
 
 
-```{r, rexample:webApp_listPersp, rexample=TRUE}
+```{r}
 # list perspectives of ae emuDB
 list_perspectives(ae)
 ```
 
-As it is sometimes necessary to add new or remove existing perspectives to or from a database, R Example \ref{rexample:webApp_addRemovePersp} shows how this can be achieved using emuR's `add/remove_perspective()` functions.
+As it is sometimes necessary to add new or remove existing perspectives to or from a database, the R code snippet below shows how this can be achieved using emuR's `add/remove_perspective()` functions.
 
 <!-- <<>>= -->
-```{r, rexample:webApp_addRemovePersp, rexample=TRUE}
+```{r}
 # add new perspective to ae emuDB
 add_perspective(ae,
                 name = "tmpPersp")

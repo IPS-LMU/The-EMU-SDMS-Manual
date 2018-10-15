@@ -13,7 +13,7 @@ This chapter gives an overview of the essential functions and central objects pr
 - Central objects in `emuR` (Section \@ref(sec:emuRpackageDetails-centralObjects)), and
 - Export routines (Section \@ref(sec:emuRpackageDetails-exportRoutines)).
 
-If a comprehensive list of every function and object provided by the `emuR` package is required, R's `help()` function (see R Example \@ref(rexample:emuRfuncs-help)) can be used.
+If a comprehensive list of every function and object provided by the `emuR` package is required, R's `help()` function (see R code snippet below) can be used.
 
 
 
@@ -27,7 +27,7 @@ As most people that are starting to use the EMU-SDMS will probably already have 
 
 ### Legacy EMU databases
 
-For people transitioning to `emuR` from the legacy EMU system, `emuR` provides a function for converting existing legacy EMU databases to the new `emuDB` format. R Example \@ref(rexample:emuRpackageDetailsConvLegacy) shows how to convert a legacy database that is part of the demo data provided by the `emuR` package.
+For people transitioning to `emuR` from the legacy EMU system, `emuR` provides a function for converting existing legacy EMU databases to the new `emuDB` format. The R code snippet below shows how to convert a legacy database that is part of the demo data provided by the `emuR` package.
 
 
 
@@ -56,7 +56,7 @@ This will create a new `emuDB` in a temporary directory, provided by R's `tempdi
 
 ### TextGrid collections
 
-A further function provided is the `convert_TextGridCollection()` function. This function converts an existing `.TextGrid` and `.wav` file collection to the `emuDB` format. In order to pair the correct files together the `.TextGrid` files and the `.wav` files must have the same name (i.e., file name without extension). A further restriction is that the tiers contained within all the `.TextGrid` files have to be equal in name and type (equal subsets can be chosen using the `tierNames` argument of the function). For example, if all `.TextGrid` files contain the tiers `Syl: IntervalTier`, `Phonetic: IntervalTier` and `Tone: TextTier` the conversion will work. However, if a single `.TextGrid` of the collection has the additional tier `Word: IntervalTier` the conversion will fail, although it can be made to work by specifying the equal tier subset `equalSubset = c('Syl', 'Phonetic', 'Tone')` and passing it into the function argument `convert\_TextGridCollection(..., tierNames = equalSubset, ...)`. R Example \@ref(rexample:emuRpackageDetailsConvTGcol) shows how to convert a TextGrid collection to the `emuDB` format.
+A further function provided is the `convert_TextGridCollection()` function. This function converts an existing `.TextGrid` and `.wav` file collection to the `emuDB` format. In order to pair the correct files together the `.TextGrid` files and the `.wav` files must have the same name (i.e., file name without extension). A further restriction is that the tiers contained within all the `.TextGrid` files have to be equal in name and type (equal subsets can be chosen using the `tierNames` argument of the function). For example, if all `.TextGrid` files contain the tiers `Syl: IntervalTier`, `Phonetic: IntervalTier` and `Tone: TextTier` the conversion will work. However, if a single `.TextGrid` of the collection has the additional tier `Word: IntervalTier` the conversion will fail, although it can be made to work by specifying the equal tier subset `equalSubset = c('Syl', 'Phonetic', 'Tone')` and passing it into the function argument `convert\_TextGridCollection(..., tierNames = equalSubset, ...)`. The R code snippet below shows how to convert a TextGrid collection to the `emuDB` format.
 
 
 ```r
@@ -71,14 +71,14 @@ convert_TextGridCollection(path2directory, dbName = "myTGcolDB",
                            targetDir = tempdir())
 ```
 
-R Example \@ref(rexample:emuRpackageDetailsConvTGcol) will create a new `emuDB` in the directory `tempdir()` called `myTGcolDB`. The `emuDB` will contain all the tier information from the `.TextGrid` files but will not contain hierarchical information, as `.TextGrid` files do not contain any linking information. It is worth noting that it is possible to semi-automatically generate links between time-bearing levels using the `autobuild_linkFromTimes()` function. An example of this was given in Chapter \@ref(chap:tutorial).
-R Example \@ref(rexample:emuRpackageDetailsConvTGcol) creates a new `emuDB` in the directory `tempdir()` called `myTGcolDB`. The `emuDB` contains all the tier information from the `.TextGrid` files no hierarchical information, as `.TextGrid` files do not contain any linking information. Further, it is possible to semi-automatically generate links between time-bearing levels using the `autobuild_linkFromTimes()` function. An example of this was given in Chapter \@ref(chap:tutorial).
+The above R code snippet will create a new `emuDB` in the directory `tempdir()` called `myTGcolDB`. The `emuDB` will contain all the tier information from the `.TextGrid` files but will not contain hierarchical information, as `.TextGrid` files do not contain any linking information. It is worth noting that it is possible to semi-automatically generate links between time-bearing levels using the `autobuild_linkFromTimes()` function. An example of this was given in Chapter \@ref(chap:tutorial).
+The above R code snippet creates a new `emuDB` in the directory `tempdir()` called `myTGcolDB`. The `emuDB` contains all the tier information from the `.TextGrid` files no hierarchical information, as `.TextGrid` files do not contain any linking information. Further, it is possible to semi-automatically generate links between time-bearing levels using the `autobuild_linkFromTimes()` function. An example of this was given in Chapter \@ref(chap:tutorial).
 
 
 
 ### BPF collections
 
-Similar to the `convert_TextGridCollection()` function, the `emuR` package also provides a function for converting file collections consisting of BPF and `.wav` files to the `emuDB` format. R Example \@ref(rexample:emuRpackageDetailsConvBPFcol) shows how this can be achieved.
+Similar to the `convert_TextGridCollection()` function, the `emuR` package also provides a function for converting file collections consisting of BPF and `.wav` files to the `emuDB` format. The R code snippet below shows how this can be achieved.
 
 
 ```r
@@ -328,7 +328,7 @@ This section provides a tabular overview of the central objects  provided by the
 
 ## Export routines {#sec:emuRpackageDetails-exportRoutines}
 
-Although associated with data loss, the `emuR` package provides an export routine to the common TextGrid collection format called `export_TextGridCollection()`. While exporting is sometimes unavoidable, it is essential that users are aware that exporting to other formats which do not support or only partially support hierarchical annotations structures will lead to the loss of the explicit linking information. Although the `autobuild_linkFromTimes()` can partially recreate some of the hierarchical structure, it is advised that the export routine be used with extreme caution. R Example \@ref(rexample:emuR-funcsExport) shows how `export_TextGridCollection()` can be used to export the levels *Text*, *Syllable* and *Phonetic* of the *ae* demo `emuDB` to a TextGrid collection. Figure \@ref(fig:emuRfuncs-msajc003-fromExport) show the content of the created `msajc003.TextGrid` file as displayed by Praat's `"Draw visible sound and Textgrid..."` procedure.
+Although associated with data loss, the `emuR` package provides an export routine to the common TextGrid collection format called `export_TextGridCollection()`. While exporting is sometimes unavoidable, it is essential that users are aware that exporting to other formats which do not support or only partially support hierarchical annotations structures will lead to the loss of the explicit linking information. Although the `autobuild_linkFromTimes()` can partially recreate some of the hierarchical structure, it is advised that the export routine be used with extreme caution. The R code snippet below shows how `export_TextGridCollection()` can be used to export the levels *Text*, *Syllable* and *Phonetic* of the *ae* demo `emuDB` to a TextGrid collection. Figure \@ref(fig:emuRfuncs-msajc003-fromExport) show the content of the created `msajc003.TextGrid` file as displayed by Praat's `"Draw visible sound and Textgrid..."` procedure.
 
 
 

@@ -12,7 +12,7 @@ To add to the tutorial of Chapter \@ref(chap:tutorial), this chapter will presen
 \end{itemize}
 
 
-R Example \@ref(rexample:app-chap-useCasesLoadData) shows how the `emuR` demo data used in this chapter is created.
+The R code snippet below shows how the `emuR` demo data used in this chapter is created.
 
 
 ```r
@@ -32,7 +32,7 @@ ae = load_emuDB(path2directory)
 
 ## What is the average length of all *n* phonetic segments in the *ae* `emuDB`? {#sec:app-chap-useCases-q1}
 
-The first thing that has to be done to address this fairly simple question is to query the database for all *n* segments. This can be achieved using the `query()` function as shown in R Example \@ref(rexample:usecases-uc1query).
+The first thing that has to be done to address this fairly simple question is to query the database for all *n* segments. This can be achieved using the `query()` function as shown in the R code snippet below.
 
 
 ```r
@@ -52,7 +52,7 @@ head(sl, n = 1)
 
 The second argument of the `query()` contains a string that represents an EQL statement. This fairly simple EQL statement consists of `==`, which is the equality operator of the EQL, and on the right hand side of the operator the label *n* that we are looking for.
 
-The `query()` function returns an object of the class `emuRsegs` that is a superclass of the well known `data.frame`. The various columns of this object should be fairly self-explanatory: `labels` displays the extracted labels, `start` and `end` are the start time and end times in milliseconds of each segment and so on. We can now use the information in this object to calculate the mean durations of these segments as shown in R Example \@ref(rexample:usecases-uc1eval).
+The `query()` function returns an object of the class `emuRsegs` that is a superclass of the well known `data.frame`. The various columns of this object should be fairly self-explanatory: `labels` displays the extracted labels, `start` and `end` are the start time and end times in milliseconds of each segment and so on. We can now use the information in this object to calculate the mean durations of these segments as shown in the R code snippet below.
 
 
 ```r
@@ -69,7 +69,7 @@ mean(d)
 
 ## What does the F1 and F2 distribution of all phonetic segments that contain the labels *I*, *o:*, *u:*, *V* or *\@* look like? {#sec:app-chap-useCases-q2}
 
-Once again we will initially query the `emuDB` to retrieve the segments we are interested in as shown in R Example \@ref(rexample:usecases-uc2query).
+Once again we will initially query the `emuDB` to retrieve the segments we are interested in as shown in the R code snippet below.
 
 
 ```r
@@ -78,7 +78,7 @@ sl = query(ae, query = "Phonetic == I|o:|u:|V|@")
 ```
 
 
-Now that the necessary segment information has been extracted, the `get\_trackdata()` function can be used to calculate the formant values for these segments as displayed in R Example \@ref(rexample:usecases-uc2gettd).
+Now that the necessary segment information has been extracted, the `get\_trackdata()` function can be used to calculate the formant values for these segments as displayed in the R code snippet below.
 
 
 ```r
@@ -90,7 +90,7 @@ td = get_trackdata(ae, sl,
 
 In this example, the `get_trackdata()` function uses a formant estimation function called `forest()` to calculate the formant values in real time. This signal processing function is part of the `wrassp` package, which is used by the `emuR` package to perform signal processing duties with the `get_trackdata()` command (see Chapter \@ref(chap:wrassp) for details).
 
-If the `resultType` parameter is set to `emuRtrackdata` in the call to `get\_trackdata()`, an object of the class `emuRtrackdata` is returned. The class vector of the `td` object is displayed in R Example \@ref(rexample:usecases-uc2class).
+If the `resultType` parameter is set to `emuRtrackdata` in the call to `get\_trackdata()`, an object of the class `emuRtrackdata` is returned. The class vector of the `td` object is displayed in the R code snippet below.
 
 
 ```r
@@ -114,7 +114,7 @@ head(td, n = 1)
 ## 1      187.5         0          0  0 1293 2424 3429
 ```
 
-As the `emuRtrackdata` class is a superclass to the common `data.table` and `data.frame` classes, packages like `ggplot2` can be used to visualize our F1 and F2 distribution as shown in R Example \@ref(rexample:usecases-uc2plot) (see Figure \@ref(fig:usecases-uc2plot) for the resulting plot).
+As the `emuRtrackdata` class is a superclass to the common `data.table` and `data.frame` classes, packages like `ggplot2` can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure \@ref(fig:usecases-uc2plot) for the resulting plot).
 
 
 ```r
@@ -136,7 +136,7 @@ ggplot(td, aes(x=T2, y=T1, label=td$labels)) +
 
 ## What words do the phonetic segments that carry the labels *s*, *z*, *S* or *Z* in the *ae* `emuDB` occur in and what is their phonetic context? {#sec:app-chap-useCases-q3}
 
-As with the previous use cases, the initial step is to query the database to extract the relevant segments as shown in R Example \@ref(rexample:usecases_uc3query).
+As with the previous use cases, the initial step is to query the database to extract the relevant segments as shown in the R code snippet below.
 
 
 ```r
@@ -155,7 +155,7 @@ head(sibil, n = 1)
 ```
 
 
-The `requery_hier()` function can now be used to perform a hierarchical requery using the set resulting from the initial query. This requery follows the hierarchical links of the annotations in the database to find the linked annotation items on a different level. R Example \@ref(rexample:usecases_uc3requery1) shows how this can achieved.
+The `requery_hier()` function can now be used to perform a hierarchical requery using the set resulting from the initial query. This requery follows the hierarchical links of the annotations in the database to find the linked annotation items on a different level. The R code snippet below shows how this can achieved.
 
 
 ```r
@@ -173,7 +173,7 @@ head(words, n = 1)
 ## 1      C 187.425 674.175    0000 msajc003  Word ITEM
 ```
 
-As seen in R Example \@ref(rexample:usecases-uc3requery1), the result is not quite what one would expect as it does not contain the orthographic word transcriptions but a classification of the words into content words (*C*) and function words (*F*). Calling the `summary()` function on the `emuDBhandle` object `ae` would show that the *Words* level has multiple attribute definitions indicating that each annotation item in the *Words* level has multiple parallel labels defined for it. R Example \@ref(rexample:usecases-uc3requery2) shows an additional requery that queries the *Text* attribute definition instead.
+As seen in the above R code snippet, the result is not quite what one would expect as it does not contain the orthographic word transcriptions but a classification of the words into content words (*C*) and function words (*F*). Calling the `summary()` function on the `emuDBhandle` object `ae` would show that the *Words* level has multiple attribute definitions indicating that each annotation item in the *Words* level has multiple parallel labels defined for it. The R code snippet below shows an additional requery that queries the *Text* attribute definition instead.
 
 
 ```r
@@ -191,9 +191,9 @@ head(words, n = 1)
 ## 1 amongst 187.425 674.175    0000 msajc003  Text ITEM
 ```
 
-As seen in R Example \@ref(rexample:usecases_uc3requery2), the first segment in `sibil` occurred in the word *amongst*, which starts at 187.475 ms and ends at 674.225 ms. It is worth noting that this two-step querying procedure (`query()` followed by `requery_hier()`) can also be completed in a single hierarchical query using the dominance operator (^).
+As seen in the above R code snippet, the first segment in `sibil` occurred in the word *amongst*, which starts at 187.475 ms and ends at 674.225 ms. It is worth noting that this two-step querying procedure (`query()` followed by `requery_hier()`) can also be completed in a single hierarchical query using the dominance operator (^).
 
-As we have answered the first part of the question, R Example \@ref(rexample:usecases_uc3requerySeqLeft) will extract the context to the left of the extracted sibilants by using the `requery_seq()` function.
+As we have answered the first part of the question, the R code snippet below will extract the context to the left of the extracted sibilants by using the `requery_seq()` function.
 
 
 ```r
@@ -212,7 +212,7 @@ head(leftContext, n = 1)
 ## 1      N 426.675 483.425    0000 msajc003 Phonetic SEGMENT
 ```
 
-R Example \@ref(rexample:usecases-uc3requerySeqRight) attempts to extract the right context in the same manner as R Example \@ref(rexample:usecases-uc3requerySeqLeft), but in this case we encounter a problem.
+The R code snippet below attempts to extract the right context in the same manner as above R code snippet, but in this case we encounter a problem.
 
 
 ```r
@@ -226,7 +226,7 @@ rightContext = requery_seq(ae, sibil, offset = 1)
 ## Set parameter 'ignoreOutOfBounds=TRUE' to get residual result segments that lie within the bounds.
 ```
 
-As can be seen by the error message in R Example \@ref(rexample:usecases-uc3requerySeqRight), four of the sibilants occur at the very end of the recording and therefore have no phonetic post-context. The remaining post-contexts can be retrieved by setting the `ignoreOutOfBounds` argument to `TRUE` as displayed in R Example \@ref(rexample:usecases-uc3requerySeqRight2).
+As can be seen by the error message in the above R code snippet, four of the sibilants occur at the very end of the recording and therefore have no phonetic post-context. The remaining post-contexts can be retrieved by setting the `ignoreOutOfBounds` argument to `TRUE` as displayed in the R code snippet below.
 
 
 ```r
@@ -258,14 +258,14 @@ However, the resulting `rightContext` and the original `sibil` objects are not a
 
 ## Do the phonetic segments labeled *s*, *z*, *S* or *Z* in the *ae* `emuDB` differ with respect to their first spectral moment?\protect\footnote{The original version of this use case was written by Florian Schiel as part of the `emuR_intro` vignette that is part of the `emuR` package. {#sec:app-chap-useCases-q4}
 
-Once again, the segments of interest are queried first. R Example \@ref(rexample:usecases-uc4query) shows how this can be achieved, this time using the new regular expression operand of the EQL (see Chapter \@ref(chap:querysys) for details).
+Once again, the segments of interest are queried first. The R code snippet below shows how this can be achieved, this time using the new regular expression operand of the EQL (see Chapter \@ref(chap:querysys) for details).
 
 
 ```r
 sibil = query(ae,"Phonetic =~ '[szSZ]'")
 ```
 
-R Example \@ref(rexample:usecases-uc4gettd) shows how the `get_trackdata()` function can be used to calculate the Discrete Fourier Transform values for the extracted segments.
+The R code snippet below shows how the `get_trackdata()` function can be used to calculate the Discrete Fourier Transform values for the extracted segments.
 
 
 ```r
@@ -277,21 +277,21 @@ dftTd = get_trackdata(ae,
 
 As the `resultType` parameter was not explicitly set, an object of the class `trackdata` is returned. This object, just like an object of the class `emuRtrackdata`, contains the extracted trackdata information. Compared to the `emuRtrackdata` class, however, the object is not "flat" and in the form of a `data.table` or `data.frame` but has a more nested structure (see `?trackdata` for more details).
 
-Since we want to analyze sibilant spectral data we will now reduce the spectral range of the data to 1000 - 10000 Hz. This is due to the fact that there is a lot of unwanted noise in the lower bands that is irrelevant for the problem at hand and can even skew the end results. To achieve this we can use a property of a `trackdata` object that also carries the class `spectral`, which means that it is indexed using frequencies. R Example \@ref(rexample:usecases-uc4index) shows how to use this feature to extract the relevant spectral frequencies of the `trackdata` object.
+Since we want to analyze sibilant spectral data we will now reduce the spectral range of the data to 1000 - 10000 Hz. This is due to the fact that there is a lot of unwanted noise in the lower bands that is irrelevant for the problem at hand and can even skew the end results. To achieve this we can use a property of a `trackdata` object that also carries the class `spectral`, which means that it is indexed using frequencies. The R code snippet below shows how to use this feature to extract the relevant spectral frequencies of the `trackdata` object.
 
 
 ```r
 dftTdRelFreq = dftTd[, 1000:10000]
 ```
 
-R Example \@ref(rexample:usecases-uc4fapply) shows how the `fapply()` function can be used to apply the `moments()` function to all elements of `dftTdRelFreq`.
+The R code snippet below shows how the `fapply()` function can be used to apply the `moments()` function to all elements of `dftTdRelFreq`.
 
 
 ```r
 dftTdRelFreqMom = fapply(dftTdRelFreq, moments, minval = T)
 ```
 
-The resulting `dftTdRelFreqMom` object is once again a `trackdata` object of the same length as the `dftTdRelFreq` `trackdata` object. It contains the first four spectral moments as shown in R Example \@ref(rexample:usecases-uc4showMoments).
+The resulting `dftTdRelFreqMom` object is once again a `trackdata` object of the same length as the `dftTdRelFreq` `trackdata` object. It contains the first four spectral moments as shown in the R code snippet below.
 
 
 ```r
@@ -304,7 +304,7 @@ dftTdRelFreqMom[1]$data[1,]
 ## [1]  5.335375e+03  6.469573e+06  6.097490e-02 -1.103308e+00
 ```
 
-The information stored in the `dftTdRelFreqMom` and `sibil` objects can now be used to plot a time-normalized version of the first spectral moment trajectories, color coded by sibilant class, using `emuR`'s `dplot()` function. R Example \@ref(rexample:usecases-uc4dplot1) shows the R code that produces Figure \@ref(fig:usecases-uc4dplot1).
+The information stored in the `dftTdRelFreqMom` and `sibil` objects can now be used to plot a time-normalized version of the first spectral moment trajectories, color coded by sibilant class, using `emuR`'s `dplot()` function. The R code snippet below shows the R code that produces Figure \@ref(fig:usecases-uc4dplot1).
 
 
 ```r
@@ -323,7 +323,7 @@ dplot(dftTdRelFreqMom[, 1],
 
 As one might expect, the first spectral moment (the center of gravity) is significantly lower for postalveolar *S* and *Z* (green and blue lines) than for alveolar *s* and *z* (black and red lines). 
 
-R Example \@ref(rexample:usecases-uc4dplot2) shows how to create an alternative plot (see Figure \@ref(fig:usecases-uc4dplot2)) that averages the trajectories into ensemble averages per sibilant class by setting the `average` parameter of `dplot()` to `TRUE`.
+The R code snippet below shows how to create an alternative plot (see Figure \@ref(fig:usecases-uc4dplot2)) that averages the trajectories into ensemble averages per sibilant class by setting the `average` parameter of `dplot()` to `TRUE`.
 
 
 ```r
@@ -342,7 +342,7 @@ dplot(dftTdRelFreqMom[,1],
 
 
 
-As can be seen from the previous two plots (Figure \@ref(fig:usecases-uc4dplot1) and \@ref(fig:usecases-uc4dplot2)), transitions to and from a sort of steady state around the temporal midpoint of the sibilants are clearly visible. To focus on this steady state part of the sibilant we will now extract those spectral moments that fall between the proportional timepoints 0.2 and 0.8 of each segment (i.e., the central 60\%) using the `dcut()` function as is shown in R Example \@ref(rexample:usecases-uc4dcut).
+As can be seen from the previous two plots (Figure \@ref(fig:usecases-uc4dplot1) and \@ref(fig:usecases-uc4dplot2)), transitions to and from a sort of steady state around the temporal midpoint of the sibilants are clearly visible. To focus on this steady state part of the sibilant we will now extract those spectral moments that fall between the proportional timepoints 0.2 and 0.8 of each segment (i.e., the central 60\%) using the `dcut()` function as is shown in the R code snippet below.
 
 
 ```r
@@ -353,7 +353,7 @@ dftTdRelFreqMomMid = dcut(dftTdRelFreqMom,
                           prop = T)
 ```
 
-Finally, R Example \@ref(rexample:usecases-uc4trapply) shows how to calculate the averages of these trajectories using the `trapply()` function.
+Finally, the R code snippet below shows how to calculate the averages of these trajectories using the `trapply()` function.
 
 
 ```r
@@ -363,7 +363,7 @@ meanFirstMoments = trapply(dftTdRelFreqMomMid[,1],
 ```
 
 
-As the resulting `meanFirstMoments` vector has the same length as the initial `sibil` segment list, we can now easily visualize these values in the form of a boxplot. R Example \@ref(rexample:usecases-uc4boxplot) shows the R code that produces Figure \@ref(fig:usecases-uc4boxplot).
+As the resulting `meanFirstMoments` vector has the same length as the initial `sibil` segment list, we can now easily visualize these values in the form of a boxplot. The R code below shows the R code that produces Figure \@ref(fig:usecases-uc4boxplot).
 
 
 ```r

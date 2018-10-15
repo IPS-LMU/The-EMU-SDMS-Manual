@@ -116,15 +116,16 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{The EMU-SDMS Manual}
-  \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \author{Raphael Winkelmann}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \date{}
-  \predate{}\postdate{}
 
+  \title{The EMU-SDMS Manual}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Raphael Winkelmann}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+    \date{}
+    \predate{}\postdate{}
+  
 \usepackage{booktabs}
 \usepackage{amsthm}
 \makeatletter
@@ -227,7 +228,7 @@ components:
   \begin{itemize}
   \tightlist
   \item
-    Package version: 0.1.7
+    Package version: 0.1.8
   \item
     Git tag name: v0.1.6 (on master branch)
   \end{itemize}
@@ -247,9 +248,9 @@ components:
   \begin{itemize}
   \tightlist
   \item
-    Version: 0.1.12
+    Version: 0.1.13
   \item
-    Git SHA1: 7ee913c514b60cecb9faf43d7acb1379005d2971
+    Git SHA1: 323269e910092bc2c9b9a086c5ed2678adb99e7e
   \end{itemize}
 \end{itemize}
 
@@ -827,8 +828,8 @@ using the \texttt{summary()} function as shown the below R code snippet.
 
 \begin{verbatim}
 ## Name:     myFirst 
-## UUID:     f2db97d5-22de-4e6e-b609-2ff8085dadf6 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpCRLMJ3/myFirst_emuDB 
+## UUID:     f432065c-f245-4b55-b9c6-a91500482932 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp6rnZAl/myFirst_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -2197,8 +2198,8 @@ function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     1e04e9d1-aa6b-45b5-9154-b1abdf16b4f9 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmplXjZTu/fromScratch_emuDB 
+## UUID:     0101ca07-da85-4a79-8eee-4f1203309b81 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpcUcrhu/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -2657,10 +2658,10 @@ into the \emph{fromScratch} \texttt{emuDB}.
 
 \begin{verbatim}
 ## # A tibble: 2 x 4
-##   session      bundle   file                absolute_file_path            
-## * <chr>        <chr>    <chr>               <chr>                         
-## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn~
-## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn~
+##   session    bundle  file        absolute_file_path                       
+## * <chr>      <chr>   <chr>       <chr>                                    
+## 1 fromWavFi~ msajc0~ msajc003_a~ /private/var/folders/yk/8z9tn7kx6hbcg_9n~
+## 2 fromWavFi~ msajc0~ msajc003.w~ /private/var/folders/yk/8z9tn7kx6hbcg_9n~
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called
@@ -2718,11 +2719,11 @@ the next R code example first creates them and then adds them to the
 
 \begin{verbatim}
 ## # A tibble: 3 x 4
-##   session      bundle   file                absolute_file_path            
-## * <chr>        <chr>    <chr>               <chr>                         
-## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn~
-## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn~
-## 3 fromWavFiles msajc003 msajc003.zcr        /private/var/folders/yk/8z9tn~
+##   session    bundle  file        absolute_file_path                       
+## * <chr>      <chr>   <chr>       <chr>                                    
+## 1 fromWavFi~ msajc0~ msajc003_a~ /private/var/folders/yk/8z9tn7kx6hbcg_9n~
+## 2 fromWavFi~ msajc0~ msajc003.w~ /private/var/folders/yk/8z9tn7kx6hbcg_9n~
+## 3 fromWavFi~ msajc0~ msajc003.z~ /private/var/folders/yk/8z9tn7kx6hbcg_9n~
 \end{verbatim}
 
 \hypertarget{ssff-track-definitions}{%
@@ -2893,10 +2894,10 @@ structures in their entirety as they are described in Chapter
 \caption{Simple partial hierarchy of an annotation of the word *amongst* in the *msajc003* bundle in the *ae* demo `emuDB`.}\label{fig:amongstHier}
 \end{figure}
 
-R Example \ref{rexample:query-loadDemoData} shows how to create the demo
-data that is provided by the \texttt{emuR} package followed by loading
-an example \texttt{emuDB} called \emph{ae} into the current R session.
-This database will be used in all the examples throughout this chapter.
+The R code snippet below shows how to create the demo data that is
+provided by the \texttt{emuR} package followed by loading an example
+\texttt{emuDB} called \emph{ae} into the current R session. This
+database will be used in all the examples throughout this chapter.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2921,8 +2922,8 @@ query}{emuRsegs: The resulting object of a query}}\label{sec:query-emuRsegs}}
 
 In \texttt{emuR} the result of a query or requery (see Section
 \ref{subsec:requery}) is a pre-specified object which is a superclass of
-the common \texttt{data.frame}. R Example \ref{rexample:emuRsegs} shows
-the result of a slightly expanded version of the above query
+the common \texttt{data.frame}. R code snippet below shows the result of
+a slightly expanded version of the above query
 (\texttt{"Syllable\ ==\ S"}), which additionally uses the dominates
 operator (i.e., the \texttt{\^{}} operator; for further information see
 Section @ref(subsubsec:query\_dominationQueries)) to reduce the queried
@@ -3016,8 +3017,8 @@ language research.
 \subsection{Simple queries}\label{simple-queries}}
 
 The most basic form of an EQL query is a simple equality, inequality,
-matching or non-matching query, two of which are displayed in R Example
-\ref{rexample:simpleq}. The syntax of a simple query term is
+matching or non-matching query, two of which are displayed in R code
+snippet below. The syntax of a simple query term is
 \texttt{{[}L\ OPERATOR\ A{]}}, where \texttt{L} specifies a level (or
 alternatively the name of a parallel attribute definition);
 \texttt{OPERATOR} is one of \texttt{==} (equality), \texttt{!\$=\$}
@@ -3029,10 +3030,10 @@ expression specifying the labels of the annotation items of \texttt{L}
   \citet{harrington:2002aa} and were largely extracted from the
   \texttt{EQL} vignette of the \texttt{emuR} package. All of the
   examples were adapted to work with the supplied \emph{ae}
-  \texttt{emuDB}.}. The second query in R Example \ref{rexample:simpleq}
-queries an event level. The result of querying an event level contains
-the same information as that of a segment level query except that the
-derived end times have the value zero.
+  \texttt{emuDB}.}. The second query in the R code snippet below queries
+an event level. The result of querying an event level contains the same
+information as that of a segment level query except that the derived end
+times have the value zero.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3056,14 +3057,14 @@ derived end times have the value zero.
 ## 1     L-  1107   0    0000 msajc003  Tone EVENT
 \end{verbatim}
 
-R Example \ref{rexample:simpleq} queries two levels that contain time
+The R code snippet above queries two levels that contain time
 information: a segment level and an event level. As described in Chapter
 \ref{chap:annot-struct-mod}, annotations in the EMU-SDMS may also
-contain levels that do not contain time information. R Example
-\ref{rexample:simpleq-deduceTime} shows a query that queries annotation
-items on a level that does not contain time information (the
-\emph{Syllable} level) to show that the result contains deduced time
-information from the time-bearing sub-level.
+contain levels that do not contain time information. The R code snippet
+below shows a query that queries annotation items on a level that does
+not contain time information (the \emph{Syllable} level) to show that
+the result contains deduced time information from the time-bearing
+sub-level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3160,9 +3161,9 @@ on level \texttt{L}. For a sequence query to work, both arguments must
 be on the same level. Alternatively parallel attribute definitions of
 the same level may also be chosen (see Chapter
 \ref{chap:annot-struct-mod} for further details). An example of a query
-string using the sequence operator is displayed in R Example
-\ref{rexample:seqq}. All rows in the resulting segment list have the
-start time of \emph{@}, the end time of \emph{n} and their labels are
+string using the sequence operator is displayed in the R code snippet
+below. All rows in the resulting segment list have the start time of
+\emph{@}, the end time of \emph{n} and their labels are
 \emph{@-\textgreater{}n}, where the \emph{-\textgreater{}} substring
 denotes the sequence.
 
@@ -3192,12 +3193,11 @@ Because users are often interested in just one element of a compound
 query such as sequence queries (e.g., the \emph{@}s in a
 \emph{@-\textgreater{}n} sequences), the EQL offers a so-called result
 modifier symbol, \texttt{\#}. This symbol may be placed in front of any
-simple query component of a multi component query as depicted in R
-Example \ref{rexample:resultmod}. Placing the hashtag in front of either
-the left or the right simple query term will result in segment lists
-that contains only the annotation items of the simple query term that
-have the hashtag in front of it. Only one result modifier may be used
-per query.
+simple query component of a multi component query as depicted in the R
+code snippet below. Placing the hashtag in front of either the left or
+the right simple query term will result in segment lists that contains
+only the annotation items of the simple query term that have the hashtag
+in front of it. Only one result modifier may be used per query.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3262,7 +3262,7 @@ the conjunction operator is useful for two reasons:
 \end{itemize}
 
 An example of a query string using the conjunction operator is displayed
-in R Example \ref{rexample:conjq}.
+in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3279,7 +3279,7 @@ in R Example \ref{rexample:conjq}.
 ## 1 always 775.475 1280.175    0000 msajc022  Text ITEM
 \end{verbatim}
 
-R Example \ref{rexample:conjq} does not make use of the result modifier
+The above R code snippet does not make use of the result modifier
 symbol. However, only the annotation items of the left simple query term
 (\emph{Text == always}) are returned. This behavior is true for all EQL
 operators that combine simple query terms except for the sequence
@@ -3331,8 +3331,8 @@ items in \texttt{L2} or items in \texttt{L2} dominate items in
 \texttt{L1}. Note that link definitions that specify the validity of the
 domination have to be present in the \texttt{emuDB} configuration for
 this to work (see Chapter \ref{chap:emuDB} for details). An example of a
-query string using the domination operator is displayed in R Example
-\ref{rexample:domq}.
+query string using the domination operator is displayed in the R code
+snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3375,8 +3375,8 @@ all the items that do not match the condition of \texttt{L2} are
 returned. An illustration of what is returned by each of the position
 functions depending on if they are set to \texttt{TRUE} or
 \texttt{FALSE} is depicted in Figure \ref{fig:query-positionSimple},
-while R Example \ref{rexample:posq} shows an example query using a
-position query term.
+while the R code snippet below shows an example query using a position
+query term.
 
 \textbackslash{}begin\{figure\}
 
@@ -3419,9 +3419,9 @@ two syllables, one containing one phoneme and one phonetic annotation
 item, the other containing five phoneme and six phonetic items. Using
 EQL's \texttt{Num()} function it is possible to specify which of the two
 syllables should be retrieved, depending on the number of phonemic or
-phonetic elements to which it is directly or indirectly linked. R
-Example @ref(rexample:query\_countQuery) shows a query that queries all
-syllables that contain five phonemes.
+phonetic elements to which it is directly or indirectly linked. The R
+code snippet below shows a query that queries all syllables that contain
+five phonemes.
 
 \begin{figure}
 
@@ -3489,9 +3489,9 @@ complex query. The steps to answering the above multi-part question are:
   (\texttt{{[}2\ \^{}\ 3{]}\ -\textgreater{}\ 1{]}})
 \end{enumerate}
 
-The combine query is depicted in R Example
-\ref{rexample:query-moreComplexQuery}. This complex query demonstrates
-the expressive power of the query mechanism that the EMU-SDMS provides.
+The combine query is depicted in the R code snippet below. This complex
+query demonstrates the expressive power of the query mechanism that the
+EMU-SDMS provides.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3540,13 +3540,13 @@ that contain large portions of the hierarchy, the query engine has to
 walk down large partial hierarchies to find the left-most and right-most
 items on the time-bearing sub-level. This can be a computationally
 expensive operation and is often unnecessary, especially during data
-exploration. R Example \ref{rexample:query-deducingTime} shows the usage
-of this parameter by querying all of the items of the
-\emph{Intonational} level and displaying the \texttt{NA} values for
-start and end times in the resulting segment list. It is worth noting
-that the missing time information excluded during the original query can
-be retrieved at a later point in time by performing a hierarchical
-requery (see Section \ref{subsec:requery}) on the same level.
+exploration. The R code snippet below shows the usage of this parameter
+by querying all of the items of the \emph{Intonational} level and
+displaying the \texttt{NA} values for start and end times in the
+resulting segment list. It is worth noting that the missing time
+information excluded during the original query can be retrieved at a
+later point in time by performing a hierarchical requery (see Section
+\ref{subsec:requery}) on the same level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3599,8 +3599,8 @@ single extcolor\{darkgray\}\{query\} counterpart and their color coded
 movements within the annotation hierarchy.\}\label{fig:query-requery}
 \textbackslash{}end\{figure\}
 
-R Example \ref{rexample:query-requery} illustrates how the same results
-of the sequential query
+The R code snippet below illustrates how the same results of the
+sequential query
 \texttt{{[}\textbackslash{}\#Phonetic\ =\textasciitilde{}\ .*\ -\textgreater{}\ Phonetic\ ==\ n{]}}
 can be achieved using the \texttt{requery\_seq()} function. Further, it
 shows how the \texttt{requery\_hier()} function can be used to move
@@ -3758,8 +3758,8 @@ the \texttt{ai} segment of Figure \ref{fig:sigDataExtr}A.
 \caption{Segment of speech with overlaid annotations and time parallel derived signal data contour.}\label{fig:sigDataExtr}
 \end{figure}
 
-R Example \ref{rexample:sigDataExtr-loadData} shows how to create the
-demo data that will be used throughout this chapter.
+The R code snippet below shows how to create the demo data that will be
+used throughout this chapter.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3788,10 +3788,10 @@ then be used to reference the track in the signal data extraction
 process. Internally, \texttt{emuR} uses \texttt{wrassp} to read the
 appropriate files from disk, extract the sample sequences that match the
 result of a query and return values to the user for further inspection
-and evaluation. R Example \ref{rexample:sigDataExtr-getFm} shows how a
-signal track that is already defined in the \texttt{ae} demo database
-can be extracted for all annotation items on the \texttt{Phonetic} level
-containing the label \texttt{ai}.
+and evaluation. The R code snippet below shows how a signal track that
+is already defined in the \texttt{ae} demo database can be extracted for
+all annotation items on the \texttt{Phonetic} level containing the label
+\texttt{ai}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3843,10 +3843,9 @@ manually corrected. It is also worth noting that the
 \texttt{get\_trackdata()} function has a predefined track which is
 always available without it having to be defined. The name of this track
 is \texttt{MEDIAFILE\_SAMPLES} which references the actual samples of
-the audio files of the database. R Example
-\ref{rexample:sigDataExtr-mediafileSamples} shows how this predefined
-track can be used to access the audio samples belonging to the segments
-in \texttt{ai\_segs}.
+the audio files of the database. The R code snippet below shows how this
+predefined track can be used to access the audio samples belonging to
+the segments in \texttt{ai\_segs}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3874,14 +3873,14 @@ in \texttt{ai\_segs}.
 As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal
 processing routines provided by the \texttt{wrassp} package can be used
 to produce SSFF files containing various derived signal data (e.g.,
-formants, fundamental frequency, etc.). R Example
-\ref{rexample:sigDataExtr-addTrack} shows how the
-\texttt{add\_ssffTrackDefinition()} can be used to add a new track to
-the \texttt{ae} \texttt{emuDB}. Using the \texttt{onTheFlyFunctionName}
-parameter, the \texttt{add\_ssffTrackDefinition()} function
-automatically executes the \texttt{wrassp} signal processing function
-\texttt{ksvF0} (\texttt{onTheFlyFunctionName\ =\ "ksvF0"}) and stores
-the results in SSFF files in the bundle directories.
+formants, fundamental frequency, etc.). The R code snippet below shows
+how the \texttt{add\_ssffTrackDefinition()} can be used to add a new
+track to the \texttt{ae} \texttt{emuDB}. Using the
+\texttt{onTheFlyFunctionName} parameter, the
+\texttt{add\_ssffTrackDefinition()} function automatically executes the
+\texttt{wrassp} signal processing function \texttt{ksvF0}
+(\texttt{onTheFlyFunctionName\ =\ "ksvF0"}) and stores the results in
+SSFF files in the bundle directories.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3914,15 +3913,15 @@ the results in SSFF files in the bundle directories.
 
 \begin{verbatim}
 ## # A tibble: 7 x 4
-##   session bundle   file        absolute_file_path                         
-## * <chr>   <chr>    <chr>       <chr>                                      
-## 1 0000    msajc003 msajc003.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 2 0000    msajc010 msajc010.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 3 0000    msajc012 msajc012.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 4 0000    msajc015 msajc015.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 5 0000    msajc022 msajc022.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 6 0000    msajc023 msajc023.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
-## 7 0000    msajc057 msajc057.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c~
+##   session bundle   file     absolute_file_path                            
+## * <chr>   <chr>    <chr>    <chr>                                         
+## 1 0000    msajc003 msajc00~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl~
+## 2 0000    msajc010 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl~
+## 3 0000    msajc012 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl~
+## 4 0000    msajc015 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl~
+## 5 0000    msajc022 msajc02~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl~
+## 6 0000    msajc023 msajc02~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl~
+## 7 0000    msajc057 msajc05~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl~
 \end{verbatim}
 
 \begin{Shaded}
@@ -3960,9 +3959,9 @@ function parameters and evaluate the result without having to store to
 disk the files that would usually be generated by the various parameter
 experiments. In many cases this new functionality eliminates the need
 for defining a track definition for the entire database for temporary
-data analysis purposes. R Example \ref{rexample:sigDataExtr-onTheFly}
-shows how the \texttt{onTheFlyFunctionName} parameter of the
-\texttt{get\_trackdata()} function is used.
+data analysis purposes. The R code snippet below shows how the
+\texttt{onTheFlyFunctionName} parameter of the \texttt{get\_trackdata()}
+function is used.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3988,13 +3987,12 @@ shows how the \texttt{onTheFlyFunctionName} parameter of the
 \texttt{emuRtrackdata}}{The resulting object: trackdata vs. emuRtrackdata}}\label{the-resulting-object-trackdata-vs.-emurtrackdata}}
 
 The default resulting object of a call to \texttt{get\_trackdata()} is
-of class \texttt{trackdata} (see R Example
-\ref{rexample:sigDataExtr-trackdata}). The \texttt{emuR} package
-provides multiple routines such as \texttt{dcut()}, \texttt{trapply()}
-and \texttt{dplot()} for processing and visually inspecting objects of
-this type (see harrington:2010a and Section
-\ref{section:tutorial-sigExtrAndExpl} for examples of how these can be
-used).
+of class \texttt{trackdata} (see R code snippet below). The
+\texttt{emuR} package provides multiple routines such as
+\texttt{dcut()}, \texttt{trapply()} and \texttt{dplot()} for processing
+and visually inspecting objects of this type (see harrington:2010a and
+Section \ref{section:tutorial-sigExtrAndExpl} for examples of how these
+can be used).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4013,8 +4011,8 @@ with, the \texttt{emuR} package introduces a new equivalent object type
 called \texttt{emuRtrackdata} that essentially is a flat
 \texttt{data.frame} object. This object type can be retrieved by setting
 the \texttt{resultType} parameter of the \texttt{get\_trackdata()}
-function to \texttt{emuRtrackdata}. R Example
-\ref{rexample:sigDataExtr-emuRtrackdata} shows how this can be achieved.
+function to \texttt{emuRtrackdata}. The R code snippet below shows how
+this can be achieved.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4031,9 +4029,9 @@ function to \texttt{emuRtrackdata}. R Example
 
 \begin{verbatim}
 ## # A tibble: 1 x 21
-##   sl_rowIdx labels start   end utts   db_uuid session bundle start_item_id
-## *     <int> <chr>  <dbl> <dbl> <chr>  <chr>   <chr>   <chr>          <int>
-## 1         1 ai      863. 1016. 0000:~ 0fc618~ 0000    msajc~           161
+##   sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
+## *     <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
+## 1         1 ai      863. 1016. 0000~ 0fc618~ 0000    msajc~           161
 ## # ... with 12 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,
@@ -4068,17 +4066,16 @@ function to \texttt{emuRtrackdata}. R Example
 ## [21]  967.5  972.5  977.5  982.5  987.5  992.5  997.5 1002.5 1007.5 1012.5
 \end{verbatim}
 
-As can be seen by the first row output of R Example
-\ref{rexample:sigDataExtr-emuRtrackdata}, the \texttt{emuRtrackdata}
-object is an amalgamation of both a segment list and a
-\texttt{trackdata} object. The first \texttt{sl\_rowIdx} column of the
-\texttt{ai\_emuRtd\_pit} object indicates the row index of the segment
-list the current row belongs to, the \texttt{times\_rel} and
+As can be seen by the first row output of the R code snippet above, the
+\texttt{emuRtrackdata} object is an amalgamation of both a segment list
+and a \texttt{trackdata} object. The first \texttt{sl\_rowIdx} column of
+the \texttt{ai\_emuRtd\_pit} object indicates the row index of the
+segment list the current row belongs to, the \texttt{times\_rel} and
 \texttt{times\_orig} columns represent the relative time and the
-original time of the samples contained in the current row (see R Example
-\ref{rexample:sigDataExtr-emuRtrackdata}) and T1 (to Tn in n dimensional
-\texttt{trackdata}) contains the actual signal sample values. It is also
-worth noting that the \texttt{emuR} package provides a function called
+original time of the samples contained in the current row (see above R
+code snippet) and T1 (to Tn in n dimensional \texttt{trackdata})
+contains the actual signal sample values. It is also worth noting that
+the \texttt{emuR} package provides a function called
 \texttt{create\_emuRtrackdata()}, which allows users to create
 \texttt{emuRtrackdata} from a segment list and a \texttt{trackdata}
 object. This is beneficial as it allows \texttt{trackdata} objects to be
@@ -4086,9 +4083,8 @@ processed using functions provided by the \texttt{emuR} package (e.g.,
 \texttt{dcut()} and \texttt{trapply()}) and then converts them into a
 standardized \texttt{data.frame} object for further processing (e.g.,
 using R packages such as \texttt{lme4} or \texttt{ggplot2} which were
-implemented to use with \texttt{data.frame} objects). R Example
-\ref{rexample:sigDataExtr-createEmuRtd} shows how the
-\texttt{create\_emuRtrackdata()} function is used.
+implemented to use with \texttt{data.frame} objects). The R code snippet
+below shows how the \texttt{create\_emuRtrackdata()} function is used.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4223,7 +4219,7 @@ The available file handling functions are:
 
 See R's \texttt{help()} function for a comprehensive list of every
 function and object provided by the \texttt{wrassp} package is required
-(see R Example \ref{rexample:wrassp-help}).
+(see R code snippet below).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4242,13 +4238,13 @@ this chapter will use the audio and SSFF files that are part of the
 \texttt{ae} \texttt{emuDB} of the demo data provided by the
 \texttt{emuR} package. This is done primarily to provide an overview of
 what it is like using \texttt{wrassp} to work on files in an
-\texttt{emuDB}. R Example \ref{rexample:wrassp-loadDemoData} shows how
-to generate this demo data followed by a listing of the files contained
-in a directory of a single bundle called \texttt{msajc003} (see Chapter
-@ref(chap:emuDB\} for information about the \texttt{emuDB} format). The
-output of the call to \texttt{list.files()} shows four files where the
-\texttt{.dft} and \texttt{.fms} files are in the SSFF file format (see
-Appendix \ref{subsec:app-chapFileFormatsSSFF} for further details). The
+\texttt{emuDB}. The R code snippet below shows how to generate this demo
+data followed by a listing of the files contained in a directory of a
+single bundle called \texttt{msajc003} (see Chapter @ref(chap:emuDB\}
+for information about the \texttt{emuDB} format). The output of the call
+to \texttt{list.files()} shows four files where the \texttt{.dft} and
+\texttt{.fms} files are in the SSFF file format (see Appendix
+\ref{subsec:app-chapFileFormatsSSFF} for further details). The
 \texttt{\_annot.json} file contains the annotation information, and the
 \texttt{.wav} file is one of the audio files that will be used in
 various signal processing examples in this chapter.
@@ -4286,9 +4282,9 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling
 speech-related files such as audio files and derived and complementary
 signal files. To have an in-memory object that can hold these file types
 in a uniform way the \texttt{wrassp} package provides the
-\texttt{AsspDataObj} data type. R Example \ref{rexample:wrassp-read}
-shows how the \texttt{read.AsspDataObj()} can be used to import a
-\texttt{.wav} audio file.
+\texttt{AsspDataObj} data type. The R code snippet below shows how the
+\texttt{read.AsspDataObj()} can be used to import a \texttt{.wav} audio
+file.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4318,7 +4314,7 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmppbz54h/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpxkDR0H/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4326,17 +4322,16 @@ shows how the \texttt{read.AsspDataObj()} can be used to import a
 ##   audio (1 fields)
 \end{verbatim}
 
-As can be seen in R Example \ref{rexample:wrassp-read}, the resulting
-\texttt{au} object is of the class \texttt{AsspDataObj}. The output of
+As can be seen in the above R code snippet, the resulting \texttt{au}
+object is of the class \texttt{AsspDataObj}. The output of
 \texttt{print} provides additional information about the object, such as
 its sampling rate, duration, data type and data structure information.
 Since the file we loaded is audio only, the object contains exactly one
 track. Further, since it is a mono file, this track only has a single
 field. We will later encounter different types of data with more than
-one track and multiple fields per track. R Example
-\ref{rexample:wrassp-extrAttrs} shows function calls that extract the
-various attributes from the object (e.g., duration, sampling rate and
-the number of records).
+one track and multiple fields per track. The R code snippet below shows
+function calls that extract the various attributes from the object
+(e.g., duration, sampling rate and the number of records).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4422,8 +4417,8 @@ the data belonging to this track, in the form of a matrix, can be
 achieved using the track's name in combination with the \texttt{\$}
 notation known from R's common named \texttt{list} object. Each matrix
 has the same number of rows as the track has records and as many columns
-as the track has fields. R Example \ref{rexample:wrassp-extrData} shows
-how the \texttt{audio} track can be accessed.
+as the track has fields. The R code snippet below shows how the
+\texttt{audio} track can be accessed.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4471,8 +4466,8 @@ how the \texttt{audio} track can be accessed.
 \end{verbatim}
 
 This data can, for example, be used to generate an oscillogram of the
-audio file as shown in R Example \ref{rexample:wrassp-plotOsci}, which
-produces Figure \ref{fig:wrassp-plotOsci}.
+audio file as shown in the R code snippet below, which produces Figure
+\ref{fig:wrassp-plotOsci}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4506,11 +4501,11 @@ The export counterpart to \texttt{read.AsspDataObj()} function is
 converting other formats to or storing data in the SSFF file format as
 described in Section \ref{sec:wrassp-genSSFF}. To show how this function
 can be used to write a slightly altered version of the \texttt{au}
-object to a file, R Example \ref{rexample:wrassp-writeAudio} initially
-multiplies all the sample values of \texttt{au\$audio} by a factor of
-\texttt{0.5}. The resulting \texttt{AsspDataObj} is then written to an
-audio file in a temporary directory provided by \texttt{R}'s
-\texttt{tempdir()} function.
+object to a file, the R code snippet below initially multiplies all the
+sample values of \texttt{au\$audio} by a factor of \texttt{0.5}. The
+resulting \texttt{AsspDataObj} is then written to an audio file in a
+temporary directory provided by \texttt{R}'s \texttt{tempdir()}
+function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4544,10 +4539,9 @@ The \texttt{wrassp} package comes with the \texttt{wrasspOutputInfos}
 object, which provides information about the various signal processing
 functions provided by the package. The \texttt{wrasspOutputInfos} object
 stores meta information associated with the different signal processing
-functions \texttt{wrassp} provides. R Example
-\ref{rexample:wrassp-outputInfosName} shows the names of the
-\texttt{wrasspOutputInfos} object which correspond to the function names
-listed in the introduction of this chapter.
+functions \texttt{wrassp} provides. The R code snippet below shows the
+names of the \texttt{wrasspOutputInfos} object which correspond to the
+function names listed in the introduction of this chapter.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4565,9 +4559,8 @@ listed in the introduction of this chapter.
 This object can be useful to get additional information about a specific
 \texttt{wrassp} function. It contains information about the default file
 extension (\texttt{\$ext}), the tracks produced (\texttt{\$tracks}) and
-the output file type (\texttt{\$outputType}). R Example
-\ref{rexample:wrassp-outputInfosForest} shows this information for the
-\texttt{forest()} function.
+the output file type (\texttt{\$outputType}). The R code snippet below
+shows this information for the \texttt{forest()} function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4597,13 +4590,13 @@ function.
 
 The already mentioned \texttt{forest()} is \texttt{wrassp}'s formant
 estimation function. The default behavior of this formant tracker is to
-calculate the first four formants and their bandwidths. R Example
-\ref{rexample:wrassp-calcFms} shows the usage of this function. As the
-default behavior of every signal processing function provided by
-\texttt{wrassp} is to store its result to a file, the \texttt{toFile}
-parameter of \texttt{forest()} is set to \texttt{FALSE} to prevent this
-behavior. This results in the same \texttt{AsspDataObj} object as when
-exporting the result to file and then importing the file into R using
+calculate the first four formants and their bandwidths. The R code
+snippet below shows the usage of this function. As the default behavior
+of every signal processing function provided by \texttt{wrassp} is to
+store its result to a file, the \texttt{toFile} parameter of
+\texttt{forest()} is set to \texttt{FALSE} to prevent this behavior.
+This results in the same \texttt{AsspDataObj} object as when exporting
+the result to file and then importing the file into R using
 \texttt{read.AsspDataObj()}, but circumvents the disk reading/writing
 overhead.
 
@@ -4654,17 +4647,16 @@ overhead.
 ## [1] TRUE
 \end{verbatim}
 
-As can be seen in R Example \ref{rexample:wrassp-calcFms}, the object
-resulting from the \texttt{forest()} function is an object of class
+As can be seen in the above R code snippet, the object resulting from
+the \texttt{forest()} function is an object of class
 \texttt{AsspDataObj} with the tracks \texttt{"fm"} (formants) and
 \texttt{"bw"} (formant bandwidths), where both track matrices have four
 columns (corresponding to F1, F2, F3 and F4 in the \texttt{"fm"} track
 and F1\textsubscript{bandwidth}, F2\textsubscript{bandwidth},
 F3\textsubscript{bandwidth} and F4\textsubscript{bandwidth} in the
 \texttt{"bw"} track) and 581 rows. To visualize the calculated formant
-values, R Example \ref{rexample:wrassp-plotFms} shows how R's
-\texttt{matplot()} function can be used to produce Figure
-\ref{fig:wrassp-plotFms}.
+values, the R code snippet below shows how R's \texttt{matplot()}
+function can be used to produce Figure \ref{fig:wrassp-plotFms}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4676,7 +4668,6 @@ values, R Example \ref{rexample:wrassp-plotFms} shows how R's
         \DataTypeTok{type =} \StringTok{"l"}\NormalTok{,}
         \DataTypeTok{xlab =} \StringTok{"time (s)"}\NormalTok{,}
         \DataTypeTok{ylab =} \StringTok{"Formant frequency (Hz)"}\NormalTok{)}
-
 \CommentTok{# add legend}
 \NormalTok{startFormant =}\StringTok{ }\DecValTok{1}
 \NormalTok{endFormant =}\StringTok{ }\DecValTok{4}
@@ -4699,18 +4690,18 @@ the \texttt{fm} track of \texttt{fmBwVals} object.}
 \subsection{Fundamental frequency contour}\label{subsec:wrassp_f0}}
 
 The \texttt{wrassp} package includes two fundamental frequency
-estimation functions called \texttt{ksvF0()} and \texttt{mhsF0()}. R
-Example \ref{rexample:wrassp-calcF0} shows the usage of the
-\texttt{ksvF0()} function, this time not utilizing the \texttt{toFile}
-parameter but rather to show an alternative procedure, reading the
-resulting SSFF file produced by it. It is worth noting that every signal
-processing function provided by \texttt{wrassp} creates a result file in
-the same directory as the audio file it was processing (except if the
-\texttt{outputDirectory} parameter is set otherwise). The default
-extension given by the \texttt{ksvF0()} is stored in
+estimation functions called \texttt{ksvF0()} and \texttt{mhsF0()}. The R
+code snippet below shows the usage of the \texttt{ksvF0()} function,
+this time not utilizing the \texttt{toFile} parameter but rather to show
+an alternative procedure, reading the resulting SSFF file produced by
+it. It is worth noting that every signal processing function provided by
+\texttt{wrassp} creates a result file in the same directory as the audio
+file it was processing (except if the \texttt{outputDirectory} parameter
+is set otherwise). The default extension given by the \texttt{ksvF0()}
+is stored in
 \texttt{wrasspOutputInfos\textbackslash{}\$ksvF0\textbackslash{}\$ext},
-which is used in R Example \ref{rexample:wrassp-calcF0} to create the
-newly generated file's path.
+which is used in the R code snippet below to create the newly generated
+file's path.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4727,9 +4718,9 @@ newly generated file's path.
 \end{Highlighting}
 \end{Shaded}
 
-By analogy with to the formant estimation example, R Example
-\ref{rexample:wrassp-plotF0} shows how the \texttt{plot()} function can
-be used to visualize this data as in Figure \ref{fig:wrassp-plotF0}.
+By analogy with to the formant estimation example, the R code snippet
+below shows how the \texttt{plot()} function can be used to visualize
+this data as in Figure \ref{fig:wrassp-plotF0}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4758,8 +4749,8 @@ The \texttt{wrassp} function for calculating the short-term root mean
 square (RMS) amplitude of the signal is called \texttt{rmsana()}. As its
 usage is analogous to the above examples, here we will focus on using it
 to calculate the RMS values for all the audio files of the \texttt{ae}
-\texttt{emuDB}. R Example \ref{rexample:wrassp-calcRMS} initially uses
-the \texttt{list.files()} function to aquire the file paths for every
+\texttt{emuDB}. The R code snippet below initially uses the
+\texttt{list.files()} function to aquire the file paths for every
 \texttt{.wav} file in the \texttt{ae} \texttt{emuDB}. As every signal
 processing function accepts one or multiple file paths, these file paths
 can simply be passed in as the main argument to the \texttt{rmsana()}
@@ -4790,9 +4781,8 @@ process, the \texttt{rmsana()} function will automatically place every
 \end{Highlighting}
 \end{Shaded}
 
-R Example \ref{rexample:wrassp-plotRMS} shows how the \texttt{plot()}
-function can be used to visualize this data as in Figure
-\ref{fig:wrassp-plotRMS}.
+The R code snippet below shows how the \texttt{plot()} function can be
+used to visualize this data as in Figure \ref{fig:wrassp-plotRMS}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4821,9 +4811,9 @@ calls}{Logging wrassp's function calls}}\label{sec:wrassp_logging}}
 As it can be extremely important to keep track of information about how
 certain files are created and calculated, every signal processing
 function provided by the \texttt{wrassp} package comes with the ability
-to log its function calls to a specified log file. R Example
-@ref(rexample:wrassp-logging\} shows a call to the \texttt{ksvF0()}
-function where a single parameter was changed from its default value
+to log its function calls to a specified log file. The R code snippet
+below shows a call to the \texttt{ksvF0()} function where a single
+parameter was changed from its default value
 (\texttt{windowShift\ =\ 10}). The content of the created log files
 (shown by the call to \texttt{readLines()}) contains the function name,
 time stamp, parameters that were altered and processed file path
@@ -4857,7 +4847,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-07-05 14:32:23 "  
+## [5] "Timestamp:  2018-10-15 13:40:55 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -4871,20 +4861,19 @@ As shown in Section \ref{subsec:wrassp-RMS}, the \texttt{wrassp} signal
 processing functions can be used to calculate SSFF files and place them
 into the appropriate bundle directories. The only thing that has to be
 done to make an \texttt{emuDB} aware of these files is to add an SSFF
-track definition to the \texttt{emuDB} as shown in R Example
-\ref{rexample:wrassp-addSSFF}. Once added, this SSFF track can be
-referenced via the \texttt{ssffTrackName} parameter of the
-\texttt{get\_trackdata()} function as shown in various examples
-throughout this documentation. It is worth noting that this strategy is
-not necessarily relevant for applying the same signal processing to an
-entire \texttt{emuDB}, as this can be achieved using the on-the-fly
-\texttt{add\_ssffTrackDefinition()} method described in R Example
-\ref{rexample:wrassp-onTheFly}. However, it becomes necessary if certain
-bundles are to be processed using deviating function parameters. This
-can, for example, be relevant when setting the minimum and maximum
-frequencies that are to be considered while estimating the fundamental
-frequencies (e.g., the \texttt{maxF} and \texttt{minF} of
-\texttt{ksvfF0()}) for female versus male speakers.
+track definition to the \texttt{emuDB} as shown in the R code snippet
+below. Once added, this SSFF track can be referenced via the
+\texttt{ssffTrackName} parameter of the \texttt{get\_trackdata()}
+function as shown in various examples throughout this documentation. It
+is worth noting that this strategy is not necessarily relevant for
+applying the same signal processing to an entire \texttt{emuDB}, as this
+can be achieved using the on-the-fly \texttt{add\_ssffTrackDefinition()}
+method described in the according R code snippet below. However, it
+becomes necessary if certain bundles are to be processed using deviating
+function parameters. This can, for example, be relevant when setting the
+minimum and maximum frequencies that are to be considered while
+estimating the fundamental frequencies (e.g., the \texttt{maxF} and
+\texttt{minF} of \texttt{ksvfF0()}) for female versus male speakers.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4918,12 +4907,12 @@ resulting \texttt{trackdata} or \texttt{emuRtrackdata} object. In many
 cases, this avoids the necessity of having SSFF track definitions in the
 \texttt{emuDB}. In both functions, the optional \texttt{onTheFlyParams}
 parameter can be used to specify the parameters that are passed into the
-signal processing function. R Example \ref{rexample:wrassp-onTheFly}
-shows how R's \texttt{formals()} function can be used to get all the
-parameters of \texttt{wrassp}'s short-term positive and negative
-zero-crossing rate (ZCR) analysis function \texttt{zrcana()}. It then
-changes the default window size parameter to a new value and passes the
-parameters object into the \texttt{add\_ssffTrackDefinition()} and
+signal processing function. The R code snippet below shows how R's
+\texttt{formals()} function can be used to get all the parameters of
+\texttt{wrassp}'s short-term positive and negative zero-crossing rate
+(ZCR) analysis function \texttt{zrcana()}. It then changes the default
+window size parameter to a new value and passes the parameters object
+into the \texttt{add\_ssffTrackDefinition()} and
 \texttt{get\_trackdata()} functions.
 
 \begin{Shaded}
@@ -4981,11 +4970,10 @@ object is that these objects can be constructed from scratch in R, as
 they are basically simple \texttt{list} objects. This means, for
 example, that any set of n-dimensional samples over time can be placed
 in a \texttt{AsspDataObj} and then stored as an SSFF file using the
-\texttt{write.AsspDataObj()} function. To show how this can be done, R
-Example \ref{rexample:wrassp-genSin} creates an arbitrary data sample in
-the form of a single cycle sine wave between \(0\) and \(2*pi\) that is
-made up of 16000 samples and displays it in Figure
-\ref{fig:wrassp-genSin}.
+\texttt{write.AsspDataObj()} function. To show how this can be done, the
+R code snippet below creates an arbitrary data sample in the form of a
+single cycle sine wave between \(0\) and \(2*pi\) that is made up of
+16000 samples and displays it in Figure \ref{fig:wrassp-genSin}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5005,11 +4993,11 @@ made up of 16000 samples and displays it in Figure
 \end{figure}
 
 Assuming a sample rate of 16 kHz \texttt{sineWave} would result in a
-sine wave with a frequency of 1 Hz and a duration of one second. R
-Example \ref{rexample:wrassp-genAdo} shows how a \texttt{AsspDataObj}
-can be created from scratch and the data in \texttt{sineWave} placed
-into one of its tracks. It then goes on to write the
-\texttt{AsspDataObj} object to an SSFF file.
+sine wave with a frequency of 1 Hz and a duration of one second. The R
+code snippet below shows how a \texttt{AsspDataObj} can be created from
+scratch and the data in \texttt{sineWave} placed into one of its tracks.
+It then goes on to write the \texttt{AsspDataObj} object to an SSFF
+file.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5077,12 +5065,11 @@ into one of its tracks. It then goes on to write the
 ## NULL
 \end{verbatim}
 
-Although somewhat of a generic example, R Example
-\ref{rexample:wrassp-genAdo} shows how to generate an
-\texttt{AsspDataObj} from scratch. This approach can, for example, be
-used to read in signal data produced by other software or signal data
-acquisition devices. Hence, this approach can be used to import many
-forms of data into the EMU-SDMS. Appendix
+Although somewhat of a generic example, the above R code snippet shows
+how to generate an \texttt{AsspDataObj} from scratch. This approach can,
+for example, be used to read in signal data produced by other software
+or signal data acquisition devices. Hence, this approach can be used to
+import many forms of data into the EMU-SDMS. Appendix
 @ref(sec:app-chap-wrassp-praatsSigProc\} shows an example of how this
 approach can be used to take advantage of Praat's signal processing
 capabilities and integrate its output into the EMU-SDMS.
@@ -5139,11 +5126,11 @@ Figure \ref{fig:emu-web-emuWebAppLayout} shows a screenshot of the
 \texttt{EMU-webApp}'s main screen displaying these five areas while
 displaying a bundle of the \emph{ae} demo database. This database is
 served to the \texttt{EMU-webApp} by invoking the \texttt{serve()}
-command as shown in R Example \ref{rexample:webApp-serve}. The left side
-bar (area marked 1 in Figure \ref{fig:emu-web-emuWebAppLayout})
-represents the bundle list side bar which, if connected to a database,
-displays the currently available bundles grouped by their sessions. The
-top and bottom menu bars (areas marked 2 and 5 in Figure
+command as shown in the R code snippet below. The left side bar (area
+marked 1 in Figure \ref{fig:emu-web-emuWebAppLayout}) represents the
+bundle list side bar which, if connected to a database, displays the
+currently available bundles grouped by their sessions. The top and
+bottom menu bars (areas marked 2 and 5 in Figure
 \ref{fig:emu-web-emuWebAppLayout}) display the currently available menu
 options, where the bottom menu bar contains the audio navigation and
 playback controls and also includes a scrollable mini map of the
@@ -5523,9 +5510,8 @@ individually.
 \subsection{\texorpdfstring{Basic configurations using
 \texttt{emuR}}{Basic configurations using emuR}}\label{subsec:emu-webAppConfigWithEmuR}}
 
-R Example \ref{rexample:webApp-loadDemoData} shows how to create and
-load the demo data that will be used throughout the rest of this
-chapter.
+The R code snippet below shows how to create and load the demo data that
+will be used throughout the rest of this chapter.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5547,8 +5533,8 @@ As mentioned above, the \texttt{EMU-webApp} subdivides different ways to
 look at an \texttt{emuDB} into so-called \texttt{perspective}s. Users
 can switch between these \texttt{perspective}s in the web application.
 They contain, for example, information on what levels are displayed,
-which SSFF tracks are drawn. R Example \ref{rexample:webApp-listPersp}
-shows how the current \texttt{perspective}s can be listed using the
+which SSFF tracks are drawn. The R code snippet below shows how the
+current \texttt{perspective}s can be listed using the
 \texttt{list\_perspectives()} function.
 
 \begin{Shaded}
@@ -5566,9 +5552,9 @@ shows how the current \texttt{perspective}s can be listed using the
 \end{verbatim}
 
 As it is sometimes necessary to add new or remove existing perspectives
-to or from a database, R Example \ref{rexample:webApp-addRemovePersp}
-shows how this can be achieved using \texttt{emuR}'s
-\texttt{add/remove\_perspective()} functions.
+to or from a database, the R code snippet below shows how this can be
+achieved using \texttt{emuR}'s \texttt{add/remove\_perspective()}
+functions.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5601,18 +5587,18 @@ shows how this can be achieved using \texttt{emuR}'s
 \subsection{Signal canvas and level canvas
 order}\label{signal-canvas-and-level-canvas-order}}
 
-As mentioned above, R Example \ref{rexample:webApp-listPersp} shows that
-the \emph{ae} \texttt{emuDB} contains three perspectives. The first
-perspective (\emph{default}) displays the oscillogram (\texttt{OSCI})
-followed by the spectrogram (\texttt{SPEC}) in the signal canvas area
-(area 3 of Figure \ref{fig:emu-web-emuWebAppLayout}) and the
-\emph{Phonetic} and \emph{Tone} levels in the level canvas area (area 4
-of Figure \ref{fig:emu-web-emuWebAppLayout}). It is worth noting that
+As already mentioned, the above R code snippet shows that the \emph{ae}
+\texttt{emuDB} contains three perspectives. The first perspective
+(\emph{default}) displays the oscillogram (\texttt{OSCI}) followed by
+the spectrogram (\texttt{SPEC}) in the signal canvas area (area 3 of
+Figure \ref{fig:emu-web-emuWebAppLayout}) and the \emph{Phonetic} and
+\emph{Tone} levels in the level canvas area (area 4 of Figure
+\ref{fig:emu-web-emuWebAppLayout}). It is worth noting that
 \texttt{OSCI} (oscillogram) and \texttt{SPEC} (spectrogram) are
 predefined signal tracks that are always available. This is indicated by
-the capital letters indicating that they are predefined constants. R
-Example \ref{rexample:webApp-oders} shows how the order of the signal
-canvases and level canvases can be changed using the
+the capital letters indicating that they are predefined constants. The R
+code snippet below shows how the order of the signal canvases and level
+canvases can be changed using the
 \texttt{get/set\_signalCanvasesOrder()} and
 \texttt{get/set\_levelCanvasesOrder()}.
 
@@ -5661,14 +5647,13 @@ canvases and level canvases can be changed using the
 ## 3     Tone-only          OSCI; SPEC               Tone
 \end{verbatim}
 
-After the changes made in R Example \ref{rexample:webApp-oders}, the
-default perspective will show the spectrogram above the oscillogram in
-the signal canvas area and only the \emph{Tone} level in the level
-canvas area. Only levels with time information are allowed to be
-displayed in the level canvas area, and the
-\texttt{set\_levelCanvasesOrder()} will print an error if a level of
-type \texttt{ITEM} is added (see R Example
-\ref{rexample:webApp-badLevelOrders}).
+After the changes made in the R code snippet above, the default
+perspective will show the spectrogram above the oscillogram in the
+signal canvas area and only the \emph{Tone} level in the level canvas
+area. Only levels with time information are allowed to be displayed in
+the level canvas area, and the \texttt{set\_levelCanvasesOrder()} will
+print an error if a level of type \texttt{ITEM} is added (see R code
+snippet below).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5686,11 +5671,10 @@ type \texttt{ITEM} is added (see R Example
 \end{verbatim}
 
 The same mechanism used above can also be used to display any SSFF track
-that is defined for the database by referencing its name. R Example
-\ref{rexample:webApp-addFormantsToSignalCanvases} shows how the existing
-SSFF track called \emph{fm} (containing formant values calculated by
-\texttt{wrassp}'s \texttt{forest()} function) can be added to the signal
-canvas area.
+that is defined for the database by referencing its name. The R code
+snippet below shows how the existing SSFF track called \emph{fm}
+(containing formant values calculated by \texttt{wrassp}'s
+\texttt{forest()} function) can be added to the signal canvas area.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5724,7 +5708,7 @@ can be seen in Figure \ref{fig:webApp-postOderChange}.
 
 }
 
-\caption{Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in R Examples \ref{rexample:webApp-oders} and \ref{rexample:webApp-addFormantsToSignalCanvases}.}\label{fig:webApp-postOderChange}
+\caption{Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in the above R code snippets.}\label{fig:webApp-postOderChange}
 \end{figure}
 
 \hypertarget{subsec:emu-webAppAdvancedConfig}{%
@@ -5776,7 +5760,7 @@ overlay.
 
 }
 
-\caption{Screenshot of signal canvases display of the `EMU-webApp` after the changes made in R Examples \ref{rexample:webApp-oders} and \ref{rexample:webApp-addFormantsToSignalCanvases}.}\label{fig:webApp-overlay1}
+\caption{Screenshot of signal canvases display of the `EMU-webApp` after the changes made in the R code snippets above.}\label{fig:webApp-overlay1}
 \end{figure}
 
 \hypertarget{subsubsec:emu-webAppFreqAlignedFormants}{%
@@ -6024,7 +6008,7 @@ this chapter are:
 
 If a comprehensive list of every function and object provided by the
 \texttt{emuR} package is required, R's \texttt{help()} function (see R
-Example \ref{rexample:emuRfuncs-help}) can be used.
+code snippet below) can be used.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6047,10 +6031,9 @@ format see Chapter \ref{chap:emuDB}.
 
 For people transitioning to \texttt{emuR} from the legacy EMU system,
 \texttt{emuR} provides a function for converting existing legacy EMU
-databases to the new \texttt{emuDB} format. R Example
-\ref{rexample:emuRpackageDetailsConvLegacy} shows how to convert a
-legacy database that is part of the demo data provided by the
-\texttt{emuR} package.
+databases to the new \texttt{emuDB} format. The R code snippet below
+shows how to convert a legacy database that is part of the demo data
+provided by the \texttt{emuR} package.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6104,8 +6087,8 @@ equal tier subset
 \texttt{equalSubset\ =\ c(\textquotesingle{}Syl\textquotesingle{},\ \textquotesingle{}Phonetic\textquotesingle{},\ \textquotesingle{}Tone\textquotesingle{})}
 and passing it into the function argument
 \texttt{convert\textbackslash{}\_TextGridCollection(...,\ tierNames\ =\ equalSubset,\ ...)}.
-R Example \ref{rexample:emuRpackageDetailsConvTGcol} shows how to
-convert a TextGrid collection to the \texttt{emuDB} format.
+The R code snippet below shows how to convert a TextGrid collection to
+the \texttt{emuDB} format.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6121,19 +6104,18 @@ convert a TextGrid collection to the \texttt{emuDB} format.
 \end{Highlighting}
 \end{Shaded}
 
-R Example \ref{rexample:emuRpackageDetailsConvTGcol} will create a new
-\texttt{emuDB} in the directory \texttt{tempdir()} called
-\texttt{myTGcolDB}. The \texttt{emuDB} will contain all the tier
-information from the \texttt{.TextGrid} files but will not contain
-hierarchical information, as \texttt{.TextGrid} files do not contain any
-linking information. It is worth noting that it is possible to
-semi-automatically generate links between time-bearing levels using the
+The above R code snippet will create a new \texttt{emuDB} in the
+directory \texttt{tempdir()} called \texttt{myTGcolDB}. The
+\texttt{emuDB} will contain all the tier information from the
+\texttt{.TextGrid} files but will not contain hierarchical information,
+as \texttt{.TextGrid} files do not contain any linking information. It
+is worth noting that it is possible to semi-automatically generate links
+between time-bearing levels using the
 \texttt{autobuild\_linkFromTimes()} function. An example of this was
-given in Chapter \ref{chap:tutorial}. R Example
-\ref{rexample:emuRpackageDetailsConvTGcol} creates a new \texttt{emuDB}
-in the directory \texttt{tempdir()} called \texttt{myTGcolDB}. The
-\texttt{emuDB} contains all the tier information from the
-\texttt{.TextGrid} files no hierarchical information, as
+given in Chapter \ref{chap:tutorial}. The above R code snippet creates a
+new \texttt{emuDB} in the directory \texttt{tempdir()} called
+\texttt{myTGcolDB}. The \texttt{emuDB} contains all the tier information
+from the \texttt{.TextGrid} files no hierarchical information, as
 \texttt{.TextGrid} files do not contain any linking information.
 Further, it is possible to semi-automatically generate links between
 time-bearing levels using the \texttt{autobuild\_linkFromTimes()}
@@ -6145,8 +6127,7 @@ function. An example of this was given in Chapter \ref{chap:tutorial}.
 Similar to the \texttt{convert\_TextGridCollection()} function, the
 \texttt{emuR} package also provides a function for converting file
 collections consisting of BPF and \texttt{.wav} files to the
-\texttt{emuDB} format. R Example
-\ref{rexample:emuRpackageDetailsConvBPFcol} shows how this can be
+\texttt{emuDB} format. The R code snippet below shows how this can be
 achieved.
 
 \begin{Shaded}
@@ -6454,10 +6435,10 @@ hierarchical annotations structures will lead to the loss of the
 explicit linking information. Although the
 \texttt{autobuild\_linkFromTimes()} can partially recreate some of the
 hierarchical structure, it is advised that the export routine be used
-with extreme caution. R Example \ref{rexample:emuR-funcsExport} shows
-how \texttt{export\_TextGridCollection()} can be used to export the
-levels \emph{Text}, \emph{Syllable} and \emph{Phonetic} of the \emph{ae}
-demo \texttt{emuDB} to a TextGrid collection. Figure
+with extreme caution. The R code snippet below shows how
+\texttt{export\_TextGridCollection()} can be used to export the levels
+\emph{Text}, \emph{Syllable} and \emph{Phonetic} of the \emph{ae} demo
+\texttt{emuDB} to a TextGrid collection. Figure
 \ref{fig:emuRfuncs-msajc003-fromExport} show the content of the created
 \texttt{msajc003.TextGrid} file as displayed by Praat's
 \texttt{"Draw\ visible\ sound\ and\ Textgrid..."} procedure.
@@ -6913,8 +6894,8 @@ structures. However, to provide the user with a clear and concise API we
 chose to implement separate R functions for every signal processing
 function. This also allowed us to formulate more concise manual entries
 for each of the signal processing function provided by \texttt{wrassp}.
-R Example \ref{rexample:wrassp-genWrapper} is a pseudo-code example of
-the layout of each signal processing function \texttt{wrassp} provides.
+The R code snippet below is a pseudo-code example of the layout of each
+signal processing function \texttt{wrassp} provides.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6964,8 +6945,8 @@ into R. The public API functions \texttt{read.AsspDataObj()} and
 To be able to access some of \texttt{libassp}'s internal variables
 further wrapper functions were implemented. It was necessary to have
 access to these variables to be able to perform adequate parameter
-checks in various functions. R Example \ref{rexample:wrassp-cInfoFuncs}
-shows these functions.
+checks in various functions. The R code snippet below shows these
+functions.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6978,9 +6959,11 @@ shows these functions.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "RECTANGLE" "PARABOLA"  "COS"       "HANN"      "COS_4"    
-##  [6] "HAMMING"   "BLACKMAN"  "BLACK_X"   "BLACK_M3"  "BLACK_M4" 
-## [11] "NUTTAL_3"  "NUTTAL_4"  "KAISER2_0" "KAISER3_0" "KAISER4_0"
+##  [1] "RECTANGLE" "TRIANGLE"  "PARABOLA"  "COS"       "HANN"     
+##  [6] "COS_3"     "COS_4"     "HAMMING"   "BLACKMAN"  "BLACK_X"  
+## [11] "BLACK_3"   "BLACK_M3"  "BLACK_4"   "BLACK_M4"  "NUTTAL_3" 
+## [16] "NUTTAL_4"  "GAUSS2_5"  "GAUSS3_0"  "GAUSS3_5"  "KAISER2_0"
+## [21] "KAISER2_5" "KAISER3_0" "KAISER3_5" "KAISER4_0"
 \end{verbatim}
 
 \begin{Shaded}
@@ -7008,8 +6991,8 @@ shows these functions.
 The \texttt{wrassp} package provides two R objects that contain useful
 information regarding the supported file format types
 (\texttt{AsspFileFormats}) and the output created by the various signal
-processing functions. R Example \ref{rexample:wrassp-info} shows the
-content of these two objects.
+processing functions. The R code snippet below shows the content of
+these two objects.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7268,8 +7251,8 @@ address are:
   moment? \textbackslash{}end\{itemize\}
 \end{itemize}
 
-R Example \ref{rexample:app-chap-useCasesLoadData} shows how the
-\texttt{emuR} demo data used in this chapter is created.
+The R code snippet below shows how the \texttt{emuR} demo data used in
+this chapter is created.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7294,8 +7277,8 @@ phonetic segments in the \emph{ae}
 
 The first thing that has to be done to address this fairly simple
 question is to query the database for all \emph{n} segments. This can be
-achieved using the \texttt{query()} function as shown in R Example
-\ref{rexample:usecases-uc1query}.
+achieved using the \texttt{query()} function as shown in the R code
+snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7327,7 +7310,7 @@ self-explanatory: \texttt{labels} displays the extracted labels,
 \texttt{start} and \texttt{end} are the start time and end times in
 milliseconds of each segment and so on. We can now use the information
 in this object to calculate the mean durations of these segments as
-shown in R Example \ref{rexample:usecases-uc1eval}.
+shown in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7350,8 +7333,7 @@ phonetic segments that contain the labels \emph{I}, \emph{o:},
 like?}{What does the F1 and F2 distribution of all phonetic segments that contain the labels I, o:, u:, V or @ look like?}}\label{sec:app-chap-useCases-q2}}
 
 Once again we will initially query the \texttt{emuDB} to retrieve the
-segments we are interested in as shown in R Example
-\ref{rexample:usecases-uc2query}.
+segments we are interested in as shown in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7362,8 +7344,8 @@ segments we are interested in as shown in R Example
 
 Now that the necessary segment information has been extracted, the
 \texttt{get\textbackslash{}\_trackdata()} function can be used to
-calculate the formant values for these segments as displayed in R
-Example \ref{rexample:usecases-uc2gettd}.
+calculate the formant values for these segments as displayed in the R
+code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7384,8 +7366,7 @@ command (see Chapter \ref{chap:wrassp} for details).
 If the \texttt{resultType} parameter is set to \texttt{emuRtrackdata} in
 the call to \texttt{get\textbackslash{}\_trackdata()}, an object of the
 class \texttt{emuRtrackdata} is returned. The class vector of the
-\texttt{td} object is displayed in R Example
-\ref{rexample:usecases-uc2class}.
+\texttt{td} object is displayed in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7415,8 +7396,8 @@ class \texttt{emuRtrackdata} is returned. The class vector of the
 As the \texttt{emuRtrackdata} class is a superclass to the common
 \texttt{data.table} and \texttt{data.frame} classes, packages like
 \texttt{ggplot2} can be used to visualize our F1 and F2 distribution as
-shown in R Example \ref{rexample:usecases-uc2plot} (see Figure
-\ref{fig:usecases-uc2plot} for the resulting plot).
+shown in the R code snippet below (see Figure \ref{fig:usecases-uc2plot}
+for the resulting plot).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7448,8 +7429,8 @@ the labels \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the \emph{ae}
 context?}{What words do the phonetic segments that carry the labels s, z, S or Z in the ae emuDB occur in and what is their phonetic context?}}\label{sec:app-chap-useCases-q3}}
 
 As with the previous use cases, the initial step is to query the
-database to extract the relevant segments as shown in R Example
-@ref(rexample:usecases\_uc3query).
+database to extract the relevant segments as shown in the R code snippet
+below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7471,9 +7452,8 @@ database to extract the relevant segments as shown in R Example
 The \texttt{requery\_hier()} function can now be used to perform a
 hierarchical requery using the set resulting from the initial query.
 This requery follows the hierarchical links of the annotations in the
-database to find the linked annotation items on a different level. R
-Example @ref(rexample:usecases\_uc3requery1) shows how this can
-achieved.
+database to find the linked annotation items on a different level. The R
+code snippet below shows how this can achieved.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7492,16 +7472,15 @@ achieved.
 ## 1      C 187.425 674.175    0000 msajc003  Word ITEM
 \end{verbatim}
 
-As seen in R Example \ref{rexample:usecases-uc3requery1}, the result is
-not quite what one would expect as it does not contain the orthographic
-word transcriptions but a classification of the words into content words
-(\emph{C}) and function words (\emph{F}). Calling the \texttt{summary()}
-function on the \texttt{emuDBhandle} object \texttt{ae} would show that
-the \emph{Words} level has multiple attribute definitions indicating
-that each annotation item in the \emph{Words} level has multiple
-parallel labels defined for it. R Example
-\ref{rexample:usecases-uc3requery2} shows an additional requery that
-queries the \emph{Text} attribute definition instead.
+As seen in the above R code snippet, the result is not quite what one
+would expect as it does not contain the orthographic word transcriptions
+but a classification of the words into content words (\emph{C}) and
+function words (\emph{F}). Calling the \texttt{summary()} function on
+the \texttt{emuDBhandle} object \texttt{ae} would show that the
+\emph{Words} level has multiple attribute definitions indicating that
+each annotation item in the \emph{Words} level has multiple parallel
+labels defined for it. The R code snippet below shows an additional
+requery that queries the \emph{Text} attribute definition instead.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7520,17 +7499,16 @@ queries the \emph{Text} attribute definition instead.
 ## 1 amongst 187.425 674.175    0000 msajc003  Text ITEM
 \end{verbatim}
 
-As seen in R Example @ref(rexample:usecases\_uc3requery2), the first
-segment in \texttt{sibil} occurred in the word \emph{amongst}, which
-starts at 187.475 ms and ends at 674.225 ms. It is worth noting that
-this two-step querying procedure (\texttt{query()} followed by
-\texttt{requery\_hier()}) can also be completed in a single hierarchical
-query using the dominance operator (\^{}).
+As seen in the above R code snippet, the first segment in \texttt{sibil}
+occurred in the word \emph{amongst}, which starts at 187.475 ms and ends
+at 674.225 ms. It is worth noting that this two-step querying procedure
+(\texttt{query()} followed by \texttt{requery\_hier()}) can also be
+completed in a single hierarchical query using the dominance operator
+(\^{}).
 
-As we have answered the first part of the question, R Example
-@ref(rexample:usecases\_uc3requerySeqLeft) will extract the context to
-the left of the extracted sibilants by using the \texttt{requery\_seq()}
-function.
+As we have answered the first part of the question, the R code snippet
+below will extract the context to the left of the extracted sibilants by
+using the \texttt{requery\_seq()} function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7550,10 +7528,9 @@ function.
 ## 1      N 426.675 483.425    0000 msajc003 Phonetic SEGMENT
 \end{verbatim}
 
-R Example \ref{rexample:usecases-uc3requerySeqRight} attempts to extract
-the right context in the same manner as R Example
-\ref{rexample:usecases-uc3requerySeqLeft}, but in this case we encounter
-a problem.
+The R code snippet below attempts to extract the right context in the
+same manner as above R code snippet, but in this case we encounter a
+problem.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7568,12 +7545,11 @@ a problem.
 ## Set parameter 'ignoreOutOfBounds=TRUE' to get residual result segments that lie within the bounds.
 \end{verbatim}
 
-As can be seen by the error message in R Example
-\ref{rexample:usecases-uc3requerySeqRight}, four of the sibilants occur
-at the very end of the recording and therefore have no phonetic
-post-context. The remaining post-contexts can be retrieved by setting
-the \texttt{ignoreOutOfBounds} argument to \texttt{TRUE} as displayed in
-R Example \ref{rexample:usecases-uc3requerySeqRight2}.
+As can be seen by the error message in the above R code snippet, four of
+the sibilants occur at the very end of the recording and therefore have
+no phonetic post-context. The remaining post-contexts can be retrieved
+by setting the \texttt{ignoreOutOfBounds} argument to \texttt{TRUE} as
+displayed in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7620,10 +7596,10 @@ use case was written by Florian Schiel as part of the
 \texttt{emuR\_intro} vignette that is part of the \texttt{emuR}
 package.}{Do the phonetic segments labeled s, z, S or Z in the ae emuDB differ with respect to their first spectral moment?\textbackslash{}footnote\{The original version of this use case was written by Florian Schiel as part of the emuR\_intro vignette that is part of the emuR package.}}\label{sec:app-chap-useCases-q4}}
 
-Once again, the segments of interest are queried first. R Example
-\ref{rexample:usecases-uc4query} shows how this can be achieved, this
-time using the new regular expression operand of the EQL (see Chapter
-\ref{chap:querysys} for details).
+Once again, the segments of interest are queried first. The R code
+snippet below shows how this can be achieved, this time using the new
+regular expression operand of the EQL (see Chapter \ref{chap:querysys}
+for details).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7631,9 +7607,9 @@ time using the new regular expression operand of the EQL (see Chapter
 \end{Highlighting}
 \end{Shaded}
 
-R Example \ref{rexample:usecases-uc4gettd} shows how the
-\texttt{get\_trackdata()} function can be used to calculate the Discrete
-Fourier Transform values for the extracted segments.
+The R code snippet below shows how the \texttt{get\_trackdata()}
+function can be used to calculate the Discrete Fourier Transform values
+for the extracted segments.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7657,8 +7633,8 @@ that there is a lot of unwanted noise in the lower bands that is
 irrelevant for the problem at hand and can even skew the end results. To
 achieve this we can use a property of a \texttt{trackdata} object that
 also carries the class \texttt{spectral}, which means that it is indexed
-using frequencies. R Example \ref{rexample:usecases-uc4index} shows how
-to use this feature to extract the relevant spectral frequencies of the
+using frequencies. The R code snippet below shows how to use this
+feature to extract the relevant spectral frequencies of the
 \texttt{trackdata} object.
 
 \begin{Shaded}
@@ -7667,9 +7643,9 @@ to use this feature to extract the relevant spectral frequencies of the
 \end{Highlighting}
 \end{Shaded}
 
-R Example \ref{rexample:usecases-uc4fapply} shows how the
-\texttt{fapply()} function can be used to apply the \texttt{moments()}
-function to all elements of \texttt{dftTdRelFreq}.
+The R code snippet below shows how the \texttt{fapply()} function can be
+used to apply the \texttt{moments()} function to all elements of
+\texttt{dftTdRelFreq}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7680,8 +7656,7 @@ function to all elements of \texttt{dftTdRelFreq}.
 The resulting \texttt{dftTdRelFreqMom} object is once again a
 \texttt{trackdata} object of the same length as the
 \texttt{dftTdRelFreq} \texttt{trackdata} object. It contains the first
-four spectral moments as shown in R Example
-\ref{rexample:usecases-uc4showMoments}.
+four spectral moments as shown in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7698,8 +7673,8 @@ four spectral moments as shown in R Example
 The information stored in the \texttt{dftTdRelFreqMom} and
 \texttt{sibil} objects can now be used to plot a time-normalized version
 of the first spectral moment trajectories, color coded by sibilant
-class, using \texttt{emuR}'s \texttt{dplot()} function. R Example
-\ref{rexample:usecases-uc4dplot1} shows the R code that produces Figure
+class, using \texttt{emuR}'s \texttt{dplot()} function. The R code
+snippet below shows the R code that produces Figure
 \ref{fig:usecases-uc4dplot1}.
 
 \begin{Shaded}
@@ -7726,10 +7701,10 @@ is significantly lower for postalveolar \emph{S} and \emph{Z} (green and
 blue lines) than for alveolar \emph{s} and \emph{z} (black and red
 lines).
 
-R Example \ref{rexample:usecases-uc4dplot2} shows how to create an
-alternative plot (see Figure \ref{fig:usecases-uc4dplot2}) that averages
-the trajectories into ensemble averages per sibilant class by setting
-the \texttt{average} parameter of \texttt{dplot()} to \texttt{TRUE}.
+The R code snippet below shows how to create an alternative plot (see
+Figure \ref{fig:usecases-uc4dplot2}) that averages the trajectories into
+ensemble averages per sibilant class by setting the \texttt{average}
+parameter of \texttt{dplot()} to \texttt{TRUE}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7758,7 +7733,7 @@ midpoint of the sibilants are clearly visible. To focus on this steady
 state part of the sibilant we will now extract those spectral moments
 that fall between the proportional timepoints 0.2 and 0.8 of each
 segment (i.e., the central 60\%) using the \texttt{dcut()} function as
-is shown in R Example \ref{rexample:usecases-uc4dcut}.
+is shown in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7770,9 +7745,8 @@ is shown in R Example \ref{rexample:usecases-uc4dcut}.
 \end{Highlighting}
 \end{Shaded}
 
-Finally, R Example \ref{rexample:usecases-uc4trapply} shows how to
-calculate the averages of these trajectories using the
-\texttt{trapply()} function.
+Finally, the R code snippet below shows how to calculate the averages of
+these trajectories using the \texttt{trapply()} function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7784,9 +7758,8 @@ calculate the averages of these trajectories using the
 
 As the resulting \texttt{meanFirstMoments} vector has the same length as
 the initial \texttt{sibil} segment list, we can now easily visualize
-these values in the form of a boxplot. R Example
-\ref{rexample:usecases-uc4boxplot} shows the R code that produces Figure
-\ref{fig:usecases-uc4boxplot}.
+these values in the form of a boxplot. The R code below shows the R code
+that produces Figure \ref{fig:usecases-uc4boxplot}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8475,7 +8448,7 @@ The \texttt{\_annot.json} file contains the following fields:
       \texttt{"sampleDur"} Contains sample duration value of
       \texttt{SEGMENT} item. Note that the \texttt{EMU-webApp} does not
       support overlapping \texttt{SEGMENT}s or \texttt{SEGMENT}
-      sequences containing gaps. This infers that each sample is
+      sequences containing gaps. This implies that each sample is
       explicitly and unambiguously associated with a single
       \texttt{SEGMENT}. This means that the \texttt{sampleStart} value
       of a following \texttt{SEGMENT} has to be \texttt{sampleStart} +
@@ -8489,11 +8462,17 @@ The \texttt{\_annot.json} file contains the following fields:
       \texttt{SEGMENT}s. To avoid a negative time value when dealing
       with the first sample of an audio file (\texttt{sampleStart} value
       of \(0\)), the \texttt{start} time value is simply set to \(0\) in
-      this case. The \texttt{start} and \texttt{end} time value
-      calculation is performed by both the query engine of \texttt{emuR}
-      if the \texttt{calcTimes} parameter is set to \texttt{TRUE} and
-      the \texttt{EMU-webApp} to display the time information in the
-      signal canvases.
+      this case. One implication of this design is that there can be no
+      zero-length segments. If for example a \texttt{SEGMENT} has
+      sampleStart: 1420 and sampleDur: 0, it will be considered to start
+      at the start time of sample \(1420 - \frac{0.5}{sampleRate}\) and
+      end at the end time of sample \(1420 + \frac{0.5}{sampleRate}\).
+      The actual duration in seconds is therefore expressed as
+      \(\frac{sampleDur + 1}{sampleRate}\). The \texttt{start} and
+      \texttt{end} time value calculation is performed by both the query
+      engine of \texttt{emuR} if the \texttt{calcTimes} parameter is set
+      to \texttt{TRUE} and the \texttt{EMU-webApp} to display the time
+      information in the signal canvases.
     \item
       \texttt{"samplePoint"} Contains sample point values of
       \texttt{EVENT} items. When calculating the \texttt{start} time
@@ -8535,8 +8514,8 @@ The SSFF file format is a binary file format which has a plain text
 header. This means that the header is human-readable and can be viewed
 with any text editor including common UNIX command line tools such as
 \texttt{less} or \texttt{cat}. Within R it is possible to view the
-header by using R's \texttt{readLines()} function as displayed in R
-Example \ref{rexample:wrassp-readSSFF}.
+header by using R's \texttt{readLines()} function as displayed in the R
+code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8586,36 +8565,34 @@ can be described as follows:
   big-endian. To date, we have not encountered other machine types.
 \item
   \texttt{Record\_Freq\ SR} (required line): Sample rate of current file
-  in Hz. If, for example, \texttt{SR} is 200.0 (see R Example
-  \ref{rexample:wrassp-readSSFF}) then the sample rate is 200 Hz.
+  in Hz. If, for example, \texttt{SR} is 200.0 (see the above R code
+  snippet) then the sample rate is 200 Hz.
 \item
   \texttt{Start\_Time\ ST} (required line): Time of first sample block
   in data block in seconds. This often deviates from 0.0 as
   \texttt{wrassp}'s windowed signal processing functions start with the
   first window centered around \texttt{windowShift} / 2. If the
   \texttt{windowShift} parameter's default value is 5 ms, the start time
-  \texttt{ST} of the first sample block will be 0.0025 sec (see R
-  Example \ref{rexample:wrassp-readSSFF}).
+  \texttt{ST} of the first sample block will be 0.0025 sec (see above R
+  code snippet).
 \item
   \texttt{Column\ CN\ CDT\ CDL} (required line(s)): A \texttt{Column}
   line entry contains four space-separated values, where \texttt{Column}
   is the initial key word value. The second value, \texttt{CN}
-  (\texttt{fm} in R Example \ref{rexample:wrassp-readSSFF}), specifies
-  the name for the column; the third, \texttt{CDT} (\texttt{SHORT} in R
-  Example \ref{rexample:wrassp-readSSFF}), indicates the column's data
-  type; and the fourth, \texttt{CDL} (\texttt{4} in R Example
-  \ref{rexample:wrassp-readSSFF}), is the column's data length in bytes.
-  As can be seen in R Example \ref{rexample:wrassp-readSSFF}, it is
-  quite common for SSFF files to have multiple column entries. The
+  (\texttt{fm} in above R code snippet), specifies the name for the
+  column; the third, \texttt{CDT} (\texttt{SHORT} in the above R code
+  snippet), indicates the column's data type; and the fourth,
+  \texttt{CDL} (\texttt{4} in the above R code snippet), is the column's
+  data length in bytes. As can be seen in the R code snippet above, it
+  is quite common for SSFF files to have multiple column entries. The
   sequence of these entries is relevant, as it specifies the sequence of
   the data in the binary data block (see below).
 \item
   \texttt{NAME\ DT\ DV} (optional line(s)): Optional single value
   definitions that have a \texttt{NAME}, a data type \texttt{DT} and a
   data value \texttt{DV} (see \texttt{Original\_Freq\ DOUBLE\ 20000.0}
-  in R Example \ref{rexample:wrassp-readSSFF} specifying the original
-  sample rate of the audio file the \texttt{.fms} file was generated
-  from).
+  in the R code snippet above specifying the original sample rate of the
+  audio file the \texttt{.fms} file was generated from).
 \item
   \texttt{Comment\ CHAR\ string\ of\ variable\ length} (optional
   line(s)): The \texttt{Comment\ CHAR} allows for comment strings to be
@@ -8655,7 +8632,7 @@ follows:
 
 }
 
-\caption{Schematic representation of the data block of the `msajc003.fms` file of R Example ref{rexample:wrassp-readSSFF}.}\label{fig:wrassp-ssffDataBlock}
+\caption{Schematic representation of the data block of the `msajc003.fms` file of the above R code snippet.}\label{fig:wrassp-ssffDataBlock}
 \end{figure}
 
 \hypertarget{example-files}{%
@@ -9386,9 +9363,8 @@ displayed as questions and answers. All examples use the \emph{ae} demo
 extracted from the \texttt{EQL} vignette of the \texttt{emuR} package.
 Descriptions (some of them duplicates of those in Chapter
 \ref{chap:querysys}) of the various syntaxes and query components are
-also included for easier reading. R Example
-\ref{rexample:app-chap-eqlLoadData} shows how to access the \emph{ae}
-demo \texttt{emuDB}.
+also included for easier reading. The R code snippet below shows how to
+access the \emph{ae} demo \texttt{emuDB}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -10807,10 +10783,9 @@ ordered by the fields utts and start.
 \section{Using Praat's signal processing routines in the
 EMU-SDMS}\label{sec:app-chap-wrassp-praatsSigProc}}
 
-R Example @ref(rexample:app-chap-wrassp\_praatToFormants) shows how
-generating an \texttt{AsspDataObj} from scratch can be used in a
-function to place data from other sources into SSFF files. In this case
-it uses the \texttt{PraatR} R package (see
+The R code snippet below shows how generating an \texttt{AsspDataObj}
+from scratch can be used in a function to place data from other sources
+into SSFF files. In this case it uses the \texttt{PraatR} R package (see
 \url{http://www.aaronalbin.com/praatr/index.html}) to execute Praat's
 \texttt{"To\ Formant\ (burg)..."} function to then store the data to a
 comma separated file using \texttt{"Down\ to\ Table..."}. The generated

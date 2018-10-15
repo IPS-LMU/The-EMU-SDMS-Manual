@@ -5,7 +5,7 @@ The `libassp` was originally written by Michel Scheffers as a C library which co
 
 ## The `libassp` port
 
-Here, we briefly describe our strategy for porting the `libassp` to R. The port of the `libassp` to the R eco-system was achieved using the foreign language interface provided by the R system as is described in the R Extensions manual (see https://cran.r-project.org/doc/manuals/r-release/R-exts.htmlWriting). To port the various signal processing routines provided by the `libassp` and to avoid code redundancy a single C function called `performAssp()` was created. This function acts as a C wrapper function interface to `libassp`'s internal functions and handles the data conversion between `libassp`'s internal and R's data structures. However, to provide the user with a clear and concise API we chose to implement separate R functions for every signal processing function. This also allowed us to formulate more concise manual entries for each of the signal processing function provided by `wrassp`. R Example \@ref(rexample:wrassp-genWrapper) is a pseudo-code example of the layout of each signal processing function `wrassp` provides.
+Here, we briefly describe our strategy for porting the `libassp` to R. The port of the `libassp` to the R eco-system was achieved using the foreign language interface provided by the R system as is described in the R Extensions manual (see https://cran.r-project.org/doc/manuals/r-release/R-exts.htmlWriting). To port the various signal processing routines provided by the `libassp` and to avoid code redundancy a single C function called `performAssp()` was created. This function acts as a C wrapper function interface to `libassp`'s internal functions and handles the data conversion between `libassp`'s internal and R's data structures. However, to provide the user with a clear and concise API we chose to implement separate R functions for every signal processing function. This also allowed us to formulate more concise manual entries for each of the signal processing function provided by `wrassp`. The R code snippet below is a pseudo-code example of the layout of each signal processing function `wrassp` provides.
 
 
 ```r
@@ -42,7 +42,7 @@ genericWrasspSigProcFun = function(listOfFiles,
 
 To provide access to the file handling capabilities of the `libassp`, we implemented two C interface functions called `getDObj2()` (where `2` is simply used as a function version marker) and `writeDObj()`. These functions use `libassp`'s `asspFOpen()`, `asspFFill()`, `asspFWrite()` and `asspFClose()` function to read and write files supported by the `libassp` from and to files on disk into R. The public API functions `read.AsspDataObj()` and `write.AsspDataObj()` are the R wrapper functions around `getDObj2()` and `writeDObj()`.
 
-To be able to access some of `libassp`'s internal variables further wrapper functions were implemented. It was necessary to have access to these variables to be able to perform adequate parameter checks in various functions. R Example \@ref(rexample:wrassp-cInfoFuncs) shows these functions.
+To be able to access some of `libassp`'s internal variables further wrapper functions were implemented. It was necessary to have access to these variables to be able to perform adequate parameter checks in various functions. The R code snippet below shows these functions.
 
 
 
@@ -55,9 +55,11 @@ AsspWindowTypes()
 ```
 
 ```
-##  [1] "RECTANGLE" "PARABOLA"  "COS"       "HANN"      "COS_4"    
-##  [6] "HAMMING"   "BLACKMAN"  "BLACK_X"   "BLACK_M3"  "BLACK_M4" 
-## [11] "NUTTAL_3"  "NUTTAL_4"  "KAISER2_0" "KAISER3_0" "KAISER4_0"
+##  [1] "RECTANGLE" "TRIANGLE"  "PARABOLA"  "COS"       "HANN"     
+##  [6] "COS_3"     "COS_4"     "HAMMING"   "BLACKMAN"  "BLACK_X"  
+## [11] "BLACK_3"   "BLACK_M3"  "BLACK_4"   "BLACK_M4"  "NUTTAL_3" 
+## [16] "NUTTAL_4"  "GAUSS2_5"  "GAUSS3_0"  "GAUSS3_5"  "KAISER2_0"
+## [21] "KAISER2_5" "KAISER3_0" "KAISER3_5" "KAISER4_0"
 ```
 
 ```r
@@ -78,7 +80,7 @@ AsspSpectTypes()
 ## [1] "DFT" "LPS" "CSS" "CEP"
 ```
 
-The `wrassp` package provides two R objects that contain useful information regarding the supported file format types (`AsspFileFormats`) and the output created by the various signal processing functions. R Example \@ref(rexample:wrassp-info) shows the content of these two objects.
+The `wrassp` package provides two R objects that contain useful information regarding the supported file format types (`AsspFileFormats`) and the output created by the various signal processing functions. The R code snippet below shows the content of these two objects.
 
 
 ```r

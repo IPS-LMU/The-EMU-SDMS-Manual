@@ -13,7 +13,7 @@ As mentioned in the default workflow of Chapter \@ref(chap:overview}, after quer
 <p class="caption">(\#fig:sigDataExtr)Segment of speech with overlaid annotations and time parallel derived signal data contour.</p>
 </div>
 
-R Example \@ref(rexample:sigDataExtr-loadData) shows how to create the demo data that will be used throughout this chapter.
+The R code snippet below shows how to create the demo data that will be used throughout this chapter.
 
 
 ```r
@@ -32,7 +32,7 @@ ae = load_emuDB(path2directory)
 
 ## Extracting pre-defined tracks
 
-To access data that are stored in files, the user has to define tracks for a database that point to sequences of samples in files that match a user-specified file extension. The user-defined name of such a track can then be used to reference the track in the signal data extraction process. Internally, `emuR` uses `wrassp` to read the appropriate files from disk, extract the sample sequences that match the result of a query and return values to the user for further inspection and evaluation. R Example \@ref(rexample:sigDataExtr-getFm) shows how a signal track that is already defined in the `ae` demo database can be extracted for all annotation items on the `Phonetic` level containing the label `ai`.
+To access data that are stored in files, the user has to define tracks for a database that point to sequences of samples in files that match a user-specified file extension. The user-defined name of such a track can then be used to reference the track in the signal data extraction process. Internally, `emuR` uses `wrassp` to read the appropriate files from disk, extract the sample sequences that match the result of a query and return values to the user for further inspection and evaluation. The R code snippet below shows how a signal track that is already defined in the `ae` demo database can be extracted for all annotation items on the `Phonetic` level containing the label `ai`.
 
 
 ```r
@@ -70,7 +70,7 @@ summary(ai_td_fm)
 ## Mean data length is  30.5  samples
 ```
 
-Being able to access data that is stored in files is important for two main reasons. Firstly, it is possible to generate files using external programs such as VoiceSauce [@shue:2011a], which can export its calculated output to the general purpose SSFF file format. This file mechanism is also used to access data produced by EMA, EPG or many other forms of signal data recordings. Secondly, it is possible to track, save and access manipulated data such as formant values that have been manually corrected. It is also worth noting that the `get_trackdata()` function has a predefined track which is always available without it having to be defined. The name of this track is `MEDIAFILE_SAMPLES` which references the actual samples of the audio files of the database. R Example \@ref(rexample:sigDataExtr-mediafileSamples) shows how this predefined track can be used to access the audio samples belonging to the segments in `ai_segs`.
+Being able to access data that is stored in files is important for two main reasons. Firstly, it is possible to generate files using external programs such as VoiceSauce [@shue:2011a], which can export its calculated output to the general purpose SSFF file format. This file mechanism is also used to access data produced by EMA, EPG or many other forms of signal data recordings. Secondly, it is possible to track, save and access manipulated data such as formant values that have been manually corrected. It is also worth noting that the `get_trackdata()` function has a predefined track which is always available without it having to be defined. The name of this track is `MEDIAFILE_SAMPLES` which references the actual samples of the audio files of the database. The R code snippet below shows how this predefined track can be used to access the audio samples belonging to the segments in `ai_segs`.
 
 
 ```r
@@ -93,7 +93,7 @@ summary(ai_td_mfs)
 
 ## Adding new tracks
 
-As described in detail in Section \@ref(sec:wrassp-emu-sdms), the signal processing routines provided by the `wrassp` package can be used to produce SSFF files containing various derived signal data (e.g., formants, fundamental frequency, etc.). R Example \@ref(rexample:sigDataExtr-addTrack) shows how the `add_ssffTrackDefinition()` can be used to add a new track to the `ae` `emuDB`. Using the `onTheFlyFunctionName` parameter, the `add_ssffTrackDefinition()` function automatically executes the `wrassp` signal processing function `ksvF0` (`onTheFlyFunctionName = "ksvF0"`) and stores the results in SSFF files in the bundle directories.
+As described in detail in Section \@ref(sec:wrassp-emu-sdms), the signal processing routines provided by the `wrassp` package can be used to produce SSFF files containing various derived signal data (e.g., formants, fundamental frequency, etc.). The R code snippet below shows how the `add_ssffTrackDefinition()` can be used to add a new track to the `ae` `emuDB`. Using the `onTheFlyFunctionName` parameter, the `add_ssffTrackDefinition()` function automatically executes the `wrassp` signal processing function `ksvF0` (`onTheFlyFunctionName = "ksvF0"`) and stores the results in SSFF files in the bundle directories.
 
 
 ```r
@@ -123,15 +123,15 @@ as_tibble(list_files(ae, fileExtension = "f0"))
 
 ```
 ## # A tibble: 7 x 4
-##   session bundle   file        absolute_file_path                         
-## * <chr>   <chr>    <chr>       <chr>                                      
-## 1 0000    msajc003 msajc003.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
-## 2 0000    msajc010 msajc010.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
-## 3 0000    msajc012 msajc012.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
-## 4 0000    msajc015 msajc015.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
-## 5 0000    msajc022 msajc022.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
-## 6 0000    msajc023 msajc023.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
-## 7 0000    msajc057 msajc057.f0 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c…
+##   session bundle   file     absolute_file_path                            
+## * <chr>   <chr>    <chr>    <chr>                                         
+## 1 0000    msajc003 msajc00… /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl…
+## 2 0000    msajc010 msajc01… /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl…
+## 3 0000    msajc012 msajc01… /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl…
+## 4 0000    msajc015 msajc01… /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl…
+## 5 0000    msajc022 msajc02… /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl…
+## 6 0000    msajc023 msajc02… /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl…
+## 7 0000    msajc057 msajc05… /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sl…
 ```
 
 ```r
@@ -155,7 +155,7 @@ summary(ai_td)
 
 ## Calculating tracks on-the-fly
 
-With the `wrassp` package, we were able to implement a new form of signal data extraction which was not available in the legacy system. The user is now able to select one of the signal processing routines provided by `wrassp` and pass it on to the signal data extraction function. The signal data extraction function can then apply this `wrassp` function to each audio file as part of the signal data extraction process. This means that the user can quickly manipulate function parameters and evaluate the result without having to store to disk the files that would usually be generated by the various parameter experiments. In many cases this new functionality eliminates the need for defining a track definition for the entire database for temporary data analysis purposes. R Example \@ref(rexample:sigDataExtr-onTheFly) shows how the `onTheFlyFunctionName` parameter of the `get_trackdata()` function is used.
+With the `wrassp` package, we were able to implement a new form of signal data extraction which was not available in the legacy system. The user is now able to select one of the signal processing routines provided by `wrassp` and pass it on to the signal data extraction function. The signal data extraction function can then apply this `wrassp` function to each audio file as part of the signal data extraction process. This means that the user can quickly manipulate function parameters and evaluate the result without having to store to disk the files that would usually be generated by the various parameter experiments. In many cases this new functionality eliminates the need for defining a track definition for the entire database for temporary data analysis purposes. The R code snippet below shows how the `onTheFlyFunctionName` parameter of the `get_trackdata()` function is used.
 
 
 
@@ -178,7 +178,7 @@ summary(ai_td_pit)
 
 ## The resulting object: `trackdata` vs. `emuRtrackdata`
 
-The default resulting object of a call to `get_trackdata()` is of class `trackdata` (see R Example \@ref(rexample:sigDataExtr-trackdata)). The `emuR` package provides multiple routines such as `dcut()`, `trapply()` and `dplot()` for processing and visually inspecting objects of this type (see harrington:2010a and Section \@ref(section:tutorial-sigExtrAndExpl) for examples of how these can be used).
+The default resulting object of a call to `get_trackdata()` is of class `trackdata` (see R code snippet below). The `emuR` package provides multiple routines such as `dcut()`, `trapply()` and `dplot()` for processing and visually inspecting objects of this type (see harrington:2010a and Section \@ref(section:tutorial-sigExtrAndExpl) for examples of how these can be used).
 
 
 
@@ -191,7 +191,7 @@ class(ai_td_pit)
 ## [1] "trackdata"
 ```
 
-As the `trackdata` object is a fairly complex nested matrix object with internal reference matrices, which can be cumbersome to work with, the `emuR` package introduces a new equivalent object type called `emuRtrackdata` that essentially is a flat `data.frame` object. This object type can be retrieved by setting the `resultType` parameter of the `get_trackdata()` function to `emuRtrackdata`. R Example \@ref(rexample:sigDataExtr-emuRtrackdata) shows how this can be achieved.
+As the `trackdata` object is a fairly complex nested matrix object with internal reference matrices, which can be cumbersome to work with, the `emuR` package introduces a new equivalent object type called `emuRtrackdata` that essentially is a flat `data.frame` object. This object type can be retrieved by setting the `resultType` parameter of the `get_trackdata()` function to `emuRtrackdata`. The R code snippet below shows how this can be achieved.
 
 
 ```r
@@ -207,9 +207,9 @@ as_tibble(ai_emuRtd_pit[1, ])
 
 ```
 ## # A tibble: 1 x 21
-##   sl_rowIdx labels start   end utts   db_uuid session bundle start_item_id
-## *     <int> <chr>  <dbl> <dbl> <chr>  <chr>   <chr>   <chr>          <int>
-## 1         1 ai      863. 1016. 0000:… 0fc618… 0000    msajc…           161
+##   sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
+## *     <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
+## 1         1 ai      863. 1016. 0000… 0fc618… 0000    msajc…           161
 ## # ... with 12 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,
@@ -240,7 +240,7 @@ ai_emuRtd_pit[ai_emuRtd_pit$sl_rowIdx == 1, ]$times_orig
 ## [21]  967.5  972.5  977.5  982.5  987.5  992.5  997.5 1002.5 1007.5 1012.5
 ```
 
-As can be seen by the first row output of R Example \@ref(rexample:sigDataExtr-emuRtrackdata), the `emuRtrackdata` object is an amalgamation of both a segment list and a `trackdata` object. The first `sl_rowIdx` column of the `ai_emuRtd_pit` object indicates the row index of the segment list the current row belongs to, the `times_rel` and `times_orig` columns represent the relative time and the original time of the samples contained in the current row (see R Example \@ref(rexample:sigDataExtr-emuRtrackdata)) and T1 (to Tn in n dimensional `trackdata`) contains the actual signal sample values. It is also worth noting that the `emuR` package provides a function called `create_emuRtrackdata()`, which allows users to create `emuRtrackdata` from a segment list and a `trackdata` object. This is beneficial as it allows `trackdata` objects to be processed using functions provided by the `emuR` package (e.g., `dcut()` and `trapply()`) and then converts them into a standardized `data.frame` object for further processing (e.g., using R packages such as `lme4` or `ggplot2` which were implemented to use with `data.frame` objects). R Example \@ref(rexample:sigDataExtr-createEmuRtd) shows how the `create_emuRtrackdata()` function is used.
+As can be seen by the first row output of the R code snippet above, the `emuRtrackdata` object is an amalgamation of both a segment list and a `trackdata` object. The first `sl_rowIdx` column of the `ai_emuRtd_pit` object indicates the row index of the segment list the current row belongs to, the `times_rel` and `times_orig` columns represent the relative time and the original time of the samples contained in the current row (see above R code snippet) and T1 (to Tn in n dimensional `trackdata`) contains the actual signal sample values. It is also worth noting that the `emuR` package provides a function called `create_emuRtrackdata()`, which allows users to create `emuRtrackdata` from a segment list and a `trackdata` object. This is beneficial as it allows `trackdata` objects to be processed using functions provided by the `emuR` package (e.g., `dcut()` and `trapply()`) and then converts them into a standardized `data.frame` object for further processing (e.g., using R packages such as `lme4` or `ggplot2` which were implemented to use with `data.frame` objects). The R code snippet below shows how the `create_emuRtrackdata()` function is used.
 
 
 ```r

@@ -2,7 +2,7 @@
 
 ## Using Praat's signal processing routines in the EMU-SDMS {#sec:app-chap-wrassp-praatsSigProc}
 
-R Example \@ref(rexample:app-chap-wrassp_praatToFormants) shows how generating an `AsspDataObj` from scratch can be used in a function to place data from other sources into SSFF files. In this case it uses the `PraatR` R package (see http://www.aaronalbin.com/praatr/index.html) to execute Praat's `"To Formant (burg)..."` function to then store the data to a comma separated file using `"Down to Table..."`. The generated table is then read into R and the appropriate columns are placed into tracks of a `AsspDataObj` object. The `PraatToFormants2AsspDataObj` can be viewed as a template function as it can easily be adapted to use other functions provided by Praat or even other external tools.
+The R code snippet below shows how generating an `AsspDataObj` from scratch can be used in a function to place data from other sources into SSFF files. In this case it uses the `PraatR` R package (see http://www.aaronalbin.com/praatr/index.html) to execute Praat's `"To Formant (burg)..."` function to then store the data to a comma separated file using `"Down to Table..."`. The generated table is then read into R and the appropriate columns are placed into tracks of a `AsspDataObj` object. The `PraatToFormants2AsspDataObj` can be viewed as a template function as it can easily be adapted to use other functions provided by Praat or even other external tools.
 
 
 ```r

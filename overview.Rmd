@@ -34,7 +34,7 @@ As the early incarnations of the legacy EMU system and its predecessors were con
 
 The R code snippet below shows the simple installation process which we were able to achieve due to the R package infrastructure. Compared to the legacy EMU and other systems, the installation process of the entire system has been reduced to a single R command. Throughout this documentation we will try to highlight how the EMU-SDMS is also able to meet the rest of the above key user requirements.
 
-```{r rexample:overview-install, rexample=TRUE, eval=FALSE}
+```{r eval=FALSE}
 # install the entire EMU-SDMS
 # by installing the emuR package
 install.packages("emuR")

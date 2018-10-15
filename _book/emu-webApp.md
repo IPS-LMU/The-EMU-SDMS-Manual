@@ -9,7 +9,7 @@ The EMU-SDMS has a unique approach to its GUI in that it utilizes a web applicat
 
 ## Main layout {#sec:emu-webApp-mainLayout}
 
-The main screen of the `EMU-webApp` can be split into five areas. Figure \@ref(fig:emu-web-emuWebAppLayout) shows a screenshot of the `EMU-webApp`'s main screen displaying these five areas while displaying a bundle of the *ae* demo database. This database is served to the `EMU-webApp` by invoking the `serve()` command as shown in R Example \@ref(rexample:webApp-serve). The left side bar (area marked 1 in Figure \@ref(fig:emu-web-emuWebAppLayout)) represents the bundle list side bar which, if connected to a database, displays the currently available bundles grouped by their sessions. The top and bottom menu bars (areas marked 2 and 5 in Figure \@ref(fig:emu-web-emuWebAppLayout)) display the currently available menu options, where the bottom menu bar contains the audio navigation and playback controls and also includes a scrollable mini map of the oscillogram. Area 3 of Figure \@ref(fig:emu-web-emuWebAppLayout) displays the signal canvas area currently displaying the oscillogram and the spectrogram. Other signal contours such as formant frequency contours and fundamental frequency contours are also displayed in this area. Area 4 of Figure \@ref(fig:emu-web-emuWebAppLayout) displays the area in which levels containing time information are displayed. It is worth noting that the main screen of the `EMU-webApp` does not display any levels that do not contain time information. The hierarchical annotation can be displayed and edited by clicking the `show hierarchy` button in the top menu bar (see Figure \@ref(fig:webApp-hierModal) for an example of how the hierarchy is displayed).
+The main screen of the `EMU-webApp` can be split into five areas. Figure \@ref(fig:emu-web-emuWebAppLayout) shows a screenshot of the `EMU-webApp`'s main screen displaying these five areas while displaying a bundle of the *ae* demo database. This database is served to the `EMU-webApp` by invoking the `serve()` command as shown in the R code snippet below. The left side bar (area marked 1 in Figure \@ref(fig:emu-web-emuWebAppLayout)) represents the bundle list side bar which, if connected to a database, displays the currently available bundles grouped by their sessions. The top and bottom menu bars (areas marked 2 and 5 in Figure \@ref(fig:emu-web-emuWebAppLayout)) display the currently available menu options, where the bottom menu bar contains the audio navigation and playback controls and also includes a scrollable mini map of the oscillogram. Area 3 of Figure \@ref(fig:emu-web-emuWebAppLayout) displays the signal canvas area currently displaying the oscillogram and the spectrogram. Other signal contours such as formant frequency contours and fundamental frequency contours are also displayed in this area. Area 4 of Figure \@ref(fig:emu-web-emuWebAppLayout) displays the area in which levels containing time information are displayed. It is worth noting that the main screen of the `EMU-webApp` does not display any levels that do not contain time information. The hierarchical annotation can be displayed and edited by clicking the `show hierarchy` button in the top menu bar (see Figure \@ref(fig:webApp-hierModal) for an example of how the hierarchy is displayed).
 
 
 ```r
@@ -160,7 +160,7 @@ A central concept for configuring the `EMU-webApp` are so-called `perspective`s.
 
 ### Basic configurations using `emuR` {#subsec:emu-webAppConfigWithEmuR}
 
-R Example \@ref(rexample:webApp-loadDemoData) shows how to create and load the demo data that will be used throughout the rest of this chapter.
+The R code snippet below shows how to create and load the demo data that will be used throughout the rest of this chapter.
 
 
 
@@ -178,7 +178,7 @@ path2ae = file.path(tempdir(), "emuR_demoData", "ae_emuDB")
 ae = load_emuDB(path2ae, verbose = F)
 ```
 
-As mentioned above, the `EMU-webApp` subdivides different ways to look at an `emuDB` into so-called `perspective`s. Users can switch between these `perspective`s in the web application. They contain, for example, information on what levels are displayed, which SSFF tracks are drawn. R Example \@ref(rexample:webApp-listPersp) shows how the current `perspective`s can be listed using the `list_perspectives()` function.
+As mentioned above, the `EMU-webApp` subdivides different ways to look at an `emuDB` into so-called `perspective`s. Users can switch between these `perspective`s in the web application. They contain, for example, information on what levels are displayed, which SSFF tracks are drawn. The R code snippet below shows how the current `perspective`s can be listed using the `list_perspectives()` function.
 
 
 
@@ -194,7 +194,7 @@ list_perspectives(ae)
 ## 3     Tone-only          OSCI; SPEC               Tone
 ```
 
-As it is sometimes necessary to add new or remove existing perspectives to or from a database, R Example \@ref(rexample:webApp-addRemovePersp) shows how this can be achieved using `emuR`'s `add/remove_perspective()` functions.
+As it is sometimes necessary to add new or remove existing perspectives to or from a database, the R code snippet below shows how this can be achieved using `emuR`'s `add/remove_perspective()` functions.
 
 
 ```r
@@ -222,7 +222,7 @@ remove_perspective(ae,
 
 ### Signal canvas and level canvas order
 
-As mentioned above, R Example \@ref(rexample:webApp-listPersp) shows that the *ae* `emuDB` contains three perspectives. The first perspective (*default*) displays the oscillogram (`OSCI`) followed by the spectrogram (`SPEC`) in the signal canvas area (area 3 of Figure \@ref(fig:emu-web-emuWebAppLayout)) and the *Phonetic* and *Tone* levels in the level canvas area (area 4 of Figure \@ref(fig:emu-web-emuWebAppLayout)). It is worth noting that `OSCI` (oscillogram) and `SPEC` (spectrogram) are predefined signal tracks that are always available. This is indicated by the capital letters indicating that they are predefined constants. R Example \@ref(rexample:webApp-oders) shows how the order of the signal canvases and level canvases can be changed using the `get/set_signalCanvasesOrder()` and `get/set_levelCanvasesOrder()`.
+As already mentioned, the above R code snippet shows that the *ae* `emuDB` contains three perspectives. The first perspective (*default*) displays the oscillogram (`OSCI`) followed by the spectrogram (`SPEC`) in the signal canvas area (area 3 of Figure \@ref(fig:emu-web-emuWebAppLayout)) and the *Phonetic* and *Tone* levels in the level canvas area (area 4 of Figure \@ref(fig:emu-web-emuWebAppLayout)). It is worth noting that `OSCI` (oscillogram) and `SPEC` (spectrogram) are predefined signal tracks that are always available. This is indicated by the capital letters indicating that they are predefined constants. The R code snippet below shows how the order of the signal canvases and level canvases can be changed using the `get/set_signalCanvasesOrder()` and `get/set_levelCanvasesOrder()`.
 
 
 ```r
@@ -266,7 +266,7 @@ list_perspectives(ae)
 ## 3     Tone-only          OSCI; SPEC               Tone
 ```
 
-After the changes made in R Example \@ref(rexample:webApp-oders), the default perspective will show the spectrogram above the oscillogram in the signal canvas area and only the *Tone* level in the level canvas area. Only levels with time information are allowed to be displayed in the level canvas area, and the `set_levelCanvasesOrder()` will print an error if a level of type `ITEM` is added (see R Example \@ref(rexample:webApp-badLevelOrders)).
+After the changes made in the R code snippet above, the default perspective will show the spectrogram above the oscillogram in the signal canvas area and only the *Tone* level in the level canvas area. Only levels with time information are allowed to be displayed in the level canvas area, and the `set_levelCanvasesOrder()` will print an error if a level of type `ITEM` is added (see R code snippet below).
 
 
 ```r
@@ -282,7 +282,7 @@ set_levelCanvasesOrder(ae,
 ## Error in set_levelCanvasesOrder(ae, perspectiveName = "default", order = c("Syllable")): levelDefinition with name 'Syllable' is not of type 'SEGMENT' or 'EVENT'
 ```
 
-The same mechanism used above can also be used to display any SSFF track that is defined for the database by referencing its name. R Example \@ref(rexample:webApp-addFormantsToSignalCanvases) shows how the existing SSFF track called *fm* (containing formant values calculated by `wrassp`'s `forest()` function) can be added to the signal canvas area.
+The same mechanism used above can also be used to display any SSFF track that is defined for the database by referencing its name. The R code snippet below shows how the existing SSFF track called *fm* (containing formant values calculated by `wrassp`'s `forest()` function) can be added to the signal canvas area.
 
 
 ```r
@@ -308,8 +308,8 @@ A screenshot of the current display of the *default* perspective can be seen in 
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppPostOderChange.png" alt="Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases)." width="100%" />
-<p class="caption">(\#fig:webApp-postOderChange)Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases).</p>
+<img src="pics/emu-webAppPostOderChange.png" alt="Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in the above R code snippets." width="100%" />
+<p class="caption">(\#fig:webApp-postOderChange)Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in the above R code snippets.</p>
 </div>
 
 ### Advanced configurations made by editing the `_DBconfig.json` {#subsec:emu-webAppAdvancedConfig}
@@ -334,8 +334,8 @@ To save space it can be beneficial to overlay one or more signal tracks onto oth
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/emu-webAppOverlay.png" alt="Screenshot of signal canvases display of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases)." width="100%" />
-<p class="caption">(\#fig:webApp-overlay1)Screenshot of signal canvases display of the `EMU-webApp` after the changes made in R Examples @ref(rexample:webApp-oders) and @ref(rexample:webApp-addFormantsToSignalCanvases).</p>
+<img src="pics/emu-webAppOverlay.png" alt="Screenshot of signal canvases display of the `EMU-webApp` after the changes made in the R code snippets above." width="100%" />
+<p class="caption">(\#fig:webApp-overlay1)Screenshot of signal canvases display of the `EMU-webApp` after the changes made in the R code snippets above.</p>
 </div>
 
 #### Frequency-aligned formant contours spectrogram overlay {#subsubsec:emu-webAppFreqAlignedFormants}

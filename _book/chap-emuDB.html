@@ -407,8 +407,8 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <a class="sourceLine" id="cb49-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
 <a class="sourceLine" id="cb49-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     fromScratch 
-## UUID:     caa6a1ad-bfdf-4b8a-aec9-fab8c8ea0db8 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpDd8qB9/fromScratch_emuDB 
+## UUID:     871c5ecd-bacf-46e2-ba22-4de0bc9dc773 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpmBRtFH/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -610,10 +610,10 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">library</span>(tibble) <span class="co"># convert to tibble only to prettify output</span></a>
 <a class="sourceLine" id="cb81-3" data-line-number="3"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 4
-##   session      bundle   file                absolute_file_path            
-## * &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                         
-## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn…
-## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn…</code></pre>
+##   session    bundle  file        absolute_file_path                       
+## * &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                                    
+## 1 fromWavFi… msajc0… msajc003_a… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
+## 2 fromWavFi… msajc0… msajc003.w… /private/var/folders/yk/8z9tn7kx6hbcg_9n…</code></pre>
 <p>The <code>import_mediaFiles()</code> call above added a new session called <code>fromWavFiles</code> to the <em>fromScratch</em> <code>emuDB</code> containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every <code>_annot.json</code> file created contains an empty <code>Word</code> and <code>Phonetic</code> level array and the links array is also empty.</p>
 <p>The <code>emuR</code> package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an <code>emuDB</code>. The following R code shows how preexisting <code>.zcr</code> files that are produced by <code>wrassp</code>’s <code>zcrana()</code> function can be added to the preexisting session and bundle structure. As the directory referenced by <code>wavDir</code> does not contain any <code>.zcr</code> files, the next R code example first creates them and then adds them to the <code>emuDB</code> (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="co"># load wrassp package</span></a>
@@ -639,11 +639,11 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <a class="sourceLine" id="cb85-8" data-line-number="8"><span class="co"># to prettify output)</span></a>
 <a class="sourceLine" id="cb85-9" data-line-number="9"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">3</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 4
-##   session      bundle   file                absolute_file_path            
-## * &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;                         
-## 1 fromWavFiles msajc003 msajc003_annot.json /private/var/folders/yk/8z9tn…
-## 2 fromWavFiles msajc003 msajc003.wav        /private/var/folders/yk/8z9tn…
-## 3 fromWavFiles msajc003 msajc003.zcr        /private/var/folders/yk/8z9tn…</code></pre>
+##   session    bundle  file        absolute_file_path                       
+## * &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                                    
+## 1 fromWavFi… msajc0… msajc003_a… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
+## 2 fromWavFi… msajc0… msajc003.w… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
+## 3 fromWavFi… msajc0… msajc003.z… /private/var/folders/yk/8z9tn7kx6hbcg_9n…</code></pre>
 </div>
 <div id="ssff-track-definitions" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> SSFF track definitions</h3>

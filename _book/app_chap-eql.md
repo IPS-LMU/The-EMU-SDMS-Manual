@@ -1,6 +1,6 @@
 # EQL: further examples {#app-chap:eql}
 
-Below are examples of query strings that have been adapted from @cassidy:sc2001a and @harrington:2002aa and which are displayed as questions and answers. All examples use the *ae* demo `emuDB`, which is provided by the `emuR` package, and were extracted from the `EQL` vignette of the `emuR` package. Descriptions (some of them duplicates of those in Chapter \@ref(chap:querysys)) of the various syntaxes and query components are also included for easier reading. R Example \@ref(rexample:app-chap-eqlLoadData) shows how to access the *ae* demo `emuDB`. 
+Below are examples of query strings that have been adapted from @cassidy:sc2001a and @harrington:2002aa and which are displayed as questions and answers. All examples use the *ae* demo `emuDB`, which is provided by the `emuR` package, and were extracted from the `EQL` vignette of the `emuR` package. Descriptions (some of them duplicates of those in Chapter \@ref(chap:querysys)) of the various syntaxes and query components are also included for easier reading. The R code snippet below shows how to access the *ae* demo `emuDB`. 
 
 
 

@@ -488,7 +488,7 @@ The `_annot.json` file contains the following fields:
         -   `"sampleDur"` Contains sample duration value of `SEGMENT`
             item. Note that the `EMU-webApp` does not support
             overlapping `SEGMENT`s or `SEGMENT` sequences containing
-            gaps. This infers that each sample is explicitly and
+            gaps. This implies that each sample is explicitly and
             unambiguously associated with a single `SEGMENT`. This means
             that the `sampleStart` value of a following `SEGMENT` has to
             be `sampleStart` + `sampleDur` + 1 of the previous
@@ -501,7 +501,13 @@ The `_annot.json` file contains the following fields:
             `SEGMENT`s. To avoid a negative time value when dealing with
             the first sample of an audio file (`sampleStart` value of
             $0$), the `start` time value is simply set to $0$ in this
-            case. The `start` and `end` time value calculation is
+            case. One implication of this design is that there can be no zero-length 
+            segments. If for example a `SEGMENT` has sampleStart: 1420 and 
+            sampleDur: 0, it will be considered to start at the 
+            start time of sample $1420 - \frac{0.5}{sampleRate}$ and end at 
+            the end time of sample $1420 + \frac{0.5}{sampleRate}$. The actual 
+            duration in seconds is therefore expressed as $\frac{sampleDur + 1}{sampleRate}$.
+            The `start` and `end` time value calculation is
             performed by both the query engine of `emuR` if the
             `calcTimes` parameter is set to `TRUE` and the `EMU-webApp`
             to display the time information in the signal canvases.
@@ -527,7 +533,7 @@ The `_annot.json` file contains the following fields:
 
 ### The SSFF file format {#subsec:app-chapFileFormatsSSFF}
 
-The SSFF file format is a binary file format which has a plain text header. This means that the header is human-readable and can be viewed with any text editor including common UNIX command line tools such as `less` or `cat`. Within R it is possible to view the header by using R's `readLines()` function as displayed in R Example \@ref(rexample:wrassp-readSSFF).
+The SSFF file format is a binary file format which has a plain text header. This means that the header is human-readable and can be viewed with any text editor including common UNIX command line tools such as `less` or `cat`. Within R it is possible to view the header by using R's `readLines()` function as displayed in the R code snippet below.
 
 
 ```r
@@ -569,13 +575,13 @@ The general line item structure of the plain text head of an SSFF file can be de
 
 -   `Machine IBM-PC` (required line): System architecture of the machine that generated the file. This is mainly used to specify the endianness of the data block (see below). `Machine IBM-PC` indicates little-endian and `Machine SPARC` indicates big-endian. To date, we have not encountered other machine types.
 
--   `Record_Freq SR` (required line): Sample rate of current file in Hz. If, for example, `SR` is 200.0 (see R Example \@ref(rexample:wrassp-readSSFF)) then the sample rate is 200 Hz.
+-   `Record_Freq SR` (required line): Sample rate of current file in Hz. If, for example, `SR` is 200.0 (see the above R code snippet) then the sample rate is 200 Hz.
 
--   `Start_Time ST` (required line): Time of first sample block in data block in seconds. This often deviates from 0.0 as `wrassp`'s windowed signal processing functions start with the first window centered around `windowShift` / 2. If the `windowShift` parameter's default value is 5 ms, the start time `ST` of the first sample block will be 0.0025 sec (see R Example \@ref(rexample:wrassp-readSSFF)).
+-   `Start_Time ST` (required line): Time of first sample block in data block in seconds. This often deviates from 0.0 as `wrassp`'s windowed signal processing functions start with the first window centered around `windowShift` / 2. If the `windowShift` parameter's default value is 5 ms, the start time `ST` of the first sample block will be 0.0025 sec (see above R code snippet).
 
--   `Column CN CDT CDL` (required line(s)): A `Column` line entry contains four space-separated values, where `Column` is the initial key word value. The second value, `CN` (`fm` in R Example \@ref(rexample:wrassp-readSSFF)), specifies the name for the column; the third, `CDT` (`SHORT` in R Example \@ref(rexample:wrassp-readSSFF)), indicates the column's data type; and the fourth, `CDL` (`4` in R Example \@ref(rexample:wrassp-readSSFF)), is the column's data length in bytes. As can be seen in R Example \@ref(rexample:wrassp-readSSFF), it is quite common for SSFF files to have multiple column entries. The sequence of these entries is relevant, as it specifies the sequence of the data in the binary data block (see below).
+-   `Column CN CDT CDL` (required line(s)): A `Column` line entry contains four space-separated values, where `Column` is the initial key word value. The second value, `CN` (`fm` in above R code snippet), specifies the name for the column; the third, `CDT` (`SHORT` in the above R code snippet), indicates the column's data type; and the fourth, `CDL` (`4` in the above R code snippet), is the column's data length in bytes. As can be seen in the R code snippet above, it is quite common for SSFF files to have multiple column entries. The sequence of these entries is relevant, as it specifies the sequence of the data in the binary data block (see below).
 
--   `NAME DT DV` (optional line(s)): Optional single value definitions that have a `NAME`, a data type `DT` and a data value `DV` (see `Original_Freq DOUBLE 20000.0` in R Example \@ref(rexample:wrassp-readSSFF) specifying the original sample rate of the audio file the `.fms` file was generated from).
+-   `NAME DT DV` (optional line(s)): Optional single value definitions that have a `NAME`, a data type `DT` and a data value `DV` (see `Original_Freq DOUBLE 20000.0` in the R code snippet above specifying the original sample rate of the audio file the `.fms` file was generated from).
 
 -   `Comment CHAR string of variable length` (optional line(s)): The `Comment CHAR` allows for comment strings to be added to the header.
 
@@ -585,8 +591,8 @@ The binary data block of the SSFF file format stores its data in a so-called int
 `0.0025 (== Start_Time) + 1 / 200.0 (== Record_Freq) * sample block index`.
 
 <div class="figure" style="text-align: center">
-<img src="pics/ssffDataBlock.png" alt="Schematic representation of the data block of the `msajc003.fms` file of R Example ref{rexample:wrassp-readSSFF}." width="100%" />
-<p class="caption">(\#fig:wrassp-ssffDataBlock)Schematic representation of the data block of the `msajc003.fms` file of R Example ref{rexample:wrassp-readSSFF}.</p>
+<img src="pics/ssffDataBlock.png" alt="Schematic representation of the data block of the `msajc003.fms` file of the above R code snippet." width="100%" />
+<p class="caption">(\#fig:wrassp-ssffDataBlock)Schematic representation of the data block of the `msajc003.fms` file of the above R code snippet.</p>
 </div>
 
 ## Example files

@@ -145,7 +145,7 @@ list_attributeDefinitions(dbHandle,
 
 As can be inferred from the columns `hasLabelGroups` and `hasLegalLabels` of the output of the above `list_attributeDefinitions()` function, attribute definitions can also contain two further optional fields. The `legalLabels` field contains an array of strings that specifies the labels that are legal (i.e., allowed or valid) for the given attribute definition. As the `EMU-webApp` does not allow the annotator to enter any labels that are not specified in this array, this is a simple way of assuring that a level has a consistent label set. The following R code snippet shows how the `set_legalLabels` and `get_legalLabels` functions can be used to specify a legal label set for the primary `Word` attribute definition of the `Word` level.
 
-```{r rexample:emuDB-setLegalLabels, rexample=TRUE}
+```{r}
 # define allowed word labels
 wordLabels = c("amongst", "any", "are",
                "always", "and", "attracts")
@@ -176,7 +176,7 @@ get_legalLabels(dbHandle,
 
 A further optional field is the `labelGroups` field. It contains specifications of groups of labels that can be referenced by a name given to the group while querying the `emuDB`. The R code below shows how the `add_attrDefLabelGroup()` function is used to add two label groups to the `Phonetic` attribute definition. One of the groups is used to reference a subset of *longVowels* and the other to reference a subset of *shortVowels* on the `Phonetic` level.
 
-```{r rexample:emuDB-addLabelGroup, rexample=TRUE}
+```{r}
 # add long vowels label group
 add_attrDefLabelGroup(dbHandle,
                       levelName = "Phonetic",
@@ -339,7 +339,7 @@ get_levelCanvasesOrder(dbHandle, perspectiveName = "default")
 
 As a final step before beginning the annotation process, the *fromScratch* `emuDB` has to be served to the `EMU-webApp` for annotation and visualization purposes. The code below shows how this can be achieved using the `serve()` function.
 
-```{r rexample:emuDB-serve, rexample=TRUE, eval=FALSE}
+```{r eval=FALSE}
 # serve "fromScratch" emuDB to the EMU-webApp
 serve(dbHandle)
 ```

@@ -10,7 +10,7 @@ This chapter describes the newly implemented query system of the `emuR` package.
 <p class="caption">(\#fig:amongstHier)Simple partial hierarchy of an annotation of the word *amongst* in the *msajc003* bundle in the *ae* demo `emuDB`.</p>
 </div>
 
-R Example \@ref(rexample:query-loadDemoData) shows how to create the demo data that is provided by the `emuR` package followed by loading an example `emuDB` called *ae* into the current R session. This database will be used in all the examples throughout this chapter.
+The R code snippet below shows how to create the demo data that is provided by the `emuR` package followed by loading an example `emuDB` called *ae* into the current R session. This database will be used in all the examples throughout this chapter.
 
 
 ```r
@@ -30,7 +30,7 @@ ae = load_emuDB(path2ae, verbose = F)
 
 ## `emuRsegs`: The resulting object of a query {#sec:query-emuRsegs}
 
-In `emuR` the result of a query or requery (see Section \@ref(subsec:requery)) is a pre-specified object which is a superclass of the common `data.frame`. R Example \@ref(rexample:emuRsegs) shows the result of a slightly expanded version of the above query (`"Syllable == S"`), which additionally uses the dominates operator (i.e., the `^` operator; for further information see Section \@ref(subsubsec:query_dominationQueries)) to reduce the queried annotations to the partial hierarchy depicted in Figure \@ref(fig:amongstHier} in the *ae* demo `emuDB`. In this example, the classes of the resulting object including its printed output are displayed. The class vector of a resulting `emuRsegs` object also contains the legacy EMU system's `emusegs` class, which indicates that this object is fully backwards compatible with the legacy class and the methods available for it (see @harrington:2010a for details). The printed output provides information about which database was queried and what the query was as well as information about the labels, start and end times (in milliseconds), session, bundle, level and type information. The call to `colnames()` shows that the resulting object has additional columns, which are ignored by the `print()` function. This somewhat hidden information is used to store information about what the exact items or sequence of items were retrieved from the `emuDB`. This information is needed to know which items to start from in a requery (see Section \@ref(subsec:requery}) and is also the reason why an `emuRsegs` object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an `emuDB`.
+In `emuR` the result of a query or requery (see Section \@ref(subsec:requery)) is a pre-specified object which is a superclass of the common `data.frame`. R code snippet below shows the result of a slightly expanded version of the above query (`"Syllable == S"`), which additionally uses the dominates operator (i.e., the `^` operator; for further information see Section \@ref(subsubsec:query_dominationQueries)) to reduce the queried annotations to the partial hierarchy depicted in Figure \@ref(fig:amongstHier} in the *ae* demo `emuDB`. In this example, the classes of the resulting object including its printed output are displayed. The class vector of a resulting `emuRsegs` object also contains the legacy EMU system's `emusegs` class, which indicates that this object is fully backwards compatible with the legacy class and the methods available for it (see @harrington:2010a for details). The printed output provides information about which database was queried and what the query was as well as information about the labels, start and end times (in milliseconds), session, bundle, level and type information. The call to `colnames()` shows that the resulting object has additional columns, which are ignored by the `print()` function. This somewhat hidden information is used to store information about what the exact items or sequence of items were retrieved from the `emuDB`. This information is needed to know which items to start from in a requery (see Section \@ref(subsec:requery}) and is also the reason why an `emuRsegs` object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an `emuDB`.
 
 
 ```r
@@ -77,7 +77,7 @@ The EQL user interface was retained from the legacy system because it was suffic
 
 ### Simple queries
 
-The most basic form of an EQL query is a simple equality, inequality, matching or non-matching query, two of which are displayed in R Example \@ref(rexample:simpleq). The syntax of a simple query term is `[L OPERATOR A]`, where `L` specifies a level (or alternatively the name of a parallel attribute definition); `OPERATOR` is one of `==` (equality), `!$=$` (inequality), `=~` (matching) or `!~` (non-matching); and `A` is an expression specifying the labels of the annotation items of `L` [^1-chap:querysys]. The second query in R Example \@ref(rexample:simpleq) queries an event level. The result of querying an event level contains the same information as that of a segment level query except that the derived end times have the value zero.
+The most basic form of an EQL query is a simple equality, inequality, matching or non-matching query, two of which are displayed in R code snippet below. The syntax of a simple query term is `[L OPERATOR A]`, where `L` specifies a level (or alternatively the name of a parallel attribute definition); `OPERATOR` is one of `==` (equality), `!$=$` (inequality), `=~` (matching) or `!~` (non-matching); and `A` is an expression specifying the labels of the annotation items of `L` [^1-chap:querysys]. The second query in the R code snippet below queries an event level. The result of querying an event level contains the same information as that of a segment level query except that the derived end times have the value zero.
 
 [^1-chap:querysys]: The examples and syntax descriptions used in this chapter have been adapted from examples by @cassidy:sc2001a and @harrington:2002aa and were largely extracted from the `EQL` vignette of the `emuR` package. All of the examples were adapted to work with the supplied *ae* `emuDB`.
 
@@ -102,7 +102,7 @@ head(sl, n = 1)
 ## 1     L-  1107   0    0000 msajc003  Tone EVENT
 ```
 
-R Example \@ref(rexample:simpleq) queries two levels that contain time information: a segment level and an event level. As described in Chapter \@ref(chap:annot-struct-mod), annotations in the EMU-SDMS may also contain levels that do not contain time information. R Example \@ref(rexample:simpleq-deduceTime) shows a query that queries annotation items on a level that does not contain time information (the *Syllable* level) to show that the result contains deduced time information from the time-bearing sub-level.
+The R code snippet above queries two levels that contain time information: a segment level and an event level. As described in Chapter \@ref(chap:annot-struct-mod), annotations in the EMU-SDMS may also contain levels that do not contain time information. The R code snippet below shows a query that queries annotation items on a level that does not contain time information (the *Syllable* level) to show that the result contains deduced time information from the time-bearing sub-level.
 
 
 ```r
@@ -180,7 +180,7 @@ The EQL contains three operators that can be used to combine the simple query te
 
 #### Sequence queries
 
-The syntax of a query string using the `->` sequence operator is `[L == A -> L == B]` where annotation item `A` on level `L` precedes item `B` on level `L`. For a sequence query to work, both arguments must be on the same level. Alternatively parallel attribute definitions of the same level may also be chosen (see Chapter \@ref(chap:annot-struct-mod) for further details). An example of a query string using the sequence operator is displayed in R Example \@ref(rexample:seqq). All rows in the resulting segment list have the start time of *\@*, the end time of *n* and their labels are *\@->n*, where the *->* substring denotes the sequence.
+The syntax of a query string using the `->` sequence operator is `[L == A -> L == B]` where annotation item `A` on level `L` precedes item `B` on level `L`. For a sequence query to work, both arguments must be on the same level. Alternatively parallel attribute definitions of the same level may also be chosen (see Chapter \@ref(chap:annot-struct-mod) for further details). An example of a query string using the sequence operator is displayed in the R code snippet below. All rows in the resulting segment list have the start time of *\@*, the end time of *n* and their labels are *\@->n*, where the *->* substring denotes the sequence.
 
 
 ```r
@@ -202,7 +202,7 @@ head(sl, n = 1)
 
 #### Result modifier
 
-Because users are often interested in just one element of a compound query such as sequence queries (e.g., the *\@*s in a *\@->n* sequences), the EQL offers a so-called result modifier symbol, `#`. This symbol may be placed in front of any simple query component of a multi component query as depicted in R Example \@ref(rexample:resultmod). Placing the hashtag in front of either the left or the right simple query term will result in segment lists that contains only the annotation items of the simple query term that have the hashtag in front of it. Only one result modifier may be used per query.
+Because users are often interested in just one element of a compound query such as sequence queries (e.g., the *\@*s in a *\@->n* sequences), the EQL offers a so-called result modifier symbol, `#`. This symbol may be placed in front of any simple query component of a multi component query as depicted in the R code snippet below. Placing the hashtag in front of either the left or the right simple query term will result in segment lists that contains only the annotation items of the simple query term that have the hashtag in front of it. Only one result modifier may be used per query.
 
 
 ```r
@@ -242,7 +242,7 @@ The syntax of a query string using the conjunction operator can schematically be
 - It combines different attributes of the same level: `[Text == always & Accent == S]` where *Text* and *Accent* are additional attributes of level *Word*; and
 - It combines a simple query with a function query (see Position Queries Section \@ref(subsec:query-positionQueries)): *[Phonetic == l & Start(Word, Phonetic) == 1]*.
 
-An example of a query string using the conjunction operator is displayed in R Example \@ref(rexample:conjq).
+An example of a query string using the conjunction operator is displayed in the R code snippet below.
 
 
 ```r
@@ -258,7 +258,7 @@ query(ae, "[Text == always & Accent == S]")
 ## 1 always 775.475 1280.175    0000 msajc022  Text ITEM
 ```
 
-R Example \@ref(rexample:conjq) does not make use of the result modifier symbol. However, only the annotation items of the left simple query term (*Text == always*) are returned. This behavior is true for all EQL operators that combine simple query terms except for the sequence operator. As it is more explicit to use the result modifier to express the desired result, we recommend using the result modifier where possible. The more explicit variant of the above query which yields the same result is *"[#Text == always & Word == C]"*.
+The above R code snippet does not make use of the result modifier symbol. However, only the annotation items of the left simple query term (*Text == always*) are returned. This behavior is true for all EQL operators that combine simple query terms except for the sequence operator. As it is more explicit to use the result modifier to express the desired result, we recommend using the result modifier where possible. The more explicit variant of the above query which yields the same result is *"[#Text == always & Word == C]"*.
 
 
 #### Domination/hierarchical queries {#subsubsec:query_dominationQueries}
@@ -270,7 +270,7 @@ Compared to sequence and conjunction queries, a domination query using the opera
 <p class="caption">(\#fig:amongstHierDomintation)Partial hierarchy depicting all annotation items that are dominated by the strong syllable (*S*) of the *Syllable* level (inside dashed box). Items marked 	extcolor{three_color_c1}{green} belong to the 	extcolor{three_color_c1}{*Phoneme*} level, items marked 	extcolor{three_color_c2}{orange} belong to the 	extcolor{three_color_c2}{*Phonetic*} level and the 	extcolor{three_color_c3}{purple} dashed box indicates the set of items that are dominated by *S*.</p>
 </div>
 
-A schematic representation of a simple domination query string that retrieves all annotation items *A* of level `L1` that are dominated by items `B` in level `L2` (i.e., items that are directly or indirectly linked) is `[L1 == A ^{`  L2 == B]}. Although the domination relationship is directed the domination operator is not. This means that either items in `L1` dominate items in `L2` or items in `L2` dominate items in `L1`. Note that link definitions that specify the validity of the domination have to be present in the `emuDB` configuration for this to work (see Chapter \@ref(chap:emuDB) for details). An example of a query string using the domination operator is displayed in R Example \@ref(rexample:domq).
+A schematic representation of a simple domination query string that retrieves all annotation items *A* of level `L1` that are dominated by items `B` in level `L2` (i.e., items that are directly or indirectly linked) is `[L1 == A ^{`  L2 == B]}. Although the domination relationship is directed the domination operator is not. This means that either items in `L1` dominate items in `L2` or items in `L2` dominate items in `L1`. Note that link definitions that specify the validity of the domination have to be present in the `emuDB` configuration for this to work (see Chapter \@ref(chap:emuDB) for details). An example of a query string using the domination operator is displayed in the R code snippet below.
 
 
 ```r
@@ -294,7 +294,7 @@ As with the conjunction query, if no result modifier is present, a dominates que
 
 ### Position queries {#subsec:query_positionQueries}
 
-The EQL has three function terms that specify where in a domination relationship a child level annotation item is allowed to occur. The three function terms are `Start()`, `End()` and `Medial()`. A schematic representation of a query string representing a simple usage of the `Start()`, `End()` and `Medial()` function would be: `POSFCT(L1, L2) == TRUE`. In this representation `POSFCT` is a placeholder for one of the three functions, at which level `L1` must dominate level `L2`. Where `L1` does indeed dominate `L2`, the corresponding item from level `L2` is returned. If the expression is set to `FALSE` (i.e., `POSFCT(L1, L2) == FALSE`), all the items that do not match the condition of `L2` are returned. An illustration of what is returned by each of the position functions depending on if they are set to `TRUE` or `FALSE` is depicted in Figure \@ref(fig:query-positionSimple), while R Example \@ref(rexample:posq) shows an example query using a position query term.
+The EQL has three function terms that specify where in a domination relationship a child level annotation item is allowed to occur. The three function terms are `Start()`, `End()` and `Medial()`. A schematic representation of a query string representing a simple usage of the `Start()`, `End()` and `Medial()` function would be: `POSFCT(L1, L2) == TRUE`. In this representation `POSFCT` is a placeholder for one of the three functions, at which level `L1` must dominate level `L2`. Where `L1` does indeed dominate `L2`, the corresponding item from level `L2` is returned. If the expression is set to `FALSE` (i.e., `POSFCT(L1, L2) == FALSE`), all the items that do not match the condition of `L2` are returned. An illustration of what is returned by each of the position functions depending on if they are set to `TRUE` or `FALSE` is depicted in Figure \@ref(fig:query-positionSimple), while the R code snippet below shows an example query using a position query term.
 
 
 <div class="figure" style="text-align: center">
@@ -322,7 +322,7 @@ head(sl, n = 1)
 ### Count queries {#subsec:query_countQueries}
 
 
-A further query component of the EQL are so-called count queries. They allow the user to specify how many child nodes a parent annotation item is allowed to have. Figure \@ref(fig:query_amongstHierCount) displays two syllables, one containing one phoneme and one phonetic annotation item, the other containing five phoneme and six phonetic items. Using EQL's `Num()` function it is possible to specify which of the two syllables should be retrieved, depending on the number of phonemic or phonetic elements to which it is directly or indirectly linked. R Example \@ref(rexample:query_countQuery) shows a query that queries all syllables that contain five phonemes.
+A further query component of the EQL are so-called count queries. They allow the user to specify how many child nodes a parent annotation item is allowed to have. Figure \@ref(fig:query_amongstHierCount) displays two syllables, one containing one phoneme and one phonetic annotation item, the other containing five phoneme and six phonetic items. Using EQL's `Num()` function it is possible to specify which of the two syllables should be retrieved, depending on the number of phonemic or phonetic elements to which it is directly or indirectly linked. The R code snippet below shows a query that queries all syllables that contain five phonemes.
 
 
 <div class="figure" style="text-align: center">
@@ -358,7 +358,7 @@ By using the correct bracketing, all of the above query components can be combin
 3. *... contain a schwa (\@) in the first syllable ...*: `[Phoneme == @ ^ Start(Word, Syllable) == 1]`
 4. All three can be combined by saying 2 dominates 3 (`[2 ^ 3]`) and these are followed by 1 (`[2 ^ 3] -> 1]`)
 
-The combine query is depicted in R Example \@ref(rexample:query-moreComplexQuery). This complex query demonstrates the expressive power of the query mechanism that the EMU-SDMS provides.
+The combine query is depicted in the R code snippet below. This complex query demonstrates the expressive power of the query mechanism that the EMU-SDMS provides.
 
 
 ```r
@@ -381,7 +381,7 @@ As mastering these complex compound queries can require some practice, several s
 
 ### Deducing time {#subsec:query_deducingTime}
 
-The default behavior of the legacy EMU system was to automatically deduce time information for queries of levels that do not contain time information. This was achieved by searching for the time-bearing sub-level and calculating the start and end times from the left-most and right-most annotation items which where directly or indirectly linked to the retrieved parent item. This upward purculation of time information is also the default behavior of the new EMU-SDMS. However, a new feature has been added to the query engine which allows the calculation of time to be switched off for a given query using the `calcTimes` parameter of the `query()` function. This is beneficial in two ways: for one, levels that do not have a time-bearing sub-level may be queried and secondly, the execution time of queries can be greatly improved. The performance increase becomes evident when performing queries on large data sets on one of the top levels of the hierarchy (e.g., *Utterance* or *Intonational* in the *ae* `emuDB`). When deducing time information for annotation items that contain large portions of the hierarchy, the query engine has to walk down large partial hierarchies to find the left-most and right-most items on the time-bearing sub-level. This can be a computationally expensive operation and is often unnecessary, especially during data exploration. R Example \@ref(rexample:query-deducingTime) shows the usage of this parameter by querying all of the items of the *Intonational* level and displaying the `NA` values for start and end times in the resulting segment list. It is worth noting that the missing time information excluded during the original query can be retrieved at a later point in time by performing a hierarchical requery (see Section \@ref(subsec:requery)) on the same level.
+The default behavior of the legacy EMU system was to automatically deduce time information for queries of levels that do not contain time information. This was achieved by searching for the time-bearing sub-level and calculating the start and end times from the left-most and right-most annotation items which where directly or indirectly linked to the retrieved parent item. This upward purculation of time information is also the default behavior of the new EMU-SDMS. However, a new feature has been added to the query engine which allows the calculation of time to be switched off for a given query using the `calcTimes` parameter of the `query()` function. This is beneficial in two ways: for one, levels that do not have a time-bearing sub-level may be queried and secondly, the execution time of queries can be greatly improved. The performance increase becomes evident when performing queries on large data sets on one of the top levels of the hierarchy (e.g., *Utterance* or *Intonational* in the *ae* `emuDB`). When deducing time information for annotation items that contain large portions of the hierarchy, the query engine has to walk down large partial hierarchies to find the left-most and right-most items on the time-bearing sub-level. This can be a computationally expensive operation and is often unnecessary, especially during data exploration. The R code snippet below shows the usage of this parameter by querying all of the items of the *Intonational* level and displaying the `NA` values for start and end times in the resulting segment list. It is worth noting that the missing time information excluded during the original query can be retrieved at a later point in time by performing a hierarchical requery (see Section \@ref(subsec:requery)) on the same level.
 
 
 ```r
@@ -409,7 +409,7 @@ A popular feature of the legacy system was the ability to use the result of a qu
 <p class="caption">(\#fig:query-requery)Three-step (	extcolor{three_color_c1}{query} -> 	extcolor{three_color_c2}{requery_hier} -> 	extcolor{three_color_c3}{requery_seq}) requery procedure, its single 	extcolor{darkgray}{query} counterpart and their color coded movements within the annotation hierarchy.</p>
 </div>
 
-R Example \@ref(rexample:query-requery) illustrates how the same results of the sequential query `[\#Phonetic =~ .* -> Phonetic == n]` can be achieved using the `requery_seq()` function. Further, it shows how the `requery_hier()` function can be used to move vertically through the annotation structure by starting at the *Syllable* level and retrieving all the *Phonetic* items for the query result.
+The R code snippet below illustrates how the same results of the sequential query `[\#Phonetic =~ .* -> Phonetic == n]` can be achieved using the `requery_seq()` function. Further, it shows how the `requery_hier()` function can be used to move vertically through the annotation structure by starting at the *Syllable* level and retrieving all the *Phonetic* items for the query result.
 
 
 
