@@ -22,7 +22,7 @@ PraatToFormants2AsspDataObj <- function(path,
                                                          5, 5500, 
                                                          0.025, 50), 
                                         columnNames = c("fm", "bw")){
-  
+
   tmp1FileName = "tmp.ooTextFile"
   tmp2FileName = "tmp.table"
   
@@ -82,7 +82,7 @@ PraatToFormants2AsspDataObj <- function(path,
   
   attr(ado, "startTime") = startTime
   
-  attr(ado, "startRecord") = as.integer(1)
+  # attr(ado, "startRecord") = as.integer(1)
   
   attr(ado, "endRecord") = as.integer(nrow(fmVals))
   
@@ -94,6 +94,31 @@ PraatToFormants2AsspDataObj <- function(path,
   ado = addTrack(ado, columnNames[1], fmVals, "INT16")
   
   ado = addTrack(ado, columnNames[2], bwVals, "INT16")
+  
+  # add missing values at the start as Praat sometimes 
+  # has very late start values which causes issues 
+  # in the SSFF file format as this sets the startRecord 
+  # depending on the start time of the first sample
+  if(startTime > 1/sR){
+    nr_of_missing_samples = floor(startTime / (1/sR))
+    
+    missing_fm_vals = matrix(0,
+                             nrow = nr_of_missing_samples, 
+                             ncol = ncol(ado$fm))
+    
+    
+    missing_bw_vals = matrix(0,
+                             nrow = nr_of_missing_samples, 
+                             ncol = ncol(ado$bw))
+    
+    # prepend values
+    ado$fm = rbind(missing_fm_vals, ado$fm)
+    ado$bw = rbind(missing_fm_vals, ado$bw)
+    
+    # fix start time
+    attr(ado, "startTime") = startTime - nr_of_missing_samples * (1/sR)
+  }  
+
   
   return(ado)
 }
@@ -148,7 +173,4 @@ sl = query(ae, "Phonetic == n")
 td = get_trackdata(ae, sl, ssffTrackName = "praatFms", verbose = F)
 ```
 
-```{r echo=FALSE, results='hide', message=FALSE>>=
-# clean up emuR_demoData
-unlink(file.path(tempdir(), "emuR_demoData"), recursive = TRUE)
-```
+

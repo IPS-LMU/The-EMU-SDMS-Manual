@@ -376,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb380-14" data-line-number="14">                                                         <span class="dv">5</span>, <span class="dv">5500</span>, </a>
 <a class="sourceLine" id="cb380-15" data-line-number="15">                                                         <span class="fl">0.025</span>, <span class="dv">50</span>), </a>
 <a class="sourceLine" id="cb380-16" data-line-number="16">                                        <span class="dt">columnNames =</span> <span class="kw">c</span>(<span class="st">&quot;fm&quot;</span>, <span class="st">&quot;bw&quot;</span>)){</a>
-<a class="sourceLine" id="cb380-17" data-line-number="17">  </a>
+<a class="sourceLine" id="cb380-17" data-line-number="17"></a>
 <a class="sourceLine" id="cb380-18" data-line-number="18">  tmp1FileName =<span class="st"> &quot;tmp.ooTextFile&quot;</span></a>
 <a class="sourceLine" id="cb380-19" data-line-number="19">  tmp2FileName =<span class="st"> &quot;tmp.table&quot;</span></a>
 <a class="sourceLine" id="cb380-20" data-line-number="20">  </a>
@@ -436,7 +436,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb380-74" data-line-number="74">  </a>
 <a class="sourceLine" id="cb380-75" data-line-number="75">  <span class="kw">attr</span>(ado, <span class="st">&quot;startTime&quot;</span>) =<span class="st"> </span>startTime</a>
 <a class="sourceLine" id="cb380-76" data-line-number="76">  </a>
-<a class="sourceLine" id="cb380-77" data-line-number="77">  <span class="kw">attr</span>(ado, <span class="st">&quot;startRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb380-77" data-line-number="77">  <span class="co"># attr(ado, &quot;startRecord&quot;) = as.integer(1)</span></a>
 <a class="sourceLine" id="cb380-78" data-line-number="78">  </a>
 <a class="sourceLine" id="cb380-79" data-line-number="79">  <span class="kw">attr</span>(ado, <span class="st">&quot;endRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">nrow</span>(fmVals))</a>
 <a class="sourceLine" id="cb380-80" data-line-number="80">  </a>
@@ -449,12 +449,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb380-87" data-line-number="87">  </a>
 <a class="sourceLine" id="cb380-88" data-line-number="88">  ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, columnNames[<span class="dv">2</span>], bwVals, <span class="st">&quot;INT16&quot;</span>)</a>
 <a class="sourceLine" id="cb380-89" data-line-number="89">  </a>
-<a class="sourceLine" id="cb380-90" data-line-number="90">  <span class="kw">return</span>(ado)</a>
-<a class="sourceLine" id="cb380-91" data-line-number="91">}</a>
-<a class="sourceLine" id="cb380-92" data-line-number="92"></a>
-<a class="sourceLine" id="cb380-93" data-line-number="93">########################################</a>
-<a class="sourceLine" id="cb380-94" data-line-number="94"><span class="co"># Use of function on &#39;ae&#39; emuDB</span></a>
-<a class="sourceLine" id="cb380-95" data-line-number="95"><span class="kw">library</span>(emuR)</a></code></pre></div>
+<a class="sourceLine" id="cb380-90" data-line-number="90">  <span class="co"># add missing values at the start as Praat sometimes </span></a>
+<a class="sourceLine" id="cb380-91" data-line-number="91">  <span class="co"># has very late start values which causes issues </span></a>
+<a class="sourceLine" id="cb380-92" data-line-number="92">  <span class="co"># in the SSFF file format as this sets the startRecord </span></a>
+<a class="sourceLine" id="cb380-93" data-line-number="93">  <span class="co"># depending on the start time of the first sample</span></a>
+<a class="sourceLine" id="cb380-94" data-line-number="94">  <span class="cf">if</span>(startTime <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>sR){</a>
+<a class="sourceLine" id="cb380-95" data-line-number="95">    nr_of_missing_samples =<span class="st"> </span><span class="kw">floor</span>(startTime <span class="op">/</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>sR))</a>
+<a class="sourceLine" id="cb380-96" data-line-number="96">    </a>
+<a class="sourceLine" id="cb380-97" data-line-number="97">    missing_fm_vals =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb380-98" data-line-number="98">                             <span class="dt">nrow =</span> nr_of_missing_samples, </a>
+<a class="sourceLine" id="cb380-99" data-line-number="99">                             <span class="dt">ncol =</span> <span class="kw">ncol</span>(ado<span class="op">$</span>fm))</a>
+<a class="sourceLine" id="cb380-100" data-line-number="100">    </a>
+<a class="sourceLine" id="cb380-101" data-line-number="101">    </a>
+<a class="sourceLine" id="cb380-102" data-line-number="102">    missing_bw_vals =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb380-103" data-line-number="103">                             <span class="dt">nrow =</span> nr_of_missing_samples, </a>
+<a class="sourceLine" id="cb380-104" data-line-number="104">                             <span class="dt">ncol =</span> <span class="kw">ncol</span>(ado<span class="op">$</span>bw))</a>
+<a class="sourceLine" id="cb380-105" data-line-number="105">    </a>
+<a class="sourceLine" id="cb380-106" data-line-number="106">    <span class="co"># prepend values</span></a>
+<a class="sourceLine" id="cb380-107" data-line-number="107">    ado<span class="op">$</span>fm =<span class="st"> </span><span class="kw">rbind</span>(missing_fm_vals, ado<span class="op">$</span>fm)</a>
+<a class="sourceLine" id="cb380-108" data-line-number="108">    ado<span class="op">$</span>bw =<span class="st"> </span><span class="kw">rbind</span>(missing_fm_vals, ado<span class="op">$</span>bw)</a>
+<a class="sourceLine" id="cb380-109" data-line-number="109">    </a>
+<a class="sourceLine" id="cb380-110" data-line-number="110">    <span class="co"># fix start time</span></a>
+<a class="sourceLine" id="cb380-111" data-line-number="111">    <span class="kw">attr</span>(ado, <span class="st">&quot;startTime&quot;</span>) =<span class="st"> </span>startTime <span class="op">-</span><span class="st"> </span>nr_of_missing_samples <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span><span class="op">/</span>sR)</a>
+<a class="sourceLine" id="cb380-112" data-line-number="112">  }  </a>
+<a class="sourceLine" id="cb380-113" data-line-number="113"></a>
+<a class="sourceLine" id="cb380-114" data-line-number="114">  </a>
+<a class="sourceLine" id="cb380-115" data-line-number="115">  <span class="kw">return</span>(ado)</a>
+<a class="sourceLine" id="cb380-116" data-line-number="116">}</a>
+<a class="sourceLine" id="cb380-117" data-line-number="117"></a>
+<a class="sourceLine" id="cb380-118" data-line-number="118">########################################</a>
+<a class="sourceLine" id="cb380-119" data-line-number="119"><span class="co"># Use of function on &#39;ae&#39; emuDB</span></a>
+<a class="sourceLine" id="cb380-120" data-line-number="120"><span class="kw">library</span>(emuR)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;emuR&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:base&#39;:
@@ -491,7 +516,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb383-29" data-line-number="29">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)</a>
 <a class="sourceLine" id="cb383-30" data-line-number="30"></a>
 <a class="sourceLine" id="cb383-31" data-line-number="31">td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl, <span class="dt">ssffTrackName =</span> <span class="st">&quot;praatFms&quot;</span>, <span class="dt">verbose =</span> F)</a></code></pre></div>
-<p><code>{r echo=FALSE, results='hide', message=FALSE&gt;&gt;= # clean up emuR_demoData unlink(file.path(tempdir(), &quot;emuR_demoData&quot;), recursive = TRUE)</code></p>
 
 </div>
 </div>
