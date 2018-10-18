@@ -657,13 +657,13 @@ current import routines provided by the \texttt{emuR} package are:
 The \texttt{emuR} package comes with a set of example files and small
 databases that are used throughout the \texttt{emuR} documentation,
 including the functions help pages. These can be accessed by typing
-\texttt{help(functionName)} or the short form \texttt{?functionName}. R
-code snippet below illustrates how to create this demo data in a
-user-specified directory. Throughout the examples of this documentation
-the directory that is provided by the base R function \texttt{tempdir()}
-will be used, as this is available on every platform supported by R (see
-\texttt{?tempdir} for further details). As can be inferred from the
-\texttt{list.dirs()} output in the below code, the
+\texttt{help(function\_name)} or the short form
+\texttt{?function\_name}. R code snippet below illustrates how to create
+this demo data in a user-specified directory. Throughout the examples of
+this documentation the directory that is provided by the base R function
+\texttt{tempdir()} will be used, as this is available on every platform
+supported by R (see \texttt{?tempdir} for further details). As can be
+inferred from the \texttt{list.dirs()} output in the below code, the
 \texttt{emuR\_demoData} directory contains a separate directory
 containing example data for each of the import routines. Additionally,
 it contains a directory containing an \texttt{emuDB} called \emph{ae}
@@ -682,10 +682,10 @@ Chapter \ref{chap:emuDB}).
 
 \CommentTok{# create path to demo data directory, which is}
 \CommentTok{# called "emuR_demoData"}
-\NormalTok{demoDataDir =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{)}
+\NormalTok{demo_data_dir =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{)}
 
 \CommentTok{# show demo data directories}
-\KeywordTok{list.dirs}\NormalTok{(demoDataDir, }\DataTypeTok{recursive =}\NormalTok{ F, }\DataTypeTok{full.names =}\NormalTok{ F)}
+\KeywordTok{list.dirs}\NormalTok{(demo_data_dir, }\DataTypeTok{recursive =}\NormalTok{ F, }\DataTypeTok{full.names =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -715,10 +715,10 @@ procedure.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# create path to TextGrid collection}
-\NormalTok{tgColDir =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(demoDataDir, }\StringTok{"TextGrid_collection"}\NormalTok{)}
+\NormalTok{tg_col_dir =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(demo_data_dir, }\StringTok{"TextGrid_collection"}\NormalTok{)}
 
 \CommentTok{# show content of TextGrid_collection directory}
-\KeywordTok{list.files}\NormalTok{(tgColDir)}
+\KeywordTok{list.files}\NormalTok{(tg_col_dir)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -775,8 +775,8 @@ snippet below.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# convert TextGrid collection to the emuDB format}
-\KeywordTok{convert_TextGridCollection}\NormalTok{(}\DataTypeTok{dir =}\NormalTok{ tgColDir,}
-                           \DataTypeTok{dbName =} \StringTok{"myFirst"}\NormalTok{,}
+\KeywordTok{convert_TextGridCollection}\NormalTok{(}\DataTypeTok{dir =}\NormalTok{ tg_col_dir,}
+                           \DataTypeTok{dbName =} \StringTok{"my-first"}\NormalTok{,}
                            \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(),}
                            \DataTypeTok{tierNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"Word"}\NormalTok{, }\StringTok{"Syllable"}\NormalTok{,}
                                          \StringTok{"Phoneme"}\NormalTok{, }\StringTok{"Phonetic"}\NormalTok{))}
@@ -785,7 +785,7 @@ snippet below.
 
 The above call to \texttt{convert\_TextGridCollection()} creates a new
 \texttt{emuDB} directory in the \texttt{tempdir()} directory called
-\texttt{myFirst\_emuDB}. This \texttt{emuDB} contains annotation files
+\texttt{my-first\_emuDB}. This \texttt{emuDB} contains annotation files
 that contain the same \emph{Word}, \emph{Syllable}, \emph{Phoneme} and
 \emph{Phonetic} segment tiers as the original \texttt{.TextGrid} files
 as well as copies of the original (\texttt{.wav}) audio files. For
@@ -803,33 +803,33 @@ collection into R using the \texttt{load\_emuDB()} function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# get path to emuDB called "myFirst"}
+\CommentTok{# get path to emuDB called "my-first"}
 \CommentTok{# that was created by convert_TextGridCollection()}
-\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"myFirst_emuDB"}\NormalTok{)}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"my-first_emuDB"}\NormalTok{)}
 
 \CommentTok{# load emuDB into current R session}
-\NormalTok{dbHandle =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{db_handle =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{overview}{%
 \subsection{Overview}\label{overview}}
 
-Now the \emph{myFirst} \texttt{emuDB} is loaded into R, an overview of
+Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of
 the current status and configuration of the database can be displayed
 using the \texttt{summary()} function as shown the below R code snippet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# show summary}
-\KeywordTok{summary}\NormalTok{(dbHandle)}
+\KeywordTok{summary}\NormalTok{(db_handle)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Name:     myFirst 
-## UUID:     246ef1c6-1886-4d4e-a6d7-c8f824000f66 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmper7RjR/myFirst_emuDB 
+## Name:     my-first 
+## UUID:     42d65c0c-6263-4f44-8aa1-c85748b76168 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmprw5Kje/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -857,7 +857,7 @@ bottom half, where the top half focuses on general information about the
 database (name, directory, annotation item count, etc.) and the bottom
 half displays information about the various SSFF track, level and link
 definitions of the \texttt{emuDB}. The summary information about the
-level definitions shows, for instance, that the \emph{myFirst} database
+level definitions shows, for instance, that the \emph{my-first} database
 has a \emph{Word} level of type \texttt{SEGMENT} and therefore contains
 annotation items that have a start time and a segment duration. It is
 worth noting that information about the SSFF track, level and link
@@ -877,8 +877,8 @@ the web application the \texttt{emuR} package provides the
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# serve myFirst emuDB to the EMU-webApp}
-\KeywordTok{serve}\NormalTok{(dbHandle)}
+\CommentTok{# serve my-first emuDB to the EMU-webApp}
+\KeywordTok{serve}\NormalTok{(db_handle)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -914,7 +914,7 @@ close the connection and free up the blocked R console, simply click the
 
 }
 
-\caption{Screenshot of `EMU-webApp` displaying `msajc003` bundle of *myFirst* `emuDB`.}\label{fig:tutorial-emuWebAppMyFirst}
+\caption{Screenshot of `EMU-webApp` displaying `msajc003` bundle of *my-first* `emuDB`.}\label{fig:tutorial-emuWebAppMyFirst}
 \end{figure}
 
 \hypertarget{querying-and-autobuilding-the-annotation-structure}{%
@@ -932,7 +932,7 @@ small, hopefully easy to understand subset of the EQL.
 
 The output of the \texttt{summary()} command in the R code snippet below
 and the screenshot in Figure \ref{fig:tutorial-emuWebAppMyFirst} show
-that the \emph{myFirst} \texttt{emuDB} contains four levels of
+that the \emph{my-first} \texttt{emuDB} contains four levels of
 annotations. The R code snippet below shows four separate queries that
 query various segments on each of the available levels. The query
 expressions all use the matching operator \texttt{==} which returns
@@ -945,22 +945,22 @@ operator (i.e., \texttt{LEVEL\ ==\ LABEL}; see Chapter
 \begin{Highlighting}[]
 \CommentTok{# query all segments containing the label}
 \CommentTok{# "C" (== content word) of the "Word" level}
-\NormalTok{sl_text =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ dbHandle,}
+\NormalTok{sl_text =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ db_handle,}
                 \DataTypeTok{query =} \StringTok{"Word == C"}\NormalTok{)}
 
 \CommentTok{# query all segments containing the label}
 \CommentTok{# "S" (== strong syllable) of the "Syllable" level}
-\NormalTok{sl_syl =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ dbHandle,}
+\NormalTok{sl_syl =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ db_handle,}
                \DataTypeTok{query =} \StringTok{"Syllable == S"}\NormalTok{)}
 
 \CommentTok{# query all segments containing the label}
 \CommentTok{# "f" on the "Phoneme" level}
-\NormalTok{sl_phoneme =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle,}
+\NormalTok{sl_phoneme =}\StringTok{ }\KeywordTok{query}\NormalTok{(db_handle,}
                    \DataTypeTok{query =} \StringTok{"Phoneme == f"}\NormalTok{)}
 
 \CommentTok{# query all segments containing the label}
 \CommentTok{# "n" of the "Phonetic" level}
-\NormalTok{sl_phonetic =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle,}
+\NormalTok{sl_phonetic =}\StringTok{ }\KeywordTok{query}\NormalTok{(db_handle,}
                     \DataTypeTok{query =} \StringTok{"Phonetic == n"}\NormalTok{)}
 
 \CommentTok{# show class vector of query result}
@@ -980,7 +980,7 @@ operator (i.e., \texttt{LEVEL\ ==\ LABEL}; see Chapter
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  Phonetic == n 
 ##   labels    start      end session   bundle    level    type
 ## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
@@ -994,7 +994,7 @@ operator (i.e., \texttt{LEVEL\ ==\ LABEL}; see Chapter
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  Phonetic == n 
 ##  with 12 segments
 ## 
@@ -1041,7 +1041,7 @@ structure.
 
 }
 
-\caption{Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`.}\label{fig:tutorial-violentlyHier}
+\caption{Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`.}\label{fig:tutorial-violentlyHier}
 \end{figure}
 
 As it is a very laborious task to manually link annotation items
@@ -1051,7 +1051,7 @@ and events of each level, we will now use a function provided by the
 \texttt{emuR} package to build these hierarchical structures using this
 information called \texttt{autobuild\_linkFromTimes()}. The above R code
 snippet shows the calls to this function which autobuild the
-hierarchical annotations in the \emph{myFirst} database. As a general
+hierarchical annotations in the \emph{my-first} database. As a general
 rule for autobuilding hierarchical annotation structures, a good
 strategy is to start the autobuilding process beginning with coarser
 grained annotation levels (i.e., the \emph{Word}/\emph{Syllable} level
@@ -1069,7 +1069,7 @@ automatically adds a link definition to the database.
 \begin{Highlighting}[]
 \CommentTok{# invoke autobuild function}
 \CommentTok{# for "Word" and "Syllable" levels}
-\KeywordTok{autobuild_linkFromTimes}\NormalTok{(dbHandle,}
+\KeywordTok{autobuild_linkFromTimes}\NormalTok{(db_handle,}
                         \DataTypeTok{superlevelName =} \StringTok{"Word"}\NormalTok{,}
                         \DataTypeTok{sublevelName =} \StringTok{"Syllable"}\NormalTok{,}
                         \DataTypeTok{convertSuperlevel =} \OtherTok{TRUE}\NormalTok{,}
@@ -1077,7 +1077,7 @@ automatically adds a link definition to the database.
 
 \CommentTok{# invoke autobuild function}
 \CommentTok{# for "Syllable" and "Phoneme" levels}
-\KeywordTok{autobuild_linkFromTimes}\NormalTok{(dbHandle,}
+\KeywordTok{autobuild_linkFromTimes}\NormalTok{(db_handle,}
                         \DataTypeTok{superlevelName =} \StringTok{"Syllable"}\NormalTok{,}
                         \DataTypeTok{sublevelName =} \StringTok{"Phoneme"}\NormalTok{,}
                         \DataTypeTok{convertSuperlevel =} \OtherTok{TRUE}\NormalTok{,}
@@ -1085,7 +1085,7 @@ automatically adds a link definition to the database.
 
 \CommentTok{# invoke autobuild function}
 \CommentTok{# for "Phoneme" and "Phonetic" levels}
-\KeywordTok{autobuild_linkFromTimes}\NormalTok{(dbHandle,}
+\KeywordTok{autobuild_linkFromTimes}\NormalTok{(db_handle,}
                         \DataTypeTok{superlevelName =} \StringTok{"Phoneme"}\NormalTok{,}
                         \DataTypeTok{sublevelName =} \StringTok{"Phonetic"}\NormalTok{,}
                         \DataTypeTok{convertSuperlevel =} \OtherTok{TRUE}\NormalTok{,}
@@ -1116,7 +1116,7 @@ everything as clean as possible.
 \CommentTok{# list level definitions}
 \CommentTok{# as this reveals the "-autobuildBackup" levels}
 \CommentTok{# added by the autobuild_linkFromTimes() calls}
-\KeywordTok{list_levelDefinitions}\NormalTok{(dbHandle)}
+\KeywordTok{list_levelDefinitions}\NormalTok{(db_handle)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1135,23 +1135,23 @@ everything as clean as possible.
 \begin{Highlighting}[]
 \CommentTok{# remove the levels containing the "-autobuildBackup"}
 \CommentTok{# suffix}
-\KeywordTok{remove_levelDefinition}\NormalTok{(dbHandle,}
+\KeywordTok{remove_levelDefinition}\NormalTok{(db_handle,}
                        \DataTypeTok{name =} \StringTok{"Word-autobuildBackup"}\NormalTok{,}
                        \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
                        \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
-\KeywordTok{remove_levelDefinition}\NormalTok{(dbHandle,}
+\KeywordTok{remove_levelDefinition}\NormalTok{(db_handle,}
                        \DataTypeTok{name =} \StringTok{"Syllable-autobuildBackup"}\NormalTok{,}
                        \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
                        \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
-\KeywordTok{remove_levelDefinition}\NormalTok{(dbHandle,}
+\KeywordTok{remove_levelDefinition}\NormalTok{(db_handle,}
                        \DataTypeTok{name =} \StringTok{"Phoneme-autobuildBackup"}\NormalTok{,}
                        \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
                        \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
 \CommentTok{# list level definitions}
-\KeywordTok{list_levelDefinitions}\NormalTok{(dbHandle)}
+\KeywordTok{list_levelDefinitions}\NormalTok{(db_handle)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1167,7 +1167,7 @@ everything as clean as possible.
 \begin{Highlighting}[]
 \CommentTok{# list level definitions}
 \CommentTok{# which were added by the autobuild functions}
-\KeywordTok{list_linkDefinitions}\NormalTok{(dbHandle)}
+\KeywordTok{list_linkDefinitions}\NormalTok{(db_handle)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1180,7 +1180,7 @@ everything as clean as possible.
 
 As can be seen by the output of \texttt{list\_levelDefinitions()} and
 \texttt{list\_linkDefinitions()} in the above R code, the annotation
-structure of the \emph{myFirst} \texttt{emuDB} now matches that
+structure of the \emph{my-first} \texttt{emuDB} now matches that
 displayed in Figure \ref{fig:tutorial-simpleAnnotStruct}. Using the
 \texttt{serve()} function to open the \texttt{emuDB} in the
 \texttt{EMU-webApp} followed by clicking on the \texttt{show\ hierarchy}
@@ -1195,7 +1195,7 @@ view similar to the screenshot of Figure
 
 }
 
-\caption{Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *myFirst* `emuDB`.}\label{fig:tutorial-EMU-webAppScreenshotTutorialPostAutobHier}
+\caption{Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *my-first* `emuDB`.}\label{fig:tutorial-EMU-webAppScreenshotTutorialPostAutobHier}
 \end{figure}
 
 \hypertarget{querying-the-hierarchical-annotations}{%
@@ -1207,13 +1207,13 @@ a query that helps answer the originally stated question: \emph{Given an
 annotated speech database, is the vowel height of the vowel @ (measured
 by its correlate, the first formant frequency) influenced by whether it
 appears in a content or function word?}. The R code snippet below shows
-how all the \emph{@} vowels in the \emph{myFirst} database are queried.
+how all the \emph{@} vowels in the \emph{my-first} database are queried.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# query annotation items containing}
 \CommentTok{# the labels @ on the Phonetic level}
-\NormalTok{sl_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(dbHandle, }\StringTok{"Phonetic == @"}\NormalTok{)}
+\NormalTok{sl_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(db_handle, }\StringTok{"Phonetic == @"}\NormalTok{)}
 
 \CommentTok{# show first entry of sl_vowels}
 \KeywordTok{head}\NormalTok{(sl_vowels, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
@@ -1221,7 +1221,7 @@ how all the \emph{@} vowels in the \emph{myFirst} database are queried.
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  Phonetic == @ 
 ##   labels    start      end session   bundle    level    type
 ## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT
@@ -1241,18 +1241,18 @@ from the \emph{Word} level.
 \begin{Highlighting}[]
 \CommentTok{# hierarchical requery starting from the items in sl_vowels}
 \CommentTok{# and moving up to the "Word" level}
-\NormalTok{sl_wordType =}\StringTok{ }\KeywordTok{requery_hier}\NormalTok{(dbHandle,}
+\NormalTok{sl_word_type =}\StringTok{ }\KeywordTok{requery_hier}\NormalTok{(db_handle,}
                            \DataTypeTok{seglist =}\NormalTok{ sl_vowels,}
                            \DataTypeTok{level =} \StringTok{"Word"}\NormalTok{,}
                            \DataTypeTok{calcTimes =} \OtherTok{FALSE}\NormalTok{)}
 
-\CommentTok{# show first entry of sl_wordType}
-\KeywordTok{head}\NormalTok{(sl_wordType, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show first entry of sl_word_type}
+\KeywordTok{head}\NormalTok{(sl_word_type, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  FROM REQUERY 
 ##   labels start end session   bundle level type
 ## 1      F    NA  NA    0000 msajc003  Word ITEM
@@ -1260,9 +1260,9 @@ from the \emph{Word} level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# show that sl_vowel and sl_wordType have the}
+\CommentTok{# show that sl_vowel and sl_word_type have the}
 \CommentTok{# same number of row entries}
-\KeywordTok{nrow}\NormalTok{(sl_vowels) }\OperatorTok{==}\StringTok{ }\KeywordTok{nrow}\NormalTok{(sl_wordType)}
+\KeywordTok{nrow}\NormalTok{(sl_vowels) }\OperatorTok{==}\StringTok{ }\KeywordTok{nrow}\NormalTok{(sl_word_type)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1276,7 +1276,7 @@ the same number of rows as the original \texttt{sl\_vowels} segment
 list. This is important, as each row of both segment lists line up and
 allow us to infer which segment belongs to which word type (e.g., vowel
 \texttt{sl\_vowels{[}5,{]}} belongs to the word type
-\texttt{sl\_wordType{[}5,{]}}).
+\texttt{sl\_word\_type{[}5,{]}}).
 
 \hypertarget{section:tutorial-sigExtrAndExpl}{%
 \section{Signal extraction and
@@ -1294,9 +1294,10 @@ code shows the usage of this function.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# get formant values for the vowel segments}
-\NormalTok{td_vowels =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(dbHandle,}
+\NormalTok{td_vowels =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(db_handle,}
                           \DataTypeTok{seglist =}\NormalTok{ sl_vowels,}
                           \DataTypeTok{onTheFlyFunctionName =} \StringTok{"forest"}\NormalTok{,}
+                          \DataTypeTok{resultType =} \StringTok{"tibble"}\NormalTok{,}
                           \DataTypeTok{verbose =}\NormalTok{ F)}
 
 \CommentTok{# show class vector}
@@ -1305,7 +1306,7 @@ code shows the usage of this function.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "trackdata"
+## [1] "tbl_df"     "tbl"        "data.frame"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1316,134 +1317,186 @@ code shows the usage of this function.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 28  4
+## [1] 287  24
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# display all values for fifth segment}
-\NormalTok{td_vowels[}\DecValTok{5}\NormalTok{,]}
+\CommentTok{# show nr of segments}
+\KeywordTok{max}\NormalTok{(td_vowels}\OperatorTok{$}\NormalTok{sl_rowIdx)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## trackdata from track: fm 
-## index:
-##  left right
-##     1    12
-## ftime:
-##       start    end
-## [1,] 2447.5 2502.5
-## data:
-##         T1   T2   T3   T4
-## 2447.5 303 1031 2266 3366
-## 2452.5 289  967 2250 3413
-## 2457.5 296  905 2273 3503
-## 2462.5 321  885 2357 3506
-## 2467.5 316  889 2397 3475
-## 2472.5 306  863 2348 3548
-## 2477.5 314  832 2339 3611
-## 2482.5 325  795 2342 3622
-## 2487.5 339  760 2322 3681
-## 2492.5 335  746 2316 3665
-## 2497.5 341  734 2306 3688
-## 2502.5 361  733 2304 3692
+## [1] 28
 \end{verbatim}
-
-As can be seen by the call to the \texttt{class()} function, the
-resulting object is of the type \texttt{trackdata} and has 28 entries.
-This corresponds to the number of rows contained in the segment lists
-extracted above (i.e., \texttt{nrow(sl\_vowels)}). This indicates that
-this object contains data for each of the segments that correspond to
-each of the row entries of the segment lists (i.e.,
-\texttt{td\_vowels{[}5,{]}} are the formant values belonging to
-\texttt{sl\_vowels{[}5,{]}}). As the columns \texttt{T1}, \texttt{T2},
-\texttt{T3}, \texttt{T4} of the printed output of
-\texttt{td\_vowels{[}5,{]}} suggest, the \texttt{forest} function
-estimates four formant values. We will only be concerned with the first
-(column \texttt{T1}) and second (column \texttt{T2}). The below R code
-shows a call to \texttt{emuR}'s \texttt{dplot()} function which produces
-the plot displayed in Figure \ref{fig:tutorial-dplot}. The first call to
-the \texttt{dplot()} function plots all 28 first formant trajectories
-(achieved by indexing the first column i.e., \texttt{T1}:
-\texttt{x\ =\ td\_vowels{[},\ 1{]}}). To clean up the cluttered left
-plot, the second call to the \texttt{dplot()} function additionally uses
-the \texttt{average} parameter to plot only the ensemble averages of all
-\emph{@} vowels and time-normalizes the trajectories
-(\texttt{normalise\ =\ TRUE}) to an interval between 0 and 1.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# two plots next to each other}
-\NormalTok{formantNr =}\StringTok{ }\DecValTok{1}
+\CommentTok{# display all values for fifth segment using dplyr}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
 
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
 
-\KeywordTok{dplot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ td_vowels[, formantNr],}
-      \DataTypeTok{labs =}\NormalTok{ sl_vowels}\OperatorTok{$}\NormalTok{labels,}
-      \DataTypeTok{xlab =} \StringTok{"Duration (ms)"}\NormalTok{,}
-      \DataTypeTok{ylab =} \KeywordTok{paste0}\NormalTok{(}\StringTok{"F"}\NormalTok{, formantNr, }\StringTok{" (Hz)"}\NormalTok{))}
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
 
-\KeywordTok{dplot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ td_vowels[, }\DecValTok{1}\NormalTok{],}
-      \DataTypeTok{labs =}\NormalTok{ sl_vowels}\OperatorTok{$}\NormalTok{labels,}
-      \DataTypeTok{normalise =} \OtherTok{TRUE}\NormalTok{,}
-      \DataTypeTok{average =} \OtherTok{TRUE}\NormalTok{,}
-      \DataTypeTok{xlab =} \StringTok{"Normalized time"}\NormalTok{,}
-      \DataTypeTok{ylab =} \KeywordTok{paste0}\NormalTok{(}\StringTok{"F"}\NormalTok{, formantNr, }\StringTok{" (Hz)"}\NormalTok{))}
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
 
-\CommentTok{# back to single plot}
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{td_vowels }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(sl_rowIdx }\OperatorTok{==}\StringTok{ }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 12 x 24
+##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
+##  1         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  2         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  3         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  4         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  5         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  6         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  7         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  8         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  9         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+## 10         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+## 11         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+## 12         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+## # ... with 15 more variables: end_item_id <int>, level <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>,
+## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>,
+## #   T2 <int>, T3 <int>, T4 <int>
+\end{verbatim}
+
+As can be seen by the call to the \texttt{class()} function, the
+resulting object is of the type \texttt{tibble} (see
+\texttt{?tibble::tibble} for more information) and has 28 blocks of
+data. These blocks correspond to the number of rows contained in the
+segment lists extracted above (i.e., \texttt{nrow(sl\_vowels)}) and can
+be matched to the according segment using the \texttt{sl\_rowIdx} column
+(i.e.,
+\texttt{td\_vowels\ \%\textgreater{}\%\ filter(sl\_rowIdx\ ==\ 5)} are
+the formant values belonging to \texttt{sl\_vowels{[}5,{]}}). As the
+columns \texttt{T1}, \texttt{T2}, \texttt{T3}, \texttt{T4} of the
+printed output of
+\texttt{td\_vowels\ \%\textgreater{}\%\ filter(sl\_rowIdx\ ==\ 5)}
+suggest, the \texttt{forest} function estimates four formant values. We
+will only be concerned with the first (column \texttt{T1}) and second
+(column \texttt{T2}). The below R code shows two \texttt{ggplot()}
+function calls which produce the plots displayed in Figures
+\ref{fig:tutorial-dplot1} and \ref{fig:tutorial-dplot1}. The first
+\texttt{ggplot()} call plots all 28 first formant trajectories (achieved
+by setting the \texttt{group} parameter to \texttt{sl\_rowIdx}). To
+clean up the cluttered first plot, the second \texttt{ggplot()} call
+uses a segment length normalized version of \texttt{td\_vowels} (see
+\texttt{?normalize\_length} for futher details) as well as using
+\texttt{geom\_smooth()} in combination with setting the \texttt{group}
+parameter to \texttt{labels} to plot only smoothed conditional means of
+all \emph{@} vowels.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# load package}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+
+\KeywordTok{ggplot}\NormalTok{(td_vowels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_rel, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ sl_rowIdx) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Duration (ms)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{)}
+
+\CommentTok{# normalize length of segments}
+\NormalTok{td_vowels_norm =}\StringTok{ }\KeywordTok{normalize_length}\NormalTok{(td_vowels)}
+
+\KeywordTok{ggplot}\NormalTok{(td_vowels_norm) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_norm, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ labels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Duration (normalized)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 
-{\centering \includegraphics{tutorial_files/figure-latex/tutorial-dplot-1} 
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-dplot1-1} 
 
 }
 
-\caption{`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *\@* vowels.}\label{fig:tutorial-dplot}
+\caption{`ggplot()` plots of all F1 *\@* vowel trajectories.}\label{fig:tutorial-dplot1}
 \end{figure}
 
-Figure \ref{fig:tutorial-dplot} gives an overview of the first formant
-trajectories of the \emph{@} vowels. For the purpose of data exploration
-and to get an idea of where the individual vowel classes lie on the F2 x
-F1 plane, which indirectly provides information about vowel height and
-tongue position, the R code below makes use of the \texttt{eplot()}
-function. This produces Figure \ref{fig:tutorial-eplot}. To be able to
-use the \texttt{eplot()} function, the \texttt{td\_vowels} object first
-has to be modified, as it contains entire formant trajectories but two
-dimensional data is needed to be able to display it on the F2 x F1
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+\end{verbatim}
+
+\begin{figure}
+
+{\centering \includegraphics{tutorial_files/figure-latex/tutorial-dplot2-1} 
+
+}
+
+\caption{`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels.}\label{fig:tutorial-dplot2}
+\end{figure}
+
+Figures \ref{fig:tutorial-dplot1} and \ref{fig:tutorial-dplot2} give an
+overview of the first formant trajectories of the \emph{@} vowels. For
+the purpose of data exploration and to get an idea of where the
+individual vowel classes lie on the F2 x F1 plane, which indirectly
+provides information about vowel height and tongue position, the R code
+below again makes use of the \texttt{ggplot()} function. This produces
+Figure \ref{fig:tutorial-eplot}. To be able to use the
+\texttt{stat\_ellipse()} function, the \texttt{td\_vowels\_norm} object
+first has to be modified, as it contains entire formant trajectories but
+two dimensional data is needed to be able to display it on the F2 x F1
 plain. This can, for example, be achieved by only extracting temporal
 mid-point formant values for each vowel using the
 \texttt{get\_trackdata()} function utilizing its \texttt{cut} parameter.
 The R code snippet below shows an alternative approach using the
-\texttt{dcut()} function to essentially cut the formant trajectories to
-a specified proportional segment. By using only the
-\texttt{left.time\ =\ 0.5} (and not specifying \texttt{right.time}) only
-the formant values that are closest to the temporal mid-point are cut
-from the trajectories.
+\texttt{dplyr}'s \texttt{filter()} function to essentially cut the
+formant trajectories to a specified proportional segment. By only
+extracting the values that have a normalized time value of 0.5
+(\texttt{times\_norm\ ==\ 0.5}) only the formant values that are at the
+time normalized mid-point (calculated above using the
+\texttt{normalize\_length()} function) are extracted from the
+trajectories.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# cut formant trajectories at temporal mid-point}
-\NormalTok{td_vowels_midpoint =}\StringTok{ }\KeywordTok{dcut}\NormalTok{(td_vowels,}
-                          \DataTypeTok{left.time =} \FloatTok{0.5}\NormalTok{,}
-                          \DataTypeTok{prop =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{td_vowels_midpoint =}\StringTok{ }\NormalTok{td_vowels_norm }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(times_norm }\OperatorTok{==}\StringTok{ }\FloatTok{0.5}\NormalTok{)}
 
 \CommentTok{# show dimensions of td_vowels_midpoint}
 \KeywordTok{dim}\NormalTok{(td_vowels_midpoint)}
 
 \CommentTok{# generate plot}
-\KeywordTok{eplot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ td_vowels_midpoint[,}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{],}
-      \DataTypeTok{labs =}\NormalTok{ sl_vowels}\OperatorTok{$}\NormalTok{labels,}
-      \DataTypeTok{dopoints =} \OtherTok{TRUE}\NormalTok{,}
-      \DataTypeTok{formant =} \OtherTok{TRUE}\NormalTok{,}
-      \DataTypeTok{xlab=}\StringTok{"F2 (Hz)"}\NormalTok{,}
-      \DataTypeTok{ylab =} \StringTok{"F1 (Hz)"}
-\NormalTok{      )}
+\KeywordTok{ggplot}\NormalTok{(td_vowels_midpoint, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ T2, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{colour =}\NormalTok{ labels, }\DataTypeTok{label =}\NormalTok{ labels)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{stat_ellipse}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"F2 (Hz)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"none"}\NormalTok{) }
+\ErrorTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## [1] 28 24
+\end{verbatim}
 
 \textbackslash{}begin\{figure\}
 
@@ -1451,17 +1504,17 @@ from the trajectories.
 
 \}
 
-\textbackslash{}caption\{95\% ellipses for F2 x F1 data extracted from
-the temporal midpoint of the vowel segments.\}\label{fig:tutorial-eplot}
-\textbackslash{}end\{figure\}
+\textbackslash{}caption\{95\% ellipse plot for F2 x F1 data extracted
+from the temporal midpoint of the vowel
+segments.\}\label{fig:tutorial-eplot} \textbackslash{}end\{figure\}
 
 Figure \ref{fig:tutorial-eplot} displays the first two formants
 extracted at the temporal midpoint of every \emph{@} vowel in
 \texttt{sl\_vowels}. These formants are plotted on the F2 x F1 plane,
 and their 95\% ellipsis distribution is also shown. Although not
 necessarily applicable to the question posed at the beginning of this
-tutorial, the data exploration using the \texttt{dplot()} and
-\texttt{eplot()} functions can be very helpful tools for providing an
+tutorial, the data exploration using the \texttt{dplyr} and
+\texttt{ggplot2} packages can be very helpful tools for providing an
 overview of the data at hand.
 
 \hypertarget{vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis}{%
@@ -1474,34 +1527,36 @@ and disregarded the syllable type they occurred in. However, the
 question in the introduction of this chapter focuses on whether the
 \emph{@} vowel occurs in a content (labeled \emph{C}) or function
 (labeled \emph{F}) word. For data inspection purposes, the R code
-snippet below initially extracts the central 60\%
-(\texttt{left.time\ =\ 0.2} and \texttt{right.time\ =\ 0.8}) of the
-formant trajectories from \texttt{td\_vowels} using \texttt{dcut()} and
-displays them using \texttt{dplot()}. It should be noted that the call
-to \texttt{dplot()} uses the labels of the \texttt{sl\_wordType} object
-as opposed to those of \texttt{sl\_vowels}. This causes the
-\texttt{dplot()} functions to group the trajectories by their word type
-as opposed to their vowel labels as displayed in Figure
+snippet below initially extracts the central 60\% (\texttt{filter()}
+conditions \texttt{times\_norm\ \textgreater{}=\ 0.2} and
+\texttt{times\_norm\ \textless{}=\ 0.8}) of the formant trajectories
+from \texttt{td\_vowels\_norm} using \texttt{dplyr} and displays them
+using \texttt{ggplot()}. It should be noted that before the call to
+\texttt{ggplot()} the labels of the \texttt{td\_vowels\_mid\_sec} are
+replaced with those of \texttt{sl\_word\_type}. This allows
+\texttt{ggplot()} to group the trajectories by their word type as
+opposed to their vowel labels as displayed in Figure
 \ref{fig:tutorial-dplotSylTyp}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# extract central 60% from formant trajectories}
-\NormalTok{td_vowelsMidSec =}\StringTok{ }\KeywordTok{dcut}\NormalTok{(td_vowels,}
-                       \DataTypeTok{left.time =} \FloatTok{0.2}\NormalTok{,}
-                       \DataTypeTok{right.time =} \FloatTok{0.8}\NormalTok{,}
-                       \DataTypeTok{prop =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{td_vowels_mid_sec =}\StringTok{ }\NormalTok{td_vowels_norm }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(times_norm }\OperatorTok{>=}\StringTok{ }\FloatTok{0.2}\NormalTok{, times_norm }\OperatorTok{<=}\StringTok{ }\FloatTok{0.8}\NormalTok{)}
 
-\CommentTok{# plot first formant trajectories}
-\NormalTok{formantNr =}\StringTok{ }\DecValTok{1}
-\KeywordTok{dplot}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ td_vowelsMidSec[, formantNr],}
-      \DataTypeTok{labs =}\NormalTok{ sl_wordType}\OperatorTok{$}\NormalTok{labels,}
-      \DataTypeTok{normalise =} \OtherTok{TRUE}\NormalTok{,}
-      \DataTypeTok{average =} \OtherTok{TRUE}\NormalTok{,}
-      \DataTypeTok{xlab =} \StringTok{"Normalized time"}\NormalTok{,}
-      \DataTypeTok{ylab =} \KeywordTok{paste}\NormalTok{(}\StringTok{"F"}\NormalTok{, formantNr, }\StringTok{" (Hz)"}\NormalTok{))}
+\CommentTok{# replace labels with those of sl_word_type}
+\NormalTok{td_vowels_mid_sec}\OperatorTok{$}\NormalTok{labels =}\StringTok{ }\NormalTok{sl_word_type}\OperatorTok{$}\NormalTok{labels[td_vowels_mid_sec}\OperatorTok{$}\NormalTok{sl_rowIdx]}
+
+\KeywordTok{ggplot}\NormalTok{(td_vowels_mid_sec) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_norm, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ labels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_smooth}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Duration (normalized)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+\end{verbatim}
 
 \textbackslash{}begin\{figure\}
 
@@ -1517,31 +1572,23 @@ vs.~content (\emph{W})).\}\label{fig:tutorial-dplotSylTyp}
 As can be seen in Figure \ref{fig:tutorial-dplotSylTyp}, there seems to
 be a distinction in F1 trajectory height between vowels in content and
 function words. The following R snippet shows the code to produce a
-boxplot using the \texttt{ggplot2} package to further visually inspect
-the data (see Figure \ref{fig:tutorial-boxplot} for the plot produced by
-the below code).
+boxplot once again using the \texttt{ggplot2} package to further
+visually inspect the data (see Figure \ref{fig:tutorial-boxplot} for the
+plot produced by the below code).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{formantNr =}\StringTok{ }\DecValTok{1}
-\CommentTok{# use trapply to calculate the means of the 60%}
+\CommentTok{# use group_by + summarise to calculate the means of the 60%}
 \CommentTok{# formant trajectories}
-\NormalTok{td_vowelsMidSec_mean =}\StringTok{ }\KeywordTok{trapply}\NormalTok{(td_vowelsMidSec[, formantNr],}
-                               \DataTypeTok{fun =}\NormalTok{ mean,}
-                               \DataTypeTok{simplify =}\NormalTok{ T)}
+\NormalTok{td_vowels_mid_sec_mean =}\StringTok{ }\NormalTok{td_vowels_mid_sec }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(sl_rowIdx) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{labels =} \KeywordTok{unique}\NormalTok{(labels), }\DataTypeTok{meanF1 =} \KeywordTok{mean}\NormalTok{(T1))}
 
-\CommentTok{# create new data frame that contains the mean}
-\CommentTok{# values and the corresponding labels}
-\NormalTok{df =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{wordType =}\NormalTok{ sl_wordType}\OperatorTok{$}\NormalTok{labels,}
-                \DataTypeTok{meanF1 =}\NormalTok{ td_vowelsMidSec_mean)}
-
-\CommentTok{# load library}
-\KeywordTok{library}\NormalTok{(ggplot2)}
 
 \CommentTok{# create boxplot using ggplot}
-\KeywordTok{ggplot}\NormalTok{(df, }\KeywordTok{aes}\NormalTok{(wordType, meanF1)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(td_vowels_mid_sec_mean, }\KeywordTok{aes}\NormalTok{(labels, meanF1)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Word type"}\NormalTok{, }\DataTypeTok{y =} \KeywordTok{paste0}\NormalTok{(}\StringTok{"mean F"}\NormalTok{, formantNr, }\StringTok{" (Hz)"}\NormalTok{))}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Word type"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"mean F1 (Hz)"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1568,14 +1615,14 @@ below) are displayed in Figure \ref{fig:tutorial-stats1}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# calculate density for vowels in function words}
-\NormalTok{distrF =}\StringTok{ }\KeywordTok{density}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{wordType }\OperatorTok{==}\StringTok{ "F"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
+\NormalTok{distrF =}\StringTok{ }\KeywordTok{density}\NormalTok{(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean}\OperatorTok{$}\NormalTok{labels }\OperatorTok{==}\StringTok{ "F"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
 
 \CommentTok{# uncomment to visualize distribution}
 \CommentTok{# plot(distrF)}
 
 \CommentTok{# check that vowels in function}
 \CommentTok{# words are normally distributed}
-\KeywordTok{shapiro.test}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{wordType }\OperatorTok{==}\StringTok{ "F"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
+\KeywordTok{shapiro.test}\NormalTok{(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean}\OperatorTok{$}\NormalTok{labels }\OperatorTok{==}\StringTok{ "F"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1583,8 +1630,8 @@ below) are displayed in Figure \ref{fig:tutorial-stats1}.
 ## 
 ##  Shapiro-Wilk normality test
 ## 
-## data:  df[df$wordType == "F", ]$meanF1
-## W = 0.98687, p-value = 0.9887
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F",     ]$meanF1
+## W = 0.98618, p-value = 0.9868
 \end{verbatim}
 
 \begin{Shaded}
@@ -1594,14 +1641,14 @@ below) are displayed in Figure \ref{fig:tutorial-stats1}.
 \CommentTok{# normal distribution -> we CAN assume normality}
 
 \CommentTok{# calculate density for vowels in content words}
-\NormalTok{distrC =}\StringTok{ }\KeywordTok{density}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{wordType }\OperatorTok{==}\StringTok{ "C"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
+\NormalTok{distrC =}\StringTok{ }\KeywordTok{density}\NormalTok{(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean}\OperatorTok{$}\NormalTok{labels }\OperatorTok{==}\StringTok{ "C"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
 
 \CommentTok{# uncomment to visualize distribution}
 \CommentTok{# plot(distrC)}
 
 \CommentTok{# check that vowels in content}
 \CommentTok{# words are normally distributed:}
-\KeywordTok{shapiro.test}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{wordType }\OperatorTok{==}\StringTok{ "C"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
+\KeywordTok{shapiro.test}\NormalTok{(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean}\OperatorTok{$}\NormalTok{labels }\OperatorTok{==}\StringTok{ "C"}\NormalTok{,]}\OperatorTok{$}\NormalTok{meanF1)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1609,8 +1656,8 @@ below) are displayed in Figure \ref{fig:tutorial-stats1}.
 ## 
 ##  Shapiro-Wilk normality test
 ## 
-## data:  df[df$wordType == "C", ]$meanF1
-## W = 0.66506, p-value = 1.506e-05
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C",     ]$meanF1
+## W = 0.67216, p-value = 1.819e-05
 \end{verbatim}
 
 \begin{Shaded}
@@ -1624,7 +1671,7 @@ below) are displayed in Figure \ref{fig:tutorial-stats1}.
 
 \CommentTok{# perform Wilcoxon rank sum test to establish}
 \CommentTok{# whether vowel F1 depends on word type}
-\KeywordTok{wilcox.test}\NormalTok{(meanF1 }\OperatorTok{~}\StringTok{ }\NormalTok{wordType, }\DataTypeTok{data =}\NormalTok{ df)}
+\KeywordTok{wilcox.test}\NormalTok{(meanF1 }\OperatorTok{~}\StringTok{ }\NormalTok{labels, }\DataTypeTok{data =}\NormalTok{ td_vowels_mid_sec_mean)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1632,8 +1679,8 @@ below) are displayed in Figure \ref{fig:tutorial-stats1}.
 ## 
 ##  Wilcoxon rank sum test
 ## 
-## data:  meanF1 by wordType
-## W = 121, p-value = 0.03752
+## data:  meanF1 by labels
+## W = 119, p-value = 0.04875
 ## alternative hypothesis: true location shift is not equal to 0
 \end{verbatim}
 
@@ -2198,8 +2245,8 @@ function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     a1619c1c-7978-43de-896a-f394588d60a4 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpS2ulml/fromScratch_emuDB 
+## UUID:     a7c9d61e-bf08-43a8-b76a-58a32b53a7be 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp7dFQBi/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4314,7 +4361,7 @@ file.
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmp4T0kZZ/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpdxJici/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4847,7 +4894,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-10-17 13:55:33 "  
+## [5] "Timestamp:  2018-10-18 16:03:44 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"

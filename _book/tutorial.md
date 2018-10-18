@@ -17,7 +17,7 @@ As the EMU-SDMS is not concerned with the raw data acquisition, other tools such
 - `create_emuDB()` followed by `add_link/levelDefinition` and `import_mediaFiles()` - Creating `emuDB`s from scratch with only audio files present.
 
 
-The `emuR` package comes with a set of example files and small databases that are used throughout the `emuR` documentation, including the functions help pages. These can be accessed by typing `help(functionName)` or the short form `?functionName`. R code snippet below illustrates how to create this demo data in a user-specified directory. Throughout the examples of this documentation the directory that is provided by the base R function `tempdir()` will be used, as this is available on every platform supported by R (see `?tempdir` for further details). As can be inferred from the `list.dirs()` output in the below code, the `emuR_demoData` directory contains a separate directory containing example data for each of the import routines. Additionally, it contains a directory containing an `emuDB` called *ae* (the directories name is `ae_emuDB`, where `_emuDB` is the default suffix given to directories containing a `emuDB`; see Chapter \@ref(chap:emuDB)).
+The `emuR` package comes with a set of example files and small databases that are used throughout the `emuR` documentation, including the functions help pages. These can be accessed by typing `help(function_name)` or the short form `?function_name`. R code snippet below illustrates how to create this demo data in a user-specified directory. Throughout the examples of this documentation the directory that is provided by the base R function `tempdir()` will be used, as this is available on every platform supported by R (see `?tempdir` for further details). As can be inferred from the `list.dirs()` output in the below code, the `emuR_demoData` directory contains a separate directory containing example data for each of the import routines. Additionally, it contains a directory containing an `emuDB` called *ae* (the directories name is `ae_emuDB`, where `_emuDB` is the default suffix given to directories containing a `emuDB`; see Chapter \@ref(chap:emuDB)).
 
 
 ```r
@@ -30,10 +30,10 @@ create_emuRdemoData(dir = tempdir())
 
 # create path to demo data directory, which is
 # called "emuR_demoData"
-demoDataDir = file.path(tempdir(), "emuR_demoData")
+demo_data_dir = file.path(tempdir(), "emuR_demoData")
 
 # show demo data directories
-list.dirs(demoDataDir, recursive = F, full.names = F)
+list.dirs(demo_data_dir, recursive = F, full.names = F)
 ```
 
 ```
@@ -49,10 +49,10 @@ This tutorial will start by converting a TextGrid collection containing seven an
 
 ```r
 # create path to TextGrid collection
-tgColDir = file.path(demoDataDir, "TextGrid_collection")
+tg_col_dir = file.path(demo_data_dir, "TextGrid_collection")
 
 # show content of TextGrid_collection directory
-list.files(tgColDir)
+list.files(tg_col_dir)
 ```
 
 ```
@@ -78,14 +78,14 @@ The `convert_TextGridCollection()` function converts a TextGrid collection to th
 
 ```r
 # convert TextGrid collection to the emuDB format
-convert_TextGridCollection(dir = tgColDir,
-                           dbName = "myFirst",
+convert_TextGridCollection(dir = tg_col_dir,
+                           dbName = "my-first",
                            targetDir = tempdir(),
                            tierNames = c("Word", "Syllable",
                                          "Phoneme", "Phonetic"))
 ```
 
-The above call to `convert_TextGridCollection()` creates a new `emuDB` directory in the `tempdir()` directory called `myFirst_emuDB`. This `emuDB` contains annotation files that contain the same *Word*, *Syllable*, *Phoneme* and *Phonetic* segment tiers as the original `.TextGrid` files as well as copies of the original (`.wav`) audio files. For further details about the structure of an `emuDB`, see Chapter \@ref(chap:emuDB) of this document.
+The above call to `convert_TextGridCollection()` creates a new `emuDB` directory in the `tempdir()` directory called `my-first_emuDB`. This `emuDB` contains annotation files that contain the same *Word*, *Syllable*, *Phoneme* and *Phonetic* segment tiers as the original `.TextGrid` files as well as copies of the original (`.wav`) audio files. For further details about the structure of an `emuDB`, see Chapter \@ref(chap:emuDB) of this document.
 
 
 ## Loading and inspecting the database
@@ -94,29 +94,29 @@ As mentioned in Section \@ref(sec:overview-sysArch), the first step when working
 
 
 ```r
-# get path to emuDB called "myFirst"
+# get path to emuDB called "my-first"
 # that was created by convert_TextGridCollection()
-path2directory = file.path(tempdir(), "myFirst_emuDB")
+path2directory = file.path(tempdir(), "my-first_emuDB")
 
 # load emuDB into current R session
-dbHandle = load_emuDB(path2directory, verbose = FALSE)
+db_handle = load_emuDB(path2directory, verbose = FALSE)
 ```
 
 ### Overview
 
-Now the *myFirst* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as shown the below R code snippet.
+Now the *my-first* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as shown the below R code snippet.
 
 
 
 ```r
 # show summary
-summary(dbHandle)
+summary(db_handle)
 ```
 
 ```
-## Name:	 myFirst 
-## UUID:	 742159bb-ff95-4825-a89c-a0fbb429c313 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp5BHCCP/myFirst_emuDB 
+## Name:	 my-first 
+## UUID:	 579e98d9-ffd1-47a6-925e-18e37622eb8a 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp84PmlV/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -140,7 +140,7 @@ summary(dbHandle)
 ```
 
 
-The extensive output of `summary()` is split into a top and bottom half, where the top half focuses on general information about the database (name, directory, annotation item count, etc.) and the bottom half displays information about the various SSFF track, level and link definitions of the `emuDB`. The summary information about the level definitions shows, for instance, that the *myFirst* database has a *Word* level of type `SEGMENT` and therefore contains annotation items that have a start time and a segment duration. It is worth noting that information about the SSFF track, level and link definitions corresponds to the output of the `list_ssffTrackDefinitions()`, `list_levelDefinitions()` and `list_linkDefinitions()` functions.
+The extensive output of `summary()` is split into a top and bottom half, where the top half focuses on general information about the database (name, directory, annotation item count, etc.) and the bottom half displays information about the various SSFF track, level and link definitions of the `emuDB`. The summary information about the level definitions shows, for instance, that the *my-first* database has a *Word* level of type `SEGMENT` and therefore contains annotation items that have a start time and a segment duration. It is worth noting that information about the SSFF track, level and link definitions corresponds to the output of the `list_ssffTrackDefinitions()`, `list_levelDefinitions()` and `list_linkDefinitions()` functions.
 
 ### Database annotation and visual inspection
 
@@ -148,8 +148,8 @@ The EMU-SDMS has a unique approach to annotating and visually inspecting databas
 
 
 ```r
-# serve myFirst emuDB to the EMU-webApp
-serve(dbHandle)
+# serve my-first emuDB to the EMU-webApp
+serve(db_handle)
 ```
 
 Executing this command will block the R console, automatically open up the system's default browser and display the following message in the R console:
@@ -168,8 +168,8 @@ The `EMU-webApp`, which is now connected to the database via the `serve()` funct
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/tutorialEmuWebAppMyFirst.png" alt="Screenshot of `EMU-webApp` displaying `msajc003` bundle of *myFirst* `emuDB`." width="100%" />
-<p class="caption">(\#fig:tutorial-emuWebAppMyFirst)Screenshot of `EMU-webApp` displaying `msajc003` bundle of *myFirst* `emuDB`.</p>
+<img src="pics/tutorialEmuWebAppMyFirst.png" alt="Screenshot of `EMU-webApp` displaying `msajc003` bundle of *my-first* `emuDB`." width="100%" />
+<p class="caption">(\#fig:tutorial-emuWebAppMyFirst)Screenshot of `EMU-webApp` displaying `msajc003` bundle of *my-first* `emuDB`.</p>
 </div>
 
 
@@ -177,28 +177,28 @@ The `EMU-webApp`, which is now connected to the database via the `serve()` funct
 
 An integral step in the default workflow of the EMU-SDMS is querying the annotations of a database. The `emuR` package implements a `query()` function to accomplish this task. This function evaluates an EMU Query Language (EQL) expression and extracts the annotation items from the database that match a query expression. As chapter \@ref(chap:querysys) gives a detailed description of the query mechanics provided by `emuR`, this tutorial will only use a very small, hopefully easy to understand subset of the EQL.
 
-The output of the `summary()` command in the R code snippet below and the screenshot in Figure \@ref(fig:tutorial-emuWebAppMyFirst) show that the *myFirst* `emuDB` contains four levels of annotations. The R code snippet below shows four separate queries that query various segments on each of the available levels. The query expressions all use the matching operator `==` which returns annotation items whose labels match those specified to the right of the operator and that belong to the level specified to the left of the operator (i.e., `LEVEL == LABEL`; see Chapter \@ref(chap:querysys) for a detailed description).
+The output of the `summary()` command in the R code snippet below and the screenshot in Figure \@ref(fig:tutorial-emuWebAppMyFirst) show that the *my-first* `emuDB` contains four levels of annotations. The R code snippet below shows four separate queries that query various segments on each of the available levels. The query expressions all use the matching operator `==` which returns annotation items whose labels match those specified to the right of the operator and that belong to the level specified to the left of the operator (i.e., `LEVEL == LABEL`; see Chapter \@ref(chap:querysys) for a detailed description).
 
 
 ```r
 # query all segments containing the label
 # "C" (== content word) of the "Word" level
-sl_text = query(emuDBhandle = dbHandle,
+sl_text = query(emuDBhandle = db_handle,
                 query = "Word == C")
 
 # query all segments containing the label
 # "S" (== strong syllable) of the "Syllable" level
-sl_syl = query(emuDBhandle = dbHandle,
+sl_syl = query(emuDBhandle = db_handle,
                query = "Syllable == S")
 
 # query all segments containing the label
 # "f" on the "Phoneme" level
-sl_phoneme = query(dbHandle,
+sl_phoneme = query(db_handle,
                    query = "Phoneme == f")
 
 # query all segments containing the label
 # "n" of the "Phonetic" level
-sl_phonetic = query(dbHandle,
+sl_phonetic = query(db_handle,
                     query = "Phonetic == n")
 
 # show class vector of query result
@@ -215,7 +215,7 @@ head(sl_phonetic, n = 1)
 ```
 
 ```
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  Phonetic == n 
 ##   labels    start      end session   bundle    level    type
 ## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
@@ -227,7 +227,7 @@ summary(sl_phonetic)
 ```
 
 ```
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  Phonetic == n 
 ##  with 12 segments
 ## 
@@ -244,18 +244,18 @@ As demonstrated in the above R code, the result of a query is an `emuRsegs` obje
 The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: *Query all Phonetic items that contain the label "n" and are part of a content word*. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter \@ref(chap:annot-struct-mod). For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure \@ref(fig:tutorial-emuWebAppMyFirst) to a hierarchical form as displayed in Figure \@ref(fig:tutorial-violentlyHier), where only the *Phonetic* level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`."  />
-<p class="caption">(\#fig:tutorial-violentlyHier)Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *myFirst* demo `emuDB`.</p>
+<img src="tutorial_files/figure-epub3/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`."  />
+<p class="caption">(\#fig:tutorial-violentlyHier)Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`.</p>
 </div>
 
 
-As it is a very laborious task to manually link annotation items together using the `EMU-webApp` and the hierarchical information is already implicitly contained in the time information of the segments and events of each level, we will now use a function provided by the `emuR` package to build these hierarchical structures using this information called `autobuild_linkFromTimes()`. The above R code snippet shows the calls to this function which autobuild the hierarchical annotations in the *myFirst* database. As a general rule for autobuilding hierarchical annotation structures, a good strategy is to start the autobuilding process beginning with coarser grained annotation levels (i.e., the *Word*/*Syllable* level pair in our example) and work down to finer grained annotations (i.e., the *Syllable*/*Phoneme* and  *Phoneme*/*Phonetic* level pairs in our example). To build hierachical annotation structures we need link definitions, which together with the level definitions define the annotation structure for the entire database (see Chapter \@ref(chap:annot-struct-mod) for further details). The `autobuild_linkFromTimes()` calls in the below R code snippet use the `newLinkDefType` parameter, which if defined automatically adds a link definition to the database.
+As it is a very laborious task to manually link annotation items together using the `EMU-webApp` and the hierarchical information is already implicitly contained in the time information of the segments and events of each level, we will now use a function provided by the `emuR` package to build these hierarchical structures using this information called `autobuild_linkFromTimes()`. The above R code snippet shows the calls to this function which autobuild the hierarchical annotations in the *my-first* database. As a general rule for autobuilding hierarchical annotation structures, a good strategy is to start the autobuilding process beginning with coarser grained annotation levels (i.e., the *Word*/*Syllable* level pair in our example) and work down to finer grained annotations (i.e., the *Syllable*/*Phoneme* and  *Phoneme*/*Phonetic* level pairs in our example). To build hierachical annotation structures we need link definitions, which together with the level definitions define the annotation structure for the entire database (see Chapter \@ref(chap:annot-struct-mod) for further details). The `autobuild_linkFromTimes()` calls in the below R code snippet use the `newLinkDefType` parameter, which if defined automatically adds a link definition to the database.
 
 
 ```r
 # invoke autobuild function
 # for "Word" and "Syllable" levels
-autobuild_linkFromTimes(dbHandle,
+autobuild_linkFromTimes(db_handle,
                         superlevelName = "Word",
                         sublevelName = "Syllable",
                         convertSuperlevel = TRUE,
@@ -263,7 +263,7 @@ autobuild_linkFromTimes(dbHandle,
 
 # invoke autobuild function
 # for "Syllable" and "Phoneme" levels
-autobuild_linkFromTimes(dbHandle,
+autobuild_linkFromTimes(db_handle,
                         superlevelName = "Syllable",
                         sublevelName = "Phoneme",
                         convertSuperlevel = TRUE,
@@ -271,7 +271,7 @@ autobuild_linkFromTimes(dbHandle,
 
 # invoke autobuild function
 # for "Phoneme" and "Phonetic" levels
-autobuild_linkFromTimes(dbHandle,
+autobuild_linkFromTimes(db_handle,
                         superlevelName = "Phoneme",
                         sublevelName = "Phonetic",
                         convertSuperlevel = TRUE,
@@ -293,7 +293,7 @@ As the `autobuild_linkFromTimes()` function automatically creates backup levels 
 # list level definitions
 # as this reveals the "-autobuildBackup" levels
 # added by the autobuild_linkFromTimes() calls
-list_levelDefinitions(dbHandle)
+list_levelDefinitions(db_handle)
 ```
 
 ```
@@ -310,23 +310,23 @@ list_levelDefinitions(dbHandle)
 ```r
 # remove the levels containing the "-autobuildBackup"
 # suffix
-remove_levelDefinition(dbHandle,
+remove_levelDefinition(db_handle,
                        name = "Word-autobuildBackup",
                        force = TRUE,
                        verbose = FALSE)
 
-remove_levelDefinition(dbHandle,
+remove_levelDefinition(db_handle,
                        name = "Syllable-autobuildBackup",
                        force = TRUE,
                        verbose = FALSE)
 
-remove_levelDefinition(dbHandle,
+remove_levelDefinition(db_handle,
                        name = "Phoneme-autobuildBackup",
                        force = TRUE,
                        verbose = FALSE)
 
 # list level definitions
-list_levelDefinitions(dbHandle)
+list_levelDefinitions(db_handle)
 ```
 
 ```
@@ -340,7 +340,7 @@ list_levelDefinitions(dbHandle)
 ```r
 # list level definitions
 # which were added by the autobuild functions
-list_linkDefinitions(dbHandle)
+list_linkDefinitions(db_handle)
 ```
 
 ```
@@ -350,31 +350,31 @@ list_linkDefinitions(dbHandle)
 ## 3 MANY_TO_MANY        Phoneme     Phonetic
 ```
 
-As can be seen by the output of `list_levelDefinitions()` and `list_linkDefinitions()` in the above R code, the annotation structure of the *myFirst* `emuDB` now matches that displayed in Figure \@ref(fig:tutorial-simpleAnnotStruct). Using the `serve()` function to open the `emuDB` in the `EMU-webApp` followed by clicking on the `show hierarchy` button in the top menu (and rotating the hierarchy by 90 degrees by clicking the `rotate by 90 degrees` button) will result in a view similar to the screenshot of Figure \@ref(fig:tutorial-EMU-webAppScreenshotTutorialPostAutobHier).
+As can be seen by the output of `list_levelDefinitions()` and `list_linkDefinitions()` in the above R code, the annotation structure of the *my-first* `emuDB` now matches that displayed in Figure \@ref(fig:tutorial-simpleAnnotStruct). Using the `serve()` function to open the `emuDB` in the `EMU-webApp` followed by clicking on the `show hierarchy` button in the top menu (and rotating the hierarchy by 90 degrees by clicking the `rotate by 90 degrees` button) will result in a view similar to the screenshot of Figure \@ref(fig:tutorial-EMU-webAppScreenshotTutorialPostAutobHier).
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/EMU-webAppScreenshotTutorialPostAutobHier.png" alt="Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *myFirst* `emuDB`." width="100%" />
-<p class="caption">(\#fig:tutorial-EMU-webAppScreenshotTutorialPostAutobHier)Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *myFirst* `emuDB`.</p>
+<img src="pics/EMU-webAppScreenshotTutorialPostAutobHier.png" alt="Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *my-first* `emuDB`." width="100%" />
+<p class="caption">(\#fig:tutorial-EMU-webAppScreenshotTutorialPostAutobHier)Screenshot of `EMU-webApp` displaying the autobuilt hierarchy of the *my-first* `emuDB`.</p>
 </div>
 
 
 ### Querying the hierarchical annotations
 
-Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?*. The R code snippet below shows how all the *\@* vowels in the *myFirst* database are queried.
+Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: *Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?*. The R code snippet below shows how all the *\@* vowels in the *my-first* database are queried.
 
 
 ```r
 # query annotation items containing
 # the labels @ on the Phonetic level
-sl_vowels = query(dbHandle, "Phonetic == @")
+sl_vowels = query(db_handle, "Phonetic == @")
 
 # show first entry of sl_vowels
 head(sl_vowels, n = 1)
 ```
 
 ```
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  Phonetic == @ 
 ##   labels    start      end session   bundle    level    type
 ## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT
@@ -386,33 +386,33 @@ As the type of word (content vs. function) for each *\@* vowel that was just ext
 ```r
 # hierarchical requery starting from the items in sl_vowels
 # and moving up to the "Word" level
-sl_wordType = requery_hier(dbHandle,
+sl_word_type = requery_hier(db_handle,
                            seglist = sl_vowels,
                            level = "Word",
                            calcTimes = FALSE)
 
-# show first entry of sl_wordType
-head(sl_wordType, n = 1)
+# show first entry of sl_word_type
+head(sl_word_type, n = 1)
 ```
 
 ```
-## segment  list from database:  myFirst 
+## segment  list from database:  my-first 
 ## query was:  FROM REQUERY 
 ##   labels start end session   bundle level type
 ## 1      F    NA  NA    0000 msajc003  Word ITEM
 ```
 
 ```r
-# show that sl_vowel and sl_wordType have the
+# show that sl_vowel and sl_word_type have the
 # same number of row entries
-nrow(sl_vowels) == nrow(sl_wordType)
+nrow(sl_vowels) == nrow(sl_word_type)
 ```
 
 ```
 ## [1] TRUE
 ```
 
-As can be seen by the `nrow()` comparison in the above R code, the segment list returned by the `requery_hier()` function has the same number of rows as the original `sl_vowels` segment list. This is important, as each row of both segment lists line up and allow us to infer which segment belongs to which word type (e.g., vowel `sl_vowels[5,]` belongs to the word type `sl_wordType[5,]`).
+As can be seen by the `nrow()` comparison in the above R code, the segment list returned by the `requery_hier()` function has the same number of rows as the original `sl_vowels` segment list. This is important, as each row of both segment lists line up and allow us to infer which segment belongs to which word type (e.g., vowel `sl_vowels[5,]` belongs to the word type `sl_word_type[5,]`).
 
 
 ## Signal extraction and exploration {#section:tutorial-sigExtrAndExpl}
@@ -423,9 +423,10 @@ Now that the vowel and word type information including the vowel start and end t
 
 ```r
 # get formant values for the vowel segments
-td_vowels = get_trackdata(dbHandle,
+td_vowels = get_trackdata(db_handle,
                           seglist = sl_vowels,
                           onTheFlyFunctionName = "forest",
+                          resultType = "tibble",
                           verbose = F)
 
 # show class vector
@@ -433,7 +434,7 @@ class(td_vowels)
 ```
 
 ```
-## [1] "trackdata"
+## [1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 ```r
@@ -442,120 +443,161 @@ dim(td_vowels)
 ```
 
 ```
-## [1] 28  4
+## [1] 287  24
 ```
 
 ```r
-# display all values for fifth segment
-td_vowels[5,]
+# show nr of segments
+max(td_vowels$sl_rowIdx)
 ```
 
 ```
-## trackdata from track: fm 
-## index:
-##  left right
-##     1    12
-## ftime:
-##       start    end
-## [1,] 2447.5 2502.5
-## data:
-##         T1   T2   T3   T4
-## 2447.5 303 1031 2266 3366
-## 2452.5 289  967 2250 3413
-## 2457.5 296  905 2273 3503
-## 2462.5 321  885 2357 3506
-## 2467.5 316  889 2397 3475
-## 2472.5 306  863 2348 3548
-## 2477.5 314  832 2339 3611
-## 2482.5 325  795 2342 3622
-## 2487.5 339  760 2322 3681
-## 2492.5 335  746 2316 3665
-## 2497.5 341  734 2306 3688
-## 2502.5 361  733 2304 3692
+## [1] 28
 ```
 
-As can be seen by the call to the `class()` function, the resulting object is of the type `trackdata` and has 28 entries. This corresponds to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`). This indicates that this object contains data for each of the segments that correspond to each of the row entries of the segment lists (i.e., `td_vowels[5,]` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels[5,]` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). The below R code shows a call to `emuR`'s `dplot()` function which produces the plot displayed in Figure \@ref(fig:tutorial-dplot). The first call to the `dplot()` function plots all 28 first formant trajectories (achieved by indexing the first column i.e., `T1`: `x = td_vowels[, 1]`). To clean up the cluttered left plot, the second call to the `dplot()` function additionally uses the `average` parameter to plot only the ensemble averages of all *\@* vowels and time-normalizes the trajectories (`normalise = TRUE`) to an interval between 0 and 1.
+```r
+# display all values for fifth segment using dplyr
+library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
+td_vowels %>% filter(sl_rowIdx == 5)
+```
+
+```
+## # A tibble: 12 x 24
+##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
+##  1         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  2         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  3         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  4         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  5         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  6         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  7         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  8         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  9         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+## 10         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+## 11         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+## 12         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+## # ... with 15 more variables: end_item_id <int>, level <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>,
+## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>,
+## #   T2 <int>, T3 <int>, T4 <int>
+```
+
+As can be seen by the call to the `class()` function, the resulting object is of the type `tibble` (see `?tibble::tibble` for more information) and has 28 blocks of data. These blocks correspond to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`) and can be matched to the according segment using the `sl_rowIdx` column (i.e., `td_vowels %>% filter(sl_rowIdx == 5)` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels %>% filter(sl_rowIdx == 5)` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). The below R code shows two `ggplot()` function calls which produce the plots displayed in Figures \@ref(fig:tutorial-dplot1) and \@ref(fig:tutorial-dplot1). The first `ggplot()` call plots all 28 first formant trajectories (achieved by setting the `group` parameter to `sl_rowIdx`). To clean up the cluttered first plot, the second `ggplot()` call uses a segment length normalized version of `td_vowels` (see `?normalize_length` for futher details) as well as using `geom_smooth()` in combination with setting the `group` parameter to `labels` to plot only smoothed conditional means of all *\@* vowels.
 
 
 ```r
-# two plots next to each other
-formantNr = 1
+# load package
+library(ggplot2)
 
-par(mfrow = c(1,2))
+ggplot(td_vowels) +
+  aes(x = times_rel, y = T1, col = labels, group = sl_rowIdx) +
+  geom_line() +
+  labs(x = "Duration (ms)", y = "F1 (Hz)")
 
-dplot(x = td_vowels[, formantNr],
-      labs = sl_vowels$labels,
-      xlab = "Duration (ms)",
-      ylab = paste0("F", formantNr, " (Hz)"))
+# normalize length of segments
+td_vowels_norm = normalize_length(td_vowels)
 
-dplot(x = td_vowels[, 1],
-      labs = sl_vowels$labels,
-      normalise = TRUE,
-      average = TRUE,
-      xlab = "Normalized time",
-      ylab = paste0("F", formantNr, " (Hz)"))
-
-# back to single plot
-par(mfrow = c(1,1))
+ggplot(td_vowels_norm) +
+  aes(x = times_norm, y = T1, col = labels, group = labels) +
+  geom_smooth() +
+  labs(x = "Duration (normalized)", y = "F1 (Hz)") 
 ```
 
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-dplot-1.png" alt="`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *\@* vowels."  />
-<p class="caption">(\#fig:tutorial-dplot)`dplot()` plots of F1 trajectories. The left plot displays all trajectories while the right plot displays the ensemble average of all *\@* vowels.</p>
+<img src="tutorial_files/figure-epub3/tutorial-dplot1-1.png" alt="`ggplot()` plots of all F1 *\@* vowel trajectories."  />
+<p class="caption">(\#fig:tutorial-dplot1)`ggplot()` plots of all F1 *\@* vowel trajectories.</p>
 </div>
 
-Figure \@ref(fig:tutorial-dplot) gives an overview of the first formant trajectories of the *\@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, the R code below makes use of the `eplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `eplot()` function, the `td_vowels` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. The R code snippet below shows an alternative approach using the `dcut()` function to essentially cut the formant trajectories to a specified proportional segment. By using only the `left.time = 0.5` (and not specifying `right.time`) only the formant values that are closest to the temporal mid-point are cut from the trajectories.
+
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+```
+
+<div class="figure" style="text-align: center">
+<img src="tutorial_files/figure-epub3/tutorial-dplot2-1.png" alt="`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels."  />
+<p class="caption">(\#fig:tutorial-dplot2)`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels.</p>
+</div>
+
+Figures \@ref(fig:tutorial-dplot1) and \@ref(fig:tutorial-dplot2) give an overview of the first formant trajectories of the *\@* vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, the R code below again makes use of the `ggplot()` function. This produces Figure \@ref(fig:tutorial-eplot). To be able to use the `stat_ellipse()` function, the `td_vowels_norm` object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the `get_trackdata()` function utilizing its `cut` parameter. The R code snippet below shows an alternative approach using the `dplyr`'s `filter()` function to essentially cut the formant trajectories to a specified proportional segment. By only extracting the values that have a normalized time value of 0.5 (`times_norm == 0.5`) only the formant values that are at the time normalized mid-point (calculated above using the `normalize_length()` function) are extracted from the trajectories.
 
 
 ```r
 # cut formant trajectories at temporal mid-point
-td_vowels_midpoint = dcut(td_vowels,
-                          left.time = 0.5,
-                          prop = TRUE)
+td_vowels_midpoint = td_vowels_norm %>% 
+  filter(times_norm == 0.5)
 
 # show dimensions of td_vowels_midpoint
 dim(td_vowels_midpoint)
 
 # generate plot
-eplot(x = td_vowels_midpoint[,1:2],
-      labs = sl_vowels$labels,
-      dopoints = TRUE,
-      formant = TRUE,
-      xlab="F2 (Hz)",
-      ylab = "F1 (Hz)"
-      )
+ggplot(td_vowels_midpoint, aes(x = T2, y = T1, colour = labels, label = labels)) + 
+  geom_text() + 
+  stat_ellipse() +
+  scale_y_reverse() + scale_x_reverse() + 
+  labs(x = "F2 (Hz)", y = "F1 (Hz)") +
+  theme(legend.position="none") 
+)
+```
+
+
+```
+## [1] 28 24
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-eplot-1.png" alt="95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments."  />
-<p class="caption">(\#fig:tutorial-eplot)95% ellipses for F2 x F1 data extracted from the temporal midpoint of the vowel segments.</p>
+<img src="tutorial_files/figure-epub3/tutorial-eplot-1.png" alt="95% ellipse plot for F2 x F1 data extracted from the temporal midpoint of the vowel segments."  />
+<p class="caption">(\#fig:tutorial-eplot)95% ellipse plot for F2 x F1 data extracted from the temporal midpoint of the vowel segments.</p>
 </div>
 
-Figure \@ref(fig:tutorial-eplot) displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplot()` and `eplot()` functions can be very helpful tools for providing an overview of the data at hand.
+Figure \@ref(fig:tutorial-eplot) displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplyr` and `ggplot2` packages can be very helpful tools for providing an overview of the data at hand.
 
 
 ## Vowel height as a function of word types (content vs. function): evaluation and statistical analysis
 
-The above data exploration only dealt with the actual *\@* vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the *\@* vowel occurs in a content (labeled *C*) or function (labeled *F*) word. For data inspection purposes, the R code snippet below initially extracts the central 60% (`left.time = 0.2` and `right.time = 0.8`) of the formant trajectories from `td_vowels` using `dcut()` and displays them using `dplot()`. It should be noted that the call to `dplot()` uses the labels of the `sl_wordType` object as opposed to those of `sl_vowels`. This causes the `dplot()` functions to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \@ref(fig:tutorial-dplotSylTyp).
-
+The above data exploration only dealt with the actual *\@* vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the *\@* vowel occurs in a content (labeled *C*) or function (labeled *F*) word. For data inspection purposes, the R code snippet below initially extracts the central 60% (`filter()` conditions `times_norm >= 0.2` and `times_norm <= 0.8`) of the formant trajectories from `td_vowels_norm` using `dplyr` and displays them using `ggplot()`. It should be noted that before the call to `ggplot()` the labels of the `td_vowels_mid_sec` are replaced with those of `sl_word_type`. This allows `ggplot()` to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \@ref(fig:tutorial-dplotSylTyp).
 
 
 ```r
 # extract central 60% from formant trajectories
-td_vowelsMidSec = dcut(td_vowels,
-                       left.time = 0.2,
-                       right.time = 0.8,
-                       prop = TRUE)
+td_vowels_mid_sec = td_vowels_norm %>% 
+  filter(times_norm >= 0.2, times_norm <= 0.8)
 
-# plot first formant trajectories
-formantNr = 1
-dplot(x = td_vowelsMidSec[, formantNr],
-      labs = sl_wordType$labels,
-      normalise = TRUE,
-      average = TRUE,
-      xlab = "Normalized time",
-      ylab = paste("F", formantNr, " (Hz)"))
+# replace labels with those of sl_word_type
+td_vowels_mid_sec$labels = sl_word_type$labels[td_vowels_mid_sec$sl_rowIdx]
+
+ggplot(td_vowels_mid_sec) +
+  aes(x = times_norm, y = T1, col = labels, group = labels) +
+  geom_smooth() +
+  labs(x = "Duration (normalized)", y = "F1 (Hz)") 
+```
+
+
+```
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <div class="figure" style="text-align: center">
@@ -563,30 +605,22 @@ dplot(x = td_vowelsMidSec[, formantNr],
 <p class="caption">(\#fig:tutorial-dplotSylTyp)Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*)).</p>
 </div>
 
-As can be seen in Figure \@ref(fig:tutorial-dplotSylTyp), there seems to be a distinction in F1 trajectory height between vowels in content and function words. The following R snippet shows the code to produce a boxplot using the `ggplot2` package to further visually inspect the data (see Figure \@ref(fig:tutorial-boxplot) for the plot produced by the below code).
+As can be seen in Figure \@ref(fig:tutorial-dplotSylTyp), there seems to be a distinction in F1 trajectory height between vowels in content and function words. The following R snippet shows the code to produce a boxplot once again using the `ggplot2` package to further visually inspect the data (see Figure \@ref(fig:tutorial-boxplot) for the plot produced by the below code).
 
 
 
 ```r
-formantNr = 1
-# use trapply to calculate the means of the 60%
+# use group_by + summarise to calculate the means of the 60%
 # formant trajectories
-td_vowelsMidSec_mean = trapply(td_vowelsMidSec[, formantNr],
-                               fun = mean,
-                               simplify = T)
+td_vowels_mid_sec_mean = td_vowels_mid_sec %>%
+  group_by(sl_rowIdx) %>%
+  summarise(labels = unique(labels), meanF1 = mean(T1))
 
-# create new data frame that contains the mean
-# values and the corresponding labels
-df = data.frame(wordType = sl_wordType$labels,
-                meanF1 = td_vowelsMidSec_mean)
-
-# load library
-library(ggplot2)
 
 # create boxplot using ggplot
-ggplot(df, aes(wordType, meanF1)) +
+ggplot(td_vowels_mid_sec_mean, aes(labels, meanF1)) +
   geom_boxplot() +
-  labs(x = "Word type", y = paste0("mean F", formantNr, " (Hz)"))
+  labs(x = "Word type", y = "mean F1 (Hz)")
 ```
 
 <div class="figure" style="text-align: center">
@@ -601,22 +635,22 @@ To confirm or reject this, the following R code presents a very simple statistic
 
 ```r
 # calculate density for vowels in function words
-distrF = density(df[df$wordType == "F",]$meanF1)
+distrF = density(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F",]$meanF1)
 
 # uncomment to visualize distribution
 # plot(distrF)
 
 # check that vowels in function
 # words are normally distributed
-shapiro.test(df[df$wordType == "F",]$meanF1)
+shapiro.test(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F",]$meanF1)
 ```
 
 ```
 ## 
 ## 	Shapiro-Wilk normality test
 ## 
-## data:  df[df$wordType == "F", ]$meanF1
-## W = 0.98687, p-value = 0.9887
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F",     ]$meanF1
+## W = 0.98618, p-value = 0.9868
 ```
 
 ```r
@@ -625,22 +659,22 @@ shapiro.test(df[df$wordType == "F",]$meanF1)
 # normal distribution -> we CAN assume normality
 
 # calculate density for vowels in content words
-distrC = density(df[df$wordType == "C",]$meanF1)
+distrC = density(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C",]$meanF1)
 
 # uncomment to visualize distribution
 # plot(distrC)
 
 # check that vowels in content
 # words are normally distributed:
-shapiro.test(df[df$wordType == "C",]$meanF1)
+shapiro.test(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C",]$meanF1)
 ```
 
 ```
 ## 
 ## 	Shapiro-Wilk normality test
 ## 
-## data:  df[df$wordType == "C", ]$meanF1
-## W = 0.66506, p-value = 1.506e-05
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C",     ]$meanF1
+## W = 0.67216, p-value = 1.819e-05
 ```
 
 ```r
@@ -653,15 +687,15 @@ shapiro.test(df[df$wordType == "C",]$meanF1)
 
 # perform Wilcoxon rank sum test to establish
 # whether vowel F1 depends on word type
-wilcox.test(meanF1 ~ wordType, data = df)
+wilcox.test(meanF1 ~ labels, data = td_vowels_mid_sec_mean)
 ```
 
 ```
 ## 
 ## 	Wilcoxon rank sum test
 ## 
-## data:  meanF1 by wordType
-## W = 121, p-value = 0.03752
+## data:  meanF1 by labels
+## W = 119, p-value = 0.04875
 ## alternative hypothesis: true location shift is not equal to 0
 ```
 
