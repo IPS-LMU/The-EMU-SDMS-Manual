@@ -446,17 +446,21 @@ td_vowels_midpoint = td_vowels_norm %>%
 # show dimensions of td_vowels_midpoint
 dim(td_vowels_midpoint)
 
+# calculate centroid 
+td_centroids = td_vowels_midpoint %>%
+  group_by(labels) %>%
+  summarise(T1 = mean(T1), T2 = mean(T2))
+
 # generate plot
 ggplot(td_vowels_midpoint, aes(x = T2, y = T1, colour = labels, label = labels)) + 
-  geom_text() + 
+  geom_text(data = td_centroids) +
   stat_ellipse() +
   scale_y_reverse() + scale_x_reverse() + 
   labs(x = "F2 (Hz)", y = "F1 (Hz)") +
-  theme(legend.position="none") 
-)
+  theme(legend.position="none")
 ```
 
-```{r tutorial-eplot, message=FALSE, fig.cap = "95% ellipse plot for F2 x F1 data extracted from the temporal midpoint of the vowel segments.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6}
+```{r tutorial-eplot, message=FALSE, fig.cap = "95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6}
 # cut formant trajectories at temporal mid-point
 td_vowels_midpoint = td_vowels_norm %>% 
   filter(times_norm == 0.5)
@@ -464,16 +468,21 @@ td_vowels_midpoint = td_vowels_norm %>%
 # show dimensions of td_vowels_midpoint
 dim(td_vowels_midpoint)
 
+# calculate centroid 
+td_centroids = td_vowels_midpoint %>%
+  group_by(labels) %>%
+  summarise(T1 = mean(T1), T2 = mean(T2))
+
 # generate plot
 ggplot(td_vowels_midpoint, aes(x = T2, y = T1, colour = labels, label = labels)) + 
-  geom_text() + 
+  geom_text(data = td_centroids) + 
   stat_ellipse() +
   scale_y_reverse() + scale_x_reverse() + 
   labs(x = "F2 (Hz)", y = "F1 (Hz)") +
   theme(legend.position="none")
 ```
 
-Figure \@ref(fig:tutorial-eplot) displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplyr` and `ggplot2` packages can be very helpful tools for providing an overview of the data at hand.
+Figure \@ref(fig:tutorial-eplot) displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. The centroid of these formants is plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplyr` and `ggplot2` packages can be very helpful tools for providing an overview of the data at hand.
 
 
 ## Vowel height as a function of word types (content vs. function): evaluation and statistical analysis

@@ -426,8 +426,8 @@ Figure 3.1: TextGrid annotation of the <code>emuR_demoData/TextGrid_collection/m
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># show summary</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">summary</span>(db_handle)</a></code></pre></div>
 <pre><code>## Name:     my-first 
-## UUID:     339996ac-fc8d-44ba-a47d-16100a05c519 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpfrugjd/my-first_emuDB 
+## UUID:     891d4518-a667-49d8-ad47-9c8cc3a931dc 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp79xIne/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -673,18 +673,18 @@ Figure 3.5: Screenshot of <code>EMU-webApp</code> displaying the autobuilt hiera
 <pre><code>## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
-##  1         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  2         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  3         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  4         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  5         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  6         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  7         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  8         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-##  9         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-## 10         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-## 11         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
-## 12         5 @      2447. 2506. 0000… 339996… 0000    msajc…           119
+##  1         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  2         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  3         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  4         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  5         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  6         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  7         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  8         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+##  9         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+## 10         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+## 11         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
+## 12         5 @      2447. 2506. 0000… 891d45… 0000    msajc…           119
 ## # ... with 15 more variables: end_item_id &lt;int&gt;, level &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;,
@@ -727,22 +727,26 @@ Figure 3.7: <code>ggplot()</code> plots of the F1 smoothed conditional mean traj
 <a class="sourceLine" id="cb45-5" data-line-number="5"><span class="co"># show dimensions of td_vowels_midpoint</span></a>
 <a class="sourceLine" id="cb45-6" data-line-number="6"><span class="kw">dim</span>(td_vowels_midpoint)</a>
 <a class="sourceLine" id="cb45-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb45-8" data-line-number="8"><span class="co"># generate plot</span></a>
-<a class="sourceLine" id="cb45-9" data-line-number="9"><span class="kw">ggplot</span>(td_vowels_midpoint, <span class="kw">aes</span>(<span class="dt">x =</span> T2, <span class="dt">y =</span> T1, <span class="dt">colour =</span> labels, <span class="dt">label =</span> labels)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb45-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_text</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb45-11" data-line-number="11"><span class="st">  </span><span class="kw">stat_ellipse</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb45-12" data-line-number="12"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb45-13" data-line-number="13"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;F2 (Hz)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb45-14" data-line-number="14"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) </a>
-<a class="sourceLine" id="cb45-15" data-line-number="15"><span class="er">)</span></a></code></pre></div>
+<a class="sourceLine" id="cb45-8" data-line-number="8"><span class="co"># calculate centroid </span></a>
+<a class="sourceLine" id="cb45-9" data-line-number="9">td_centroids =<span class="st"> </span>td_vowels_midpoint <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-10" data-line-number="10"><span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-11" data-line-number="11"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">T1 =</span> <span class="kw">mean</span>(T1), <span class="dt">T2 =</span> <span class="kw">mean</span>(T2))</a>
+<a class="sourceLine" id="cb45-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb45-13" data-line-number="13"><span class="co"># generate plot</span></a>
+<a class="sourceLine" id="cb45-14" data-line-number="14"><span class="kw">ggplot</span>(td_vowels_midpoint, <span class="kw">aes</span>(<span class="dt">x =</span> T2, <span class="dt">y =</span> T1, <span class="dt">colour =</span> labels, <span class="dt">label =</span> labels)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-15" data-line-number="15"><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> td_centroids) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-16" data-line-number="16"><span class="st">  </span><span class="kw">stat_ellipse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-17" data-line-number="17"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-18" data-line-number="18"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;F2 (Hz)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-19" data-line-number="19"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 28 24</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:tutorial-eplot"></span>
-<img src="tutorial_files/figure-html/tutorial-eplot-1.png" alt="95% ellipse plot for F2 x F1 data extracted from the temporal midpoint of the vowel segments." width="576" />
+<img src="tutorial_files/figure-html/tutorial-eplot-1.png" alt="95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments." width="576" />
 <p class="caption">
-Figure 3.8: 95% ellipse plot for F2 x F1 data extracted from the temporal midpoint of the vowel segments.
+Figure 3.8: 95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments.
 </p>
 </div>
-<p>Figure <a href="chap-tutorial.html#fig:tutorial-eplot">3.8</a> displays the first two formants extracted at the temporal midpoint of every <em>@</em> vowel in <code>sl_vowels</code>. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the <code>dplyr</code> and <code>ggplot2</code> packages can be very helpful tools for providing an overview of the data at hand.</p>
+<p>Figure <a href="chap-tutorial.html#fig:tutorial-eplot">3.8</a> displays the first two formants extracted at the temporal midpoint of every <em>@</em> vowel in <code>sl_vowels</code>. The centroid of these formants is plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the <code>dplyr</code> and <code>ggplot2</code> packages can be very helpful tools for providing an overview of the data at hand.</p>
 </div>
 <div id="vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis" class="section level2">
 <h2><span class="header-section-number">3.6</span> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</h2>

@@ -828,8 +828,8 @@ using the \texttt{summary()} function as shown the below R code snippet.
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     42d65c0c-6263-4f44-8aa1-c85748b76168 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmprw5Kje/my-first_emuDB 
+## UUID:     5317d385-8f5b-4e52-8b31-5895b3618c8d 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpEEkYfh/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -1365,18 +1365,18 @@ code shows the usage of this function.
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  2         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  3         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  4         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  5         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  6         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  7         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  8         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-##  9         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-## 10         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-## 11         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
-## 12         5 @      2447. 2506. 0000~ 42d65c~ 0000    msajc~           119
+##  1         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  2         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  3         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  4         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  5         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  6         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  7         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  8         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+##  9         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+## 10         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+## 11         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
+## 12         5 @      2447. 2506. 0000~ 5317d3~ 0000    msajc~           119
 ## # ... with 15 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,
@@ -1483,14 +1483,18 @@ trajectories.
 \CommentTok{# show dimensions of td_vowels_midpoint}
 \KeywordTok{dim}\NormalTok{(td_vowels_midpoint)}
 
+\CommentTok{# calculate centroid }
+\NormalTok{td_centroids =}\StringTok{ }\NormalTok{td_vowels_midpoint }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(labels) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{T1 =} \KeywordTok{mean}\NormalTok{(T1), }\DataTypeTok{T2 =} \KeywordTok{mean}\NormalTok{(T2))}
+
 \CommentTok{# generate plot}
 \KeywordTok{ggplot}\NormalTok{(td_vowels_midpoint, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ T2, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{colour =}\NormalTok{ labels, }\DataTypeTok{label =}\NormalTok{ labels)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_text}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ td_centroids) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{stat_ellipse}\NormalTok{() }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"F2 (Hz)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"none"}\NormalTok{) }
-\ErrorTok{)}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{"none"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1504,16 +1508,16 @@ trajectories.
 
 \}
 
-\textbackslash{}caption\{95\% ellipse plot for F2 x F1 data extracted
-from the temporal midpoint of the vowel
+\textbackslash{}caption\{95\% ellipse plot including centroid for F2 x
+F1 data extracted from the temporal midpoint of the vowel
 segments.\}\label{fig:tutorial-eplot} \textbackslash{}end\{figure\}
 
 Figure \ref{fig:tutorial-eplot} displays the first two formants
 extracted at the temporal midpoint of every \emph{@} vowel in
-\texttt{sl\_vowels}. These formants are plotted on the F2 x F1 plane,
-and their 95\% ellipsis distribution is also shown. Although not
-necessarily applicable to the question posed at the beginning of this
-tutorial, the data exploration using the \texttt{dplyr} and
+\texttt{sl\_vowels}. The centroid of these formants is plotted on the F2
+x F1 plane, and their 95\% ellipsis distribution is also shown. Although
+not necessarily applicable to the question posed at the beginning of
+this tutorial, the data exploration using the \texttt{dplyr} and
 \texttt{ggplot2} packages can be very helpful tools for providing an
 overview of the data at hand.
 
@@ -2245,8 +2249,8 @@ function.
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     a7c9d61e-bf08-43a8-b76a-58a32b53a7be 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp7dFQBi/fromScratch_emuDB 
+## UUID:     7d3852c1-fb28-4950-b9cf-5c78fa5b0b65 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpWOJpmF/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -4361,7 +4365,7 @@ file.
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpdxJici/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpkRSxm1/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -4894,7 +4898,7 @@ existing file but merely appends new log information to it.
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2018-10-18 16:03:44 "  
+## [5] "Timestamp:  2018-10-19 16:42:31 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"

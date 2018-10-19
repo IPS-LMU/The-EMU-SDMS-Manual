@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 579e98d9-ffd1-47a6-925e-18e37622eb8a 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp84PmlV/my-first_emuDB 
+## UUID:	 b3976baa-59fc-4e0a-be40-f4262855ae4b 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmppPL0e6/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -485,18 +485,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  2         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  3         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  4         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  5         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  6         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  7         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  8         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-##  9         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-## 10         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-## 11         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
-## 12         5 @      2447. 2506. 0000… 579e98… 0000    msajc…           119
+##  1         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  2         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  3         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  4         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  5         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  6         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  7         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  8         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+##  9         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+## 10         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+## 11         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
+## 12         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
 ## # ... with 15 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,
@@ -553,14 +553,18 @@ td_vowels_midpoint = td_vowels_norm %>%
 # show dimensions of td_vowels_midpoint
 dim(td_vowels_midpoint)
 
+# calculate centroid 
+td_centroids = td_vowels_midpoint %>%
+  group_by(labels) %>%
+  summarise(T1 = mean(T1), T2 = mean(T2))
+
 # generate plot
 ggplot(td_vowels_midpoint, aes(x = T2, y = T1, colour = labels, label = labels)) + 
-  geom_text() + 
+  geom_text(data = td_centroids) +
   stat_ellipse() +
   scale_y_reverse() + scale_x_reverse() + 
   labs(x = "F2 (Hz)", y = "F1 (Hz)") +
-  theme(legend.position="none") 
-)
+  theme(legend.position="none")
 ```
 
 
@@ -569,11 +573,11 @@ ggplot(td_vowels_midpoint, aes(x = T2, y = T1, colour = labels, label = labels))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-eplot-1.png" alt="95% ellipse plot for F2 x F1 data extracted from the temporal midpoint of the vowel segments."  />
-<p class="caption">(\#fig:tutorial-eplot)95% ellipse plot for F2 x F1 data extracted from the temporal midpoint of the vowel segments.</p>
+<img src="tutorial_files/figure-epub3/tutorial-eplot-1.png" alt="95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments."  />
+<p class="caption">(\#fig:tutorial-eplot)95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments.</p>
 </div>
 
-Figure \@ref(fig:tutorial-eplot) displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. These formants are plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplyr` and `ggplot2` packages can be very helpful tools for providing an overview of the data at hand.
+Figure \@ref(fig:tutorial-eplot) displays the first two formants extracted at the temporal midpoint of every *\@* vowel in `sl_vowels`. The centroid of these formants is plotted on the F2 x F1 plane, and their 95% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the `dplyr` and `ggplot2` packages can be very helpful tools for providing an overview of the data at hand.
 
 
 ## Vowel height as a function of word types (content vs. function): evaluation and statistical analysis
