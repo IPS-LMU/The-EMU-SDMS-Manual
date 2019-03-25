@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 b3976baa-59fc-4e0a-be40-f4262855ae4b 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmppPL0e6/my-first_emuDB 
+## UUID:	 bb0c7214-6e88-41a9-a3ff-1c0f96933154 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpzHfogc/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -244,7 +244,7 @@ As demonstrated in the above R code, the result of a query is an `emuRsegs` obje
 The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: *Query all Phonetic items that contain the label "n" and are part of a content word*. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter \@ref(chap:annot-struct-mod). For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure \@ref(fig:tutorial-emuWebAppMyFirst) to a hierarchical form as displayed in Figure \@ref(fig:tutorial-violentlyHier), where only the *Phonetic* level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`."  />
+<img src="tutorial_files/figure-html/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`." width="432" />
 <p class="caption">(\#fig:tutorial-violentlyHier)Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`.</p>
 </div>
 
@@ -485,19 +485,19 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  2         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  3         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  4         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  5         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  6         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  7         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  8         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-##  9         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-## 10         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-## 11         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-## 12         5 @      2447. 2506. 0000… b3976b… 0000    msajc…           119
-## # ... with 15 more variables: end_item_id <int>, level <chr>,
+##  1         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  2         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  3         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  4         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  5         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  6         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  7         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  8         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+##  9         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+## 10         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+## 11         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+## 12         5 @      2447. 2506. 0000… bb0c72… 0000    msajc…           119
+## # … with 15 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,
 ## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>,
@@ -527,7 +527,7 @@ ggplot(td_vowels_norm) +
 
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-dplot1-1.png" alt="`ggplot()` plots of all F1 *\@* vowel trajectories."  />
+<img src="tutorial_files/figure-html/tutorial-dplot1-1.png" alt="`ggplot()` plots of all F1 *\@* vowel trajectories." width="576" />
 <p class="caption">(\#fig:tutorial-dplot1)`ggplot()` plots of all F1 *\@* vowel trajectories.</p>
 </div>
 
@@ -538,7 +538,7 @@ ggplot(td_vowels_norm) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-dplot2-1.png" alt="`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels."  />
+<img src="tutorial_files/figure-html/tutorial-dplot2-1.png" alt="`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels." width="576" />
 <p class="caption">(\#fig:tutorial-dplot2)`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels.</p>
 </div>
 
@@ -573,7 +573,7 @@ ggplot(td_vowels_midpoint, aes(x = T2, y = T1, colour = labels, label = labels))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-eplot-1.png" alt="95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments."  />
+<img src="tutorial_files/figure-html/tutorial-eplot-1.png" alt="95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments." width="576" />
 <p class="caption">(\#fig:tutorial-eplot)95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments.</p>
 </div>
 
@@ -605,7 +605,7 @@ ggplot(td_vowels_mid_sec) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-dplotSylTyp-1.png" alt="Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*))."  />
+<img src="tutorial_files/figure-html/tutorial-dplotSylTyp-1.png" alt="Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*))." width="576" />
 <p class="caption">(\#fig:tutorial-dplotSylTyp)Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*)).</p>
 </div>
 
@@ -628,7 +628,7 @@ ggplot(td_vowels_mid_sec_mean, aes(labels, meanF1)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word."  />
+<img src="tutorial_files/figure-html/tutorial-boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word." width="576" />
 <p class="caption">(\#fig:tutorial-boxplot)Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word.</p>
 </div>
 
@@ -704,7 +704,7 @@ wilcox.test(meanF1 ~ labels, data = td_vowels_mid_sec_mean)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-stats1-1.png" alt="Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code."  />
+<img src="tutorial_files/figure-html/tutorial-stats1-1.png" alt="Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code." width="576" />
 <p class="caption">(\#fig:tutorial-stats1)Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code.</p>
 </div>
 

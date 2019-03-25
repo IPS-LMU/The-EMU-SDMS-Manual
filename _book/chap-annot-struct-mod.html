@@ -5,21 +5,21 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The EMU-SDMS Manual</title>
-  <meta name="description" content="The EMU-SDMS Manual">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <title>4 Annotation Structure Modeling5 | The EMU-SDMS Manual</title>
+  <meta name="description" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:title" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
   <meta property="og:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
-  <meta property="og:description" content="The EMU-SDMS Manual" />
+  <meta property="og:description" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
   <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  <meta name="twitter:title" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
   
-  <meta name="twitter:description" content="The EMU-SDMS Manual" />
+  <meta name="twitter:description" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
   <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
 
 <meta name="author" content="Raphael Winkelmann">
@@ -35,6 +35,7 @@
 <link rel="next" href="chap-emuDB.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -51,7 +52,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -64,13 +65,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -152,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -192,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
 <li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
 <li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
-<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
 <li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
@@ -376,7 +375,7 @@ Figure 4.1: <strong>A:</strong> a purely time-aligned annotation; <strong>B:</st
 <div id="per-database-annotation-structure-definition" class="section level2">
 <h2><span class="header-section-number">4.1</span> Per database annotation structure definition</h2>
 <p>Unlike other systems, the EMU-SDMS requires the user to define the annotation structure formally for all annotations within a database. Much as Document Type Definition (DTD) or XML Schema Definition (XSD) describe the syntactically valid elements in an Extensible Markup Language (XML) document, the database configuration file of an <code>emuDB</code> defines the valid annotation levels and therefore the type of items that are allowed to be present in a database. Unlike DTDs or XSDs, the configuration file can also define semantic relationships between annotation levels which fall outside the scope of traditional, syntactically oriented schema definitions and validation. This global definition of an annotation structure has numerous benefits for the data integrity of the database, as the EMU-SDMS can perform consistency checks and prevent malformed as well as semantically void annotation structures.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Because of these formal definitions, the EMU system generally distinguishes between the actual representations of a structural element which are contained within the database and their formal definitions. An example of an actual representation, that is a subset of the actual annotation, would be a level contained in an annotation file that contains <code>SEGMENT</code>s that annotate a recording. The corresponding formal definition would be a level definition entry in the database’s configuration file, which specifies and validates the level’s existence within the database.</p>
-<p>As mentioned above, the actual annotation files of an <code>emuDB</code> contain the annotation items as well as their hierarchical linking information. To be able to check the validity of a connection between two items, the user specifies which links are permitted for the entire database just as for the level definitions. The permitted hierarchical relationships in an <code>emuDB</code> are expressed through link definitions between level definitions as part of the database configuration. There are three types of valid hierarchical relationships between levels: <code>ONE_TO_MANY</code>, <code>MANY_TO_MANY</code> and <code>ONE_TO_ONE</code>. These link definitions specify the permitted relationships between instances of annotation items of one level and those of another. The structure of the hierarchy that corresponds to the annotation depicted in Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>C can be seen in Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>A. The structure in Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>A is a typical example of an EMU hierarchy where only the  level of type <code>SEGMENT</code> contains time information and the others are timeless as they are of the type <code>ITEM</code>. The top three levels, <em>Text</em>, <em>Syllable</em> and <em>Phoneme</em>, have a <code>ONE_TO_MANY</code> relationship specifying that a single item in the parent level may have a dominance relationship with multiple items in the child level. In this example, the relationship between  and <em>Phonetic</em> is <code>MANY_TO_MANY</code>: this type of relationship can be used to represent schwa elision and subsequent sonorant syllabification, as when the final syllable of <em>sudden</em> is <em><a href="mailto:d@n">d@n</a></em> at the <em>Phoneme</em> level but <em>dn</em> at the <em>Phonetic</em> level. Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>B displays an example of a more complex, intersecting hierarchical structure definition where Abercrombian feet (<span class="citation">Abercombie (<a href="#ref-abercombie:1967a">1967</a>)</span>) are incorporated into the tones and break indices (ToBI) (<span class="citation">Beckman and Ayers (<a href="#ref-beckman:1997aa">1997</a>)</span>) prosodic hierarchy by allowing an intonational phrase to be made up of one or more feet (for further details see <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span> page 98).</p>
+<p>As mentioned above, the actual annotation files of an <code>emuDB</code> contain the annotation items as well as their hierarchical linking information. To be able to check the validity of a connection between two items, the user specifies which links are permitted for the entire database just as for the level definitions. The permitted hierarchical relationships in an <code>emuDB</code> are expressed through link definitions between level definitions as part of the database configuration. There are three types of valid hierarchical relationships between levels: <code>ONE_TO_MANY</code>, <code>MANY_TO_MANY</code> and <code>ONE_TO_ONE</code>. These link definitions specify the permitted relationships between instances of annotation items of one level and those of another. The structure of the hierarchy that corresponds to the annotation depicted in Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>C can be seen in Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>A. The structure in Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>A is a typical example of an EMU hierarchy where only the  level of type <code>SEGMENT</code> contains time information and the others are timeless as they are of the type <code>ITEM</code>. The top three levels, <em>Text</em>, <em>Syllable</em> and <em>Phoneme</em>, have a <code>ONE_TO_MANY</code> relationship specifying that a single item in the parent level may have a dominance relationship with multiple items in the child level. In this example, the relationship between  and <em>Phonetic</em> is <code>MANY_TO_MANY</code>: this type of relationship can be used to represent schwa elision and subsequent sonorant syllabification, as when the final syllable of <em>sudden</em> is <em><a href="mailto:d@n" class="email">d@n</a></em> at the <em>Phoneme</em> level but <em>dn</em> at the <em>Phonetic</em> level. Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>B displays an example of a more complex, intersecting hierarchical structure definition where Abercrombian feet (<span class="citation">Abercombie (<a href="#ref-abercombie:1967a">1967</a>)</span>) are incorporated into the tones and break indices (ToBI) (<span class="citation">Beckman and Ayers (<a href="#ref-beckman:1997aa">1997</a>)</span>) prosodic hierarchy by allowing an intonational phrase to be made up of one or more feet (for further details see <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span> page 98).</p>
 <div class="figure" style="text-align: center"><span id="fig:annotStruct"></span>
 <img src="pics/annotStruct.png" alt="**A:** a schematic representation of the hierarchical structure of an `emuDB` that corresponds to the annotation depicted in figure 4.1C; **B:** example of a more complex, intersecting hierarchical structure." width="75%" />
 <p class="caption">
@@ -387,7 +386,7 @@ Figure 4.2: <strong>A:</strong> a schematic representation of the hierarchical s
 </div>
 <div id="parallel-labels-and-multiple-attributes" class="section level2">
 <h2><span class="header-section-number">4.2</span> Parallel labels and multiple attributes</h2>
-<p>The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called <em>Category</em> might have been included as a separate level from <em>Word</em> for marking words’ grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate <em>Stress</em> tier (description taken from <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span> page 77). Using <code>ONE_TO_ONE</code> link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term “attribute” (vs. “label”) was chosen to have the flexibility of adding attributes that are not of the type <code>STRING</code> (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a> shows the annotation structure modeling difference between linearly linked levels (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A) and an annotation structure using multiple attributes (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A shows three separate levels (<em>Word</em>, <em>Accent</em> and <em>Text</em>) that have a <code>ONE_TO_ONE</code> relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., <em>A1-A3</em>). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B shows a single level that has three attribute definitions (<em>Word</em>, <em>Accent</em> and <em>Text</em>) and each annotation item contains three attributes (e.g., <em>A1-A3</em>).</p>
+<p>The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called <em>Category</em> might have been included as a separate level from <em>Word</em> for marking words’ grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate <em>Stress</em> tier (description taken from <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span> page 77). Using <code>ONE_TO_ONE</code> link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term “attribute” (vs. “label”) was chosen to have the flexibility of adding attributes that are not of the type <code>STRING</code> (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a> shows the annotation structure modeling difference between linearly linked levels (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A) and an annotation structure using multiple attributes (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A shows three separate levels (<em>Word</em>, <em>Accent</em> and <em>Text</em>) that have a <code>ONE_TO_ONE</code> relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., <em>A1-A3</em>). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B shows a single level that has three attribute definitions (<em>Word</em>, <em>Accent</em> and <em>Text</em>) and each annotation item contains three attributes (e.g., <em>A1-A3</em>).</p>
 <div class="figure" style="text-align: center"><span id="fig:paraLabels"></span>
 <img src="pics/annotStruct.png" alt="Schematic representation of annotation structure modeling difference between **A:** linearly linked levels and **B:** an annotation structure using multiple attributes." width="75%" />
 <p class="caption">
@@ -415,28 +414,28 @@ Figure 4.4: Hierarchical annotation displaying single bundle root node metadata 
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-boersma:2011a">
-<p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/" class="uri">http://www.fon.hum.uva.nl/praat/</a>.</p>
+<p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/">http://www.fon.hum.uva.nl/praat/</a>.</p>
 </div>
 <div id="ref-knuth:ar1968a">
-<p>Knuth, Donald E. 1968. “The Art of Computer Programming Vol. 1, Fundamental Algorithms.” <em>Addison-Wesley, Reading, MA</em> 9:364–69.</p>
+<p>Knuth, Donald E. 1968. “The Art of Computer Programming Vol. 1, Fundamental Algorithms.” <em>Addison-Wesley, Reading, MA</em> 9: 364–69.</p>
 </div>
 <div id="ref-cassidy:sc2001a">
-<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1). Elsevier:61–77.</p>
+<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1): 61–77.</p>
 </div>
 <div id="ref-harrington:csl1993a">
-<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4). Elsevier:305–31.</p>
+<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4): 305–31.</p>
 </div>
 <div id="ref-coleman:lp1991a">
-<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3). Springer:295–338.</p>
+<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3): 295–338.</p>
 </div>
 <div id="ref-bird:sc2001a">
-<p>Bird, Steven, and Mark Liberman. 2001. “A Formal Framework for Linguistic Annotation.” <em>Speech Communication</em> 33 (1). Elsevier:23–60.</p>
+<p>Bird, Steven, and Mark Liberman. 2001. “A Formal Framework for Linguistic Annotation.” <em>Speech Communication</em> 33 (1): 23–60.</p>
 </div>
 <div id="ref-zipser:2010a">
-<p>Zipser, Florian, and Laurent Romary. 2010. “A model oriented approach to the mapping of annotation formats using standards.” In <em>Workshop on Language Resource and Language Technology Standards, LREC 2010</em>. La Valette, Malta. <a href="https://hal.inria.fr/inria-00527799" class="uri">https://hal.inria.fr/inria-00527799</a>.</p>
+<p>Zipser, Florian, and Laurent Romary. 2010. “A model oriented approach to the mapping of annotation formats using standards.” In <em>Workshop on Language Resource and Language Technology Standards, LREC 2010</em>. La Valette, Malta. <a href="https://hal.inria.fr/inria-00527799">https://hal.inria.fr/inria-00527799</a>.</p>
 </div>
 <div id="ref-ide:nle2004a">
-<p>Ide, Nancy, and Laurent Romary. 2004. “International Standard for a Linguistic Annotation Framework.” <em>Natural Language Engineering</em> 10 (3-4). Cambridge Univ Press:211–25.</p>
+<p>Ide, Nancy, and Laurent Romary. 2004. “International Standard for a Linguistic Annotation Framework.” <em>Natural Language Engineering</em> 10 (3-4): 211–25.</p>
 </div>
 <div id="ref-ISOLAF">
 <p>ISO. 2012. “Language Resource Management — Linguistic Annotation Framework (Laf).” ISO 24612:2012. Geneva, Switzerland: International Organization for Standardization.</p>
@@ -485,7 +484,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -497,6 +496,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/annot_struct.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["_main.pdf", "_main.epub"],
 "toc": {
@@ -512,7 +515,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

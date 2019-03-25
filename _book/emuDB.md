@@ -79,8 +79,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 9f3fb958-d867-42c8-bb3a-e1d3fc3056d0 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpHjqqmq/fromScratch_emuDB 
+## UUID:	 a3e2b3f4-3c11-4226-a393-1191e2fffad2 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpvJF0Of/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -399,10 +399,10 @@ as_tibble(head(list_files(dbHandle), n = 2))
 
 ```
 ## # A tibble: 2 x 4
-##   session    bundle  file        absolute_file_path                       
-## * <chr>      <chr>   <chr>       <chr>                                    
-## 1 fromWavFi… msajc0… msajc003_a… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
-## 2 fromWavFi… msajc0… msajc003.w… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
+##   session    bundle  file        absolute_file_path                        
+##   <chr>      <chr>   <chr>       <chr>                                     
+## 1 fromWavFi… msajc0… msajc003_a… /private/var/folders/yk/8z9tn7kx6hbcg_9n4…
+## 2 fromWavFi… msajc0… msajc003.w… /private/var/folders/yk/8z9tn7kx6hbcg_9n4…
 ```
 
 The `import_mediaFiles()` call above added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
@@ -444,11 +444,11 @@ as_tibble(head(list_files(dbHandle), n = 3))
 
 ```
 ## # A tibble: 3 x 4
-##   session    bundle  file        absolute_file_path                       
-## * <chr>      <chr>   <chr>       <chr>                                    
-## 1 fromWavFi… msajc0… msajc003_a… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
-## 2 fromWavFi… msajc0… msajc003.w… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
-## 3 fromWavFi… msajc0… msajc003.z… /private/var/folders/yk/8z9tn7kx6hbcg_9n…
+##   session    bundle  file        absolute_file_path                        
+##   <chr>      <chr>   <chr>       <chr>                                     
+## 1 fromWavFi… msajc0… msajc003_a… /private/var/folders/yk/8z9tn7kx6hbcg_9n4…
+## 2 fromWavFi… msajc0… msajc003.w… /private/var/folders/yk/8z9tn7kx6hbcg_9n4…
+## 3 fromWavFi… msajc0… msajc003.z… /private/var/folders/yk/8z9tn7kx6hbcg_9n4…
 ```
 
 

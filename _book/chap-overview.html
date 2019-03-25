@@ -5,21 +5,21 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The EMU-SDMS Manual</title>
-  <meta name="description" content="The EMU-SDMS Manual">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <title>2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual</title>
+  <meta name="description" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The EMU-SDMS Manual" />
+  <meta property="og:title" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
   <meta property="og:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
-  <meta property="og:description" content="The EMU-SDMS Manual" />
+  <meta property="og:description" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
   <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The EMU-SDMS Manual" />
+  <meta name="twitter:title" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
   
-  <meta name="twitter:description" content="The EMU-SDMS Manual" />
+  <meta name="twitter:description" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
   <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
 
 <meta name="author" content="Raphael Winkelmann">
@@ -35,6 +35,7 @@
 <link rel="next" href="chap-tutorial.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -51,7 +52,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -64,13 +65,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -152,7 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -192,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
 <li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
 <li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
-<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
 <li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
@@ -367,9 +366,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Upon developing the new system, rather than starting completely from scratch it seemed more appropriate to partially reuse the concepts of the legacy system in order to achieve our goals. A major observation at the time was that the R language and environment for statistical computing and graphics (<span class="citation">R Core Team (<a href="#ref-r-core-team:2016a">2016</a>)</span>) was gaining more and more traction for statistical and data visualization purposes in the speech and spoken language research community. However, R was mostly only used towards the end of the data analysis chain where data usually was pre-converted into a comma-separated values or equivalent file format by the user using other tools to calculate, extract and pre-process the data. While designing the new EMU-SDMS, we brought R to the front of the tool chain to the point just beyond data acquisition. This allows the entire data annotation, data extraction and analysis process to be completed in R, while keeping the key user requirements in mind. Due to personal experiences gained by using the legacy system for research puposes and in various undergraduate courses (course material usually based on <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span>), we learned that the key user requirements were data and database portability, a simple installation process, a simplified/streamlined user experience and cross-platform availability. Supplying all of EMU-SDMS’s core functionality in the form of R packages that do not rely on external software at runtime seemed to meet all of these requirements.</p>
 <p>As the early incarnations of the legacy EMU system and its predecessors were conceived either at a time that predated the R system or during the infancy of R’s package ecosystem, the legacy system was implemented as a modular yet composite standalone program with a communication and data exchange interface to the R/Splus systems (see <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a">2001</a>)</span> Section 3 for details). Recent developments in the package ecosystem of R such as the availability of the <code>DBI</code> package (<span class="citation">R Special Interest Group on Databases (R-SIG-DB), Wickham, and Müller (<a href="#ref-r-special-interest-group-on-databases-r-sig-db:2016a">2016</a>)</span>) and the related packages <code>RSQLite</code> and <code>RPostgreSQL</code> (<span class="citation">Wickham, James, and Falcon (<a href="#ref-wickham:2014a">2014</a>)</span>, <span class="citation">Conway et al. (<a href="#ref-conway:2016a">2016</a>)</span>), as well as the <code>jsonlite</code> package (<span class="citation">Ooms (<a href="#ref-ooms:as2014a">2014</a>)</span>) and the <code>httpuv</code> package (<span class="citation">RStudio and Inc. (<a href="#ref-rstudio:2015a">2015</a>)</span>), have made R an attractive sole target platform for the EMU-SDMS. These and other packages provide additional functional power that enabled the EMU-SDMS’s core functionality to be implemented in the form of R packages. The availability of certain R packages had a large impact on the architectural design decisions that we made for the new system.</p>
 <p>The R code snippet below shows the simple installation process which we were able to achieve due to the R package infrastructure. Compared to the legacy EMU and other systems, the installation process of the entire system has been reduced to a single R command. Throughout this documentation we will try to highlight how the EMU-SDMS is also able to meet the rest of the above key user requirements.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install the entire EMU-SDMS</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># by installing the emuR package</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;emuR&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install the entire EMU-SDMS</span>
+<span class="co"># by installing the emuR package</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;emuR&quot;</span>)</code></pre>
 <p>It is worth noting that throughout this manual R code snippets will be given in the form of the above snippet. These examples represent working R code that allow the reader to follow along in a hands-on manor and give a feel for what it is like working with the new EMU-SDMS.</p>
 </div>
 <div id="sec:overview-sysArch" class="section level2">
@@ -411,19 +410,19 @@ Figure 2.2: Example of a hybrid annotation combining time-based (<em>Phonetic</e
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-r-core-team:2016a">
-<p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="http://www.R-project.org/" class="uri">http://www.R-project.org/</a>.</p>
+<p>R Core Team. 2016. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="http://www.R-project.org/">http://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-boersma:2011a">
-<p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/" class="uri">http://www.fon.hum.uva.nl/praat/</a>.</p>
+<p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/">http://www.fon.hum.uva.nl/praat/</a>.</p>
 </div>
 <div id="ref-harrington:csl1993a">
-<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4). Elsevier:305–31.</p>
+<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4): 305–31.</p>
 </div>
 <div id="ref-cassidy:1996a">
 <p>Cassidy, Steve, and Jonathan Harrington. 1996. “Emu: An Enhanced Hierarchical Speech Data Management System.” In <em>Proceedings of the Sixth Australian International Conference on Speech Science and Technology</em>, 361–66.</p>
 </div>
 <div id="ref-cassidy:sc2001a">
-<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1). Elsevier:61–77.</p>
+<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1): 61–77.</p>
 </div>
 <div id="ref-bombien:2006a">
 <p>Bombien, Lasse, Steve Cassidy, Jonathan Harrington, Tina John, and Sallyanne Palethorpe. 2006. “Recent Developments in the Emu Speech Database System.” In <em>Proc. 11th Sst Conference Auckland</em>, 313–16.</p>
@@ -435,19 +434,19 @@ Figure 2.2: Example of a hybrid annotation combining time-based (<em>Phonetic</e
 <p>John, Tina. 2012. “Emu Speech Database System.” PhD thesis, Ludwig Maximilian University of Munich.</p>
 </div>
 <div id="ref-r-special-interest-group-on-databases-r-sig-db:2016a">
-<p>R Special Interest Group on Databases (R-SIG-DB), Hadley Wickham, and Kirill Müller. 2016. <em>DBI: R Database Interface</em>. <a href="https://CRAN.R-project.org/package=DBI" class="uri">https://CRAN.R-project.org/package=DBI</a>.</p>
+<p>R Special Interest Group on Databases (R-SIG-DB), Hadley Wickham, and Kirill Müller. 2016. <em>DBI: R Database Interface</em>. <a href="https://CRAN.R-project.org/package=DBI">https://CRAN.R-project.org/package=DBI</a>.</p>
 </div>
 <div id="ref-wickham:2014a">
-<p>Wickham, Hadley, David A. James, and Seth Falcon. 2014. <em>RSQLite: SQLite Interface for R</em>. <a href="https://CRAN.R-project.org/package=RSQLite" class="uri">https://CRAN.R-project.org/package=RSQLite</a>.</p>
+<p>Wickham, Hadley, David A. James, and Seth Falcon. 2014. <em>RSQLite: SQLite Interface for R</em>. <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.</p>
 </div>
 <div id="ref-conway:2016a">
-<p>Conway, Joe, Dirk Eddelbuettel, Tomoaki Nishiyama, Sameer Kumar Prayaga, and Neil Tiffin. 2016. <em>RPostgreSQL: R Interface to the Postgresql Database System</em>. <a href="https://CRAN.R-project.org/package=RPostgreSQL" class="uri">https://CRAN.R-project.org/package=RPostgreSQL</a>.</p>
+<p>Conway, Joe, Dirk Eddelbuettel, Tomoaki Nishiyama, Sameer Kumar Prayaga, and Neil Tiffin. 2016. <em>RPostgreSQL: R Interface to the Postgresql Database System</em>. <a href="https://CRAN.R-project.org/package=RPostgreSQL">https://CRAN.R-project.org/package=RPostgreSQL</a>.</p>
 </div>
 <div id="ref-ooms:as2014a">
-<p>Ooms, Jeroen. 2014. “The Jsonlite Package: A Practical and Consistent Mapping Between Json Data and R Objects.” <em>arXiv:1403.2805 [stat.CO]</em>. <a href="http://arxiv.org/abs/1403.2805" class="uri">http://arxiv.org/abs/1403.2805</a>.</p>
+<p>Ooms, Jeroen. 2014. “The Jsonlite Package: A Practical and Consistent Mapping Between Json Data and R Objects.” <em>arXiv:1403.2805 [stat.CO]</em>. <a href="http://arxiv.org/abs/1403.2805">http://arxiv.org/abs/1403.2805</a>.</p>
 </div>
 <div id="ref-rstudio:2015a">
-<p>RStudio, and Inc. 2015. <em>Httpuv: HTTP and Websocket Server Library</em>. <a href="https://CRAN.R-project.org/package=httpuv" class="uri">https://CRAN.R-project.org/package=httpuv</a>.</p>
+<p>RStudio, and Inc. 2015. <em>Httpuv: HTTP and Websocket Server Library</em>. <a href="https://CRAN.R-project.org/package=httpuv">https://CRAN.R-project.org/package=httpuv</a>.</p>
 </div>
 <div id="ref-wittenburg:2006a">
 <p>Wittenburg, Peter, Hennie Brugman, Albert Russel, Alex Klassmann, and Han Sloetjes. 2006. “Elan: A Professional Framework for Multimodality Research.” In <em>Proceedings of Lrec</em>. Vol. 2006.</p>
@@ -459,7 +458,7 @@ Figure 2.2: Example of a hybrid annotation combining time-based (<em>Phonetic</e
 <p>Rose, Yvan, Brian MacWhinney, Rodrigue Byrne, Gregory Hedlund, Keith Maddocks, Philip O’Brien, and Todd Wareham. 2006. “Introducing Phon: A Software Solution for the Study of Phonological Acquisition.” In <em>Proceedings of The... Annual Boston University Conference on Language Development. Boston University Conference on Language Development</em>, 2006:489. NIH Public Access.</p>
 </div>
 <div id="ref-mcauliffe:2016a">
-<p>McAuliffe, Michael, and Morgan Sonderegger. 2016. “Speech Corpus Tools (SCT).” <a href="http://speech-corpus-tools.readthedocs.io/" class="uri">http://speech-corpus-tools.readthedocs.io/</a>.</p>
+<p>McAuliffe, Michael, and Morgan Sonderegger. 2016. “Speech Corpus Tools (SCT).” <a href="http://speech-corpus-tools.readthedocs.io/">http://speech-corpus-tools.readthedocs.io/</a>.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -494,7 +493,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -506,6 +505,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/overview.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["_main.pdf", "_main.epub"],
 "toc": {
@@ -521,7 +524,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

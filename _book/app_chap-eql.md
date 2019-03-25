@@ -187,13 +187,16 @@ query(ae, "[Syllable =~ .* ^ Phoneme == p]")
 # or 
 query(ae, "[Phoneme == p ^ #Syllable =~ .*]")
 ```
-- **Q**: *What is the query to retrieve all syllable items which do not contain a Phoneme item labeled "k" or "p" or "t"?*
+- **Q**: *What is the query to retrieve all syllable items that have links to Phoneme items that are not labeled "k" or "p" or "t"?*
 - **A**:
 
 ```r
-query(ae, "[Syllable =~ .* ^ Phoneme != p | t| k]")
+query(ae, "[Syllable =~ .* ^ Phoneme != p | t | k]")
 # or 
 query(ae, "[Phoneme != p | t | k ^ #Syllable =~ .*]")
+# note: every syllable with a link to not p | t | k is returned
+# including those with links to multiple phonemes where a single linked
+# item doesn't contain the label 'p', 't' or 'k'
 ```
 
 Even though the domination operator is not directional, what you place to the left and right of the operator does have an impact on the result. If no result modifier (the hash tag `\#`) is used, the query engine will automatically assume that the expression to the left of the operator specifies what is to be returned. This means that the schematic query string `[L1 == A ^ L2 == B]` is semantically equal to the query string `[\#L1 == A ^ L2 == B]`. As it is more explicit to mark the desired result we recommend you always use the result modifier where possible.
