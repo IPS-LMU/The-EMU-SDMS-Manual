@@ -528,8 +528,8 @@ td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl, <span
 <span class="co">##&#39; @param columsAsTracks if TRUE -&gt; every column will be placed in it&#39;s own track</span>
 <span class="co">##&#39; if FALSE -&gt; every column is placed into a single track called SMILExtractAll</span>
 SMILExtract2AsspDataObj &lt;-<span class="st"> </span><span class="cf">function</span>(path,
-                                    <span class="dt">SMILExtractPath =</span> <span class="st">&quot;/Users/raphaelwinkelmann/programs/opensmile-2.3.0/bin/SMILExtract&quot;</span>,
-                                    <span class="dt">configPath =</span> <span class="st">&quot;/Users/raphaelwinkelmann/Downloads/opensmile-2.3.0/config/demo/demo1_energy.conf&quot;</span>,
+                                    SMILExtractPath,
+                                    configPath,
                                     <span class="dt">columsAsTracks =</span> <span class="ot">TRUE</span>){
   
   tmp1FileName =<span class="st"> &quot;tmp.csv&quot;</span>
@@ -622,7 +622,9 @@ paths2wavFiles =<span class="st"> </span><span class="kw">list.files</span>(path
 
 <span class="co"># loop through files</span>
 <span class="cf">for</span>(fp <span class="cf">in</span> paths2wavFiles){
-  ado =<span class="st"> </span><span class="kw">SMILExtract2AsspDataObj</span>(fp)
+  ado =<span class="st"> </span><span class="kw">SMILExtract2AsspDataObj</span>(fp,                                
+                                <span class="dt">SMILExtractPath =</span> <span class="st">&quot;~/programs/opensmile-2.3.0/bin/SMILExtract&quot;</span>,
+                                <span class="dt">configPath =</span> <span class="st">&quot;~/programs/opensmile-2.3.0/config/demo/demo1_energy.conf&quot;</span>)
   newPath =<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">file_path_sans_ext</span>(fp), <span class="st">&#39;.SMILExtract&#39;</span>)
   <span class="co"># print(paste0(fp, &#39; -&gt; &#39;, newPath)) # uncomment for simple log</span>
   <span class="kw">write.AsspDataObj</span>(ado, <span class="dt">file =</span> newPath)

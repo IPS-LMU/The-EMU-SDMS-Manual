@@ -188,8 +188,8 @@ library(tools)
 ##' @param columsAsTracks if TRUE -> every column will be placed in it's own track
 ##' if FALSE -> every column is placed into a single track called SMILExtractAll
 SMILExtract2AsspDataObj <- function(path,
-                                    SMILExtractPath = "/Users/raphaelwinkelmann/programs/opensmile-2.3.0/bin/SMILExtract",
-                                    configPath = "/Users/raphaelwinkelmann/Downloads/opensmile-2.3.0/config/demo/demo1_energy.conf",
+                                    SMILExtractPath,
+                                    configPath,
                                     columsAsTracks = TRUE){
   
   tmp1FileName = "tmp.csv"
@@ -282,7 +282,9 @@ paths2wavFiles = list.files(path2ae,
 
 # loop through files
 for(fp in paths2wavFiles){
-  ado = SMILExtract2AsspDataObj(fp)
+  ado = SMILExtract2AsspDataObj(fp,                                
+                                SMILExtractPath = "~/programs/opensmile-2.3.0/bin/SMILExtract",
+                                configPath = "~/programs/opensmile-2.3.0/config/demo/demo1_energy.conf")
   newPath = paste0(file_path_sans_ext(fp), '.SMILExtract')
   # print(paste0(fp, ' -> ', newPath)) # uncomment for simple log
   write.AsspDataObj(ado, file = newPath)
