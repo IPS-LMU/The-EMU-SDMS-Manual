@@ -174,3 +174,144 @@ td = get_trackdata(ae, sl, ssffTrackName = "praatFms", verbose = F)
 ```
 
 
+
+## Using OpenSMILE signal processing routines in the EMU-SDMS {#sec:app-chap-wrassp-opensmileSigProc}
+
+
+```r
+library(wrassp)
+library(tools)
+##' convert CSV output of SMILExtract to AsspDataObject
+##' @param path path to wav file
+##' @param SMILExtractPath path to SMILExtract executable
+##' @param configPath path to openSMILE config file
+##' @param columsAsTracks if TRUE -> every column will be placed in it's own track
+##' if FALSE -> every column is placed into a single track called SMILExtractAll
+SMILExtract2AsspDataObj <- function(path,
+                                    SMILExtractPath = "/Users/raphaelwinkelmann/programs/opensmile-2.3.0/bin/SMILExtract",
+                                    configPath = "/Users/raphaelwinkelmann/Downloads/opensmile-2.3.0/config/demo/demo1_energy.conf",
+                                    columsAsTracks = TRUE){
+  
+  tmp1FileName = "tmp.csv"
+  
+  tmp1FilePath = file.path(tempdir(), tmp1FileName)
+  
+  # remove tmp file if it already exists
+  unlink(file.path(tempdir(), tmp1FileName))
+  
+  system(paste0(SMILExtractPath, 
+                " -C ", configPath,
+                " -I ", path,
+                " -O ", tmp1FilePath), 
+         ignore.stdout = T, 
+         ignore.stderr = T)
+  
+  # get vals
+  df = suppressMessages(readr::read_delim(tmp1FilePath, 
+                                          delim = ";"))
+  
+  # extract + remove frameIndex/frameTime
+  frameIndex = df$frameIndex
+  frameTime = df$frameTime
+  
+  df$frameIndex = NULL
+  df$frameTime = NULL
+  
+  df = as.matrix(df) 
+  
+  colNames = colnames(df)
+  
+  # get start time
+  startTime = frameTime[1]
+  
+  # create AsspDataObj
+  ado = list()
+  
+  attr(ado, "sampleRate") = 1/frameTime[2] # second frameTime should be stepsize
+  
+  tmpObj = read.AsspDataObj(path)
+  attr(ado, "origFreq") = attr(tmpObj, "sampleRate")
+  
+  attr(ado, "startTime") = startTime
+  
+  # attr(ado, "startRecord") = as.integer(1)
+  
+  attr(ado, "endRecord") = as.integer(nrow(df))
+  
+  class(ado) = "AsspDataObj"
+  
+  AsspFileFormat(ado) <- "SSFF"
+  AsspDataFormat(ado) <- as.integer(2)
+  
+  # add every column as new track
+  if(columsAsTracks){
+    attr(ado, "trackFormats") = rep("REAL32", ncol(df))
+    for(i in 1:ncol(df)){
+      ado = addTrack(ado, 
+                     trackname = colNames[i], 
+                     data = df[,i], 
+                     format = "REAL32")  
+    }
+  }else{
+    attr(ado, "trackFormats") = "REAL32"
+    ado = addTrack(ado, 
+                   trackname = "SMILExtractAll", 
+                   data = df, 
+                   format = "REAL32")
+    
+  }
+  
+  return(ado)
+}
+
+########################################
+# Use of function on 'ae' emuDB
+library(emuR)
+
+# create demo data in tempdir()
+create_emuRdemoData(tempdir())
+
+# create path to demo database
+path2ae = file.path(tempdir(), "emuR_demoData", "ae_emuDB")
+
+# list all .wav files in the ae emuDB
+paths2wavFiles = list.files(path2ae, 
+                            pattern = "*.wav$", 
+                            recursive = TRUE, 
+                            full.names = TRUE)
+
+# loop through files
+for(fp in paths2wavFiles){
+  ado = SMILExtract2AsspDataObj(fp)
+  newPath = paste0(file_path_sans_ext(fp), '.SMILExtract')
+  # print(paste0(fp, ' -> ', newPath)) # uncomment for simple log
+  write.AsspDataObj(ado, file = newPath)
+}
+
+# load emuDB
+ae = load_emuDB(path2ae, verbose = FALSE)
+
+# add SSFF track definition
+add_ssffTrackDefinition(ae, 
+                        name = "SMILExtract", 
+                        columnName = "pcm_LOGenergy",
+                        fileExtension = "SMILExtract")
+
+# test query + get_trackdata
+sl = query(ae, "Phonetic == n")
+
+td = get_trackdata(ae, 
+                   sl, 
+                   ssffTrackName = "SMILExtract",
+                   verbose = F)
+
+# test display
+set_signalCanvasesOrder(ae, 
+                        perspectiveName = "default",
+                        order = c("OSCI", "SPEC", "SMILExtract"))
+
+# serve(ae)
+```
+
+
+

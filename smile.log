@@ -1,0 +1,16 @@
+[ 03.04.2019 - 16:27:50 ]
+    (MSG) [2] in SMILExtract : openSMILE starting!
+[ 03.04.2019 - 16:27:50 ]
+    (MSG) [2] in SMILExtract : config file is: /Users/raphaelwinkelmann/Downloads/opensmile-2.3.0/config/demo/demo1_energy.conf
+[ 03.04.2019 - 16:27:50 ]
+    (MSG) [2] in cComponentManager : successfully registered 95 component types.
+==> LEVEL 'wave'  +++  Buffersize(frames) = 40001  +++  nReaders = 1
+==> LEVEL 'waveframes'  +++  Buffersize(frames) = 3  +++  nReaders = 1
+==> LEVEL 'energy'  +++  Buffersize(frames) = 3  +++  nReaders = 1
+[ 03.04.2019 - 16:27:50 ]
+    (MSG) [2] in cComponentManager : successfully finished createInstances
+                                 (4 component instances were finalised, 1 data memories were finalised)
+[ 03.04.2019 - 16:27:50 ]
+    (MSG) [2] in cComponentManager : starting single thread processing loop
+[ 03.04.2019 - 16:27:50 ]
+    (MSG) [2] in cComponentManager : Processing finished! System ran for 310 ticks.

@@ -332,6 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
 <li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a></li>
+<li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -515,6 +516,141 @@ ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span c
 sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)
 
 td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl, <span class="dt">ssffTrackName =</span> <span class="st">&quot;praatFms&quot;</span>, <span class="dt">verbose =</span> F)</code></pre>
+</div>
+<div id="sec:app-chap-wrassp-opensmileSigProc" class="section level2">
+<h2><span class="header-section-number">19.2</span> Using OpenSMILE signal processing routines in the EMU-SDMS</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wrassp)
+<span class="kw">library</span>(tools)
+<span class="co">##&#39; convert CSV output of SMILExtract to AsspDataObject</span>
+<span class="co">##&#39; @param path path to wav file</span>
+<span class="co">##&#39; @param SMILExtractPath path to SMILExtract executable</span>
+<span class="co">##&#39; @param configPath path to openSMILE config file</span>
+<span class="co">##&#39; @param columsAsTracks if TRUE -&gt; every column will be placed in it&#39;s own track</span>
+<span class="co">##&#39; if FALSE -&gt; every column is placed into a single track called SMILExtractAll</span>
+SMILExtract2AsspDataObj &lt;-<span class="st"> </span><span class="cf">function</span>(path,
+                                    <span class="dt">SMILExtractPath =</span> <span class="st">&quot;/Users/raphaelwinkelmann/programs/opensmile-2.3.0/bin/SMILExtract&quot;</span>,
+                                    <span class="dt">configPath =</span> <span class="st">&quot;/Users/raphaelwinkelmann/Downloads/opensmile-2.3.0/config/demo/demo1_energy.conf&quot;</span>,
+                                    <span class="dt">columsAsTracks =</span> <span class="ot">TRUE</span>){
+  
+  tmp1FileName =<span class="st"> &quot;tmp.csv&quot;</span>
+  
+  tmp1FilePath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp1FileName)
+  
+  <span class="co"># remove tmp file if it already exists</span>
+  <span class="kw">unlink</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), tmp1FileName))
+  
+  <span class="kw">system</span>(<span class="kw">paste0</span>(SMILExtractPath, 
+                <span class="st">&quot; -C &quot;</span>, configPath,
+                <span class="st">&quot; -I &quot;</span>, path,
+                <span class="st">&quot; -O &quot;</span>, tmp1FilePath), 
+         <span class="dt">ignore.stdout =</span> T, 
+         <span class="dt">ignore.stderr =</span> T)
+  
+  <span class="co"># get vals</span>
+  df =<span class="st"> </span><span class="kw">suppressMessages</span>(readr<span class="op">::</span><span class="kw">read_delim</span>(tmp1FilePath, 
+                                          <span class="dt">delim =</span> <span class="st">&quot;;&quot;</span>))
+  
+  <span class="co"># extract + remove frameIndex/frameTime</span>
+  frameIndex =<span class="st"> </span>df<span class="op">$</span>frameIndex
+  frameTime =<span class="st"> </span>df<span class="op">$</span>frameTime
+  
+  df<span class="op">$</span>frameIndex =<span class="st"> </span><span class="ot">NULL</span>
+  df<span class="op">$</span>frameTime =<span class="st"> </span><span class="ot">NULL</span>
+  
+  df =<span class="st"> </span><span class="kw">as.matrix</span>(df) 
+  
+  colNames =<span class="st"> </span><span class="kw">colnames</span>(df)
+  
+  <span class="co"># get start time</span>
+  startTime =<span class="st"> </span>frameTime[<span class="dv">1</span>]
+  
+  <span class="co"># create AsspDataObj</span>
+  ado =<span class="st"> </span><span class="kw">list</span>()
+  
+  <span class="kw">attr</span>(ado, <span class="st">&quot;sampleRate&quot;</span>) =<span class="st"> </span><span class="dv">1</span><span class="op">/</span>frameTime[<span class="dv">2</span>] <span class="co"># second frameTime should be stepsize</span>
+  
+  tmpObj =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(path)
+  <span class="kw">attr</span>(ado, <span class="st">&quot;origFreq&quot;</span>) =<span class="st"> </span><span class="kw">attr</span>(tmpObj, <span class="st">&quot;sampleRate&quot;</span>)
+  
+  <span class="kw">attr</span>(ado, <span class="st">&quot;startTime&quot;</span>) =<span class="st"> </span>startTime
+  
+  <span class="co"># attr(ado, &quot;startRecord&quot;) = as.integer(1)</span>
+  
+  <span class="kw">attr</span>(ado, <span class="st">&quot;endRecord&quot;</span>) =<span class="st"> </span><span class="kw">as.integer</span>(<span class="kw">nrow</span>(df))
+  
+  <span class="kw">class</span>(ado) =<span class="st"> &quot;AsspDataObj&quot;</span>
+  
+  <span class="kw">AsspFileFormat</span>(ado) &lt;-<span class="st"> &quot;SSFF&quot;</span>
+  <span class="kw">AsspDataFormat</span>(ado) &lt;-<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">2</span>)
+  
+  <span class="co"># add every column as new track</span>
+  <span class="cf">if</span>(columsAsTracks){
+    <span class="kw">attr</span>(ado, <span class="st">&quot;trackFormats&quot;</span>) =<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;REAL32&quot;</span>, <span class="kw">ncol</span>(df))
+    <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(df)){
+      ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, 
+                     <span class="dt">trackname =</span> colNames[i], 
+                     <span class="dt">data =</span> df[,i], 
+                     <span class="dt">format =</span> <span class="st">&quot;REAL32&quot;</span>)  
+    }
+  }<span class="cf">else</span>{
+    <span class="kw">attr</span>(ado, <span class="st">&quot;trackFormats&quot;</span>) =<span class="st"> &quot;REAL32&quot;</span>
+    ado =<span class="st"> </span><span class="kw">addTrack</span>(ado, 
+                   <span class="dt">trackname =</span> <span class="st">&quot;SMILExtractAll&quot;</span>, 
+                   <span class="dt">data =</span> df, 
+                   <span class="dt">format =</span> <span class="st">&quot;REAL32&quot;</span>)
+    
+  }
+  
+  <span class="kw">return</span>(ado)
+}
+
+<span class="co">########################################</span>
+<span class="co"># Use of function on &#39;ae&#39; emuDB</span>
+<span class="kw">library</span>(emuR)
+
+<span class="co"># create demo data in tempdir()</span>
+<span class="kw">create_emuRdemoData</span>(<span class="kw">tempdir</span>())
+
+<span class="co"># create path to demo database</span>
+path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)
+
+<span class="co"># list all .wav files in the ae emuDB</span>
+paths2wavFiles =<span class="st"> </span><span class="kw">list.files</span>(path2ae, 
+                            <span class="dt">pattern =</span> <span class="st">&quot;*.wav$&quot;</span>, 
+                            <span class="dt">recursive =</span> <span class="ot">TRUE</span>, 
+                            <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># loop through files</span>
+<span class="cf">for</span>(fp <span class="cf">in</span> paths2wavFiles){
+  ado =<span class="st"> </span><span class="kw">SMILExtract2AsspDataObj</span>(fp)
+  newPath =<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">file_path_sans_ext</span>(fp), <span class="st">&#39;.SMILExtract&#39;</span>)
+  <span class="co"># print(paste0(fp, &#39; -&gt; &#39;, newPath)) # uncomment for simple log</span>
+  <span class="kw">write.AsspDataObj</span>(ado, <span class="dt">file =</span> newPath)
+}
+
+<span class="co"># load emuDB</span>
+ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># add SSFF track definition</span>
+<span class="kw">add_ssffTrackDefinition</span>(ae, 
+                        <span class="dt">name =</span> <span class="st">&quot;SMILExtract&quot;</span>, 
+                        <span class="dt">columnName =</span> <span class="st">&quot;pcm_LOGenergy&quot;</span>,
+                        <span class="dt">fileExtension =</span> <span class="st">&quot;SMILExtract&quot;</span>)
+
+<span class="co"># test query + get_trackdata</span>
+sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)
+
+td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, 
+                   sl, 
+                   <span class="dt">ssffTrackName =</span> <span class="st">&quot;SMILExtract&quot;</span>,
+                   <span class="dt">verbose =</span> F)
+
+<span class="co"># test display</span>
+<span class="kw">set_signalCanvasesOrder</span>(ae, 
+                        <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,
+                        <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;OSCI&quot;</span>, <span class="st">&quot;SPEC&quot;</span>, <span class="st">&quot;SMILExtract&quot;</span>))
+
+<span class="co"># serve(ae)</span></code></pre>
 
 </div>
 </div>
