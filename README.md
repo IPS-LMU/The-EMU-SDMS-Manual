@@ -5,4 +5,5 @@ This repository holds the sources for the EMU-SDMS manual: [https://ips-lmu.gith
 ## deploy
 
 - build (e.g. `cmd+shif+B`)
+- `git commit` and `git push`
 - deploy using git subtree command: `git subtree push --prefix _book origin gh-pages`
