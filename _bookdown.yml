@@ -27,7 +27,9 @@ rmd_files: [
   "app_chap-eql.Rmd",
   "app_chap-wrassp.Rmd",
 
-  "bibliography.Rmd"
+  "bibliography.Rmd",
+
+  "emuDBgitLab.Rmd"
 ]
 
 # before_chapter_script: "_common.R"
