@@ -126,20 +126,7 @@ PraatToFormants2AsspDataObj <- function(path,
 ########################################
 # Use of function on 'ae' emuDB
 library(emuR)
-```
 
-```
-## 
-## Attaching package: 'emuR'
-```
-
-```
-## The following object is masked from 'package:base':
-## 
-##     norm
-```
-
-```r
 # create demo data in tempdir()
 create_emuRdemoData(tempdir())
 

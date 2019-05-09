@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>20 Spectral analysis | The EMU-SDMS Manual</title>
+  <meta name="description" content="20 Spectral analysis | The EMU-SDMS Manual">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="20 Spectral analysis | The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
+  <meta property="og:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
+  <meta property="og:description" content="20 Spectral analysis | The EMU-SDMS Manual" />
+  <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="20 Spectral analysis | The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="20 Spectral analysis | The EMU-SDMS Manual" />
+  <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
+
+<meta name="author" content="Raphael Winkelmann">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="app-chap-wrassp.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">The EMU-SDMS Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.2" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.2</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="part"><span><b>I Overview and tutorial</b></span></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#sec:overview-sysArch"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a><ul>
+<li class="chapter" data-level="3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#converting-the-textgrid-collection"><i class="fa fa-check"></i><b>3.1</b> Converting the TextGrid collection</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.2</b> Loading and inspecting the database</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#overview"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-annotation-and-visual-inspection"><i class="fa fa-check"></i><b>3.2.2</b> Database annotation and visual inspection</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-and-autobuilding-the-annotation-structure"><i class="fa fa-check"></i><b>3.3</b> Querying and autobuilding the annotation structure</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.4</b> Autobuilding</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>II Main components and concepts</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html"><i class="fa fa-check"></i><b>4</b> Annotation Structure Modeling</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#per-database-annotation-structure-definition"><i class="fa fa-check"></i><b>4.1</b> Per database annotation structure definition</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#parallel-labels-and-multiple-attributes"><i class="fa fa-check"></i><b>4.2</b> Parallel labels and multiple attributes</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#metadata-strategy-using-single-bundle-root-nodes"><i class="fa fa-check"></i><b>4.3</b> Metadata strategy using single bundle root nodes</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#conclusion-1"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-emuDB.html"><a href="chap-emuDB.html"><i class="fa fa-check"></i><b>5</b> The <code>emuDB</code> Format</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#database-design"><i class="fa fa-check"></i><b>5.1</b> Database design</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb"><i class="fa fa-check"></i><b>5.2</b> Creating an <code>emuDB</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb-from-scratch"><i class="fa fa-check"></i><b>5.2.1</b> Creating an <code>emuDB</code> from scratch</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#loading-and-editing-an-empty-database"><i class="fa fa-check"></i><b>5.2.2</b> Loading and editing an empty database</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#level-definitions"><i class="fa fa-check"></i><b>5.2.3</b> Level definitions</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-emuDB.html"><a href="chap-emuDB.html#link-definitions"><i class="fa fa-check"></i><b>5.2.4</b> Link definitions</a></li>
+<li class="chapter" data-level="5.2.5" data-path="chap-emuDB.html"><a href="chap-emuDB.html#file-handling"><i class="fa fa-check"></i><b>5.2.5</b> File handling</a></li>
+<li class="chapter" data-level="5.2.6" data-path="chap-emuDB.html"><a href="chap-emuDB.html#ssff-track-definitions"><i class="fa fa-check"></i><b>5.2.6</b> SSFF track definitions</a></li>
+<li class="chapter" data-level="5.2.7" data-path="chap-emuDB.html"><a href="chap-emuDB.html#configuring-the-emu-webapp-and-annotating-the-emudb"><i class="fa fa-check"></i><b>5.2.7</b> Configuring the <code>EMU-webApp</code> and annotating the <code>emuDB</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
+<li class="chapter" data-level="6.2.7" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.2.7</b> Requery</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html"><i class="fa fa-check"></i><b>7</b> Signal data extraction</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#file-i0-and-the-asspdataobj"><i class="fa fa-check"></i><b>8.2</b> File I/0 and the <code>AsspDataObj</code></a></li>
+<li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
+<li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:emu-webApp-mainLayout"><i class="fa fa-check"></i><b>9.1</b> Main layout</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:webApp-generalUsage"><i class="fa fa-check"></i><b>9.2</b> General usage</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#annotating-levels-containing-time-information"><i class="fa fa-check"></i><b>9.2.1</b> Annotating levels containing time information</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#working-with-hierarchical-annotations-2-chapemu-webapp"><i class="fa fa-check"></i><b>9.2.2</b> Working with hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#configuring-the-emu-webapp"><i class="fa fa-check"></i><b>9.3</b> Configuring the <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppConfigWithEmuR"><i class="fa fa-check"></i><b>9.3.1</b> Basic configurations using <code>emuR</code></a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#signal-canvas-and-level-canvas-order"><i class="fa fa-check"></i><b>9.3.2</b> Signal canvas and level canvas order</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppAdvancedConfig"><i class="fa fa-check"></i><b>9.3.3</b> Advanced configurations made by editing the <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="9.3.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#d-canvas"><i class="fa fa-check"></i><b>9.3.4</b> 2D canvas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#conclusion-5"><i class="fa fa-check"></i><b>9.4</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>III Main <code>emuR</code> function and object index</b></span></li>
+<li class="chapter" data-level="10" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html"><i class="fa fa-check"></i><b>10</b> <code>emuR</code> - package functions</a><ul>
+<li class="chapter" data-level="10.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-importRoutines"><i class="fa fa-check"></i><b>10.1</b> Import and conversion routines</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#legacy-emu-databases"><i class="fa fa-check"></i><b>10.1.1</b> Legacy EMU databases</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#textgrid-collections"><i class="fa fa-check"></i><b>10.1.2</b> TextGrid collections</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#bpf-collections"><i class="fa fa-check"></i><b>10.1.3</b> BPF collections</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#txt-collections"><i class="fa fa-check"></i><b>10.1.4</b> txt collections</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-emuDBinteract"><i class="fa fa-check"></i><b>10.2</b> <code>emuDB</code> interaction and configuration routines</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-emuWebAppConfig"><i class="fa fa-check"></i><b>10.3</b> <code>EMU-webApp</code> configuration routines</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-dataExtr"><i class="fa fa-check"></i><b>10.4</b> Data extraction routines</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-centralObjects"><i class="fa fa-check"></i><b>10.5</b> Central objects</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-exportRoutines"><i class="fa fa-check"></i><b>10.6</b> Export routines</a></li>
+<li class="chapter" data-level="10.7" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#conclusion-6"><i class="fa fa-check"></i><b>10.7</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>IV Implementation</b></span></li>
+<li class="chapter" data-level="11" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html"><i class="fa fa-check"></i><b>11</b> Implementation of the query system</a><ul>
+<li class="chapter" data-level="11.1" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#sec:query-queryExpressionParser"><i class="fa fa-check"></i><b>11.1</b> Query expression parser</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#subsec:query-redundantLinks"><i class="fa fa-check"></i><b>11.2</b> Redundant links</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html"><i class="fa fa-check"></i><b>12</b> <code>wrassp</code> implementation</a><ul>
+<li class="chapter" data-level="12.1" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html#the-libassp-port"><i class="fa fa-check"></i><b>12.1</b> The <code>libassp</code> port</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html"><i class="fa fa-check"></i><b>13</b> <code>EMU-webApp</code> implementation</a><ul>
+<li class="chapter" data-level="13.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#subsec:emu-webAppTheProtocol"><i class="fa fa-check"></i><b>13.1</b> Communication protocol</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#url-parameters"><i class="fa fa-check"></i><b>13.2</b> URL parameters</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#websocket-server-parameters"><i class="fa fa-check"></i><b>13.2.1</b> Websocket server parameters</a></li>
+<li class="chapter" data-level="13.2.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples"><i class="fa fa-check"></i><b>13.2.2</b> Examples</a></li>
+<li class="chapter" data-level="13.2.3" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#label-file-preview-parameters"><i class="fa fa-check"></i><b>13.2.3</b> Label file preview parameters</a></li>
+<li class="chapter" data-level="13.2.4" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples-1"><i class="fa fa-check"></i><b>13.2.4</b> Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Appendices</b></span></li>
+<li class="chapter" data-level="14" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html"><i class="fa fa-check"></i><b>14</b> Use cases</a><ul>
+<li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
+<li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
+<li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
+<li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsDBconfig"><i class="fa fa-check"></i><b>15.1.1</b> <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
+<li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#example-files"><i class="fa fa-check"></i><b>15.2</b> Example files</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBundleList"><i class="fa fa-check"></i><b>15.2.1</b> <code>_bundleList.json</code></a></li>
+<li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html"><i class="fa fa-check"></i><b>16</b> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a><ul>
+<li class="chapter" data-level="16.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-overview"><i class="fa fa-check"></i><b>16.1</b> Protocol overview</a></li>
+<li class="chapter" data-level="16.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-commands"><i class="fa fa-check"></i><b>16.2</b> Protocol commands</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getprotocol"><i class="fa fa-check"></i><b>16.2.1</b> <code>GETPROTOCOL</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getdousermanagement"><i class="fa fa-check"></i><b>16.2.2</b> <code>GETDOUSERMANAGEMENT</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#logonuser"><i class="fa fa-check"></i><b>16.2.3</b> <code>LOGONUSER</code></a></li>
+<li class="chapter" data-level="16.2.4" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getglobaldbconfig"><i class="fa fa-check"></i><b>16.2.4</b> <code>GETGLOBALDBCONFIG</code></a></li>
+<li class="chapter" data-level="16.2.5" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getbundlelist"><i class="fa fa-check"></i><b>16.2.5</b> <code>GETBUNDLELIST</code></a></li>
+<li class="chapter" data-level="16.2.6" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getbundle"><i class="fa fa-check"></i><b>16.2.6</b> <code>GETBUNDLE</code></a></li>
+<li class="chapter" data-level="16.2.7" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#savebundle"><i class="fa fa-check"></i><b>16.2.7</b> <code>SAVEBUNDLE</code></a></li>
+<li class="chapter" data-level="16.2.8" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#disconnectwarning"><i class="fa fa-check"></i><b>16.2.8</b> <code>DISCONNECTWARNING</code></a></li>
+<li class="chapter" data-level="16.2.9" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#error-handling"><i class="fa fa-check"></i><b>16.2.9</b> Error handling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html"><i class="fa fa-check"></i><b>17</b> EQL EBNF</a><ul>
+<li class="chapter" data-level="17.1" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-operators-and-their-meaning"><i class="fa fa-check"></i><b>17.1</b> Terminal symbols of EQL2 (operators) and their meaning</a></li>
+<li class="chapter" data-level="17.2" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-brackets-and-their-meanings."><i class="fa fa-check"></i><b>17.2</b> Terminal symbols of EQL2 (brackets) and their meanings.</a></li>
+<li class="chapter" data-level="17.3" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-functions-and-their-meanings."><i class="fa fa-check"></i><b>17.3</b> Terminal symbols of EQL2 (functions) and their meanings.</a></li>
+<li class="chapter" data-level="17.4" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#formal-description-of-emu-query-language-version-2"><i class="fa fa-check"></i><b>17.4</b> Formal description of EMU Query Language Version 2</a></li>
+<li class="chapter" data-level="17.5" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#restrictions"><i class="fa fa-check"></i><b>17.5</b> Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="app-chap-eql.html"><a href="app-chap-eql.html"><i class="fa fa-check"></i><b>18</b> EQL: further examples</a><ul>
+<li class="chapter" data-level="18.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-equality-inequality-matching-non-matching-queries-single-argument"><i class="fa fa-check"></i><b>18.1</b> Simple equality, inequality, matching and non-matching queries (single-argument)</a></li>
+<li class="chapter" data-level="18.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#sequence-queries-using-the---sequence-operator"><i class="fa fa-check"></i><b>18.2</b> Sequence queries using the -&gt; sequence operator</a></li>
+<li class="chapter" data-level="18.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#subsequent-sequence-queries-using-nesting-of-the---sequence-operator"><i class="fa fa-check"></i><b>18.3</b> Subsequent sequence queries using nesting of the <code>-&gt;</code> sequence operator</a></li>
+<li class="chapter" data-level="18.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#conjunction-operator"><i class="fa fa-check"></i><b>18.4</b> Conjunction operator &amp;</a></li>
+<li class="chapter" data-level="18.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#domination-operator-hierarchical-queries"><i class="fa fa-check"></i><b>18.5</b> Domination operator ^ (hierarchical queries)</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-domination"><i class="fa fa-check"></i><b>18.5.1</b> Simple domination</a></li>
+<li class="chapter" data-level="18.5.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#multiple-domination"><i class="fa fa-check"></i><b>18.5.2</b> Multiple domination</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position"><i class="fa fa-check"></i><b>18.6</b> Position</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-usage-of-start-end-and-medial"><i class="fa fa-check"></i><b>18.6.1</b> Simple usage of <code>Start()</code>, <code>End()</code> and <code>Medial()</code></a></li>
+<li class="chapter" data-level="18.6.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean"><i class="fa fa-check"></i><b>18.6.2</b> Position and boolean &amp;</a></li>
+<li class="chapter" data-level="18.6.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean-1"><i class="fa fa-check"></i><b>18.6.3</b> Position and boolean ^</a></li>
+<li class="chapter" data-level="18.6.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and-boolean"><i class="fa fa-check"></i><b>18.6.4</b> Count and boolean <code>&amp;</code></a></li>
+<li class="chapter" data-level="18.6.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and"><i class="fa fa-check"></i><b>18.6.5</b> Count and ^</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="app-chap-eql.html"><a href="app-chap-eql.html#combinations"><i class="fa fa-check"></i><b>18.7</b> Combinations</a><ul>
+<li class="chapter" data-level="18.7.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---domination-and-sequence"><i class="fa fa-check"></i><b>18.7.1</b> ^ and -&gt; (domination and sequence)</a></li>
+<li class="chapter" data-level="18.7.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---and-domination-and-sequence-and-boolean"><i class="fa fa-check"></i><b>18.7.2</b> ^ and -&gt; and &amp; (domination and sequence and boolean &amp;)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="app-chap-eql.html"><a href="app-chap-eql.html#a-few-more-questions-and-answers"><i class="fa fa-check"></i><b>18.8</b> A few more questions and answers</a></li>
+<li class="chapter" data-level="18.9" data-path="app-chap-eql.html"><a href="app-chap-eql.html#differences-to-the-legacy-emu-query-language"><i class="fa fa-check"></i><b>18.9</b> Differences to the legacy EMU query language</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#function-call-syntax"><i class="fa fa-check"></i><b>18.9.1</b> Function call syntax</a></li>
+<li class="chapter" data-level="18.9.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#empty-result"><i class="fa fa-check"></i><b>18.9.2</b> Empty result</a></li>
+<li class="chapter" data-level="18.9.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#the-result-modifier-hash-tag"><i class="fa fa-check"></i><b>18.9.3</b> The result modifier hash tag <code>#</code></a></li>
+<li class="chapter" data-level="18.9.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#interpretation-of-the-hash-tag-in-conjunction-operator-queries"><i class="fa fa-check"></i><b>18.9.4</b> Interpretation of the hash tag <code>#</code> in conjunction operator queries</a></li>
+<li class="chapter" data-level="18.9.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu"><i class="fa fa-check"></i><b>18.9.5</b> legacy EMU</a></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="app-chap-eql.html"><a href="app-chap-eql.html#bugs-in-legacy-emu-function-emu.query"><i class="fa fa-check"></i><b>18.10</b> Bugs in legacy EMU function <code>emu.query()</code></a><ul>
+<li class="chapter" data-level="18.10.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#alternative-labels-in-inequality-queries"><i class="fa fa-check"></i><b>18.10.1</b> Alternative labels in inequality queries</a></li>
+<li class="chapter" data-level="18.10.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu-1"><i class="fa fa-check"></i><b>18.10.2</b> legacy EMU</a></li>
+<li class="chapter" data-level="18.10.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#emur-1"><i class="fa fa-check"></i><b>18.10.3</b> emuR</a></li>
+<li class="chapter" data-level="18.10.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#errors-caused-by-missing-or-superfluous-blanks-or-parentheses"><i class="fa fa-check"></i><b>18.10.4</b> Errors caused by missing or superfluous blanks or parentheses</a></li>
+<li class="chapter" data-level="18.10.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#order-of-result-segment-list"><i class="fa fa-check"></i><b>18.10.5</b> Order of result segment list</a></li>
+<li class="chapter" data-level="18.10.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#additional-features"><i class="fa fa-check"></i><b>18.10.6</b> Additional features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a></li>
+<li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
+</ul></li>
+<li class="part"><span><b>VI Recipes</b></span></li>
+<li class="chapter" data-level="20" data-path="spectral-analysis.html"><a href="spectral-analysis.html"><i class="fa fa-check"></i><b>20</b> Spectral analysis</a><ul>
+<li class="chapter" data-level="20.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>20.1</b> How to quantify differences between spectra?</a></li>
+<li class="chapter" data-level="20.2" data-path="spectral-analysis.html"><a href="spectral-analysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>20.2</b> Discrete Cosine Transform (DCT)</a></li>
+<li class="chapter" data-level="20.3" data-path="spectral-analysis.html"><a href="spectral-analysis.html#dct-coefficients"><i class="fa fa-check"></i><b>20.3</b> DCT coefficients</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>20.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="spectral-analysis.html"><a href="spectral-analysis.html#spectral-moments"><i class="fa fa-check"></i><b>20.4</b> Spectral moments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spectral-analysis" class="section level1">
+<h1><span class="header-section-number">20</span> Spectral analysis</h1>
+<p><em>(Adapted from WP 4.1 Sprachtechnologie (Vertiefung) course material by Jonathan Harrington and Ulrich Reubold)</em></p>
+<p>First of all, we need to install the package <code>gridExtra</code>, which allows for arranging several plots from <code>ggplot2</code> into a single figure:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</code></pre>
+<p>Let us now load the needed libraries and create a demo emuDB to play with:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gridExtra)
+<span class="kw">library</span>(emuR)
+<span class="kw">library</span>(tidyverse) <span class="co"># containing - amongst others - dplyr, purrr, tibble, and ggplot2</span>
+
+<span class="co"># create demo data in directory provided by the tempdir() function</span>
+<span class="co"># (of course other directory paths may be chosen)</span>
+<span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())
+
+<span class="co"># create path to demo data directory, which is</span>
+<span class="co"># called &quot;emuR_demoData&quot;</span>
+demo_data_dir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>)
+
+<span class="co"># create path to ae_emuDB which is part of the demo data</span>
+path2ae =<span class="st"> </span><span class="kw">file.path</span>(demo_data_dir, <span class="st">&quot;ae_emuDB&quot;</span>)
+
+<span class="co"># load database</span>
+ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)
+
+<span class="kw">list_ssffTrackDefinitions</span>(ae)</code></pre>
+<p>The <code>ae</code> emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for “Discrete Fourier Transform” which converts a signal into a time-series of spectra. This transformation can be done with <code>wrassp</code>’s function <code>dftSpectrum()</code> which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a “short-term spectral analysis of the signal in <listOfFiles> using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g. ‘.dft’). Default output is in SSFF format with the spectrum type in lower case as track name.” (cited from <code>?wrassp::dftSpectrum</code>).</p>
+<p>The procedure to calculate your own dft-files is identical to that of calculating formants, or fundamental frequency, or any other function that is available in <code>wrassp</code> (see also <a href="http://www.phonetik.uni-muenchen.de/%7Ejmh/lehre/sem/ws1819/emuR/LESSON4/Signal_Data_Calculation_Extraction_Plotting.html">this document</a> ):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">add_ssffTrackDefinition</span>(ae,
+                        <span class="dt">name =</span> <span class="st">&quot;dft&quot;</span>,
+                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;dftSpectrum&quot;</span>,
+                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</code></pre>
+<p>In this case, there is no need to subset the data in order to use speaker specific settings, not only because there is only one speaker in our database, but also because <code>dftSpectrum()</code> simply doesn’t need to be adjusted to speaker-specific features.</p>
+<p>We then query for a segment list and then get the trackdata:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sS.sl =<span class="st"> </span><span class="kw">query</span>(ae, 
+              <span class="st">&quot;[Phonetic == s|S]&quot;</span>)
+
+sS.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, 
+                       <span class="dt">seglist =</span> sS.sl, 
+                       <span class="dt">ssffTrackName =</span> <span class="st">&quot;dft&quot;</span>, 
+                       <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>,
+                       <span class="dt">cut =</span> <span class="fl">0.5</span>) </code></pre>
+<p>The following command can be used to look at the resulting data</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#view it in RStudio</span>
+<span class="kw">View</span>(sS.dft)</code></pre>
+<p>Let us now list the column names of the extracted trackdata object:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(sS.dft)</code></pre>
+<pre><code>##   [1] &quot;sl_rowIdx&quot;          &quot;labels&quot;             &quot;start&quot;             
+##   [4] &quot;end&quot;                &quot;utts&quot;               &quot;db_uuid&quot;           
+##   [7] &quot;session&quot;            &quot;bundle&quot;             &quot;start_item_id&quot;     
+##  [10] &quot;end_item_id&quot;        &quot;level&quot;              &quot;start_item_seq_idx&quot;
+##  [13] &quot;end_item_seq_idx&quot;   &quot;type&quot;               &quot;sample_start&quot;      
+##  [16] &quot;sample_end&quot;         &quot;sample_rate&quot;        &quot;times_orig&quot;        
+##  [19] &quot;times_rel&quot;          &quot;times_norm&quot;         &quot;T1&quot;                
+##  [22] &quot;T2&quot;                 &quot;T3&quot;                 &quot;T4&quot;                
+##  [25] &quot;T5&quot;                 &quot;T6&quot;                 &quot;T7&quot;                
+##  [28] &quot;T8&quot;                 &quot;T9&quot;                 &quot;T10&quot;               
+##  [31] &quot;T11&quot;                &quot;T12&quot;                &quot;T13&quot;               
+##  [34] &quot;T14&quot;                &quot;T15&quot;                &quot;T16&quot;               
+##  [37] &quot;T17&quot;                &quot;T18&quot;                &quot;T19&quot;               
+##  [40] &quot;T20&quot;                &quot;T21&quot;                &quot;T22&quot;               
+##  [43] &quot;T23&quot;                &quot;T24&quot;                &quot;T25&quot;               
+##  [46] &quot;T26&quot;                &quot;T27&quot;                &quot;T28&quot;               
+##  [49] &quot;T29&quot;                &quot;T30&quot;                &quot;T31&quot;               
+##  [52] &quot;T32&quot;                &quot;T33&quot;                &quot;T34&quot;               
+##  [55] &quot;T35&quot;                &quot;T36&quot;                &quot;T37&quot;               
+##  [58] &quot;T38&quot;                &quot;T39&quot;                &quot;T40&quot;               
+##  [61] &quot;T41&quot;                &quot;T42&quot;                &quot;T43&quot;               
+##  [64] &quot;T44&quot;                &quot;T45&quot;                &quot;T46&quot;               
+##  [67] &quot;T47&quot;                &quot;T48&quot;                &quot;T49&quot;               
+##  [70] &quot;T50&quot;                &quot;T51&quot;                &quot;T52&quot;               
+##  [73] &quot;T53&quot;                &quot;T54&quot;                &quot;T55&quot;               
+##  [76] &quot;T56&quot;                &quot;T57&quot;                &quot;T58&quot;               
+##  [79] &quot;T59&quot;                &quot;T60&quot;                &quot;T61&quot;               
+##  [82] &quot;T62&quot;                &quot;T63&quot;                &quot;T64&quot;               
+##  [85] &quot;T65&quot;                &quot;T66&quot;                &quot;T67&quot;               
+##  [88] &quot;T68&quot;                &quot;T69&quot;                &quot;T70&quot;               
+##  [91] &quot;T71&quot;                &quot;T72&quot;                &quot;T73&quot;               
+##  [94] &quot;T74&quot;                &quot;T75&quot;                &quot;T76&quot;               
+##  [97] &quot;T77&quot;                &quot;T78&quot;                &quot;T79&quot;               
+## [100] &quot;T80&quot;                &quot;T81&quot;                &quot;T82&quot;               
+## [103] &quot;T83&quot;                &quot;T84&quot;                &quot;T85&quot;               
+## [106] &quot;T86&quot;                &quot;T87&quot;                &quot;T88&quot;               
+## [109] &quot;T89&quot;                &quot;T90&quot;                &quot;T91&quot;               
+## [112] &quot;T92&quot;                &quot;T93&quot;                &quot;T94&quot;               
+## [115] &quot;T95&quot;                &quot;T96&quot;                &quot;T97&quot;               
+## [118] &quot;T98&quot;                &quot;T99&quot;                &quot;T100&quot;              
+## [121] &quot;T101&quot;               &quot;T102&quot;               &quot;T103&quot;              
+## [124] &quot;T104&quot;               &quot;T105&quot;               &quot;T106&quot;              
+## [127] &quot;T107&quot;               &quot;T108&quot;               &quot;T109&quot;              
+## [130] &quot;T110&quot;               &quot;T111&quot;               &quot;T112&quot;              
+## [133] &quot;T113&quot;               &quot;T114&quot;               &quot;T115&quot;              
+## [136] &quot;T116&quot;               &quot;T117&quot;               &quot;T118&quot;              
+## [139] &quot;T119&quot;               &quot;T120&quot;               &quot;T121&quot;              
+## [142] &quot;T122&quot;               &quot;T123&quot;               &quot;T124&quot;              
+## [145] &quot;T125&quot;               &quot;T126&quot;               &quot;T127&quot;              
+## [148] &quot;T128&quot;               &quot;T129&quot;               &quot;T130&quot;              
+## [151] &quot;T131&quot;               &quot;T132&quot;               &quot;T133&quot;              
+## [154] &quot;T134&quot;               &quot;T135&quot;               &quot;T136&quot;              
+## [157] &quot;T137&quot;               &quot;T138&quot;               &quot;T139&quot;              
+## [160] &quot;T140&quot;               &quot;T141&quot;               &quot;T142&quot;              
+## [163] &quot;T143&quot;               &quot;T144&quot;               &quot;T145&quot;              
+## [166] &quot;T146&quot;               &quot;T147&quot;               &quot;T148&quot;              
+## [169] &quot;T149&quot;               &quot;T150&quot;               &quot;T151&quot;              
+## [172] &quot;T152&quot;               &quot;T153&quot;               &quot;T154&quot;              
+## [175] &quot;T155&quot;               &quot;T156&quot;               &quot;T157&quot;              
+## [178] &quot;T158&quot;               &quot;T159&quot;               &quot;T160&quot;              
+## [181] &quot;T161&quot;               &quot;T162&quot;               &quot;T163&quot;              
+## [184] &quot;T164&quot;               &quot;T165&quot;               &quot;T166&quot;              
+## [187] &quot;T167&quot;               &quot;T168&quot;               &quot;T169&quot;              
+## [190] &quot;T170&quot;               &quot;T171&quot;               &quot;T172&quot;              
+## [193] &quot;T173&quot;               &quot;T174&quot;               &quot;T175&quot;              
+## [196] &quot;T176&quot;               &quot;T177&quot;               &quot;T178&quot;              
+## [199] &quot;T179&quot;               &quot;T180&quot;               &quot;T181&quot;              
+## [202] &quot;T182&quot;               &quot;T183&quot;               &quot;T184&quot;              
+## [205] &quot;T185&quot;               &quot;T186&quot;               &quot;T187&quot;              
+## [208] &quot;T188&quot;               &quot;T189&quot;               &quot;T190&quot;              
+## [211] &quot;T191&quot;               &quot;T192&quot;               &quot;T193&quot;              
+## [214] &quot;T194&quot;               &quot;T195&quot;               &quot;T196&quot;              
+## [217] &quot;T197&quot;               &quot;T198&quot;               &quot;T199&quot;              
+## [220] &quot;T200&quot;               &quot;T201&quot;               &quot;T202&quot;              
+## [223] &quot;T203&quot;               &quot;T204&quot;               &quot;T205&quot;              
+## [226] &quot;T206&quot;               &quot;T207&quot;               &quot;T208&quot;              
+## [229] &quot;T209&quot;               &quot;T210&quot;               &quot;T211&quot;              
+## [232] &quot;T212&quot;               &quot;T213&quot;               &quot;T214&quot;              
+## [235] &quot;T215&quot;               &quot;T216&quot;               &quot;T217&quot;              
+## [238] &quot;T218&quot;               &quot;T219&quot;               &quot;T220&quot;              
+## [241] &quot;T221&quot;               &quot;T222&quot;               &quot;T223&quot;              
+## [244] &quot;T224&quot;               &quot;T225&quot;               &quot;T226&quot;              
+## [247] &quot;T227&quot;               &quot;T228&quot;               &quot;T229&quot;              
+## [250] &quot;T230&quot;               &quot;T231&quot;               &quot;T232&quot;              
+## [253] &quot;T233&quot;               &quot;T234&quot;               &quot;T235&quot;              
+## [256] &quot;T236&quot;               &quot;T237&quot;               &quot;T238&quot;              
+## [259] &quot;T239&quot;               &quot;T240&quot;               &quot;T241&quot;              
+## [262] &quot;T242&quot;               &quot;T243&quot;               &quot;T244&quot;              
+## [265] &quot;T245&quot;               &quot;T246&quot;               &quot;T247&quot;              
+## [268] &quot;T248&quot;               &quot;T249&quot;               &quot;T250&quot;              
+## [271] &quot;T251&quot;               &quot;T252&quot;               &quot;T253&quot;              
+## [274] &quot;T254&quot;               &quot;T255&quot;               &quot;T256&quot;              
+## [277] &quot;T257&quot;</code></pre>
+<p><code>sS.dft</code> contains spectral data, i.e. in this case 257 amplitude values per frame (in our case, we only have one frame per segment). So there are track colums T1 … T257 (and there could be even more - depending on the Nyquist frequency - see below) instead of only one track column (as it would be the case in e.g. fundamental frequency data) or 4 or 5 signal tracks as it would be the case for formants. Not only is it hard to plot data that is structured like this, we still miss some important information: the frequencies with which the amplitude values in T1…T257 are associated with.</p>
+<p>We could calculate these frequencies by dividing the sample rate of the signals</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unique</span>(sS.dft<span class="op">$</span>sample_rate)</code></pre>
+<pre><code>## [1] 20000</code></pre>
+<p>by 2, in order to calculate the Nyquist frequency, and then by creating 257-1 equal-sized steps between 0 and this Nyquist frequency.</p>
+<pre class="sourceCode r"><code class="sourceCode r">freqs =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="kw">unique</span>(sS.dft<span class="op">$</span>sample_rate),<span class="dt">length.out =</span> <span class="dv">257</span>)
+freqs[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</code></pre>
+<pre><code>## [1]   0.000  78.125 156.250 234.375 312.500</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">freqs[<span class="dv">252</span><span class="op">:</span><span class="dv">257</span>]</code></pre>
+<pre><code>## [1] 19609.38 19687.50 19765.62 19843.75 19921.88 20000.00</code></pre>
+<p>However, we don’t have to do so, as another function of <code>emuR</code> called <code>convert_wideToLong()</code> does that for us when we set the parameter <code>calcFreq</code> to <code>TRUE</code>. As the name of the function suggests, the 257 columns that contain amplitudes will be transformed to 257 observations per frame in one single column:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sS.dftlong =<span class="st"> </span><span class="kw">convert_wideToLong</span>(sS.dft,<span class="dt">calcFreqs =</span> T)
+
+sS.dftlong</code></pre>
+<pre><code>## # A tibble: 5,397 x 23
+##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
+##  1         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  2         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  3         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  4         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  5         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  6         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  7         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  8         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+##  9         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+## 10         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
+## # … with 5,387 more rows, and 14 more variables: end_item_id &lt;int&gt;,
+## #   level &lt;chr&gt;, start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;,
+## #   type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;,
+## #   times_orig &lt;dbl&gt;, times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, track_name &lt;chr&gt;,
+## #   track_value &lt;dbl&gt;, freq &lt;dbl&gt;</code></pre>
+<p>So, instead of columns named T1, T2, … Tn, we now have three other columns:</p>
+<ul>
+<li><code>track_name</code>: contains “T1” … “Tn”</li>
+<li><code>track_value</code>: contains the (in this case 257) amplitudes per frame</li>
+<li><code>freq</code>: the frequencies with which the aforementioned amplitudes are associated with</li>
+</ul>
+<p>As all observations (i.e. the amplitudes) are now in one column (and frequency information in another column), we can easily plot this as xy-plot with ggplot2:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the spectral slices</span>
+<span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value,<span class="dt">col=</span>labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>You could also use <code>geom_area()</code> (but be careful: use <code>geom_area()</code> only if you intend to plot individual slices):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_area</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>We can also summarise this easily to one averaged slice per fricative type:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sS.dftlong.mean =<span class="st"> </span>sS.dftlong<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels,freq)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">track_value=</span><span class="kw">mean</span>(track_value))
+
+<span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col=</span>labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() </code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div id="how-to-quantify-differences-between-spectra" class="section level2">
+<h2><span class="header-section-number">20.1</span> How to quantify differences between spectra?</h2>
+<p>When we look at the figure above, showing average spectra at the temporal midpoints of two fricative categories, it seems that one easy way to distinguish between the two would be to concentrate on the differences in the amplitudes in the 2000 - 3000 Hz range. We could e.g. take the mean in that frequency range across all tokens of the two types in order to check whether it is consistently the case that the alveolar contains much less energy in that frequency range than its postalveolar counterpart:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sS2to3thousandHz =<span class="st"> </span>sS.dftlong<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(freq<span class="op">&gt;=</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="dv">3000</span>)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx)<span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">amplitudes_2000_3000Hz =</span> <span class="kw">mean</span>(track_value))
+
+<span class="kw">ggplot</span>(sS2to3thousandHz)<span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x=</span>labels,<span class="dt">y=</span>amplitudes_<span class="dv">2000</span>_3000Hz,<span class="dt">col=</span>labels)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-14-1.png" width="480" /></p>
+<p>However, it would be more “elegant” to consider some aspects of the general “form” of a spectral slice.</p>
+<p>Each spectral slice is simply a vector of numbers (that has some hidden association to another verctor of the same size, i.e. the frequencies with which the amplitude values are associated with). One way of quantifying a numeric vector by a (usually smaller) set of numbers is the Discrete Cosine Transform.</p>
+</div>
+<div id="discrete-cosine-transform-dct" class="section level2">
+<h2><span class="header-section-number">20.2</span> Discrete Cosine Transform (DCT)</h2>
+<p>(See also <a href="https://www.phonetik.uni-muenchen.de/~jmh/lehre/sem/ws0910/R/dct.pdf">this</a> document.)</p>
+<p>A discrete cosine transform (DCT) expresses a finite sequence of n data points in terms of a sum of cosine functions oscillating at different frequencies.</p>
+<p>The amplitudes of the cosine functions, k0, k1, k2, … kn-1, are called DCT coefficients.</p>
+<ul>
+<li>k0: the amplitude of a cosine with a frequency of 0</li>
+<li>k1: the amplitude of a cosine with a frequency of 0.5</li>
+<li>k2: the amplitude of a cosine with a frequency of 1</li>
+<li>…</li>
+<li>kn-1: the amplitude of a cosine with a frequency of 0.5*(n-1)</li>
+</ul>
+<p>If you sum up all these DCT coefficients, you will reconstruct exactly the very same signal that was input for the DCT analysis.</p>
+<p>Higher DCT coefficients correspond to the details of the “finite sequence of n data points”, whereas lower coefficients represent the more general characteristics. At least the three lowest ones, k0, k1, and k2, correspond (but are <strong>not</strong> equal) to the following three statistical descriptive features: k0 is linearly related to the sequence’s mean, k1 to the sequence’s slope, and k2 to its curvature. See e.g.:</p>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Because we are dealing with straight lines, k2 is here always 0 (and is therefore not shown in the fourth panel of the figure). However, the next plot shows k2 of four quadratic polynomials:</p>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-18-1.png" width="960" /></p>
+<p>So, if we want to get rid of too much detail (e.g. in signals frequency perturbations like jitter or error measurements), we can use the lower numbers of DCT to smooth the signal. We can apply DCT to a signal by means of the <code>emuR</code> function <code>dct(...,m=NULL,fit=TRUE)</code>, with <code>...</code> being one of the columns of an emuRtrackdata tibble:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate spectra reconstructed by dct() </span>
+sS.dftlong.mean =<span class="st"> </span>sS.dftlong.mean <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">reconstructed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">fit =</span> T))
+
+
+<span class="co">#plot the reconstructed spectral slices</span>
+<span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> reconstructed, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># this is obviously exactly the same as the original data: </span>
+<span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value,<span class="dt">col=</span>labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
+<p>However, if we use the parameter <code>m</code> in order to reduce the complexity of the spectral slices, they will become smoother:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sS.dftlong.mean =<span class="st"> </span>sS.dftlong.mean <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="co">#you can&#39;t use m=0 in order to calculate k0 only</span>
+    <span class="dt">smoothed_k0tok1 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">fit =</span> T),
+    <span class="dt">smoothed_k0tok2 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T),
+    <span class="dt">smoothed_k0tok3 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">3</span>, <span class="dt">fit =</span> T),
+    <span class="dt">smoothed_k0tok4 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">4</span>, <span class="dt">fit =</span> T),
+    <span class="dt">smoothed_k0tok5 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> T),
+    <span class="dt">smoothed_k0tok6 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">6</span>, <span class="dt">fit =</span> T))
+
+<span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok6, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 7 DCT-coefficients ()&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok5, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 6 DCT-coefficients (m=5)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok4, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 5 DCT-coefficients (m=4)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok3, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()  <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 4 DCT-coefficients (m=3)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-4.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok2, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()  <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 3 DCT-coefficients (m=2)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-5.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok1, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 2 DCT-coefficients (m=1)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-6.png" width="672" /></p>
+<p>Remember, that the last figure shows only two (inverted) cosine functions of a certain amplitude with frequency 0.5. This is obviously not the best representation of the spectra of /s/ and /ʃ/. We need to find a compromise between too much and too less information. In this specific case, <code>m = 4</code> (= 5 DCT-coefficients) seems to be the best compromise.</p>
+<p>We can, of course, apply the <code>dct</code>-function also to the non-averaged data:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot the spectral slices</span>
+<span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r">sS.dftlong =<span class="st"> </span>sS.dftlong <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">4</span>, <span class="dt">fit =</span> T))
+
+<span class="co"># plot the smoothed slices</span>
+<span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># or plot original and smoothed slices</span>
+<span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> smoothed), <span class="dt">lwd =</span> <span class="fl">1.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-3.png" width="672" /></p>
+</div>
+<div id="dct-coefficients" class="section level2">
+<h2><span class="header-section-number">20.3</span> DCT coefficients</h2>
+<p>Until now, we have applied <code>dct()</code> always with the parameter <code>fit</code> set to <code>TRUE</code>, i.e. we have always analysed and resynthesized the data in one step. We haven’t seen so far the outcome of the analysis, i.e. the coefficients of the DCT. They might, as the example above has shown, be capable of a simple quantification of certain features of the signal/spectral slice (i.e. the mean, the slope, and the curvature of the signal).</p>
+<p>Let’s have a look how useful these coefficients may be. In order to calculate only a couple of coefficients, we will have to learn a new method of data-wrangling in <code>dplyr</code>, as we cannot use <code>summarise()</code> (as this verb transforms many values into one value) or <code>mutate()</code> (which transformes N values into N other values). The verb to use is called <code>do()</code>. It can handle any function (not only a few, as it is the case with <code>summarise()</code>). There a two specialties of <code>do()</code>:</p>
+<ul>
+<li>input has to be a special dataframe, so we have to use <code>data_frame()</code></li>
+<li>you cannot call a column only by it’s name <code>ColumnName</code>, but have to use <code>.$ColumnName</code>, where <code>.</code> means “the current dataframe”.</li>
+</ul>
+<p>However, this will not be enough: we then have a tibble with m + 1 observations (dct-coefficients in one column); our goal, however, is to have one column per DCT coefficient. In order to do so, we will have to convert the long format to the wide format by means of the <code>spread()</code> function. In order to being able to use this function, we have to introduce another column containing the indexical information which value in column <code>DCT</code> is which DCT-coefficient. Quite complicated, huh?</p>
+<p>E.g.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate 6 dct coefficients for each token of s or S</span>
+sS.dctCoefficients =
+<span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels, sl_rowIdx) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">DCT =</span> emuR<span class="op">::</span><span class="kw">dct</span>(.<span class="op">$</span>track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> F))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">DCTCOEF =</span> <span class="kw">paste0</span>(<span class="st">&quot;k&quot;</span>, <span class="dv">0</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(DCTCOEF, DCT)
+
+sS.dctCoefficients</code></pre>
+<pre><code>## # A tibble: 21 x 8
+## # Groups:   labels, sl_rowIdx [21]
+##    labels sl_rowIdx    k0     k1    k2     k3     k4    k5
+##    &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 s              1  48.9  -4.21 -7.41  0.804  1.04  2.58 
+##  2 s              3  49.4 -11.7  -7.73  2.43   2.31  4.28 
+##  3 s              4  52.1 -10.3  -5.03  2.54   1.99  2.67 
+##  4 s              5  46.7  -9.69 -5.28  3.76   1.16  0.648
+##  5 s              8  49.7 -10.0  -5.26  2.43   0.162 1.67 
+##  6 s              9  44.0 -12.2  -5.15  0.494  0.611 1.35 
+##  7 s             10  48.6 -13.3  -4.32  2.23   1.98  0.738
+##  8 s             11  42.4  -9.84 -5.85 -0.190 -0.131 5.35 
+##  9 s             13  46.4  -9.95 -7.75 -0.655  0.909 4.43 
+## 10 s             15  48.0 -11.1  -7.09  0.728  0.608 2.54 
+## # … with 11 more rows</code></pre>
+<p>After this quite complicated procedure, we can finally have a look at the importance of the first three coefficients as far as the power to divide categories is concerned. Let do it in reverse order:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#plot k2 (the curvature):</span>
+<span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k2) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-23-1.png" width="480" /></p>
+<p>Okay, the curvature seems to be different, but are we sure what this means?
+A bit more intuitive may be k1, the slope:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#plot k1 (the slope):</span>
+<span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k1) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-24-1.png" width="480" /></p>
+<p>Recall that k1 is inversely correlated with the spectral slopes, so /s/ has a steeper <strong>positive</strong> slope than /ʃ/ (/ʃ/’s slope is close to zero anyway).
+This simply means that in the range of 0 to 10000 Hz, /s/ has more energy in the high frequency range than in the low frequency range, whereas the energy is more evenly distributed in that frequency range in /ʃ/.</p>
+<p>What about k0?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#plot k0 (the slope):</span>
+<span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k0) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-25-1.png" width="480" /></p>
+<p>k0 simply corresponds to the mean of the energy in the whole frequency range. This only allows us to find out which of the categories is generally “louder”. As we can see, the mean of the energy is of no use if we want to devide between these two fricatives; it would be much more conveniant to have a function that is able to find the mean of the distribution along the frequency axis (and not along the amplitude axis). There is such a function, which is called <strong>spectral moments</strong> and which we will discuss next week.</p>
+<p>The only thing we could do is to use dct-k0 only in a certain frequency range (e.g. 2000 to 3000 Hz). However, this is equivalent to taking the mean of the energy in that frequency range, as we already had done above:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#repetition: take the mean of the energy in a certain range:</span>
+sS2to3thousandHz =<span class="st"> </span>sS.dftlong <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(freq <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">amplitudes_2000_3000Hz =</span> <span class="kw">mean</span>(track_value))
+
+a =<span class="st"> </span><span class="kw">ggplot</span>(sS2to3thousandHz) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> amplitudes_<span class="dv">2000</span>_3000Hz, <span class="dt">col =</span> labels) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()
+
+<span class="co"># or calculate k0 in the same frequency range:</span>
+sS.dctCoefficients2to3thousandHz =
+<span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(freq<span class="op">&gt;=</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">DCT =</span> emuR<span class="op">::</span><span class="kw">dct</span>(.<span class="op">$</span>track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> F))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">DCTCOEF =</span> <span class="kw">paste0</span>(<span class="st">&quot;k&quot;</span>, <span class="dv">0</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(DCTCOEF, DCT)
+
+b =<span class="st"> </span><span class="kw">ggplot</span>(sS.dctCoefficients2to3thousandHz)<span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k0, <span class="dt">col =</span> labels)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()
+
+<span class="kw">grid.arrange</span>(a, b, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div id="p.s.-use-dct-in-order-to-smooth-formant-trajectories" class="section level3">
+<h3><span class="header-section-number">20.3.1</span> P.S.: Use DCT in order to smooth formant trajectories</h3>
+<p>Another use-case for dct-smoothing are bumpy formant tracks. Consider e.g. this case:</p>
+<pre class="sourceCode r"><code class="sourceCode r">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)
+i.sl =<span class="st"> </span><span class="kw">query</span>(ae, 
+             <span class="dt">query =</span> <span class="st">&quot;[Phonetic == i:]&quot;</span>)
+
+i.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, 
+                      <span class="dt">seglist =</span> i.sl, 
+                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>, 
+                      <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>)
+
+i.dft =<span class="st"> </span>i.dft <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">F2_smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(T2, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T))
+
+<span class="kw">ggplot</span>(i.dft) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T2, <span class="dt">group =</span> sl_rowIdx)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> F2_smoothed, <span class="dt">col =</span> <span class="st">&quot;smoothed&quot;</span>))<span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Orig. (black) vs. smoothed (red) F2-tracks in /i:/&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+</div>
+</div>
+<div id="spectral-moments" class="section level2">
+<h2><span class="header-section-number">20.4</span> Spectral moments</h2>
+<p>The types of parameters discussed in the preceding section can often effectively distinguish between spectra of different phonetic categories. Another useful way of quantifying spectral differences is to reduce the spectrum to a small number of parameters that encode basic properties of its shape. This can be done by calculating what are often called spectral moments (Forrest et al., 1988). The function for calculating moments is borrowed from statistics in which the first four moments describe the <strong>mean, variance, skew, and kurtosis</strong> of a probability distribution.</p>
+<p>Before looking at spectral moments, it will be helpful to consider
+(statistical) moments in general. The matrix bridge includes some hypotheticaldata of counts that were made on three separate days of the number of cars crossing a bridge at hourly intervals. It looks like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">bridge</code></pre>
+<pre><code>##    Mon Tues Wed
+## 0    9    1   0
+## 1   35    1   1
+## 2   68    5   7
+## 3   94    4  27
+## 4   90   27  68
+## 5   76   28  87
+## 6   62   62 108
+## 7   28   76 111
+## 8   27   90  57
+## 9    4   94  28
+## 10   5   68   6
+## 11   1   35   0
+## 12   1    9   0</code></pre>
+<p>The first row shows that between midday and 1 p.m., 9 cars were counted on
+Monday, one on Tuesday, and none on Wednesday. The second row has the same
+meaning but is the count of cars between 1 p.m. and 2 p.m. The figure below shows the distribution of the counts on these three separate days:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) 
+<span class="kw">barplot</span>(bridge[,<span class="dv">1</span>], 
+        <span class="dt">ylab =</span> <span class="st">&quot;Observed number of cars&quot;</span>, 
+        <span class="dt">main =</span> <span class="st">&quot;Monday&quot;</span>) 
+<span class="kw">barplot</span>(bridge[,<span class="dv">2</span>], 
+        <span class="dt">xlab =</span> <span class="st">&quot;Hours&quot;</span>,
+        <span class="dt">main =</span> <span class="st">&quot;Tuesday&quot;</span>) 
+<span class="kw">barplot</span>(bridge[,<span class="dv">3</span>], 
+        <span class="dt">main =</span> <span class="st">&quot;Wednesday&quot;</span>) </code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-29"></span>
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-29-1.png" alt="*Hypothetical data of the count of the number of cars crossing a bridge in a 12 hour period.*" width="672" />
+<p class="caption">
+Figure 20.1: <em>Hypothetical data of the count of the number of cars crossing a bridge in a 12 hour period.</em>
+</p>
+</div>
+<p>There are obviously overall differences in the shape of these distributions. The
+plot for Monday is skewed to the left, the one for Tuesday is a mirror-image of
+the Monday data and is skewed to the right. The data for Wednesday is not as
+dispersed as for the other days: that is, it has more of its values concentrated
+around the mean.</p>
+<p>Leaving aside kurtosis for the present, the following predictions can be made:</p>
+<ul>
+<li><p>Monday’s mean (1st moment) is somewhere around 4-5 p.m. while the mean for
+Tuesday is a good deal higher (later), nearer 8 or 9 p.m. The mean for Wednesday
+seems to be between these two, around 6-7 p.m.</p></li>
+<li><p>The values for Wednesday are not as spread out as for Monday or Tuesday: it is
+likely therefore that its variance (2nd moment) will be lower than for those of
+the other two days.</p></li>
+<li><p>As already observed, Monday, Tuesday, and Wednesday are all likely to have
+different values for skew (3rd moment).</p></li>
+</ul>
+<p>The core calculation of moments involves the formula:</p>
+<p><span class="math inline">\(\frac{\sum{f(x-k)^m}}{\sum{f}}\)</span></p>
+<p>in which f is the observed frequency (observed number of cars in this example) x is the class (hours from 0 to 12 in our example), m is the moment (m =1, 2, 3, 4) and k is a constant (see also Harrington, 2009). The above formula can be calculated with a function in the Emu-R library, moments(count, x). In this function, count is the observed frequency of occurence and x the class. So the first four moments for the Monday data are given by</p>
+<pre class="sourceCode r"><code class="sourceCode r">hours =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">12</span>
+<span class="kw">moments</span>(bridge[,<span class="dv">1</span>], hours)</code></pre>
+<pre><code>## [1] 4.17200000 4.42241600 0.47063226 0.08290827</code></pre>
+<p>while all four moments for Monday, Tuesday, Wednesday are given by:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">apply</span>(bridge, <span class="dv">2</span>, moments, hours)</code></pre>
+<pre><code>##             Mon        Tues         Wed
+## [1,] 4.17200000  7.82800000  5.99200000
+## [2,] 4.42241600  4.42241600  2.85193600
+## [3,] 0.47063226 -0.47063226 -0.07963716
+## [4,] 0.08290827  0.08290827 -0.39367681</code></pre>
+<p>As expected, the first moment (row 1) is at about 4-5 p.m. for Monday, close to 6 p.m. for Wednesday and higher (later) than this for Tuesday. Also, as expected, the variance (second moment, row 2), whose unit in this example is <span class="math inline">\(hours^2\)</span>, is least for Wednesday.</p>
+<p>The skew is a dimensionless number that varies between -1 and 1. When the skew is zero, then the values are distributed evenly about the mean, as they are for a Gaussian normal distribution. When the values are skewed to the left so that there is a longer tail to the right, then kurtosis is positive (as it is for the Monday data); the skew is negative when the values are skewed to the right (as for the Tuesday data).</p>
+<p>Finally, the kurtosis is also a dimensionless number that is zero for a normal Gaussian distribution. Kurtosis is often described as a measure of how ‘peaked’ a distribution is. In very general terms, if the distribution is flat – that is, its shape looks rectangular – then kurtosis is negative, whereas if the distribution is peaked, then kurtosis is typically positive. However, this general assumption only applies if the distributions are not skewed (skewed distributions tend to have positive kurtosis) and kurtosis depends not just on the peak but also on whether there are high values at the extremes of the distribution (see Wuensch, 2006 for some good examples of this). For all these reasons - and in particular in view of the fact that spectra are not usually symmetrical about the frequency axis - it is quite difficult to use kurtosis to make predictions about the spectral differences between phonetic categories.</p>
+<p>When spectral moments are calculated, then x and f in both (1) and corresponding R function are the frequency in Hz and the corresponding dB values (and not the other way round!). This can be understood most easily by having another look at the plots of spectral slices above and the observation that a spectral slice has a horizontal axis of frequency in Hz and a vertical axis of dB. On this assumption, the calculation of the 1st spectral moment results in a value in <span class="math inline">\(Hz\)</span> (analogous to a value in hours for the worked example above), and the second spectral moment a value in <span class="math inline">\(Hz^2\)</span>, while the 3rd and 4th spectral moments are dimensionless, as before.</p>
+<p>In order to apply the moments function to our spectral data in the long format tibble, we use the same procedure that we had used in order to calculate dct-coefficients:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sS.moments =
+<span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">Moments =</span> emuR<span class="op">::</span><span class="kw">moments</span>(.<span class="op">$</span>track_value,.<span class="op">$</span>freq))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Momentnumbers =</span> <span class="kw">paste0</span>(<span class="st">&quot;Moment&quot;</span>,<span class="dv">1</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx)))) <span class="op">%&gt;%</span>
+<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(Momentnumbers, Moments)
+
+sS.moments</code></pre>
+<pre><code>## # A tibble: 21 x 6
+## # Groups:   labels, sl_rowIdx [21]
+##    labels sl_rowIdx Moment1  Moment2 Moment3 Moment4
+##    &lt;chr&gt;      &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 s              1   5238. 7315137.  -0.121  -0.978
+##  2 s              3   5660. 6964718.  -0.323  -0.776
+##  3 s              4   5544. 7485010.  -0.293  -0.923
+##  4 s              5   5569. 7278247.  -0.308  -0.903
+##  5 s              8   5557. 7312230.  -0.292  -0.934
+##  6 s              9   5790. 6988020.  -0.329  -0.837
+##  7 s             10   5770. 7241899.  -0.362  -0.840
+##  8 s             11   5653. 7033307.  -0.301  -0.845
+##  9 s             13   5606. 6847687.  -0.258  -0.867
+## 10 s             15   5653. 6923524.  -0.281  -0.868
+## # … with 11 more rows</code></pre>
+<p>However, the above command may sometimes fail. This is because some of the dB values can be negative and yet the calculation of moments assumes that the values for the observations are positive (it would never be possible, for example, to have a negative value in counting how many cars crossed the bridge in an hourly time interval!). To overcome this problem, the dB values are typically rescaled in calculating moments so that the minimum dB value is set to zero (as a result of which all dB values are positive and the smallest value is 0 dB). The <code>moments()</code> function does this whenever the argument <code>minval = T</code> is included. Thus:</p>
+<pre class="sourceCode r"><code class="sourceCode r">sS.moments =
+<span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(labels, sl_rowIdx) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">Moments =</span> emuR<span class="op">::</span><span class="kw">moments</span>(.<span class="op">$</span>track_value,.<span class="op">$</span>freq, <span class="dt">minval =</span> <span class="ot">TRUE</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Momentnumbers =</span> <span class="kw">paste0</span>(<span class="st">&quot;Moment&quot;</span>, <span class="dv">1</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx)))) <span class="op">%&gt;%</span>
+<span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(Momentnumbers, Moments)
+
+sS.moments</code></pre>
+<pre><code>## # A tibble: 21 x 6
+## # Groups:   labels, sl_rowIdx [21]
+##    labels sl_rowIdx Moment1  Moment2 Moment3 Moment4
+##    &lt;chr&gt;      &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+##  1 s              1   5284. 7092414.  -0.142  -0.925
+##  2 s              3   5794. 6568993.  -0.377  -0.631
+##  3 s              4   5619. 7312918.  -0.332  -0.857
+##  4 s              5   5523. 7392654.  -0.284  -0.941
+##  5 s              8   5573. 7270354.  -0.301  -0.921
+##  6 s              9   5746. 7099514.  -0.314  -0.868
+##  7 s             10   5745. 7297563.  -0.351  -0.860
+##  8 s             11   5688. 6938212.  -0.314  -0.816
+##  9 s             13   5484. 7217595.  -0.215  -0.955
+## 10 s             15   5551. 7211331.  -0.244  -0.941
+## # … with 11 more rows</code></pre>
+<p>We can now check, which of the moments could be good separators between [s] and [ʃ]:</p>
+<ul>
+<li>As [ʃ] has a much lower spectral “center of gravity”, it is reasonable to assume that the mean of the distribution of dB-values is lower along the frequency axis:</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot moment no. 1 (mean of the distribution):</span>
+<span class="kw">ggplot</span>(sS.moments) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment1) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 1 (means of the spectral distributions)</span><span class="ch">\n</span><span class="st">(= spectral center of gravity)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-34-1.png" width="480" /></p>
+<ul>
+<li>However, there is no reason to believe that variance - expressed here by the spectral moment no. 2 - should be extremely different between the two sibilants:</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot moment no. 2 (variance of the distribution):</span>
+<span class="kw">ggplot</span>(sS.moments) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment2) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 2 (variances of the distributions)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-35-1.png" width="480" /></p>
+<ul>
+<li>Another parameter, the skew of the distribution of dB-values along the frequency axis, should be different, with a greater skew towards the right for [s] as compared to the post-alveolar, that is distributed more around the center of the frequency range 0-10000 Hz:</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot moment no. 3 (skew of the distribution):</span>
+<span class="kw">ggplot</span>(sS.moments) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment3) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 3 (skew values of the distributions)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-36-1.png" width="480" /></p>
+<ul>
+<li>It has been mentioned earlier, that it is usually quite difficult to use kurtosis to make predictions about the spectral differences between phonetic categories, for various reasons. In this specific case, however, kurtosis would nicely divide the two fricative types:</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot moment no. 4 (kurtosis of the distribution):</span>
+<span class="kw">ggplot</span>(sS.moments) <span class="op">+</span>
+<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment4) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 4 (kurtosis values of the distributions)&quot;</span>)</code></pre>
+<p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-37-1.png" width="480" /></p>
+<p>So, in our case, the two best variables that would differ most when we were trying to distinguish between alveolar and post-alveolar fricatives, would be the skew of the dB-distribution along the frequency axis (at least in out case, where frequency varies between 0 and 10000 Hz), and, as a measure for spectral <strong>center of gravity</strong>, the first spectral moment, i.e. the mean of the distribution along the frequency axis (which is quite a different thing than the first dct coefficient, which represents the mean along the dB-axis).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="app-chap-wrassp.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/recipe-spectralAnalysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

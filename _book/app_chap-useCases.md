@@ -187,8 +187,8 @@ head(words, n = 1)
 ```
 ## segment  list from database:  ae 
 ## query was:  FROM REQUERY 
-##   labels   start     end session   bundle level type
-## 1      C 187.425 674.175    0000 msajc003  Word ITEM
+##    labels   start     end session   bundle level type
+## 1 amongst 187.425 674.175    0000 msajc003  Text ITEM
 ```
 
 As seen in the above R code snippet, the first segment in `sibil` occurred in the word *amongst*, which starts at 187.475 ms and ends at 674.225 ms. It is worth noting that this two-step querying procedure (`query()` followed by `requery_hier()`) can also be completed in a single hierarchical query using the dominance operator (^).

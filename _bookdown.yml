@@ -27,9 +27,12 @@ rmd_files: [
   "app_chap-eql.Rmd",
   "app_chap-wrassp.Rmd",
 
-  "bibliography.Rmd",
+  "recipes_separator.Rmd",
 
-  "emuDBgitLab.Rmd"
+  "recipe-spectralAnalysis.Rmd",
+  #"recipe-emuDBgitLab.Rmd",
+
+  "bibliography.Rmd"
 ]
 
 # before_chapter_script: "_common.R"
