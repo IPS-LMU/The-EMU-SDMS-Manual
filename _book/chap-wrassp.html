@@ -349,6 +349,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.2" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
 <li class="chapter" data-level="22.3" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
+<li class="chapter" data-level="23" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs with Git, Git LFS and GitLab</a><ul>
+<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#using-gitlab-to-host-the-emudb"><i class="fa fa-check"></i><b>23.1.1</b> Using GitLab to host the emuDB</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -434,7 +442,7 @@ au =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(path2wav)
 <pre><code>## [1] &quot;AsspDataObj&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show print() output of object</span>
 <span class="kw">print</span>(au)</code></pre>
-<pre><code>## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmphSHx2N/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+<pre><code>## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpH4NR2v/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -675,7 +683,7 @@ path2logFile =<span class="st"> </span><span class="kw">file.path</span>(path2ae
 ## [2] &quot;##################################&quot;
 ## [3] &quot;##################################&quot;
 ## [4] &quot;######## ksvF0 performed ########&quot; 
-## [5] &quot;Timestamp:  2019-05-10 15:42:10 &quot;  
+## [5] &quot;Timestamp:  2019-05-10 17:26:18 &quot;  
 ## [6] &quot;windowShift : 10 &quot;                 
 ## [7] &quot;forceToLog : T &quot;                   
 ## [8] &quot; =&gt; on files:&quot;</code></pre>

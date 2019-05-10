@@ -31,7 +31,7 @@ rmd_files: [
 
   "recipe-spectralAnalysis.Rmd",
   "recipe-plottingSnippets.Rmd",
-  #"recipe-emuDBgitLab.Rmd",
+  "recipe-emuDBgitLab.Rmd",
 
   "bibliography.Rmd"
 ]

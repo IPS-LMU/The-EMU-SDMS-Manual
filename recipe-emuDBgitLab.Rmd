@@ -1,4 +1,4 @@
-# Version control of emuDBs with Git and GitLab
+# Version control of emuDBs with Git, Git LFS and GitLab
 
 ```{r, echo=FALSE}
 # remove data if present
@@ -6,12 +6,12 @@ unlink(file.path(tempdir(),
                  "emuR_demoData"))
 ```
 
-This document describes how to do Git versioning of an emuDB for collaboratively working on a emuDBs. In this short introduction we will focus on using a GitLab instance such as the one provided by the [LRZ](https://www.lrz.de/) (https://gitlab.lrz.de/). However, it should generalize to most comparable services (Github, BitBucket, etc.) with a few slight ajustments. As we will be using Git as well as a Git extension called Git Large File Storage (LFS), please be sure to have these installed on your system see: 
+This document describes how to do Git versioning of an emuDB for collaboratively working on a emuDB. In this short introduction we will focus on using a GitLab instance such as the one provided by the [LRZ](https://www.lrz.de/) (https://gitlab.lrz.de/). However, it should generalize to most comparable services (Github, BitBucket, etc.) with a few slight adjustments. As we will be using Git as well as a Git extension called Git Large File Storage (LFS), please be sure you have these installed on your system. For information on how to install these on your system see: 
 
 - https://git-scm.com/
 - https://git-lfs.github.com/
 
-for information on how to install these on your system. 
+## Setup
 
 The first thing we need to do is create and load an example emuDB:
 
@@ -24,108 +24,106 @@ db = load_emuDB(file.path(tempdir(),
                 verbose = F)
 ```
 
-<!-- As the emuDB is not yet under git version control we will proceed by initializing a new git repository in the emuDB directory: -->
+As the ae emuDB is not yet under Git version control we will proceed by initializing a new Git repository in the emuDB directory. In a terminal (e.g. the Terminal tab in RStudio) type:
 
-<!-- ```{r} -->
-<!-- repo = git2r::init(db$basePath) -->
-<!-- repo -->
-<!-- ``` -->
-<!-- As can be seen by the above output, the repository currently doesn't have anything commited to it. Before we commit anything to the repo, let us first tell git to ignore the emuDBcache file, as we don't want put this under version control: -->
+```{bash, eval = F}
+# cd /path/to/emuDB
+git init
+```
 
-<!-- ```{r} -->
-<!-- gitignorePath = file.path(db$basePath,  -->
-<!--                           ".gitignore") -->
+Next, we will set up Git LFS to track the large files of our emuDB (`*.wav`, `*.fms`, `*.dft` and `*.sqlite`). In a terminal (e.g. the Terminal tab in RStudio) type:
 
-<!-- readr::write_lines(c("*_emuDBcache.sqlite"),  -->
-<!--                    gitignorePath) -->
-<!-- ``` -->
+```{bash, eval = F}
+# in the emuDB dir
+git lfs install # install lfs 
+git lfs track "*.wav"
+git lfs track "*.fms"
+git lfs track "*.dft"
+git lfs track "*.sqlite"
+git add .gitattributes # make sure .gitattributes is tracked
+```
 
-<!-- Now we can add everything to the repository and create our initial commit: -->
+Now, we will add everything to the Git repository and create our initial commit. In a terminal type:
 
-<!-- ```{r} -->
-<!-- git2r::add(repo, "*") -->
+```{bash, eval = F}
+# in the emuDB dir
+git add *
+git commit -am "initial commit"
+```
 
-<!-- git2r::commit(repo,  -->
-<!--               message = "init commit") -->
-<!-- ``` -->
+This is it for the local setup of Git + Git LFS. If you just wish to work locally simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
 
-<!-- The above two commands should be repeated (incl. a new commit message that reflects the current changes made) whenever a new emuDB state should be saved/added to the git repo. -->
+### Using GitLab to host the emuDB
 
-<!-- ## Using GitLab to host the emuDB -->
+The above examples only work on a local Git repository that is located inside of the emuDB directory (contained in a hidden directly called `.git`). Although this is already beneficial, as we have versioning enabled for our emuDB and can also go back to previous versions, it doesn't utilize one of Git's most powerful features. Git is able to sync repository states between multiple machines. Here, we will use GitLab to host the emuDB.
 
-<!-- The above examples only work on a local git repo that is located inside of the emuDB directory (contained in a hidden directy called `.git`). Although this is already very benefitial, as we have versioning enabled for our emuDB and can also go back to previous versions, it doesn't utilize one of git's greatest features. Git is able to sync repository states between multiple machines. Here, we will use GitLab to host the emuDB.  -->
+Initially you need to create a new project in GitLab under `Projects -> New project`:
 
-<!-- The first thing we will need to do is create a "Personal Access Token" in GitLab so git2r can authenticate you. After logging into your GitLab account navigate to `User Settings -> Access Tokens` and create a new Access Token called `git2r` (choose different name if you wish) with `Scopes` set to `api` for full read/write access: -->
+```{r fig.align="center", echo=FALSE, out.width = "75%"}
+knitr::include_graphics("pics/GitLab-newProject1.png")
+```
 
+that has the same name as the emuDB:
 
-<!-- ```{r fig.align="center", echo=FALSE, out.width = "75%"} -->
-<!-- knitr::include_graphics("pics/GitLab-AccesToken1.png") -->
-<!-- ``` -->
+```{r fig.align="center", echo=FALSE, out.width = "75%"}
+knitr::include_graphics("pics/GitLab-newProject2.png")
+```
 
-<!-- After you press `Create personal access token` the newly access token will be displayed: -->
+The URL of the repository should now be something like: https://gitlab.lrz.de/raphywink/ae_emudb.git. Next, we will add the newly created remote repo to the configuration of the local repo and push the local changes to the remote. In a terminal type:
 
-<!-- ```{r fig.align="center", echo=FALSE, out.width = "75%"} -->
-<!-- knitr::include_graphics("pics/GitLab-AccesToken2.png") -->
-<!-- ``` -->
+```{bash, eval = F}
+# in the emuDB dir
+git remote add origin git@gitlab.lrz.de:raphywink/ae_emudb.git
+git push -u origin master
+```
 
-<!-- Copy the token and create an environment variable called `GITLAB_PAT` that git2r can use to authenticate you: -->
+Enter your login credentials and that is it! You now have a local and remote repository that can easily be synced. To push a new local commit to the remote repository simply type:
 
-<!-- ```{r} -->
-<!-- Sys.setenv(GITLAB_PAT = "8NY9niB75s7XFUy73dwR") # replace with own token -->
-<!-- ``` -->
+```{bash, eval = F}
+# in the emuDB dir
+git push
+```
 
-<!-- **SECURITY WARNING: The access key gives users full access to all your GitLab projects! Hence, it should be treated like your password! Do not share or loose! If you accidentally share or loose your key, revoke the token immediately and create a new one!** -->
+If you want to pull any changes from the remote repository simply type:
 
-<!-- Next you need to create a new project in GitLab under `Projects -> New project` -->
+```{bash, eval = F}
+# in the emuDB dir
+git pull
+```
 
-<!-- ```{r fig.align="center", echo=FALSE, out.width = "75%"} -->
-<!-- knitr::include_graphics("pics/GitLab-newProject1.png") -->
-<!-- ``` -->
+If you get sick of entering your login credentials (I certainly do) see here: https://docs.gitlab.com/ee/ssh/
 
-<!-- that has the same name as the emuDB: -->
+## Collaborating with others
 
-<!-- ```{r fig.align="center", echo=FALSE, out.width = "75%"} -->
-<!-- knitr::include_graphics("pics/GitLab-newProject2.png") -->
-<!-- ``` -->
+If you wish others to access and/or collaborate with you on the database you simply have to add them as "Project members" in GitLab. Under `Project -> Settings -> Members` select your colaborator and choose "Maintainer" (read and write access) as their role permission:
 
-<!-- The URL of the GitLab should now be something like: `https://gitlab.lrz.de/raphywink/ae_emudb.git`. Next, we will add the newly created remote repo to the configuration of the local repo and push the local changes to the remote: -->
+```{r fig.align="center", echo=FALSE, out.width = "75%"}
+knitr::include_graphics("pics/GitLab-addMember.png")
+```
 
-<!-- ```{r} -->
-<!-- git2r::remote_add(repo = repo,  -->
-<!--                   name = "origin", -->
-<!--                   url = "https://gitlab.lrz.de/raphywink/ae_emudb.git") -->
+Once this is set, the collaborator is able to clone the repository using their own credentials:
 
-<!-- git2r::push(repo,  -->
-<!--             name = "origin", -->
-<!--             refspec = "refs/heads/master", -->
-<!--             set_upstream = TRUE, -->
-<!--             credentials = git2r::cred_token(token = "GITLAB_PAT") -->
-<!--             ) -->
-<!-- ``` -->
+```{bash, eval = F}
+# in the emuDB dir
+git clone git@gitlab.lrz.de:raphywink/ae_emudb.git
+```
 
-<!-- Now that everything is set up, you can simple add and commit changes and push to the remote when you  -->
+### Default work-flow
 
-<!-- ## Colaborating with others -->
+When collaborating with multiple people it is usually a go idea to do the following:
 
-<!-- If you wish other to access and/or colaborate on the database you simply have to add them as "Project members" in GitLab. Under `Project -> Settings -> Members` select your colaborator and choose "Maintainer" (read and write access) as their role permission: -->
+1.) **every time** before you start working on an emuDB get the newest version:
 
-<!-- ```{r fig.align="center", echo=FALSE, out.width = "75%"} -->
-<!-- knitr::include_graphics("pics/GitLab-addMember.png") -->
-<!-- ``` -->
+```{bash, eval = F}
+# in the emuDB dir
+git pull
+```
 
-<!-- Once this is set, the collaborator is able to clone the repository using their own access token: -->
+2.) once you have made changes that you wish to share, create a new commit and push it to the remote repository so the others can access your changes:
 
-<!-- ```{r} -->
-<!-- #git2r::clone(url = "https://gitlab.lrz.de/raphywink/ae_emudb.git", -->
-<!-- #            local_path = "/Users/raphaelwinkelmann/Desktop/ae_emuDB", -->
-<!-- #            credentials = git2r::cred_token(token = "GITLAB_PAT")) # this has to be set to their own token -->
-<!-- ``` -->
+```{bash, eval = F}
+# in the emuDB dir
+git commit -am "added autobuild links from ORT to KAN" # change message accordingly
+git push
+```
 
-<!-- ## Checking for and sharing changes -->
-
-<!-- TODO: write about  -->
-
-<!-- ## TODO -->
-
-<!-- - try to get git-lsf to work with git2r -->
-<!-- - add `git2r::config(repo, user.name="Alice", user.email="alice@example.org")` ??? Probably a good idea... -->
