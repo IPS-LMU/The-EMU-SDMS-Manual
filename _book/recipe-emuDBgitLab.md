@@ -65,12 +65,12 @@ that has the same name as the emuDB:
 
 <img src="pics/GitLab-newProject2.png" width="75%" style="display: block; margin: auto;" />
 
-The URL of the repository should now be something like: https://gitlab.lrz.de/raphywink/ae_emudb.git. Next, we will add the newly created remote repo to the configuration of the local repo and push the local changes to the remote. In a terminal type:
+Make sure to change the `Project slug` to match the casing (_emuDB vs. emudb) of the database suffix. The URL of the repository should now be something like: https://gitlab.lrz.de/raphywink/ae_emuDB.git. Next, we will add the newly created remote repo to the configuration of the local repo and push the local changes to the remote. In a terminal type:
 
 
 ```bash
 # in the emuDB dir
-git remote add origin git@gitlab.lrz.de:raphywink/ae_emudb.git
+git remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git
 git push -u origin master
 ```
 
@@ -102,13 +102,12 @@ Once this is set, the collaborator is able to clone the repository using their o
 
 
 ```bash
-# in the emuDB dir
-git clone git@gitlab.lrz.de:raphywink/ae_emudb.git
+git clone git@gitlab.lrz.de:raphywink/ae_emuDB.git
 ```
 
 ### Default work-flow
 
-When collaborating with multiple people it is usually a go idea to do the following:
+When collaborating with multiple people it is usually a good idea to do the following:
 
 1.) **every time** before you start working on an emuDB get the newest version:
 

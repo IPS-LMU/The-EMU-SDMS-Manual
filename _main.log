@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.12)  10 MAY 2019 17:33
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.12)  10 MAY 2019 18:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1053,7 +1053,7 @@ File: pics/msajc003_praat.pdf Graphic file (type pdf)
 [21]
 Overfull \hbox (49.99498pt too wide) in paragraph at lines 514--514
 []\TU/lmtt/m/n/10 ## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s
-ld980000gn/T/RtmpXp0myO/my-first_emuDB[] 
+ld980000gn/T/RtmpxHoDwg/my-first_emuDB[] 
  []
 
 [22]
@@ -1158,7 +1158,7 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
 [51]
 Overfull \hbox (65.74498pt too wide) in paragraph at lines 1337--1337
 []\TU/lmtt/m/n/10 ## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s
-ld980000gn/T/Rtmpt3CPvJ/fromScratch_emuDB[] 
+ld980000gn/T/RtmponxfDq/fromScratch_emuDB[] 
  []
 
 [52] [53] [54] [55]
@@ -1220,7 +1220,7 @@ File: pics/EMU-webAppEmu_wrassp.pdf Graphic file (type pdf)
 [81] [82]
 Overfull \hbox (307.24498pt too wide) in paragraph at lines 2746--2746
 []\TU/lmtt/m/n/10 ## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4
-c1sld980000gn/T//RtmptB8Nnp/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc
+c1sld980000gn/T//RtmpVig5sR/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc
 003.wav.[] 
  []
 
@@ -1891,15 +1891,15 @@ File: pics/GitLab-newProject2.png Graphic file (type bmp)
 [238]
 File: pics/GitLab-addMember.png Graphic file (type bmp)
 <pics/GitLab-addMember.png>
-[239] (./_main.bbl [240] [241
+(./_main.bbl [239] [240
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9177.
+] [241])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9176.
 [242]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 9177.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9176.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9177.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9177.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9176.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9176.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 4551D71F795812D0BEC66E4C62654DFA.

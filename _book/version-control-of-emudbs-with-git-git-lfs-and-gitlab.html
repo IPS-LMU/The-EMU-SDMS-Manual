@@ -417,9 +417,9 @@ db =<span class="st"> </span><span class="kw">load_emuDB</span>(<span class="kw"
 <p><img src="pics/GitLab-newProject1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>that has the same name as the emuDB:</p>
 <p><img src="pics/GitLab-newProject2.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The URL of the repository should now be something like: <a href="https://gitlab.lrz.de/raphywink/ae_emudb.git" class="uri">https://gitlab.lrz.de/raphywink/ae_emudb.git</a>. Next, we will add the newly created remote repo to the configuration of the local repo and push the local changes to the remote. In a terminal type:</p>
+<p>Make sure to change the <code>Project slug</code> to match the casing (_emuDB vs. emudb) of the database suffix. The URL of the repository should now be something like: <a href="https://gitlab.lrz.de/raphywink/ae_emuDB.git" class="uri">https://gitlab.lrz.de/raphywink/ae_emuDB.git</a>. Next, we will add the newly created remote repo to the configuration of the local repo and push the local changes to the remote. In a terminal type:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># in the emuDB dir</span>
-<span class="fu">git</span> remote add origin git@gitlab.lrz.de:raphywink/ae_emudb.git
+<span class="fu">git</span> remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git
 <span class="fu">git</span> push -u origin master</code></pre>
 <p>Enter your login credentials and that is it! You now have a local and remote repository that can easily be synced. To push a new local commit to the remote repository simply type:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># in the emuDB dir</span>
@@ -435,11 +435,10 @@ db =<span class="st"> </span><span class="kw">load_emuDB</span>(<span class="kw"
 <p>If you wish others to access and/or collaborate with you on the database you simply have to add them as “Project members” in GitLab. Under <code>Project -&gt; Settings -&gt; Members</code> select your colaborator and choose “Maintainer” (read and write access) as their role permission:</p>
 <p><img src="pics/GitLab-addMember.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Once this is set, the collaborator is able to clone the repository using their own credentials:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># in the emuDB dir</span>
-<span class="fu">git</span> clone git@gitlab.lrz.de:raphywink/ae_emudb.git</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone git@gitlab.lrz.de:raphywink/ae_emuDB.git</code></pre>
 <div id="default-work-flow" class="section level3">
 <h3><span class="header-section-number">23.2.1</span> Default work-flow</h3>
-<p>When collaborating with multiple people it is usually a go idea to do the following:</p>
+<p>When collaborating with multiple people it is usually a good idea to do the following:</p>
 <p>1.) <strong>every time</strong> before you start working on an emuDB get the newest version:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># in the emuDB dir</span>
 <span class="fu">git</span> pull</code></pre>
