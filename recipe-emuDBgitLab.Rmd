@@ -1,4 +1,4 @@
-# Version control of emuDB with git2r and GitLab
+# Version control of emuDBs with Git and GitLab
 
 ```{r, echo=FALSE}
 # remove data if present
@@ -6,29 +6,23 @@ unlink(file.path(tempdir(),
                  "emuR_demoData"))
 ```
 
-This document describes how to do `git` versioning of an emuDB for collaboratively working on a emuDBs. In this short introduction we will focus on using a GitLab instance such as the one provided by the [LRZ](https://www.lrz.de/) https://gitlab.lrz.de/. However, it should also work with most comparable services (Github, BitBucket, etc.) after a few slight ajustments.
+This document describes how to do Git versioning of an emuDB for collaboratively working on a emuDBs. In this short introduction we will focus on using a GitLab instance such as the one provided by the [LRZ](https://www.lrz.de/) (https://gitlab.lrz.de/). However, it should generalize to most comparable services (Github, BitBucket, etc.) with a few slight ajustments. As we will be using Git as well as a Git extension called Git Large File Storage (LFS), please be sure to have these installed on your system see: 
 
-<!-- The first thing we need to do is install and load the git2r package: -->
+- https://git-scm.com/
+- https://git-lfs.github.com/
 
-<!-- ```{r, eval=FALSE} -->
-<!-- install.packages("git2r") -->
-<!-- library("git2r") -->
-<!-- ``` -->
-<!-- <!-- load lib --> -->
-<!-- ```{r, echo=FALSE} -->
-<!-- library("git2r") -->
-<!-- ``` -->
+for information on how to install these on your system. 
 
-<!-- And create and load an example emuDB: -->
+The first thing we need to do is create and load an example emuDB:
 
-<!-- ```{r, message=F} -->
-<!-- library(emuR) -->
-<!-- create_emuRdemoData() -->
-<!-- db = load_emuDB(file.path(tempdir(),  -->
-<!--                           "emuR_demoData",  -->
-<!--                           "ae_emuDB"), -->
-<!--                 verbose = F) -->
-<!-- ``` -->
+```{r, message=F}
+library(emuR)
+create_emuRdemoData()
+db = load_emuDB(file.path(tempdir(),
+                          "emuR_demoData",
+                          "ae_emuDB"),
+                verbose = F)
+```
 
 <!-- As the emuDB is not yet under git version control we will proceed by initializing a new git repository in the emuDB directory: -->
 

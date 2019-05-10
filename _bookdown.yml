@@ -30,6 +30,7 @@ rmd_files: [
   "recipes_separator.Rmd",
 
   "recipe-spectralAnalysis.Rmd",
+  "recipe-plottingSnippets.Rmd",
   #"recipe-emuDBgitLab.Rmd",
 
   "bibliography.Rmd"

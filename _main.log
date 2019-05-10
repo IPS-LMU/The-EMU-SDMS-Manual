@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.12)  9 MAY 2019 19:17
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.12)  10 MAY 2019 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1053,7 +1053,7 @@ File: pics/msajc003_praat.pdf Graphic file (type pdf)
 [21]
 Overfull \hbox (49.99498pt too wide) in paragraph at lines 514--514
 []\TU/lmtt/m/n/10 ## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s
-ld980000gn/T/RtmpCAaVXd/my-first_emuDB[] 
+ld980000gn/T/RtmpyjOu7X/my-first_emuDB[] 
  []
 
 [22]
@@ -1158,7 +1158,7 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
 [51]
 Overfull \hbox (65.74498pt too wide) in paragraph at lines 1337--1337
 []\TU/lmtt/m/n/10 ## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s
-ld980000gn/T/Rtmpx4p9kl/fromScratch_emuDB[] 
+ld980000gn/T/Rtmp8OX8wt/fromScratch_emuDB[] 
  []
 
 [52] [53] [54] [55]
@@ -1220,7 +1220,7 @@ File: pics/EMU-webAppEmu_wrassp.pdf Graphic file (type pdf)
 [81] [82]
 Overfull \hbox (307.24498pt too wide) in paragraph at lines 2746--2746
 []\TU/lmtt/m/n/10 ## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4
-c1sld980000gn/T//Rtmpo9du6u/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc
+c1sld980000gn/T//Rtmplhh9N7/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc
 003.wav.[] 
  []
 
@@ -1655,38 +1655,42 @@ Underfull \vbox (badness 10000) detected at line 7879
 Chapter 20.
 [193
 
-] [194]
+] [194
+
+]
+Chapter 21.
+[195] [196]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[195] [196]
+[197] [198]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-11-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-11-1.pdf>
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-12-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-12-1.pdf>
-[197]
+[199]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-13-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-13-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[198]
+[200]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-14-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-14-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[199] [200]
+[201] [202]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-16-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-16-1.pdf>
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-18-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-18-1.pdf>
-[201]
+[203]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-19-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-19-1.pdf>
@@ -1696,49 +1700,49 @@ File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-19-2.pdf Graphic
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[202]
+[204]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[203]
+[205]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-2.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[204]
+[206]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-3.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[205]
+[207]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-4.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-4.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[206]
+[208]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-5.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-5.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[207]
+[209]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-6.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-20-6.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[208]
+[210]
 Missing character: There is no ʃ in font [lmroman10-regular]:mapping=tex-text;!
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-21-1.pdf Graphic
  file (type pdf)
@@ -1746,35 +1750,35 @@ File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-21-1.pdf Graphic
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[209]
+[211]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-21-2.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-21-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[210]
+[212]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-21-3.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-21-3.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[211] [212]
+[213] [214]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-23-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-23-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[213]
+[215]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-24-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-24-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[214]
+[216]
 Missing character: There is no ʃ in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ʃ in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ʃ in font [lmroman10-regular]:mapping=tex-text;!
@@ -1784,25 +1788,25 @@ File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-25-1.pdf Graphic
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[215] [216]
+[217] [218]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-26-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-26-1.pdf>
-[217]
+[219]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-27-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-27-1.pdf>
-[218]
+[220]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-29-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-29-1.pdf>
-[219] [220] [221]
+[221] [222] [223]
 Missing character: There is no ʃ in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ʃ in font [lmroman10-regular]:mapping=tex-text;!
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-34-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-34-1.pdf>
-[222]
+[224]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-35-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-35-1.pdf>
@@ -1812,36 +1816,92 @@ File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-36-1.pdf Graphic
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[223]
+[225]
 File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-37-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-37-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[224] (./_main.bbl [225] [226
+[226] [227] [228
 
-] [227])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8821.
-[228]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 8821.
+]
+Chapter 22.
+[229]
+File: recipe-plottingSnippets_files/figure-latex/unnamed-chunk-2-1.pdf Graphic 
+file (type pdf)
+<use recipe-plottingSnippets_files/figure-latex/unnamed-chunk-2-1.pdf>
+File: recipe-plottingSnippets_files/figure-latex/unnamed-chunk-3-1.pdf Graphic 
+file (type pdf)
+<use recipe-plottingSnippets_files/figure-latex/unnamed-chunk-3-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[230]
+File: recipe-plottingSnippets_files/figure-latex/unnamed-chunk-4-1.pdf Graphic 
+file (type pdf)
+<use recipe-plottingSnippets_files/figure-latex/unnamed-chunk-4-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (140.33731pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 22.1.  FORMANT TRAJECTORY PLOTS (EQUIVALENT TO THE LEGACY \TU/l
+mtt/m/sl/10 DPLOT(..., NORMALISE = T/F, AVERAGE = T/F,...)\TU/lmr/m/sl/10 ) \TU
+/lmr/m/n/10 231
+ []
+
+[231] [232]
+File: recipe-plottingSnippets_files/figure-latex/unnamed-chunk-5-1.pdf Graphic 
+file (type pdf)
+<use recipe-plottingSnippets_files/figure-latex/unnamed-chunk-5-1.pdf>
+File: recipe-plottingSnippets_files/figure-latex/unnamed-chunk-6-1.pdf Graphic 
+file (type pdf)
+<use recipe-plottingSnippets_files/figure-latex/unnamed-chunk-6-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (137.6195pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 22.2.  F1/F2 PLOTS (EQUIVALENT TO THE LEGACY \TU/lmtt/m/sl/10 E
+PLOT(..., DOPOINTS = T/F, DOELLIPSE = T/F, CENTROID = T/F, ...)\TU/lmr/m/sl/10 
+) \TU/lmr/m/n/10 233
+ []
+
+[233]
+File: recipe-plottingSnippets_files/figure-latex/unnamed-chunk-7-1.pdf Graphic 
+file (type pdf)
+<use recipe-plottingSnippets_files/figure-latex/unnamed-chunk-7-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[234] [235]
+File: recipe-plottingSnippets_files/figure-latex/unnamed-chunk-8-1.pdf Graphic 
+file (type pdf)
+<use recipe-plottingSnippets_files/figure-latex/unnamed-chunk-8-1.pdf>
+(./_main.bbl [236] [237
+
+])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9030.
+[238]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9030.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 8821.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 8821.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9030.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9030.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: E9C9AAE5B83A3A87604E29D76A2C46A1.
+(rerunfilecheck)             Checksum: D7FD618C8E07A6C2E5F9DFE467412BC4.
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 23851 strings out of 492970
- 455273 string characters out of 6133937
- 607139 words of memory out of 5000000
- 27489 multiletter control sequences out of 15000+600000
+ 23886 strings out of 492970
+ 457254 string characters out of 6133937
+ 608415 words of memory out of 5000000
+ 27516 multiletter control sequences out of 15000+600000
  571252 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,8n,68p,10446b,554s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on _main.pdf (228 pages).
+Output written on _main.pdf (238 pages).

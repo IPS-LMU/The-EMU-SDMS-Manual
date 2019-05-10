@@ -109,7 +109,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -489,8 +489,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     4b6eb728-bd15-44db-8dfe-750c8fbfac7c 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpCAaVXd/my-first_emuDB 
+## UUID:     ed9a2b1d-af2e-47c3-8c26-2f2281aaeae4 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpyjOu7X/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -893,18 +893,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  2         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  3         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  4         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  5         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  6         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  7         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  8         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-##  9         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-## 10         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-## 11         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
-## 12         5 @      2447. 2506. 0000~ 4b6eb7~ 0000    msajc~           119
+##  1         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  2         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  3         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  4         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  5         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  6         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  7         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  8         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+##  9         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+## 10         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+## 11         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
+## 12         5 @      2447. 2506. 0000~ ed9a2b~ 0000    msajc~           119
 ## # ... with 15 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,
@@ -1316,8 +1316,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     4d300f2e-7d42-4128-8036-0bfe511d9c0d 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpx4p9kl/fromScratch_emuDB 
+## UUID:     c57dca87-1c0b-4f35-b642-6e503bc5c5fc 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp8OX8wt/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -2737,7 +2737,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmpo9du6u/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmplhh9N7/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -3156,7 +3156,7 @@ As it can be extremely important to keep track of information about how certain 
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-05-09 19:14:48 "  
+## [5] "Timestamp:  2019-05-10 15:45:55 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -7881,6 +7881,11 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \hypertarget{part-recipes}{%
 \part{Recipes}\label{part-recipes}}
 
+\hypertarget{about}{%
+\chapter{About}\label{about}}
+
+This section contains various independent tutorials / best practices on common challenges/issues regarding various aspects of the EMU-SDMS.
+
 \hypertarget{spectral-analysis}{%
 \chapter{Spectral analysis}\label{spectral-analysis}}
 
@@ -8814,6 +8819,210 @@ We can now check, which of the moments could be good separators between {[}s{]} 
 \includegraphics{recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-37-1.pdf}
 
 So, in our case, the two best variables that would differ most when we were trying to distinguish between alveolar and post-alveolar fricatives, would be the skew of the dB-distribution along the frequency axis (at least in out case, where frequency varies between 0 and 10000 Hz), and, as a measure for spectral \textbf{center of gravity}, the first spectral moment, i.e.~the mean of the distribution along the frequency axis (which is quite a different thing than the first dct coefficient, which represents the mean along the dB-axis).
+
+\hypertarget{plotting-snippets}{%
+\chapter{Plotting snippets}\label{plotting-snippets}}
+
+This recipe contains various plotting snippets for various visualization challenges. All snippets will use the ae demo emuDB. Let us create and load that emuDB:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(emuR)}
+\KeywordTok{library}\NormalTok{(tidyverse) }\CommentTok{# containing - amongst others - dplyr, purrr, tibble, and ggplot2}
+
+\CommentTok{# create demo data in directory provided by the tempdir() function}
+\CommentTok{# (of course other directory paths may be chosen)}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# create path to demo data directory, which is}
+\CommentTok{# called "emuR_demoData"}
+\NormalTok{demo_data_dir =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }
+                          \StringTok{"emuR_demoData"}\NormalTok{)}
+
+\CommentTok{# create path to ae_emuDB which is part of the demo data}
+\NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(demo_data_dir, }
+                    \StringTok{"ae_emuDB"}\NormalTok{)}
+
+\CommentTok{# load database}
+\NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf...}{%
+\section{\texorpdfstring{Formant trajectory plots (equivalent to the legacy \texttt{dplot(...,\ normalise\ =\ T/F,\ average\ =\ T/F,...)})}{Formant trajectory plots (equivalent to the legacy dplot(..., normalise = T/F, average = T/F,...))}}\label{formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf...}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query A and V (front and back open vowels),}
+\CommentTok{# i:and u: (front and back closed vowels), and}
+\CommentTok{# E and o: (front and back mid vowels)}
+\NormalTok{ae_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae,}
+                  \DataTypeTok{query =} \StringTok{"[Phonetic == V | A | i: | u: | o: | E]"}\NormalTok{)}
+\CommentTok{#get the formants:}
+\NormalTok{ae_formants =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, }
+                            \DataTypeTok{seglist =}\NormalTok{ ae_vowels,}
+                            \DataTypeTok{ssffTrackName =} \StringTok{"fm"}\NormalTok{,}
+                            \DataTypeTok{resultType =} \StringTok{"tibble"}\NormalTok{)}
+
+\CommentTok{# plot all F2 trajectories}
+\CommentTok{# (note that T1 == F1, T2 == F2, ...)}
+\KeywordTok{ggplot}\NormalTok{(ae_formants) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_rel, }\DataTypeTok{y =}\NormalTok{ T2, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ sl_rowIdx) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"time (ms)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F2 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# time normalize the formant values}
+\NormalTok{ae_formants_norm =}\StringTok{ }\KeywordTok{normalize_length}\NormalTok{(ae_formants)}
+
+\CommentTok{# plot all normalized F2 trajectories}
+\KeywordTok{ggplot}\NormalTok{(ae_formants_norm) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_norm, }\DataTypeTok{y =}\NormalTok{ T2, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ sl_rowIdx) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"normalized time"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F2 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculate and plot averages (== dplot(..., average = T, ...))}
+\NormalTok{ae_formants_norm_average =}\StringTok{ }\NormalTok{ae_formants_norm }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(labels, times_norm) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{F2 =} \KeywordTok{mean}\NormalTok{(T2))}
+
+\KeywordTok{ggplot}\NormalTok{(ae_formants_norm_average) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_norm, }\DataTypeTok{y =}\NormalTok{ F2, }\DataTypeTok{col =}\NormalTok{ labels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"normalized time"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F2 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-...}{%
+\section{\texorpdfstring{F1/F2 plots (equivalent to the legacy \texttt{eplot(...,\ dopoints\ =\ T/F,\ doellipse\ =\ T/F,\ centroid\ =\ T/F,\ ...)})}{F1/F2 plots (equivalent to the legacy eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...))}}\label{f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-...}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query A and V (front and back open vowels),}
+\CommentTok{# i:and u: (front and back closed vowels), and}
+\CommentTok{# E and o: (front and back mid vowels)}
+\NormalTok{ae_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae,}
+                  \DataTypeTok{query =} \StringTok{"[Phonetic == V | A | i: | u: | o: | E]"}\NormalTok{)}
+\CommentTok{#get the formants:}
+\NormalTok{ae_formants =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, }
+                            \DataTypeTok{seglist =}\NormalTok{ ae_vowels,}
+                            \DataTypeTok{ssffTrackName =} \StringTok{"fm"}\NormalTok{,}
+                            \DataTypeTok{resultType =} \StringTok{"tibble"}\NormalTok{)}
+
+\CommentTok{# time normalize the formant values}
+\NormalTok{ae_formants_norm =}\StringTok{ }\KeywordTok{normalize_length}\NormalTok{(ae_formants)}
+
+\CommentTok{# extract the temporal mid-points}
+\NormalTok{ae_midpoints =}\StringTok{ }\NormalTok{ae_formants_norm }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(times_norm }\OperatorTok{==}\StringTok{ }\FloatTok{0.5}\NormalTok{)}
+
+\CommentTok{# plot F1 & F2 values (== eplot(..., dopoints = T, doellipse = F, centroid = F, ...))}
+\KeywordTok{ggplot}\NormalTok{(ae_midpoints) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ T2, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{label =}\NormalTok{ labels, }\DataTypeTok{col =}\NormalTok{ labels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"F2 (Hz)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# plot F1 & F2 values (== eplot(..., dopoints = T, doellipse = T, centroid = F, ...))}
+\KeywordTok{ggplot}\NormalTok{(ae_midpoints) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ T2, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{label =}\NormalTok{ labels, }\DataTypeTok{col =}\NormalTok{ labels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_ellipse}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"F2 (Hz)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 3 rows containing missing values (geom_path).
+\end{verbatim}
+
+\includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# filter out vowels with enough data points }
+\CommentTok{# to calc. ellipse}
+\NormalTok{ae_midpoints_Eiu =}\StringTok{ }\NormalTok{ae_midpoints }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(labels}\OperatorTok{%in%}\KeywordTok{c}\NormalTok{(}\StringTok{"E"}\NormalTok{,}\StringTok{"i:"}\NormalTok{,}\StringTok{"u:"}\NormalTok{))}
+
+\NormalTok{ae_centroid =}\StringTok{ }\NormalTok{ae_midpoints_Eiu }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(labels) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{T1 =} \KeywordTok{mean}\NormalTok{(T1), }\DataTypeTok{T2 =} \KeywordTok{mean}\NormalTok{(T2))}
+
+\CommentTok{# plot F1 & F2 values (== eplot(..., dopoints = T, doellipse = T, centroid = T, ...))}
+\KeywordTok{ggplot}\NormalTok{(ae_midpoints_Eiu) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ T2, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{label =}\NormalTok{ labels, }\DataTypeTok{col =}\NormalTok{ labels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_ellipse}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"F2 (Hz)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ ae_centroid)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+Regarding stat\_ellipse() this is worth pointing out: \url{https://github.com/tidyverse/ggplot2/issues/2776}
+
+\hypertarget{f1f2-plot-separated-by-speaker}{%
+\section{F1/F2 plot separated by speaker}\label{f1f2-plot-separated-by-speaker}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# query A and V (front and back open vowels),}
+\CommentTok{# i:and u: (front and back closed vowels), and}
+\CommentTok{# E and o: (front and back mid vowels)}
+\NormalTok{ae_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(}\DataTypeTok{emuDBhandle =}\NormalTok{ ae,}
+                  \DataTypeTok{query =} \StringTok{"[Phonetic == V | A | i: | u: | o: | E]"}\NormalTok{)}
+\CommentTok{#get the formants:}
+\NormalTok{ae_formants =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, }
+                            \DataTypeTok{seglist =}\NormalTok{ ae_vowels,}
+                            \DataTypeTok{ssffTrackName =} \StringTok{"fm"}\NormalTok{,}
+                            \DataTypeTok{resultType =} \StringTok{"tibble"}\NormalTok{)}
+
+\CommentTok{# extract the temporal mid-points}
+\NormalTok{ae_midpoints =}\StringTok{ }\NormalTok{ae_formants }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(times_norm }\OperatorTok{==}\StringTok{ }\FloatTok{0.5}\NormalTok{)}
+
+\CommentTok{# plot using facet_wrap()}
+\CommentTok{# to plot vowels separately for every bundle }
+\CommentTok{# (this assumes that every bundle contains a different}
+\CommentTok{# speaker which is actually not the case in the ae emuDB)}
+\KeywordTok{ggplot}\NormalTok{(ae_midpoints) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ T2, }\DataTypeTok{y =}\NormalTok{ T1, }\DataTypeTok{label =}\NormalTok{ labels, }\DataTypeTok{col =}\NormalTok{ labels) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_reverse}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"F2 (Hz)"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"F1 (Hz)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"none"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{bundle) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 \bibliography{book.bib}
 

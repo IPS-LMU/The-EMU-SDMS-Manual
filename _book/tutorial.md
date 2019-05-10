@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 4207d51d-ef82-4c4a-9ce9-a87dc67f353d 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpSnv7Sf/my-first_emuDB 
+## UUID:	 a19a9d25-c0a1-49ac-836d-7164a2b18a2b 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpDXL3qW/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -485,18 +485,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  2         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  3         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  4         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  5         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  6         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  7         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  8         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-##  9         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-## 10         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-## 11         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
-## 12         5 @      2447. 2506. 0000… 4207d5… 0000    msajc…           119
+##  1         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  2         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  3         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  4         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  5         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  6         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  7         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  8         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+##  9         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+## 10         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+## 11         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
+## 12         5 @      2447. 2506. 0000… a19a9d… 0000    msajc…           119
 ## # … with 15 more variables: end_item_id <int>, level <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>,
