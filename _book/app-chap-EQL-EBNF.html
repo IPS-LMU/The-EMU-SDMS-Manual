@@ -380,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="app-chap:EQL-EBNF" class="section level1">
 <h1><span class="header-section-number">17</span> EQL EBNF<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></h1>
-<p>This chapter presents the EBNF <span class="citation">(Garshol <a href="#ref-garshol:2003a">2003</a>)</span> that describes version 2 of the EQL. As the original EBNF adapted from <span class="citation">John (<a href="#ref-john:2012a">2012</a>)</span> was written in German, some of the abbreviation terms were translated into English abbreviations (e.g., <code>DOMA</code> is the abbreviation for the German term <strong>Dom</strong>inanz<strong>a</strong>bfrage and the newly translated <code>DOMQ</code> is the abbreviation for the English term <strong>dom</strong>ination <strong>q</strong>uery).</p>
+<p>This chapter presents the EBNF <span class="citation">(Garshol <a href="#ref-garshol:2003a">2003</a>)</span> that describes version 2 of the EQL. As the original EBNF adapted from <span class="citation">John (<a href="#ref-john:2012a">2012</a>)</span> was written in German, some of the abbreviation terms were translated into English abbreviations (e.g., DOMA is the abbreviation for the German term <strong>Dom</strong>inanz<strong>a</strong>bfrage and the newly translated DOMQ is the abbreviation for the English term <strong>dom</strong>ination <strong>q</strong>uery).</p>
 <div id="terminal-symbols-of-eql2-operators-and-their-meaning" class="section level2">
 <h2><span class="header-section-number">17.1</span> Terminal symbols of EQL2 (operators) and their meaning</h2>
 <p>The terminal symbols described below are listed in descending order by their binding priority.</p>
@@ -398,7 +398,7 @@ Meaning
 <tbody>
 <tr>
 <td style="text-align:left;">
-<code>#</code>
+#
 </td>
 <td style="text-align:left;">
 Result modifier (projection)
@@ -406,7 +406,7 @@ Result modifier (projection)
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>,</code>
+,
 </td>
 <td style="text-align:left;">
 Parameter list separator
@@ -414,7 +414,7 @@ Parameter list separator
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>==</code>
+==
 </td>
 <td style="text-align:left;">
 Equality (new in version 2 of the EQL; added for cleaner syntax)
@@ -422,7 +422,7 @@ Equality (new in version 2 of the EQL; added for cleaner syntax)
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>=</code>
+=
 </td>
 <td style="text-align:left;">
 Equality (optional; for backwards compatibility)
@@ -430,7 +430,7 @@ Equality (optional; for backwards compatibility)
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>!=</code>
+!=
 </td>
 <td style="text-align:left;">
 Inequality
@@ -438,7 +438,7 @@ Inequality
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>=~</code>
+=~
 </td>
 <td style="text-align:left;">
 Regular expression matching
@@ -446,7 +446,7 @@ Regular expression matching
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>!~</code>
+!~
 </td>
 <td style="text-align:left;">
 Regular expression non-matching
@@ -454,7 +454,7 @@ Regular expression non-matching
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>&amp;gt;</code>
+&gt;
 </td>
 <td style="text-align:left;">
 Greater than
@@ -462,7 +462,7 @@ Greater than
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>&amp;gt;=</code>
+&gt;=
 </td>
 <td style="text-align:left;">
 Equal to or greater than
@@ -470,7 +470,7 @@ Equal to or greater than
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>&amp;lt;</code>
+&lt;
 </td>
 <td style="text-align:left;">
 Less than
@@ -478,7 +478,7 @@ Less than
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>&amp;gt;=</code>
+&gt;=
 </td>
 <td style="text-align:left;">
 Equal to or less than
@@ -486,7 +486,7 @@ Equal to or less than
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>|</code>
+|
 </td>
 <td style="text-align:left;">
 Alternatives separator
@@ -494,7 +494,7 @@ Alternatives separator
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>&amp;amp;</code>
+&amp;
 </td>
 <td style="text-align:left;">
 Conjunction of equal rank
@@ -502,7 +502,7 @@ Conjunction of equal rank
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>^</code>
+^
 </td>
 <td style="text-align:left;">
 Dominance conjunction
@@ -510,7 +510,7 @@ Dominance conjunction
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>-&amp;gt;</code>
+-&gt;
 </td>
 <td style="text-align:left;">
 Sequence operator
@@ -535,7 +535,7 @@ Meaning
 <tbody>
 <tr>
 <td style="text-align:left;">
-<code>'</code>
+’
 </td>
 <td style="text-align:left;">
 Quotes literal string
@@ -543,7 +543,7 @@ Quotes literal string
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>(</code>
+(
 </td>
 <td style="text-align:left;">
 Function parameter list opening bracket
@@ -551,7 +551,7 @@ Function parameter list opening bracket
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>)</code>
+)
 </td>
 <td style="text-align:left;">
 Function parameter list closing bracket
@@ -559,7 +559,7 @@ Function parameter list closing bracket
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>[</code>
+[
 </td>
 <td style="text-align:left;">
 Sequence or dominance-enclosing opening bracket
@@ -567,7 +567,7 @@ Sequence or dominance-enclosing opening bracket
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>]</code>
+]
 </td>
 <td style="text-align:left;">
 Sequence or dominance-enclosing closing bracket
@@ -592,7 +592,7 @@ Meaning
 <tbody>
 <tr>
 <td style="text-align:left;">
-<code>Start</code>
+Start
 </td>
 <td style="text-align:left;">
 Start
@@ -600,7 +600,7 @@ Start
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>Medial</code>
+Medial
 </td>
 <td style="text-align:left;">
 Medial
@@ -608,7 +608,7 @@ Medial
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>End</code>
+End
 </td>
 <td style="text-align:left;">
 Final
@@ -616,7 +616,7 @@ Final
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>Num</code>
+Num
 </td>
 <td style="text-align:left;">
 Count
@@ -644,7 +644,7 @@ Conditions
 <tbody>
 <tr>
 <td style="text-align:left;">
-<code>EQL = CONJQ | SEQQ | DOMQ;</code>
+EQL = CONJQ | SEQQ | DOMQ;
 </td>
 <td style="text-align:left;">
 <strong>E</strong>MU <strong>Q</strong>uery <strong>L</strong>anguage
@@ -654,7 +654,7 @@ Conditions
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>DOMQ = &amp;quot;[&amp;quot;, ( CONJQ | DOMQ | SEQQ ), &amp;quot;^&amp;quot;, ( CONJQ | DOMQ | SEQQ ), &amp;quot;]&amp;quot;;</code>
+DOMQ = “[", ( CONJQ | DOMQ | SEQQ ), "^", ( CONJQ | DOMQ | SEQQ ), "]”;
 </td>
 <td style="text-align:left;">
 <strong>dom</strong>inance <strong>q</strong>uery
@@ -665,7 +665,7 @@ levels must be hierarchically associated
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>SEQQ = &amp;quot;[&amp;quot;, ( CONJQ | SEQQ | DOMQ ), &amp;quot;-&amp;gt;&amp;quot;, ( CONJQ | SEQQ | DOMQ ), &amp;quot;]&amp;quot;;</code>
+SEQQ = “[", ( CONJQ | SEQQ | DOMQ ), "-&gt;", ( CONJQ | SEQQ | DOMQ ), "]”;
 </td>
 <td style="text-align:left;">
 <strong>seq</strong>uential <strong>q</strong>uery
@@ -676,7 +676,7 @@ levels must be linearly associated
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>CONJQ = { &amp;quot;[&amp;quot; }, SQ, { &amp;quot;&amp;amp;&amp;quot;, SQ }, { &amp;quot;]&amp;quot; };</code>
+CONJQ = { “[" }, SQ, { "&amp;", SQ }, { "]” };
 </td>
 <td style="text-align:left;">
 <strong>conj</strong>unction <strong>q</strong>uery
@@ -687,7 +687,7 @@ levels must be linearly associated
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>SQ = LABELQ | FUNCQ;</code>
+SQ = LABELQ | FUNCQ;
 </td>
 <td style="text-align:left;">
 <strong>s</strong>imple <strong>q</strong>uery
@@ -697,7 +697,7 @@ levels must be linearly associated
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>LABELQ = [ &amp;quot;#&amp;quot; ], LEVEL, ( &amp;quot;=&amp;quot; | &amp;quot;==&amp;quot; | &amp;quot;!=&amp;quot; | &amp;quot;=~&amp;quot; | &amp;quot;!~&amp;quot; ), LABELALTERNATIVES;</code>
+LABELQ = [ “#” ], LEVEL, ( “=” | “==” | “!=” | “=~” | “!~” ), LABELALTERNATIVES;
 </td>
 <td style="text-align:left;">
 <strong>label</strong> <strong>q</strong>uery
@@ -707,7 +707,7 @@ levels must be linearly associated
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>FUNCQ = POSQ | NUMQ;</code>
+FUNCQ = POSQ | NUMQ;
 </td>
 <td style="text-align:left;">
 <strong>fun</strong>ction <strong>q</strong>uery
@@ -717,7 +717,7 @@ levels must be linearly associated
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>POSQ = POSFCT, &amp;quot;(&amp;quot;, LEVEL, &amp;quot;,&amp;quot;, LEVEL, &amp;quot;)&amp;quot;, &amp;quot;=&amp;quot;, &amp;quot;0&amp;quot; | &amp;quot;1&amp;quot;;</code>
+POSQ = POSFCT, “(”, LEVEL, “,”, LEVEL, “)”, “=”, “0” | “1”;
 </td>
 <td style="text-align:left;">
 <strong>position</strong> <strong>q</strong>uery
@@ -728,7 +728,7 @@ levels must be hierarchically associated; second level determines semantics
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>NUMQ = &amp;quot;Num&amp;quot;, &amp;quot;(&amp;quot;, LEVEL, &amp;quot;,&amp;quot;, LEVEL, &amp;quot;)&amp;quot;, COP, INTPN;</code>
+NUMQ = “Num”, “(”, LEVEL, “,”, LEVEL, “)”, COP, INTPN;
 </td>
 <td style="text-align:left;">
 <strong>number</strong> <strong>q</strong>uery
@@ -739,7 +739,7 @@ levels must be hierarchically associated; first level determines semantics
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>LABELALTERNATIVES = LABEL , { &amp;quot;|&amp;quot;, LABEL };</code>
+LABELALTERNATIVES = LABEL , { “|”, LABEL };
 </td>
 <td style="text-align:left;">
 <strong>label alternatives</strong>
@@ -749,18 +749,18 @@ levels must be hierarchically associated; first level determines semantics
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>LABEL = LABELING | ( &amp;quot;'&amp;quot;, LABELING, &amp;quot;'&amp;quot; );</code>
+LABEL = LABELING | ( “‘“, LABELING,”’” );
 </td>
 <td style="text-align:left;">
 <strong>label</strong>
 </td>
 <td style="text-align:left;">
-levels must be part of the database structure; <code>LABELING</code> is an arbitrary character string or a label group class configured in the emuDB; result modifier <code>#</code> may only occur once
+levels must be part of the database structure; LABELING is an arbitrary character string or a label group class configured in the emuDB; result modifier # may only occur once
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>POSFCT = &amp;quot;Start&amp;quot; | &amp;quot;Medial&amp;quot; | &amp;quot;End&amp;quot;;</code>
+POSFCT = “Start” | “Medial” | “End”;
 </td>
 <td style="text-align:left;">
 <strong>pos</strong>ition <strong>f</strong>un<strong>ct</strong>ion
@@ -770,7 +770,7 @@ levels must be part of the database structure; <code>LABELING</code> is an arbit
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>COP = &amp;quot;=&amp;quot; | &amp;quot;==&amp;quot; | &amp;quot;!=&amp;quot; | &amp;quot;&amp;gt;&amp;quot; | &amp;quot;&amp;lt;&amp;quot; | &amp;quot;&amp;lt;=&amp;quot; | &amp;quot;&amp;gt;=&amp;quot;;</code>
+COP = “=” | “==” | “!=” | “&gt;” | “&lt;” | “&lt;=” | “&gt;=”;
 </td>
 <td style="text-align:left;">
 <strong>c</strong>omparison <strong>o</strong>perator
@@ -780,7 +780,7 @@ levels must be part of the database structure; <code>LABELING</code> is an arbit
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>INTPN = &amp;quot;0&amp;quot; | INTP;</code>
+INTPN = “0” | INTP;
 </td>
 <td style="text-align:left;">
 <strong>int</strong>eger <strong>p</strong>ositive with <strong>n</strong>ull
@@ -790,7 +790,7 @@ levels must be part of the database structure; <code>LABELING</code> is an arbit
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>INTP = DIGIT-&amp;quot;0&amp;quot;, { DIGIT };</code>
+INTP = DIGIT-“0”, { DIGIT };
 </td>
 <td style="text-align:left;">
 <strong>int</strong>eger <strong>p</strong>ositive
@@ -800,7 +800,7 @@ levels must be part of the database structure; <code>LABELING</code> is an arbit
 </tr>
 <tr>
 <td style="text-align:left;">
-<code>DIGIT = &amp;quot;0&amp;quot; | &amp;quot;1&amp;quot; | &amp;quot;2&amp;quot; | &amp;quot;3&amp;quot; | &amp;quot;4&amp;quot; | &amp;quot;5&amp;quot; | &amp;quot;6&amp;quot; | &amp;quot;7&amp;quot; | &amp;quot;8&amp;quot; | &amp;quot;9&amp;quot;;</code>
+DIGIT = “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9”;
 </td>
 <td style="text-align:left;">
 <strong>digit</strong>
@@ -810,11 +810,11 @@ levels must be part of the database structure; <code>LABELING</code> is an arbit
 </tr>
 </tbody>
 </table>
-<p><strong>INFO:</strong> The <code>LABELING</code> term used in the <code>LABEL</code> EBNF term can represent any character string that is present in the annotation. As this can be any combination of Unicode characters, we chose not to explicitly list them as part of the EBNF.</p>
+<p><strong>INFO:</strong> The LABELING term used in the LABEL EBNF term can represent any character string that is present in the annotation. As this can be any combination of Unicode characters, we chose not to explicitly list them as part of the EBNF.</p>
 </div>
 <div id="restrictions" class="section level2">
 <h2><span class="header-section-number">17.5</span> Restrictions</h2>
-<p>A query may only contain a single result modifier <code>#</code> (hashtag).</p>
+<p>A query may only contain a single result modifier # (hashtag).</p>
 
 </div>
 </div>

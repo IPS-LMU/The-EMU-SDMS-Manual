@@ -2,7 +2,7 @@
 
 [^1-app-chap:EQL-EBNF]: The EBNF presented here is an updated version of the EBNF of the `EQL` vignette.
 
-This chapter presents the EBNF [@garshol:2003a] that describes version 2 of the EQL. As the original EBNF adapted from @john:2012a was written in German, some of the abbreviation terms were translated into English abbreviations (e.g., `DOMA` is the abbreviation for the German term **Dom**inanz**a**bfrage and the newly translated `DOMQ` is the abbreviation for the English term **dom**ination **q**uery).
+This chapter presents the EBNF [@garshol:2003a] that describes version 2 of the EQL. As the original EBNF adapted from @john:2012a was written in German, some of the abbreviation terms were translated into English abbreviations (e.g., DOMA is the abbreviation for the German term **Dom**inanz**a**bfrage and the newly translated DOMQ is the abbreviation for the English term **dom**ination **q**uery).
 
 ## Terminal symbols of EQL2 (operators) and their meaning
 
@@ -50,11 +50,11 @@ dt %>%
 ```{r echo=FALSE}
 library(dplyr)
 library(knitr)
-dt = data.frame(Symbol = c("`'`", 
-                           "`(`", 
-                           "`)`", 
-                           "`[`", 
-                           "`]`"),
+dt = data.frame(Symbol = c("'", 
+                           "(", 
+                           ")", 
+                           "[", 
+                           "]"),
                 Meaning = c("Quotes literal string", 
                             "Function parameter list opening bracket", 
                             "Function parameter list closing bracket", 
@@ -70,10 +70,10 @@ dt %>%
 ```{r echo=FALSE}
 library(dplyr)
 library(knitr)
-dt = data.frame(Symbol = c("`Start`",
-                           "`Medial`",
-                           "`End`",
-                           "`Num`"),
+dt = data.frame(Symbol = c("Start",
+                           "Medial",
+                           "End",
+                           "Num"),
                 Meaning = c("Start",
                             "Medial",
                             "Final",
@@ -130,7 +130,7 @@ dt = data.frame(EBNF_term = c('EQL = CONJQ | SEQQ | DOMQ;',
                                "levels must be hierarchically associated; second level determines semantics",
                                "levels must be hierarchically associated; first level determines semantics",
                                "",
-                               "levels must be part of the database structure; `LABELING` is an arbitrary character string or a label group class configured in the emuDB; result modifier `#` may only occur once",
+                               "levels must be part of the database structure; LABELING is an arbitrary character string or a label group class configured in the emuDB; result modifier # may only occur once",
                                "",
                                "",
                                "",
@@ -140,10 +140,10 @@ dt %>%
   kable("html")
 ```
 
-**INFO:** The `LABELING` term used in the `LABEL` EBNF term can represent any character string that is present in the annotation. As this can be any combination of Unicode characters, we chose not to explicitly list them as part of the EBNF.
+**INFO:** The LABELING term used in the LABEL EBNF term can represent any character string that is present in the annotation. As this can be any combination of Unicode characters, we chose not to explicitly list them as part of the EBNF.
 
 ## Restrictions {#restrictions}
 
-A query may only contain a single result modifier `#` (hashtag).
+A query may only contain a single result modifier # (hashtag).
 
 
