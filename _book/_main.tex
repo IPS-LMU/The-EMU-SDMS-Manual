@@ -21,7 +21,6 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
             pdftitle={The EMU-SDMS Manual},
@@ -211,9 +210,9 @@ This document describes the following versions of the software components:
   \begin{itemize}
   \tightlist
   \item
-    Package version: 1.1.2
+    Package version: 2.0.3
   \item
-    Git tag name: v1.1.2 (on master branch)
+    Git tag name: v2.0.3 (on master branch)
   \end{itemize}
 \item
   \texttt{EMU-webApp}
@@ -221,9 +220,9 @@ This document describes the following versions of the software components:
   \begin{itemize}
   \tightlist
   \item
-    Version: 0.1.15
+    Version: 1.0.2
   \item
-    Git SHA1: aaf47d35ffa6fd3cdebe0692e14c9ad6eef1040c
+    Git SHA1: a27b6340574053581e4e67cb27224b35c29897f6
   \end{itemize}
 \end{itemize}
 
@@ -489,8 +488,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     51ba98be-afcf-4040-83fe-adf89598d057 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmptWHP1M/my-first_emuDB 
+## UUID:     1445bf8b-8cf2-4019-bbe0-f7f6146232d0 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp582es7/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -584,7 +583,7 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "emuRsegs"   "emusegs"    "data.frame"
+## [1] "tbl_df"     "tbl"        "data.frame"
 \end{verbatim}
 
 \begin{Shaded}
@@ -595,10 +594,13 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  my-first 
-## query was:  Phonetic == n 
-##   labels    start      end session   bundle    level    type
-## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 n      1032. 1196. 1445bf~ 0000    msajc~            98          98 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \begin{Shaded}
@@ -609,14 +611,34 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  my-first 
-## query was:  Phonetic == n 
-##  with 12 segments
-## 
-## Segment distribution:
-## 
-##  n 
-## 12
+##     labels              start             end         db_uuid         
+##  Length:12          Min.   : 508.7   Min.   : 544   Length:12         
+##  Class :character   1st Qu.:1334.1   1st Qu.:1420   Class :character  
+##  Mode  :character   Median :1758.2   Median :1813   Mode  :character  
+##                     Mean   :1788.0   Mean   :1855                     
+##                     3rd Qu.:2409.4   3rd Qu.:2476                     
+##                     Max.   :3046.1   Max.   :3068                     
+##    session             bundle          start_item_id     end_item_id    
+##  Length:12          Length:12          Min.   : 91.00   Min.   : 91.00  
+##  Class :character   Class :character   1st Qu.: 97.75   1st Qu.: 97.75  
+##  Mode  :character   Mode  :character   Median :110.50   Median :110.50  
+##                                        Mean   :113.08   Mean   :113.08  
+##                                        3rd Qu.:127.75   3rd Qu.:127.75  
+##                                        Max.   :145.00   Max.   :145.00  
+##     level            attribute         start_item_seq_idx end_item_seq_idx
+##  Length:12          Length:12          Min.   : 6.00      Min.   : 6.00   
+##  Class :character   Class :character   1st Qu.:14.50      1st Qu.:14.50   
+##  Mode  :character   Mode  :character   Median :22.00      Median :22.00   
+##                                        Mean   :24.58      Mean   :24.58   
+##                                        3rd Qu.:34.25      3rd Qu.:34.25   
+##                                        Max.   :46.00      Max.   :46.00   
+##      type            sample_start     sample_end     sample_rate   
+##  Length:12          Min.   :10174   Min.   :10879   Min.   :20000  
+##  Class :character   1st Qu.:26682   1st Qu.:28408   1st Qu.:20000  
+##  Mode  :character   Median :35164   Median :36253   Median :20000  
+##                     Mean   :35760   Mean   :37100   Mean   :20000  
+##                     3rd Qu.:48190   3rd Qu.:49525   3rd Qu.:20000  
+##                     Max.   :60923   Max.   :61353   Max.   :20000
 \end{verbatim}
 
 As demonstrated in the above R code, the result of a query is an \texttt{emuRsegs} object, which is a super-class of the common \texttt{data.frame}. This object is often referred to as a segment list, or ``seglist''. A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \ref{sec:query-emuRsegs}. The above R code snippet shows that the \texttt{summary()} function can also be applied to a segment list object to get an overview of what is contained within it. This can be especially useful when dealing with larger segment lists.
@@ -771,10 +793,13 @@ Having this hierarchical annotation structure now allows us to formulate a query
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  my-first 
-## query was:  Phonetic == @ 
-##   labels    start      end session   bundle    level    type
-## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 @      1506. 1548. 1445bf~ 0000    msajc~           103         103 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 As the type of word (content vs.~function) for each \emph{@} vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \ref{chap:querysys}) to retrieve the word type for each \emph{@} vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, \texttt{requery\_hier()}, to retrieve the appropriate annotation items from the \emph{Word} level.
@@ -794,10 +819,13 @@ As the type of word (content vs.~function) for each \emph{@} vowel that was just
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  my-first 
-## query was:  FROM REQUERY 
-##   labels start end session   bundle level type
-## 1      F    NA  NA    0000 msajc003  Word ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 F         NA    NA 1445bf~ 0000    msajc~            16          16 Word 
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \begin{Shaded}
@@ -891,23 +919,23 @@ Now that the vowel and word type information including the vowel start and end t
 
 \begin{verbatim}
 ## # A tibble: 12 x 24
-##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
-##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  2         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  3         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  4         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  5         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  6         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  7         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  8         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-##  9         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-## 10         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-## 11         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-## 12         5 @      2447. 2506. 0000~ 51ba98~ 0000    msajc~           119
-## # ... with 15 more variables: end_item_id <int>, level <chr>,
-## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
-## #   sample_start <int>, sample_end <int>, sample_rate <int>,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  2         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  3         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  4         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  5         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  6         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  7         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  8         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  9         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+## 10         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+## 11         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+## 12         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+## # ... with 16 more variables: end_item_id <int>, level <chr>,
+## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
+## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
 ## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>,
 ## #   T2 <int>, T3 <int>, T4 <int>
 \end{verbatim}
@@ -1316,8 +1344,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     8d5a6731-0b7b-48cf-9291-1e9dad3dfadc 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpBrE7Bh/fromScratch_emuDB 
+## UUID:     ee5575ad-5ba1-437b-8c0b-0e0434acc6d2 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpAENoRx/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1554,10 +1582,12 @@ A further optional field is the \texttt{labelGroups} field. It contains specific
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  fromScratch 
-## query was:  Phonetic == shortVowels 
-## [1] labels  start   end     session bundle  level   type   
-## <0 rows> (or 0-length row.names)
+## # A tibble: 0 x 16
+## # ... with 16 variables: labels <chr>, start <dbl>, end <dbl>,
+## #   db_uuid <chr>, session <chr>, bundle <chr>, start_item_id <int>,
+## #   end_item_id <int>, level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 For users who are familiar with or transitioning from the legacy EMU system, it is worth noting that the label groups correspond to the unfavorably named \texttt{Legal\ Labels} entries of the GTemplate Editor (i.e., legal entries in the \texttt{.tpl} file) of the legacy system. In the new system the \texttt{legalLabels} entries specify the legal or allowed label values of attribute definitions while the \texttt{labelGroups} specify groups of labels that can be referenced by the names given to the groups while performing queries.
@@ -1647,7 +1677,9 @@ The previous sections of this chapter defined the simple structure of the \emph{
 \end{Shaded}
 
 \begin{verbatim}
-##        session     name
+## # A tibble: 7 x 2
+##   session      name    
+##   <chr>        <chr>   
 ## 1 fromWavFiles msajc003
 ## 2 fromWavFiles msajc010
 ## 3 fromWavFiles msajc012
@@ -1863,7 +1895,7 @@ In \texttt{emuR} the result of a query or requery (see Section \ref{subsec:reque
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "emuRsegs"   "emusegs"    "data.frame"
+## [1] "tbl_df"     "tbl"        "data.frame"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1874,10 +1906,13 @@ In \texttt{emuR} the result of a query or requery (see Section \ref{subsec:reque
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [Syllable == S ^ Text == amongst] 
-##   labels   start     end session   bundle    level type
-## 1      S 256.925 674.175    0000 msajc003 Syllable ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \begin{Shaded}
@@ -1889,9 +1924,9 @@ In \texttt{emuR} the result of a query or requery (see Section \ref{subsec:reque
 
 \begin{verbatim}
 ##  [1] "labels"             "start"              "end"               
-##  [4] "utts"               "db_uuid"            "session"           
-##  [7] "bundle"             "start_item_id"      "end_item_id"       
-## [10] "level"              "start_item_seq_idx" "end_item_seq_idx"  
+##  [4] "db_uuid"            "session"            "bundle"            
+##  [7] "start_item_id"      "end_item_id"        "level"             
+## [10] "attribute"          "start_item_seq_idx" "end_item_seq_idx"  
 ## [13] "type"               "sample_start"       "sample_end"        
 ## [16] "sample_rate"
 \end{verbatim}
@@ -1922,10 +1957,13 @@ The most basic form of an EQL query is a simple equality, inequality, matching o
 \end{Shaded}
 
 \begin{verbatim}
-## event  list from database:  ae 
-## query was:  Tone != H* 
-##   labels start end session   bundle level  type
-## 1     L-  1107   0    0000 msajc003  Tone EVENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 L-      1107     0 0fc618~ 0000    msajc~           183         183 Tone 
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 The R code snippet above queries two levels that contain time information: a segment level and an event level. As described in Chapter \ref{chap:annot-struct-mod}, annotations in the EMU-SDMS may also contain levels that do not contain time information. The R code snippet below shows a query that queries annotation items on a level that does not contain time information (the \emph{Syllable} level) to show that the result contains deduced time information from the time-bearing sub-level.
@@ -1942,10 +1980,13 @@ The R code snippet above queries two levels that contain time information: a seg
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  Syllable == S 
-##   labels   start     end session   bundle    level type
-## 1      S 256.925 674.175    0000 msajc003 Syllable ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \hypertarget{queries-using-regular-expressions}{%
@@ -2015,10 +2056,13 @@ The syntax of a query string using the \texttt{-\textgreater{}} sequence operato
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [Phonetic == @ -> Phonetic == n] 
-##   labels    start      end session   bundle    level    type
-## 1   @->n 1715.425 1791.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 @->n   1715. 1791. 0fc618~ 0000    msajc~           167         168 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \hypertarget{result-modifier}{%
@@ -2037,10 +2081,13 @@ Because users are often interested in just one element of a compound query such 
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [#Phonetic == @ -> Phonetic == n] 
-##   labels    start      end session   bundle    level    type
-## 1      @ 1715.425 1741.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 @      1715. 1741. 0fc618~ 0000    msajc~           167         167 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \begin{Shaded}
@@ -2054,10 +2101,13 @@ Because users are often interested in just one element of a compound query such 
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [Phonetic == @ -> #Phonetic == n] 
-##   labels    start      end session   bundle    level    type
-## 1      n 1741.425 1791.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 n      1741. 1791. 0fc618~ 0000    msajc~           168         168 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \hypertarget{conjunction-queries}{%
@@ -2084,10 +2134,13 @@ An example of a query string using the conjunction operator is displayed in the 
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [Text == always & Accent == S] 
-##   labels   start      end session   bundle level type
-## 1 always 775.475 1280.175    0000 msajc022  Text ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 always  775. 1280. 0fc618~ 0000    msajc~            28          28 Word 
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 The above R code snippet does not make use of the result modifier symbol. However, only the annotation items of the left simple query term (\emph{Text == always}) are returned. This behavior is true for all EQL operators that combine simple query terms except for the sequence operator. As it is more explicit to use the result modifier to express the desired result, we recommend using the result modifier where possible. The more explicit variant of the above query which yields the same result is \emph{``{[}\#Text == always \& Word == C{]}''}.
@@ -2120,10 +2173,13 @@ A schematic representation of a simple domination query string that retrieves al
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [Phoneme == p ^ Syllable == S] 
-##   labels   start     end session   bundle   level type
-## 1      p 558.575 639.575    0000 msajc015 Phoneme ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 p       559.  640. 0fc618~ 0000    msajc~           147         147 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 As with the conjunction query, if no result modifier is present, a dominates query returns the annotation items of the left simple query term. Hence, the more explicit variant of the above query is \texttt{"{[}\#Phoneme\ ==\ p\ \^{}\ Syllable\ ==\ S{]}"}.
@@ -2154,10 +2210,13 @@ The EQL has three function terms that specify where in a domination relationship
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [Start(Syllable, Phoneme) == TRUE] 
-##   labels   start     end session   bundle   level type
-## 1      V 187.425 256.925    0000 msajc003 Phoneme ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 V       187.  257. 0fc618~ 0000    msajc~           114         114 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \hypertarget{subsec:query_countQueries}{%
@@ -2184,14 +2243,17 @@ A schematic representation of a query string utilizing the count mechanism would
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [Num(Syllable, Phoneme) == 5] 
-##   labels    start      end session   bundle    level type
-## 1      S  256.925  674.175    0000 msajc003 Syllable ITEM
-## 2      S  739.925 1289.425    0000 msajc003 Syllable ITEM
-## 3      W 2228.475 2753.975    0000 msajc010 Syllable ITEM
-## 4      S 1890.275 2469.525    0000 msajc022 Syllable ITEM
-## 5      S 1964.425 2554.175    0000 msajc023 Syllable ITEM
+## # A tibble: 5 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
+## 2 S       740. 1289. 0fc618~ 0000    msajc~           105         105 Syll~
+## 3 W      2228. 2754. 0fc618~ 0000    msajc~           118         118 Syll~
+## 4 S      1890. 2470. 0fc618~ 0000    msajc~           105         105 Syll~
+## 5 S      1964. 2554. 0fc618~ 0000    msajc~            90          90 Syll~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \hypertarget{subsec:query_moreComplexQueries}{%
@@ -2226,10 +2288,13 @@ The combine query is depicted in the R code snippet below. This complex query de
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  [[[Num(Text, Syllable) == 3] ^ [Phoneme == @ ^ Start(Word, Syllable) == 1]] -> #Text = his] 
-##   labels    start      end session   bundle level type
-## 1    his 2693.675 2780.725    0000 msajc015  Text ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 his    2694. 2781. 0fc618~ 0000    msajc~           101         101 Word 
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 As mastering these complex compound queries can require some practice, several simple as well as more complex examples that combine the various EQL components described above are available in Appendix \ref{app-chap:eql}. These examples provide practical examples to help users find queries suited to their needs.
@@ -2250,10 +2315,13 @@ The default behavior of the legacy EMU system was to automatically deduce time i
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  Intonational =~ .* 
-##   labels start end session   bundle        level type
-## 1     L%    NA  NA    0000 msajc003 Intonational ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \hypertarget{subsec:requery}{%
@@ -2291,10 +2359,13 @@ The R code snippet below illustrates how the same results of the sequential quer
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start      end session   bundle    level    type
-## 1      E 949.925 1031.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 E       950. 1032. 0fc618~ 0000    msajc~           157         157 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \begin{Shaded}
@@ -2315,10 +2386,13 @@ The R code snippet below illustrates how the same results of the sequential quer
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##             labels   start     end session   bundle    level    type
-## 1 m->V->N->s->t->H 256.925 674.175    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 m->V-~  257.  674. 0fc618~ 0000    msajc~           148         153 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \hypertarget{discussion}{%
@@ -2357,7 +2431,9 @@ The R code snippet below shows how to create the demo data that will be used thr
 \KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
 
 \CommentTok{# get the path to a emuDB called "ae" that is part of the demo data}
-\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
+\NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }
+                           \StringTok{"emuR_demoData"}\NormalTok{, }
+                           \StringTok{"ae_emuDB"}\NormalTok{)}
 
 \CommentTok{# load emuDB into current R session}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory)}
@@ -2367,7 +2443,7 @@ The R code snippet below shows how to create the demo data that will be used thr
 \hypertarget{extracting-pre-defined-tracks}{%
 \section{Extracting pre-defined tracks}\label{extracting-pre-defined-tracks}}
 
-To access data that are stored in files, the user has to define tracks for a database that point to sequences of samples in files that match a user-specified file extension. The user-defined name of such a track can then be used to reference the track in the signal data extraction process. Internally, \texttt{emuR} uses \texttt{wrassp} to read the appropriate files from disk, extract the sample sequences that match the result of a query and return values to the user for further inspection and evaluation. The R code snippet below shows how a signal track that is already defined in the \texttt{ae} demo database can be extracted for all annotation items on the \texttt{Phonetic} level containing the label \texttt{ai}.
+To access data that are stored in files, the user has to define tracks for a database that point to sequences of samples in files that match a user-specified file extension. The user-defined name of such a track can then be used to reference the track in the signal data extraction process. Internally, \texttt{emuR} uses \texttt{wrassp} to read the appropriate files from disk, extract the sample sequences that match the result of a query and return values to the user for further inspection and evaluation. The R code snippet below shows how a signal track that is already defined in the \texttt{ae} demo database can be extracted for all annotation items on the \texttt{Phonetic} level containing the label \emph{ai}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2392,20 +2468,35 @@ To access data that are stored in files, the user has to define tracks for a dat
 \CommentTok{# only to avoid a progress bar}
 \CommentTok{# being printed in this document.}
 \NormalTok{ai_td_fm =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
-                      \DataTypeTok{seglist =}\NormalTok{ ai_segs,}
-                      \DataTypeTok{ssffTrackName =} \StringTok{"fm"}\NormalTok{,}
-                      \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+                         \DataTypeTok{seglist =}\NormalTok{ ai_segs,}
+                         \DataTypeTok{ssffTrackName =} \StringTok{"fm"}\NormalTok{,}
+                         \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
-\CommentTok{# show summary of ai_td_fm}
-\KeywordTok{summary}\NormalTok{(ai_td_fm)}
+\CommentTok{# show ai_td_fm (F1-F4 in columns T1-T4)}
+\NormalTok{ai_td_fm}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Emu track data from 6 segments
-## 
-## Data is  4 dimensional from track fm 
-## Mean data length is  30.5  samples
+## # A tibble: 183 x 24
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## # ... with 173 more rows, and 16 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>,
+## #   T4 <int>
 \end{verbatim}
 
 Being able to access data that is stored in files is important for two main reasons. Firstly, it is possible to generate files using external programs such as VoiceSauce \citep{shue:2011a}, which can export its calculated output to the general purpose SSFF file format. This file mechanism is also used to access data produced by EMA, EPG or many other forms of signal data recordings. Secondly, it is possible to track, save and access manipulated data such as formant values that have been manually corrected. It is also worth noting that the \texttt{get\_trackdata()} function has a predefined track which is always available without it having to be defined. The name of this track is \texttt{MEDIAFILE\_SAMPLES} which references the actual samples of the audio files of the database. The R code snippet below shows how this predefined track can be used to access the audio samples belonging to the segments in \texttt{ai\_segs}.
@@ -2418,16 +2509,30 @@ Being able to access data that is stored in files is important for two main reas
                           \DataTypeTok{ssffTrackName =} \StringTok{"MEDIAFILE_SAMPLES"}\NormalTok{,}
                           \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
-\CommentTok{# show summary of ai_td_fm}
-\KeywordTok{summary}\NormalTok{(ai_td_mfs)}
+\CommentTok{# ai_td_mfs (sample values in column T1)}
+\NormalTok{ai_td_mfs}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Emu track data from 6 segments
-## 
-## Data is  1 dimensional from track MEDIAFILE_SAMPLES 
-## Mean data length is  3064.333  samples
+## # A tibble: 18,386 x 21
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## # ... with 18,376 more rows, and 13 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <int>
 \end{verbatim}
 
 \hypertarget{adding-new-tracks}{%
@@ -2459,8 +2564,7 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# show newly added files}
-\KeywordTok{library}\NormalTok{(tibble) }\CommentTok{# convert to tibble only to prettify output}
-\KeywordTok{as_tibble}\NormalTok{(}\KeywordTok{list_files}\NormalTok{(ae, }\DataTypeTok{fileExtension =} \StringTok{"f0"}\NormalTok{))}
+\KeywordTok{list_files}\NormalTok{(ae, }\DataTypeTok{fileExtension =} \StringTok{"f0"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2485,16 +2589,30 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
                       \DataTypeTok{ssffTrackName =} \StringTok{"F0"}\NormalTok{,}
                       \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
-\CommentTok{# show summary of ai_td}
-\KeywordTok{summary}\NormalTok{(ai_td)}
+\CommentTok{# show ai_td (F0 values in column T1)}
+\NormalTok{ai_td}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Emu track data from 6 segments
-## 
-## Data is  1 dimensional from track F0 
-## Mean data length is  30.5  samples
+## # A tibble: 183 x 21
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## # ... with 173 more rows, and 13 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
 \end{verbatim}
 
 \hypertarget{calculating-tracks-on-the-fly}{%
@@ -2509,22 +2627,36 @@ With the \texttt{wrassp} package, we were able to implement a new form of signal
                           \DataTypeTok{onTheFlyFunctionName =} \StringTok{"mhsF0"}\NormalTok{,}
                           \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
-\CommentTok{# show summary of ai_td}
-\KeywordTok{summary}\NormalTok{(ai_td_pit)}
+\CommentTok{# show ai_td_pit (F0 values in column T1)}
+\NormalTok{ai_td_pit}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Emu track data from 6 segments
-## 
-## Data is  1 dimensional from track pitch 
-## Mean data length is  30.5  samples
+## # A tibble: 183 x 21
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## # ... with 173 more rows, and 13 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
 \end{verbatim}
 
-\hypertarget{the-resulting-object-trackdata-vs.-emurtrackdata}{%
-\section{\texorpdfstring{The resulting object: \texttt{trackdata} vs.~\texttt{emuRtrackdata}}{The resulting object: trackdata vs.~emuRtrackdata}}\label{the-resulting-object-trackdata-vs.-emurtrackdata}}
+\hypertarget{the-resulting-object-tibble}{%
+\section{\texorpdfstring{The resulting object: \texttt{tibble}}{The resulting object: tibble}}\label{the-resulting-object-tibble}}
 
-The default resulting object of a call to \texttt{get\_trackdata()} is of class \texttt{trackdata} (see R code snippet below). The \texttt{emuR} package provides multiple routines such as \texttt{dcut()}, \texttt{trapply()} and \texttt{dplot()} for processing and visually inspecting objects of this type (see harrington:2010a and Section \ref{section:tutorial-sigExtrAndExpl} for examples of how these can be used).
+As of version 2.0.0 of \texttt{emuR} the default resulting object of a call to \texttt{get\_trackdata()} is of class \texttt{tibble} (see R code snippet below).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2534,85 +2666,38 @@ The default resulting object of a call to \texttt{get\_trackdata()} is of class 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "trackdata"
-\end{verbatim}
-
-As the \texttt{trackdata} object is a fairly complex nested matrix object with internal reference matrices, which can be cumbersome to work with, the \texttt{emuR} package introduces a new equivalent object type called \texttt{emuRtrackdata} that essentially is a flat \texttt{data.frame} object. This object type can be retrieved by setting the \texttt{resultType} parameter of the \texttt{get\_trackdata()} function to \texttt{emuRtrackdata}. The R code snippet below shows how this can be achieved.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ai_emuRtd_pit =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
-                              \DataTypeTok{seglist =}\NormalTok{ ai_segs,}
-                              \DataTypeTok{onTheFlyFunctionName =} \StringTok{"mhsF0"}\NormalTok{,}
-                              \DataTypeTok{resultType =} \StringTok{"emuRtrackdata"}\NormalTok{,}
-                              \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
-
-\CommentTok{# show first row (convert to tibble only to prettify output)}
-\KeywordTok{as_tibble}\NormalTok{(ai_emuRtd_pit[}\DecValTok{1}\NormalTok{, ])}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 1 x 21
-##   sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
-##       <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-## 1         1 ai      863. 1016. 0000~ 0fc618~ 0000    msajc~           161
-## # ... with 12 more variables: end_item_id <int>, level <chr>,
-## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
-## #   sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <dbl>
+## [1] "tbl_df"     "tbl"        "data.frame"
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# show relative time values of the first segment}
-\CommentTok{# (relative time values always start at 0 for every segment)}
-\NormalTok{ai_emuRtd_pit[ai_emuRtd_pit}\OperatorTok{$}\NormalTok{sl_rowIdx }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, ]}\OperatorTok{$}\NormalTok{times_rel}
+\CommentTok{# show ai_td_pit (F0 values in column T1)}
+\NormalTok{ai_td_pit}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   0   5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80
-## [18]  85  90  95 100 105 110 115 120 125 130 135 140 145
+## # A tibble: 183 x 21
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161
+## # ... with 173 more rows, and 13 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# show original time values of the first segment}
-\CommentTok{# (absolute time values always start at the original}
-\CommentTok{# time stamp for that sample within the track)}
-\NormalTok{ai_emuRtd_pit[ai_emuRtd_pit}\OperatorTok{$}\NormalTok{sl_rowIdx }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{, ]}\OperatorTok{$}\NormalTok{times_orig}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]  867.5  872.5  877.5  882.5  887.5  892.5  897.5  902.5  907.5  912.5
-## [11]  917.5  922.5  927.5  932.5  937.5  942.5  947.5  952.5  957.5  962.5
-## [21]  967.5  972.5  977.5  982.5  987.5  992.5  997.5 1002.5 1007.5 1012.5
-\end{verbatim}
-
-As can be seen by the first row output of the R code snippet above, the \texttt{emuRtrackdata} object is an amalgamation of both a segment list and a \texttt{trackdata} object. The first \texttt{sl\_rowIdx} column of the \texttt{ai\_emuRtd\_pit} object indicates the row index of the segment list the current row belongs to, the \texttt{times\_rel} and \texttt{times\_orig} columns represent the relative time and the original time of the samples contained in the current row (see above R code snippet) and T1 (to Tn in n dimensional \texttt{trackdata}) contains the actual signal sample values. It is also worth noting that the \texttt{emuR} package provides a function called \texttt{create\_emuRtrackdata()}, which allows users to create \texttt{emuRtrackdata} from a segment list and a \texttt{trackdata} object. This is beneficial as it allows \texttt{trackdata} objects to be processed using functions provided by the \texttt{emuR} package (e.g., \texttt{dcut()} and \texttt{trapply()}) and then converts them into a standardized \texttt{data.frame} object for further processing (e.g., using R packages such as \texttt{lme4} or \texttt{ggplot2} which were implemented to use with \texttt{data.frame} objects). The R code snippet below shows how the \texttt{create\_emuRtrackdata()} function is used.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# create emuRtrackdata object}
-\NormalTok{ai_emuRtd_pit  =}\StringTok{ }\KeywordTok{create_emuRtrackdata}\NormalTok{(}\DataTypeTok{sl =}\NormalTok{ ai_segs,}
-                                      \DataTypeTok{td =}\NormalTok{ ai_td_pit)}
-
-\CommentTok{# show first row and}
-\CommentTok{# selected columns of ai_emuRtd_pit}
-\NormalTok{ai_emuRtd_pit[}\DecValTok{1}\NormalTok{, ]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##   sl_rowIdx labels   start      end session   bundle    level    type
-## 1         1     ai 862.875 1015.825    0000 msajc010 Phonetic SEGMENT
-##   times_orig times_rel times_norm       T1
-## 1      867.5         0          0 134.7854
-\end{verbatim}
-
-The general question remains as to when to use the \texttt{trackdata} and when to use the \texttt{emuRtrackdata} object and what the benefit of each class is. The \texttt{trackdata} object has a number of associated class functions (e.g.~\texttt{trapply()}, \texttt{dcut()}, \texttt{dcut()} and \texttt{eplot()}) that ease data manipulation and visualization. Further, it avoids data redundancy and therefore has a smaller memory footprint than the \texttt{emuRtrackdata} object (this is usually negligible on current systems); however, this makes it rather difficult to work with. The \texttt{emuRtrackdata} object is intended as a long term replacement for the \texttt{trackdata} object as it contains all of the information of the corresponding \texttt{trackdata} object as well as its associated segment list. As is often the case with tabular data, the \texttt{emuRtrackdata} object carries certain redundant information (e.g.~segment start and end times). However, the benefit of having a \texttt{data.frame} object that contains all the information needed to process the data is the ability to replace package specific functions (e.g.~trapply() etc.) with standardized \texttt{data.frame} processing and visualization procedures that can be applied to any \texttt{data.frame} object independent of the package that generated it. Therefore, the knowledge that is necessary to process an \texttt{emuRtrackdata} object can be transferred to/from other packages which is not the case for \texttt{trackdata} object. Future releases of the \texttt{emuR} package as well as this manual will contain various examples of how to replace the functionality of the package-specific functions mentioned above with equivalent data manipulation and visualization using the \texttt{dplyr} as well as the \texttt{ggplot2} packages.
+As can be seen by the first row output of the R code snippet above, the \texttt{tibble} object is an amalgamation of both a segment list and the actual signal data. The first \texttt{sl\_rowIdx} column of the \texttt{ai\_emuRtd\_pit} object indicates the row index of the segment list the current row belongs to, the \texttt{times\_rel} and \texttt{times\_orig} columns represent the relative time and the original time of the samples contained in the current row (see above R code snippet) and T1 (to Tn in n dimensional tracks) contains the actual signal sample values. As is often the case with tabular data, the \texttt{tibble} object carries certain redundant information (e.g.~segment start and end times). However, the benefit of having a \texttt{data.frame} object that contains all the information needed to process the data is the ability to replace package specific functions (e.g.~the legacy \texttt{eplot()} etc.) with standardized \texttt{data.frame} processing and visualization procedures that can be applied to any \texttt{data.frame} object independent of the package that generated it. Therefore, the knowledge that is necessary to process a \texttt{tibble} object can be transferred to/from other packages which was not the case for the legacy \texttt{trackdata} object. For examples on how functions provided by packages belonging to the \href{https://www.tidyverse.org/}{tidyverse} can be used to replace the legacy \texttt{eplot()} and \texttt{dplot()} functions see \ref{recipe:plottingSnippets}. The legacy \texttt{dcut()} can simply be replaced using \texttt{normalize\_length()} in combination with \texttt{dplyr::filter()}. Finally, it is worth noting that for backward compatibility the legacy \texttt{trackdata} object is still available by explicitly setting the \texttt{resultType} parameter of \texttt{get\_trackdata()}.
 
 \hypertarget{conclusion-3}{%
 \section{Conclusion}\label{conclusion-3}}
@@ -2737,7 +2822,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmp34AXzw/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpKR5ArO/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -3136,7 +3221,8 @@ As it can be extremely important to keep track of information about how certain 
 \NormalTok{path2logFile =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(path2ae, }\StringTok{"wrassp.log"}\NormalTok{)}
 
 \CommentTok{# calculate the fundamental frequency contour}
-\KeywordTok{ksvF0}\NormalTok{(path2wav, }\DataTypeTok{windowShift =} \DecValTok{10}\NormalTok{, }\DataTypeTok{forceToLog =}\NormalTok{ T, }\DataTypeTok{optLogFilePath =}\NormalTok{ path2logFile)}
+\KeywordTok{ksvF0}\NormalTok{(path2wav, }\DataTypeTok{windowShift =} \DecValTok{10}\NormalTok{,}
+      \DataTypeTok{forceToLog =}\NormalTok{ T, }\DataTypeTok{optLogFilePath =}\NormalTok{ path2logFile)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3156,7 +3242,7 @@ As it can be extremely important to keep track of information about how certain 
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-06-18 14:31:42 "  
+## [5] "Timestamp:  2019-09-09 19:41:28 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -4730,10 +4816,13 @@ The first thing that has to be done to address this fairly simple question is to
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  Phonetic == n 
-##   labels    start      end session   bundle    level    type
-## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 n      1032. 1196. 0fc618~ 0000    msajc~           158         158 Phon~
+## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 The second argument of the \texttt{query()} contains a string that represents an EQL statement. This fairly simple EQL statement consists of \texttt{==}, which is the equality operator of the EQL, and on the right hand side of the operator the label \emph{n} that we are looking for.
@@ -4743,7 +4832,7 @@ The \texttt{query()} function returns an object of the class \texttt{emuRsegs} t
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# calculate durations}
-\NormalTok{d =}\StringTok{ }\KeywordTok{dur}\NormalTok{(sl)}
+\NormalTok{d =}\StringTok{ }\NormalTok{sl}\OperatorTok{$}\NormalTok{end }\OperatorTok{-}\StringTok{ }\NormalTok{sl}\OperatorTok{$}\NormalTok{start}
 
 \CommentTok{# calculate mean}
 \KeywordTok{mean}\NormalTok{(d)}
@@ -4771,15 +4860,15 @@ Now that the necessary segment information has been extracted, the \texttt{get\t
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# get formant values for these segments}
-\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, sl,}
-                   \DataTypeTok{onTheFlyFunctionName =} \StringTok{"forest"}\NormalTok{,}
-                   \DataTypeTok{resultType =} \StringTok{"emuRtrackdata"}\NormalTok{)}
+\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, }
+\NormalTok{                   sl,}
+                   \DataTypeTok{onTheFlyFunctionName =} \StringTok{"forest"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 In this example, the \texttt{get\_trackdata()} function uses a formant estimation function called \texttt{forest()} to calculate the formant values in real time. This signal processing function is part of the \texttt{wrassp} package, which is used by the \texttt{emuR} package to perform signal processing duties with the \texttt{get\_trackdata()} command (see Chapter \ref{chap:wrassp} for details).
 
-If the \texttt{resultType} parameter is set to \texttt{emuRtrackdata} in the call to \texttt{get\textbackslash{}\_trackdata()}, an object of the class \texttt{emuRtrackdata} is returned. The class vector of the \texttt{td} object is displayed in the R code snippet below.
+If the \texttt{resultType} parameter is not set the call to \texttt{get\textbackslash{}\_trackdata()}, an object of the class \texttt{tibble} is returned. The class vector of the \texttt{td} object is displayed in the R code snippet below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4789,24 +4878,39 @@ If the \texttt{resultType} parameter is set to \texttt{emuRtrackdata} in the cal
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "emuRtrackdata" "data.frame"
+## [1] "tbl_df"     "tbl"        "data.frame"
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# show first line of td}
-\KeywordTok{head}\NormalTok{(td, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show td}
+\NormalTok{td}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   sl_rowIdx labels   start     end session   bundle    level    type
-## 1         1      V 187.425 256.925    0000 msajc003 Phonetic SEGMENT
-##   times_orig times_rel times_norm T1   T2   T3   T4
-## 1      187.5         0          0  0 1293 2424 3429
+## # A tibble: 641 x 24
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  2         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  3         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  4         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  5         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  6         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  7         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  8         1 V       187.  257. 0fc618~ 0000    msajc~           147
+##  9         1 V       187.  257. 0fc618~ 0000    msajc~           147
+## 10         1 V       187.  257. 0fc618~ 0000    msajc~           147
+## # ... with 631 more rows, and 16 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>,
+## #   T4 <int>
 \end{verbatim}
 
-As the \texttt{emuRtrackdata} class is a superclass to the common \texttt{data.table} and \texttt{data.frame} classes, packages like \texttt{ggplot2} can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure \ref{fig:usecases-uc2plot} for the resulting plot).
+As the \texttt{tibble} class is a superclass to the common \texttt{data.frame} class, packages like \texttt{ggplot2} can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure \ref{fig:usecases-uc2plot} for the resulting plot).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4839,18 +4943,30 @@ As with the previous use cases, the initial step is to query the database to ext
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# query segments}
-\NormalTok{sibil =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae,}\StringTok{"Phonetic==s|z|S|Z"}\NormalTok{)}
+\NormalTok{sibil =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic==s|z|S|Z"}\NormalTok{)}
 
-\CommentTok{# show first element of sibil}
-\KeywordTok{head}\NormalTok{(sibil, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show sibil}
+\NormalTok{sibil}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  Phonetic==s|z|S|Z 
-##   labels   start     end session   bundle    level    type
-## 1      s 483.425 566.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 s       483.  567. 0fc618~ 0000    msajc~           151         151
+##  2 z      1196. 1289. 0fc618~ 0000    msajc~           159         159
+##  3 S      1289. 1420. 0fc618~ 0000    msajc~           160         160
+##  4 z      1548. 1634. 0fc618~ 0000    msajc~           164         164
+##  5 s      1791. 1893. 0fc618~ 0000    msajc~           169         169
+##  6 z       476.  572. 0fc618~ 0000    msajc~           155         155
+##  7 z      2078. 2169. 0fc618~ 0000    msajc~           178         178
+##  8 s      2228. 2319. 0fc618~ 0000    msajc~           180         180
+##  9 s      2528. 2754. 0fc618~ 0000    msajc~           185         185
+## 10 S       427.  546. 0fc618~ 0000    msajc~           153         153
+## # ... with 22 more rows, and 8 more variables: level <chr>,
+## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
+## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 The \texttt{requery\_hier()} function can now be used to perform a hierarchical requery using the set resulting from the initial query. This requery follows the hierarchical links of the annotations in the database to find the linked annotation items on a different level. The R code snippet below shows how this can achieved.
@@ -4860,16 +4976,28 @@ The \texttt{requery\_hier()} function can now be used to perform a hierarchical 
 \CommentTok{# perform requery}
 \NormalTok{words =}\StringTok{ }\KeywordTok{requery_hier}\NormalTok{(ae, sibil, }\DataTypeTok{level =} \StringTok{"Word"}\NormalTok{)}
 
-\CommentTok{# show first element of words}
-\KeywordTok{head}\NormalTok{(words, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show words}
+\NormalTok{words}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle level type
-## 1      C 187.425 674.175    0000 msajc003  Word ITEM
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 C       187.  674. 0fc618~ 0000    msajc~             2           2
+##  2 C       740. 1289. 0fc618~ 0000    msajc~            30          30
+##  3 F      1289. 1463. 0fc618~ 0000    msajc~            43          43
+##  4 F      1463. 1634. 0fc618~ 0000    msajc~            52          52
+##  5 C      1634. 2150. 0fc618~ 0000    msajc~            61          61
+##  6 F       412.  572. 0fc618~ 0000    msajc~            14          14
+##  7 C      1958. 2754. 0fc618~ 0000    msajc~            80          80
+##  8 C      1958. 2754. 0fc618~ 0000    msajc~            80          80
+##  9 C      1958. 2754. 0fc618~ 0000    msajc~            80          80
+## 10 C       380.  745. 0fc618~ 0000    msajc~            13          13
+## # ... with 22 more rows, and 8 more variables: level <chr>,
+## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
+## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 As seen in the above R code snippet, the result is not quite what one would expect as it does not contain the orthographic word transcriptions but a classification of the words into content words (\emph{C}) and function words (\emph{F}). Calling the \texttt{summary()} function on the \texttt{emuDBhandle} object \texttt{ae} would show that the \emph{Words} level has multiple attribute definitions indicating that each annotation item in the \emph{Words} level has multiple parallel labels defined for it. The R code snippet below shows an additional requery that queries the \emph{Text} attribute definition instead.
@@ -4879,16 +5007,28 @@ As seen in the above R code snippet, the result is not quite what one would expe
 \CommentTok{# perform requery}
 \NormalTok{words =}\StringTok{ }\KeywordTok{requery_hier}\NormalTok{(ae, sibil, }\DataTypeTok{level =} \StringTok{"Text"}\NormalTok{)}
 
-\CommentTok{# show first element of words}
-\KeywordTok{head}\NormalTok{(words, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show words}
+\NormalTok{words}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##    labels   start     end session   bundle level type
-## 1 amongst 187.425 674.175    0000 msajc003  Text ITEM
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 C       187.  674. 0fc618~ 0000    msajc~             2           2
+##  2 C       740. 1289. 0fc618~ 0000    msajc~            30          30
+##  3 F      1289. 1463. 0fc618~ 0000    msajc~            43          43
+##  4 F      1463. 1634. 0fc618~ 0000    msajc~            52          52
+##  5 C      1634. 2150. 0fc618~ 0000    msajc~            61          61
+##  6 F       412.  572. 0fc618~ 0000    msajc~            14          14
+##  7 C      1958. 2754. 0fc618~ 0000    msajc~            80          80
+##  8 C      1958. 2754. 0fc618~ 0000    msajc~            80          80
+##  9 C      1958. 2754. 0fc618~ 0000    msajc~            80          80
+## 10 C       380.  745. 0fc618~ 0000    msajc~            13          13
+## # ... with 22 more rows, and 8 more variables: level <chr>,
+## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
+## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 As seen in the above R code snippet, the first segment in \texttt{sibil} occurred in the word \emph{amongst}, which starts at 187.475 ms and ends at 674.225 ms. It is worth noting that this two-step querying procedure (\texttt{query()} followed by \texttt{requery\_hier()}) can also be completed in a single hierarchical query using the dominance operator (\^{}).
@@ -4901,16 +5041,28 @@ As we have answered the first part of the question, the R code snippet below wil
 \CommentTok{# annotation items in sibil one unit to the left}
 \NormalTok{leftContext =}\StringTok{ }\KeywordTok{requery_seq}\NormalTok{(ae, sibil, }\DataTypeTok{offset =} \DecValTok{-1}\NormalTok{)}
 
-\CommentTok{# show first element of leftContext}
-\KeywordTok{head}\NormalTok{(leftContext, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show leftContext}
+\NormalTok{leftContext}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle    level    type
-## 1      N 426.675 483.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 N       427.  483. 0fc618~ 0000    msajc~           150         150
+##  2 n      1032. 1196. 0fc618~ 0000    msajc~           158         158
+##  3 z      1196. 1289. 0fc618~ 0000    msajc~           159         159
+##  4 @      1506. 1548. 0fc618~ 0000    msajc~           163         163
+##  5 n      1741. 1791. 0fc618~ 0000    msajc~           168         168
+##  6 I       412.  476. 0fc618~ 0000    msajc~           154         154
+##  7 @      2022. 2078. 0fc618~ 0000    msajc~           177         177
+##  8 I      2169. 2228. 0fc618~ 0000    msajc~           179         179
+##  9 n      2431. 2528. 0fc618~ 0000    msajc~           184         184
+## 10 t       380.  427. 0fc618~ 0000    msajc~           152         152
+## # ... with 22 more rows, and 8 more variables: level <chr>,
+## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
+## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 The R code snippet below attempts to extract the right context in the same manner as above R code snippet, but in this case we encounter a problem.
@@ -4946,22 +5098,37 @@ As can be seen by the error message in the above R code snippet, four of the sib
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# show first element of rightContext}
-\KeywordTok{head}\NormalTok{(rightContext, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show rightContext}
+\NormalTok{rightContext}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle    level    type
-## 1      t 566.925 596.675    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 t       567.  597. 0fc618~ 0000    msajc~           152         152
+##  2 S      1289. 1420. 0fc618~ 0000    msajc~           160         160
+##  3 i:     1420. 1463. 0fc618~ 0000    msajc~           161         161
+##  4 k      1634. 1676. 0fc618~ 0000    msajc~           165         165
+##  5 I      1893. 1945. 0fc618~ 0000    msajc~           170         170
+##  6 f       572.  674. 0fc618~ 0000    msajc~           156         156
+##  7 I      2169. 2228. 0fc618~ 0000    msajc~           179         179
+##  8 t      2319. 2345. 0fc618~ 0000    msajc~           181         181
+##  9 <NA>     NA    NA  <NA>    <NA>    <NA>              NA          NA
+## 10 I       546.  615. 0fc618~ 0000    msajc~           154         154
+## # ... with 22 more rows, and 8 more variables: level <chr>,
+## #   attribute <chr>, start_item_seq_idx <dbl>, end_item_seq_idx <dbl>,
+## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
-However, the resulting \texttt{rightContext} and the original \texttt{sibil} objects are not aligned any more. It is therefore dangerous to use this option by default, as one often relies on the rows in multiple \texttt{emuRsegs} objects that were created from each other by using either \texttt{requery\_hier()} or \texttt{requery\_seq()} to be aligned with each other (i.e., that the same row index implicitly indicates a relationship).
+However, the resulting \texttt{rightContext} contains rows that only contain \texttt{NA} values. This indicates that no values where found for the corresponding row in the \texttt{sibil} segment list.
 
 \hypertarget{sec:app-chap-useCases-q4}{%
 \section{\texorpdfstring{Do the phonetic segments labeled \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the \emph{ae} \texttt{emuDB} differ with respect to their first spectral moment?\protect\textbackslash{}footnote\{The original version of this use case was written by Florian Schiel as part of the \texttt{emuR\_intro} vignette that is part of the \texttt{emuR} package.}{Do the phonetic segments labeled s, z, S or Z in the ae emuDB differ with respect to their first spectral moment?\textbackslash{}footnote\{The original version of this use case was written by Florian Schiel as part of the emuR\_intro vignette that is part of the emuR package.}}\label{sec:app-chap-useCases-q4}}
+
+\hypertarget{note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis}{%
+\subsection{NOTE: See \ref{recipe:spectralAnalysis} for more up to date methods of performing spectral analysis}\label{note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis}}
 
 Once again, the segments of interest are queried first. The R code snippet below shows how this can be achieved, this time using the new regular expression operand of the EQL (see Chapter \ref{chap:querysys} for details).
 
@@ -4977,7 +5144,8 @@ The R code snippet below shows how the \texttt{get\_trackdata()} function can be
 \begin{Highlighting}[]
 \NormalTok{dftTd =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
                       \DataTypeTok{seglist =}\NormalTok{ sibil,}
-                      \DataTypeTok{onTheFlyFunctionName =} \StringTok{'dftSpectrum'}\NormalTok{)}
+                      \DataTypeTok{onTheFlyFunctionName =} \StringTok{'dftSpectrum'}\NormalTok{,}
+                      \DataTypeTok{resultType =} \StringTok{"trackdata"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7577,6 +7745,9 @@ To our knowledge, the order of a segment list in the legacy EMU system was never
 \hypertarget{sec:app-chap-wrassp-praatsSigProc}{%
 \section{Using Praat's signal processing routines in the EMU-SDMS}\label{sec:app-chap-wrassp-praatsSigProc}}
 
+\hypertarget{to-formant-burg...-to-ssff-files}{%
+\subsection{\texorpdfstring{\texttt{To\ Formant\ (burg)...} to SSFF files}{To Formant (burg)... to SSFF files}}\label{to-formant-burg...-to-ssff-files}}
+
 The R code snippet below shows how generating an \texttt{AsspDataObj} from scratch can be used in a function to place data from other sources into SSFF files. In this case it uses the \texttt{PraatR} R package (see \url{http://www.aaronalbin.com/praatr/index.html}) to execute Praat's \texttt{"To\ Formant\ (burg)..."} function to then store the data to a comma separated file using \texttt{"Down\ to\ Table..."}. The generated table is then read into R and the appropriate columns are placed into tracks of a \texttt{AsspDataObj} object. The \texttt{PraatToFormants2AsspDataObj} can be viewed as a template function as it can easily be adapted to use other functions provided by Praat or even other external tools.
 
 \begin{Shaded}
@@ -7587,17 +7758,22 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \CommentTok{# library(devtools)}
 \CommentTok{# install_github('usagi5886/PraatR')}
 \KeywordTok{library}\NormalTok{(PraatR)}
-\KeywordTok{library}\NormalTok{(wrassp)}
-\KeywordTok{library}\NormalTok{(tools)}
 
-\NormalTok{PraatToFormants2AsspDataObj <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path,}
-                                        \DataTypeTok{command =} 
-                                          \StringTok{"To Formant (burg)..."}\NormalTok{,}
+\CommentTok{##' Call Praat's To Formant (burg)... function and }
+\CommentTok{##' convert the output to an AsspDataObj object}
+\CommentTok{##' @param path path to wav file}
+\CommentTok{##' @param command Praat command to use}
+\CommentTok{##' @param arguments arguments passed to \textbackslash{}code\{PraatR::praat()\} arguments argument}
+\CommentTok{##' @param columnNames specify column names of AsspDataObj}
+\NormalTok{praatToFormants2AsspDataObj <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path,}
+                                        \DataTypeTok{command =} \StringTok{"To Formant (burg)..."}\NormalTok{,}
                                         \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }
-                                                         \DecValTok{5}\NormalTok{, }\DecValTok{5500}\NormalTok{, }
-                                                         \FloatTok{0.025}\NormalTok{, }\DecValTok{50}\NormalTok{), }
+                                                         \DecValTok{5}\NormalTok{, }
+                                                         \DecValTok{5500}\NormalTok{, }
+                                                         \FloatTok{0.025}\NormalTok{, }
+                                                         \DecValTok{50}\NormalTok{), }
                                         \DataTypeTok{columnNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"fm"}\NormalTok{, }\StringTok{"bw"}\NormalTok{))\{}
-
+  
 \NormalTok{  tmp1FileName =}\StringTok{ "tmp.ooTextFile"}
 \NormalTok{  tmp2FileName =}\StringTok{ "tmp.table"}
   
@@ -7609,17 +7785,17 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName))}
   
   \CommentTok{# generate ooTextFile}
-  \KeywordTok{praat}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ command, }
-        \DataTypeTok{input=}\NormalTok{path, }
-        \DataTypeTok{arguments =}\NormalTok{ arguments, }
-        \DataTypeTok{output =}\NormalTok{ tmp1FilePath)}
+\NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ command, }
+                \DataTypeTok{input=}\NormalTok{path, }
+                \DataTypeTok{arguments =}\NormalTok{ arguments, }
+                \DataTypeTok{output =}\NormalTok{ tmp1FilePath)}
   
   \CommentTok{# convert to Table}
-  \KeywordTok{praat}\NormalTok{(}\StringTok{"Down to Table..."}\NormalTok{,}
-        \DataTypeTok{input =}\NormalTok{ tmp1FilePath,}
-        \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(F, T, }\DecValTok{6}\NormalTok{, F, }\DecValTok{3}\NormalTok{, T, }\DecValTok{3}\NormalTok{, T), }
-        \DataTypeTok{output =}\NormalTok{ tmp2FilePath,}
-        \DataTypeTok{filetype=}\StringTok{"comma-separated"}\NormalTok{)}
+\NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Down to Table..."}\NormalTok{,}
+                \DataTypeTok{input =}\NormalTok{ tmp1FilePath,}
+                \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(F, T, }\DecValTok{6}\NormalTok{, F, }\DecValTok{3}\NormalTok{, T, }\DecValTok{3}\NormalTok{, T), }
+                \DataTypeTok{output =}\NormalTok{ tmp2FilePath,}
+                \DataTypeTok{filetype=}\StringTok{"comma-separated"}\NormalTok{)}
   
   \CommentTok{# get vals}
 \NormalTok{  df =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(tmp2FilePath, }\DataTypeTok{stringsAsFactors=}\OtherTok{FALSE}\NormalTok{)}
@@ -7628,17 +7804,17 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \NormalTok{  fmVals =}\StringTok{ }\NormalTok{df[,}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{11}\NormalTok{)]}
 \NormalTok{  fmVals =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(fmVals), }\ControlFlowTok{function}\NormalTok{(x)\{}
     \KeywordTok{as.integer}\NormalTok{(fmVals[,x])}
-\NormalTok{    \})}
+\NormalTok{  \})}
   \KeywordTok{colnames}\NormalTok{(fmVals) =}\StringTok{ }\OtherTok{NULL}
 \NormalTok{  bwVals =}\StringTok{ }\KeywordTok{data.matrix}\NormalTok{(df[,}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{12}\NormalTok{)])}
 \NormalTok{  bwVals =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(bwVals), }\ControlFlowTok{function}\NormalTok{(x)\{}
     \KeywordTok{as.integer}\NormalTok{(bwVals[,x])}
-\NormalTok{    \})}
+\NormalTok{  \})}
   \KeywordTok{colnames}\NormalTok{(bwVals) =}\StringTok{ }\OtherTok{NULL}
   
   \CommentTok{# get start time}
 \NormalTok{  startTime =}\StringTok{ }\NormalTok{df[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
-
+  
   \CommentTok{# create AsspDataObj}
 \NormalTok{  ado =}\StringTok{ }\KeywordTok{list}\NormalTok{()}
   
@@ -7652,7 +7828,7 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
   
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"sampleRate"}\NormalTok{) =}\StringTok{ }\NormalTok{sR}
   
-\NormalTok{  tmpObj =}\StringTok{ }\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
+\NormalTok{  tmpObj =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"origFreq"}\NormalTok{) =}\StringTok{ }\KeywordTok{attr}\NormalTok{(tmpObj, }\StringTok{"sampleRate"}\NormalTok{)}
   
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{startTime}
@@ -7663,12 +7839,12 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
   
   \KeywordTok{class}\NormalTok{(ado) =}\StringTok{ "AsspDataObj"}
   
-  \KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
-  \KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{) }\CommentTok{# == binary}
   
-\NormalTok{  ado =}\StringTok{ }\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{1}\NormalTok{], fmVals, }\StringTok{"INT16"}\NormalTok{)}
+\NormalTok{  ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{1}\NormalTok{], fmVals, }\StringTok{"INT16"}\NormalTok{)}
   
-\NormalTok{  ado =}\StringTok{ }\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{2}\NormalTok{], bwVals, }\StringTok{"INT16"}\NormalTok{)}
+\NormalTok{  ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{2}\NormalTok{], bwVals, }\StringTok{"INT16"}\NormalTok{)}
   
   \CommentTok{# add missing values at the start as Praat sometimes }
   \CommentTok{# has very late start values which causes issues }
@@ -7692,14 +7868,18 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
     
     \CommentTok{# fix start time}
     \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{startTime }\OperatorTok{-}\StringTok{ }\NormalTok{nr_of_missing_samples }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{sR)}
-\NormalTok{  \}  }
-
+\NormalTok{  \}}
+  
   
   \KeywordTok{return}\NormalTok{(ado)}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{########################################}
-\CommentTok{# Use of function on 'ae' emuDB}
+How this function can be applied to wav files of an emuDB is shown below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(emuR)}
 
 \CommentTok{# create demo data in tempdir()}
@@ -7714,10 +7894,10 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 
 \CommentTok{# loop through files}
 \ControlFlowTok{for}\NormalTok{(fp }\ControlFlowTok{in}\NormalTok{ paths2wavFiles)\{}
-\NormalTok{  ado =}\StringTok{ }\KeywordTok{PraatToFormants2AsspDataObj}\NormalTok{(fp)}
-\NormalTok{  newPath =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\KeywordTok{file_path_sans_ext}\NormalTok{(fp), }\StringTok{'.praatFms'}\NormalTok{)}
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{praatToFormants2AsspDataObj}\NormalTok{(fp)}
+\NormalTok{  newPath =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(tools}\OperatorTok{::}\KeywordTok{file_path_sans_ext}\NormalTok{(fp), }\StringTok{'.praatFms'}\NormalTok{)}
   \CommentTok{# print(paste0(fp, ' -> ', newPath)) # uncomment for simple log}
-  \KeywordTok{write.AsspDataObj}\NormalTok{(ado, }\DataTypeTok{file =}\NormalTok{ newPath)}
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{write.AsspDataObj}\NormalTok{(ado, }\DataTypeTok{file =}\NormalTok{ newPath)}
 \NormalTok{\}}
 
 \CommentTok{# load emuDB}
@@ -7736,13 +7916,249 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{to-pitch...-to-ssff-files}{%
+\subsection{\texorpdfstring{\texttt{To\ Pitch...} to SSFF files}{To Pitch... to SSFF files}}\label{to-pitch...-to-ssff-files}}
+
+The R code snippet below does the following:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  calculates f0 via Praat's ``To Pitch\ldots{}'' command;
+\item
+  smooths the f0 contour via Praat's ``Smooth'' command, if parameter ``smooth'' is set to TRUE
+\item
+  creates a PitchTier and then a TableOfReal
+\item
+  converts all of this into an AsspDataObj (which later on can be saved as an SSFF-file.)
+\end{enumerate}
+
+A few comments about synchronized F0 and Formant values, whenever \texttt{praatToFormants2AsspDataObj()} and
+\texttt{praatToPitch2AsspDataObj()} are involved:
+
+\begin{itemize}
+\tightlist
+\item
+  Be careful with the arguments list:
+\item
+  \textbf{The first entry is "Time step (s) (standard value: 0.0) the measurement interval (frame duration), in seconds.}
+  If you supply 0, Praat will use a time step of 0.75 / (pitch floor), e.g.~0.01 seconds if the pitch floor is 75 Hz;
+  in this example, Praat computes 100 pitch values per second. "
+  Here parameter 1 - Time step - is set to 0.00625 (Seconds) (as opposed to Praat's default of 0.0) in order
+  to keep it in line with Time step in ``To Formant\ldots{}'',
+  because Time step in ``To Formants\ldots{}'' is derived from
+  window length (which in ``To Formant\ldots{}'' defaults to 0.025) (window length/4 (--\textgreater{} Time step in ``To Formant\ldots{}''
+  will usually be 0.00625))
+\item
+  \textbf{The second parameter "Pitch floor (Hz) (standard value: 75 Hz)}:
+  candidates below this frequency will not be recruited.
+  This parameter determines the length of the analysis window: it will be 3 longest periods long, i.e.,
+  if the pitch floor is 75 Hz, the window will be 3/75 = 0.04 seconds long.
+  Note that if you set the time step to zero, the analysis windows for consecutive measurements will overlap appreciably:
+  Praat will always compute 4 pitch values within one window length, i.e., the degree of oversampling is 4."
+  Importantly, this parameter is set NOT to praat's default 75 Hz, but to 60 Hz, again because of correspondance
+  of window lengths between ``To Pitch\ldots{}'' and ``To Formants\ldots{}''. The actual window length in ``To Formants\ldots{}'' will be twice as long
+  as the value given in the ``To Formants\ldots{}'' command, i.e.~the default of 0.025 will result in a window length of 0.05.
+  A window length in ``To Pitch\ldots{}'' can indirectly achieved by using a pitch floor value of 60 Hz (given that 3/60 = 0.05).
+  In most cases, differing window lengths will not affect the temporal position of the F0 and Formant values, however, due
+  to problems near the edges, sometimes they will (and therefore result in non-synchronized F0 and Formant values).
+  Due to rounding errors, F0 and Formant values still might be slightly asynchronous; to avoid this, \texttt{praatToPitch2AsspDataObj()}
+  rounds the start time with a precicion of 0.001 ms (via round(attr(ado, ``startTime''),6) in the very end).
+\item
+  \textbf{The third parameter (default: 600) is the pitch ceiling} (and this parameter will not affect any other parameters indirectly)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{###################################}
+\CommentTok{# uncomment and execute the next}
+\CommentTok{# two lines to install PraatR}
+\CommentTok{# library(devtools)}
+\CommentTok{# install_github('usagi5886/PraatR')}
+\KeywordTok{library}\NormalTok{(PraatR)}
+
+\CommentTok{##' Call Praat's To Pitch... function and }
+\CommentTok{##' convert the output to an AsspDataObj object}
+\CommentTok{##' @param path path to wav file}
+\CommentTok{##' @param command Praat command to use}
+\CommentTok{##' @param arguments arguments passed to \textbackslash{}code\{PraatR::praat()\} arguments argument}
+\CommentTok{##' @param columnNames specify column names of AsspDataObj}
+\CommentTok{##' @param smooth apply Praat's "Smooth" command}
+\NormalTok{praatToPitch2AsspDataObj <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path,}
+                                     \DataTypeTok{command =} \StringTok{"To Pitch..."}\NormalTok{,}
+                                     \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\FloatTok{0.00625}\NormalTok{,}
+                                                      \FloatTok{60.0}\NormalTok{,}
+                                                      \FloatTok{600.0}\NormalTok{),}
+                                     \DataTypeTok{columnNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"f0"}\NormalTok{),}
+                                     \DataTypeTok{smooth =} \OtherTok{TRUE}\NormalTok{)\{}
+  
+\NormalTok{  tmp1FileName =}\StringTok{ "tmp.ooTextFile"}
+\NormalTok{  tmp2FileName =}\StringTok{ "tmp2.ooTextFile"}
+\NormalTok{  tmp3FileName =}\StringTok{ "tmp3.PitchTier"}
+\NormalTok{  tmp4FileName =}\StringTok{ "tmp4.txt"}
+  
+\NormalTok{  tmp1FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName)}
+\NormalTok{  tmp2FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName)}
+\NormalTok{  tmp3FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp3FileName)}
+\NormalTok{  tmp4FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp4FileName)}
+  
+  \CommentTok{# remove tmp files if they already exist}
+  \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName))}
+  \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName))}
+  \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp3FileName))}
+  \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp4FileName))}
+  
+  \CommentTok{# generate ooTextFile}
+\NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ command,}
+                \DataTypeTok{input=}\NormalTok{path,}
+                \DataTypeTok{arguments =}\NormalTok{ arguments,}
+                \DataTypeTok{output =}\NormalTok{ tmp1FilePath,}
+                \DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
+  
+  \ControlFlowTok{if}\NormalTok{ (smooth)\{}
+\NormalTok{    PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Smooth..."}\NormalTok{,}
+                  \DataTypeTok{input =}\NormalTok{ tmp1FilePath,}
+                  \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\DecValTok{10}\NormalTok{),}
+                  \DataTypeTok{output =}\NormalTok{ tmp2FilePath,}
+                  \DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{    tmp2FilePath =}\StringTok{ }\NormalTok{tmp1FilePath}
+\NormalTok{  \}}
+\NormalTok{  nframes =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{(PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Get number of frames"}\NormalTok{,}
+                                     \DataTypeTok{input =}\NormalTok{ tmp2FilePath,}
+                                     \DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{))}
+\NormalTok{  timestep =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{((PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Get time step"}\NormalTok{,}
+                                       \DataTypeTok{input =}\NormalTok{ tmp2FilePath,}
+                                       \DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{)))}
+\NormalTok{  sR =}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{timestep}
+\NormalTok{  start =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{((PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Get time from frame number..."}\NormalTok{,}
+                                    \DataTypeTok{input =}\NormalTok{ tmp2FilePath,}
+                                    \DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{,}
+                                    \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\DecValTok{1}\NormalTok{))))}
+\NormalTok{  end =}\StringTok{ }\KeywordTok{as.numeric}\NormalTok{((PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Get time from frame number..."}\NormalTok{,}
+                                  \DataTypeTok{input =}\NormalTok{ tmp2FilePath,}
+                                  \DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{,}
+                                  \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(nframes))))}
+  
+  
+  
+  \CommentTok{# convert to PitchTier}
+\NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Down to PitchTier"}\NormalTok{,}
+                \DataTypeTok{input =}\NormalTok{ tmp2FilePath,}
+                \DataTypeTok{output =}\NormalTok{ tmp3FilePath,}
+                \DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
+  
+  \CommentTok{# Down to TableOfReal: "Hertz"}
+\NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Down to TableOfReal..."}\NormalTok{,}
+                \DataTypeTok{input =}\NormalTok{ tmp3FilePath,}
+                \DataTypeTok{output =}\NormalTok{ tmp4FilePath,}
+                \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\StringTok{"Hertz"}\NormalTok{),}
+                \DataTypeTok{filetype =} \StringTok{"headerless spreadsheet"}\NormalTok{,}
+                \DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
+  
+  \CommentTok{# create empty df that holds all time steps}
+\NormalTok{  df =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Time =} \KeywordTok{seq}\NormalTok{(start, end, }\DataTypeTok{by =}\NormalTok{ timestep), }\DataTypeTok{F0 =} \DecValTok{0}\NormalTok{)}
+  \CommentTok{# get vals}
+\NormalTok{  df_tmp =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(tmp4FilePath, }\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{)[,}\DecValTok{2}\OperatorTok{:}\DecValTok{3}\NormalTok{]}
+  \CommentTok{# and fill up empty df (ensures every timestep has a value)}
+\NormalTok{  df}\OperatorTok{$}\NormalTok{F0[df}\OperatorTok{$}\NormalTok{Time }\OperatorTok{%in%}\StringTok{ }\NormalTok{df_tmp}\OperatorTok{$}\NormalTok{Time] =}\StringTok{ }\NormalTok{df_tmp}\OperatorTok{$}\NormalTok{F0}
+\NormalTok{  df}
+  
+  \CommentTok{# create AsspDataObj}
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+  
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"trackFormats"}\NormalTok{) =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"INT16"}\NormalTok{)}
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"sampleRate"}\NormalTok{) =}\StringTok{ }\NormalTok{sR}
+  
+\NormalTok{  tmpObj =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"origFreq"}\NormalTok{) =}\StringTok{ }\KeywordTok{attr}\NormalTok{(tmpObj, }\StringTok{"sampleRate"}\NormalTok{)}
+  
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{start}
+  \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"endRecord"}\NormalTok{) =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(nframes)}
+  
+  \KeywordTok{class}\NormalTok{(ado) =}\StringTok{ "AsspDataObj"}
+  
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\NormalTok{  f0Vals =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(df[,}\StringTok{"F0"}\NormalTok{])}
+\NormalTok{  ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado, }\StringTok{"f0"}\NormalTok{, f0Vals, }\StringTok{"INT16"}\NormalTok{)}
+  
+  \CommentTok{# prepend missing values as praat sometimes}
+  \CommentTok{# starts fairly late}
+  \ControlFlowTok{if}\NormalTok{(start }\OperatorTok{>}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sR)\{}
+\NormalTok{    nr_of_missing_samples =}\StringTok{ }\KeywordTok{floor}\NormalTok{(start }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{sR))}
+    
+\NormalTok{    missing_f0_vals =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}
+                             \DataTypeTok{nrow =}\NormalTok{ nr_of_missing_samples,}
+                             \DataTypeTok{ncol =} \KeywordTok{ncol}\NormalTok{(ado}\OperatorTok{$}\NormalTok{f0))}
+    
+    \CommentTok{# prepend values}
+\NormalTok{    ado}\OperatorTok{$}\NormalTok{f0 =}\StringTok{ }\KeywordTok{rbind}\NormalTok{(missing_f0_vals, ado}\OperatorTok{$}\NormalTok{f0)}
+    
+    \CommentTok{# fix start time}
+    \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{start }\OperatorTok{-}\StringTok{ }\NormalTok{nr_of_missing_samples }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sR)}
+    \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{), }\DecValTok{6}\NormalTok{)}
+\NormalTok{  \}}
+  \KeywordTok{return}\NormalTok{(ado)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+How this function can be applied to wav files of an emuDB is shown below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(emuR)}
+
+\CommentTok{# create demo data in tempdir()}
+\KeywordTok{create_emuRdemoData}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{())}
+
+\CommentTok{# create path to demo database}
+\NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
+
+\CommentTok{# test the function of converting praat formant data to emuR}
+\NormalTok{paths2wavFiles =}\StringTok{ }\KeywordTok{list.files}\NormalTok{(path2ae,}
+                            \DataTypeTok{pattern =} \StringTok{"wav$"}\NormalTok{,}
+                            \DataTypeTok{recursive =} \OtherTok{TRUE}\NormalTok{,}
+                            \DataTypeTok{full.names =} \OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# loop through files}
+\ControlFlowTok{for}\NormalTok{(fp }\ControlFlowTok{in}\NormalTok{ paths2wavFiles)\{}
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{praatToPitch2AsspDataObj}\NormalTok{(fp)}
+\NormalTok{  newPath =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(tools}\OperatorTok{::}\KeywordTok{file_path_sans_ext}\NormalTok{(fp), }\StringTok{'.praatF0'}\NormalTok{)}
+  \CommentTok{# print(paste0(fp, ' -> ', newPath)) # uncomment for simple log}
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{write.AsspDataObj}\NormalTok{(ado, }\DataTypeTok{file =}\NormalTok{ newPath)}
+\NormalTok{\}}
+
+\CommentTok{# load emuDB}
+\NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# add SSFF track definition}
+\KeywordTok{add_ssffTrackDefinition}\NormalTok{(ae,}
+                        \DataTypeTok{name =} \StringTok{"praatF0"}\NormalTok{,}
+                        \DataTypeTok{columnName =} \StringTok{"f0"}\NormalTok{,}
+                        \DataTypeTok{fileExtension =} \StringTok{"praatF0"}\NormalTok{)}
+
+\CommentTok{# test query + get_trackdata}
+\NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic == n"}\NormalTok{)}
+
+\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, sl, }\DataTypeTok{ssffTrackName =} \StringTok{"praatF0"}\NormalTok{, }\DataTypeTok{verbose =}\NormalTok{ F)}
+
+\CommentTok{# configure EMU-webApp to show new track}
+\NormalTok{sc_order =}\StringTok{ }\KeywordTok{get_signalCanvasesOrder}\NormalTok{(ae, }\StringTok{"default"}\NormalTok{)}
+
+\KeywordTok{set_signalCanvasesOrder}\NormalTok{(ae, }\StringTok{"default"}\NormalTok{, }\KeywordTok{c}\NormalTok{(sc_order, }\StringTok{"praatF0"}\NormalTok{))}
+
+\CommentTok{# serve(ae) # uncomment to view in EMU-webApp}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{sec:app-chap-wrassp-opensmileSigProc}{%
 \section{Using OpenSMILE signal processing routines in the EMU-SDMS}\label{sec:app-chap-wrassp-opensmileSigProc}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(wrassp)}
-\KeywordTok{library}\NormalTok{(tools)}
 \CommentTok{##' convert CSV output of SMILExtract to AsspDataObject}
 \CommentTok{##' @param path path to wav file}
 \CommentTok{##' @param SMILExtractPath path to SMILExtract executable}
@@ -7761,15 +8177,15 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
   \CommentTok{# remove tmp file if it already exists}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName))}
   
-  \KeywordTok{system}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(SMILExtractPath, }
+  \KeywordTok{system}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(SMILExtractPath,}
                 \StringTok{" -C "}\NormalTok{, configPath,}
                 \StringTok{" -I "}\NormalTok{, path,}
-                \StringTok{" -O "}\NormalTok{, tmp1FilePath), }
-         \DataTypeTok{ignore.stdout =}\NormalTok{ T, }
+                \StringTok{" -O "}\NormalTok{, tmp1FilePath),}
+         \DataTypeTok{ignore.stdout =}\NormalTok{ T,}
          \DataTypeTok{ignore.stderr =}\NormalTok{ T)}
   
   \CommentTok{# get vals}
-\NormalTok{  df =}\StringTok{ }\KeywordTok{suppressMessages}\NormalTok{(readr}\OperatorTok{::}\KeywordTok{read_delim}\NormalTok{(tmp1FilePath, }
+\NormalTok{  df =}\StringTok{ }\KeywordTok{suppressMessages}\NormalTok{(readr}\OperatorTok{::}\KeywordTok{read_delim}\NormalTok{(tmp1FilePath,}
                                           \DataTypeTok{delim =} \StringTok{";"}\NormalTok{))}
   
   \CommentTok{# extract + remove frameIndex/frameTime}
@@ -7779,7 +8195,7 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \NormalTok{  df}\OperatorTok{$}\NormalTok{frameIndex =}\StringTok{ }\OtherTok{NULL}
 \NormalTok{  df}\OperatorTok{$}\NormalTok{frameTime =}\StringTok{ }\OtherTok{NULL}
   
-\NormalTok{  df =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(df) }
+\NormalTok{  df =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(df)}
   
 \NormalTok{  colNames =}\StringTok{ }\KeywordTok{colnames}\NormalTok{(df)}
   
@@ -7791,7 +8207,7 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
   
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"sampleRate"}\NormalTok{) =}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{frameTime[}\DecValTok{2}\NormalTok{] }\CommentTok{# second frameTime should be stepsize}
   
-\NormalTok{  tmpObj =}\StringTok{ }\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
+\NormalTok{  tmpObj =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"origFreq"}\NormalTok{) =}\StringTok{ }\KeywordTok{attr}\NormalTok{(tmpObj, }\StringTok{"sampleRate"}\NormalTok{)}
   
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{startTime}
@@ -7802,32 +8218,36 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
   
   \KeywordTok{class}\NormalTok{(ado) =}\StringTok{ "AsspDataObj"}
   
-  \KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
-  \KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
+\NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{)}
   
   \CommentTok{# add every column as new track}
   \ControlFlowTok{if}\NormalTok{(columsAsTracks)\{}
     \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"trackFormats"}\NormalTok{) =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\StringTok{"REAL32"}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
     \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{ncol}\NormalTok{(df))\{}
-\NormalTok{      ado =}\StringTok{ }\KeywordTok{addTrack}\NormalTok{(ado, }
-                     \DataTypeTok{trackname =}\NormalTok{ colNames[i], }
-                     \DataTypeTok{data =}\NormalTok{ df[,i], }
-                     \DataTypeTok{format =} \StringTok{"REAL32"}\NormalTok{)  }
+\NormalTok{      ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado,}
+                             \DataTypeTok{trackname =}\NormalTok{ colNames[i],}
+                             \DataTypeTok{data =}\NormalTok{ df[,i],}
+                             \DataTypeTok{format =} \StringTok{"REAL32"}\NormalTok{)}
 \NormalTok{    \}}
 \NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
     \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"trackFormats"}\NormalTok{) =}\StringTok{ "REAL32"}
-\NormalTok{    ado =}\StringTok{ }\KeywordTok{addTrack}\NormalTok{(ado, }
-                   \DataTypeTok{trackname =} \StringTok{"SMILExtractAll"}\NormalTok{, }
-                   \DataTypeTok{data =}\NormalTok{ df, }
-                   \DataTypeTok{format =} \StringTok{"REAL32"}\NormalTok{)}
+\NormalTok{    ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado,}
+                           \DataTypeTok{trackname =} \StringTok{"SMILExtractAll"}\NormalTok{,}
+                           \DataTypeTok{data =}\NormalTok{ df,}
+                           \DataTypeTok{format =} \StringTok{"REAL32"}\NormalTok{)}
     
 \NormalTok{  \}}
   
   \KeywordTok{return}\NormalTok{(ado)}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{########################################}
-\CommentTok{# Use of function on 'ae' emuDB}
+How this function can be applied to wav files of an emuDB is shown below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(emuR)}
 
 \CommentTok{# create demo data in tempdir()}
@@ -7837,14 +8257,14 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
 
 \CommentTok{# list all .wav files in the ae emuDB}
-\NormalTok{paths2wavFiles =}\StringTok{ }\KeywordTok{list.files}\NormalTok{(path2ae, }
-                            \DataTypeTok{pattern =} \StringTok{"*.wav$"}\NormalTok{, }
-                            \DataTypeTok{recursive =} \OtherTok{TRUE}\NormalTok{, }
+\NormalTok{paths2wavFiles =}\StringTok{ }\KeywordTok{list.files}\NormalTok{(path2ae,}
+                            \DataTypeTok{pattern =} \StringTok{"*.wav$"}\NormalTok{,}
+                            \DataTypeTok{recursive =} \OtherTok{TRUE}\NormalTok{,}
                             \DataTypeTok{full.names =} \OtherTok{TRUE}\NormalTok{)}
 
 \CommentTok{# loop through files}
 \ControlFlowTok{for}\NormalTok{(fp }\ControlFlowTok{in}\NormalTok{ paths2wavFiles)\{}
-\NormalTok{  ado =}\StringTok{ }\KeywordTok{SMILExtract2AsspDataObj}\NormalTok{(fp,                                }
+\NormalTok{  ado =}\StringTok{ }\KeywordTok{SMILExtract2AsspDataObj}\NormalTok{(fp,}
                                 \DataTypeTok{SMILExtractPath =} \StringTok{"~/programs/opensmile-2.3.0/bin/SMILExtract"}\NormalTok{,}
                                 \DataTypeTok{configPath =} \StringTok{"~/programs/opensmile-2.3.0/config/demo/demo1_energy.conf"}\NormalTok{)}
 \NormalTok{  newPath =}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\KeywordTok{file_path_sans_ext}\NormalTok{(fp), }\StringTok{'.SMILExtract'}\NormalTok{)}
@@ -7856,25 +8276,25 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
 \CommentTok{# add SSFF track definition}
-\KeywordTok{add_ssffTrackDefinition}\NormalTok{(ae, }
-                        \DataTypeTok{name =} \StringTok{"SMILExtract"}\NormalTok{, }
+\KeywordTok{add_ssffTrackDefinition}\NormalTok{(ae,}
+                        \DataTypeTok{name =} \StringTok{"SMILExtract"}\NormalTok{,}
                         \DataTypeTok{columnName =} \StringTok{"pcm_LOGenergy"}\NormalTok{,}
                         \DataTypeTok{fileExtension =} \StringTok{"SMILExtract"}\NormalTok{)}
 
 \CommentTok{# test query + get_trackdata}
 \NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic == n"}\NormalTok{)}
 
-\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, }
-\NormalTok{                   sl, }
+\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
+\NormalTok{                   sl,}
                    \DataTypeTok{ssffTrackName =} \StringTok{"SMILExtract"}\NormalTok{,}
                    \DataTypeTok{verbose =}\NormalTok{ F)}
 
 \CommentTok{# test display}
-\KeywordTok{set_signalCanvasesOrder}\NormalTok{(ae, }
+\KeywordTok{set_signalCanvasesOrder}\NormalTok{(ae,}
                         \DataTypeTok{perspectiveName =} \StringTok{"default"}\NormalTok{,}
                         \DataTypeTok{order =} \KeywordTok{c}\NormalTok{(}\StringTok{"OSCI"}\NormalTok{, }\StringTok{"SPEC"}\NormalTok{, }\StringTok{"SMILExtract"}\NormalTok{))}
 
-\CommentTok{# serve(ae)}
+\CommentTok{# serve(ae) # uncomment to view in EMU-webApp}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7886,8 +8306,8 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 
 This section contains various independent tutorials / best practices on common challenges/issues regarding various aspects of the EMU-SDMS.
 
-\hypertarget{spectral-analysis}{%
-\chapter{Spectral analysis}\label{spectral-analysis}}
+\hypertarget{recipe:spectralAnalysis}{%
+\chapter{Spectral analysis}\label{recipe:spectralAnalysis}}
 
 \emph{(Adapted from WP 4.1 Sprachtechnologie (Vertiefung) course material by Jonathan Harrington and Ulrich Reubold)}
 
@@ -7974,9 +8394,9 @@ Let us now list the column names of the extracted trackdata object:
 
 \begin{verbatim}
 ##   [1] "sl_rowIdx"          "labels"             "start"             
-##   [4] "end"                "utts"               "db_uuid"           
-##   [7] "session"            "bundle"             "start_item_id"     
-##  [10] "end_item_id"        "level"              "start_item_seq_idx"
+##   [4] "end"                "db_uuid"            "session"           
+##   [7] "bundle"             "start_item_id"      "end_item_id"       
+##  [10] "level"              "attribute"          "start_item_seq_idx"
 ##  [13] "end_item_seq_idx"   "type"               "sample_start"      
 ##  [16] "sample_end"         "sample_rate"        "times_orig"        
 ##  [19] "times_rel"          "times_norm"         "T1"                
@@ -8117,22 +8537,23 @@ However, we don't have to do so, as another function of \texttt{emuR} called \te
 
 \begin{verbatim}
 ## # A tibble: 5,397 x 23
-##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
-##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  2         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  3         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  4         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  5         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  6         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  7         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  8         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-##  9         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-## 10         1 s       483.  567. 0000~ 0fc618~ 0000    msajc~           151
-## # ... with 5,387 more rows, and 14 more variables: end_item_id <int>,
-## #   level <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
-## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, track_name <chr>,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  2         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  3         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  4         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  5         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  6         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  7         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  8         1 s       483.  567. 0fc618~ 0000    msajc~           151
+##  9         1 s       483.  567. 0fc618~ 0000    msajc~           151
+## 10         1 s       483.  567. 0fc618~ 0000    msajc~           151
+## # ... with 5,387 more rows, and 15 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, track_name <chr>,
 ## #   track_value <dbl>, freq <dbl>
 \end{verbatim}
 
@@ -8820,8 +9241,8 @@ We can now check, which of the moments could be good separators between {[}s{]} 
 
 So, in our case, the two best variables that would differ most when we were trying to distinguish between alveolar and post-alveolar fricatives, would be the skew of the dB-distribution along the frequency axis (at least in out case, where frequency varies between 0 and 10000 Hz), and, as a measure for spectral \textbf{center of gravity}, the first spectral moment, i.e.~the mean of the distribution along the frequency axis (which is quite a different thing than the first dct coefficient, which represents the mean along the dB-axis).
 
-\hypertarget{plotting-snippets}{%
-\chapter{Plotting snippets}\label{plotting-snippets}}
+\hypertarget{recipe:plottingSnippets}{%
+\chapter{Plotting snippets}\label{recipe:plottingSnippets}}
 
 This recipe contains various plotting snippets for various visualization challenges. All snippets will use the ae demo emuDB. Let us create and load that emuDB:
 

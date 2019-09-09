@@ -1,4 +1,4 @@
-# Spectral analysis
+# Spectral analysis{#recipe:spectralAnalysis}
 
 *(Adapted from WP 4.1 Sprachtechnologie (Vertiefung) course material by Jonathan Harrington and Ulrich Reubold)*
 

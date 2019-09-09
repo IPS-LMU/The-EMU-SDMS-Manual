@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 A tutorial on how to use the EMU-SDMS2 | The EMU-SDMS Manual</title>
-  <meta name="description" content="3 A tutorial on how to use the EMU-SDMS2 | The EMU-SDMS Manual">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="3 A tutorial on how to use the EMU-SDMS2 | The EMU-SDMS Manual" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 A tutorial on how to use the EMU-SDMS2 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="3 A tutorial on how to use the EMU-SDMS2 | The EMU-SDMS Manual" />
   <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
 
-<meta name="author" content="Raphael Winkelmann">
+<meta name="author" content="Raphael Winkelmann" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-overview.html">
-<link rel="next" href="chap-annot-struct-mod.html">
+<link rel="prev" href="chap-overview.html"/>
+<link rel="next" href="chap-annot-struct-mod.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -191,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
 <li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
 <li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
-<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-tibble"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>tibble</code></a></li>
 <li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
@@ -259,7 +257,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
 <li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
 <li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
-<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis"><i class="fa fa-check"></i><b>14.4.1</b> NOTE: See @ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
 <li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
@@ -331,23 +331,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
-<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a></li>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-formant-burg...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.1</b> <code>To Formant (burg)...</code> to SSFF files</a></li>
+<li class="chapter" data-level="19.1.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-pitch...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.2</b> <code>To Pitch...</code> to SSFF files</a></li>
+</ul></li>
 <li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
 </ul></li>
 <li class="part"><span><b>VI Recipes</b></span></li>
 <li class="chapter" data-level="20" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>20</b> About</a></li>
-<li class="chapter" data-level="21" data-path="spectral-analysis.html"><a href="spectral-analysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
-<li class="chapter" data-level="21.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
-<li class="chapter" data-level="21.2" data-path="spectral-analysis.html"><a href="spectral-analysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
-<li class="chapter" data-level="21.3" data-path="spectral-analysis.html"><a href="spectral-analysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
+<li class="chapter" data-level="21" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
+<li class="chapter" data-level="21.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
+<li class="chapter" data-level="21.2" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
+<li class="chapter" data-level="21.3" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
 </ul></li>
-<li class="chapter" data-level="21.4" data-path="spectral-analysis.html"><a href="spectral-analysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
+<li class="chapter" data-level="21.4" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="plotting-snippets.html"><a href="plotting-snippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
-<li class="chapter" data-level="22.1" data-path="plotting-snippets.html"><a href="plotting-snippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
-<li class="chapter" data-level="22.2" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
-<li class="chapter" data-level="22.3" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
+<li class="chapter" data-level="22" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
+<li class="chapter" data-level="22.1" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
+<li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
+<li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs with Git, Git LFS and GitLab</a><ul>
 <li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
@@ -391,27 +394,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>create_emuDB()</code> followed by <code>add_link/levelDefinition</code> and <code>import_mediaFiles()</code> - Creating <code>emuDB</code>s from scratch with only audio files present.</li>
 </ul>
 <p>The <code>emuR</code> package comes with a set of example files and small databases that are used throughout the <code>emuR</code> documentation, including the functions help pages. These can be accessed by typing <code>help(function_name)</code> or the short form <code>?function_name</code>. R code snippet below illustrates how to create this demo data in a user-specified directory. Throughout the examples of this documentation the directory that is provided by the base R function <code>tempdir()</code> will be used, as this is available on every platform supported by R (see <code>?tempdir</code> for further details). As can be inferred from the <code>list.dirs()</code> output in the below code, the <code>emuR_demoData</code> directory contains a separate directory containing example data for each of the import routines. Additionally, it contains a directory containing an <code>emuDB</code> called <em>ae</em> (the directories name is <code>ae_emuDB</code>, where <code>_emuDB</code> is the default suffix given to directories containing a <code>emuDB</code>; see Chapter <a href="chap-emuDB.html#chap:emuDB">5</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load the package</span>
-<span class="kw">library</span>(emuR)
-
-<span class="co"># create demo data in directory provided by the tempdir() function</span>
-<span class="co"># (of course other directory paths may be chosen)</span>
-<span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())
-
-<span class="co"># create path to demo data directory, which is</span>
-<span class="co"># called &quot;emuR_demoData&quot;</span>
-demo_data_dir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>)
-
-<span class="co"># show demo data directories</span>
-<span class="kw">list.dirs</span>(demo_data_dir, <span class="dt">recursive =</span> F, <span class="dt">full.names =</span> F)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># load the package</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co"># (of course other directory paths may be chosen)</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co"># create path to demo data directory, which is</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co"># called &quot;emuR_demoData&quot;</span></a>
+<a class="sourceLine" id="cb2-10" title="10">demo_data_dir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>)</a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="co"># show demo data directories</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="kw">list.dirs</span>(demo_data_dir, <span class="dt">recursive =</span> F, <span class="dt">full.names =</span> F)</a></code></pre></div>
 <pre><code>## [1] &quot;ae_emuDB&quot;            &quot;BPF_collection&quot;      &quot;legacy_ae&quot;          
 ## [4] &quot;TextGrid_collection&quot; &quot;txt_collection&quot;</code></pre>
 <p>This tutorial will start by converting a TextGrid collection containing seven annotated single-sentence utterances of a single male speaker to the <code>emuDB</code> format<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. In the EMU-SDMS, a file collection such as a TextGrid collection refers to a set of file pairs where two types of files with different file extentions are present (e.g., <code>.ext1</code> and <code>.ext2</code>). It is vital that file pairs have the same basenames (e.g., <code>A.ext1</code> and <code>A.ext2</code> where <code>A</code> represents the basename) in order for the conversion functions to be able to pair up files that belong together. As other speech software tools also encourage such file pairs (e.g., <span class="citation">Kisler et al. (<a href="#ref-kisler:2015a">2015</a>)</span>) this is a common collection format in the speech sciences. The R code snippet below shows such a file collection that is part of <code>emuR</code>’s demo data. Figure <a href="chap-tutorial.html#fig:msajc003-praatTG">3.1</a> shows the content of an annotation as displayed by Praat’s <code>"Draw visible sound and Textgrid..."</code> procedure.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># create path to TextGrid collection</span>
-tg_col_dir =<span class="st"> </span><span class="kw">file.path</span>(demo_data_dir, <span class="st">&quot;TextGrid_collection&quot;</span>)
-
-<span class="co"># show content of TextGrid_collection directory</span>
-<span class="kw">list.files</span>(tg_col_dir)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># create path to TextGrid collection</span></a>
+<a class="sourceLine" id="cb4-2" title="2">tg_col_dir =<span class="st"> </span><span class="kw">file.path</span>(demo_data_dir, <span class="st">&quot;TextGrid_collection&quot;</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co"># show content of TextGrid_collection directory</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">list.files</span>(tg_col_dir)</a></code></pre></div>
 <pre><code>##  [1] &quot;msajc003.TextGrid&quot; &quot;msajc003.wav&quot;      &quot;msajc010.TextGrid&quot;
 ##  [4] &quot;msajc010.wav&quot;      &quot;msajc012.TextGrid&quot; &quot;msajc012.wav&quot;     
 ##  [7] &quot;msajc015.TextGrid&quot; &quot;msajc015.wav&quot;      &quot;msajc022.TextGrid&quot;
@@ -426,31 +429,31 @@ Figure 3.1: TextGrid annotation of the <code>emuR_demoData/TextGrid_collection/m
 <div id="converting-the-textgrid-collection" class="section level2">
 <h2><span class="header-section-number">3.1</span> Converting the TextGrid collection</h2>
 <p>The <code>convert_TextGridCollection()</code> function converts a TextGrid collection to the <code>emuDB</code> format. A precondition that all <code>.TextGrid</code> files have to fulfill is that they must all contain the same tiers. If this is not the case, yet there is an equal tier subset that is contained in all the TextGrid files, this equal subset may be chosen. For example, if all <code>.TextGrid</code> files contain only the tier <code>Phonetic: IntervalTier</code> the conversion will work. However, if a single <code>.TextGrid</code> of the collection has the additional tier <code>Tone: TextTier</code> the conversion will fail. In this case the conversion could be made to work by specifying the equal subset (e.g., <code>equalSubset = c("Phonetic")</code>) and passing it on to the <code>tierNames</code> function argument <code>convert_TextGridCollection(..., tierNames = equalSubset, ...)</code>. As can be seen in Figure <a href="chap-tutorial.html#fig:msajc003-praatTG">3.1</a>, the TextGrid files provided by the demo data contain eleven tiers. To reduce the complexity of the annotations for this tutorial we will only convert the tiers <em>Word</em> (content: <em>C</em> vs. function: <em>F</em> word annotations), <em>Syllable</em> (strong: <em>S</em> vs. weak: <em>W</em> syllable annotations), <em>Phoneme</em> (phoneme level annotations) and <em>Phonetic</em> (phonetic annotations using Speech Assessment Methods Phonetic Alphabet (SAMPA) symbols - <span class="citation">Wells and others (<a href="#ref-wells:1997aa">1997</a>)</span>) using the <code>tierNames</code> parameter. This conversion can be seen in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># convert TextGrid collection to the emuDB format</span>
-<span class="kw">convert_TextGridCollection</span>(<span class="dt">dir =</span> tg_col_dir,
-                           <span class="dt">dbName =</span> <span class="st">&quot;my-first&quot;</span>,
-                           <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),
-                           <span class="dt">tierNames =</span> <span class="kw">c</span>(<span class="st">&quot;Word&quot;</span>, <span class="st">&quot;Syllable&quot;</span>,
-                                         <span class="st">&quot;Phoneme&quot;</span>, <span class="st">&quot;Phonetic&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># convert TextGrid collection to the emuDB format</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">convert_TextGridCollection</span>(<span class="dt">dir =</span> tg_col_dir,</a>
+<a class="sourceLine" id="cb6-3" title="3">                           <span class="dt">dbName =</span> <span class="st">&quot;my-first&quot;</span>,</a>
+<a class="sourceLine" id="cb6-4" title="4">                           <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb6-5" title="5">                           <span class="dt">tierNames =</span> <span class="kw">c</span>(<span class="st">&quot;Word&quot;</span>, <span class="st">&quot;Syllable&quot;</span>,</a>
+<a class="sourceLine" id="cb6-6" title="6">                                         <span class="st">&quot;Phoneme&quot;</span>, <span class="st">&quot;Phonetic&quot;</span>))</a></code></pre></div>
 <p>The above call to <code>convert_TextGridCollection()</code> creates a new <code>emuDB</code> directory in the <code>tempdir()</code> directory called <code>my-first_emuDB</code>. This <code>emuDB</code> contains annotation files that contain the same <em>Word</em>, <em>Syllable</em>, <em>Phoneme</em> and <em>Phonetic</em> segment tiers as the original <code>.TextGrid</code> files as well as copies of the original (<code>.wav</code>) audio files. For further details about the structure of an <code>emuDB</code>, see Chapter <a href="chap-emuDB.html#chap:emuDB">5</a> of this document.</p>
 </div>
 <div id="loading-and-inspecting-the-database" class="section level2">
 <h2><span class="header-section-number">3.2</span> Loading and inspecting the database</h2>
 <p>As mentioned in Section <a href="chap-overview.html#sec:overview-sysArch">2.2</a>, the first step when working with an <code>emuDB</code> is to load it into the current R session. The R code snippet below shows how to load the converted TextGrid collection into R using the <code>load_emuDB()</code> function.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get path to emuDB called &quot;my-first&quot;</span>
-<span class="co"># that was created by convert_TextGridCollection()</span>
-path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;my-first_emuDB&quot;</span>)
-
-<span class="co"># load emuDB into current R session</span>
-db_handle =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co"># get path to emuDB called &quot;my-first&quot;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co"># that was created by convert_TextGridCollection()</span></a>
+<a class="sourceLine" id="cb7-3" title="3">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;my-first_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co"># load emuDB into current R session</span></a>
+<a class="sourceLine" id="cb7-6" title="6">db_handle =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory, <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <div id="overview" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Overview</h3>
 <p>Now the <em>my-first</em> <code>emuDB</code> is loaded into R, an overview of the current status and configuration of the database can be displayed using the <code>summary()</code> function as shown the below R code snippet.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show summary</span>
-<span class="kw">summary</span>(db_handle)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># show summary</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">summary</span>(db_handle)</a></code></pre></div>
 <pre><code>## Name:     my-first 
-## UUID:     6bbf0b0b-fb01-4a0a-b790-f804136e6b50 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpYQeJTJ/my-first_emuDB 
+## UUID:     f1f9475b-b57a-4bdd-bcc3-174da85db5e6 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpWC6Qm5/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -476,8 +479,8 @@ db_handle =<span class="st"> </span><span class="kw">load_emuDB</span>(path2dire
 <div id="database-annotation-and-visual-inspection" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Database annotation and visual inspection</h3>
 <p>The EMU-SDMS has a unique approach to annotating and visually inspecting databases, as it utilizes a web application called the <code>EMU-webApp</code> to act as its GUI. To be able to communicate with the web application the <code>emuR</code> package provides the <code>serve()</code> function which is used in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># serve my-first emuDB to the EMU-webApp</span>
-<span class="kw">serve</span>(db_handle)</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># serve my-first emuDB to the EMU-webApp</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">serve</span>(db_handle)</a></code></pre></div>
 <p>Executing this command will block the R console, automatically open up the system’s default browser and display the following message in the R console:</p>
 <pre><code>## Navigate your browser to the EMU-webApp URL: 
 ##  http://ips-lmu.github.io/EMU-webApp/ (should happen autom...
@@ -498,45 +501,68 @@ Figure 3.2: Screenshot of <code>EMU-webApp</code> displaying <code>msajc003</cod
 <h2><span class="header-section-number">3.3</span> Querying and autobuilding the annotation structure</h2>
 <p>An integral step in the default workflow of the EMU-SDMS is querying the annotations of a database. The <code>emuR</code> package implements a <code>query()</code> function to accomplish this task. This function evaluates an EMU Query Language (EQL) expression and extracts the annotation items from the database that match a query expression. As chapter <a href="chap-querysys.html#chap:querysys">6</a> gives a detailed description of the query mechanics provided by <code>emuR</code>, this tutorial will only use a very small, hopefully easy to understand subset of the EQL.</p>
 <p>The output of the <code>summary()</code> command in the R code snippet below and the screenshot in Figure <a href="chap-tutorial.html#fig:tutorial-emuWebAppMyFirst">3.2</a> show that the <em>my-first</em> <code>emuDB</code> contains four levels of annotations. The R code snippet below shows four separate queries that query various segments on each of the available levels. The query expressions all use the matching operator <code>==</code> which returns annotation items whose labels match those specified to the right of the operator and that belong to the level specified to the left of the operator (i.e., <code>LEVEL == LABEL</code>; see Chapter <a href="chap-querysys.html#chap:querysys">6</a> for a detailed description).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># query all segments containing the label</span>
-<span class="co"># &quot;C&quot; (== content word) of the &quot;Word&quot; level</span>
-sl_text =<span class="st"> </span><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> db_handle,
-                <span class="dt">query =</span> <span class="st">&quot;Word == C&quot;</span>)
-
-<span class="co"># query all segments containing the label</span>
-<span class="co"># &quot;S&quot; (== strong syllable) of the &quot;Syllable&quot; level</span>
-sl_syl =<span class="st"> </span><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> db_handle,
-               <span class="dt">query =</span> <span class="st">&quot;Syllable == S&quot;</span>)
-
-<span class="co"># query all segments containing the label</span>
-<span class="co"># &quot;f&quot; on the &quot;Phoneme&quot; level</span>
-sl_phoneme =<span class="st"> </span><span class="kw">query</span>(db_handle,
-                   <span class="dt">query =</span> <span class="st">&quot;Phoneme == f&quot;</span>)
-
-<span class="co"># query all segments containing the label</span>
-<span class="co"># &quot;n&quot; of the &quot;Phonetic&quot; level</span>
-sl_phonetic =<span class="st"> </span><span class="kw">query</span>(db_handle,
-                    <span class="dt">query =</span> <span class="st">&quot;Phonetic == n&quot;</span>)
-
-<span class="co"># show class vector of query result</span>
-<span class="kw">class</span>(sl_phonetic)</code></pre>
-<pre><code>## [1] &quot;emuRsegs&quot;   &quot;emusegs&quot;    &quot;data.frame&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show first entry of sl_phonetic</span>
-<span class="kw">head</span>(sl_phonetic, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  my-first 
-## query was:  Phonetic == n 
-##   labels    start      end session   bundle    level    type
-## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show summary of sl_phonetic</span>
-<span class="kw">summary</span>(sl_phonetic)</code></pre>
-<pre><code>## segment  list from database:  my-first 
-## query was:  Phonetic == n 
-##  with 12 segments
-## 
-## Segment distribution:
-## 
-##  n 
-## 12</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># query all segments containing the label</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="co"># &quot;C&quot; (== content word) of the &quot;Word&quot; level</span></a>
+<a class="sourceLine" id="cb12-3" title="3">sl_text =<span class="st"> </span><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> db_handle,</a>
+<a class="sourceLine" id="cb12-4" title="4">                <span class="dt">query =</span> <span class="st">&quot;Word == C&quot;</span>)</a>
+<a class="sourceLine" id="cb12-5" title="5"></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="co"># query all segments containing the label</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="co"># &quot;S&quot; (== strong syllable) of the &quot;Syllable&quot; level</span></a>
+<a class="sourceLine" id="cb12-8" title="8">sl_syl =<span class="st"> </span><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> db_handle,</a>
+<a class="sourceLine" id="cb12-9" title="9">               <span class="dt">query =</span> <span class="st">&quot;Syllable == S&quot;</span>)</a>
+<a class="sourceLine" id="cb12-10" title="10"></a>
+<a class="sourceLine" id="cb12-11" title="11"><span class="co"># query all segments containing the label</span></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="co"># &quot;f&quot; on the &quot;Phoneme&quot; level</span></a>
+<a class="sourceLine" id="cb12-13" title="13">sl_phoneme =<span class="st"> </span><span class="kw">query</span>(db_handle,</a>
+<a class="sourceLine" id="cb12-14" title="14">                   <span class="dt">query =</span> <span class="st">&quot;Phoneme == f&quot;</span>)</a>
+<a class="sourceLine" id="cb12-15" title="15"></a>
+<a class="sourceLine" id="cb12-16" title="16"><span class="co"># query all segments containing the label</span></a>
+<a class="sourceLine" id="cb12-17" title="17"><span class="co"># &quot;n&quot; of the &quot;Phonetic&quot; level</span></a>
+<a class="sourceLine" id="cb12-18" title="18">sl_phonetic =<span class="st"> </span><span class="kw">query</span>(db_handle,</a>
+<a class="sourceLine" id="cb12-19" title="19">                    <span class="dt">query =</span> <span class="st">&quot;Phonetic == n&quot;</span>)</a>
+<a class="sourceLine" id="cb12-20" title="20"></a>
+<a class="sourceLine" id="cb12-21" title="21"><span class="co"># show class vector of query result</span></a>
+<a class="sourceLine" id="cb12-22" title="22"><span class="kw">class</span>(sl_phonetic)</a></code></pre></div>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># show first entry of sl_phonetic</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="kw">head</span>(sl_phonetic, <span class="dt">n =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
+## 1 n      1032. 1196. f1f947… 0000    msajc…            98          98 Phon…
+## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
+## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
+## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># show summary of sl_phonetic</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="kw">summary</span>(sl_phonetic)</a></code></pre></div>
+<pre><code>##     labels              start             end         db_uuid         
+##  Length:12          Min.   : 508.7   Min.   : 544   Length:12         
+##  Class :character   1st Qu.:1334.1   1st Qu.:1420   Class :character  
+##  Mode  :character   Median :1758.2   Median :1813   Mode  :character  
+##                     Mean   :1788.0   Mean   :1855                     
+##                     3rd Qu.:2409.4   3rd Qu.:2476                     
+##                     Max.   :3046.1   Max.   :3068                     
+##    session             bundle          start_item_id     end_item_id    
+##  Length:12          Length:12          Min.   : 91.00   Min.   : 91.00  
+##  Class :character   Class :character   1st Qu.: 97.75   1st Qu.: 97.75  
+##  Mode  :character   Mode  :character   Median :110.50   Median :110.50  
+##                                        Mean   :113.08   Mean   :113.08  
+##                                        3rd Qu.:127.75   3rd Qu.:127.75  
+##                                        Max.   :145.00   Max.   :145.00  
+##     level            attribute         start_item_seq_idx end_item_seq_idx
+##  Length:12          Length:12          Min.   : 6.00      Min.   : 6.00   
+##  Class :character   Class :character   1st Qu.:14.50      1st Qu.:14.50   
+##  Mode  :character   Mode  :character   Median :22.00      Median :22.00   
+##                                        Mean   :24.58      Mean   :24.58   
+##                                        3rd Qu.:34.25      3rd Qu.:34.25   
+##                                        Max.   :46.00      Max.   :46.00   
+##      type            sample_start     sample_end     sample_rate   
+##  Length:12          Min.   :10174   Min.   :10879   Min.   :20000  
+##  Class :character   1st Qu.:26682   1st Qu.:28408   1st Qu.:20000  
+##  Mode  :character   Median :35164   Median :36253   Median :20000  
+##                     Mean   :35760   Mean   :37100   Mean   :20000  
+##                     3rd Qu.:48190   3rd Qu.:49525   3rd Qu.:20000  
+##                     Max.   :60923   Max.   :61353   Max.   :20000</code></pre>
 <p>As demonstrated in the above R code, the result of a query is an <code>emuRsegs</code> object, which is a super-class of the common <code>data.frame</code>. This object is often referred to as a segment list, or “seglist”. A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section <a href="chap-querysys.html#sec:query-emuRsegs">6.1</a>. The above R code snippet shows that the <code>summary()</code> function can also be applied to a segment list object to get an overview of what is contained within it. This can be especially useful when dealing with larger segment lists.</p>
 </div>
 <div id="autobuilding" class="section level2">
@@ -549,29 +575,29 @@ Figure 3.3: Example of a hierarchical annotation of the content (==<em>C</em>) w
 </p>
 </div>
 <p>As it is a very laborious task to manually link annotation items together using the <code>EMU-webApp</code> and the hierarchical information is already implicitly contained in the time information of the segments and events of each level, we will now use a function provided by the <code>emuR</code> package to build these hierarchical structures using this information called <code>autobuild_linkFromTimes()</code>. The above R code snippet shows the calls to this function which autobuild the hierarchical annotations in the <em>my-first</em> database. As a general rule for autobuilding hierarchical annotation structures, a good strategy is to start the autobuilding process beginning with coarser grained annotation levels (i.e., the <em>Word</em>/<em>Syllable</em> level pair in our example) and work down to finer grained annotations (i.e., the <em>Syllable</em>/<em>Phoneme</em> and <em>Phoneme</em>/<em>Phonetic</em> level pairs in our example). To build hierachical annotation structures we need link definitions, which together with the level definitions define the annotation structure for the entire database (see Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a> for further details). The <code>autobuild_linkFromTimes()</code> calls in the below R code snippet use the <code>newLinkDefType</code> parameter, which if defined automatically adds a link definition to the database.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># invoke autobuild function</span>
-<span class="co"># for &quot;Word&quot; and &quot;Syllable&quot; levels</span>
-<span class="kw">autobuild_linkFromTimes</span>(db_handle,
-                        <span class="dt">superlevelName =</span> <span class="st">&quot;Word&quot;</span>,
-                        <span class="dt">sublevelName =</span> <span class="st">&quot;Syllable&quot;</span>,
-                        <span class="dt">convertSuperlevel =</span> <span class="ot">TRUE</span>,
-                        <span class="dt">newLinkDefType =</span> <span class="st">&quot;ONE_TO_MANY&quot;</span>)
-
-<span class="co"># invoke autobuild function</span>
-<span class="co"># for &quot;Syllable&quot; and &quot;Phoneme&quot; levels</span>
-<span class="kw">autobuild_linkFromTimes</span>(db_handle,
-                        <span class="dt">superlevelName =</span> <span class="st">&quot;Syllable&quot;</span>,
-                        <span class="dt">sublevelName =</span> <span class="st">&quot;Phoneme&quot;</span>,
-                        <span class="dt">convertSuperlevel =</span> <span class="ot">TRUE</span>,
-                        <span class="dt">newLinkDefType =</span> <span class="st">&quot;ONE_TO_MANY&quot;</span>)
-
-<span class="co"># invoke autobuild function</span>
-<span class="co"># for &quot;Phoneme&quot; and &quot;Phonetic&quot; levels</span>
-<span class="kw">autobuild_linkFromTimes</span>(db_handle,
-                        <span class="dt">superlevelName =</span> <span class="st">&quot;Phoneme&quot;</span>,
-                        <span class="dt">sublevelName =</span> <span class="st">&quot;Phonetic&quot;</span>,
-                        <span class="dt">convertSuperlevel =</span> <span class="ot">TRUE</span>,
-                        <span class="dt">newLinkDefType =</span> <span class="st">&quot;MANY_TO_MANY&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="co"># invoke autobuild function</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="co"># for &quot;Word&quot; and &quot;Syllable&quot; levels</span></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="kw">autobuild_linkFromTimes</span>(db_handle,</a>
+<a class="sourceLine" id="cb18-4" title="4">                        <span class="dt">superlevelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb18-5" title="5">                        <span class="dt">sublevelName =</span> <span class="st">&quot;Syllable&quot;</span>,</a>
+<a class="sourceLine" id="cb18-6" title="6">                        <span class="dt">convertSuperlevel =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb18-7" title="7">                        <span class="dt">newLinkDefType =</span> <span class="st">&quot;ONE_TO_MANY&quot;</span>)</a>
+<a class="sourceLine" id="cb18-8" title="8"></a>
+<a class="sourceLine" id="cb18-9" title="9"><span class="co"># invoke autobuild function</span></a>
+<a class="sourceLine" id="cb18-10" title="10"><span class="co"># for &quot;Syllable&quot; and &quot;Phoneme&quot; levels</span></a>
+<a class="sourceLine" id="cb18-11" title="11"><span class="kw">autobuild_linkFromTimes</span>(db_handle,</a>
+<a class="sourceLine" id="cb18-12" title="12">                        <span class="dt">superlevelName =</span> <span class="st">&quot;Syllable&quot;</span>,</a>
+<a class="sourceLine" id="cb18-13" title="13">                        <span class="dt">sublevelName =</span> <span class="st">&quot;Phoneme&quot;</span>,</a>
+<a class="sourceLine" id="cb18-14" title="14">                        <span class="dt">convertSuperlevel =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb18-15" title="15">                        <span class="dt">newLinkDefType =</span> <span class="st">&quot;ONE_TO_MANY&quot;</span>)</a>
+<a class="sourceLine" id="cb18-16" title="16"></a>
+<a class="sourceLine" id="cb18-17" title="17"><span class="co"># invoke autobuild function</span></a>
+<a class="sourceLine" id="cb18-18" title="18"><span class="co"># for &quot;Phoneme&quot; and &quot;Phonetic&quot; levels</span></a>
+<a class="sourceLine" id="cb18-19" title="19"><span class="kw">autobuild_linkFromTimes</span>(db_handle,</a>
+<a class="sourceLine" id="cb18-20" title="20">                        <span class="dt">superlevelName =</span> <span class="st">&quot;Phoneme&quot;</span>,</a>
+<a class="sourceLine" id="cb18-21" title="21">                        <span class="dt">sublevelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb18-22" title="22">                        <span class="dt">convertSuperlevel =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb18-23" title="23">                        <span class="dt">newLinkDefType =</span> <span class="st">&quot;MANY_TO_MANY&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tutorial-simpleAnnotStruct"></span>
 <img src="pics/tut_simpleAnnotStruct.png" alt="Schematic annotation structure of the `emuDB` after calling the autobuild function in R code snippet above." width="50%" />
 <p class="caption">
@@ -579,10 +605,10 @@ Figure 3.4: Schematic annotation structure of the <code>emuDB</code> after calli
 </p>
 </div>
 <p>As the <code>autobuild_linkFromTimes()</code> function automatically creates backup levels to avoid the accidental loss of boundary or event time information, the R code snippet below shows how these backup levels can be removed to clean up the database. However, using the <code>remove_levelDefinition()</code> function with its <code>force</code> parameter set to <code>TRUE</code> is a very invasive action. Usually this would not be recommended, but for this tutorial we are keeping everything as clean as possible.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># list level definitions</span>
-<span class="co"># as this reveals the &quot;-autobuildBackup&quot; levels</span>
-<span class="co"># added by the autobuild_linkFromTimes() calls</span>
-<span class="kw">list_levelDefinitions</span>(db_handle)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co"># list level definitions</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="co"># as this reveals the &quot;-autobuildBackup&quot; levels</span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="co"># added by the autobuild_linkFromTimes() calls</span></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="kw">list_levelDefinitions</span>(db_handle)</a></code></pre></div>
 <pre><code>##                       name    type nrOfAttrDefs              attrDefNames
 ## 1                     Word    ITEM            1                     Word;
 ## 2                 Syllable    ITEM            1                 Syllable;
@@ -591,33 +617,33 @@ Figure 3.4: Schematic annotation structure of the <code>emuDB</code> after calli
 ## 5     Word-autobuildBackup SEGMENT            1     Word-autobuildBackup;
 ## 6 Syllable-autobuildBackup SEGMENT            1 Syllable-autobuildBackup;
 ## 7  Phoneme-autobuildBackup SEGMENT            1  Phoneme-autobuildBackup;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># remove the levels containing the &quot;-autobuildBackup&quot;</span>
-<span class="co"># suffix</span>
-<span class="kw">remove_levelDefinition</span>(db_handle,
-                       <span class="dt">name =</span> <span class="st">&quot;Word-autobuildBackup&quot;</span>,
-                       <span class="dt">force =</span> <span class="ot">TRUE</span>,
-                       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)
-
-<span class="kw">remove_levelDefinition</span>(db_handle,
-                       <span class="dt">name =</span> <span class="st">&quot;Syllable-autobuildBackup&quot;</span>,
-                       <span class="dt">force =</span> <span class="ot">TRUE</span>,
-                       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)
-
-<span class="kw">remove_levelDefinition</span>(db_handle,
-                       <span class="dt">name =</span> <span class="st">&quot;Phoneme-autobuildBackup&quot;</span>,
-                       <span class="dt">force =</span> <span class="ot">TRUE</span>,
-                       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)
-
-<span class="co"># list level definitions</span>
-<span class="kw">list_levelDefinitions</span>(db_handle)</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="co"># remove the levels containing the &quot;-autobuildBackup&quot;</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="co"># suffix</span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="kw">remove_levelDefinition</span>(db_handle,</a>
+<a class="sourceLine" id="cb21-4" title="4">                       <span class="dt">name =</span> <span class="st">&quot;Word-autobuildBackup&quot;</span>,</a>
+<a class="sourceLine" id="cb21-5" title="5">                       <span class="dt">force =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb21-6" title="6">                       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb21-7" title="7"></a>
+<a class="sourceLine" id="cb21-8" title="8"><span class="kw">remove_levelDefinition</span>(db_handle,</a>
+<a class="sourceLine" id="cb21-9" title="9">                       <span class="dt">name =</span> <span class="st">&quot;Syllable-autobuildBackup&quot;</span>,</a>
+<a class="sourceLine" id="cb21-10" title="10">                       <span class="dt">force =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb21-11" title="11">                       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb21-12" title="12"></a>
+<a class="sourceLine" id="cb21-13" title="13"><span class="kw">remove_levelDefinition</span>(db_handle,</a>
+<a class="sourceLine" id="cb21-14" title="14">                       <span class="dt">name =</span> <span class="st">&quot;Phoneme-autobuildBackup&quot;</span>,</a>
+<a class="sourceLine" id="cb21-15" title="15">                       <span class="dt">force =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb21-16" title="16">                       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb21-17" title="17"></a>
+<a class="sourceLine" id="cb21-18" title="18"><span class="co"># list level definitions</span></a>
+<a class="sourceLine" id="cb21-19" title="19"><span class="kw">list_levelDefinitions</span>(db_handle)</a></code></pre></div>
 <pre><code>##       name    type nrOfAttrDefs attrDefNames
 ## 1     Word    ITEM            1        Word;
 ## 2 Syllable    ITEM            1    Syllable;
 ## 3  Phoneme    ITEM            1     Phoneme;
 ## 4 Phonetic SEGMENT            1    Phonetic;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># list level definitions</span>
-<span class="co"># which were added by the autobuild functions</span>
-<span class="kw">list_linkDefinitions</span>(db_handle)</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="co"># list level definitions</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="co"># which were added by the autobuild functions</span></a>
+<a class="sourceLine" id="cb23-3" title="3"><span class="kw">list_linkDefinitions</span>(db_handle)</a></code></pre></div>
 <pre><code>##           type superlevelName sublevelName
 ## 1  ONE_TO_MANY           Word     Syllable
 ## 2  ONE_TO_MANY       Syllable      Phoneme
@@ -632,33 +658,39 @@ Figure 3.5: Screenshot of <code>EMU-webApp</code> displaying the autobuilt hiera
 <div id="querying-the-hierarchical-annotations" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Querying the hierarchical annotations</h3>
 <p>Having this hierarchical annotation structure now allows us to formulate a query that helps answer the originally stated question: <em>Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?</em>. The R code snippet below shows how all the <em>@</em> vowels in the <em>my-first</em> database are queried.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># query annotation items containing</span>
-<span class="co"># the labels @ on the Phonetic level</span>
-sl_vowels =<span class="st"> </span><span class="kw">query</span>(db_handle, <span class="st">&quot;Phonetic == @&quot;</span>)
-
-<span class="co"># show first entry of sl_vowels</span>
-<span class="kw">head</span>(sl_vowels, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  my-first 
-## query was:  Phonetic == @ 
-##   labels    start      end session   bundle    level    type
-## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># query annotation items containing</span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="co"># the labels @ on the Phonetic level</span></a>
+<a class="sourceLine" id="cb25-3" title="3">sl_vowels =<span class="st"> </span><span class="kw">query</span>(db_handle, <span class="st">&quot;Phonetic == @&quot;</span>)</a>
+<a class="sourceLine" id="cb25-4" title="4"></a>
+<a class="sourceLine" id="cb25-5" title="5"><span class="co"># show first entry of sl_vowels</span></a>
+<a class="sourceLine" id="cb25-6" title="6"><span class="kw">head</span>(sl_vowels, <span class="dt">n =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
+## 1 @      1506. 1548. f1f947… 0000    msajc…           103         103 Phon…
+## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
+## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
+## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
 <p>As the type of word (content vs. function) for each <em>@</em> vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter <a href="chap-querysys.html#chap:querysys">6</a>) to retrieve the word type for each <em>@</em> vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, <code>requery_hier()</code>, to retrieve the appropriate annotation items from the <em>Word</em> level.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># hierarchical requery starting from the items in sl_vowels</span>
-<span class="co"># and moving up to the &quot;Word&quot; level</span>
-sl_word_type =<span class="st"> </span><span class="kw">requery_hier</span>(db_handle,
-                           <span class="dt">seglist =</span> sl_vowels,
-                           <span class="dt">level =</span> <span class="st">&quot;Word&quot;</span>,
-                           <span class="dt">calcTimes =</span> <span class="ot">FALSE</span>)
-
-<span class="co"># show first entry of sl_word_type</span>
-<span class="kw">head</span>(sl_word_type, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  my-first 
-## query was:  FROM REQUERY 
-##   labels start end session   bundle level type
-## 1      F    NA  NA    0000 msajc003  Word ITEM</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show that sl_vowel and sl_word_type have the</span>
-<span class="co"># same number of row entries</span>
-<span class="kw">nrow</span>(sl_vowels) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(sl_word_type)</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="co"># hierarchical requery starting from the items in sl_vowels</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="co"># and moving up to the &quot;Word&quot; level</span></a>
+<a class="sourceLine" id="cb27-3" title="3">sl_word_type =<span class="st"> </span><span class="kw">requery_hier</span>(db_handle,</a>
+<a class="sourceLine" id="cb27-4" title="4">                           <span class="dt">seglist =</span> sl_vowels,</a>
+<a class="sourceLine" id="cb27-5" title="5">                           <span class="dt">level =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb27-6" title="6">                           <span class="dt">calcTimes =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb27-7" title="7"></a>
+<a class="sourceLine" id="cb27-8" title="8"><span class="co"># show first entry of sl_word_type</span></a>
+<a class="sourceLine" id="cb27-9" title="9"><span class="kw">head</span>(sl_word_type, <span class="dt">n =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
+## 1 F         NA    NA f1f947… 0000    msajc…            16          16 Word 
+## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
+## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
+## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="co"># show that sl_vowel and sl_word_type have the</span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="co"># same number of row entries</span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="kw">nrow</span>(sl_vowels) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(sl_word_type)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>As can be seen by the <code>nrow()</code> comparison in the above R code, the segment list returned by the <code>requery_hier()</code> function has the same number of rows as the original <code>sl_vowels</code> segment list. This is important, as each row of both segment lists line up and allow us to infer which segment belongs to which word type (e.g., vowel <code>sl_vowels[5,]</code> belongs to the word type <code>sl_word_type[5,]</code>).</p>
 </div>
@@ -666,24 +698,24 @@ sl_word_type =<span class="st"> </span><span class="kw">requery_hier</span>(db_h
 <div id="section:tutorial-sigExtrAndExpl" class="section level2">
 <h2><span class="header-section-number">3.5</span> Signal extraction and exploration</h2>
 <p>Now that the vowel and word type information including the vowel start and end time information has been extracted from the database, this information can be used to extract signal data that matches these segments. Using the <code>emuR</code> function <code>get_trackdata()</code> we can calculate the formant values in real time using the formant estimation function, <code>forest()</code>, provided by the <code>wrassp</code> package (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for details). The following R code shows the usage of this function.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get formant values for the vowel segments</span>
-td_vowels =<span class="st"> </span><span class="kw">get_trackdata</span>(db_handle,
-                          <span class="dt">seglist =</span> sl_vowels,
-                          <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;forest&quot;</span>,
-                          <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>,
-                          <span class="dt">verbose =</span> F)
-
-<span class="co"># show class vector</span>
-<span class="kw">class</span>(td_vowels)</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="co"># get formant values for the vowel segments</span></a>
+<a class="sourceLine" id="cb31-2" title="2">td_vowels =<span class="st"> </span><span class="kw">get_trackdata</span>(db_handle,</a>
+<a class="sourceLine" id="cb31-3" title="3">                          <span class="dt">seglist =</span> sl_vowels,</a>
+<a class="sourceLine" id="cb31-4" title="4">                          <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;forest&quot;</span>,</a>
+<a class="sourceLine" id="cb31-5" title="5">                          <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>,</a>
+<a class="sourceLine" id="cb31-6" title="6">                          <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb31-7" title="7"></a>
+<a class="sourceLine" id="cb31-8" title="8"><span class="co"># show class vector</span></a>
+<a class="sourceLine" id="cb31-9" title="9"><span class="kw">class</span>(td_vowels)</a></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show dimensions</span>
-<span class="kw">dim</span>(td_vowels)</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co"># show dimensions</span></a>
+<a class="sourceLine" id="cb33-2" title="2"><span class="kw">dim</span>(td_vowels)</a></code></pre></div>
 <pre><code>## [1] 287  24</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show nr of segments</span>
-<span class="kw">max</span>(td_vowels<span class="op">$</span>sl_rowIdx)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="co"># show nr of segments</span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="kw">max</span>(td_vowels<span class="op">$</span>sl_rowIdx)</a></code></pre></div>
 <pre><code>## [1] 28</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># display all values for fifth segment using dplyr</span>
-<span class="kw">library</span>(dplyr)</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="co"># display all values for fifth segment using dplyr</span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -692,43 +724,43 @@ td_vowels =<span class="st"> </span><span class="kw">get_trackdata</span>(db_han
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">td_vowels <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sl_rowIdx <span class="op">==</span><span class="st"> </span><span class="dv">5</span>)</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">td_vowels <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(sl_rowIdx <span class="op">==</span><span class="st"> </span><span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 12 x 24
-##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
-##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
-##  1         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  2         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  3         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  4         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  5         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  6         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  7         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  8         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-##  9         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-## 10         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-## 11         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-## 12         5 @      2447. 2506. 0000… 6bbf0b… 0000    msajc…           119
-## # … with 15 more variables: end_item_id &lt;int&gt;, level &lt;chr&gt;,
-## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
-## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
+##  1         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  2         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  3         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  4         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  5         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  6         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  7         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  8         5 @      2447. 2506. f1f947… 0000    msajc…           119
+##  9         5 @      2447. 2506. f1f947… 0000    msajc…           119
+## 10         5 @      2447. 2506. f1f947… 0000    msajc…           119
+## 11         5 @      2447. 2506. f1f947… 0000    msajc…           119
+## 12         5 @      2447. 2506. f1f947… 0000    msajc…           119
+## # … with 16 more variables: end_item_id &lt;int&gt;, level &lt;chr&gt;,
+## #   attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;,
+## #   type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;,
 ## #   times_orig &lt;dbl&gt;, times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;,
 ## #   T2 &lt;int&gt;, T3 &lt;int&gt;, T4 &lt;int&gt;</code></pre>
 <p>As can be seen by the call to the <code>class()</code> function, the resulting object is of the type <code>tibble</code> (see <code>?tibble::tibble</code> for more information) and has 28 blocks of data. These blocks correspond to the number of rows contained in the segment lists extracted above (i.e., <code>nrow(sl_vowels)</code>) and can be matched to the according segment using the <code>sl_rowIdx</code> column (i.e., <code>td_vowels %&gt;% filter(sl_rowIdx == 5)</code> are the formant values belonging to <code>sl_vowels[5,]</code>). As the columns <code>T1</code>, <code>T2</code>, <code>T3</code>, <code>T4</code> of the printed output of <code>td_vowels %&gt;% filter(sl_rowIdx == 5)</code> suggest, the <code>forest</code> function estimates four formant values. We will only be concerned with the first (column <code>T1</code>) and second (column <code>T2</code>). The below R code shows two <code>ggplot()</code> function calls which produce the plots displayed in Figures <a href="chap-tutorial.html#fig:tutorial-dplot1">3.6</a> and <a href="chap-tutorial.html#fig:tutorial-dplot1">3.6</a>. The first <code>ggplot()</code> call plots all 28 first formant trajectories (achieved by setting the <code>group</code> parameter to <code>sl_rowIdx</code>). To clean up the cluttered first plot, the second <code>ggplot()</code> call uses a segment length normalized version of <code>td_vowels</code> (see <code>?normalize_length</code> for futher details) as well as using <code>geom_smooth()</code> in combination with setting the <code>group</code> parameter to <code>labels</code> to plot only smoothed conditional means of all <em>@</em> vowels.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load package</span>
-<span class="kw">library</span>(ggplot2)
-
-<span class="kw">ggplot</span>(td_vowels) <span class="op">+</span>
-<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_rel, <span class="dt">y =</span> T1, <span class="dt">col =</span> labels, <span class="dt">group =</span> sl_rowIdx) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Duration (ms)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>)
-
-<span class="co"># normalize length of segments</span>
-td_vowels_norm =<span class="st"> </span><span class="kw">normalize_length</span>(td_vowels)
-
-<span class="kw">ggplot</span>(td_vowels_norm) <span class="op">+</span>
-<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T1, <span class="dt">col =</span> labels, <span class="dt">group =</span> labels) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Duration (normalized)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) </code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="co"># load package</span></a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb43-3" title="3"></a>
+<a class="sourceLine" id="cb43-4" title="4"><span class="kw">ggplot</span>(td_vowels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-5" title="5"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_rel, <span class="dt">y =</span> T1, <span class="dt">col =</span> labels, <span class="dt">group =</span> sl_rowIdx) <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-6" title="6"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Duration (ms)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>)</a>
+<a class="sourceLine" id="cb43-8" title="8"></a>
+<a class="sourceLine" id="cb43-9" title="9"><span class="co"># normalize length of segments</span></a>
+<a class="sourceLine" id="cb43-10" title="10">td_vowels_norm =<span class="st"> </span><span class="kw">normalize_length</span>(td_vowels)</a>
+<a class="sourceLine" id="cb43-11" title="11"></a>
+<a class="sourceLine" id="cb43-12" title="12"><span class="kw">ggplot</span>(td_vowels_norm) <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-13" title="13"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T1, <span class="dt">col =</span> labels, <span class="dt">group =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-14" title="14"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb43-15" title="15"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Duration (normalized)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) </a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tutorial-dplot1"></span>
 <img src="tutorial_files/figure-html/tutorial-dplot1-1.png" alt="`ggplot()` plots of all F1 *\@* vowel trajectories." width="576" />
 <p class="caption">
@@ -743,25 +775,25 @@ Figure 3.7: <code>ggplot()</code> plots of the F1 smoothed conditional mean traj
 </p>
 </div>
 <p>Figures <a href="chap-tutorial.html#fig:tutorial-dplot1">3.6</a> and <a href="chap-tutorial.html#fig:tutorial-dplot2">3.7</a> give an overview of the first formant trajectories of the <em>@</em> vowels. For the purpose of data exploration and to get an idea of where the individual vowel classes lie on the F2 x F1 plane, which indirectly provides information about vowel height and tongue position, the R code below again makes use of the <code>ggplot()</code> function. This produces Figure <a href="chap-tutorial.html#fig:tutorial-eplot">3.8</a>. To be able to use the <code>stat_ellipse()</code> function, the <code>td_vowels_norm</code> object first has to be modified, as it contains entire formant trajectories but two dimensional data is needed to be able to display it on the F2 x F1 plain. This can, for example, be achieved by only extracting temporal mid-point formant values for each vowel using the <code>get_trackdata()</code> function utilizing its <code>cut</code> parameter. The R code snippet below shows an alternative approach using the <code>dplyr</code>’s <code>filter()</code> function to essentially cut the formant trajectories to a specified proportional segment. By only extracting the values that have a normalized time value of 0.5 (<code>times_norm == 0.5</code>) only the formant values that are at the time normalized mid-point (calculated above using the <code>normalize_length()</code> function) are extracted from the trajectories.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cut formant trajectories at temporal mid-point</span>
-td_vowels_midpoint =<span class="st"> </span>td_vowels_norm <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(times_norm <span class="op">==</span><span class="st"> </span><span class="fl">0.5</span>)
-
-<span class="co"># show dimensions of td_vowels_midpoint</span>
-<span class="kw">dim</span>(td_vowels_midpoint)
-
-<span class="co"># calculate centroid </span>
-td_centroids =<span class="st"> </span>td_vowels_midpoint <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">T1 =</span> <span class="kw">mean</span>(T1), <span class="dt">T2 =</span> <span class="kw">mean</span>(T2))
-
-<span class="co"># generate plot</span>
-<span class="kw">ggplot</span>(td_vowels_midpoint, <span class="kw">aes</span>(<span class="dt">x =</span> T2, <span class="dt">y =</span> T1, <span class="dt">colour =</span> labels, <span class="dt">label =</span> labels)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> td_centroids) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_ellipse</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;F2 (Hz)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="co"># cut formant trajectories at temporal mid-point</span></a>
+<a class="sourceLine" id="cb45-2" title="2">td_vowels_midpoint =<span class="st"> </span>td_vowels_norm <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-3" title="3"><span class="st">  </span><span class="kw">filter</span>(times_norm <span class="op">==</span><span class="st"> </span><span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb45-4" title="4"></a>
+<a class="sourceLine" id="cb45-5" title="5"><span class="co"># show dimensions of td_vowels_midpoint</span></a>
+<a class="sourceLine" id="cb45-6" title="6"><span class="kw">dim</span>(td_vowels_midpoint)</a>
+<a class="sourceLine" id="cb45-7" title="7"></a>
+<a class="sourceLine" id="cb45-8" title="8"><span class="co"># calculate centroid </span></a>
+<a class="sourceLine" id="cb45-9" title="9">td_centroids =<span class="st"> </span>td_vowels_midpoint <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-10" title="10"><span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-11" title="11"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">T1 =</span> <span class="kw">mean</span>(T1), <span class="dt">T2 =</span> <span class="kw">mean</span>(T2))</a>
+<a class="sourceLine" id="cb45-12" title="12"></a>
+<a class="sourceLine" id="cb45-13" title="13"><span class="co"># generate plot</span></a>
+<a class="sourceLine" id="cb45-14" title="14"><span class="kw">ggplot</span>(td_vowels_midpoint, <span class="kw">aes</span>(<span class="dt">x =</span> T2, <span class="dt">y =</span> T1, <span class="dt">colour =</span> labels, <span class="dt">label =</span> labels)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-15" title="15"><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> td_centroids) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-16" title="16"><span class="st">  </span><span class="kw">stat_ellipse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-17" title="17"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb45-18" title="18"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;F2 (Hz)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-19" title="19"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] 28 24</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:tutorial-eplot"></span>
 <img src="tutorial_files/figure-html/tutorial-eplot-1.png" alt="95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments." width="576" />
@@ -774,17 +806,17 @@ Figure 3.8: 95% ellipse plot including centroid for F2 x F1 data extracted from 
 <div id="vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis" class="section level2">
 <h2><span class="header-section-number">3.6</span> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</h2>
 <p>The above data exploration only dealt with the actual <em>@</em> vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the <em>@</em> vowel occurs in a content (labeled <em>C</em>) or function (labeled <em>F</em>) word. For data inspection purposes, the R code snippet below initially extracts the central 60% (<code>filter()</code> conditions <code>times_norm &gt;= 0.2</code> and <code>times_norm &lt;= 0.8</code>) of the formant trajectories from <code>td_vowels_norm</code> using <code>dplyr</code> and displays them using <code>ggplot()</code>. It should be noted that before the call to <code>ggplot()</code> the labels of the <code>td_vowels_mid_sec</code> are replaced with those of <code>sl_word_type</code>. This allows <code>ggplot()</code> to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure <a href="chap-tutorial.html#fig:tutorial-dplotSylTyp">3.9</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># extract central 60% from formant trajectories</span>
-td_vowels_mid_sec =<span class="st"> </span>td_vowels_norm <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(times_norm <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.2</span>, times_norm <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span>)
-
-<span class="co"># replace labels with those of sl_word_type</span>
-td_vowels_mid_sec<span class="op">$</span>labels =<span class="st"> </span>sl_word_type<span class="op">$</span>labels[td_vowels_mid_sec<span class="op">$</span>sl_rowIdx]
-
-<span class="kw">ggplot</span>(td_vowels_mid_sec) <span class="op">+</span>
-<span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T1, <span class="dt">col =</span> labels, <span class="dt">group =</span> labels) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Duration (normalized)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) </code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="co"># extract central 60% from formant trajectories</span></a>
+<a class="sourceLine" id="cb47-2" title="2">td_vowels_mid_sec =<span class="st"> </span>td_vowels_norm <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-3" title="3"><span class="st">  </span><span class="kw">filter</span>(times_norm <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.2</span>, times_norm <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span>)</a>
+<a class="sourceLine" id="cb47-4" title="4"></a>
+<a class="sourceLine" id="cb47-5" title="5"><span class="co"># replace labels with those of sl_word_type</span></a>
+<a class="sourceLine" id="cb47-6" title="6">td_vowels_mid_sec<span class="op">$</span>labels =<span class="st"> </span>sl_word_type<span class="op">$</span>labels[td_vowels_mid_sec<span class="op">$</span>sl_rowIdx]</a>
+<a class="sourceLine" id="cb47-7" title="7"></a>
+<a class="sourceLine" id="cb47-8" title="8"><span class="kw">ggplot</span>(td_vowels_mid_sec) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-9" title="9"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T1, <span class="dt">col =</span> labels, <span class="dt">group =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-10" title="10"><span class="st">  </span><span class="kw">geom_smooth</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-11" title="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Duration (normalized)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1 (Hz)&quot;</span>) </a></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:tutorial-dplotSylTyp"></span>
 <img src="tutorial_files/figure-html/tutorial-dplotSylTyp-1.png" alt="Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*))." width="576" />
@@ -793,17 +825,17 @@ Figure 3.9: Ensemble averages of F1 contours of all tokens of the central 60% of
 </p>
 </div>
 <p>As can be seen in Figure <a href="chap-tutorial.html#fig:tutorial-dplotSylTyp">3.9</a>, there seems to be a distinction in F1 trajectory height between vowels in content and function words. The following R snippet shows the code to produce a boxplot once again using the <code>ggplot2</code> package to further visually inspect the data (see Figure <a href="chap-tutorial.html#fig:tutorial-boxplot">3.10</a> for the plot produced by the below code).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># use group_by + summarise to calculate the means of the 60%</span>
-<span class="co"># formant trajectories</span>
-td_vowels_mid_sec_mean =<span class="st"> </span>td_vowels_mid_sec <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">labels =</span> <span class="kw">unique</span>(labels), <span class="dt">meanF1 =</span> <span class="kw">mean</span>(T1))
-
-
-<span class="co"># create boxplot using ggplot</span>
-<span class="kw">ggplot</span>(td_vowels_mid_sec_mean, <span class="kw">aes</span>(labels, meanF1)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Word type&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;mean F1 (Hz)&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="co"># use group_by + summarise to calculate the means of the 60%</span></a>
+<a class="sourceLine" id="cb49-2" title="2"><span class="co"># formant trajectories</span></a>
+<a class="sourceLine" id="cb49-3" title="3">td_vowels_mid_sec_mean =<span class="st"> </span>td_vowels_mid_sec <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb49-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb49-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">labels =</span> <span class="kw">unique</span>(labels), <span class="dt">meanF1 =</span> <span class="kw">mean</span>(T1))</a>
+<a class="sourceLine" id="cb49-6" title="6"></a>
+<a class="sourceLine" id="cb49-7" title="7"></a>
+<a class="sourceLine" id="cb49-8" title="8"><span class="co"># create boxplot using ggplot</span></a>
+<a class="sourceLine" id="cb49-9" title="9"><span class="kw">ggplot</span>(td_vowels_mid_sec_mean, <span class="kw">aes</span>(labels, meanF1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-10" title="10"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-11" title="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Word type&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;mean F1 (Hz)&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tutorial-boxplot"></span>
 <img src="tutorial_files/figure-html/tutorial-boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word." width="576" />
 <p class="caption">
@@ -811,48 +843,48 @@ Figure 3.10: Boxplot produced using <code>ggplot2</code> to visualize the differ
 </p>
 </div>
 <p>To confirm or reject this, the following R code presents a very simple statistical analysis of the F1 mean values of the 60% mid-section formant trajectories.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> First, a Shapiro-Wilk test for normality of the distributions of the F1 means for both word types is carried out. As only one type is normally distributed, a Wilcoxon rank sum test is performed. The density distributions (commented out <code>plot()</code> function calls in the code below) are displayed in Figure <a href="chap-tutorial.html#fig:tutorial-stats1">3.11</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate density for vowels in function words</span>
-distrF =<span class="st"> </span><span class="kw">density</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;F&quot;</span>,]<span class="op">$</span>meanF1)
-
-<span class="co"># uncomment to visualize distribution</span>
-<span class="co"># plot(distrF)</span>
-
-<span class="co"># check that vowels in function</span>
-<span class="co"># words are normally distributed</span>
-<span class="kw">shapiro.test</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;F&quot;</span>,]<span class="op">$</span>meanF1)</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="co"># calculate density for vowels in function words</span></a>
+<a class="sourceLine" id="cb50-2" title="2">distrF =<span class="st"> </span><span class="kw">density</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;F&quot;</span>,]<span class="op">$</span>meanF1)</a>
+<a class="sourceLine" id="cb50-3" title="3"></a>
+<a class="sourceLine" id="cb50-4" title="4"><span class="co"># uncomment to visualize distribution</span></a>
+<a class="sourceLine" id="cb50-5" title="5"><span class="co"># plot(distrF)</span></a>
+<a class="sourceLine" id="cb50-6" title="6"></a>
+<a class="sourceLine" id="cb50-7" title="7"><span class="co"># check that vowels in function</span></a>
+<a class="sourceLine" id="cb50-8" title="8"><span class="co"># words are normally distributed</span></a>
+<a class="sourceLine" id="cb50-9" title="9"><span class="kw">shapiro.test</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;F&quot;</span>,]<span class="op">$</span>meanF1)</a></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == &quot;F&quot;,     ]$meanF1
 ## W = 0.98618, p-value = 0.9868</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># p-value &gt; 0.05 implying that the distribution</span>
-<span class="co"># of the data ARE NOT significantly different from</span>
-<span class="co"># normal distribution -&gt; we CAN assume normality</span>
-
-<span class="co"># calculate density for vowels in content words</span>
-distrC =<span class="st"> </span><span class="kw">density</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;C&quot;</span>,]<span class="op">$</span>meanF1)
-
-<span class="co"># uncomment to visualize distribution</span>
-<span class="co"># plot(distrC)</span>
-
-<span class="co"># check that vowels in content</span>
-<span class="co"># words are normally distributed:</span>
-<span class="kw">shapiro.test</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;C&quot;</span>,]<span class="op">$</span>meanF1)</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1"><span class="co"># p-value &gt; 0.05 implying that the distribution</span></a>
+<a class="sourceLine" id="cb52-2" title="2"><span class="co"># of the data ARE NOT significantly different from</span></a>
+<a class="sourceLine" id="cb52-3" title="3"><span class="co"># normal distribution -&gt; we CAN assume normality</span></a>
+<a class="sourceLine" id="cb52-4" title="4"></a>
+<a class="sourceLine" id="cb52-5" title="5"><span class="co"># calculate density for vowels in content words</span></a>
+<a class="sourceLine" id="cb52-6" title="6">distrC =<span class="st"> </span><span class="kw">density</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;C&quot;</span>,]<span class="op">$</span>meanF1)</a>
+<a class="sourceLine" id="cb52-7" title="7"></a>
+<a class="sourceLine" id="cb52-8" title="8"><span class="co"># uncomment to visualize distribution</span></a>
+<a class="sourceLine" id="cb52-9" title="9"><span class="co"># plot(distrC)</span></a>
+<a class="sourceLine" id="cb52-10" title="10"></a>
+<a class="sourceLine" id="cb52-11" title="11"><span class="co"># check that vowels in content</span></a>
+<a class="sourceLine" id="cb52-12" title="12"><span class="co"># words are normally distributed:</span></a>
+<a class="sourceLine" id="cb52-13" title="13"><span class="kw">shapiro.test</span>(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean<span class="op">$</span>labels <span class="op">==</span><span class="st"> &quot;C&quot;</span>,]<span class="op">$</span>meanF1)</a></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == &quot;C&quot;,     ]$meanF1
 ## W = 0.67216, p-value = 1.819e-05</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># p-value &lt; 0.05 implying that the distribution</span>
-<span class="co"># of the data ARE significantly different from</span>
-<span class="co"># normal distribution -&gt; we CAN NOT assume normality</span>
-<span class="co"># (this somewhat unexpected result is probably</span>
-<span class="co"># due to the small sample size used in this toy example)</span>
-<span class="co"># -&gt; use Wilcoxon rank sum test</span>
-
-<span class="co"># perform Wilcoxon rank sum test to establish</span>
-<span class="co"># whether vowel F1 depends on word type</span>
-<span class="kw">wilcox.test</span>(meanF1 <span class="op">~</span><span class="st"> </span>labels, <span class="dt">data =</span> td_vowels_mid_sec_mean)</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1"><span class="co"># p-value &lt; 0.05 implying that the distribution</span></a>
+<a class="sourceLine" id="cb54-2" title="2"><span class="co"># of the data ARE significantly different from</span></a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="co"># normal distribution -&gt; we CAN NOT assume normality</span></a>
+<a class="sourceLine" id="cb54-4" title="4"><span class="co"># (this somewhat unexpected result is probably</span></a>
+<a class="sourceLine" id="cb54-5" title="5"><span class="co"># due to the small sample size used in this toy example)</span></a>
+<a class="sourceLine" id="cb54-6" title="6"><span class="co"># -&gt; use Wilcoxon rank sum test</span></a>
+<a class="sourceLine" id="cb54-7" title="7"></a>
+<a class="sourceLine" id="cb54-8" title="8"><span class="co"># perform Wilcoxon rank sum test to establish</span></a>
+<a class="sourceLine" id="cb54-9" title="9"><span class="co"># whether vowel F1 depends on word type</span></a>
+<a class="sourceLine" id="cb54-10" title="10"><span class="kw">wilcox.test</span>(meanF1 <span class="op">~</span><span class="st"> </span>labels, <span class="dt">data =</span> td_vowels_mid_sec_mean)</a></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test
 ## 
@@ -954,8 +986,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

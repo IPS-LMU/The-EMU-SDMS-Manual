@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 d18862fe-cd24-4e62-b21b-bc39b76e01e9 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp8xfYPm/my-first_emuDB 
+## UUID:	 5a6e4b7f-d597-4ed5-b272-9eaa2d6f1c71 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpOoSiQB/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -206,7 +206,7 @@ class(sl_phonetic)
 ```
 
 ```
-## [1] "emuRsegs"   "emusegs"    "data.frame"
+## [1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 ```r
@@ -215,10 +215,13 @@ head(sl_phonetic, n = 1)
 ```
 
 ```
-## segment  list from database:  my-first 
-## query was:  Phonetic == n 
-##   labels    start      end session   bundle    level    type
-## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 n      1032. 1196. 5a6e4b… 0000    msajc…            98          98 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ```r
@@ -227,14 +230,34 @@ summary(sl_phonetic)
 ```
 
 ```
-## segment  list from database:  my-first 
-## query was:  Phonetic == n 
-##  with 12 segments
-## 
-## Segment distribution:
-## 
-##  n 
-## 12
+##     labels              start             end         db_uuid         
+##  Length:12          Min.   : 508.7   Min.   : 544   Length:12         
+##  Class :character   1st Qu.:1334.1   1st Qu.:1420   Class :character  
+##  Mode  :character   Median :1758.2   Median :1813   Mode  :character  
+##                     Mean   :1788.0   Mean   :1855                     
+##                     3rd Qu.:2409.4   3rd Qu.:2476                     
+##                     Max.   :3046.1   Max.   :3068                     
+##    session             bundle          start_item_id     end_item_id    
+##  Length:12          Length:12          Min.   : 91.00   Min.   : 91.00  
+##  Class :character   Class :character   1st Qu.: 97.75   1st Qu.: 97.75  
+##  Mode  :character   Mode  :character   Median :110.50   Median :110.50  
+##                                        Mean   :113.08   Mean   :113.08  
+##                                        3rd Qu.:127.75   3rd Qu.:127.75  
+##                                        Max.   :145.00   Max.   :145.00  
+##     level            attribute         start_item_seq_idx end_item_seq_idx
+##  Length:12          Length:12          Min.   : 6.00      Min.   : 6.00   
+##  Class :character   Class :character   1st Qu.:14.50      1st Qu.:14.50   
+##  Mode  :character   Mode  :character   Median :22.00      Median :22.00   
+##                                        Mean   :24.58      Mean   :24.58   
+##                                        3rd Qu.:34.25      3rd Qu.:34.25   
+##                                        Max.   :46.00      Max.   :46.00   
+##      type            sample_start     sample_end     sample_rate   
+##  Length:12          Min.   :10174   Min.   :10879   Min.   :20000  
+##  Class :character   1st Qu.:26682   1st Qu.:28408   1st Qu.:20000  
+##  Mode  :character   Median :35164   Median :36253   Median :20000  
+##                     Mean   :35760   Mean   :37100   Mean   :20000  
+##                     3rd Qu.:48190   3rd Qu.:49525   3rd Qu.:20000  
+##                     Max.   :60923   Max.   :61353   Max.   :20000
 ```
 
 As demonstrated in the above R code, the result of a query is an `emuRsegs` object, which is a super-class of the common `data.frame`. This object is often referred to as a segment list, or "seglist". A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \@ref(sec:query-emuRsegs). The above R code snippet shows that the `summary()` function can also be applied to a segment list object to get an overview of what is contained within it. This can be especially useful when dealing with larger segment lists.
@@ -374,10 +397,13 @@ head(sl_vowels, n = 1)
 ```
 
 ```
-## segment  list from database:  my-first 
-## query was:  Phonetic == @ 
-##   labels    start      end session   bundle    level    type
-## 1      @ 1506.175 1548.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 @      1506. 1548. 5a6e4b… 0000    msajc…           103         103 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word* level.
@@ -396,10 +422,13 @@ head(sl_word_type, n = 1)
 ```
 
 ```
-## segment  list from database:  my-first 
-## query was:  FROM REQUERY 
-##   labels start end session   bundle level type
-## 1      F    NA  NA    0000 msajc003  Word ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 F         NA    NA 5a6e4b… 0000    msajc…            16          16 Word 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ```r
@@ -483,23 +512,23 @@ td_vowels %>% filter(sl_rowIdx == 5)
 
 ```
 ## # A tibble: 12 x 24
-##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
-##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  2         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  3         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  4         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  5         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  6         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  7         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  8         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-##  9         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-## 10         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-## 11         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-## 12         5 @      2447. 2506. 0000… d18862… 0000    msajc…           119
-## # … with 15 more variables: end_item_id <int>, level <chr>,
-## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
-## #   sample_start <int>, sample_end <int>, sample_rate <int>,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  2         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  3         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  4         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  5         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  6         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  7         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  8         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  9         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+## 10         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+## 11         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+## 12         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+## # … with 16 more variables: end_item_id <int>, level <chr>,
+## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
+## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
 ## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>,
 ## #   T2 <int>, T3 <int>, T4 <int>
 ```

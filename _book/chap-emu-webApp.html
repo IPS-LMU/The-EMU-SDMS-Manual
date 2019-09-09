@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 The EMU-webApp16 | The EMU-SDMS Manual</title>
-  <meta name="description" content="9 The EMU-webApp16 | The EMU-SDMS Manual">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="9 The EMU-webApp16 | The EMU-SDMS Manual" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 The EMU-webApp16 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="9 The EMU-webApp16 | The EMU-SDMS Manual" />
   <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
 
-<meta name="author" content="Raphael Winkelmann">
+<meta name="author" content="Raphael Winkelmann" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-wrassp.html">
-<link rel="next" href="chap-emuRpackageDetails.html">
+<link rel="prev" href="chap-wrassp.html"/>
+<link rel="next" href="chap-emuRpackageDetails.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -191,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
 <li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
 <li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
-<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-tibble"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>tibble</code></a></li>
 <li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
@@ -259,7 +257,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
 <li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
 <li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
-<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis"><i class="fa fa-check"></i><b>14.4.1</b> NOTE: See @ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
 <li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
@@ -331,23 +331,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
-<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a></li>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-formant-burg...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.1</b> <code>To Formant (burg)...</code> to SSFF files</a></li>
+<li class="chapter" data-level="19.1.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-pitch...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.2</b> <code>To Pitch...</code> to SSFF files</a></li>
+</ul></li>
 <li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
 </ul></li>
 <li class="part"><span><b>VI Recipes</b></span></li>
 <li class="chapter" data-level="20" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>20</b> About</a></li>
-<li class="chapter" data-level="21" data-path="spectral-analysis.html"><a href="spectral-analysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
-<li class="chapter" data-level="21.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
-<li class="chapter" data-level="21.2" data-path="spectral-analysis.html"><a href="spectral-analysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
-<li class="chapter" data-level="21.3" data-path="spectral-analysis.html"><a href="spectral-analysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
+<li class="chapter" data-level="21" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
+<li class="chapter" data-level="21.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
+<li class="chapter" data-level="21.2" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
+<li class="chapter" data-level="21.3" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
 </ul></li>
-<li class="chapter" data-level="21.4" data-path="spectral-analysis.html"><a href="spectral-analysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
+<li class="chapter" data-level="21.4" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="plotting-snippets.html"><a href="plotting-snippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
-<li class="chapter" data-level="22.1" data-path="plotting-snippets.html"><a href="plotting-snippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
-<li class="chapter" data-level="22.2" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
-<li class="chapter" data-level="22.3" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
+<li class="chapter" data-level="22" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
+<li class="chapter" data-level="22.1" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
+<li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
+<li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs with Git, Git LFS and GitLab</a><ul>
 <li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
@@ -385,8 +388,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sec:emu-webApp-mainLayout" class="section level2">
 <h2><span class="header-section-number">9.1</span> Main layout</h2>
 <p>The main screen of the <code>EMU-webApp</code> can be split into five areas. Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a> shows a screenshot of the <code>EMU-webApp</code>’s main screen displaying these five areas while displaying a bundle of the <em>ae</em> demo database. This database is served to the <code>EMU-webApp</code> by invoking the <code>serve()</code> command as shown in the R code snippet below. The left side bar (area marked 1 in Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a>) represents the bundle list side bar which, if connected to a database, displays the currently available bundles grouped by their sessions. The top and bottom menu bars (areas marked 2 and 5 in Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a>) display the currently available menu options, where the bottom menu bar contains the audio navigation and playback controls and also includes a scrollable mini map of the oscillogram. Area 3 of Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a> displays the signal canvas area currently displaying the oscillogram and the spectrogram. Other signal contours such as formant frequency contours and fundamental frequency contours are also displayed in this area. Area 4 of Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a> displays the area in which levels containing time information are displayed. It is worth noting that the main screen of the <code>EMU-webApp</code> does not display any levels that do not contain time information. The hierarchical annotation can be displayed and edited by clicking the <code>show hierarchy</code> button in the top menu bar (see Figure <a href="chap-emu-webApp.html#fig:webApp-hierModal">9.6</a> for an example of how the hierarchy is displayed).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># serve ae emuDB to EMU-webApp</span>
-<span class="kw">serve</span>(ae)</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" title="1"><span class="co"># serve ae emuDB to EMU-webApp</span></a>
+<a class="sourceLine" id="cb215-2" title="2"><span class="kw">serve</span>(ae)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:emu-web-emuWebAppLayout"></span>
 <img src="pics/emu-webAppLayout.png" alt="Screenshot of `EMU-webApp` displaying the *ae* demo database with overlaid areas of the main screen of the web application (see text)." width="100%" />
 <p class="caption">
@@ -523,91 +526,91 @@ Figure 9.9: Screenshot of the hierarchy modal window of the <code>EMU-webApp</co
 <div id="subsec:emu-webAppConfigWithEmuR" class="section level3">
 <h3><span class="header-section-number">9.3.1</span> Basic configurations using <code>emuR</code></h3>
 <p>The R code snippet below shows how to create and load the demo data that will be used throughout the rest of this chapter.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load package</span>
-<span class="kw">library</span>(emuR)
-
-<span class="co"># create demo data in directory provided by tempdir()</span>
-<span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())
-
-<span class="co"># create path to demo database</span>
-path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)
-
-<span class="co"># load database</span>
-ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" title="1"><span class="co"># load package</span></a>
+<a class="sourceLine" id="cb216-2" title="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb216-3" title="3"></a>
+<a class="sourceLine" id="cb216-4" title="4"><span class="co"># create demo data in directory provided by tempdir()</span></a>
+<a class="sourceLine" id="cb216-5" title="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb216-6" title="6"></a>
+<a class="sourceLine" id="cb216-7" title="7"><span class="co"># create path to demo database</span></a>
+<a class="sourceLine" id="cb216-8" title="8">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb216-9" title="9"></a>
+<a class="sourceLine" id="cb216-10" title="10"><span class="co"># load database</span></a>
+<a class="sourceLine" id="cb216-11" title="11">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>As mentioned above, the <code>EMU-webApp</code> subdivides different ways to look at an <code>emuDB</code> into so-called <code>perspective</code>s. Users can switch between these <code>perspective</code>s in the web application. They contain, for example, information on what levels are displayed, which SSFF tracks are drawn. The R code snippet below shows how the current <code>perspective</code>s can be listed using the <code>list_perspectives()</code> function.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># list perspectives of ae emuDB</span>
-<span class="kw">list_perspectives</span>(ae)</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" title="1"><span class="co"># list perspectives of ae emuDB</span></a>
+<a class="sourceLine" id="cb217-2" title="2"><span class="kw">list_perspectives</span>(ae)</a></code></pre></div>
 <pre><code>##            name signalCanvasesOrder levelCanvasesOrder
 ## 1       default          OSCI; SPEC     Phonetic; Tone
 ## 2 Phonetic-only          OSCI; SPEC           Phonetic
 ## 3     Tone-only          OSCI; SPEC               Tone</code></pre>
 <p>As it is sometimes necessary to add new or remove existing perspectives to or from a database, the R code snippet below shows how this can be achieved using <code>emuR</code>’s <code>add/remove_perspective()</code> functions.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add new perspective to ae emuDB</span>
-<span class="kw">add_perspective</span>(ae,
-                <span class="dt">name =</span> <span class="st">&quot;tmpPersp&quot;</span>)
-
-<span class="co"># show added perspective</span>
-<span class="kw">list_perspectives</span>(ae)</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" title="1"><span class="co"># add new perspective to ae emuDB</span></a>
+<a class="sourceLine" id="cb219-2" title="2"><span class="kw">add_perspective</span>(ae,</a>
+<a class="sourceLine" id="cb219-3" title="3">                <span class="dt">name =</span> <span class="st">&quot;tmpPersp&quot;</span>)</a>
+<a class="sourceLine" id="cb219-4" title="4"></a>
+<a class="sourceLine" id="cb219-5" title="5"><span class="co"># show added perspective</span></a>
+<a class="sourceLine" id="cb219-6" title="6"><span class="kw">list_perspectives</span>(ae)</a></code></pre></div>
 <pre><code>##            name signalCanvasesOrder levelCanvasesOrder
 ## 1       default          OSCI; SPEC     Phonetic; Tone
 ## 2 Phonetic-only          OSCI; SPEC           Phonetic
 ## 3     Tone-only          OSCI; SPEC               Tone
 ## 4      tmpPersp          OSCI; SPEC</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># remove newly added perspective</span>
-<span class="kw">remove_perspective</span>(ae,
-                   <span class="dt">name =</span> <span class="st">&quot;tmpPersp&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" title="1"><span class="co"># remove newly added perspective</span></a>
+<a class="sourceLine" id="cb221-2" title="2"><span class="kw">remove_perspective</span>(ae,</a>
+<a class="sourceLine" id="cb221-3" title="3">                   <span class="dt">name =</span> <span class="st">&quot;tmpPersp&quot;</span>)</a></code></pre></div>
 </div>
 <div id="signal-canvas-and-level-canvas-order" class="section level3">
 <h3><span class="header-section-number">9.3.2</span> Signal canvas and level canvas order</h3>
 <p>As already mentioned, the above R code snippet shows that the <em>ae</em> <code>emuDB</code> contains three perspectives. The first perspective (<em>default</em>) displays the oscillogram (<code>OSCI</code>) followed by the spectrogram (<code>SPEC</code>) in the signal canvas area (area 3 of Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a>) and the <em>Phonetic</em> and <em>Tone</em> levels in the level canvas area (area 4 of Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a>). It is worth noting that <code>OSCI</code> (oscillogram) and <code>SPEC</code> (spectrogram) are predefined signal tracks that are always available. This is indicated by the capital letters indicating that they are predefined constants. The R code snippet below shows how the order of the signal canvases and level canvases can be changed using the <code>get/set_signalCanvasesOrder()</code> and <code>get/set_levelCanvasesOrder()</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get order vector of signal canvases of default perspective</span>
-sco =<span class="st"> </span><span class="kw">get_signalCanvasesOrder</span>(ae,
-                              <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)
-
-<span class="co"># show sco vector</span>
-sco</code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" title="1"><span class="co"># get order vector of signal canvases of default perspective</span></a>
+<a class="sourceLine" id="cb222-2" title="2">sco =<span class="st"> </span><span class="kw">get_signalCanvasesOrder</span>(ae,</a>
+<a class="sourceLine" id="cb222-3" title="3">                              <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)</a>
+<a class="sourceLine" id="cb222-4" title="4"></a>
+<a class="sourceLine" id="cb222-5" title="5"><span class="co"># show sco vector</span></a>
+<a class="sourceLine" id="cb222-6" title="6">sco</a></code></pre></div>
 <pre><code>## [1] &quot;OSCI&quot; &quot;SPEC&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reverse sco order</span>
-<span class="co"># using R&#39;s rev() function</span>
-scor =<span class="st"> </span><span class="kw">rev</span>(sco)
-
-<span class="co"># set order vector of signal canvases of default perspective</span>
-<span class="kw">set_signalCanvasesOrder</span>(ae,
-                        <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,
-                        <span class="dt">order =</span> scor)
-
-<span class="co"># set order vector of level canvases of default perspective</span>
-<span class="co"># to only display the &quot;Tone&quot; level</span>
-<span class="kw">set_levelCanvasesOrder</span>(ae,
-                       <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,
-                       <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;Tone&quot;</span>))
-
-<span class="co"># list perspectives of ae emuDB</span>
-<span class="co"># to show changes</span>
-<span class="kw">list_perspectives</span>(ae)</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" title="1"><span class="co"># reverse sco order</span></a>
+<a class="sourceLine" id="cb224-2" title="2"><span class="co"># using R&#39;s rev() function</span></a>
+<a class="sourceLine" id="cb224-3" title="3">scor =<span class="st"> </span><span class="kw">rev</span>(sco)</a>
+<a class="sourceLine" id="cb224-4" title="4"></a>
+<a class="sourceLine" id="cb224-5" title="5"><span class="co"># set order vector of signal canvases of default perspective</span></a>
+<a class="sourceLine" id="cb224-6" title="6"><span class="kw">set_signalCanvasesOrder</span>(ae,</a>
+<a class="sourceLine" id="cb224-7" title="7">                        <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,</a>
+<a class="sourceLine" id="cb224-8" title="8">                        <span class="dt">order =</span> scor)</a>
+<a class="sourceLine" id="cb224-9" title="9"></a>
+<a class="sourceLine" id="cb224-10" title="10"><span class="co"># set order vector of level canvases of default perspective</span></a>
+<a class="sourceLine" id="cb224-11" title="11"><span class="co"># to only display the &quot;Tone&quot; level</span></a>
+<a class="sourceLine" id="cb224-12" title="12"><span class="kw">set_levelCanvasesOrder</span>(ae,</a>
+<a class="sourceLine" id="cb224-13" title="13">                       <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,</a>
+<a class="sourceLine" id="cb224-14" title="14">                       <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;Tone&quot;</span>))</a>
+<a class="sourceLine" id="cb224-15" title="15"></a>
+<a class="sourceLine" id="cb224-16" title="16"><span class="co"># list perspectives of ae emuDB</span></a>
+<a class="sourceLine" id="cb224-17" title="17"><span class="co"># to show changes</span></a>
+<a class="sourceLine" id="cb224-18" title="18"><span class="kw">list_perspectives</span>(ae)</a></code></pre></div>
 <pre><code>##            name signalCanvasesOrder levelCanvasesOrder
 ## 1       default          SPEC; OSCI               Tone
 ## 2 Phonetic-only          OSCI; SPEC           Phonetic
 ## 3     Tone-only          OSCI; SPEC               Tone</code></pre>
 <p>After the changes made in the R code snippet above, the default perspective will show the spectrogram above the oscillogram in the signal canvas area and only the <em>Tone</em> level in the level canvas area. Only levels with time information are allowed to be displayed in the level canvas area, and the <code>set_levelCanvasesOrder()</code> will print an error if a level of type <code>ITEM</code> is added (see R code snippet below).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># set level canvas order where a</span>
-<span class="co"># level is passed into the order parameter</span>
-<span class="co"># that is not of type EVENT or SEGMENT</span>
-<span class="kw">set_levelCanvasesOrder</span>(ae,
-                       <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,
-                       <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;Syllable&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" title="1"><span class="co"># set level canvas order where a</span></a>
+<a class="sourceLine" id="cb226-2" title="2"><span class="co"># level is passed into the order parameter</span></a>
+<a class="sourceLine" id="cb226-3" title="3"><span class="co"># that is not of type EVENT or SEGMENT</span></a>
+<a class="sourceLine" id="cb226-4" title="4"><span class="kw">set_levelCanvasesOrder</span>(ae,</a>
+<a class="sourceLine" id="cb226-5" title="5">                       <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,</a>
+<a class="sourceLine" id="cb226-6" title="6">                       <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;Syllable&quot;</span>))</a></code></pre></div>
 <pre><code>## Error in set_levelCanvasesOrder(ae, perspectiveName = &quot;default&quot;, order = c(&quot;Syllable&quot;)): levelDefinition with name &#39;Syllable&#39; is not of type &#39;SEGMENT&#39; or &#39;EVENT&#39;</code></pre>
 <p>The same mechanism used above can also be used to display any SSFF track that is defined for the database by referencing its name. The R code snippet below shows how the existing SSFF track called <em>fm</em> (containing formant values calculated by <code>wrassp</code>’s <code>forest()</code> function) can be added to the signal canvas area.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show currently available SSFF tracks</span>
-<span class="kw">list_ssffTrackDefinitions</span>(ae)</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" title="1"><span class="co"># show currently available SSFF tracks</span></a>
+<a class="sourceLine" id="cb228-2" title="2"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
 <pre><code>##   name columnName fileExtension
 ## 1  dft        dft           dft
 ## 2   fm         fm           fms</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># re-set order vector of signal canvases of default perspective</span>
-<span class="co"># by appending the fm track</span>
-<span class="kw">set_signalCanvasesOrder</span>(ae,
-                        <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,
-                        <span class="dt">order =</span> <span class="kw">c</span>(scor, <span class="st">&quot;fm&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" title="1"><span class="co"># re-set order vector of signal canvases of default perspective</span></a>
+<a class="sourceLine" id="cb230-2" title="2"><span class="co"># by appending the fm track</span></a>
+<a class="sourceLine" id="cb230-3" title="3"><span class="kw">set_signalCanvasesOrder</span>(ae,</a>
+<a class="sourceLine" id="cb230-4" title="4">                        <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,</a>
+<a class="sourceLine" id="cb230-5" title="5">                        <span class="dt">order =</span> <span class="kw">c</span>(scor, <span class="st">&quot;fm&quot;</span>))</a></code></pre></div>
 <p>A screenshot of the current display of the <em>default</em> perspective can be seen in Figure <a href="chap-emu-webApp.html#fig:webApp-postOderChange">9.10</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-postOderChange"></span>
 <img src="pics/emu-webAppPostOderChange.png" alt="Screenshot of signal and level canvases displays of the `EMU-webApp` after the changes made in the above R code snippets." width="100%" />
@@ -623,12 +626,12 @@ Figure 9.10: Screenshot of signal and level canvases displays of the <code>EMU-w
 <h4><span class="header-section-number">9.3.3.1</span> Overlaying signal canvases</h4>
 <p>To save space it can be beneficial to overlay one or more signal tracks onto other signal canvases. This can be achieved by manually editing the <code>assign</code> array of the <code>EMUwebAppConfig:perspectives[persp_idx]:signalCanvases</code> field in the <code>_DBconfig.json</code>. Listing <a href="#lst:webApp-overlay"><strong>??</strong></a> shows an example configuration that overlays the <em>fm</em> track on the oscillogram where the <code>OSCI</code> string can be replaced by any other entry in the <code>EMUwebAppConfig:perspectives[persp_idx]:signalCanvases:order</code> array. Figure <a href="chap-emu-webApp.html#fig:webApp-overlay1">9.11</a> displays a screenshot of such an overlay.</p>
 <!-- [caption={Overlay configuration of fm track over OSCI}, label={lst:webApp_overlay}, language=json, firstnumber=1] -->
-<pre class="sourceCode json"><code class="sourceCode json"><span class="er">...</span>
-<span class="er">&quot;assign&quot;:</span> <span class="ot">[</span><span class="fu">{</span>
-    <span class="dt">&quot;signalCanvasName&quot;</span><span class="fu">:</span> <span class="st">&quot;OSCI&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;ssffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;fm&quot;</span>
-<span class="fu">}</span><span class="ot">]</span><span class="er">,</span>
-<span class="er">...</span></code></pre>
+<div class="sourceCode" id="cb231"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb231-1" title="1"><span class="er">...</span></a>
+<a class="sourceLine" id="cb231-2" title="2"><span class="er">&quot;assign&quot;:</span> <span class="ot">[</span><span class="fu">{</span></a>
+<a class="sourceLine" id="cb231-3" title="3">    <span class="dt">&quot;signalCanvasName&quot;</span><span class="fu">:</span> <span class="st">&quot;OSCI&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb231-4" title="4">    <span class="dt">&quot;ssffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;fm&quot;</span></a>
+<a class="sourceLine" id="cb231-5" title="5"><span class="fu">}</span><span class="ot">]</span><span class="er">,</span></a>
+<a class="sourceLine" id="cb231-6" title="6"><span class="er">...</span></a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:webApp-overlay1"></span>
 <img src="pics/emu-webAppOverlay.png" alt="Screenshot of signal canvases display of the `EMU-webApp` after the changes made in the R code snippets above." width="100%" />
 <p class="caption">
@@ -640,12 +643,12 @@ Figure 9.11: Screenshot of signal canvases display of the <code>EMU-webApp</code
 <h4><span class="header-section-number">9.3.3.2</span> Frequency-aligned formant contours spectrogram overlay</h4>
 <p>The current mechanism for laying frequency-aligned formant contours over the spectrogram is to give the formant track the predefined name <em>FORMANTS</em>. If the formant track is called <em>FORMANTS</em> and it is assigned to be laid over the spectrogram (see Listing <a href="#lst:webApp-overlayFreqAlg"><strong>??</strong></a>) the <code>EMU-webApp</code> will frequency-align the contours to the current minimum and maximum spectrogram frequencies (see Figure <a href="chap-emu-webApp.html#fig:webApp-overlay2">9.12</a>).</p>
 <!-- [caption={Overlay configuration of FORMANTS track over SPEC}, label={lst:webApp_overlayFreqAlg}, language=json, firstnumber=1] -->
-<pre class="sourceCode json"><code class="sourceCode json"><span class="er">...</span>
-<span class="er">&quot;assign&quot;:</span> <span class="ot">[</span><span class="fu">{</span>
-    <span class="dt">&quot;signalCanvasName&quot;</span><span class="fu">:</span> <span class="st">&quot;SPEC&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;ssffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;FORMANTS&quot;</span>
-<span class="fu">}</span><span class="ot">]</span><span class="er">,</span>
-<span class="er">...</span></code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb232-1" title="1"><span class="er">...</span></a>
+<a class="sourceLine" id="cb232-2" title="2"><span class="er">&quot;assign&quot;:</span> <span class="ot">[</span><span class="fu">{</span></a>
+<a class="sourceLine" id="cb232-3" title="3">    <span class="dt">&quot;signalCanvasName&quot;</span><span class="fu">:</span> <span class="st">&quot;SPEC&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb232-4" title="4">    <span class="dt">&quot;ssffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;FORMANTS&quot;</span></a>
+<a class="sourceLine" id="cb232-5" title="5"><span class="fu">}</span><span class="ot">]</span><span class="er">,</span></a>
+<a class="sourceLine" id="cb232-6" title="6"><span class="er">...</span></a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:webApp-overlay2"></span>
 <img src="pics/emu-webAppOverlayFreqAlg.png" alt="Screenshot of signal canvases area of the `EMU-webApp` displaying formant contours that are overlaid on the spectrogram and frequency-aligned." width="100%" />
 <p class="caption">
@@ -668,26 +671,26 @@ Figure 9.13: Screenshot of 2D canvas of the <code>EMU-webApp</code> displaying t
 </p>
 </div>
 <!-- [caption={Configuration of the 2D canvas to display \ac{ema} data.}, label={lst:webApp_2dCanvas}, language=json, firstnumber=1] -->
-<pre class="sourceCode json"><code class="sourceCode json"><span class="er">...</span>
-<span class="er">&quot;twoDimCanvases&quot;:</span> <span class="fu">{</span>
-    <span class="dt">&quot;order&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;DOTS&quot;</span><span class="ot">]</span><span class="fu">,</span>
-    <span class="dt">&quot;twoDimDrawingDefinitions&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span>
-        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;DOTS&quot;</span><span class="fu">,</span>
-        <span class="dt">&quot;dots&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span>
-            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;tt&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;xSsffTrack&quot;</span><span class="fu">:</span> <span class="st">&quot;tt_posy&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;xContourNr&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span>
-            <span class="dt">&quot;ySsffTrack&quot;</span><span class="fu">:</span> <span class="st">&quot;tt_posz&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;yContourNr&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span>
-            <span class="dt">&quot;color&quot;</span><span class="fu">:</span> <span class="st">&quot;rgb(255,0,0)&quot;</span>
-        <span class="fu">}</span><span class="ot">,</span>
-<span class="er">...</span>
-    <span class="st">&quot;connectLines&quot;</span><span class="er">:</span> <span class="ot">[</span><span class="fu">{</span>
-        <span class="dt">&quot;fromDot&quot;</span><span class="fu">:</span> <span class="st">&quot;tt&quot;</span><span class="fu">,</span>
-        <span class="dt">&quot;toDot&quot;</span><span class="fu">:</span> <span class="st">&quot;tm&quot;</span><span class="fu">,</span>
-            <span class="dt">&quot;color&quot;</span><span class="fu">:</span> <span class="st">&quot;rgb(0,0,0)&quot;</span>
-    <span class="fu">}</span><span class="ot">,</span>
-<span class="er">...</span></code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb233-1" title="1"><span class="er">...</span></a>
+<a class="sourceLine" id="cb233-2" title="2"><span class="er">&quot;twoDimCanvases&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb233-3" title="3">    <span class="dt">&quot;order&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;DOTS&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-4" title="4">    <span class="dt">&quot;twoDimDrawingDefinitions&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></a>
+<a class="sourceLine" id="cb233-5" title="5">        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;DOTS&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-6" title="6">        <span class="dt">&quot;dots&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></a>
+<a class="sourceLine" id="cb233-7" title="7">            <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;tt&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-8" title="8">            <span class="dt">&quot;xSsffTrack&quot;</span><span class="fu">:</span> <span class="st">&quot;tt_posy&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-9" title="9">            <span class="dt">&quot;xContourNr&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-10" title="10">            <span class="dt">&quot;ySsffTrack&quot;</span><span class="fu">:</span> <span class="st">&quot;tt_posz&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-11" title="11">            <span class="dt">&quot;yContourNr&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-12" title="12">            <span class="dt">&quot;color&quot;</span><span class="fu">:</span> <span class="st">&quot;rgb(255,0,0)&quot;</span></a>
+<a class="sourceLine" id="cb233-13" title="13">        <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb233-14" title="14"><span class="er">...</span></a>
+<a class="sourceLine" id="cb233-15" title="15">    <span class="st">&quot;connectLines&quot;</span><span class="er">:</span> <span class="ot">[</span><span class="fu">{</span></a>
+<a class="sourceLine" id="cb233-16" title="16">        <span class="dt">&quot;fromDot&quot;</span><span class="fu">:</span> <span class="st">&quot;tt&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-17" title="17">        <span class="dt">&quot;toDot&quot;</span><span class="fu">:</span> <span class="st">&quot;tm&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb233-18" title="18">            <span class="dt">&quot;color&quot;</span><span class="fu">:</span> <span class="st">&quot;rgb(0,0,0)&quot;</span></a>
+<a class="sourceLine" id="cb233-19" title="19">    <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb233-20" title="20"><span class="er">...</span></a></code></pre></div>
 <div id="epg" class="section level4">
 <h4><span class="header-section-number">9.3.4.1</span> EPG</h4>
 <p>The 2D canvas of the <code>EMU-webApp</code> can also be configured to display EPG data as displayed in Figure <a href="chap-emu-webApp.html#fig:webApp-2dEPG">9.14</a>. The SSFF file containing the EPG data has to be formated in a specific way. The format is a set of eight bytes per point in time, where each byte represents a row of electrodes on the artificial palate. Each binary bit value per byte indicates whether one of the eight sensors is activated or not (i.e., tongue contact was measured). If data in this format and an SSFF track with the predefined name <em>EPG</em> referencing the SSFF files are present, the 2D canvas can be configured to display this data by adding the <em>EPG</em> to the <code>twoDimCanvases:order</code> array as shown in Listing <a href="#lst:webApp-2dEPG"><strong>??</strong></a>.</p>
@@ -698,36 +701,36 @@ Figure 9.14: Screenshot of 2D canvas of the <code>EMU-webApp</code> displaying E
 </p>
 </div>
 <!-- [caption={Configuration of the 2D canvas to display \ac{epg} data}, label={lst:webApp_2dEPG}, language=json, firstnumber=1] -->
-<pre class="sourceCode json"><code class="sourceCode json"><span class="er">&quot;twoDimCanvases&quot;:</span> <span class="fu">{</span>
-    <span class="dt">&quot;order&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;EPG&quot;</span><span class="ot">]</span>
-<span class="fu">}</span></code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb234-1" title="1"><span class="er">&quot;twoDimCanvases&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb234-2" title="2">    <span class="dt">&quot;order&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;EPG&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb234-3" title="3"><span class="fu">}</span></a></code></pre></div>
 </div>
 <div id="ema-gestural-landmark-recognition" class="section level4">
 <h4><span class="header-section-number">9.3.4.2</span> EMA gestural landmark recognition</h4>
 <p>The <code>EMU-webApp</code> can also be configured to semi-automatically detect gestural landmarks of EMA contours. The functions implemented in the <code>EMU-webApp</code> are based on various Matlab scripts by Phil Hoole. For a description of which gestural landmarks are detected and how these are detected, see <span class="citation">Bombien (<a href="#ref-bombien:2011aa">2011</a>)</span> page 61 ff.</p>
 <p>Compared to the above configurations, configuring the <code>EMU-webApp</code> to semi-automatically detect gestural landmarks of EMA contours is done as part of the level definition’s configuration entries of the <code>_DBconfig.json</code>. Listing <a href="#lst:webApp-EMAconfig"><strong>??</strong></a> shows the <code>anagestConfig</code> entry, which configures the <em>tongueTipGestures</em> event level for this purpose. Within the web application this level has to be preselected by the user and a region containing a gesture in the SSFF track selected (left click and drag). Hitting the <code>ENTER</code>/<code>RETURN</code> key then executes the semi-automatic gestural landmark recognition functions. If multiple candidates are recognized for certain landmarks, the user will be prompted to select the appropriate landmark.</p>
 <!-- [caption={EMA gestural landmark recognition configuration for the *tongueTipGestures* event level.}, label={lst:webApp_EMAconfig}, language=json, firstnumber=1] -->
-<pre class="sourceCode json"><code class="sourceCode json"><span class="er">...</span>
-<span class="er">&quot;levelDefinitions&quot;:</span> <span class="ot">[</span><span class="fu">{</span>
-  <span class="er">{</span>
-    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;tongueTipGestures&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;EVENT&quot;</span><span class="fu">,</span>
-    <span class="dt">&quot;attributeDefinitions&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span>
-        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;tongueTipGestures&quot;</span><span class="fu">,</span>
-        <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;STRING&quot;</span>
-    <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span>
-    <span class="dt">&quot;anagestConfig&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;verticalPosSsffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;tt_posz&quot;</span><span class="fu">,</span>
-        <span class="dt">&quot;velocitySsffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;t_tipTV&quot;</span><span class="fu">,</span>
-        <span class="dt">&quot;autoLinkLevelName&quot;</span><span class="fu">:</span> <span class="st">&quot;ORT&quot;</span><span class="fu">,</span>
-        <span class="dt">&quot;multiplicationFactor&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span>
-        <span class="dt">&quot;threshold&quot;</span><span class="fu">:</span> <span class="fl">0.2</span><span class="fu">,</span>
-        <span class="dt">&quot;gestureOnOffsetLabels&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;gon&quot;</span><span class="ot">,</span> <span class="st">&quot;goff&quot;</span><span class="ot">]</span><span class="fu">,</span>
-        <span class="dt">&quot;maxVelocityOnOffsetLabels&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;von&quot;</span><span class="ot">,</span> <span class="st">&quot;voff&quot;</span><span class="ot">]</span><span class="fu">,</span>
-        <span class="dt">&quot;constrictionPlateauBeginEndLabels&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;pon&quot;</span><span class="ot">,</span> <span class="st">&quot;poff&quot;</span><span class="ot">]</span><span class="fu">,</span>
-        <span class="dt">&quot;maxConstrictionLabel&quot;</span><span class="fu">:</span> <span class="st">&quot;mon&quot;</span>
-    <span class="fu">}</span>
-<span class="er">...</span></code></pre>
+<div class="sourceCode" id="cb235"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb235-1" title="1"><span class="er">...</span></a>
+<a class="sourceLine" id="cb235-2" title="2"><span class="er">&quot;levelDefinitions&quot;:</span> <span class="ot">[</span><span class="fu">{</span></a>
+<a class="sourceLine" id="cb235-3" title="3">  <span class="er">{</span></a>
+<a class="sourceLine" id="cb235-4" title="4">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;tongueTipGestures&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-5" title="5">    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;EVENT&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-6" title="6">    <span class="dt">&quot;attributeDefinitions&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span></a>
+<a class="sourceLine" id="cb235-7" title="7">        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;tongueTipGestures&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-8" title="8">        <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;STRING&quot;</span></a>
+<a class="sourceLine" id="cb235-9" title="9">    <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-10" title="10">    <span class="dt">&quot;anagestConfig&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb235-11" title="11">        <span class="dt">&quot;verticalPosSsffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;tt_posz&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-12" title="12">        <span class="dt">&quot;velocitySsffTrackName&quot;</span><span class="fu">:</span> <span class="st">&quot;t_tipTV&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-13" title="13">        <span class="dt">&quot;autoLinkLevelName&quot;</span><span class="fu">:</span> <span class="st">&quot;ORT&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-14" title="14">        <span class="dt">&quot;multiplicationFactor&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-15" title="15">        <span class="dt">&quot;threshold&quot;</span><span class="fu">:</span> <span class="fl">0.2</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-16" title="16">        <span class="dt">&quot;gestureOnOffsetLabels&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;gon&quot;</span><span class="ot">,</span> <span class="st">&quot;goff&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-17" title="17">        <span class="dt">&quot;maxVelocityOnOffsetLabels&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;von&quot;</span><span class="ot">,</span> <span class="st">&quot;voff&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-18" title="18">        <span class="dt">&quot;constrictionPlateauBeginEndLabels&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;pon&quot;</span><span class="ot">,</span> <span class="st">&quot;poff&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb235-19" title="19">        <span class="dt">&quot;maxConstrictionLabel&quot;</span><span class="fu">:</span> <span class="st">&quot;mon&quot;</span></a>
+<a class="sourceLine" id="cb235-20" title="20">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb235-21" title="21"><span class="er">...</span></a></code></pre></div>
 <p>The user will be prompted to select an annotation item of the level specified in <code>anagestConfig:autoLinkLevelName</code> once the gestural landmarks are recognized. The <code>EMU-webApp</code> then automatically links all gestural landmark events to that item.</p>
 </div>
 </div>
@@ -743,11 +746,11 @@ Figure 9.14: Screenshot of 2D canvas of the <code>EMU-webApp</code> displaying E
 
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-coleman:lp1991a">
-<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3): 295–338.</p>
-</div>
 <div id="ref-bombien:2011aa">
 <p>Bombien, Lasse. 2011. “Segmental and Prosodic Aspects in the Production of Consonant Clusters: On the Goodness of Clusters.” PhD thesis, München, Univ., Diss., 2011.</p>
+</div>
+<div id="ref-coleman:lp1991a">
+<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3): 295–338.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -818,8 +821,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

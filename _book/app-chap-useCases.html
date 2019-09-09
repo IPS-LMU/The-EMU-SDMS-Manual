@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14 Use cases | The EMU-SDMS Manual</title>
-  <meta name="description" content="14 Use cases | The EMU-SDMS Manual">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="14 Use cases | The EMU-SDMS Manual" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14 Use cases | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="14 Use cases | The EMU-SDMS Manual" />
   <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
 
-<meta name="author" content="Raphael Winkelmann">
+<meta name="author" content="Raphael Winkelmann" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-emu-webAppImplementation.html">
-<link rel="next" href="app-chap-fileFormats.html">
+<link rel="prev" href="chap-emu-webAppImplementation.html"/>
+<link rel="next" href="app-chap-fileFormats.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -191,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
 <li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
 <li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
-<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-tibble"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>tibble</code></a></li>
 <li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
@@ -259,7 +257,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
 <li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
 <li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
-<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis"><i class="fa fa-check"></i><b>14.4.1</b> NOTE: See @ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
 <li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
@@ -331,23 +331,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
-<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a></li>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-formant-burg...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.1</b> <code>To Formant (burg)...</code> to SSFF files</a></li>
+<li class="chapter" data-level="19.1.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-pitch...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.2</b> <code>To Pitch...</code> to SSFF files</a></li>
+</ul></li>
 <li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
 </ul></li>
 <li class="part"><span><b>VI Recipes</b></span></li>
 <li class="chapter" data-level="20" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>20</b> About</a></li>
-<li class="chapter" data-level="21" data-path="spectral-analysis.html"><a href="spectral-analysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
-<li class="chapter" data-level="21.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
-<li class="chapter" data-level="21.2" data-path="spectral-analysis.html"><a href="spectral-analysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
-<li class="chapter" data-level="21.3" data-path="spectral-analysis.html"><a href="spectral-analysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
+<li class="chapter" data-level="21" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
+<li class="chapter" data-level="21.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
+<li class="chapter" data-level="21.2" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
+<li class="chapter" data-level="21.3" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
 </ul></li>
-<li class="chapter" data-level="21.4" data-path="spectral-analysis.html"><a href="spectral-analysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
+<li class="chapter" data-level="21.4" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="plotting-snippets.html"><a href="plotting-snippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
-<li class="chapter" data-level="22.1" data-path="plotting-snippets.html"><a href="plotting-snippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
-<li class="chapter" data-level="22.2" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
-<li class="chapter" data-level="22.3" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
+<li class="chapter" data-level="22" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
+<li class="chapter" data-level="22.1" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
+<li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
+<li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs with Git, Git LFS and GitLab</a><ul>
 <li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
@@ -389,69 +392,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \end{itemize}</li>
 </ul>
 <p>The R code snippet below shows how the <code>emuR</code> demo data used in this chapter is created.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load the package </span>
-<span class="kw">library</span>(emuR)
-
-<span class="co"># create demo data in directory provided by the tempdir() function</span>
-<span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())
-
-<span class="co"># get the path to emuDB called &#39;ae&#39; that is part of the demo data</span>
-path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)
-
-<span class="co"># load emuDB into current R session</span>
-ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory)</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" title="1"><span class="co"># load the package </span></a>
+<a class="sourceLine" id="cb257-2" title="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb257-3" title="3"></a>
+<a class="sourceLine" id="cb257-4" title="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
+<a class="sourceLine" id="cb257-5" title="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb257-6" title="6"></a>
+<a class="sourceLine" id="cb257-7" title="7"><span class="co"># get the path to emuDB called &#39;ae&#39; that is part of the demo data</span></a>
+<a class="sourceLine" id="cb257-8" title="8">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb257-9" title="9"></a>
+<a class="sourceLine" id="cb257-10" title="10"><span class="co"># load emuDB into current R session</span></a>
+<a class="sourceLine" id="cb257-11" title="11">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory)</a></code></pre></div>
 <div id="sec:app-chap-useCases-q1" class="section level2">
 <h2><span class="header-section-number">14.1</span> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</h2>
 <p>The first thing that has to be done to address this fairly simple question is to query the database for all <em>n</em> segments. This can be achieved using the <code>query()</code> function as shown in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># query segments</span>
-sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="dt">query =</span> <span class="st">&quot;Phonetic == n&quot;</span>)
-
-<span class="co"># show first row of sl</span>
-<span class="kw">head</span>(sl, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  ae 
-## query was:  Phonetic == n 
-##   labels    start      end session   bundle    level    type
-## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT</code></pre>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb258-1" title="1"><span class="co"># query segments</span></a>
+<a class="sourceLine" id="cb258-2" title="2">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="dt">query =</span> <span class="st">&quot;Phonetic == n&quot;</span>)</a>
+<a class="sourceLine" id="cb258-3" title="3"></a>
+<a class="sourceLine" id="cb258-4" title="4"><span class="co"># show first row of sl</span></a>
+<a class="sourceLine" id="cb258-5" title="5"><span class="kw">head</span>(sl, <span class="dt">n =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
+## 1 n      1032. 1196. 0fc618… 0000    msajc…           158         158 Phon…
+## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
+## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
+## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
 <p>The second argument of the <code>query()</code> contains a string that represents an EQL statement. This fairly simple EQL statement consists of <code>==</code>, which is the equality operator of the EQL, and on the right hand side of the operator the label <em>n</em> that we are looking for.</p>
 <p>The <code>query()</code> function returns an object of the class <code>emuRsegs</code> that is a superclass of the well known <code>data.frame</code>. The various columns of this object should be fairly self-explanatory: <code>labels</code> displays the extracted labels, <code>start</code> and <code>end</code> are the start time and end times in milliseconds of each segment and so on. We can now use the information in this object to calculate the mean durations of these segments as shown in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate durations</span>
-d =<span class="st"> </span><span class="kw">dur</span>(sl)
-
-<span class="co"># calculate mean</span>
-<span class="kw">mean</span>(d)</code></pre>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" title="1"><span class="co"># calculate durations</span></a>
+<a class="sourceLine" id="cb260-2" title="2">d =<span class="st"> </span>sl<span class="op">$</span>end <span class="op">-</span><span class="st"> </span>sl<span class="op">$</span>start</a>
+<a class="sourceLine" id="cb260-3" title="3"></a>
+<a class="sourceLine" id="cb260-4" title="4"><span class="co"># calculate mean</span></a>
+<a class="sourceLine" id="cb260-5" title="5"><span class="kw">mean</span>(d)</a></code></pre></div>
 <pre><code>## [1] 67.05833</code></pre>
 </div>
 <div id="sec:app-chap-useCases-q2" class="section level2">
 <h2><span class="header-section-number">14.2</span> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</h2>
 <p>Once again we will initially query the <code>emuDB</code> to retrieve the segments we are interested in as shown in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># query emuDB</span>
-sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="dt">query =</span> <span class="st">&quot;Phonetic == I|o:|u:|V|@&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" title="1"><span class="co"># query emuDB</span></a>
+<a class="sourceLine" id="cb262-2" title="2">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="dt">query =</span> <span class="st">&quot;Phonetic == I|o:|u:|V|@&quot;</span>)</a></code></pre></div>
 <p>Now that the necessary segment information has been extracted, the <code>get\_trackdata()</code> function can be used to calculate the formant values for these segments as displayed in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get formant values for these segments</span>
-td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl,
-                   <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;forest&quot;</span>,
-                   <span class="dt">resultType =</span> <span class="st">&quot;emuRtrackdata&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" title="1"><span class="co"># get formant values for these segments</span></a>
+<a class="sourceLine" id="cb263-2" title="2">td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, </a>
+<a class="sourceLine" id="cb263-3" title="3">                   sl,</a>
+<a class="sourceLine" id="cb263-4" title="4">                   <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;forest&quot;</span>)</a></code></pre></div>
 <p>In this example, the <code>get_trackdata()</code> function uses a formant estimation function called <code>forest()</code> to calculate the formant values in real time. This signal processing function is part of the <code>wrassp</code> package, which is used by the <code>emuR</code> package to perform signal processing duties with the <code>get_trackdata()</code> command (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for details).</p>
-<p>If the <code>resultType</code> parameter is set to <code>emuRtrackdata</code> in the call to <code>get\_trackdata()</code>, an object of the class <code>emuRtrackdata</code> is returned. The class vector of the <code>td</code> object is displayed in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show class vector of td</span>
-<span class="kw">class</span>(td)</code></pre>
-<pre><code>## [1] &quot;emuRtrackdata&quot; &quot;data.frame&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show first line of td</span>
-<span class="kw">head</span>(td, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>##   sl_rowIdx labels   start     end session   bundle    level    type
-## 1         1      V 187.425 256.925    0000 msajc003 Phonetic SEGMENT
-##   times_orig times_rel times_norm T1   T2   T3   T4
-## 1      187.5         0          0  0 1293 2424 3429</code></pre>
-<p>As the <code>emuRtrackdata</code> class is a superclass to the common <code>data.table</code> and <code>data.frame</code> classes, packages like <code>ggplot2</code> can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure <a href="app-chap-useCases.html#fig:usecases-uc2plot">14.1</a> for the resulting plot).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load package</span>
-<span class="kw">library</span>(ggplot2)
-
-<span class="co"># scatter plot of F1 and F2 values using ggplot</span>
-<span class="kw">ggplot</span>(td, <span class="kw">aes</span>(<span class="dt">x=</span>T2, <span class="dt">y=</span>T1, <span class="dt">label=</span>td<span class="op">$</span>labels)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">colour=</span><span class="kw">factor</span>(labels))) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;F2(Hz)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1(Hz)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">colour=</span><span class="ot">FALSE</span>)</code></pre>
+<p>If the <code>resultType</code> parameter is not set the call to <code>get\_trackdata()</code>, an object of the class <code>tibble</code> is returned. The class vector of the <code>td</code> object is displayed in the R code snippet below.</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" title="1"><span class="co"># show class vector of td</span></a>
+<a class="sourceLine" id="cb264-2" title="2"><span class="kw">class</span>(td)</a></code></pre></div>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" title="1"><span class="co"># show td</span></a>
+<a class="sourceLine" id="cb266-2" title="2">td</a></code></pre></div>
+<pre><code>## # A tibble: 641 x 24
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
+##  1         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  2         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  3         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  4         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  5         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  6         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  7         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  8         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  9         1 V       187.  257. 0fc618… 0000    msajc…           147
+## 10         1 V       187.  257. 0fc618… 0000    msajc…           147
+## # … with 631 more rows, and 16 more variables: end_item_id &lt;int&gt;,
+## #   level &lt;chr&gt;, attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
+## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
+## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
+## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;, T2 &lt;int&gt;, T3 &lt;int&gt;,
+## #   T4 &lt;int&gt;</code></pre>
+<p>As the <code>tibble</code> class is a superclass to the common <code>data.frame</code> class, packages like <code>ggplot2</code> can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure <a href="app-chap-useCases.html#fig:usecases-uc2plot">14.1</a> for the resulting plot).</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" title="1"><span class="co"># load package</span></a>
+<a class="sourceLine" id="cb268-2" title="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb268-3" title="3"></a>
+<a class="sourceLine" id="cb268-4" title="4"><span class="co"># scatter plot of F1 and F2 values using ggplot</span></a>
+<a class="sourceLine" id="cb268-5" title="5"><span class="kw">ggplot</span>(td, <span class="kw">aes</span>(<span class="dt">x=</span>T2, <span class="dt">y=</span>T1, <span class="dt">label=</span>td<span class="op">$</span>labels)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb268-6" title="6"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">colour=</span><span class="kw">factor</span>(labels))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb268-7" title="7"><span class="st">  </span><span class="kw">scale_y_reverse</span>() <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb268-8" title="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;F2(Hz)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;F1(Hz)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb268-9" title="9"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">colour=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:usecases-uc2plot"></span>
 <img src="app_chap-useCases_files/figure-html/usecases-uc2plot-1.png" alt="F1 by F2 distribution for *I*, *o:*, *u:*, *V* and *@*." width="480" />
 <p class="caption">
@@ -462,92 +483,155 @@ Figure 14.1: F1 by F2 distribution for <em>I</em>, <em>o:</em>, <em>u:</em>, <em
 <div id="sec:app-chap-useCases-q3" class="section level2">
 <h2><span class="header-section-number">14.3</span> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</h2>
 <p>As with the previous use cases, the initial step is to query the database to extract the relevant segments as shown in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># query segments</span>
-sibil =<span class="st"> </span><span class="kw">query</span>(ae,<span class="st">&quot;Phonetic==s|z|S|Z&quot;</span>)
-
-<span class="co"># show first element of sibil</span>
-<span class="kw">head</span>(sibil, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  ae 
-## query was:  Phonetic==s|z|S|Z 
-##   labels   start     end session   bundle    level    type
-## 1      s 483.425 566.925    0000 msajc003 Phonetic SEGMENT</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" title="1"><span class="co"># query segments</span></a>
+<a class="sourceLine" id="cb269-2" title="2">sibil =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic==s|z|S|Z&quot;</span>)</a>
+<a class="sourceLine" id="cb269-3" title="3"></a>
+<a class="sourceLine" id="cb269-4" title="4"><span class="co"># show sibil</span></a>
+<a class="sourceLine" id="cb269-5" title="5">sibil</a></code></pre></div>
+<pre><code>## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  2 z      1196. 1289. 0fc618… 0000    msajc…           159         159
+##  3 S      1289. 1420. 0fc618… 0000    msajc…           160         160
+##  4 z      1548. 1634. 0fc618… 0000    msajc…           164         164
+##  5 s      1791. 1893. 0fc618… 0000    msajc…           169         169
+##  6 z       476.  572. 0fc618… 0000    msajc…           155         155
+##  7 z      2078. 2169. 0fc618… 0000    msajc…           178         178
+##  8 s      2228. 2319. 0fc618… 0000    msajc…           180         180
+##  9 s      2528. 2754. 0fc618… 0000    msajc…           185         185
+## 10 S       427.  546. 0fc618… 0000    msajc…           153         153
+## # … with 22 more rows, and 8 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
 <p>The <code>requery_hier()</code> function can now be used to perform a hierarchical requery using the set resulting from the initial query. This requery follows the hierarchical links of the annotations in the database to find the linked annotation items on a different level. The R code snippet below shows how this can achieved.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># perform requery</span>
-words =<span class="st"> </span><span class="kw">requery_hier</span>(ae, sibil, <span class="dt">level =</span> <span class="st">&quot;Word&quot;</span>)
-
-<span class="co"># show first element of words</span>
-<span class="kw">head</span>(words, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle level type
-## 1      C 187.425 674.175    0000 msajc003  Word ITEM</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" title="1"><span class="co"># perform requery</span></a>
+<a class="sourceLine" id="cb271-2" title="2">words =<span class="st"> </span><span class="kw">requery_hier</span>(ae, sibil, <span class="dt">level =</span> <span class="st">&quot;Word&quot;</span>)</a>
+<a class="sourceLine" id="cb271-3" title="3"></a>
+<a class="sourceLine" id="cb271-4" title="4"><span class="co"># show words</span></a>
+<a class="sourceLine" id="cb271-5" title="5">words</a></code></pre></div>
+<pre><code>## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1 C       187.  674. 0fc618… 0000    msajc…             2           2
+##  2 C       740. 1289. 0fc618… 0000    msajc…            30          30
+##  3 F      1289. 1463. 0fc618… 0000    msajc…            43          43
+##  4 F      1463. 1634. 0fc618… 0000    msajc…            52          52
+##  5 C      1634. 2150. 0fc618… 0000    msajc…            61          61
+##  6 F       412.  572. 0fc618… 0000    msajc…            14          14
+##  7 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  8 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  9 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+## 10 C       380.  745. 0fc618… 0000    msajc…            13          13
+## # … with 22 more rows, and 8 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
 <p>As seen in the above R code snippet, the result is not quite what one would expect as it does not contain the orthographic word transcriptions but a classification of the words into content words (<em>C</em>) and function words (<em>F</em>). Calling the <code>summary()</code> function on the <code>emuDBhandle</code> object <code>ae</code> would show that the <em>Words</em> level has multiple attribute definitions indicating that each annotation item in the <em>Words</em> level has multiple parallel labels defined for it. The R code snippet below shows an additional requery that queries the <em>Text</em> attribute definition instead.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># perform requery</span>
-words =<span class="st"> </span><span class="kw">requery_hier</span>(ae, sibil, <span class="dt">level =</span> <span class="st">&quot;Text&quot;</span>)
-
-<span class="co"># show first element of words</span>
-<span class="kw">head</span>(words, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##    labels   start     end session   bundle level type
-## 1 amongst 187.425 674.175    0000 msajc003  Text ITEM</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" title="1"><span class="co"># perform requery</span></a>
+<a class="sourceLine" id="cb273-2" title="2">words =<span class="st"> </span><span class="kw">requery_hier</span>(ae, sibil, <span class="dt">level =</span> <span class="st">&quot;Text&quot;</span>)</a>
+<a class="sourceLine" id="cb273-3" title="3"></a>
+<a class="sourceLine" id="cb273-4" title="4"><span class="co"># show words</span></a>
+<a class="sourceLine" id="cb273-5" title="5">words</a></code></pre></div>
+<pre><code>## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1 C       187.  674. 0fc618… 0000    msajc…             2           2
+##  2 C       740. 1289. 0fc618… 0000    msajc…            30          30
+##  3 F      1289. 1463. 0fc618… 0000    msajc…            43          43
+##  4 F      1463. 1634. 0fc618… 0000    msajc…            52          52
+##  5 C      1634. 2150. 0fc618… 0000    msajc…            61          61
+##  6 F       412.  572. 0fc618… 0000    msajc…            14          14
+##  7 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  8 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  9 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+## 10 C       380.  745. 0fc618… 0000    msajc…            13          13
+## # … with 22 more rows, and 8 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
 <p>As seen in the above R code snippet, the first segment in <code>sibil</code> occurred in the word <em>amongst</em>, which starts at 187.475 ms and ends at 674.225 ms. It is worth noting that this two-step querying procedure (<code>query()</code> followed by <code>requery_hier()</code>) can also be completed in a single hierarchical query using the dominance operator (^).</p>
 <p>As we have answered the first part of the question, the R code snippet below will extract the context to the left of the extracted sibilants by using the <code>requery_seq()</code> function.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get left context by off setting the </span>
-<span class="co"># annotation items in sibil one unit to the left</span>
-leftContext =<span class="st"> </span><span class="kw">requery_seq</span>(ae, sibil, <span class="dt">offset =</span> <span class="dv">-1</span>)
-
-<span class="co"># show first element of leftContext</span>
-<span class="kw">head</span>(leftContext, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle    level    type
-## 1      N 426.675 483.425    0000 msajc003 Phonetic SEGMENT</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" title="1"><span class="co"># get left context by off setting the </span></a>
+<a class="sourceLine" id="cb275-2" title="2"><span class="co"># annotation items in sibil one unit to the left</span></a>
+<a class="sourceLine" id="cb275-3" title="3">leftContext =<span class="st"> </span><span class="kw">requery_seq</span>(ae, sibil, <span class="dt">offset =</span> <span class="dv">-1</span>)</a>
+<a class="sourceLine" id="cb275-4" title="4"></a>
+<a class="sourceLine" id="cb275-5" title="5"><span class="co"># show leftContext</span></a>
+<a class="sourceLine" id="cb275-6" title="6">leftContext</a></code></pre></div>
+<pre><code>## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1 N       427.  483. 0fc618… 0000    msajc…           150         150
+##  2 n      1032. 1196. 0fc618… 0000    msajc…           158         158
+##  3 z      1196. 1289. 0fc618… 0000    msajc…           159         159
+##  4 @      1506. 1548. 0fc618… 0000    msajc…           163         163
+##  5 n      1741. 1791. 0fc618… 0000    msajc…           168         168
+##  6 I       412.  476. 0fc618… 0000    msajc…           154         154
+##  7 @      2022. 2078. 0fc618… 0000    msajc…           177         177
+##  8 I      2169. 2228. 0fc618… 0000    msajc…           179         179
+##  9 n      2431. 2528. 0fc618… 0000    msajc…           184         184
+## 10 t       380.  427. 0fc618… 0000    msajc…           152         152
+## # … with 22 more rows, and 8 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
 <p>The R code snippet below attempts to extract the right context in the same manner as above R code snippet, but in this case we encounter a problem.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># get right context by off-setting the </span>
-<span class="co"># annotation items in sibil one unit to the right</span>
-rightContext =<span class="st"> </span><span class="kw">requery_seq</span>(ae, sibil, <span class="dt">offset =</span> <span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" title="1"><span class="co"># get right context by off-setting the </span></a>
+<a class="sourceLine" id="cb277-2" title="2"><span class="co"># annotation items in sibil one unit to the right</span></a>
+<a class="sourceLine" id="cb277-3" title="3">rightContext =<span class="st"> </span><span class="kw">requery_seq</span>(ae, sibil, <span class="dt">offset =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## Error in requery_seq(ae, sibil, offset = 1): 4 of the requested sequence(s) is/are out of boundaries.
 ## Set parameter &#39;ignoreOutOfBounds=TRUE&#39; to get residual result segments that lie within the bounds.</code></pre>
 <p>As can be seen by the error message in the above R code snippet, four of the sibilants occur at the very end of the recording and therefore have no phonetic post-context. The remaining post-contexts can be retrieved by setting the <code>ignoreOutOfBounds</code> argument to <code>TRUE</code> as displayed in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r">rightContext =<span class="st"> </span><span class="kw">requery_seq</span>(ae, sibil,
-                           <span class="dt">offset =</span> <span class="dv">1</span>,
-                           <span class="dt">ignoreOutOfBounds =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb279-1" title="1">rightContext =<span class="st"> </span><span class="kw">requery_seq</span>(ae, sibil,</a>
+<a class="sourceLine" id="cb279-2" title="2">                           <span class="dt">offset =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb279-3" title="3">                           <span class="dt">ignoreOutOfBounds =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## Warning in requery_seq(ae, sibil, offset = 1, ignoreOutOfBounds = TRUE):
 ## Found missing items in resulting segment list! Replacing missing rows with
 ## NA values.</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show first element of rightContext</span>
-<span class="kw">head</span>(rightContext, <span class="dt">n =</span> <span class="dv">1</span>)</code></pre>
-<pre><code>## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle    level    type
-## 1      t 566.925 596.675    0000 msajc003 Phonetic SEGMENT</code></pre>
-<p>However, the resulting <code>rightContext</code> and the original <code>sibil</code> objects are not aligned any more. It is therefore dangerous to use this option by default, as one often relies on the rows in multiple <code>emuRsegs</code> objects that were created from each other by using either <code>requery_hier()</code> or <code>requery_seq()</code> to be aligned with each other (i.e., that the same row index implicitly indicates a relationship).</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" title="1"><span class="co"># show rightContext</span></a>
+<a class="sourceLine" id="cb281-2" title="2">rightContext</a></code></pre></div>
+<pre><code>## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1 t       567.  597. 0fc618… 0000    msajc…           152         152
+##  2 S      1289. 1420. 0fc618… 0000    msajc…           160         160
+##  3 i:     1420. 1463. 0fc618… 0000    msajc…           161         161
+##  4 k      1634. 1676. 0fc618… 0000    msajc…           165         165
+##  5 I      1893. 1945. 0fc618… 0000    msajc…           170         170
+##  6 f       572.  674. 0fc618… 0000    msajc…           156         156
+##  7 I      2169. 2228. 0fc618… 0000    msajc…           179         179
+##  8 t      2319. 2345. 0fc618… 0000    msajc…           181         181
+##  9 &lt;NA&gt;     NA    NA  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;              NA          NA
+## 10 I       546.  615. 0fc618… 0000    msajc…           154         154
+## # … with 22 more rows, and 8 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;dbl&gt;, end_item_seq_idx &lt;dbl&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
+<p>However, the resulting <code>rightContext</code> contains rows that only contain <code>NA</code> values. This indicates that no values where found for the corresponding row in the <code>sibil</code> segment list.</p>
 </div>
 <div id="sec:app-chap-useCases-q4" class="section level2">
 <h2><span class="header-section-number">14.4</span> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</h2>
+<div id="note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis" class="section level3">
+<h3><span class="header-section-number">14.4.1</span> NOTE: See <a href="recipe-spectralAnalysis.html#recipe:spectralAnalysis">21</a> for more up to date methods of performing spectral analysis</h3>
 <p>Once again, the segments of interest are queried first. The R code snippet below shows how this can be achieved, this time using the new regular expression operand of the EQL (see Chapter <a href="chap-querysys.html#chap:querysys">6</a> for details).</p>
-<pre class="sourceCode r"><code class="sourceCode r">sibil =<span class="st"> </span><span class="kw">query</span>(ae,<span class="st">&quot;Phonetic =~ &#39;[szSZ]&#39;&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1">sibil =<span class="st"> </span><span class="kw">query</span>(ae,<span class="st">&quot;Phonetic =~ &#39;[szSZ]&#39;&quot;</span>)</a></code></pre></div>
 <p>The R code snippet below shows how the <code>get_trackdata()</code> function can be used to calculate the Discrete Fourier Transform values for the extracted segments.</p>
-<pre class="sourceCode r"><code class="sourceCode r">dftTd =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,
-                      <span class="dt">seglist =</span> sibil,
-                      <span class="dt">onTheFlyFunctionName =</span> <span class="st">&#39;dftSpectrum&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" title="1">dftTd =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
+<a class="sourceLine" id="cb284-2" title="2">                      <span class="dt">seglist =</span> sibil,</a>
+<a class="sourceLine" id="cb284-3" title="3">                      <span class="dt">onTheFlyFunctionName =</span> <span class="st">&#39;dftSpectrum&#39;</span>,</a>
+<a class="sourceLine" id="cb284-4" title="4">                      <span class="dt">resultType =</span> <span class="st">&quot;trackdata&quot;</span>)</a></code></pre></div>
 <p>As the <code>resultType</code> parameter was not explicitly set, an object of the class <code>trackdata</code> is returned. This object, just like an object of the class <code>emuRtrackdata</code>, contains the extracted trackdata information. Compared to the <code>emuRtrackdata</code> class, however, the object is not “flat” and in the form of a <code>data.table</code> or <code>data.frame</code> but has a more nested structure (see <code>?trackdata</code> for more details).</p>
 <p>Since we want to analyze sibilant spectral data we will now reduce the spectral range of the data to 1000 - 10000 Hz. This is due to the fact that there is a lot of unwanted noise in the lower bands that is irrelevant for the problem at hand and can even skew the end results. To achieve this we can use a property of a <code>trackdata</code> object that also carries the class <code>spectral</code>, which means that it is indexed using frequencies. The R code snippet below shows how to use this feature to extract the relevant spectral frequencies of the <code>trackdata</code> object.</p>
-<pre class="sourceCode r"><code class="sourceCode r">dftTdRelFreq =<span class="st"> </span>dftTd[, <span class="dv">1000</span><span class="op">:</span><span class="dv">10000</span>]</code></pre>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1">dftTdRelFreq =<span class="st"> </span>dftTd[, <span class="dv">1000</span><span class="op">:</span><span class="dv">10000</span>]</a></code></pre></div>
 <p>The R code snippet below shows how the <code>fapply()</code> function can be used to apply the <code>moments()</code> function to all elements of <code>dftTdRelFreq</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">dftTdRelFreqMom =<span class="st"> </span><span class="kw">fapply</span>(dftTdRelFreq, moments, <span class="dt">minval =</span> T)</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" title="1">dftTdRelFreqMom =<span class="st"> </span><span class="kw">fapply</span>(dftTdRelFreq, moments, <span class="dt">minval =</span> T)</a></code></pre></div>
 <p>The resulting <code>dftTdRelFreqMom</code> object is once again a <code>trackdata</code> object of the same length as the <code>dftTdRelFreq</code> <code>trackdata</code> object. It contains the first four spectral moments as shown in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show first row of data belonging </span>
-<span class="co"># to first element of dftTdRelFreqMom</span>
-dftTdRelFreqMom[<span class="dv">1</span>]<span class="op">$</span>data[<span class="dv">1</span>,]</code></pre>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" title="1"><span class="co"># show first row of data belonging </span></a>
+<a class="sourceLine" id="cb287-2" title="2"><span class="co"># to first element of dftTdRelFreqMom</span></a>
+<a class="sourceLine" id="cb287-3" title="3">dftTdRelFreqMom[<span class="dv">1</span>]<span class="op">$</span>data[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code>## [1]  5.335375e+03  6.469573e+06  6.097490e-02 -1.103308e+00</code></pre>
 <p>The information stored in the <code>dftTdRelFreqMom</code> and <code>sibil</code> objects can now be used to plot a time-normalized version of the first spectral moment trajectories, color coded by sibilant class, using <code>emuR</code>’s <code>dplot()</code> function. The R code snippet below shows the R code that produces Figure <a href="app-chap-useCases.html#fig:usecases-uc4dplot1">14.2</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dplot</span>(dftTdRelFreqMom[, <span class="dv">1</span>],
-      sibil<span class="op">$</span>labels,
-      <span class="dt">normalise =</span> <span class="ot">TRUE</span>,
-      <span class="dt">xlab =</span> <span class="st">&quot;Normalized Time [%]&quot;</span>,
-      <span class="dt">ylab =</span> <span class="st">&quot;1st spectral moment [Hz]&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" title="1"><span class="kw">dplot</span>(dftTdRelFreqMom[, <span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb289-2" title="2">      sibil<span class="op">$</span>labels,</a>
+<a class="sourceLine" id="cb289-3" title="3">      <span class="dt">normalise =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb289-4" title="4">      <span class="dt">xlab =</span> <span class="st">&quot;Normalized Time [%]&quot;</span>,</a>
+<a class="sourceLine" id="cb289-5" title="5">      <span class="dt">ylab =</span> <span class="st">&quot;1st spectral moment [Hz]&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:usecases-uc4dplot1"></span>
 <img src="app_chap-useCases_files/figure-html/usecases-uc4dplot1-1.png" alt="Time-normalized first spectral moment trajectories color coded by sibilant class." width="576" />
 <p class="caption">
@@ -556,12 +640,12 @@ Figure 14.2: Time-normalized first spectral moment trajectories color coded by s
 </div>
 <p>As one might expect, the first spectral moment (the center of gravity) is significantly lower for postalveolar <em>S</em> and <em>Z</em> (green and blue lines) than for alveolar <em>s</em> and <em>z</em> (black and red lines).</p>
 <p>The R code snippet below shows how to create an alternative plot (see Figure <a href="app-chap-useCases.html#fig:usecases-uc4dplot2">14.3</a>) that averages the trajectories into ensemble averages per sibilant class by setting the <code>average</code> parameter of <code>dplot()</code> to <code>TRUE</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dplot</span>(dftTdRelFreqMom[,<span class="dv">1</span>],
-      sibil<span class="op">$</span>labels,
-      <span class="dt">normalise =</span> <span class="ot">TRUE</span>,
-      <span class="dt">average =</span> <span class="ot">TRUE</span>,
-      <span class="dt">xlab =</span> <span class="st">&quot;Normalized Time [%]&quot;</span>,
-      <span class="dt">ylab =</span> <span class="st">&quot;1st spectral moment [Hz]&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" title="1"><span class="kw">dplot</span>(dftTdRelFreqMom[,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb290-2" title="2">      sibil<span class="op">$</span>labels,</a>
+<a class="sourceLine" id="cb290-3" title="3">      <span class="dt">normalise =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb290-4" title="4">      <span class="dt">average =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb290-5" title="5">      <span class="dt">xlab =</span> <span class="st">&quot;Normalized Time [%]&quot;</span>,</a>
+<a class="sourceLine" id="cb290-6" title="6">      <span class="dt">ylab =</span> <span class="st">&quot;1st spectral moment [Hz]&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:usecases-uc4dplot2"></span>
 <img src="app_chap-useCases_files/figure-html/usecases-uc4dplot2-1.png" alt="Time-normalized first spectral moment ensemble average trajectories per sibilant class." width="576" />
 <p class="caption">
@@ -569,19 +653,19 @@ Figure 14.3: Time-normalized first spectral moment ensemble average trajectories
 </p>
 </div>
 <p>As can be seen from the previous two plots (Figure <a href="app-chap-useCases.html#fig:usecases-uc4dplot1">14.2</a> and <a href="app-chap-useCases.html#fig:usecases-uc4dplot2">14.3</a>), transitions to and from a sort of steady state around the temporal midpoint of the sibilants are clearly visible. To focus on this steady state part of the sibilant we will now extract those spectral moments that fall between the proportional timepoints 0.2 and 0.8 of each segment (i.e., the central 60%) using the <code>dcut()</code> function as is shown in the R code snippet below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cut out the middle 60% portion</span>
-dftTdRelFreqMomMid =<span class="st"> </span><span class="kw">dcut</span>(dftTdRelFreqMom,
-                          <span class="dt">left.time =</span> <span class="fl">0.2</span>,
-                          <span class="dt">right.time =</span> <span class="fl">0.8</span>,
-                          <span class="dt">prop =</span> T)</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" title="1"><span class="co"># cut out the middle 60% portion</span></a>
+<a class="sourceLine" id="cb291-2" title="2">dftTdRelFreqMomMid =<span class="st"> </span><span class="kw">dcut</span>(dftTdRelFreqMom,</a>
+<a class="sourceLine" id="cb291-3" title="3">                          <span class="dt">left.time =</span> <span class="fl">0.2</span>,</a>
+<a class="sourceLine" id="cb291-4" title="4">                          <span class="dt">right.time =</span> <span class="fl">0.8</span>,</a>
+<a class="sourceLine" id="cb291-5" title="5">                          <span class="dt">prop =</span> T)</a></code></pre></div>
 <p>Finally, the R code snippet below shows how to calculate the averages of these trajectories using the <code>trapply()</code> function.</p>
-<pre class="sourceCode r"><code class="sourceCode r">meanFirstMoments =<span class="st"> </span><span class="kw">trapply</span>(dftTdRelFreqMomMid[,<span class="dv">1</span>],
-                           <span class="dt">fun =</span> mean,
-                           <span class="dt">simplify =</span> T)</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" title="1">meanFirstMoments =<span class="st"> </span><span class="kw">trapply</span>(dftTdRelFreqMomMid[,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb292-2" title="2">                           <span class="dt">fun =</span> mean,</a>
+<a class="sourceLine" id="cb292-3" title="3">                           <span class="dt">simplify =</span> T)</a></code></pre></div>
 <p>As the resulting <code>meanFirstMoments</code> vector has the same length as the initial <code>sibil</code> segment list, we can now easily visualize these values in the form of a boxplot. The R code below shows the R code that produces Figure <a href="app-chap-useCases.html#fig:usecases-uc4boxplot">14.4</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(meanFirstMoments <span class="op">~</span><span class="st"> </span>sibil<span class="op">$</span>labels, 
-        <span class="dt">xlab =</span> <span class="st">&quot;Sibilant class labels&quot;</span>,
-        <span class="dt">ylab =</span> <span class="st">&quot;First spectral moment values [Hz]&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" title="1"><span class="kw">boxplot</span>(meanFirstMoments <span class="op">~</span><span class="st"> </span>sibil<span class="op">$</span>labels, </a>
+<a class="sourceLine" id="cb293-2" title="2">        <span class="dt">xlab =</span> <span class="st">&quot;Sibilant class labels&quot;</span>,</a>
+<a class="sourceLine" id="cb293-3" title="3">        <span class="dt">ylab =</span> <span class="st">&quot;First spectral moment values [Hz]&quot;</span>)</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:usecases-uc4boxplot"></span>
 <img src="app_chap-useCases_files/figure-html/usecases-uc4boxplot-1.png" alt="Boxplots of the first spectral moments grouped by their sibilant class." width="576" />
 <p class="caption">
@@ -590,6 +674,7 @@ Figure 14.4: Boxplots of the first spectral moments grouped by their sibilant cl
 </div>
 <p>As final remark, it is worth noting that using the <code>emuRtrackdata</code> <code>resultType</code> (not the <code>trackdata</code> <code>resultType</code>) of <code>get_trackdata()</code> function we could have performed a comparable analysis by utilizing packages such as <code>dplyr</code> for <code>data.table</code> or <code>data.frame</code> manipulation and <code>lattice</code> or <code>ggplot2</code> for data visualisation.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -650,8 +735,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

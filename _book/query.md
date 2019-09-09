@@ -42,7 +42,7 @@ class(sl)
 ```
 
 ```
-## [1] "emuRsegs"   "emusegs"    "data.frame"
+## [1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 ```r
@@ -51,10 +51,13 @@ sl
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [Syllable == S ^ Text == amongst] 
-##   labels   start     end session   bundle    level type
-## 1      S 256.925 674.175    0000 msajc003 Syllable ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ```r
@@ -64,9 +67,9 @@ colnames(sl)
 
 ```
 ##  [1] "labels"             "start"              "end"               
-##  [4] "utts"               "db_uuid"            "session"           
-##  [7] "bundle"             "start_item_id"      "end_item_id"       
-## [10] "level"              "start_item_seq_idx" "end_item_seq_idx"  
+##  [4] "db_uuid"            "session"            "bundle"            
+##  [7] "start_item_id"      "end_item_id"        "level"             
+## [10] "attribute"          "start_item_seq_idx" "end_item_seq_idx"  
 ## [13] "type"               "sample_start"       "sample_end"        
 ## [16] "sample_rate"
 ```
@@ -96,10 +99,13 @@ head(sl, n = 1)
 ```
 
 ```
-## event  list from database:  ae 
-## query was:  Tone != H* 
-##   labels start end session   bundle level  type
-## 1     L-  1107   0    0000 msajc003  Tone EVENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 L-      1107     0 0fc618… 0000    msajc…           183         183 Tone 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 The R code snippet above queries two levels that contain time information: a segment level and an event level. As described in Chapter \@ref(chap:annot-struct-mod), annotations in the EMU-SDMS may also contain levels that do not contain time information. The R code snippet below shows a query that queries annotation items on a level that does not contain time information (the *Syllable* level) to show that the result contains deduced time information from the time-bearing sub-level.
@@ -115,10 +121,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  Syllable == S 
-##   labels   start     end session   bundle    level type
-## 1      S 256.925 674.175    0000 msajc003 Syllable ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 
@@ -194,10 +203,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [Phonetic == @ -> Phonetic == n] 
-##   labels    start      end session   bundle    level    type
-## 1   @->n 1715.425 1791.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 @->n   1715. 1791. 0fc618… 0000    msajc…           167         168 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 #### Result modifier
@@ -214,10 +226,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [#Phonetic == @ -> Phonetic == n] 
-##   labels    start      end session   bundle    level    type
-## 1      @ 1715.425 1741.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 @      1715. 1741. 0fc618… 0000    msajc…           167         167 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ```r
@@ -229,10 +244,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [Phonetic == @ -> #Phonetic == n] 
-##   labels    start      end session   bundle    level    type
-## 1      n 1741.425 1791.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 n      1741. 1791. 0fc618… 0000    msajc…           168         168 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 #### Conjunction queries
@@ -252,10 +270,13 @@ query(ae, "[Text == always & Accent == S]")
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [Text == always & Accent == S] 
-##   labels   start      end session   bundle level type
-## 1 always 775.475 1280.175    0000 msajc022  Text ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 always  775. 1280. 0fc618… 0000    msajc…            28          28 Word 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 The above R code snippet does not make use of the result modifier symbol. However, only the annotation items of the left simple query term (*Text == always*) are returned. This behavior is true for all EQL operators that combine simple query terms except for the sequence operator. As it is more explicit to use the result modifier to express the desired result, we recommend using the result modifier where possible. The more explicit variant of the above query which yields the same result is *"[#Text == always & Word == C]"*.
@@ -283,10 +304,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [Phoneme == p ^ Syllable == S] 
-##   labels   start     end session   bundle   level type
-## 1      p 558.575 639.575    0000 msajc015 Phoneme ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 p       559.  640. 0fc618… 0000    msajc…           147         147 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 As with the conjunction query, if no result modifier is present, a dominates query returns the annotation items of the left simple query term. Hence, the more explicit variant of the above query is `"[#Phoneme == p ^ Syllable == S]"`.
@@ -313,10 +337,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [Start(Syllable, Phoneme) == TRUE] 
-##   labels   start     end session   bundle   level type
-## 1      V 187.425 256.925    0000 msajc003 Phoneme ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 V       187.  257. 0fc618… 0000    msajc…           114         114 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ### Count queries {#subsec:query_countQueries}
@@ -339,14 +366,17 @@ query(ae, "[Num(Syllable, Phoneme) == 5]")
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [Num(Syllable, Phoneme) == 5] 
-##   labels    start      end session   bundle    level type
-## 1      S  256.925  674.175    0000 msajc003 Syllable ITEM
-## 2      S  739.925 1289.425    0000 msajc003 Syllable ITEM
-## 3      W 2228.475 2753.975    0000 msajc010 Syllable ITEM
-## 4      S 1890.275 2469.525    0000 msajc022 Syllable ITEM
-## 5      S 1964.425 2554.175    0000 msajc023 Syllable ITEM
+## # A tibble: 5 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## 2 S       740. 1289. 0fc618… 0000    msajc…           105         105 Syll…
+## 3 W      2228. 2754. 0fc618… 0000    msajc…           118         118 Syll…
+## 4 S      1890. 2470. 0fc618… 0000    msajc…           105         105 Syll…
+## 5 S      1964. 2554. 0fc618… 0000    msajc…            90          90 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ### More complex queries {#subsec:query_moreComplexQueries}
@@ -371,10 +401,13 @@ query(ae, paste0("[[[Num(Text, Syllable) == 3] ",
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  [[[Num(Text, Syllable) == 3] ^ [Phoneme == @ ^ Start(Word, Syllable) == 1]] -> #Text = his] 
-##   labels    start      end session   bundle level type
-## 1    his 2693.675 2780.725    0000 msajc015  Text ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 his    2694. 2781. 0fc618… 0000    msajc…           101         101 Word 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 As mastering these complex compound queries can require some practice, several simple as well as more complex examples that combine the various EQL components described above are available in Appendix \@ref(app-chap:eql). These examples provide practical examples to help users find queries suited to their needs.
@@ -393,10 +426,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  Intonational =~ .* 
-##   labels start end session   bundle        level type
-## 1     L%    NA  NA    0000 msajc003 Intonational ITEM
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ### Requery {#subsec:requery}
@@ -430,10 +466,13 @@ head(sl_precn, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start      end session   bundle    level    type
-## 1      E 949.925 1031.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 E       950. 1032. 0fc618… 0000    msajc…           157         157 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ```r
@@ -452,10 +491,13 @@ head(sl_phonetic, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##             labels   start     end session   bundle    level    type
-## 1 m->V->N->s->t->H 256.925 674.175    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 m->V-…  257.  674. 0fc618… 0000    msajc…           148         153 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 ## Discussion

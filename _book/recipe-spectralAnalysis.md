@@ -1,4 +1,4 @@
-# Spectral analysis
+# Spectral analysis{#recipe:spectralAnalysis}
 
 *(Adapted from WP 4.1 Sprachtechnologie (Vertiefung) course material by Jonathan Harrington and Ulrich Reubold)*
 
@@ -81,9 +81,9 @@ names(sS.dft)
 
 ```
 ##   [1] "sl_rowIdx"          "labels"             "start"             
-##   [4] "end"                "utts"               "db_uuid"           
-##   [7] "session"            "bundle"             "start_item_id"     
-##  [10] "end_item_id"        "level"              "start_item_seq_idx"
+##   [4] "end"                "db_uuid"            "session"           
+##   [7] "bundle"             "start_item_id"      "end_item_id"       
+##  [10] "level"              "attribute"          "start_item_seq_idx"
 ##  [13] "end_item_seq_idx"   "type"               "sample_start"      
 ##  [16] "sample_end"         "sample_rate"        "times_orig"        
 ##  [19] "times_rel"          "times_norm"         "T1"                
@@ -219,22 +219,23 @@ sS.dftlong
 
 ```
 ## # A tibble: 5,397 x 23
-##    sl_rowIdx labels start   end utts  db_uuid session bundle start_item_id
-##        <int> <chr>  <dbl> <dbl> <chr> <chr>   <chr>   <chr>          <int>
-##  1         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  2         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  3         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  4         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  5         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  6         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  7         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  8         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-##  9         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-## 10         1 s       483.  567. 0000… 0fc618… 0000    msajc…           151
-## # … with 5,387 more rows, and 14 more variables: end_item_id <int>,
-## #   level <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
-## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, track_name <chr>,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  2         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  3         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  4         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  5         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  6         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  7         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  8         1 s       483.  567. 0fc618… 0000    msajc…           151
+##  9         1 s       483.  567. 0fc618… 0000    msajc…           151
+## 10         1 s       483.  567. 0fc618… 0000    msajc…           151
+## # … with 5,387 more rows, and 15 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, track_name <chr>,
 ## #   track_value <dbl>, freq <dbl>
 ```
 

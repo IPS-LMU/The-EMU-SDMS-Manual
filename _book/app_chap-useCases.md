@@ -44,10 +44,13 @@ head(sl, n = 1)
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  Phonetic == n 
-##   labels    start      end session   bundle    level    type
-## 1      n 1031.925 1195.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 1 x 16
+##   labels start   end db_uuid session bundle start_item_id end_item_id level
+##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+## 1 n      1032. 1196. 0fc618… 0000    msajc…           158         158 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>
 ```
 
 The second argument of the `query()` contains a string that represents an EQL statement. This fairly simple EQL statement consists of `==`, which is the equality operator of the EQL, and on the right hand side of the operator the label *n* that we are looking for.
@@ -57,7 +60,7 @@ The `query()` function returns an object of the class `emuRsegs` that is a super
 
 ```r
 # calculate durations
-d = dur(sl)
+d = sl$end - sl$start
 
 # calculate mean
 mean(d)
@@ -83,14 +86,14 @@ Now that the necessary segment information has been extracted, the `get\_trackda
 
 ```r
 # get formant values for these segments
-td = get_trackdata(ae, sl,
-                   onTheFlyFunctionName = "forest",
-                   resultType = "emuRtrackdata")
+td = get_trackdata(ae, 
+                   sl,
+                   onTheFlyFunctionName = "forest")
 ```
 
 In this example, the `get_trackdata()` function uses a formant estimation function called `forest()` to calculate the formant values in real time. This signal processing function is part of the `wrassp` package, which is used by the `emuR` package to perform signal processing duties with the `get_trackdata()` command (see Chapter \@ref(chap:wrassp) for details).
 
-If the `resultType` parameter is set to `emuRtrackdata` in the call to `get\_trackdata()`, an object of the class `emuRtrackdata` is returned. The class vector of the `td` object is displayed in the R code snippet below.
+If the `resultType` parameter is not set the call to `get\_trackdata()`, an object of the class `tibble` is returned. The class vector of the `td` object is displayed in the R code snippet below.
 
 
 ```r
@@ -99,22 +102,37 @@ class(td)
 ```
 
 ```
-## [1] "emuRtrackdata" "data.frame"
+## [1] "tbl_df"     "tbl"        "data.frame"
 ```
 
 ```r
-# show first line of td
-head(td, n = 1)
+# show td
+td
 ```
 
 ```
-##   sl_rowIdx labels   start     end session   bundle    level    type
-## 1         1      V 187.425 256.925    0000 msajc003 Phonetic SEGMENT
-##   times_orig times_rel times_norm T1   T2   T3   T4
-## 1      187.5         0          0  0 1293 2424 3429
+## # A tibble: 641 x 24
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
+##  1         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  2         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  3         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  4         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  5         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  6         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  7         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  8         1 V       187.  257. 0fc618… 0000    msajc…           147
+##  9         1 V       187.  257. 0fc618… 0000    msajc…           147
+## 10         1 V       187.  257. 0fc618… 0000    msajc…           147
+## # … with 631 more rows, and 16 more variables: end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
+## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>,
+## #   T4 <int>
 ```
 
-As the `emuRtrackdata` class is a superclass to the common `data.table` and `data.frame` classes, packages like `ggplot2` can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure \@ref(fig:usecases-uc2plot) for the resulting plot).
+As the `tibble` class is a superclass to the common `data.frame` class, packages like `ggplot2` can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure \@ref(fig:usecases-uc2plot) for the resulting plot).
 
 
 ```r
@@ -141,17 +159,29 @@ As with the previous use cases, the initial step is to query the database to ext
 
 ```r
 # query segments
-sibil = query(ae,"Phonetic==s|z|S|Z")
+sibil = query(ae, "Phonetic==s|z|S|Z")
 
-# show first element of sibil
-head(sibil, n = 1)
+# show sibil
+sibil
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  Phonetic==s|z|S|Z 
-##   labels   start     end session   bundle    level    type
-## 1      s 483.425 566.925    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  2 z      1196. 1289. 0fc618… 0000    msajc…           159         159
+##  3 S      1289. 1420. 0fc618… 0000    msajc…           160         160
+##  4 z      1548. 1634. 0fc618… 0000    msajc…           164         164
+##  5 s      1791. 1893. 0fc618… 0000    msajc…           169         169
+##  6 z       476.  572. 0fc618… 0000    msajc…           155         155
+##  7 z      2078. 2169. 0fc618… 0000    msajc…           178         178
+##  8 s      2228. 2319. 0fc618… 0000    msajc…           180         180
+##  9 s      2528. 2754. 0fc618… 0000    msajc…           185         185
+## 10 S       427.  546. 0fc618… 0000    msajc…           153         153
+## # … with 22 more rows, and 8 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 
@@ -162,15 +192,27 @@ The `requery_hier()` function can now be used to perform a hierarchical requery 
 # perform requery
 words = requery_hier(ae, sibil, level = "Word")
 
-# show first element of words
-head(words, n = 1)
+# show words
+words
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle level type
-## 1      C 187.425 674.175    0000 msajc003  Word ITEM
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 C       187.  674. 0fc618… 0000    msajc…             2           2
+##  2 C       740. 1289. 0fc618… 0000    msajc…            30          30
+##  3 F      1289. 1463. 0fc618… 0000    msajc…            43          43
+##  4 F      1463. 1634. 0fc618… 0000    msajc…            52          52
+##  5 C      1634. 2150. 0fc618… 0000    msajc…            61          61
+##  6 F       412.  572. 0fc618… 0000    msajc…            14          14
+##  7 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  8 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  9 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+## 10 C       380.  745. 0fc618… 0000    msajc…            13          13
+## # … with 22 more rows, and 8 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 As seen in the above R code snippet, the result is not quite what one would expect as it does not contain the orthographic word transcriptions but a classification of the words into content words (*C*) and function words (*F*). Calling the `summary()` function on the `emuDBhandle` object `ae` would show that the *Words* level has multiple attribute definitions indicating that each annotation item in the *Words* level has multiple parallel labels defined for it. The R code snippet below shows an additional requery that queries the *Text* attribute definition instead.
@@ -180,15 +222,27 @@ As seen in the above R code snippet, the result is not quite what one would expe
 # perform requery
 words = requery_hier(ae, sibil, level = "Text")
 
-# show first element of words
-head(words, n = 1)
+# show words
+words
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##    labels   start     end session   bundle level type
-## 1 amongst 187.425 674.175    0000 msajc003  Text ITEM
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 C       187.  674. 0fc618… 0000    msajc…             2           2
+##  2 C       740. 1289. 0fc618… 0000    msajc…            30          30
+##  3 F      1289. 1463. 0fc618… 0000    msajc…            43          43
+##  4 F      1463. 1634. 0fc618… 0000    msajc…            52          52
+##  5 C      1634. 2150. 0fc618… 0000    msajc…            61          61
+##  6 F       412.  572. 0fc618… 0000    msajc…            14          14
+##  7 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  8 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+##  9 C      1958. 2754. 0fc618… 0000    msajc…            80          80
+## 10 C       380.  745. 0fc618… 0000    msajc…            13          13
+## # … with 22 more rows, and 8 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 As seen in the above R code snippet, the first segment in `sibil` occurred in the word *amongst*, which starts at 187.475 ms and ends at 674.225 ms. It is worth noting that this two-step querying procedure (`query()` followed by `requery_hier()`) can also be completed in a single hierarchical query using the dominance operator (^).
@@ -201,15 +255,27 @@ As we have answered the first part of the question, the R code snippet below wil
 # annotation items in sibil one unit to the left
 leftContext = requery_seq(ae, sibil, offset = -1)
 
-# show first element of leftContext
-head(leftContext, n = 1)
+# show leftContext
+leftContext
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle    level    type
-## 1      N 426.675 483.425    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 N       427.  483. 0fc618… 0000    msajc…           150         150
+##  2 n      1032. 1196. 0fc618… 0000    msajc…           158         158
+##  3 z      1196. 1289. 0fc618… 0000    msajc…           159         159
+##  4 @      1506. 1548. 0fc618… 0000    msajc…           163         163
+##  5 n      1741. 1791. 0fc618… 0000    msajc…           168         168
+##  6 I       412.  476. 0fc618… 0000    msajc…           154         154
+##  7 @      2022. 2078. 0fc618… 0000    msajc…           177         177
+##  8 I      2169. 2228. 0fc618… 0000    msajc…           179         179
+##  9 n      2431. 2528. 0fc618… 0000    msajc…           184         184
+## 10 t       380.  427. 0fc618… 0000    msajc…           152         152
+## # … with 22 more rows, and 8 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 The R code snippet below attempts to extract the right context in the same manner as above R code snippet, but in this case we encounter a problem.
@@ -242,21 +308,34 @@ rightContext = requery_seq(ae, sibil,
 ```
 
 ```r
-# show first element of rightContext
-head(rightContext, n = 1)
+# show rightContext
+rightContext
 ```
 
 ```
-## segment  list from database:  ae 
-## query was:  FROM REQUERY 
-##   labels   start     end session   bundle    level    type
-## 1      t 566.925 596.675    0000 msajc003 Phonetic SEGMENT
+## # A tibble: 32 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1 t       567.  597. 0fc618… 0000    msajc…           152         152
+##  2 S      1289. 1420. 0fc618… 0000    msajc…           160         160
+##  3 i:     1420. 1463. 0fc618… 0000    msajc…           161         161
+##  4 k      1634. 1676. 0fc618… 0000    msajc…           165         165
+##  5 I      1893. 1945. 0fc618… 0000    msajc…           170         170
+##  6 f       572.  674. 0fc618… 0000    msajc…           156         156
+##  7 I      2169. 2228. 0fc618… 0000    msajc…           179         179
+##  8 t      2319. 2345. 0fc618… 0000    msajc…           181         181
+##  9 <NA>     NA    NA  <NA>    <NA>    <NA>              NA          NA
+## 10 I       546.  615. 0fc618… 0000    msajc…           154         154
+## # … with 22 more rows, and 8 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <dbl>, end_item_seq_idx <dbl>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
-However, the resulting `rightContext` and the original `sibil` objects are not aligned any more. It is therefore dangerous to use this option by default, as one often relies on the rows in multiple `emuRsegs` objects that were created from each other by using either `requery_hier()` or `requery_seq()` to be aligned with each other (i.e., that the same row index implicitly indicates a relationship).
-
+However, the resulting `rightContext` contains rows that only contain `NA` values. This indicates that no values where found for the corresponding row in the `sibil` segment list.
 
 ## Do the phonetic segments labeled *s*, *z*, *S* or *Z* in the *ae* `emuDB` differ with respect to their first spectral moment?\protect\footnote{The original version of this use case was written by Florian Schiel as part of the `emuR_intro` vignette that is part of the `emuR` package. {#sec:app-chap-useCases-q4}
+
+### NOTE: See \@ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis
 
 Once again, the segments of interest are queried first. The R code snippet below shows how this can be achieved, this time using the new regular expression operand of the EQL (see Chapter \@ref(chap:querysys) for details).
 
@@ -271,7 +350,8 @@ The R code snippet below shows how the `get_trackdata()` function can be used to
 ```r
 dftTd = get_trackdata(ae,
                       seglist = sibil,
-                      onTheFlyFunctionName = 'dftSpectrum')
+                      onTheFlyFunctionName = 'dftSpectrum',
+                      resultType = "trackdata")
 ```
 
 

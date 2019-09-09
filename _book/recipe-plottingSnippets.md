@@ -1,4 +1,4 @@
-# Plotting snippets
+# Plotting snippets {#recipe:plottingSnippets}
 
 This recipe contains various plotting snippets for various visualization challenges. All snippets will use the ae demo emuDB. Let us create and load that emuDB:
 

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13 EMU-webApp implementation | The EMU-SDMS Manual</title>
-  <meta name="description" content="13 EMU-webApp implementation | The EMU-SDMS Manual">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="13 EMU-webApp implementation | The EMU-SDMS Manual" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13 EMU-webApp implementation | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="13 EMU-webApp implementation | The EMU-SDMS Manual" />
   <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
 
-<meta name="author" content="Raphael Winkelmann">
+<meta name="author" content="Raphael Winkelmann" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap-wrassp-impl.html">
-<link rel="next" href="app-chap-useCases.html">
+<link rel="prev" href="chap-wrassp-impl.html"/>
+<link rel="next" href="app-chap-useCases.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,7 +54,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -191,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
 <li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
 <li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
-<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-trackdata-vs.-emurtrackdata"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>trackdata</code> vs. <code>emuRtrackdata</code></a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-tibble"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>tibble</code></a></li>
 <li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
@@ -259,7 +257,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
 <li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
 <li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
-<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis"><i class="fa fa-check"></i><b>14.4.1</b> NOTE: See @ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
 <li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
@@ -331,23 +331,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
-<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a></li>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-formant-burg...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.1</b> <code>To Formant (burg)...</code> to SSFF files</a></li>
+<li class="chapter" data-level="19.1.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-pitch...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.2</b> <code>To Pitch...</code> to SSFF files</a></li>
+</ul></li>
 <li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
 </ul></li>
 <li class="part"><span><b>VI Recipes</b></span></li>
 <li class="chapter" data-level="20" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>20</b> About</a></li>
-<li class="chapter" data-level="21" data-path="spectral-analysis.html"><a href="spectral-analysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
-<li class="chapter" data-level="21.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
-<li class="chapter" data-level="21.2" data-path="spectral-analysis.html"><a href="spectral-analysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
-<li class="chapter" data-level="21.3" data-path="spectral-analysis.html"><a href="spectral-analysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
-<li class="chapter" data-level="21.3.1" data-path="spectral-analysis.html"><a href="spectral-analysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
+<li class="chapter" data-level="21" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
+<li class="chapter" data-level="21.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
+<li class="chapter" data-level="21.2" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
+<li class="chapter" data-level="21.3" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
 </ul></li>
-<li class="chapter" data-level="21.4" data-path="spectral-analysis.html"><a href="spectral-analysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
+<li class="chapter" data-level="21.4" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="plotting-snippets.html"><a href="plotting-snippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
-<li class="chapter" data-level="22.1" data-path="plotting-snippets.html"><a href="plotting-snippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
-<li class="chapter" data-level="22.2" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
-<li class="chapter" data-level="22.3" data-path="plotting-snippets.html"><a href="plotting-snippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
+<li class="chapter" data-level="22" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
+<li class="chapter" data-level="22.1" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
+<li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
+<li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs with Git, Git LFS and GitLab</a><ul>
 <li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
@@ -583,8 +586,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -47,7 +47,7 @@ The `query()` function returns an object of the class `emuRsegs` that is a super
 
 ```{r}
 # calculate durations
-d = dur(sl)
+d = sl$end - sl$start
 
 # calculate mean
 mean(d)
@@ -67,23 +67,23 @@ Now that the necessary segment information has been extracted, the `get\_trackda
 
 ```{r message=FALSE, results='hide'}
 # get formant values for these segments
-td = get_trackdata(ae, sl,
-                   onTheFlyFunctionName = "forest",
-                   resultType = "emuRtrackdata")
+td = get_trackdata(ae, 
+                   sl,
+                   onTheFlyFunctionName = "forest")
 ```
 
 In this example, the `get_trackdata()` function uses a formant estimation function called `forest()` to calculate the formant values in real time. This signal processing function is part of the `wrassp` package, which is used by the `emuR` package to perform signal processing duties with the `get_trackdata()` command (see Chapter \@ref(chap:wrassp) for details).
 
-If the `resultType` parameter is set to `emuRtrackdata` in the call to `get\_trackdata()`, an object of the class `emuRtrackdata` is returned. The class vector of the `td` object is displayed in the R code snippet below.
+If the `resultType` parameter is not set the call to `get\_trackdata()`, an object of the class `tibble` is returned. The class vector of the `td` object is displayed in the R code snippet below.
 
 ```{r}
 # show class vector of td
 class(td)
-# show first line of td
-head(td, n = 1)
+# show td
+td
 ```
 
-As the `emuRtrackdata` class is a superclass to the common `data.table` and `data.frame` classes, packages like `ggplot2` can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure \@ref(fig:usecases-uc2plot) for the resulting plot).
+As the `tibble` class is a superclass to the common `data.frame` class, packages like `ggplot2` can be used to visualize our F1 and F2 distribution as shown in the R code snippet below (see Figure \@ref(fig:usecases-uc2plot) for the resulting plot).
 
 ```{r eval=FALSE}
 # load package
@@ -116,10 +116,10 @@ As with the previous use cases, the initial step is to query the database to ext
 
 ```{r}
 # query segments
-sibil = query(ae,"Phonetic==s|z|S|Z")
+sibil = query(ae, "Phonetic==s|z|S|Z")
 
-# show first element of sibil
-head(sibil, n = 1)
+# show sibil
+sibil
 ```
 
 
@@ -129,8 +129,8 @@ The `requery_hier()` function can now be used to perform a hierarchical requery 
 # perform requery
 words = requery_hier(ae, sibil, level = "Word")
 
-# show first element of words
-head(words, n = 1)
+# show words
+words
 ```
 
 As seen in the above R code snippet, the result is not quite what one would expect as it does not contain the orthographic word transcriptions but a classification of the words into content words (*C*) and function words (*F*). Calling the `summary()` function on the `emuDBhandle` object `ae` would show that the *Words* level has multiple attribute definitions indicating that each annotation item in the *Words* level has multiple parallel labels defined for it. The R code snippet below shows an additional requery that queries the *Text* attribute definition instead.
@@ -139,8 +139,8 @@ As seen in the above R code snippet, the result is not quite what one would expe
 # perform requery
 words = requery_hier(ae, sibil, level = "Text")
 
-# show first element of words
-head(words, n = 1)
+# show words
+words
 ```
 
 As seen in the above R code snippet, the first segment in `sibil` occurred in the word *amongst*, which starts at 187.475 ms and ends at 674.225 ms. It is worth noting that this two-step querying procedure (`query()` followed by `requery_hier()`) can also be completed in a single hierarchical query using the dominance operator (^).
@@ -152,8 +152,8 @@ As we have answered the first part of the question, the R code snippet below wil
 # annotation items in sibil one unit to the left
 leftContext = requery_seq(ae, sibil, offset = -1)
 
-# show first element of leftContext
-head(leftContext, n = 1)
+# show leftContext
+leftContext
 ```
 
 The R code snippet below attempts to extract the right context in the same manner as above R code snippet, but in this case we encounter a problem.
@@ -171,14 +171,15 @@ rightContext = requery_seq(ae, sibil,
                            offset = 1,
                            ignoreOutOfBounds = TRUE)
 
-# show first element of rightContext
-head(rightContext, n = 1)
+# show rightContext
+rightContext
 ```
 
-However, the resulting `rightContext` and the original `sibil` objects are not aligned any more. It is therefore dangerous to use this option by default, as one often relies on the rows in multiple `emuRsegs` objects that were created from each other by using either `requery_hier()` or `requery_seq()` to be aligned with each other (i.e., that the same row index implicitly indicates a relationship).
-
+However, the resulting `rightContext` contains rows that only contain `NA` values. This indicates that no values where found for the corresponding row in the `sibil` segment list.
 
 ## Do the phonetic segments labeled *s*, *z*, *S* or *Z* in the *ae* `emuDB` differ with respect to their first spectral moment?\protect\footnote{The original version of this use case was written by Florian Schiel as part of the `emuR_intro` vignette that is part of the `emuR` package. {#sec:app-chap-useCases-q4}
+
+### NOTE: See \@ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis
 
 Once again, the segments of interest are queried first. The R code snippet below shows how this can be achieved, this time using the new regular expression operand of the EQL (see Chapter \@ref(chap:querysys) for details).
 
@@ -191,7 +192,8 @@ The R code snippet below shows how the `get_trackdata()` function can be used to
 ```{r results='hide', message=FALSE}
 dftTd = get_trackdata(ae,
                       seglist = sibil,
-                      onTheFlyFunctionName = 'dftSpectrum')
+                      onTheFlyFunctionName = 'dftSpectrum',
+                      resultType = "trackdata")
 ```
 
 

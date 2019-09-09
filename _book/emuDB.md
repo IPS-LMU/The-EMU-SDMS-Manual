@@ -79,8 +79,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 45173139-3645-4a6c-90b8-4f6c751a2326 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpa0dOjk/fromScratch_emuDB 
+## UUID:	 59818076-65f9-478f-b421-8c0a50b00e8f 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpiFRyuG/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -296,10 +296,12 @@ query(dbHandle, "Phonetic == shortVowels")
 ```
 
 ```
-## segment  list from database:  fromScratch 
-## query was:  Phonetic == shortVowels 
-## [1] labels  start   end     session bundle  level   type   
-## <0 rows> (or 0-length row.names)
+## # A tibble: 0 x 16
+## # … with 16 variables: labels <chr>, start <dbl>, end <dbl>,
+## #   db_uuid <chr>, session <chr>, bundle <chr>, start_item_id <int>,
+## #   end_item_id <int>, level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 For users who are familiar with or transitioning from the legacy EMU system, it is worth noting that the label groups correspond to the unfavorably named `Legal Labels` entries of the GTemplate Editor (i.e., legal entries in the `.tpl` file) of the legacy system. In the new system the `legalLabels` entries specify the legal or allowed label values of attribute definitions while the `labelGroups` specify groups of labels that can be referenced by the names given to the groups while performing queries.
@@ -381,7 +383,9 @@ list_bundles(dbHandle)
 ```
 
 ```
-##        session     name
+## # A tibble: 7 x 2
+##   session      name    
+##   <chr>        <chr>   
 ## 1 fromWavFiles msajc003
 ## 2 fromWavFiles msajc010
 ## 3 fromWavFiles msajc012
