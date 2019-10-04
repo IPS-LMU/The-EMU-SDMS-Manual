@@ -1,6 +1,6 @@
 # The R package `wrassp` [^1-chap:wrassp]{#chap:wrassp}
 
-[^1-chap:wrassp]: Some examples of this chapter are adapted version of examples given in the `wrassp_intro` vignette of the `wrassp` package.
+[^1-chap:wrassp]: Some examples of this chapter are adapted version of examples given in the legacy `wrassp_intro` vignette of the `wrassp` package.
 
 <img src="pics/EMU-webAppEmu_wrassp.png" width="75%" style="display: block; margin: auto;" />
 
@@ -93,7 +93,7 @@ print(au)
 ```
 
 ```
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//Rtmpex9Ct5/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpE3QHUj/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -483,7 +483,7 @@ readLines(path2logFile)[1:8]
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-09-09 19:46:39 "  
+## [5] "Timestamp:  2019-10-04 11:27:30 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"

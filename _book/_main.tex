@@ -220,9 +220,9 @@ This document describes the following versions of the software components:
   \begin{itemize}
   \tightlist
   \item
-    Version: 1.0.2
+    Version: 1.0.3
   \item
-    Git SHA1: a27b6340574053581e4e67cb27224b35c29897f6
+    Git SHA1: 4c1937e91cc2c211658b7ac63aaa031d680d06f0
   \end{itemize}
 \end{itemize}
 
@@ -488,8 +488,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     1445bf8b-8cf2-4019-bbe0-f7f6146232d0 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp582es7/my-first_emuDB 
+## UUID:     b1fd03fc-23d0-48c5-a488-89edb0b3dcfe 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp0gxiLv/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -597,7 +597,7 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. 1445bf~ 0000    msajc~            98          98 Phon~
+## 1 n      1032. 1196. b1fd03~ 0000    msajc~            98          98 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -796,7 +796,7 @@ Having this hierarchical annotation structure now allows us to formulate a query
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. 1445bf~ 0000    msajc~           103         103 Phon~
+## 1 @      1506. 1548. b1fd03~ 0000    msajc~           103         103 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -822,7 +822,7 @@ As the type of word (content vs.~function) for each \emph{@} vowel that was just
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA 1445bf~ 0000    msajc~            16          16 Word 
+## 1 F         NA    NA b1fd03~ 0000    msajc~            16          16 Word 
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -921,18 +921,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  2         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  3         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  4         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  5         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  6         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  7         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  8         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-##  9         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-## 10         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-## 11         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
-## 12         5 @      2447. 2506. 1445bf~ 0000    msajc~           119
+##  1         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  2         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  3         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  4         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  5         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  6         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  7         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  8         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  9         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+## 10         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+## 11         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+## 12         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
 ## # ... with 16 more variables: end_item_id <int>, level <chr>,
 ## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
 ## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
@@ -1344,8 +1344,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     ee5575ad-5ba1-437b-8c0b-0e0434acc6d2 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpAENoRx/fromScratch_emuDB 
+## UUID:     ca5ccbdb-f066-4e49-aa2c-0fd28cecd540 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpsa3qsD/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -2705,7 +2705,7 @@ As can be seen by the first row output of the R code snippet above, the \texttt{
 This chapter introduced the signal data extraction mechanics of the \texttt{emuR} package. The combination of the \texttt{get\_trackdata()} function and the file handling and signal processing abilities of the \texttt{wrassp} package (see Chapter \ref{chap:wrassp} for further details) provide the user with a flexible system for extracting derived or complementary signal data belonging to their queried annotation items.
 
 \hypertarget{chap:wrassp}{%
-\chapter[The R package \texttt{wrassp} ]{\texorpdfstring{The R package \texttt{wrassp} \footnote{Some examples of this chapter are adapted version of examples given in the \texttt{wrassp\_intro} vignette of the \texttt{wrassp} package.}}{The R package wrassp }}\label{chap:wrassp}}
+\chapter[The R package \texttt{wrassp} ]{\texorpdfstring{The R package \texttt{wrassp} \footnote{Some examples of this chapter are adapted version of examples given in the legacy \texttt{wrassp\_intro} vignette of the \texttt{wrassp} package.}}{The R package wrassp }}\label{chap:wrassp}}
 
 \begin{center}\includegraphics[width=0.75\linewidth]{pics/EMU-webAppEmu_wrassp} \end{center}
 
@@ -2822,7 +2822,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpKR5ArO/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpCHSMk1/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -3242,7 +3242,7 @@ As it can be extremely important to keep track of information about how certain 
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-09-09 19:41:28 "  
+## [5] "Timestamp:  2019-10-04 11:19:32 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -7750,16 +7750,18 @@ To our knowledge, the order of a segment list in the legacy EMU system was never
 
 The R code snippet below shows how generating an \texttt{AsspDataObj} from scratch can be used in a function to place data from other sources into SSFF files. In this case it uses the \texttt{PraatR} R package (see \url{http://www.aaronalbin.com/praatr/index.html}) to execute Praat's \texttt{"To\ Formant\ (burg)..."} function to then store the data to a comma separated file using \texttt{"Down\ to\ Table..."}. The generated table is then read into R and the appropriate columns are placed into tracks of a \texttt{AsspDataObj} object. The \texttt{PraatToFormants2AsspDataObj} can be viewed as a template function as it can easily be adapted to use other functions provided by Praat or even other external tools.
 
+NOTE: this function can be accessed directly: \texttt{source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/praatToFormants2AsspDataObj.R")}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{###################################}
-\CommentTok{# uncomment and execute the next }
+\CommentTok{# uncomment and execute the next}
 \CommentTok{# two lines to install PraatR}
 \CommentTok{# library(devtools)}
 \CommentTok{# install_github('usagi5886/PraatR')}
 \KeywordTok{library}\NormalTok{(PraatR)}
 
-\CommentTok{##' Call Praat's To Formant (burg)... function and }
+\CommentTok{##' Call Praat's To Formant (burg)... function and}
 \CommentTok{##' convert the output to an AsspDataObj object}
 \CommentTok{##' @param path path to wav file}
 \CommentTok{##' @param command Praat command to use}
@@ -7767,40 +7769,40 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
 \CommentTok{##' @param columnNames specify column names of AsspDataObj}
 \NormalTok{praatToFormants2AsspDataObj <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(path,}
                                         \DataTypeTok{command =} \StringTok{"To Formant (burg)..."}\NormalTok{,}
-                                        \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\FloatTok{0.0}\NormalTok{, }
-                                                         \DecValTok{5}\NormalTok{, }
-                                                         \DecValTok{5500}\NormalTok{, }
-                                                         \FloatTok{0.025}\NormalTok{, }
-                                                         \DecValTok{50}\NormalTok{), }
+                                        \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\FloatTok{0.0}\NormalTok{,}
+                                                         \DecValTok{5}\NormalTok{,}
+                                                         \DecValTok{5500}\NormalTok{,}
+                                                         \FloatTok{0.025}\NormalTok{,}
+                                                         \DecValTok{50}\NormalTok{),}
                                         \DataTypeTok{columnNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"fm"}\NormalTok{, }\StringTok{"bw"}\NormalTok{))\{}
-  
+
 \NormalTok{  tmp1FileName =}\StringTok{ "tmp.ooTextFile"}
 \NormalTok{  tmp2FileName =}\StringTok{ "tmp.table"}
-  
+
 \NormalTok{  tmp1FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName)}
 \NormalTok{  tmp2FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName)}
-  
+
   \CommentTok{# remove tmp files if they already exist}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName))}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName))}
-  
+
   \CommentTok{# generate ooTextFile}
-\NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ command, }
-                \DataTypeTok{input=}\NormalTok{path, }
-                \DataTypeTok{arguments =}\NormalTok{ arguments, }
+\NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ command,}
+                \DataTypeTok{input=}\NormalTok{path,}
+                \DataTypeTok{arguments =}\NormalTok{ arguments,}
                 \DataTypeTok{output =}\NormalTok{ tmp1FilePath)}
-  
+
   \CommentTok{# convert to Table}
 \NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Down to Table..."}\NormalTok{,}
                 \DataTypeTok{input =}\NormalTok{ tmp1FilePath,}
-                \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(F, T, }\DecValTok{6}\NormalTok{, F, }\DecValTok{3}\NormalTok{, T, }\DecValTok{3}\NormalTok{, T), }
+                \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(F, T, }\DecValTok{6}\NormalTok{, F, }\DecValTok{3}\NormalTok{, T, }\DecValTok{3}\NormalTok{, T),}
                 \DataTypeTok{output =}\NormalTok{ tmp2FilePath,}
                 \DataTypeTok{filetype=}\StringTok{"comma-separated"}\NormalTok{)}
-  
+
   \CommentTok{# get vals}
 \NormalTok{  df =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(tmp2FilePath, }\DataTypeTok{stringsAsFactors=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{  df[df }\OperatorTok{==}\StringTok{ '--undefined--'}\NormalTok{] =}\StringTok{ }\DecValTok{0}
-  
+
 \NormalTok{  fmVals =}\StringTok{ }\NormalTok{df[,}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{11}\NormalTok{)]}
 \NormalTok{  fmVals =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(}\KeywordTok{colnames}\NormalTok{(fmVals), }\ControlFlowTok{function}\NormalTok{(x)\{}
     \KeywordTok{as.integer}\NormalTok{(fmVals[,x])}
@@ -7811,66 +7813,65 @@ The R code snippet below shows how generating an \texttt{AsspDataObj} from scrat
     \KeywordTok{as.integer}\NormalTok{(bwVals[,x])}
 \NormalTok{  \})}
   \KeywordTok{colnames}\NormalTok{(bwVals) =}\StringTok{ }\OtherTok{NULL}
-  
+
   \CommentTok{# get start time}
 \NormalTok{  startTime =}\StringTok{ }\NormalTok{df[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{]}
-  
+
   \CommentTok{# create AsspDataObj}
 \NormalTok{  ado =}\StringTok{ }\KeywordTok{list}\NormalTok{()}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"trackFormats"}\NormalTok{) =}\KeywordTok{c}\NormalTok{(}\StringTok{"INT16"}\NormalTok{, }\StringTok{"INT16"}\NormalTok{)}
-  
+
   \ControlFlowTok{if}\NormalTok{(arguments[[}\DecValTok{1}\NormalTok{]] }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{)\{}
 \NormalTok{    sR =}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{(}\FloatTok{0.25} \OperatorTok{*}\StringTok{ }\NormalTok{arguments[[}\DecValTok{4}\NormalTok{]])}
 \NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
 \NormalTok{    sR =}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{arguments[[}\DecValTok{1}\NormalTok{]]}
 \NormalTok{  \}}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"sampleRate"}\NormalTok{) =}\StringTok{ }\NormalTok{sR}
-  
+
 \NormalTok{  tmpObj =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"origFreq"}\NormalTok{) =}\StringTok{ }\KeywordTok{attr}\NormalTok{(tmpObj, }\StringTok{"sampleRate"}\NormalTok{)}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{startTime}
-  
+
   \CommentTok{# attr(ado, "startRecord") = as.integer(1)}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"endRecord"}\NormalTok{) =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(fmVals))}
-  
+
   \KeywordTok{class}\NormalTok{(ado) =}\StringTok{ "AsspDataObj"}
-  
+
 \NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
 \NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{) }\CommentTok{# == binary}
-  
+
 \NormalTok{  ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{1}\NormalTok{], fmVals, }\StringTok{"INT16"}\NormalTok{)}
-  
+
 \NormalTok{  ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado, columnNames[}\DecValTok{2}\NormalTok{], bwVals, }\StringTok{"INT16"}\NormalTok{)}
-  
-  \CommentTok{# add missing values at the start as Praat sometimes }
-  \CommentTok{# has very late start values which causes issues }
-  \CommentTok{# in the SSFF file format as this sets the startRecord }
+
+  \CommentTok{# add missing values at the start as Praat sometimes}
+  \CommentTok{# has very late start values which causes issues}
+  \CommentTok{# in the SSFF file format as this sets the startRecord}
   \CommentTok{# depending on the start time of the first sample}
   \ControlFlowTok{if}\NormalTok{(startTime }\OperatorTok{>}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{sR)\{}
 \NormalTok{    nr_of_missing_samples =}\StringTok{ }\KeywordTok{floor}\NormalTok{(startTime }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{sR))}
-    
+
 \NormalTok{    missing_fm_vals =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}
-                             \DataTypeTok{nrow =}\NormalTok{ nr_of_missing_samples, }
+                             \DataTypeTok{nrow =}\NormalTok{ nr_of_missing_samples,}
                              \DataTypeTok{ncol =} \KeywordTok{ncol}\NormalTok{(ado}\OperatorTok{$}\NormalTok{fm))}
-    
-    
+
 \NormalTok{    missing_bw_vals =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}
-                             \DataTypeTok{nrow =}\NormalTok{ nr_of_missing_samples, }
+                             \DataTypeTok{nrow =}\NormalTok{ nr_of_missing_samples,}
                              \DataTypeTok{ncol =} \KeywordTok{ncol}\NormalTok{(ado}\OperatorTok{$}\NormalTok{bw))}
-    
+
     \CommentTok{# prepend values}
 \NormalTok{    ado}\OperatorTok{$}\NormalTok{fm =}\StringTok{ }\KeywordTok{rbind}\NormalTok{(missing_fm_vals, ado}\OperatorTok{$}\NormalTok{fm)}
 \NormalTok{    ado}\OperatorTok{$}\NormalTok{bw =}\StringTok{ }\KeywordTok{rbind}\NormalTok{(missing_fm_vals, ado}\OperatorTok{$}\NormalTok{bw)}
-    
+
     \CommentTok{# fix start time}
     \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{startTime }\OperatorTok{-}\StringTok{ }\NormalTok{nr_of_missing_samples }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{sR)}
 \NormalTok{  \}}
-  
-  
+
+
   \KeywordTok{return}\NormalTok{(ado)}
 \NormalTok{\}}
 \end{Highlighting}
@@ -7969,6 +7970,8 @@ A few comments about synchronized F0 and Formant values, whenever \texttt{praatT
   \textbf{The third parameter (default: 600) is the pitch ceiling} (and this parameter will not affect any other parameters indirectly)
 \end{itemize}
 
+NOTE: this function can be accessed directly: \texttt{source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/praatToPitch2AsspDataObj.R")}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{###################################}
@@ -7978,7 +7981,7 @@ A few comments about synchronized F0 and Formant values, whenever \texttt{praatT
 \CommentTok{# install_github('usagi5886/PraatR')}
 \KeywordTok{library}\NormalTok{(PraatR)}
 
-\CommentTok{##' Call Praat's To Pitch... function and }
+\CommentTok{##' Call Praat's To Pitch... function and}
 \CommentTok{##' convert the output to an AsspDataObj object}
 \CommentTok{##' @param path path to wav file}
 \CommentTok{##' @param command Praat command to use}
@@ -7992,30 +7995,30 @@ A few comments about synchronized F0 and Formant values, whenever \texttt{praatT
                                                       \FloatTok{600.0}\NormalTok{),}
                                      \DataTypeTok{columnNames =} \KeywordTok{c}\NormalTok{(}\StringTok{"f0"}\NormalTok{),}
                                      \DataTypeTok{smooth =} \OtherTok{TRUE}\NormalTok{)\{}
-  
+
 \NormalTok{  tmp1FileName =}\StringTok{ "tmp.ooTextFile"}
 \NormalTok{  tmp2FileName =}\StringTok{ "tmp2.ooTextFile"}
 \NormalTok{  tmp3FileName =}\StringTok{ "tmp3.PitchTier"}
 \NormalTok{  tmp4FileName =}\StringTok{ "tmp4.txt"}
-  
+
 \NormalTok{  tmp1FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName)}
 \NormalTok{  tmp2FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName)}
 \NormalTok{  tmp3FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp3FileName)}
 \NormalTok{  tmp4FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp4FileName)}
-  
+
   \CommentTok{# remove tmp files if they already exist}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName))}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp2FileName))}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp3FileName))}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp4FileName))}
-  
+
   \CommentTok{# generate ooTextFile}
 \NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\DataTypeTok{command =}\NormalTok{ command,}
                 \DataTypeTok{input=}\NormalTok{path,}
                 \DataTypeTok{arguments =}\NormalTok{ arguments,}
                 \DataTypeTok{output =}\NormalTok{ tmp1FilePath,}
                 \DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
-  
+
   \ControlFlowTok{if}\NormalTok{ (smooth)\{}
 \NormalTok{    PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Smooth..."}\NormalTok{,}
                   \DataTypeTok{input =}\NormalTok{ tmp1FilePath,}
@@ -8040,15 +8043,15 @@ A few comments about synchronized F0 and Formant values, whenever \texttt{praatT
                                   \DataTypeTok{input =}\NormalTok{ tmp2FilePath,}
                                   \DataTypeTok{simplify =} \OtherTok{TRUE}\NormalTok{,}
                                   \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(nframes))))}
-  
-  
-  
+
+
+
   \CommentTok{# convert to PitchTier}
 \NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Down to PitchTier"}\NormalTok{,}
                 \DataTypeTok{input =}\NormalTok{ tmp2FilePath,}
                 \DataTypeTok{output =}\NormalTok{ tmp3FilePath,}
                 \DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
-  
+
   \CommentTok{# Down to TableOfReal: "Hertz"}
 \NormalTok{  PraatR}\OperatorTok{::}\KeywordTok{praat}\NormalTok{(}\StringTok{"Down to TableOfReal..."}\NormalTok{,}
                 \DataTypeTok{input =}\NormalTok{ tmp3FilePath,}
@@ -8056,7 +8059,7 @@ A few comments about synchronized F0 and Formant values, whenever \texttt{praatT
                 \DataTypeTok{arguments =} \KeywordTok{list}\NormalTok{(}\StringTok{"Hertz"}\NormalTok{),}
                 \DataTypeTok{filetype =} \StringTok{"headerless spreadsheet"}\NormalTok{,}
                 \DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
-  
+
   \CommentTok{# create empty df that holds all time steps}
 \NormalTok{  df =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Time =} \KeywordTok{seq}\NormalTok{(start, end, }\DataTypeTok{by =}\NormalTok{ timestep), }\DataTypeTok{F0 =} \DecValTok{0}\NormalTok{)}
   \CommentTok{# get vals}
@@ -8064,38 +8067,38 @@ A few comments about synchronized F0 and Formant values, whenever \texttt{praatT
   \CommentTok{# and fill up empty df (ensures every timestep has a value)}
 \NormalTok{  df}\OperatorTok{$}\NormalTok{F0[df}\OperatorTok{$}\NormalTok{Time }\OperatorTok{%in%}\StringTok{ }\NormalTok{df_tmp}\OperatorTok{$}\NormalTok{Time] =}\StringTok{ }\NormalTok{df_tmp}\OperatorTok{$}\NormalTok{F0}
 \NormalTok{  df}
-  
+
   \CommentTok{# create AsspDataObj}
 \NormalTok{  ado =}\StringTok{ }\KeywordTok{list}\NormalTok{()}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"trackFormats"}\NormalTok{) =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"INT16"}\NormalTok{)}
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"sampleRate"}\NormalTok{) =}\StringTok{ }\NormalTok{sR}
-  
+
 \NormalTok{  tmpObj =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"origFreq"}\NormalTok{) =}\StringTok{ }\KeywordTok{attr}\NormalTok{(tmpObj, }\StringTok{"sampleRate"}\NormalTok{)}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{start}
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"endRecord"}\NormalTok{) =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(nframes)}
-  
+
   \KeywordTok{class}\NormalTok{(ado) =}\StringTok{ "AsspDataObj"}
-  
+
 \NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
 \NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{)}
 \NormalTok{  f0Vals =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(df[,}\StringTok{"F0"}\NormalTok{])}
 \NormalTok{  ado =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{addTrack}\NormalTok{(ado, }\StringTok{"f0"}\NormalTok{, f0Vals, }\StringTok{"INT16"}\NormalTok{)}
-  
+
   \CommentTok{# prepend missing values as praat sometimes}
   \CommentTok{# starts fairly late}
   \ControlFlowTok{if}\NormalTok{(start }\OperatorTok{>}\StringTok{ }\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sR)\{}
 \NormalTok{    nr_of_missing_samples =}\StringTok{ }\KeywordTok{floor}\NormalTok{(start }\OperatorTok{/}\StringTok{ }\NormalTok{(}\DecValTok{1}\OperatorTok{/}\NormalTok{sR))}
-    
+
 \NormalTok{    missing_f0_vals =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DecValTok{0}\NormalTok{,}
                              \DataTypeTok{nrow =}\NormalTok{ nr_of_missing_samples,}
                              \DataTypeTok{ncol =} \KeywordTok{ncol}\NormalTok{(ado}\OperatorTok{$}\NormalTok{f0))}
-    
+
     \CommentTok{# prepend values}
 \NormalTok{    ado}\OperatorTok{$}\NormalTok{f0 =}\StringTok{ }\KeywordTok{rbind}\NormalTok{(missing_f0_vals, ado}\OperatorTok{$}\NormalTok{f0)}
-    
+
     \CommentTok{# fix start time}
     \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{start }\OperatorTok{-}\StringTok{ }\NormalTok{nr_of_missing_samples }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{/}\StringTok{ }\NormalTok{sR)}
     \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\KeywordTok{round}\NormalTok{(}\KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{), }\DecValTok{6}\NormalTok{)}
@@ -8157,6 +8160,8 @@ How this function can be applied to wav files of an emuDB is shown below.
 \hypertarget{sec:app-chap-wrassp-opensmileSigProc}{%
 \section{Using OpenSMILE signal processing routines in the EMU-SDMS}\label{sec:app-chap-wrassp-opensmileSigProc}}
 
+NOTE: this function can be accessed directly as follows: \texttt{source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/SMILExtract2AsspDataObj.R")}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{##' convert CSV output of SMILExtract to AsspDataObject}
@@ -8169,58 +8174,58 @@ How this function can be applied to wav files of an emuDB is shown below.
 \NormalTok{                                    SMILExtractPath,}
 \NormalTok{                                    configPath,}
                                     \DataTypeTok{columsAsTracks =} \OtherTok{TRUE}\NormalTok{)\{}
-  
+
 \NormalTok{  tmp1FileName =}\StringTok{ "tmp.csv"}
-  
+
 \NormalTok{  tmp1FilePath =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName)}
-  
+
   \CommentTok{# remove tmp file if it already exists}
   \KeywordTok{unlink}\NormalTok{(}\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), tmp1FileName))}
-  
+
   \KeywordTok{system}\NormalTok{(}\KeywordTok{paste0}\NormalTok{(SMILExtractPath,}
                 \StringTok{" -C "}\NormalTok{, configPath,}
                 \StringTok{" -I "}\NormalTok{, path,}
                 \StringTok{" -O "}\NormalTok{, tmp1FilePath),}
          \DataTypeTok{ignore.stdout =}\NormalTok{ T,}
          \DataTypeTok{ignore.stderr =}\NormalTok{ T)}
-  
+
   \CommentTok{# get vals}
 \NormalTok{  df =}\StringTok{ }\KeywordTok{suppressMessages}\NormalTok{(readr}\OperatorTok{::}\KeywordTok{read_delim}\NormalTok{(tmp1FilePath,}
                                           \DataTypeTok{delim =} \StringTok{";"}\NormalTok{))}
-  
+
   \CommentTok{# extract + remove frameIndex/frameTime}
 \NormalTok{  frameIndex =}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{frameIndex}
 \NormalTok{  frameTime =}\StringTok{ }\NormalTok{df}\OperatorTok{$}\NormalTok{frameTime}
-  
+
 \NormalTok{  df}\OperatorTok{$}\NormalTok{frameIndex =}\StringTok{ }\OtherTok{NULL}
 \NormalTok{  df}\OperatorTok{$}\NormalTok{frameTime =}\StringTok{ }\OtherTok{NULL}
-  
+
 \NormalTok{  df =}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(df)}
-  
+
 \NormalTok{  colNames =}\StringTok{ }\KeywordTok{colnames}\NormalTok{(df)}
-  
+
   \CommentTok{# get start time}
 \NormalTok{  startTime =}\StringTok{ }\NormalTok{frameTime[}\DecValTok{1}\NormalTok{]}
-  
+
   \CommentTok{# create AsspDataObj}
 \NormalTok{  ado =}\StringTok{ }\KeywordTok{list}\NormalTok{()}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"sampleRate"}\NormalTok{) =}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{frameTime[}\DecValTok{2}\NormalTok{] }\CommentTok{# second frameTime should be stepsize}
-  
+
 \NormalTok{  tmpObj =}\StringTok{ }\NormalTok{wrassp}\OperatorTok{::}\KeywordTok{read.AsspDataObj}\NormalTok{(path)}
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"origFreq"}\NormalTok{) =}\StringTok{ }\KeywordTok{attr}\NormalTok{(tmpObj, }\StringTok{"sampleRate"}\NormalTok{)}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"startTime"}\NormalTok{) =}\StringTok{ }\NormalTok{startTime}
-  
+
   \CommentTok{# attr(ado, "startRecord") = as.integer(1)}
-  
+
   \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"endRecord"}\NormalTok{) =}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(df))}
-  
+
   \KeywordTok{class}\NormalTok{(ado) =}\StringTok{ "AsspDataObj"}
-  
+
 \NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspFileFormat}\NormalTok{(ado) <-}\StringTok{ "SSFF"}
 \NormalTok{  wrassp}\OperatorTok{::}\KeywordTok{AsspDataFormat}\NormalTok{(ado) <-}\StringTok{ }\KeywordTok{as.integer}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-  
+
   \CommentTok{# add every column as new track}
   \ControlFlowTok{if}\NormalTok{(columsAsTracks)\{}
     \KeywordTok{attr}\NormalTok{(ado, }\StringTok{"trackFormats"}\NormalTok{) =}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\StringTok{"REAL32"}\NormalTok{, }\KeywordTok{ncol}\NormalTok{(df))}
@@ -8236,9 +8241,9 @@ How this function can be applied to wav files of an emuDB is shown below.
                            \DataTypeTok{trackname =} \StringTok{"SMILExtractAll"}\NormalTok{,}
                            \DataTypeTok{data =}\NormalTok{ df,}
                            \DataTypeTok{format =} \StringTok{"REAL32"}\NormalTok{)}
-    
+
 \NormalTok{  \}}
-  
+
   \KeywordTok{return}\NormalTok{(ado)}
 \NormalTok{\}}
 \end{Highlighting}

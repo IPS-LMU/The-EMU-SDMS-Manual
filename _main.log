@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.12)  9 SEP 2019 19:45
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.12)  4 OCT 2019 11:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1043,7 +1043,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [23] [24] [25]
 Overfull \hbox (174.75pt too wide) in paragraph at lines 513--513
 []\TU/lmtt/m/n/10 ## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s
-ld980000gn/T/Rtmp582es7/my-first_emuDB[] 
+ld980000gn/T/Rtmp0gxiLv/my-first_emuDB[] 
  []
 
 [26]
@@ -1066,7 +1066,7 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 604--604
 
 
 Overfull \hbox (64.5pt too wide) in paragraph at lines 604--604
-[]\TU/lmtt/m/n/10 ## 1 n      1032. 1196. 1445bf~ 0000    msajc~            98 
+[]\TU/lmtt/m/n/10 ## 1 n      1032. 1196. b1fd03~ 0000    msajc~            98 
          98 Phon~[] 
  []
 
@@ -1299,7 +1299,7 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 803--803
 
 
 Overfull \hbox (64.5pt too wide) in paragraph at lines 803--803
-[]\TU/lmtt/m/n/10 ## 1 @      1506. 1548. 1445bf~ 0000    msajc~           103 
+[]\TU/lmtt/m/n/10 ## 1 @      1506. 1548. b1fd03~ 0000    msajc~           103 
         103 Phon~[] 
  []
 
@@ -1323,7 +1323,7 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 829--829
 
 
 Overfull \hbox (59.25pt too wide) in paragraph at lines 829--829
-[]\TU/lmtt/m/n/10 ## 1 F         NA    NA 1445bf~ 0000    msajc~            16 
+[]\TU/lmtt/m/n/10 ## 1 F         NA    NA b1fd03~ 0000    msajc~            16 
          16 Word[] 
  []
 
@@ -1347,73 +1347,73 @@ Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  1         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  1         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  2         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  2         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  3         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  3         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  4         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  4         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  5         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  5         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  6         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  6         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  7         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  7         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  8         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  8         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ##  9         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ##  9         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ## 10         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ## 10         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ## 11         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ## 11         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
 
 Overfull \hbox (27.75pt too wide) in paragraph at lines 941--941
-[]\TU/lmtt/m/n/10 ## 12         5 @      2447. 2506. 1445bf~ 0000    msajc~    
+[]\TU/lmtt/m/n/10 ## 12         5 @      2447. 2506. b1fd03~ 0000    msajc~    
        119[] 
  []
 
@@ -1552,7 +1552,7 @@ Underfull \vbox (badness 3009) has occurred while \output is active []
 [62]
 Overfull \hbox (190.5pt too wide) in paragraph at lines 1365--1365
 []\TU/lmtt/m/n/10 ## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s
-ld980000gn/T/RtmpAENoRx/fromScratch_emuDB[] 
+ld980000gn/T/Rtmpsa3qsD/fromScratch_emuDB[] 
  []
 
 [63] [64] [65] [66]
@@ -2468,7 +2468,7 @@ File: pics/EMU-webAppEmu_wrassp.pdf Graphic file (type pdf)
 [103] [104]
 Overfull \hbox (432.0pt too wide) in paragraph at lines 2831--2831
 []\TU/lmtt/m/n/10 ## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4
-c1sld980000gn/T//RtmpKR5ArO/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc
+c1sld980000gn/T//RtmpCHSMk1/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc
 003.wav.[] 
  []
 
@@ -3704,20 +3704,26 @@ Underfull \vbox (badness 1442) has occurred while \output is active []
 
 ]
 Chapter 19.
+
+Overfull \hbox (232.5pt too wide) in paragraph at lines 7753--7754
+ \TU/lmtt/m/n/10 source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS
+-Manual/master/R/praatToFormants2AsspDataObj.R") 
+ []
+
 [235]
-Underfull \vbox (badness 10000) detected at line 7877
+Underfull \vbox (badness 10000) detected at line 7878
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7877
+Underfull \vbox (badness 10000) detected at line 7878
  []
 
 [236]
-Underfull \vbox (badness 10000) detected at line 7877
+Underfull \vbox (badness 10000) detected at line 7878
  []
 
 
-Underfull \vbox (badness 10000) detected at line 7877
+Underfull \vbox (badness 10000) detected at line 7878
  []
 
 
@@ -3726,25 +3732,38 @@ Overfull \hbox (32.79234pt too wide) has occurred while \output is active
  \TU/lmr/m/n/10 237
  []
 
-[237] [238]
+[237]
+Underfull \vbox (badness 10000) detected at line 7918
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[238]
 Overfull \hbox (32.79234pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 19.1.  USING PRAAT’S SIGNAL PROCESSING ROUTINES IN THE EMU-SDMS
  \TU/lmr/m/n/10 239
  []
 
 [239]
-Underfull \vbox (badness 10000) detected at line 8106
+Overfull \hbox (216.75pt too wide) in paragraph at lines 7973--7974
+ \TU/lmtt/m/n/10 source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS
+-Manual/master/R/praatToPitch2AsspDataObj.R") 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8109
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [240]
-Underfull \vbox (badness 10000) detected at line 8106
+Underfull \vbox (badness 10000) detected at line 8109
  []
 
 
-Underfull \vbox (badness 10000) detected at line 8106
+Underfull \vbox (badness 10000) detected at line 8109
  []
 
 
@@ -3754,7 +3773,11 @@ Overfull \hbox (32.79234pt too wide) has occurred while \output is active
  []
 
 [241]
-Overfull \vbox (2.21999pt too high) detected at line 8106
+Underfull \vbox (badness 10000) detected at line 8109
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8109
  []
 
 [242]
@@ -3763,7 +3786,21 @@ Overfull \hbox (32.79234pt too wide) has occurred while \output is active
  \TU/lmr/m/n/10 243
  []
 
-[243] [244]
+[243]
+Overfull \hbox (211.5pt too wide) in paragraph at lines 8163--8164
+ \TU/lmtt/m/n/10 source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS
+-Manual/master/R/SMILExtract2AsspDataObj.R") 
+ []
+
+[244]
+Underfull \vbox (badness 10000) detected at line 8250
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8250
+ []
+
+
 Overfull \hbox (49.19234pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 19.2.  USING OPENSMILE SIGNAL PROCESSING ROUTINES IN THE EMU-SD
 MS \TU/lmr/m/n/10 245
@@ -3786,7 +3823,7 @@ Chapter 20.
 ]
 Chapter 21.
 [253]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8489--8489
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8494--8494
 []\TU/lmtt/m/n/10 ##  [10] "level"              "attribute"          "start_ite
 m_seq_idx"[] 
  []
@@ -3795,79 +3832,79 @@ m_seq_idx"[]
 Underfull \vbox (badness 2698) has occurred while \output is active []
 
 [256]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##    sl_rowIdx labels start   end db_uuid session bundle sta
 rt_item_id[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>     
      <int>[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  1         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  2         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  3         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  4         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  5         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  6         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  7         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  8         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ##  9         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (27.75pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ## 10         1 s       483.  567. 0fc618~ 0000    msajc~    
        151[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 8558--8558
+Overfull \hbox (33.0pt too wide) in paragraph at lines 8563--8563
 []\TU/lmtt/m/n/10 ## # ... with 5,387 more rows, and 15 more variables: end_ite
 m_id <int>,[] 
  []
@@ -3877,7 +3914,7 @@ File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-11-1.pdf Graphic
  file (type pdf)
 <use recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-11-1.pdf>
 
-Overfull \vbox (0.16719pt too high) detected at line 8595
+Overfull \vbox (0.16719pt too high) detected at line 8600
  []
 
 [258]
@@ -4010,7 +4047,7 @@ File: recipe-spectralAnalysis_files/figure-latex/unnamed-chunk-25-1.pdf Graphic
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [277]
-Underfull \vbox (badness 1052) detected at line 8950
+Underfull \vbox (badness 1052) detected at line 8955
  []
 
 [278]
@@ -4135,12 +4172,12 @@ GIT, GIT LFS AND GITLAB
 [302] [303
 
 ] [304])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9597.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9602.
 [305]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 9597.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9602.
 (./_main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9597.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9597.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9602.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9602.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: BADFF4DFEDF0A733F0B3BBF51F2E2D4D.
@@ -4151,7 +4188,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  23452 strings out of 492970
  451142 string characters out of 6133937
- 595695 words of memory out of 5000000
+ 596695 words of memory out of 5000000
  27088 multiletter control sequences out of 15000+600000
  571252 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

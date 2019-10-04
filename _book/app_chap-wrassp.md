@@ -6,6 +6,9 @@
 
 The R code snippet below shows how generating an `AsspDataObj` from scratch can be used in a function to place data from other sources into SSFF files. In this case it uses the `PraatR` R package (see http://www.aaronalbin.com/praatr/index.html) to execute Praat's `"To Formant (burg)..."` function to then store the data to a comma separated file using `"Down to Table..."`. The generated table is then read into R and the appropriate columns are placed into tracks of a `AsspDataObj` object. The `PraatToFormants2AsspDataObj` can be viewed as a template function as it can easily be adapted to use other functions provided by Praat or even other external tools.
 
+NOTE: this function can be accessed directly: `source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/praatToFormants2AsspDataObj.R")`
+
+
 
 ```r
 ###################################
@@ -208,6 +211,9 @@ Due to rounding errors, F0 and Formant values still might be slightly asynchrono
 rounds the start time with a precicion of 0.001 ms (via round(attr(ado, "startTime"),6) in the very end).
 - **The third parameter (default: 600) is the pitch ceiling** (and this parameter will not affect any other parameters indirectly)
 
+NOTE: this function can be accessed directly: `source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/praatToPitch2AsspDataObj.R")`
+
+
 
 ```r
 ###################################
@@ -396,6 +402,8 @@ set_signalCanvasesOrder(ae, "default", c(sc_order, "praatF0"))
 
 
 ## Using OpenSMILE signal processing routines in the EMU-SDMS {#sec:app-chap-wrassp-opensmileSigProc}
+
+NOTE: this function can be accessed directly as follows: `source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/SMILExtract2AsspDataObj.R")`
 
 
 ```r

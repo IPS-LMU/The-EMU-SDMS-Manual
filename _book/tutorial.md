@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 5a6e4b7f-d597-4ed5-b272-9eaa2d6f1c71 
-## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpOoSiQB/my-first_emuDB 
+## UUID:	 66f2d1ee-ce08-4754-893c-8000c8c62094 
+## Directory:	 /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpKidofl/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -218,7 +218,7 @@ head(sl_phonetic, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. 5a6e4b… 0000    msajc…            98          98 Phon…
+## 1 n      1032. 1196. 66f2d1… 0000    msajc…            98          98 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -400,7 +400,7 @@ head(sl_vowels, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. 5a6e4b… 0000    msajc…           103         103 Phon…
+## 1 @      1506. 1548. 66f2d1… 0000    msajc…           103         103 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -425,7 +425,7 @@ head(sl_word_type, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA 5a6e4b… 0000    msajc…            16          16 Word 
+## 1 F         NA    NA 66f2d1… 0000    msajc…            16          16 Word 
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -514,18 +514,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  2         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  3         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  4         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  5         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  6         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  7         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  8         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-##  9         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-## 10         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-## 11         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
-## 12         5 @      2447. 2506. 5a6e4b… 0000    msajc…           119
+##  1         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  2         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  3         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  4         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  5         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  6         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  7         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  8         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+##  9         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+## 10         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+## 11         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
+## 12         5 @      2447. 2506. 66f2d1… 0000    msajc…           119
 ## # … with 16 more variables: end_item_id <int>, level <chr>,
 ## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
 ## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
