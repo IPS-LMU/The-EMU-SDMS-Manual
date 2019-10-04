@@ -1,6 +1,6 @@
 # The R package `wrassp` [^1-chap:wrassp]{#chap:wrassp}
 
-[^1-chap:wrassp]: Some examples of this chapter are adapted version of examples given in the `wrassp_intro` vignette of the `wrassp` package.
+[^1-chap:wrassp]: Some examples of this chapter are adapted version of examples given in the legacy `wrassp_intro` vignette of the `wrassp` package.
 
 ```{r fig.align="center", echo=FALSE, out.width = "75%"}
 knitr::include_graphics("pics/EMU-webAppEmu_wrassp.png")
