@@ -70,7 +70,7 @@ Make sure to change the `Project slug` to match the casing (_emuDB vs. emudb) of
 
 ```bash
 # in the emuDB dir
-git remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git
+git remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git # change to your URL
 git push -u origin master
 ```
 
@@ -125,4 +125,9 @@ git pull
 git commit -am "added autobuild links from ORT to KAN" # change message accordingly
 git push
 ```
+
+### What about my R scripts / other files?
+
+Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g. you might want to share your database but not your "messy" analysis script :-)). This can for example be done using a new R Studio project (`File -> New Project...` in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired I would recommend looking into Git submodules: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
 

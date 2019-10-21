@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>References | The EMU-SDMS Manual</title>
   <meta name="description" content="References | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="References | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -65,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -149,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -358,6 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
 <li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
+<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.2</b> What about my R scripts / other files?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -392,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Beckman, Mary E, and Gayle Ayers. 1997. “Guidelines for ToBI Labelling.” <em>The OSU Research Foundation</em> 3.</p>
 </div>
 <div>
-<p>Bird, Steven, and Mark Liberman. 2001. “A Formal Framework for Linguistic Annotation.” <em>Speech Communication</em> 33 (1): 23–60.</p>
+<p>Bird, Steven, and Mark Liberman. 2001. “A Formal Framework for Linguistic Annotation.” <em>Speech Communication</em> 33 (1). Elsevier: 23–60.</p>
 </div>
 <div>
 <p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/">http://www.fon.hum.uva.nl/praat/</a>.</p>
@@ -410,10 +414,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Cassidy, Steve, and Jonathan Harrington. 1996. “Emu: An Enhanced Hierarchical Speech Data Management System.” In <em>Proceedings of the Sixth Australian International Conference on Speech Science and Technology</em>, 361–66.</p>
 </div>
 <div>
-<p>———. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1): 61–77.</p>
+<p>———. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1). Elsevier: 61–77.</p>
 </div>
 <div>
-<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3): 295–338.</p>
+<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3). Springer: 295–338.</p>
 </div>
 <div>
 <p>Conway, Joe, Dirk Eddelbuettel, Tomoaki Nishiyama, Sameer Kumar Prayaga, and Neil Tiffin. 2016. <em>RPostgreSQL: R Interface to the Postgresql Database System</em>. <a href="https://CRAN.R-project.org/package=RPostgreSQL">https://CRAN.R-project.org/package=RPostgreSQL</a>.</p>
@@ -437,13 +441,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Harrington, Jonathan, and Steve Cassidy. 2002. “The Emu-Query Language (Anhang).” IPDS Kiel.</p>
 </div>
 <div>
-<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4): 305–31.</p>
+<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4). Elsevier: 305–31.</p>
 </div>
 <div>
 <p>Hipp, D Richard, and D Kennedy. 2007. “SQLite.” <a href="https://www.sqlite.org/">https://www.sqlite.org/</a>.</p>
 </div>
 <div>
-<p>Ide, Nancy, and Laurent Romary. 2004. “International Standard for a Linguistic Annotation Framework.” <em>Natural Language Engineering</em> 10 (3-4): 211–25.</p>
+<p>Ide, Nancy, and Laurent Romary. 2004. “International Standard for a Linguistic Annotation Framework.” <em>Natural Language Engineering</em> 10 (3-4). Cambridge Univ Press: 211–25.</p>
 </div>
 <div>
 <p>ISO. 2012. “Language Resource Management — Linguistic Annotation Framework (Laf).” ISO 24612:2012. Geneva, Switzerland: International Organization for Standardization.</p>
@@ -485,7 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Shue, Y.-L, Keating P., Vicenik C., and Yu K. 2011. “VoiceSauce: A Program for Voice Analysis.” In <em>Proceedings of the Icphs</em>, XVII:1846–9.</p>
 </div>
 <div>
-<p>Wells, John C, and others. 1997. “SAMPA Computer Readable Phonetic Alphabet.” <em>Handbook of Standards and Resources for Spoken Language Systems</em> 4.</p>
+<p>Wells, John C, and others. 1997. “SAMPA Computer Readable Phonetic Alphabet.” <em>Handbook of Standards and Resources for Spoken Language Systems</em> 4. Berlin; New York: Mouton de Gruyter. Part IV, section B.</p>
 </div>
 <div>
 <p>Wickham, Hadley, David A. James, and Seth Falcon. 2014. <em>RSQLite: SQLite Interface for R</em>. <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.</p>
@@ -546,11 +550,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

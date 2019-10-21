@@ -488,8 +488,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     b1fd03fc-23d0-48c5-a488-89edb0b3dcfe 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmp0gxiLv/my-first_emuDB 
+## UUID:     32bb8494-b3d9-4111-82ab-33e3c5352139 
+## Directory:    /tmp/Rtmp9zQ9c9/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -597,7 +597,7 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. b1fd03~ 0000    msajc~            98          98 Phon~
+## 1 n      1032. 1196. 32bb84~ 0000    msajc~            98          98 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -796,7 +796,7 @@ Having this hierarchical annotation structure now allows us to formulate a query
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. b1fd03~ 0000    msajc~           103         103 Phon~
+## 1 @      1506. 1548. 32bb84~ 0000    msajc~           103         103 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -822,7 +822,7 @@ As the type of word (content vs.~function) for each \emph{@} vowel that was just
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA b1fd03~ 0000    msajc~            16          16 Word 
+## 1 F         NA    NA 32bb84~ 0000    msajc~            16          16 Word 
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
 ## #   sample_end <int>, sample_rate <int>
@@ -921,18 +921,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  2         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  3         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  4         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  5         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  6         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  7         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  8         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-##  9         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-## 10         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-## 11         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
-## 12         5 @      2447. 2506. b1fd03~ 0000    msajc~           119
+##  1         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  2         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  3         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  4         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  5         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  6         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  7         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  8         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+##  9         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+## 10         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+## 11         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
+## 12         5 @      2447. 2506. 32bb84~ 0000    msajc~           119
 ## # ... with 16 more variables: end_item_id <int>, level <chr>,
 ## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
 ## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
@@ -1025,8 +1025,8 @@ Figures \ref{fig:tutorial-dplot1} and \ref{fig:tutorial-dplot2} give an overview
 
 Figure \ref{fig:tutorial-eplot} displays the first two formants extracted at the temporal midpoint of every \emph{@} vowel in \texttt{sl\_vowels}. The centroid of these formants is plotted on the F2 x F1 plane, and their 95\% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the \texttt{dplyr} and \texttt{ggplot2} packages can be very helpful tools for providing an overview of the data at hand.
 
-\hypertarget{vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis}{%
-\section{Vowel height as a function of word types (content vs.~function): evaluation and statistical analysis}\label{vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis}}
+\hypertarget{vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis}{%
+\section{Vowel height as a function of word types (content vs.~function): evaluation and statistical analysis}\label{vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis}}
 
 The above data exploration only dealt with the actual \emph{@} vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the \emph{@} vowel occurs in a content (labeled \emph{C}) or function (labeled \emph{F}) word. For data inspection purposes, the R code snippet below initially extracts the central 60\% (\texttt{filter()} conditions \texttt{times\_norm\ \textgreater{}=\ 0.2} and \texttt{times\_norm\ \textless{}=\ 0.8}) of the formant trajectories from \texttt{td\_vowels\_norm} using \texttt{dplyr} and displays them using \texttt{ggplot()}. It should be noted that before the call to \texttt{ggplot()} the labels of the \texttt{td\_vowels\_mid\_sec} are replaced with those of \texttt{sl\_word\_type}. This allows \texttt{ggplot()} to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \ref{fig:tutorial-dplotSylTyp}.
 
@@ -1169,7 +1169,7 @@ To confirm or reject this, the following R code presents a very simple statistic
 \caption{Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code.}\label{fig:tutorial-stats1}
 \end{figure}
 
-As shown by the result of \texttt{wilcox.test()} in the above R code, word type (\emph{C} vs.~\emph{F}) has a significant influence on the vowel's F1 (W=121, p\textless{}0.05). Hence, the answer to the initially proposed question: \emph{Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?} is yes!
+As shown by the result of \texttt{wilcox.test()} in the above R code, word type (\emph{C} vs. \emph{F}) has a significant influence on the vowel's F1 (W=121, p\textless{}0.05). Hence, the answer to the initially proposed question: \emph{Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?} is yes!
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
@@ -1230,7 +1230,7 @@ Based on our experience, the explicit definition of the annotation structure for
 \hypertarget{parallel-labels-and-multiple-attributes}{%
 \section{Parallel labels and multiple attributes}\label{parallel-labels-and-multiple-attributes}}
 
-The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called \emph{Category} might have been included as a separate level from \emph{Word} for marking words' grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate \emph{Stress} tier (description taken from \citet{harrington:2010a} page 77). Using \texttt{ONE\_TO\_ONE} link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term ``attribute'' (vs.~``label'') was chosen to have the flexibility of adding attributes that are not of the type \texttt{STRING} (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure \ref{fig:paraLabels} shows the annotation structure modeling difference between linearly linked levels (see Figure \ref{fig:paraLabels}A) and an annotation structure using multiple attributes (see Figure \ref{fig:paraLabels}B). Figure \ref{fig:paraLabels}A shows three separate levels (\emph{Word}, \emph{Accent} and \emph{Text}) that have a \texttt{ONE\_TO\_ONE} relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., \emph{A1-A3}). Figure \ref{fig:paraLabels}B shows a single level that has three attribute definitions (\emph{Word}, \emph{Accent} and \emph{Text}) and each annotation item contains three attributes (e.g., \emph{A1-A3}).
+The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called \emph{Category} might have been included as a separate level from \emph{Word} for marking words' grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate \emph{Stress} tier (description taken from \citet{harrington:2010a} page 77). Using \texttt{ONE\_TO\_ONE} link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term ``attribute'' (vs. ``label'') was chosen to have the flexibility of adding attributes that are not of the type \texttt{STRING} (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure \ref{fig:paraLabels} shows the annotation structure modeling difference between linearly linked levels (see Figure \ref{fig:paraLabels}A) and an annotation structure using multiple attributes (see Figure \ref{fig:paraLabels}B). Figure \ref{fig:paraLabels}A shows three separate levels (\emph{Word}, \emph{Accent} and \emph{Text}) that have a \texttt{ONE\_TO\_ONE} relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., \emph{A1-A3}). Figure \ref{fig:paraLabels}B shows a single level that has three attribute definitions (\emph{Word}, \emph{Accent} and \emph{Text}) and each annotation item contains three attributes (e.g., \emph{A1-A3}).
 
 \begin{figure}
 
@@ -1344,8 +1344,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     ca5ccbdb-f066-4e49-aa2c-0fd28cecd540 
-## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/Rtmpsa3qsD/fromScratch_emuDB 
+## UUID:     2b7889c7-d256-4235-95ad-9cda618cd99b 
+## Directory:    /tmp/RtmpeXooRA/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1701,8 +1701,8 @@ The previous sections of this chapter defined the simple structure of the \emph{
 ## # A tibble: 2 x 4
 ##   session    bundle  file        absolute_file_path                        
 ##   <chr>      <chr>   <chr>       <chr>                                     
-## 1 fromWavFi~ msajc0~ msajc003_a~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4~
-## 2 fromWavFi~ msajc0~ msajc003.w~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4~
+## 1 fromWavFi~ msajc0~ msajc003_a~ /tmp/RtmpeXooRA/fromScratch_emuDB/fromWav~
+## 2 fromWavFi~ msajc0~ msajc003.w~ /tmp/RtmpeXooRA/fromScratch_emuDB/fromWav~
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB} containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every \texttt{\_annot.json} file created contains an empty \texttt{Word} and \texttt{Phonetic} level array and the links array is also empty.
@@ -1748,9 +1748,9 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 ## # A tibble: 3 x 4
 ##   session    bundle  file        absolute_file_path                        
 ##   <chr>      <chr>   <chr>       <chr>                                     
-## 1 fromWavFi~ msajc0~ msajc003_a~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4~
-## 2 fromWavFi~ msajc0~ msajc003.w~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4~
-## 3 fromWavFi~ msajc0~ msajc003.z~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4~
+## 1 fromWavFi~ msajc0~ msajc003_a~ /tmp/RtmpeXooRA/fromScratch_emuDB/fromWav~
+## 2 fromWavFi~ msajc0~ msajc003.w~ /tmp/RtmpeXooRA/fromScratch_emuDB/fromWav~
+## 3 fromWavFi~ msajc0~ msajc003.z~ /tmp/RtmpeXooRA/fromScratch_emuDB/fromWav~
 \end{verbatim}
 
 \hypertarget{ssff-track-definitions}{%
@@ -2572,13 +2572,13 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 ## # A tibble: 7 x 4
 ##   session bundle   file     absolute_file_path                             
 ##   <chr>   <chr>    <chr>    <chr>                                          
-## 1 0000    msajc003 msajc00~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld~
-## 2 0000    msajc010 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld~
-## 3 0000    msajc012 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld~
-## 4 0000    msajc015 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld~
-## 5 0000    msajc022 msajc02~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld~
-## 6 0000    msajc023 msajc02~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld~
-## 7 0000    msajc057 msajc05~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld~
+## 1 0000    msajc003 msajc00~ /tmp/Rtmp2YvRsp/emuR_demoData/ae_emuDB/0000_se~
+## 2 0000    msajc010 msajc01~ /tmp/Rtmp2YvRsp/emuR_demoData/ae_emuDB/0000_se~
+## 3 0000    msajc012 msajc01~ /tmp/Rtmp2YvRsp/emuR_demoData/ae_emuDB/0000_se~
+## 4 0000    msajc015 msajc01~ /tmp/Rtmp2YvRsp/emuR_demoData/ae_emuDB/0000_se~
+## 5 0000    msajc022 msajc02~ /tmp/Rtmp2YvRsp/emuR_demoData/ae_emuDB/0000_se~
+## 6 0000    msajc023 msajc02~ /tmp/Rtmp2YvRsp/emuR_demoData/ae_emuDB/0000_se~
+## 7 0000    msajc057 msajc05~ /tmp/Rtmp2YvRsp/emuR_demoData/ae_emuDB/0000_se~
 \end{verbatim}
 
 \begin{Shaded}
@@ -2822,7 +2822,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpCHSMk1/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/RtmpcoJHYe/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -2888,7 +2888,7 @@ As can be seen in the above R code snippet, the resulting \texttt{au} object is 
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000g..."
+## [1] "/tmp/RtmpcoJHYe/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -3221,8 +3221,7 @@ As it can be extremely important to keep track of information about how certain 
 \NormalTok{path2logFile =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(path2ae, }\StringTok{"wrassp.log"}\NormalTok{)}
 
 \CommentTok{# calculate the fundamental frequency contour}
-\KeywordTok{ksvF0}\NormalTok{(path2wav, }\DataTypeTok{windowShift =} \DecValTok{10}\NormalTok{,}
-      \DataTypeTok{forceToLog =}\NormalTok{ T, }\DataTypeTok{optLogFilePath =}\NormalTok{ path2logFile)}
+\KeywordTok{ksvF0}\NormalTok{(path2wav, }\DataTypeTok{windowShift =} \DecValTok{10}\NormalTok{, }\DataTypeTok{forceToLog =}\NormalTok{ T, }\DataTypeTok{optLogFilePath =}\NormalTok{ path2logFile)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3242,7 +3241,7 @@ As it can be extremely important to keep track of information about how certain 
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-10-04 11:19:32 "  
+## [5] "Timestamp:  2019-10-21 15:58:45 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"
@@ -3809,12 +3808,12 @@ To save space it can be beneficial to overlay one or more signal tracks onto oth
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ErrorTok{...}
-\ErrorTok{"assign":} \OtherTok{[}\FunctionTok{\{}
-    \DataTypeTok{"signalCanvasName"}\FunctionTok{:} \StringTok{"OSCI"}\FunctionTok{,}
-    \DataTypeTok{"ssffTrackName"}\FunctionTok{:} \StringTok{"fm"}
-\FunctionTok{\}}\OtherTok{]}\ErrorTok{,}
-\ErrorTok{...}
+\NormalTok{...}
+\StringTok{"assign"}\OperatorTok{:}\NormalTok{ [}\OperatorTok{\{}
+    \StringTok{"signalCanvasName"}\OperatorTok{:} \StringTok{"OSCI"}\OperatorTok{,}
+    \StringTok{"ssffTrackName"}\OperatorTok{:} \StringTok{"fm"}
+\OperatorTok{\}}\NormalTok{]}\OperatorTok{,}
+\NormalTok{...}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3834,12 +3833,12 @@ The current mechanism for laying frequency-aligned formant contours over the spe
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ErrorTok{...}
-\ErrorTok{"assign":} \OtherTok{[}\FunctionTok{\{}
-    \DataTypeTok{"signalCanvasName"}\FunctionTok{:} \StringTok{"SPEC"}\FunctionTok{,}
-    \DataTypeTok{"ssffTrackName"}\FunctionTok{:} \StringTok{"FORMANTS"}
-\FunctionTok{\}}\OtherTok{]}\ErrorTok{,}
-\ErrorTok{...}
+\NormalTok{...}
+\StringTok{"assign"}\OperatorTok{:}\NormalTok{ [}\OperatorTok{\{}
+    \StringTok{"signalCanvasName"}\OperatorTok{:} \StringTok{"SPEC"}\OperatorTok{,}
+    \StringTok{"ssffTrackName"}\OperatorTok{:} \StringTok{"FORMANTS"}
+\OperatorTok{\}}\NormalTok{]}\OperatorTok{,}
+\NormalTok{...}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3873,26 +3872,26 @@ The \texttt{EMU-webApp} has an additional canvas which can be configured to disp
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ErrorTok{...}
-\ErrorTok{"twoDimCanvases":} \FunctionTok{\{}
-    \DataTypeTok{"order"}\FunctionTok{:} \OtherTok{[}\StringTok{"DOTS"}\OtherTok{]}\FunctionTok{,}
-    \DataTypeTok{"twoDimDrawingDefinitions"}\FunctionTok{:} \OtherTok{[}\FunctionTok{\{}
-        \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"DOTS"}\FunctionTok{,}
-        \DataTypeTok{"dots"}\FunctionTok{:} \OtherTok{[}\FunctionTok{\{}
-            \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"tt"}\FunctionTok{,}
-            \DataTypeTok{"xSsffTrack"}\FunctionTok{:} \StringTok{"tt_posy"}\FunctionTok{,}
-            \DataTypeTok{"xContourNr"}\FunctionTok{:} \DecValTok{0}\FunctionTok{,}
-            \DataTypeTok{"ySsffTrack"}\FunctionTok{:} \StringTok{"tt_posz"}\FunctionTok{,}
-            \DataTypeTok{"yContourNr"}\FunctionTok{:} \DecValTok{0}\FunctionTok{,}
-            \DataTypeTok{"color"}\FunctionTok{:} \StringTok{"rgb(255,0,0)"}
-        \FunctionTok{\}}\OtherTok{,}
-\ErrorTok{...}
-    \StringTok{"connectLines"}\ErrorTok{:} \OtherTok{[}\FunctionTok{\{}
-        \DataTypeTok{"fromDot"}\FunctionTok{:} \StringTok{"tt"}\FunctionTok{,}
-        \DataTypeTok{"toDot"}\FunctionTok{:} \StringTok{"tm"}\FunctionTok{,}
-            \DataTypeTok{"color"}\FunctionTok{:} \StringTok{"rgb(0,0,0)"}
-    \FunctionTok{\}}\OtherTok{,}
-\ErrorTok{...}
+\NormalTok{...}
+\StringTok{"twoDimCanvases"}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{"order"}\OperatorTok{:}\NormalTok{ [}\StringTok{"DOTS"}\NormalTok{]}\OperatorTok{,}
+    \StringTok{"twoDimDrawingDefinitions"}\OperatorTok{:}\NormalTok{ [}\OperatorTok{\{}
+        \StringTok{"name"}\OperatorTok{:} \StringTok{"DOTS"}\OperatorTok{,}
+        \StringTok{"dots"}\OperatorTok{:}\NormalTok{ [}\OperatorTok{\{}
+            \StringTok{"name"}\OperatorTok{:} \StringTok{"tt"}\OperatorTok{,}
+            \StringTok{"xSsffTrack"}\OperatorTok{:} \StringTok{"tt_posy"}\OperatorTok{,}
+            \StringTok{"xContourNr"}\OperatorTok{:} \DecValTok{0}\OperatorTok{,}
+            \StringTok{"ySsffTrack"}\OperatorTok{:} \StringTok{"tt_posz"}\OperatorTok{,}
+            \StringTok{"yContourNr"}\OperatorTok{:} \DecValTok{0}\OperatorTok{,}
+            \StringTok{"color"}\OperatorTok{:} \StringTok{"rgb(255,0,0)"}
+        \OperatorTok{\},}
+\NormalTok{...}
+    \StringTok{"connectLines"}\OperatorTok{:}\NormalTok{ [}\OperatorTok{\{}
+        \StringTok{"fromDot"}\OperatorTok{:} \StringTok{"tt"}\OperatorTok{,}
+        \StringTok{"toDot"}\OperatorTok{:} \StringTok{"tm"}\OperatorTok{,}
+            \StringTok{"color"}\OperatorTok{:} \StringTok{"rgb(0,0,0)"}
+    \OperatorTok{\},}
+\NormalTok{...}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3912,9 +3911,9 @@ The 2D canvas of the \texttt{EMU-webApp} can also be configured to display EPG d
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ErrorTok{"twoDimCanvases":} \FunctionTok{\{}
-    \DataTypeTok{"order"}\FunctionTok{:} \OtherTok{[}\StringTok{"EPG"}\OtherTok{]}
-\FunctionTok{\}}
+\StringTok{"twoDimCanvases"}\OperatorTok{:} \OperatorTok{\{}
+    \StringTok{"order"}\OperatorTok{:}\NormalTok{ [}\StringTok{"EPG"}\NormalTok{]}
+\OperatorTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3927,27 +3926,27 @@ Compared to the above configurations, configuring the \texttt{EMU-webApp} to sem
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ErrorTok{...}
-\ErrorTok{"levelDefinitions":} \OtherTok{[}\FunctionTok{\{}
-  \ErrorTok{\{}
-    \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"tongueTipGestures"}\FunctionTok{,}
-    \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"EVENT"}\FunctionTok{,}
-    \DataTypeTok{"attributeDefinitions"}\FunctionTok{:} \OtherTok{[}\FunctionTok{\{}
-        \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"tongueTipGestures"}\FunctionTok{,}
-        \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"STRING"}
-    \FunctionTok{\}}\OtherTok{]}\FunctionTok{,}
-    \DataTypeTok{"anagestConfig"}\FunctionTok{:} \FunctionTok{\{}
-        \DataTypeTok{"verticalPosSsffTrackName"}\FunctionTok{:} \StringTok{"tt_posz"}\FunctionTok{,}
-        \DataTypeTok{"velocitySsffTrackName"}\FunctionTok{:} \StringTok{"t_tipTV"}\FunctionTok{,}
-        \DataTypeTok{"autoLinkLevelName"}\FunctionTok{:} \StringTok{"ORT"}\FunctionTok{,}
-        \DataTypeTok{"multiplicationFactor"}\FunctionTok{:} \DecValTok{1}\FunctionTok{,}
-        \DataTypeTok{"threshold"}\FunctionTok{:} \FloatTok{0.2}\FunctionTok{,}
-        \DataTypeTok{"gestureOnOffsetLabels"}\FunctionTok{:} \OtherTok{[}\StringTok{"gon"}\OtherTok{,} \StringTok{"goff"}\OtherTok{]}\FunctionTok{,}
-        \DataTypeTok{"maxVelocityOnOffsetLabels"}\FunctionTok{:} \OtherTok{[}\StringTok{"von"}\OtherTok{,} \StringTok{"voff"}\OtherTok{]}\FunctionTok{,}
-        \DataTypeTok{"constrictionPlateauBeginEndLabels"}\FunctionTok{:} \OtherTok{[}\StringTok{"pon"}\OtherTok{,} \StringTok{"poff"}\OtherTok{]}\FunctionTok{,}
-        \DataTypeTok{"maxConstrictionLabel"}\FunctionTok{:} \StringTok{"mon"}
-    \FunctionTok{\}}
-\ErrorTok{...}
+\NormalTok{...}
+\StringTok{"levelDefinitions"}\OperatorTok{:}\NormalTok{ [}\OperatorTok{\{}
+  \OperatorTok{\{}
+    \StringTok{"name"}\OperatorTok{:} \StringTok{"tongueTipGestures"}\OperatorTok{,}
+    \StringTok{"type"}\OperatorTok{:} \StringTok{"EVENT"}\OperatorTok{,}
+    \StringTok{"attributeDefinitions"}\OperatorTok{:}\NormalTok{ [}\OperatorTok{\{}
+        \StringTok{"name"}\OperatorTok{:} \StringTok{"tongueTipGestures"}\OperatorTok{,}
+        \StringTok{"type"}\OperatorTok{:} \StringTok{"STRING"}
+    \OperatorTok{\}}\NormalTok{]}\OperatorTok{,}
+    \StringTok{"anagestConfig"}\OperatorTok{:} \OperatorTok{\{}
+        \StringTok{"verticalPosSsffTrackName"}\OperatorTok{:} \StringTok{"tt_posz"}\OperatorTok{,}
+        \StringTok{"velocitySsffTrackName"}\OperatorTok{:} \StringTok{"t_tipTV"}\OperatorTok{,}
+        \StringTok{"autoLinkLevelName"}\OperatorTok{:} \StringTok{"ORT"}\OperatorTok{,}
+        \StringTok{"multiplicationFactor"}\OperatorTok{:} \DecValTok{1}\OperatorTok{,}
+        \StringTok{"threshold"}\OperatorTok{:} \FloatTok{0.2}\OperatorTok{,}
+        \StringTok{"gestureOnOffsetLabels"}\OperatorTok{:}\NormalTok{ [}\StringTok{"gon"}\OperatorTok{,} \StringTok{"goff"}\NormalTok{]}\OperatorTok{,}
+        \StringTok{"maxVelocityOnOffsetLabels"}\OperatorTok{:}\NormalTok{ [}\StringTok{"von"}\OperatorTok{,} \StringTok{"voff"}\NormalTok{]}\OperatorTok{,}
+        \StringTok{"constrictionPlateauBeginEndLabels"}\OperatorTok{:}\NormalTok{ [}\StringTok{"pon"}\OperatorTok{,} \StringTok{"poff"}\NormalTok{]}\OperatorTok{,}
+        \StringTok{"maxConstrictionLabel"}\OperatorTok{:} \StringTok{"mon"}
+    \OperatorTok{\}}
+\NormalTok{...}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5555,7 +5554,7 @@ The \texttt{\_DBconfig.json} file contains the following fields:
       \item
         \texttt{"ssffTrackName"} The name of the \texttt{ssffTrackName} for which colors are defined. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
       \item
-        \texttt{"colors"} An array of RGB strings (e.g.~\texttt{{[}"rgb(238,130,238)"}, \texttt{"rgb(127,255,212)"{]}}) that specify the color of the contour (first value = first contour color and so on). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
+        \texttt{"colors"} An array of RGB strings (e.g. \texttt{{[}"rgb(238,130,238)"}, \texttt{"rgb(127,255,212)"{]}}) that specify the color of the contour (first value = first contour color and so on). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
       \end{itemize}
     \item
       \texttt{"levelCanvases"} Configuration options for the
@@ -5611,9 +5610,9 @@ The \texttt{\_DBconfig.json} file contains the following fields:
       \item
         \texttt{"yNameCoordinate"} y-coordinate specifying the location at which name should be drawn. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
-        \texttt{"xCoordinates"} An array of x-coordinates (e.g.~\texttt{{[}300,~300,~900,~900,~300{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
+        \texttt{"xCoordinates"} An array of x-coordinates (e.g. \texttt{{[}300,~300,~900,~900,~300{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
-        \texttt{"yCoordinates"} An array of y-coordinates (e.g.~\texttt{{[}880,~2540,~2540,~880,~880{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
+        \texttt{"yCoordinates"} An array of y-coordinates (e.g. \texttt{{[}880,~2540,~2540,~880,~880{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
         \texttt{"connect"} A boolean value that specifies whether or not to connect the static dots with lines. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
@@ -6772,7 +6771,7 @@ Example \textbf{Q} \& \textbf{A}'s:
 \hypertarget{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}{%
 \section{\texorpdfstring{Subsequent sequence queries using nesting of the \texttt{-\textgreater{}} sequence operator}{Subsequent sequence queries using nesting of the -\textgreater{} sequence operator}}\label{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}}
 
-The general strategy for constructing a query string that retrieves subsequent sequences of labels is to nest multiple sequences while paying close attention to the correct placement of the parentheses. An abstract version of such a query string for the subsequent sequence of arguments \texttt{A1}, \texttt{A2}, \texttt{A3} and \texttt{A4} would be: \texttt{{[}{[}{[}{[}A1\ -\textgreater{}\ A2{]}\ -\textgreater{}\ A3{]}\ -\textgreater{}\ A4{]}\ -\textgreater{}\ A5{]}} where each argument (e.g.~\texttt{A1}) represents an equality, inequality, matching or non-matching expression on the same level (alternatively, parallel attribute definitions of the same level may also be chosen).
+The general strategy for constructing a query string that retrieves subsequent sequences of labels is to nest multiple sequences while paying close attention to the correct placement of the parentheses. An abstract version of such a query string for the subsequent sequence of arguments \texttt{A1}, \texttt{A2}, \texttt{A3} and \texttt{A4} would be: \texttt{{[}{[}{[}{[}A1\ -\textgreater{}\ A2{]}\ -\textgreater{}\ A3{]}\ -\textgreater{}\ A4{]}\ -\textgreater{}\ A5{]}} where each argument (e.g. \texttt{A1}) represents an equality, inequality, matching or non-matching expression on the same level (alternatively, parallel attribute definitions of the same level may also be chosen).
 
 Example questions and answers:
 
@@ -6816,8 +6815,8 @@ Example questions and answers:
 \begin{Highlighting}[]
 \CommentTok{# }\AlertTok{NOTE}\CommentTok{: usage of paste0() is optional}
 \CommentTok{# as it is only used for formating purposes}
-\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[[Text == offer -> Text => .*] "}\NormalTok{,}
-                 \StringTok{"-> Text => .*] -> Text == resistance]"}\NormalTok{))}
+\KeywordTok{query}\NormalTok{(ae, }\KeywordTok{paste0}\NormalTok{(}\StringTok{"[[[Text == offer -> Text =~ .*] "}\NormalTok{,}
+                 \StringTok{"-> Text =~ .*] -> Text == resistance]"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7730,7 +7729,7 @@ To our knowledge, the order of a segment list in the legacy EMU system was never
 \item
   The query mechanics of \texttt{emuR} accepts the double equal character string \texttt{==} (recommended) as well as the single \texttt{=} equal character string as an equal operator.
 \item
-  The EQL2 is capable of querying labels by matching regular expressions using the \texttt{=\textasciitilde{}} (matching) and \texttt{!\textasciitilde{}} (non-matching) operators. It is worth noting that the regular expression pattern is always meant to consume the entire label string i.e.~wrapping the RegEx in \texttt{"\^{}\ RegEx\ \$"} is not necessary. If substring matching is desired this must be formulated explicitly (e.g.~\texttt{".*substring.*"})
+  The EQL2 is capable of querying labels by matching regular expressions using the \texttt{=\textasciitilde{}} (matching) and \texttt{!\textasciitilde{}} (non-matching) operators. It is worth noting that the regular expression pattern is always meant to consume the entire label string i.e.~wrapping the RegEx in \texttt{"\^{}\ RegEx\ \$"} is not necessary. If substring matching is desired this must be formulated explicitly (e.g. \texttt{".*substring.*"})
 
   \begin{itemize}
   \tightlist
@@ -8350,7 +8349,7 @@ Let us now load the needed libraries and create a demo emuDB to play with:
 \end{Highlighting}
 \end{Shaded}
 
-The \texttt{ae} emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for ``Discrete Fourier Transform'' which converts a signal into a time-series of spectra. This transformation can be done with \texttt{wrassp}'s function \texttt{dftSpectrum()} which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a ``short-term spectral analysis of the signal in using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g.~`.dft'). Default output is in SSFF format with the spectrum type in lower case as track name.'' (cited from \texttt{?wrassp::dftSpectrum}).
+The \texttt{ae} emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for ``Discrete Fourier Transform'' which converts a signal into a time-series of spectra. This transformation can be done with \texttt{wrassp}'s function \texttt{dftSpectrum()} which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a ``short-term spectral analysis of the signal in using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g. `.dft'). Default output is in SSFF format with the spectrum type in lower case as track name.'' (cited from \texttt{?wrassp::dftSpectrum}).
 
 The procedure to calculate your own dft-files is identical to that of calculating formants, or fundamental frequency, or any other function that is available in \texttt{wrassp} (see also \href{http://www.phonetik.uni-muenchen.de/\%7Ejmh/lehre/sem/ws1819/emuR/LESSON4/Signal_Data_Calculation_Extraction_Plotting.html}{this document} ):
 
@@ -9532,7 +9531,7 @@ Make sure to change the \texttt{Project\ slug} to match the casing (\_emuDB vs.~
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# in the emuDB dir}
-\FunctionTok{git}\NormalTok{ remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git}
+\FunctionTok{git}\NormalTok{ remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git }\CommentTok{# change to your URL}
 \FunctionTok{git}\NormalTok{ push -u origin master}
 \end{Highlighting}
 \end{Shaded}
@@ -9595,6 +9594,11 @@ When collaborating with multiple people it is usually a good idea to do the foll
 \FunctionTok{git}\NormalTok{ push}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{what-about-my-r-scripts-other-files}{%
+\subsection{What about my R scripts / other files?}\label{what-about-my-r-scripts-other-files}}
+
+Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g.~you might want to share your database but not your ``messy'' analysis script :-)). This can for example be done using a new R Studio project (\texttt{File\ -\textgreater{}\ New\ Project...} in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired I would recommend looking into Git submodules: \url{https://git-scm.com/book/en/v2/Git-Tools-Submodules}
 
 \bibliography{book.bib}
 

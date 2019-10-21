@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>23 Version control of emuDBs with Git, Git LFS and GitLab | The EMU-SDMS Manual</title>
   <meta name="description" content="23 Version control of emuDBs with Git, Git LFS and GitLab | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="23 Version control of emuDBs with Git, Git LFS and GitLab | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -65,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -149,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -358,6 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
 <li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
+<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.2</b> What about my R scripts / other files?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -391,27 +395,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="setup" class="section level2">
 <h2><span class="header-section-number">23.1</span> Setup</h2>
 <p>The first thing we need to do is create and load an example emuDB:</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" title="1"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb450-2" title="2"><span class="kw">create_emuRdemoData</span>()</a>
-<a class="sourceLine" id="cb450-3" title="3">db =<span class="st"> </span><span class="kw">load_emuDB</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb450-4" title="4">                          <span class="st">&quot;emuR_demoData&quot;</span>,</a>
-<a class="sourceLine" id="cb450-5" title="5">                          <span class="st">&quot;ae_emuDB&quot;</span>),</a>
-<a class="sourceLine" id="cb450-6" title="6">                <span class="dt">verbose =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb450-2" data-line-number="2"><span class="kw">create_emuRdemoData</span>()</a>
+<a class="sourceLine" id="cb450-3" data-line-number="3">db =<span class="st"> </span><span class="kw">load_emuDB</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb450-4" data-line-number="4">                          <span class="st">&quot;emuR_demoData&quot;</span>,</a>
+<a class="sourceLine" id="cb450-5" data-line-number="5">                          <span class="st">&quot;ae_emuDB&quot;</span>),</a>
+<a class="sourceLine" id="cb450-6" data-line-number="6">                <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>As the ae emuDB is not yet under Git version control we will proceed by initializing a new Git repository in the emuDB directory. In a terminal (e.g. the Terminal tab in RStudio) type:</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb451-1" title="1"><span class="co"># cd /path/to/emuDB</span></a>
-<a class="sourceLine" id="cb451-2" title="2"><span class="fu">git</span> init</a></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="co"># cd /path/to/emuDB</span></a>
+<a class="sourceLine" id="cb451-2" data-line-number="2"><span class="fu">git</span> init</a></code></pre></div>
 <p>Next, we will set up Git LFS to track the large files of our emuDB (<code>*.wav</code>, <code>*.fms</code>, <code>*.dft</code> and <code>*.sqlite</code>). In a terminal (e.g. the Terminal tab in RStudio) type:</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb452-1" title="1"><span class="co"># in the emuDB dir</span></a>
-<a class="sourceLine" id="cb452-2" title="2"><span class="fu">git</span> lfs install <span class="co"># install lfs </span></a>
-<a class="sourceLine" id="cb452-3" title="3"><span class="fu">git</span> lfs track <span class="st">&quot;*.wav&quot;</span></a>
-<a class="sourceLine" id="cb452-4" title="4"><span class="fu">git</span> lfs track <span class="st">&quot;*.fms&quot;</span></a>
-<a class="sourceLine" id="cb452-5" title="5"><span class="fu">git</span> lfs track <span class="st">&quot;*.dft&quot;</span></a>
-<a class="sourceLine" id="cb452-6" title="6"><span class="fu">git</span> lfs track <span class="st">&quot;*.sqlite&quot;</span></a>
-<a class="sourceLine" id="cb452-7" title="7"><span class="fu">git</span> add .gitattributes <span class="co"># make sure .gitattributes is tracked</span></a></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb452-1" data-line-number="1"><span class="co"># in the emuDB dir</span></a>
+<a class="sourceLine" id="cb452-2" data-line-number="2"><span class="fu">git</span> lfs install <span class="co"># install lfs </span></a>
+<a class="sourceLine" id="cb452-3" data-line-number="3"><span class="fu">git</span> lfs track <span class="st">&quot;*.wav&quot;</span></a>
+<a class="sourceLine" id="cb452-4" data-line-number="4"><span class="fu">git</span> lfs track <span class="st">&quot;*.fms&quot;</span></a>
+<a class="sourceLine" id="cb452-5" data-line-number="5"><span class="fu">git</span> lfs track <span class="st">&quot;*.dft&quot;</span></a>
+<a class="sourceLine" id="cb452-6" data-line-number="6"><span class="fu">git</span> lfs track <span class="st">&quot;*.sqlite&quot;</span></a>
+<a class="sourceLine" id="cb452-7" data-line-number="7"><span class="fu">git</span> add .gitattributes <span class="co"># make sure .gitattributes is tracked</span></a></code></pre></div>
 <p>Now, we will add everything to the Git repository and create our initial commit. In a terminal type:</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb453-1" title="1"><span class="co"># in the emuDB dir</span></a>
-<a class="sourceLine" id="cb453-2" title="2"><span class="fu">git</span> add *</a>
-<a class="sourceLine" id="cb453-3" title="3"><span class="fu">git</span> commit -am <span class="st">&quot;initial commit&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb453-1" data-line-number="1"><span class="co"># in the emuDB dir</span></a>
+<a class="sourceLine" id="cb453-2" data-line-number="2"><span class="fu">git</span> add *</a>
+<a class="sourceLine" id="cb453-3" data-line-number="3"><span class="fu">git</span> commit -am <span class="st">&quot;initial commit&quot;</span></a></code></pre></div>
 <p>This is it for the local setup of Git + Git LFS. If you just wish to work locally simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don’t forget to use a concise commit message).</p>
 <div id="using-gitlab-to-host-the-emudb" class="section level3">
 <h3><span class="header-section-number">23.1.1</span> Using GitLab to host the emuDB</h3>
@@ -421,15 +425,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>that has the same name as the emuDB:</p>
 <p><img src="pics/GitLab-newProject2.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Make sure to change the <code>Project slug</code> to match the casing (_emuDB vs. emudb) of the database suffix. The URL of the repository should now be something like: <a href="https://gitlab.lrz.de/raphywink/ae_emuDB.git" class="uri">https://gitlab.lrz.de/raphywink/ae_emuDB.git</a>. Next, we will add the newly created remote repo to the configuration of the local repo and push the local changes to the remote. In a terminal type:</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb454-1" title="1"><span class="co"># in the emuDB dir</span></a>
-<a class="sourceLine" id="cb454-2" title="2"><span class="fu">git</span> remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git</a>
-<a class="sourceLine" id="cb454-3" title="3"><span class="fu">git</span> push -u origin master</a></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb454-1" data-line-number="1"><span class="co"># in the emuDB dir</span></a>
+<a class="sourceLine" id="cb454-2" data-line-number="2"><span class="fu">git</span> remote add origin git@gitlab.lrz.de:raphywink/ae_emuDB.git <span class="co"># change to your URL</span></a>
+<a class="sourceLine" id="cb454-3" data-line-number="3"><span class="fu">git</span> push -u origin master</a></code></pre></div>
 <p>Enter your login credentials and that is it! You now have a local and remote repository that can easily be synced. To push a new local commit to the remote repository simply type:</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb455-1" title="1"><span class="co"># in the emuDB dir</span></a>
-<a class="sourceLine" id="cb455-2" title="2"><span class="fu">git</span> push</a></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="co"># in the emuDB dir</span></a>
+<a class="sourceLine" id="cb455-2" data-line-number="2"><span class="fu">git</span> push</a></code></pre></div>
 <p>If you want to pull any changes from the remote repository simply type:</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb456-1" title="1"><span class="co"># in the emuDB dir</span></a>
-<a class="sourceLine" id="cb456-2" title="2"><span class="fu">git</span> pull</a></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="co"># in the emuDB dir</span></a>
+<a class="sourceLine" id="cb456-2" data-line-number="2"><span class="fu">git</span> pull</a></code></pre></div>
 <p>If you get sick of entering your login credentials (I certainly do) see here: <a href="https://docs.gitlab.com/ee/ssh/" class="uri">https://docs.gitlab.com/ee/ssh/</a></p>
 </div>
 </div>
@@ -438,17 +442,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you wish others to access and/or collaborate with you on the database you simply have to add them as “Project members” in GitLab. Under <code>Project -&gt; Settings -&gt; Members</code> select your colaborator and choose “Maintainer” (read and write access) as their role permission:</p>
 <p><img src="pics/GitLab-addMember.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Once this is set, the collaborator is able to clone the repository using their own credentials:</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb457-1" title="1"><span class="fu">git</span> clone git@gitlab.lrz.de:raphywink/ae_emuDB.git</a></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb457-1" data-line-number="1"><span class="fu">git</span> clone git@gitlab.lrz.de:raphywink/ae_emuDB.git</a></code></pre></div>
 <div id="default-work-flow" class="section level3">
 <h3><span class="header-section-number">23.2.1</span> Default work-flow</h3>
 <p>When collaborating with multiple people it is usually a good idea to do the following:</p>
 <p>1.) <strong>every time</strong> before you start working on an emuDB get the newest version:</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb458-1" title="1"><span class="co"># in the emuDB dir</span></a>
-<a class="sourceLine" id="cb458-2" title="2"><span class="fu">git</span> pull</a></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb458-1" data-line-number="1"><span class="co"># in the emuDB dir</span></a>
+<a class="sourceLine" id="cb458-2" data-line-number="2"><span class="fu">git</span> pull</a></code></pre></div>
 <p>2.) once you have made changes that you wish to share, create a new commit and push it to the remote repository so the others can access your changes:</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb459-1" title="1"><span class="co"># in the emuDB dir</span></a>
-<a class="sourceLine" id="cb459-2" title="2"><span class="fu">git</span> commit -am <span class="st">&quot;added autobuild links from ORT to KAN&quot;</span> <span class="co"># change message accordingly</span></a>
-<a class="sourceLine" id="cb459-3" title="3"><span class="fu">git</span> push</a></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb459-1" data-line-number="1"><span class="co"># in the emuDB dir</span></a>
+<a class="sourceLine" id="cb459-2" data-line-number="2"><span class="fu">git</span> commit -am <span class="st">&quot;added autobuild links from ORT to KAN&quot;</span> <span class="co"># change message accordingly</span></a>
+<a class="sourceLine" id="cb459-3" data-line-number="3"><span class="fu">git</span> push</a></code></pre></div>
+</div>
+<div id="what-about-my-r-scripts-other-files" class="section level3">
+<h3><span class="header-section-number">23.2.2</span> What about my R scripts / other files?</h3>
+<p>Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g. you might want to share your database but not your “messy” analysis script :-)). This can for example be done using a new R Studio project (<code>File -&gt; New Project...</code> in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired I would recommend looking into Git submodules: <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" class="uri">https://git-scm.com/book/en/v2/Git-Tools-Submodules</a></p>
 
 </div>
 </div>
@@ -464,11 +472,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

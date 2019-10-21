@@ -9,12 +9,12 @@ The R code snippet below shows how generating an `AsspDataObj` from scratch can 
 NOTE: this function can be accessed directly: `source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/praatToFormants2AsspDataObj.R")`
 
 
-```{r, eval=T, code=readLines("R/praatToFormants2AsspDataObj.R")}
+```{r, eval=F, code=readLines("R/praatToFormants2AsspDataObj.R")}
 ```
 
 How this function can be applied to wav files of an emuDB is shown below.
 
-```{r, eval=TRUE, message=F}
+```{r, eval=F, message=F}
 library(emuR)
 
 # create demo data in tempdir()
@@ -95,12 +95,12 @@ rounds the start time with a precicion of 0.001 ms (via round(attr(ado, "startTi
 NOTE: this function can be accessed directly: `source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/praatToPitch2AsspDataObj.R")`
 
 
-```{r, eval=TRUE, code=readLines("R/praatToPitch2AsspDataObj.R")}
+```{r, eval=F, code=readLines("R/praatToPitch2AsspDataObj.R")}
 ```
 
 How this function can be applied to wav files of an emuDB is shown below.
 
-```{r, eval=T, message=F}
+```{r, eval=F, message=F}
 library(emuR)
 
 # create demo data in tempdir()

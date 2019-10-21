@@ -93,7 +93,7 @@ print(au)
 ```
 
 ```
-## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpE3QHUj/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/RtmpgF2yci/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -153,7 +153,7 @@ attributes(au)
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000g..."
+## [1] "/tmp/RtmpgF2yci/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -465,8 +465,7 @@ As it can be extremely important to keep track of information about how certain 
 path2logFile = file.path(path2ae, "wrassp.log")
 
 # calculate the fundamental frequency contour
-ksvF0(path2wav, windowShift = 10,
-      forceToLog = T, optLogFilePath = path2logFile)
+ksvF0(path2wav, windowShift = 10, forceToLog = T, optLogFilePath = path2logFile)
 ```
 
 ```
@@ -483,7 +482,7 @@ readLines(path2logFile)[1:8]
 ## [2] "##################################"
 ## [3] "##################################"
 ## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-10-04 11:27:30 "  
+## [5] "Timestamp:  2019-10-21 16:00:46 "  
 ## [6] "windowShift : 10 "                 
 ## [7] "forceToLog : T "                   
 ## [8] " => on files:"

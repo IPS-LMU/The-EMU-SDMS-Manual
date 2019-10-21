@@ -322,7 +322,7 @@ To save space it can be beneficial to overlay one or more signal tracks onto oth
 
 <!-- [caption={Overlay configuration of fm track over OSCI}, label={lst:webApp_overlay}, language=json, firstnumber=1] -->
 
-```json
+```js
 ...
 "assign": [{
 	"signalCanvasName": "OSCI",
@@ -330,6 +330,16 @@ To save space it can be beneficial to overlay one or more signal tracks onto oth
 }],
 ...
 ```
+
+
+<script type="text/javascript">
+...
+"assign": [{
+	"signalCanvasName": "OSCI",
+	"ssffTrackName": "fm"
+}],
+...
+</script>
 
 
 
@@ -344,7 +354,7 @@ The current mechanism for laying frequency-aligned formant contours over the spe
 
 <!-- [caption={Overlay configuration of FORMANTS track over SPEC}, label={lst:webApp_overlayFreqAlg}, language=json, firstnumber=1] -->
 
-```json
+```js
 ...
 "assign": [{
 	"signalCanvasName": "SPEC",
@@ -352,6 +362,16 @@ The current mechanism for laying frequency-aligned formant contours over the spe
 }],
 ...
 ```
+
+
+<script type="text/javascript">
+...
+"assign": [{
+	"signalCanvasName": "SPEC",
+	"ssffTrackName": "FORMANTS"
+}],
+...
+</script>
 
 <div class="figure" style="text-align: center">
 <img src="pics/emu-webAppOverlayFreqAlg.png" alt="Screenshot of signal canvases area of the `EMU-webApp` displaying formant contours that are overlaid on the spectrogram and frequency-aligned." width="100%" />
@@ -374,7 +394,7 @@ The `EMU-webApp` has an additional canvas which can be configured to display two
 
 <!-- [caption={Configuration of the 2D canvas to display \ac{ema} data.}, label={lst:webApp_2dCanvas}, language=json, firstnumber=1] -->
 
-```json
+```js
 ...
 "twoDimCanvases": {
 	"order": ["DOTS"],
@@ -398,6 +418,30 @@ The `EMU-webApp` has an additional canvas which can be configured to display two
 ```
 
 
+<script type="text/javascript">
+...
+"twoDimCanvases": {
+	"order": ["DOTS"],
+	"twoDimDrawingDefinitions": [{
+		"name": "DOTS",
+		"dots": [{
+			"name": "tt",
+			"xSsffTrack": "tt_posy",
+			"xContourNr": 0,
+			"ySsffTrack": "tt_posz",
+			"yContourNr": 0,
+			"color": "rgb(255,0,0)"
+		},
+...
+	"connectLines": [{
+		"fromDot": "tt",
+		"toDot": "tm",
+			"color": "rgb(0,0,0)"
+	},
+...
+</script>
+
+
 #### EPG
 
 The 2D canvas of the `EMU-webApp` can also be configured to display EPG data as displayed in Figure \@ref(fig:webApp-2dEPG). The SSFF file containing the EPG data has to be formated in a specific way. The format is a set of eight bytes per point in time, where each byte represents a row of electrodes on the artificial palate. Each binary bit value per byte indicates whether one of the eight sensors is activated or not (i.e., tongue contact was measured). If data in this format and an SSFF track with the predefined name *EPG* referencing the SSFF files are present, the 2D canvas can be configured to display this data by adding the *EPG* to the `twoDimCanvases:order` array as shown in Listing \@ref(lst:webApp-2dEPG).
@@ -409,11 +453,18 @@ The 2D canvas of the `EMU-webApp` can also be configured to display EPG data as 
 
 <!-- [caption={Configuration of the 2D canvas to display \ac{epg} data}, label={lst:webApp_2dEPG}, language=json, firstnumber=1] -->
 
-```json
+```js
 "twoDimCanvases": {
 	"order": ["EPG"]
 }
 ```
+
+
+<script type="text/javascript">
+"twoDimCanvases": {
+	"order": ["EPG"]
+}
+</script>
 
 #### EMA gestural landmark recognition
 
@@ -423,7 +474,7 @@ Compared to the above configurations, configuring the `EMU-webApp` to semi-autom
 
 <!-- [caption={EMA gestural landmark recognition configuration for the *tongueTipGestures* event level.}, label={lst:webApp_EMAconfig}, language=json, firstnumber=1] -->
 
-```json
+```js
 ...
 "levelDefinitions": [{
   {
@@ -446,6 +497,31 @@ Compared to the above configurations, configuring the `EMU-webApp` to semi-autom
 	}
 ...
 ```
+
+
+<script type="text/javascript">
+...
+"levelDefinitions": [{
+  {
+	"name": "tongueTipGestures",
+	"type": "EVENT",
+	"attributeDefinitions": [{
+		"name": "tongueTipGestures",
+		"type": "STRING"
+	}],
+	"anagestConfig": {
+		"verticalPosSsffTrackName": "tt_posz",
+		"velocitySsffTrackName": "t_tipTV",
+		"autoLinkLevelName": "ORT",
+		"multiplicationFactor": 1,
+		"threshold": 0.2,
+		"gestureOnOffsetLabels": ["gon", "goff"],
+		"maxVelocityOnOffsetLabels": ["von", "voff"],
+		"constrictionPlateauBeginEndLabels": ["pon", "poff"],
+		"maxConstrictionLabel": "mon"
+	}
+...
+</script>
 
 The user will be prompted to select an annotation item of the level specified in `anagestConfig:autoLinkLevelName` once the gestural landmarks are recognized. The `EMU-webApp` then automatically links all gestural landmark events to that item.
 

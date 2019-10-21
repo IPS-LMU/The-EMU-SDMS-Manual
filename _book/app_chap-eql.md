@@ -128,8 +128,8 @@ query(ae, "[[Text == to -> Text == offer] -> Text == any]")
 ```r
 # NOTE: usage of paste0() is optional
 # as it is only used for formating purposes
-query(ae, paste0("[[[Text == offer -> Text => .*] ",
-                 "-> Text => .*] -> Text == resistance]"))
+query(ae, paste0("[[[Text == offer -> Text =~ .*] ",
+                 "-> Text =~ .*] -> Text == resistance]"))
 ```
 
 As the EQL1 did not have a regular expression operator, users often resorted to using queries such as `[Phonetic != XXX]` (where XXX is a label that was not part of the label set of the *Phonetic* level) to match every label on the `Phonetic` level. Although this is still possible in the EQL2, we strongly recommend using regular expressions as they provide a much clearer and more precise syntax and are less error-prone.

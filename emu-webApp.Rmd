@@ -264,7 +264,7 @@ Although the above configuration options cover the most common use cases, the `E
 To save space it can be beneficial to overlay one or more signal tracks onto other signal canvases. This can be achieved by manually editing the `assign` array of the `EMUwebAppConfig:perspectives[persp_idx]:signalCanvases` field in the `_DBconfig.json`. Listing \@ref(lst:webApp-overlay) shows an example configuration that overlays the *fm* track on the oscillogram where the `OSCI` string can be replaced by any other entry in the `EMUwebAppConfig:perspectives[persp_idx]:signalCanvases:order` array. Figure \@ref(fig:webApp-overlay1) displays a screenshot of such an overlay.
 
 <!-- [caption={Overlay configuration of fm track over OSCI}, label={lst:webApp_overlay}, language=json, firstnumber=1] -->
-```{json lst:webApp-overlay}
+```{js lst:webApp-overlay}
 ...
 "assign": [{
 	"signalCanvasName": "OSCI",
@@ -284,7 +284,7 @@ knitr::include_graphics("pics/emu-webAppOverlay.png")
 The current mechanism for laying frequency-aligned formant contours over the spectrogram is to give the formant track the predefined name *FORMANTS*. If the formant track is called *FORMANTS* and it is assigned to be laid over the spectrogram (see Listing \@ref(lst:webApp-overlayFreqAlg)) the `EMU-webApp` will frequency-align the contours to the current minimum and maximum spectrogram frequencies (see Figure \@ref(fig:webApp-overlay2)).
 
 <!-- [caption={Overlay configuration of FORMANTS track over SPEC}, label={lst:webApp_overlayFreqAlg}, language=json, firstnumber=1] -->
-```{json}
+```{js}
 ...
 "assign": [{
 	"signalCanvasName": "SPEC",
@@ -311,7 +311,7 @@ knitr::include_graphics("pics/emu-webApp2dCanvas.png")
 ```
 
 <!-- [caption={Configuration of the 2D canvas to display \ac{ema} data.}, label={lst:webApp_2dCanvas}, language=json, firstnumber=1] -->
-```{json lst:webApp_2dCanvas}
+```{js lst:webApp_2dCanvas}
 ...
 "twoDimCanvases": {
 	"order": ["DOTS"],
@@ -344,7 +344,7 @@ knitr::include_graphics("pics/emu-webApp2dEPG.png")
 ```
 
 <!-- [caption={Configuration of the 2D canvas to display \ac{epg} data}, label={lst:webApp_2dEPG}, language=json, firstnumber=1] -->
-```{json lst:webApp_2dEPG}
+```{js lst:webApp_2dEPG}
 "twoDimCanvases": {
 	"order": ["EPG"]
 }
@@ -357,7 +357,7 @@ The `EMU-webApp` can also be configured to semi-automatically detect gestural la
 Compared to the above configurations, configuring the `EMU-webApp` to semi-automatically detect gestural landmarks of EMA contours is done as part of the level definition's configuration entries of the `_DBconfig.json`. Listing \@ref(lst:webApp-EMAconfig) shows the `anagestConfig` entry, which configures the *tongueTipGestures* event level for this purpose. Within the web application this level has to be preselected by the user and a region containing a gesture in the SSFF track selected (left click and drag). Hitting the `ENTER`/`RETURN` key then executes the semi-automatic gestural landmark recognition functions. If multiple candidates are recognized for certain landmarks, the user will be prompted to select the appropriate landmark.
 
 <!-- [caption={EMA gestural landmark recognition configuration for the *tongueTipGestures* event level.}, label={lst:webApp_EMAconfig}, language=json, firstnumber=1] -->
-```{json lst:webApp-EMAconfig}
+```{js lst:webApp-EMAconfig}
 ...
 "levelDefinitions": [{
   {

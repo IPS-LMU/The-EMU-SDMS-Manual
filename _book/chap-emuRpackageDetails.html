@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 emuR - package functions | The EMU-SDMS Manual</title>
   <meta name="description" content="10 emuR - package functions | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 emuR - package functions | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -65,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -149,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -358,6 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
 <li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
+<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.2</b> What about my R scripts / other files?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -393,74 +397,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Export routines (Section <a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-exportRoutines">10.6</a>).</li>
 </ul>
 <p>If a comprehensive list of every function and object provided by the <code>emuR</code> package is required, R’s <code>help()</code> function (see R code snippet below) can be used.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" title="1"><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;emuR&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;emuR&quot;</span>)</a></code></pre></div>
 <div id="sec:emuRpackageDetails-importRoutines" class="section level2">
 <h2><span class="header-section-number">10.1</span> Import and conversion routines</h2>
 <p>As most people that are starting to use the EMU-SDMS will probably already have some form of annotated data, we will first show how to convert existing data to the <code>emuDB</code> format. For a guide to creating an <code>emuDB</code> from scratch and for information about this format see Chapter <a href="chap-emuDB.html#chap:emuDB">5</a>.</p>
 <div id="legacy-emu-databases" class="section level3">
 <h3><span class="header-section-number">10.1.1</span> Legacy EMU databases</h3>
 <p>For people transitioning to <code>emuR</code> from the legacy EMU system, <code>emuR</code> provides a function for converting existing legacy EMU databases to the new <code>emuDB</code> format. The R code snippet below shows how to convert a legacy database that is part of the demo data provided by the <code>emuR</code> package.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" title="1"><span class="co"># load the package</span></a>
-<a class="sourceLine" id="cb237-2" title="2"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb237-3" title="3"></a>
-<a class="sourceLine" id="cb237-4" title="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
-<a class="sourceLine" id="cb237-5" title="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb237-6" title="6"></a>
-<a class="sourceLine" id="cb237-7" title="7"><span class="co"># get the path to a .tpl file of</span></a>
-<a class="sourceLine" id="cb237-8" title="8"><span class="co"># a legacy EMU database that is part of the demo data</span></a>
-<a class="sourceLine" id="cb237-9" title="9">tplPath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb237-10" title="10">                    <span class="st">&quot;emuR_demoData&quot;</span>,</a>
-<a class="sourceLine" id="cb237-11" title="11">                    <span class="st">&quot;legacy_ae&quot;</span>,</a>
-<a class="sourceLine" id="cb237-12" title="12">                    <span class="st">&quot;ae.tpl&quot;</span>)</a>
-<a class="sourceLine" id="cb237-13" title="13"></a>
-<a class="sourceLine" id="cb237-14" title="14"><span class="co"># convert this legacy EMU database to the emuDB format</span></a>
-<a class="sourceLine" id="cb237-15" title="15"><span class="kw">convert_legacyEmuDB</span>(<span class="dt">emuTplPath =</span> tplPath, <span class="dt">targetDir =</span> <span class="kw">tempdir</span>())</a></code></pre></div>
-<p>This will create a new <code>emuDB</code> in a temporary directory, provided by R’s <code>tempdir()</code> function, containing all the information specified in the <code>.tpl</code> file. The name of the new <code>emuDB</code> is the same as the basename of the <code>.tpl</code> file from which it was generated. In other words, if the template file of the legacy EMU database has path <code>A</code> and the directory to which the converted database is to be written has path <code>B</code>, then <code>convert_legacyEmuDB(emuTplPath = "A", targetdir = "B")</code> will create an <code>emuDB</code> directory in <code>B</code> from the information stored in <code>A</code>.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="co"># load the package</span></a>
+<a class="sourceLine" id="cb237-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb237-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb237-4" data-line-number="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
+<a class="sourceLine" id="cb237-5" data-line-number="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb237-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb237-7" data-line-number="7"><span class="co"># get the path to a .tpl file of</span></a>
+<a class="sourceLine" id="cb237-8" data-line-number="8"><span class="co"># a legacy EMU database that is part of the demo data</span></a>
+<a class="sourceLine" id="cb237-9" data-line-number="9">tplPath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb237-10" data-line-number="10">                    <span class="st">&quot;emuR_demoData&quot;</span>,</a>
+<a class="sourceLine" id="cb237-11" data-line-number="11">                    <span class="st">&quot;legacy_ae&quot;</span>,</a>
+<a class="sourceLine" id="cb237-12" data-line-number="12">                    <span class="st">&quot;ae.tpl&quot;</span>)</a>
+<a class="sourceLine" id="cb237-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb237-14" data-line-number="14"><span class="co"># convert this legacy EMU database to the emuDB format</span></a>
+<a class="sourceLine" id="cb237-15" data-line-number="15"><span class="kw">convert_legacyEmuDB</span>(<span class="dt">emuTplPath =</span> tplPath, <span class="dt">targetDir =</span> <span class="kw">tempdir</span>())</a></code></pre></div>
+<p>This will create a new <code>emuDB</code> in a temporary directory, provided by R’s <code>tempdir()</code> function, containing all the information specified in the <code>.tpl</code> file. The name of the new <code>emuDB</code> is the same as the basename of the <code>.tpl</code> file from which it was generated. In other words, if the template file of the legacy EMU database has path <code>A</code> and the directory to which the converted database is to be written has path <code>B</code>, then <code>convert_legacyEmuDB(emuTplPath = &quot;A&quot;, targetdir = &quot;B&quot;)</code> will create an <code>emuDB</code> directory in <code>B</code> from the information stored in <code>A</code>.</p>
 </div>
 <div id="textgrid-collections" class="section level3">
 <h3><span class="header-section-number">10.1.2</span> TextGrid collections</h3>
 <p>A further function provided is the <code>convert_TextGridCollection()</code> function. This function converts an existing <code>.TextGrid</code> and <code>.wav</code> file collection to the <code>emuDB</code> format. In order to pair the correct files together the <code>.TextGrid</code> files and the <code>.wav</code> files must have the same name (i.e., file name without extension). A further restriction is that the tiers contained within all the <code>.TextGrid</code> files have to be equal in name and type (equal subsets can be chosen using the <code>tierNames</code> argument of the function). For example, if all <code>.TextGrid</code> files contain the tiers <code>Syl: IntervalTier</code>, <code>Phonetic: IntervalTier</code> and <code>Tone: TextTier</code> the conversion will work. However, if a single <code>.TextGrid</code> of the collection has the additional tier <code>Word: IntervalTier</code> the conversion will fail, although it can be made to work by specifying the equal tier subset <code>equalSubset = c('Syl', 'Phonetic', 'Tone')</code> and passing it into the function argument <code>convert\_TextGridCollection(..., tierNames = equalSubset, ...)</code>. The R code snippet below shows how to convert a TextGrid collection to the <code>emuDB</code> format.</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" title="1"><span class="co"># get the path to a directory containing</span></a>
-<a class="sourceLine" id="cb238-2" title="2"><span class="co"># .wav &amp; .TextGrid files that is part of the demo data</span></a>
-<a class="sourceLine" id="cb238-3" title="3">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb238-4" title="4">                           <span class="st">&quot;emuR_demoData&quot;</span>,</a>
-<a class="sourceLine" id="cb238-5" title="5">                           <span class="st">&quot;TextGrid_collection&quot;</span>)</a>
-<a class="sourceLine" id="cb238-6" title="6"></a>
-<a class="sourceLine" id="cb238-7" title="7"><span class="co"># convert this TextGridCollection to the emuDB format</span></a>
-<a class="sourceLine" id="cb238-8" title="8"><span class="kw">convert_TextGridCollection</span>(path2directory, <span class="dt">dbName =</span> <span class="st">&quot;myTGcolDB&quot;</span>,</a>
-<a class="sourceLine" id="cb238-9" title="9">                           <span class="dt">targetDir =</span> <span class="kw">tempdir</span>())</a></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="co"># get the path to a directory containing</span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"><span class="co"># .wav &amp; .TextGrid files that is part of the demo data</span></a>
+<a class="sourceLine" id="cb238-3" data-line-number="3">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb238-4" data-line-number="4">                           <span class="st">&quot;emuR_demoData&quot;</span>,</a>
+<a class="sourceLine" id="cb238-5" data-line-number="5">                           <span class="st">&quot;TextGrid_collection&quot;</span>)</a>
+<a class="sourceLine" id="cb238-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb238-7" data-line-number="7"><span class="co"># convert this TextGridCollection to the emuDB format</span></a>
+<a class="sourceLine" id="cb238-8" data-line-number="8"><span class="kw">convert_TextGridCollection</span>(path2directory, <span class="dt">dbName =</span> <span class="st">&quot;myTGcolDB&quot;</span>,</a>
+<a class="sourceLine" id="cb238-9" data-line-number="9">                           <span class="dt">targetDir =</span> <span class="kw">tempdir</span>())</a></code></pre></div>
 <p>The above R code snippet will create a new <code>emuDB</code> in the directory <code>tempdir()</code> called <code>myTGcolDB</code>. The <code>emuDB</code> will contain all the tier information from the <code>.TextGrid</code> files but will not contain hierarchical information, as <code>.TextGrid</code> files do not contain any linking information. It is worth noting that it is possible to semi-automatically generate links between time-bearing levels using the <code>autobuild_linkFromTimes()</code> function. An example of this was given in Chapter <a href="chap-tutorial.html#chap:tutorial">3</a>.
 The above R code snippet creates a new <code>emuDB</code> in the directory <code>tempdir()</code> called <code>myTGcolDB</code>. The <code>emuDB</code> contains all the tier information from the <code>.TextGrid</code> files no hierarchical information, as <code>.TextGrid</code> files do not contain any linking information. Further, it is possible to semi-automatically generate links between time-bearing levels using the <code>autobuild_linkFromTimes()</code> function. An example of this was given in Chapter <a href="chap-tutorial.html#chap:tutorial">3</a>.</p>
 </div>
 <div id="bpf-collections" class="section level3">
 <h3><span class="header-section-number">10.1.3</span> BPF collections</h3>
 <p>Similar to the <code>convert_TextGridCollection()</code> function, the <code>emuR</code> package also provides a function for converting file collections consisting of BPF and <code>.wav</code> files to the <code>emuDB</code> format. The R code snippet below shows how this can be achieved.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" title="1"><span class="co"># get the path to a directory containing</span></a>
-<a class="sourceLine" id="cb239-2" title="2"><span class="co"># .wav &amp; .par files that is part of the demo data</span></a>
-<a class="sourceLine" id="cb239-3" title="3">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb239-4" title="4">                           <span class="st">&quot;emuR_demoData&quot;</span>,</a>
-<a class="sourceLine" id="cb239-5" title="5">                           <span class="st">&quot;BPF_collection&quot;</span>)</a>
-<a class="sourceLine" id="cb239-6" title="6"></a>
-<a class="sourceLine" id="cb239-7" title="7"><span class="co"># convert this BPFCollection to the emuDB format</span></a>
-<a class="sourceLine" id="cb239-8" title="8"><span class="kw">convert_BPFCollection</span>(path2directory, <span class="dt">dbName =</span> <span class="st">&#39;myBPF-DB&#39;</span>,</a>
-<a class="sourceLine" id="cb239-9" title="9">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(), <span class="dt">verbose =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="co"># get the path to a directory containing</span></a>
+<a class="sourceLine" id="cb239-2" data-line-number="2"><span class="co"># .wav &amp; .par files that is part of the demo data</span></a>
+<a class="sourceLine" id="cb239-3" data-line-number="3">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb239-4" data-line-number="4">                           <span class="st">&quot;emuR_demoData&quot;</span>,</a>
+<a class="sourceLine" id="cb239-5" data-line-number="5">                           <span class="st">&quot;BPF_collection&quot;</span>)</a>
+<a class="sourceLine" id="cb239-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb239-7" data-line-number="7"><span class="co"># convert this BPFCollection to the emuDB format</span></a>
+<a class="sourceLine" id="cb239-8" data-line-number="8"><span class="kw">convert_BPFCollection</span>(path2directory, <span class="dt">dbName =</span> <span class="st">&#39;myBPF-DB&#39;</span>,</a>
+<a class="sourceLine" id="cb239-9" data-line-number="9">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(), <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>As the BPF format also permits annotation items to be linked to one another, this conversion function can optionally preserve this hierarchical information by specifying the <code>refLevel</code> argument.</p>
 </div>
 <div id="txt-collections" class="section level3">
 <h3><span class="header-section-number">10.1.4</span> txt collections</h3>
 <p>A further conversion routine provided by the <code>emuR</code> package is the <code>convert_txtCollection()</code> function. As with other file collection conversion functions, it converts file pair collections but this time consisting of plain text <code>.txt</code> and <code>.wav</code> files to the <code>emuDB</code> format. Compared to other conversion routines it behaves slightly differently, as unformatted plain text files do not contain any time information. It therefore places all the annotations of a single <code>.txt</code> file into a single timeless annotation item on a level of type <code>ITEM</code> called <em>bundle</em>.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" title="1"><span class="co"># get the path to a directory containing .wav &amp; .par</span></a>
-<a class="sourceLine" id="cb240-2" title="2"><span class="co"># files that is part of the demo data</span></a>
-<a class="sourceLine" id="cb240-3" title="3">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb240-4" title="4">                           <span class="st">&quot;emuR_demoData&quot;</span>,</a>
-<a class="sourceLine" id="cb240-5" title="5">                           <span class="st">&quot;txt_collection&quot;</span>)</a>
-<a class="sourceLine" id="cb240-6" title="6"></a>
-<a class="sourceLine" id="cb240-7" title="7"><span class="co"># convert this txtCollection to the emuDB format</span></a>
-<a class="sourceLine" id="cb240-8" title="8"><span class="kw">convert_txtCollection</span>(<span class="dt">sourceDir =</span> path2directory,</a>
-<a class="sourceLine" id="cb240-9" title="9">                      <span class="dt">dbName =</span> <span class="st">&quot;txtCol&quot;</span>,</a>
-<a class="sourceLine" id="cb240-10" title="10">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb240-11" title="11">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;transcription&quot;</span>,</a>
-<a class="sourceLine" id="cb240-12" title="12">                      <span class="dt">verbose =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="co"># get the path to a directory containing .wav &amp; .par</span></a>
+<a class="sourceLine" id="cb240-2" data-line-number="2"><span class="co"># files that is part of the demo data</span></a>
+<a class="sourceLine" id="cb240-3" data-line-number="3">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb240-4" data-line-number="4">                           <span class="st">&quot;emuR_demoData&quot;</span>,</a>
+<a class="sourceLine" id="cb240-5" data-line-number="5">                           <span class="st">&quot;txt_collection&quot;</span>)</a>
+<a class="sourceLine" id="cb240-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb240-7" data-line-number="7"><span class="co"># convert this txtCollection to the emuDB format</span></a>
+<a class="sourceLine" id="cb240-8" data-line-number="8"><span class="kw">convert_txtCollection</span>(<span class="dt">sourceDir =</span> path2directory,</a>
+<a class="sourceLine" id="cb240-9" data-line-number="9">                      <span class="dt">dbName =</span> <span class="st">&quot;txtCol&quot;</span>,</a>
+<a class="sourceLine" id="cb240-10" data-line-number="10">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb240-11" data-line-number="11">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;transcription&quot;</span>,</a>
+<a class="sourceLine" id="cb240-12" data-line-number="12">                      <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>Using this conversion routine creates a bare-bone, single route node <code>emuDB</code> which either can be further manually annotated or automatically hierarchically annotated using the <code>runBASwebservice_*</code><a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> functions of <code>emuR</code>. It is worth noting that these functions are already part of the <code>emuR</code> package; however, they are still considered to have a beta status which is why they are omitted from this documentation. In future versions of this documentation a section or chapter will be dedicated to using the BAS Webservices <span class="citation">(Kisler, Schiel, and Sloetjes <a href="#ref-kisler:2012a">2012</a>)</span> to automatically generate a hierarchical annotation structure for an entire <code>emuDB</code>.</p>
 </div>
 </div>
@@ -790,20 +794,20 @@ A <code>emuR</code> track data object is the result of <code>get_trackdata()</co
 </div>
 <div id="sec:emuRpackageDetails-exportRoutines" class="section level2">
 <h2><span class="header-section-number">10.6</span> Export routines</h2>
-<p>Although associated with data loss, the <code>emuR</code> package provides an export routine to the common TextGrid collection format called <code>export_TextGridCollection()</code>. While exporting is sometimes unavoidable, it is essential that users are aware that exporting to other formats which do not support or only partially support hierarchical annotations structures will lead to the loss of the explicit linking information. Although the <code>autobuild_linkFromTimes()</code> can partially recreate some of the hierarchical structure, it is advised that the export routine be used with extreme caution. The R code snippet below shows how <code>export_TextGridCollection()</code> can be used to export the levels <em>Text</em>, <em>Syllable</em> and <em>Phonetic</em> of the <em>ae</em> demo <code>emuDB</code> to a TextGrid collection. Figure <a href="chap-emuRpackageDetails.html#fig:emuRfuncs-msajc003-fromExport">10.2</a> show the content of the created <code>msajc003.TextGrid</code> file as displayed by Praat’s <code>"Draw visible sound and Textgrid..."</code> procedure.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" title="1"><span class="co"># get the path to &quot;ae&quot; emuDB</span></a>
-<a class="sourceLine" id="cb244-2" title="2">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb244-3" title="3"></a>
-<a class="sourceLine" id="cb244-4" title="4"><span class="co"># load &quot;ae&quot; emuDB</span></a>
-<a class="sourceLine" id="cb244-5" title="5">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae)</a>
-<a class="sourceLine" id="cb244-6" title="6"></a>
-<a class="sourceLine" id="cb244-7" title="7"><span class="co"># export the levels &quot;Text&quot;, &quot;Syllable&quot;</span></a>
-<a class="sourceLine" id="cb244-8" title="8"><span class="co"># and &quot;Phonetic&quot; to a TextGrid collection</span></a>
-<a class="sourceLine" id="cb244-9" title="9"><span class="kw">export_TextGridCollection</span>(ae,</a>
-<a class="sourceLine" id="cb244-10" title="10">                          <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb244-11" title="11">                          <span class="dt">attributeDefinitionNames =</span> <span class="kw">c</span>(<span class="st">&quot;Text&quot;</span>,</a>
-<a class="sourceLine" id="cb244-12" title="12">                                                       <span class="st">&quot;Syllable&quot;</span>,</a>
-<a class="sourceLine" id="cb244-13" title="13">                                                       <span class="st">&quot;Phonetic&quot;</span>))</a></code></pre></div>
+<p>Although associated with data loss, the <code>emuR</code> package provides an export routine to the common TextGrid collection format called <code>export_TextGridCollection()</code>. While exporting is sometimes unavoidable, it is essential that users are aware that exporting to other formats which do not support or only partially support hierarchical annotations structures will lead to the loss of the explicit linking information. Although the <code>autobuild_linkFromTimes()</code> can partially recreate some of the hierarchical structure, it is advised that the export routine be used with extreme caution. The R code snippet below shows how <code>export_TextGridCollection()</code> can be used to export the levels <em>Text</em>, <em>Syllable</em> and <em>Phonetic</em> of the <em>ae</em> demo <code>emuDB</code> to a TextGrid collection. Figure <a href="chap-emuRpackageDetails.html#fig:emuRfuncs-msajc003-fromExport">10.2</a> show the content of the created <code>msajc003.TextGrid</code> file as displayed by Praat’s <code>&quot;Draw visible sound and Textgrid...&quot;</code> procedure.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="co"># get the path to &quot;ae&quot; emuDB</span></a>
+<a class="sourceLine" id="cb244-2" data-line-number="2">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb244-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb244-4" data-line-number="4"><span class="co"># load &quot;ae&quot; emuDB</span></a>
+<a class="sourceLine" id="cb244-5" data-line-number="5">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae)</a>
+<a class="sourceLine" id="cb244-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb244-7" data-line-number="7"><span class="co"># export the levels &quot;Text&quot;, &quot;Syllable&quot;</span></a>
+<a class="sourceLine" id="cb244-8" data-line-number="8"><span class="co"># and &quot;Phonetic&quot; to a TextGrid collection</span></a>
+<a class="sourceLine" id="cb244-9" data-line-number="9"><span class="kw">export_TextGridCollection</span>(ae,</a>
+<a class="sourceLine" id="cb244-10" data-line-number="10">                          <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb244-11" data-line-number="11">                          <span class="dt">attributeDefinitionNames =</span> <span class="kw">c</span>(<span class="st">&quot;Text&quot;</span>,</a>
+<a class="sourceLine" id="cb244-12" data-line-number="12">                                                       <span class="st">&quot;Syllable&quot;</span>,</a>
+<a class="sourceLine" id="cb244-13" data-line-number="13">                                                       <span class="st">&quot;Phonetic&quot;</span>))</a></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:emuRfuncs-msajc003-fromExport"></span>
 <img src="pics/msajc003_fromExport.png" alt="TextGrid annotation generated by the `export_TextGridCollection()` function containing the tiers (from top to bottom): *Text*, *Syllable*, *Phonetic*." width="75%" />
 <p class="caption">
@@ -847,11 +851,13 @@ Figure 10.2: TextGrid annotation generated by the <code>export_TextGridCollectio
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
