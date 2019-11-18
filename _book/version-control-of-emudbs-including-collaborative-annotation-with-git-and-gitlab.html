@@ -419,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb456-3" data-line-number="3"><span class="co"># and commit</span></a>
 <a class="sourceLine" id="cb456-4" data-line-number="4">git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </a>
 <a class="sourceLine" id="cb456-5" data-line-number="5">              <span class="dt">message =</span> <span class="st">&quot;initial commit&quot;</span>)</a></code></pre></div>
-<pre><code>## [88f4134] 2019-11-18: initial commit</code></pre>
+<pre><code>## [7bcff43] 2019-11-18: initial commit</code></pre>
 <p>This is it for the initial local setup of Git. If you just wish to work locally simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don’t forget to use a concise commit message).</p>
 <div id="using-gitlab-to-host-the-emudb" class="section level3">
 <h3><span class="header-section-number">23.1.1</span> Using GitLab to host the emuDB</h3>
@@ -495,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb466-6" data-line-number="6"><span class="kw">write_bundleList</span>(db, </a>
 <a class="sourceLine" id="cb466-7" data-line-number="7">                 <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>, </a>
 <a class="sourceLine" id="cb466-8" data-line-number="8">                 bndls)</a></code></pre></div>
-<pre><code>## [1] &quot;INFO: No bundleList dir found in emuDB (path: /tmp/RtmpwnDQZ5/emuR_demoData/ae_emuDB/bundleLists)! Creating directory...&quot;</code></pre>
+<pre><code>## [1] &quot;INFO: No bundleList dir found in emuDB (path: /tmp/Rtmpkvecr8/emuR_demoData/ae_emuDB/bundleLists)! Creating directory...&quot;</code></pre>
 <div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1"><span class="co"># and read that bundle list to check its content</span></a>
 <a class="sourceLine" id="cb468-2" data-line-number="2"><span class="kw">read_bundleList</span>(db, </a>
 <a class="sourceLine" id="cb468-3" data-line-number="3">                <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>)</a></code></pre></div>
@@ -535,7 +535,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This step is usually performed by the project maintainer and the URLs are simply sent to the various annotators in the project. The only parameters the annotators have to set themselfs is their <code>privateToken</code>s. Once the link is opened in a browser, the EMU-webApp will have full read and write access to the repository and should open the first bundle in the bundle list automatically. On save a new commit is added to the repository of the updates made.</p>
 <div id="caveat" class="section level4">
 <h4><span class="header-section-number">23.2.3.1</span> Caveat</h4>
-<p>As the annotators have full read and write access to the GitLab emuDB repository, they could in theory edit/delete things that were not assigned to them via the bundle list mechanism. Currently the only way to avoid this is by creating separate emuDB repos for each annotator.</p>
+<p>As the annotators have full read and write access to the GitLab emuDB repository, they could in theory edit/delete things that were not assigned to them via the bundle list mechanism. Currently the only way to avoid this is by creating separate emuDB repos for each annotator. However, remember that you are using a distributed Git repository, so in most cases you can simply go back in time if something gets deleted.</p>
 </div>
 </div>
 <div id="what-about-my-r-scripts-other-files" class="section level3">

@@ -230,7 +230,7 @@ This step is usually performed by the project maintainer and the URLs are simply
 
 #### Caveat
 
-As the annotators have full read and write access to the GitLab emuDB repository, they could in theory edit/delete things that were not assigned to them via the bundle list mechanism. Currently the only way to avoid this is by creating separate emuDB repos for each annotator.
+As the annotators have full read and write access to the GitLab emuDB repository, they could in theory edit/delete things that were not assigned to them via the bundle list mechanism. Currently the only way to avoid this is by creating separate emuDB repos for each annotator. However, remember that you are using a distributed Git repository, so in most cases you can simply go back in time if something gets deleted.
 
 
 ### What about my R scripts / other files?

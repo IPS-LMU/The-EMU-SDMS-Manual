@@ -439,8 +439,8 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <a class="sourceLine" id="cb58-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
 <a class="sourceLine" id="cb58-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     fromScratch 
-## UUID:     82ab5893-2a60-44c5-98eb-87881461317c 
-## Directory:    /tmp/RtmptR5ROE/fromScratch_emuDB 
+## UUID:     67010cc9-e17a-47fa-b336-8143feca813e 
+## Directory:    /tmp/RtmpVfRUS9/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -648,8 +648,8 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <pre><code>## # A tibble: 2 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…</code></pre>
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpVfRUS9/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpVfRUS9/fromScratch_emuDB/fromWavFile…</code></pre>
 <p>The <code>import_mediaFiles()</code> call above added a new session called <code>fromWavFiles</code> to the <em>fromScratch</em> <code>emuDB</code> containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every <code>_annot.json</code> file created contains an empty <code>Word</code> and <code>Phonetic</code> level array and the links array is also empty.</p>
 <p>The <code>emuR</code> package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an <code>emuDB</code>. The following R code shows how preexisting <code>.zcr</code> files that are produced by <code>wrassp</code>’s <code>zcrana()</code> function can be added to the preexisting session and bundle structure. As the directory referenced by <code>wavDir</code> does not contain any <code>.zcr</code> files, the next R code example first creates them and then adds them to the <code>emuDB</code> (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># load wrassp package</span></a>
@@ -677,9 +677,9 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <pre><code>## # A tibble: 3 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…
-## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…</code></pre>
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpVfRUS9/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpVfRUS9/fromScratch_emuDB/fromWavFile…
+## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpVfRUS9/fromScratch_emuDB/fromWavFile…</code></pre>
 </div>
 <div id="ssff-track-definitions" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> SSFF track definitions</h3>

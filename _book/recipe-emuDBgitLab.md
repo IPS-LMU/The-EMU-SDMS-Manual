@@ -69,7 +69,7 @@ git2r::commit(db$basePath,
 ```
 
 ```
-## [174aa66] 2019-11-18: initial commit
+## [b63f551] 2019-11-18: initial commit
 ```
 
 This is it for the initial local setup of Git. If you just wish to work locally simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -204,7 +204,7 @@ write_bundleList(db,
 ```
 
 ```
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpgHcxgh/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpGvTtMi/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 ```
 
 ```r
@@ -259,7 +259,7 @@ This step is usually performed by the project maintainer and the URLs are simply
 
 #### Caveat
 
-As the annotators have full read and write access to the GitLab emuDB repository, they could in theory edit/delete things that were not assigned to them via the bundle list mechanism. Currently the only way to avoid this is by creating separate emuDB repos for each annotator.
+As the annotators have full read and write access to the GitLab emuDB repository, they could in theory edit/delete things that were not assigned to them via the bundle list mechanism. Currently the only way to avoid this is by creating separate emuDB repos for each annotator. However, remember that you are using a distributed Git repository, so in most cases you can simply go back in time if something gets deleted.
 
 
 ### What about my R scripts / other files?
