@@ -55,11 +55,10 @@ AsspWindowTypes()
 ```
 
 ```
-##  [1] "RECTANGLE" "TRIANGLE"  "PARABOLA"  "COS"       "HANN"     
-##  [6] "COS_3"     "COS_4"     "HAMMING"   "BLACKMAN"  "BLACK_X"  
-## [11] "BLACK_3"   "BLACK_M3"  "BLACK_4"   "BLACK_M4"  "NUTTAL_3" 
-## [16] "NUTTAL_4"  "GAUSS2_5"  "GAUSS3_0"  "GAUSS3_5"  "KAISER2_0"
-## [21] "KAISER2_5" "KAISER3_0" "KAISER3_5" "KAISER4_0"
+##  [1] "RECTANGLE" "TRIANGLE"  "PARABOLA"  "COS"       "HANN"      "COS_3"    
+##  [7] "COS_4"     "HAMMING"   "BLACKMAN"  "BLACK_X"   "BLACK_3"   "BLACK_M3" 
+## [13] "BLACK_4"   "BLACK_M4"  "NUTTAL_3"  "NUTTAL_4"  "GAUSS2_5"  "GAUSS3_0" 
+## [19] "GAUSS3_5"  "KAISER2_0" "KAISER2_5" "KAISER3_0" "KAISER3_5" "KAISER4_0"
 ```
 
 ```r
@@ -89,14 +88,12 @@ AsspFileFormats
 ```
 
 ```
-##     RAW   ASP_A   ASP_B   XASSP  IPDS_M  IPDS_S    AIFF    AIFC     CSL 
-##       1       2       3       4       5       6       7       8       9 
-##    CSRE    ESPS     ILS     KTH   SWELL   SNACK     SFS     SND      AU 
-##      10      11      12      13      13      13      14      15      15 
-##    NIST  SPHERE PRAAT_S PRAAT_L PRAAT_B    SSFF    WAVE  WAVE_X  XLABEL 
-##      16      16      17      18      19      20      21      22      24 
-##    YORK     UWM 
-##      25      26
+##     RAW   ASP_A   ASP_B   XASSP  IPDS_M  IPDS_S    AIFF    AIFC     CSL    CSRE 
+##       1       2       3       4       5       6       7       8       9      10 
+##    ESPS     ILS     KTH   SWELL   SNACK     SFS     SND      AU    NIST  SPHERE 
+##      11      12      13      13      13      14      15      15      16      16 
+## PRAAT_S PRAAT_L PRAAT_B    SSFF    WAVE  WAVE_X  XLABEL    YORK     UWM 
+##      17      18      19      20      21      22      24      25      26
 ```
 
 ```r

@@ -355,13 +355,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
 <li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs with Git, Git LFS and GitLab</a><ul>
-<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
-<li class="chapter" data-level="23.1.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#using-gitlab-to-host-the-emudb"><i class="fa fa-check"></i><b>23.1.1</b> Using GitLab to host the emuDB</a></li>
+<li class="chapter" data-level="23" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs including collaborative annotation with Git and GitLab</a><ul>
+<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#using-gitlab-to-host-the-emudb"><i class="fa fa-check"></i><b>23.1.1</b> Using GitLab to host the emuDB</a></li>
 </ul></li>
-<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
-<li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
-<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.2</b> What about my R scripts / other files?</a></li>
+<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
+<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#assigning-bundles-to-annotators"><i class="fa fa-check"></i><b>23.2.2</b> Assigning bundles to annotators</a></li>
+<li class="chapter" data-level="23.2.3" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#pointing-the-emu-webapp-to-the-gitlab-repository"><i class="fa fa-check"></i><b>23.2.3</b> Pointing the EMU-webApp to the GitLab repository</a></li>
+<li class="chapter" data-level="23.2.4" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.4</b> What about my R scripts / other files?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -437,8 +439,8 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <a class="sourceLine" id="cb58-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
 <a class="sourceLine" id="cb58-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     fromScratch 
-## UUID:     47c409f1-a7f0-4c0b-a785-cbba1d7cc3c5 
-## Directory:    /tmp/Rtmp2acedy/fromScratch_emuDB 
+## UUID:     82ab5893-2a60-44c5-98eb-87881461317c 
+## Directory:    /tmp/RtmptR5ROE/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -575,11 +577,11 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <a class="sourceLine" id="cb80-4" data-line-number="4"><span class="co"># in the &#39;fromScratch&#39; emuDB</span></a>
 <a class="sourceLine" id="cb80-5" data-line-number="5"><span class="kw">query</span>(dbHandle, <span class="st">&quot;Phonetic == shortVowels&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 0 x 16
-## # … with 16 variables: labels &lt;chr&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;,
-## #   db_uuid &lt;chr&gt;, session &lt;chr&gt;, bundle &lt;chr&gt;, start_item_id &lt;int&gt;,
-## #   end_item_id &lt;int&gt;, level &lt;chr&gt;, attribute &lt;chr&gt;,
-## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
-## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
+## # … with 16 variables: labels &lt;chr&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;, db_uuid &lt;chr&gt;,
+## #   session &lt;chr&gt;, bundle &lt;chr&gt;, start_item_id &lt;int&gt;, end_item_id &lt;int&gt;,
+## #   level &lt;chr&gt;, attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
+## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;,
+## #   sample_rate &lt;int&gt;</code></pre>
 <p>For users who are familiar with or transitioning from the legacy EMU system, it is worth noting that the label groups correspond to the unfavorably named <code>Legal Labels</code> entries of the GTemplate Editor (i.e., legal entries in the <code>.tpl</code> file) of the legacy system. In the new system the <code>legalLabels</code> entries specify the legal or allowed label values of attribute definitions while the <code>labelGroups</code> specify groups of labels that can be referenced by the names given to the groups while performing queries.</p>
 <p>A new feature of the EMU-SDMS is the possibility of defining label groups for the entire <code>emuDB</code> as opposed to a single attribute definition (see <code>?add_labelGroups</code> for further details). This avoids the redundant definition of label groups that should span multiple attribute definitions (e.g., a <em>longVowels</em> subset that is to be queried on a level called <em>Phonetic_1</em> as well as a level called <em>Phonetic_2</em>).</p>
 </div>
@@ -644,10 +646,10 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <a class="sourceLine" id="cb90-2" data-line-number="2"><span class="kw">library</span>(tibble) <span class="co"># convert to tibble only to prettify output</span></a>
 <a class="sourceLine" id="cb90-3" data-line-number="3"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 4
-##   session    bundle  file        absolute_file_path                        
-##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                                     
-## 1 fromWavFi… msajc0… msajc003_a… /tmp/Rtmp2acedy/fromScratch_emuDB/fromWav…
-## 2 fromWavFi… msajc0… msajc003.w… /tmp/Rtmp2acedy/fromScratch_emuDB/fromWav…</code></pre>
+##   session    bundle  file         absolute_file_path                            
+##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…</code></pre>
 <p>The <code>import_mediaFiles()</code> call above added a new session called <code>fromWavFiles</code> to the <em>fromScratch</em> <code>emuDB</code> containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every <code>_annot.json</code> file created contains an empty <code>Word</code> and <code>Phonetic</code> level array and the links array is also empty.</p>
 <p>The <code>emuR</code> package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an <code>emuDB</code>. The following R code shows how preexisting <code>.zcr</code> files that are produced by <code>wrassp</code>’s <code>zcrana()</code> function can be added to the preexisting session and bundle structure. As the directory referenced by <code>wavDir</code> does not contain any <code>.zcr</code> files, the next R code example first creates them and then adds them to the <code>emuDB</code> (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># load wrassp package</span></a>
@@ -673,11 +675,11 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <a class="sourceLine" id="cb94-8" data-line-number="8"><span class="co"># to prettify output)</span></a>
 <a class="sourceLine" id="cb94-9" data-line-number="9"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">3</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 4
-##   session    bundle  file        absolute_file_path                        
-##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;                                     
-## 1 fromWavFi… msajc0… msajc003_a… /tmp/Rtmp2acedy/fromScratch_emuDB/fromWav…
-## 2 fromWavFi… msajc0… msajc003.w… /tmp/Rtmp2acedy/fromScratch_emuDB/fromWav…
-## 3 fromWavFi… msajc0… msajc003.z… /tmp/Rtmp2acedy/fromScratch_emuDB/fromWav…</code></pre>
+##   session    bundle  file         absolute_file_path                            
+##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…
+## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmptR5ROE/fromScratch_emuDB/fromWavFile…</code></pre>
 </div>
 <div id="ssff-track-definitions" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> SSFF track definitions</h3>

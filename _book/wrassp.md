@@ -93,7 +93,7 @@ print(au)
 ```
 
 ```
-## Assp Data Object of file /tmp/RtmpgF2yci/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/RtmpHcpYD5/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -153,7 +153,7 @@ attributes(au)
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpgF2yci/emuR_demoData/ae_emuDB/0000_s..."
+## [1] "/tmp/RtmpHcpYD5/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -478,14 +478,10 @@ readLines(path2logFile)[1:8]
 ```
 
 ```
-## [1] ""                                  
-## [2] "##################################"
-## [3] "##################################"
-## [4] "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-10-21 16:00:46 "  
-## [6] "windowShift : 10 "                 
-## [7] "forceToLog : T "                   
-## [8] " => on files:"
+## [1] ""                                   "##################################"
+## [3] "##################################" "######## ksvF0 performed ########" 
+## [5] "Timestamp:  2019-11-18 15:30:08 "   "windowShift : 10 "                 
+## [7] "forceToLog : T "                    " => on files:"
 ```
 
 ## Using `wrassp` in the EMU-SDMS {#sec:wrassp-emu-sdms}
@@ -521,10 +517,9 @@ names(zcranaParams)
 ```
 
 ```
-##  [1] "listOfFiles"     "optLogFilePath"  "beginTime"      
-##  [4] "centerTime"      "endTime"         "windowShift"    
-##  [7] "windowSize"      "toFile"          "explicitExt"    
-## [10] "outputDirectory" "forceToLog"      "verbose"
+##  [1] "listOfFiles"     "optLogFilePath"  "beginTime"       "centerTime"     
+##  [5] "endTime"         "windowShift"     "windowSize"      "toFile"         
+##  [9] "explicitExt"     "outputDirectory" "forceToLog"      "verbose"
 ```
 
 ```r
@@ -599,14 +594,12 @@ AsspFileFormats
 ```
 
 ```
-##     RAW   ASP_A   ASP_B   XASSP  IPDS_M  IPDS_S    AIFF    AIFC     CSL 
-##       1       2       3       4       5       6       7       8       9 
-##    CSRE    ESPS     ILS     KTH   SWELL   SNACK     SFS     SND      AU 
-##      10      11      12      13      13      13      14      15      15 
-##    NIST  SPHERE PRAAT_S PRAAT_L PRAAT_B    SSFF    WAVE  WAVE_X  XLABEL 
-##      16      16      17      18      19      20      21      22      24 
-##    YORK     UWM 
-##      25      26
+##     RAW   ASP_A   ASP_B   XASSP  IPDS_M  IPDS_S    AIFF    AIFC     CSL    CSRE 
+##       1       2       3       4       5       6       7       8       9      10 
+##    ESPS     ILS     KTH   SWELL   SNACK     SFS     SND      AU    NIST  SPHERE 
+##      11      12      13      13      13      14      15      15      16      16 
+## PRAAT_S PRAAT_L PRAAT_B    SSFF    WAVE  WAVE_X  XLABEL    YORK     UWM 
+##      17      18      19      20      21      22      24      25      26
 ```
 
 ```r

@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 5a143a39-ae12-43c0-8be5-ab29eb6a2f08 
-## Directory:	 /tmp/Rtmpif0EEC/my-first_emuDB 
+## UUID:	 6d944c38-1c8f-4b88-ae36-66fa87b93350 
+## Directory:	 /tmp/Rtmp9ZrmVn/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -218,10 +218,10 @@ head(sl_phonetic, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. 5a143a… 0000    msajc…            98          98 Phon…
+## 1 n      1032. 1196. 6d944c… 0000    msajc…            98          98 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
-## #   sample_end <int>, sample_rate <int>
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
+## #   sample_rate <int>
 ```
 
 ```r
@@ -400,10 +400,10 @@ head(sl_vowels, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. 5a143a… 0000    msajc…           103         103 Phon…
+## 1 @      1506. 1548. 6d944c… 0000    msajc…           103         103 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
-## #   sample_end <int>, sample_rate <int>
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
+## #   sample_rate <int>
 ```
 
 As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word* level.
@@ -425,10 +425,10 @@ head(sl_word_type, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA 5a143a… 0000    msajc…            16          16 Word 
+## 1 F         NA    NA 6d944c… 0000    msajc…            16          16 Word 
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
-## #   sample_end <int>, sample_rate <int>
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
+## #   sample_rate <int>
 ```
 
 ```r
@@ -512,25 +512,24 @@ td_vowels %>% filter(sl_rowIdx == 5)
 
 ```
 ## # A tibble: 12 x 24
-##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
-##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
-##  1         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  2         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  3         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  4         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  5         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  6         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  7         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  8         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-##  9         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-## 10         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-## 11         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-## 12         5 @      2447. 2506. 5a143a… 0000    msajc…           119
-## # … with 16 more variables: end_item_id <int>, level <chr>,
-## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
-## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>,
-## #   T2 <int>, T3 <int>, T4 <int>
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  2         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  3         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  4         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  5         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  6         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  7         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  8         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+##  9         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+## 10         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+## 11         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+## 12         5 @      2447. 2506. 6d944c… 0000    msajc…           119         119
+## # … with 15 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>, T4 <int>
 ```
 
 As can be seen by the call to the `class()` function, the resulting object is of the type `tibble` (see `?tibble::tibble` for more information) and has 28 blocks of data. These blocks correspond to the number of rows contained in the segment lists extracted above (i.e., `nrow(sl_vowels)`) and can be matched to the according segment using the `sl_rowIdx` column (i.e., `td_vowels %>% filter(sl_rowIdx == 5)` are the formant values belonging to `sl_vowels[5,]`). As the columns `T1`, `T2`, `T3`, `T4` of the printed output of `td_vowels %>% filter(sl_rowIdx == 5)` suggest, the `forest` function estimates four formant values. We will only be concerned with the first (column `T1`) and second (column `T2`). The below R code shows two `ggplot()` function calls which produce the plots displayed in Figures \@ref(fig:tutorial-dplot1) and \@ref(fig:tutorial-dplot1). The first `ggplot()` call plots all 28 first formant trajectories (achieved by setting the `group` parameter to `sl_rowIdx`). To clean up the cluttered first plot, the second `ggplot()` call uses a segment length normalized version of `td_vowels` (see `?normalize_length` for futher details) as well as using `geom_smooth()` in combination with setting the `group` parameter to `labels` to plot only smoothed conditional means of all *\@* vowels.

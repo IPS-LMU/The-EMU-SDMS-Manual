@@ -219,24 +219,23 @@ sS.dftlong
 
 ```
 ## # A tibble: 5,397 x 23
-##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
-##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>
-##  1         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  2         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  3         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  4         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  5         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  6         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  7         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  8         1 s       483.  567. 0fc618… 0000    msajc…           151
-##  9         1 s       483.  567. 0fc618… 0000    msajc…           151
-## 10         1 s       483.  567. 0fc618… 0000    msajc…           151
-## # … with 5,387 more rows, and 15 more variables: end_item_id <int>,
-## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>,
-## #   sample_end <int>, sample_rate <int>, times_orig <dbl>,
-## #   times_rel <dbl>, times_norm <dbl>, track_name <chr>,
-## #   track_value <dbl>, freq <dbl>
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
+##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
+##  1         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  2         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  3         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  4         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  5         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  6         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  7         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  8         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  9         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+## 10         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+## # … with 5,387 more rows, and 14 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, track_name <chr>, track_value <dbl>,
+## #   freq <dbl>
 ```
 
 So, instead of columns named T1, T2, ... Tn, we now have three other columns: 

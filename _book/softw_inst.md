@@ -21,12 +21,12 @@ This document describes the following versions of the software components:
     - Git tag name: v0.1.6 (on master branch)
 
 - `emuR`
-    - Package version: 2.0.3
-    - Git tag name: v2.0.3 (on master branch)
+    - Package version: 2.0.4.9000
+    - Git tag name: v2.0.4 (on master branch)
 
 - `EMU-webApp`
-    - Version: 1.0.3
-    - Git SHA1: 4c1937e91cc2c211658b7ac63aaa031d680d06f0
+    - Version: 1.1.0
+    - Git SHA1: 7ee9211ec6e9a868fdcba0d6b587f236e11e3eb1
 
 As the development of the EMU Speech Database Management System is still ongoing, be sure you have the correct documentation to go with the version you are using.
 

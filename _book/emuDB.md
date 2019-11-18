@@ -79,8 +79,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 136ddfc0-059e-485a-9a32-c1b23e63feb1 
-## Directory:	 /tmp/RtmpvnIxpj/fromScratch_emuDB 
+## UUID:	 9d9d0a43-acec-4d29-ba90-584e01b1ed3a 
+## Directory:	 /tmp/RtmpRWirUc/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -297,11 +297,11 @@ query(dbHandle, "Phonetic == shortVowels")
 
 ```
 ## # A tibble: 0 x 16
-## # … with 16 variables: labels <chr>, start <dbl>, end <dbl>,
-## #   db_uuid <chr>, session <chr>, bundle <chr>, start_item_id <int>,
-## #   end_item_id <int>, level <chr>, attribute <chr>,
-## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
-## #   sample_start <int>, sample_end <int>, sample_rate <int>
+## # … with 16 variables: labels <chr>, start <dbl>, end <dbl>, db_uuid <chr>,
+## #   session <chr>, bundle <chr>, start_item_id <int>, end_item_id <int>,
+## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
+## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
+## #   sample_rate <int>
 ```
 
 For users who are familiar with or transitioning from the legacy EMU system, it is worth noting that the label groups correspond to the unfavorably named `Legal Labels` entries of the GTemplate Editor (i.e., legal entries in the `.tpl` file) of the legacy system. In the new system the `legalLabels` entries specify the legal or allowed label values of attribute definitions while the `labelGroups` specify groups of labels that can be referenced by the names given to the groups while performing queries.
@@ -403,10 +403,10 @@ as_tibble(head(list_files(dbHandle), n = 2))
 
 ```
 ## # A tibble: 2 x 4
-##   session    bundle  file        absolute_file_path                        
-##   <chr>      <chr>   <chr>       <chr>                                     
-## 1 fromWavFi… msajc0… msajc003_a… /tmp/RtmpvnIxpj/fromScratch_emuDB/fromWav…
-## 2 fromWavFi… msajc0… msajc003.w… /tmp/RtmpvnIxpj/fromScratch_emuDB/fromWav…
+##   session    bundle  file         absolute_file_path                            
+##   <chr>      <chr>   <chr>        <chr>                                         
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpRWirUc/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpRWirUc/fromScratch_emuDB/fromWavFile…
 ```
 
 The `import_mediaFiles()` call above added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
@@ -448,11 +448,11 @@ as_tibble(head(list_files(dbHandle), n = 3))
 
 ```
 ## # A tibble: 3 x 4
-##   session    bundle  file        absolute_file_path                        
-##   <chr>      <chr>   <chr>       <chr>                                     
-## 1 fromWavFi… msajc0… msajc003_a… /tmp/RtmpvnIxpj/fromScratch_emuDB/fromWav…
-## 2 fromWavFi… msajc0… msajc003.w… /tmp/RtmpvnIxpj/fromScratch_emuDB/fromWav…
-## 3 fromWavFi… msajc0… msajc003.z… /tmp/RtmpvnIxpj/fromScratch_emuDB/fromWav…
+##   session    bundle  file         absolute_file_path                            
+##   <chr>      <chr>   <chr>        <chr>                                         
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpRWirUc/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpRWirUc/fromScratch_emuDB/fromWavFile…
+## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpRWirUc/fromScratch_emuDB/fromWavFile…
 ```
 
 

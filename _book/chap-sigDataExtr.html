@@ -355,13 +355,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
 <li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs with Git, Git LFS and GitLab</a><ul>
-<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
-<li class="chapter" data-level="23.1.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#using-gitlab-to-host-the-emudb"><i class="fa fa-check"></i><b>23.1.1</b> Using GitLab to host the emuDB</a></li>
+<li class="chapter" data-level="23" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs including collaborative annotation with Git and GitLab</a><ul>
+<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#using-gitlab-to-host-the-emudb"><i class="fa fa-check"></i><b>23.1.1</b> Using GitLab to host the emuDB</a></li>
 </ul></li>
-<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
-<li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
-<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html"><a href="version-control-of-emudbs-with-git-git-lfs-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.2</b> What about my R scripts / other files?</a></li>
+<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
+<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#assigning-bundles-to-annotators"><i class="fa fa-check"></i><b>23.2.2</b> Assigning bundles to annotators</a></li>
+<li class="chapter" data-level="23.2.3" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#pointing-the-emu-webapp-to-the-gitlab-repository"><i class="fa fa-check"></i><b>23.2.3</b> Pointing the EMU-webApp to the GitLab repository</a></li>
+<li class="chapter" data-level="23.2.4" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.4</b> What about my R scripts / other files?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -432,24 +434,22 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <a class="sourceLine" id="cb144-13" data-line-number="13"><span class="co"># show ai_td_fm (F1-F4 in columns T1-T4)</span></a>
 <a class="sourceLine" id="cb144-14" data-line-number="14">ai_td_fm</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 24
-##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
-##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## # … with 173 more rows, and 16 more variables: end_item_id &lt;int&gt;,
-## #   level &lt;chr&gt;, attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
-## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
-## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
-## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;, T2 &lt;int&gt;, T3 &lt;int&gt;,
-## #   T4 &lt;int&gt;</code></pre>
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 15 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
+## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;, T2 &lt;int&gt;, T3 &lt;int&gt;, T4 &lt;int&gt;</code></pre>
 <p>Being able to access data that is stored in files is important for two main reasons. Firstly, it is possible to generate files using external programs such as VoiceSauce <span class="citation">(Shue et al. <a href="#ref-shue:2011a">2011</a>)</span>, which can export its calculated output to the general purpose SSFF file format. This file mechanism is also used to access data produced by EMA, EPG or many other forms of signal data recordings. Secondly, it is possible to track, save and access manipulated data such as formant values that have been manually corrected. It is also worth noting that the <code>get_trackdata()</code> function has a predefined track which is always available without it having to be defined. The name of this track is <code>MEDIAFILE_SAMPLES</code> which references the actual samples of the audio files of the database. The R code snippet below shows how this predefined track can be used to access the audio samples belonging to the segments in <code>ai_segs</code>.</p>
 <div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="co"># get media file samples</span></a>
 <a class="sourceLine" id="cb146-2" data-line-number="2">ai_td_mfs =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
@@ -460,22 +460,21 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <a class="sourceLine" id="cb146-7" data-line-number="7"><span class="co"># ai_td_mfs (sample values in column T1)</span></a>
 <a class="sourceLine" id="cb146-8" data-line-number="8">ai_td_mfs</a></code></pre></div>
 <pre><code>## # A tibble: 18,386 x 21
-##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
-##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## # … with 18,376 more rows, and 13 more variables: end_item_id &lt;int&gt;,
-## #   level &lt;chr&gt;, attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
-## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
-## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 18,376 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;</code></pre>
 </div>
 <div id="adding-new-tracks" class="section level2">
@@ -497,15 +496,15 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="co"># show newly added files</span></a>
 <a class="sourceLine" id="cb150-2" data-line-number="2"><span class="kw">list_files</span>(ae, <span class="dt">fileExtension =</span> <span class="st">&quot;f0&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 4
-##   session bundle   file     absolute_file_path                             
-##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;                                          
-## 1 0000    msajc003 msajc00… /tmp/RtmpzPIwdm/emuR_demoData/ae_emuDB/0000_se…
-## 2 0000    msajc010 msajc01… /tmp/RtmpzPIwdm/emuR_demoData/ae_emuDB/0000_se…
-## 3 0000    msajc012 msajc01… /tmp/RtmpzPIwdm/emuR_demoData/ae_emuDB/0000_se…
-## 4 0000    msajc015 msajc01… /tmp/RtmpzPIwdm/emuR_demoData/ae_emuDB/0000_se…
-## 5 0000    msajc022 msajc02… /tmp/RtmpzPIwdm/emuR_demoData/ae_emuDB/0000_se…
-## 6 0000    msajc023 msajc02… /tmp/RtmpzPIwdm/emuR_demoData/ae_emuDB/0000_se…
-## 7 0000    msajc057 msajc05… /tmp/RtmpzPIwdm/emuR_demoData/ae_emuDB/0000_se…</code></pre>
+##   session bundle   file      absolute_file_path                                 
+##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;                                              
+## 1 0000    msajc003 msajc003… /tmp/RtmpxF5CVH/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 2 0000    msajc010 msajc010… /tmp/RtmpxF5CVH/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 3 0000    msajc012 msajc012… /tmp/RtmpxF5CVH/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 4 0000    msajc015 msajc015… /tmp/RtmpxF5CVH/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 5 0000    msajc022 msajc022… /tmp/RtmpxF5CVH/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 6 0000    msajc023 msajc023… /tmp/RtmpxF5CVH/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 7 0000    msajc057 msajc057… /tmp/RtmpxF5CVH/emuR_demoData/ae_emuDB/0000_ses/ms…</code></pre>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="co"># extract newly added trackdata</span></a>
 <a class="sourceLine" id="cb152-2" data-line-number="2">ai_td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
 <a class="sourceLine" id="cb152-3" data-line-number="3">                      <span class="dt">seglist =</span> ai_segs,</a>
@@ -515,22 +514,21 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <a class="sourceLine" id="cb152-7" data-line-number="7"><span class="co"># show ai_td (F0 values in column T1)</span></a>
 <a class="sourceLine" id="cb152-8" data-line-number="8">ai_td</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
-##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
-##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## # … with 173 more rows, and 13 more variables: end_item_id &lt;int&gt;,
-## #   level &lt;chr&gt;, attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
-## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
-## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;dbl&gt;</code></pre>
 </div>
 <div id="calculating-tracks-on-the-fly" class="section level2">
@@ -544,22 +542,21 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <a class="sourceLine" id="cb154-6" data-line-number="6"><span class="co"># show ai_td_pit (F0 values in column T1)</span></a>
 <a class="sourceLine" id="cb154-7" data-line-number="7">ai_td_pit</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
-##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
-##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## # … with 173 more rows, and 13 more variables: end_item_id &lt;int&gt;,
-## #   level &lt;chr&gt;, attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
-## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
-## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;dbl&gt;</code></pre>
 </div>
 <div id="the-resulting-object-tibble" class="section level2">
@@ -571,22 +568,21 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="co"># show ai_td_pit (F0 values in column T1)</span></a>
 <a class="sourceLine" id="cb158-2" data-line-number="2">ai_td_pit</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
-##    sl_rowIdx labels start   end db_uuid session bundle start_item_id
-##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161
-## # … with 173 more rows, and 13 more variables: end_item_id &lt;int&gt;,
-## #   level &lt;chr&gt;, attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
-## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;,
-## #   sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
+##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
+##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;dbl&gt;</code></pre>
 <p>As can be seen by the first row output of the R code snippet above, the <code>tibble</code> object is an amalgamation of both a segment list and the actual signal data. The first <code>sl_rowIdx</code> column of the <code>ai_emuRtd_pit</code> object indicates the row index of the segment list the current row belongs to, the <code>times_rel</code> and <code>times_orig</code> columns represent the relative time and the original time of the samples contained in the current row (see above R code snippet) and T1 (to Tn in n dimensional tracks) contains the actual signal sample values. As is often the case with tabular data, the <code>tibble</code> object carries certain redundant information (e.g. segment start and end times). However, the benefit of having a <code>data.frame</code> object that contains all the information needed to process the data is the ability to replace package specific functions (e.g. the legacy <code>eplot()</code> etc.) with standardized <code>data.frame</code> processing and visualization procedures that can be applied to any <code>data.frame</code> object independent of the package that generated it. Therefore, the knowledge that is necessary to process a <code>tibble</code> object can be transferred to/from other packages which was not the case for the legacy <code>trackdata</code> object. For examples on how functions provided by packages belonging to the <a href="https://www.tidyverse.org/">tidyverse</a> can be used to replace the legacy <code>eplot()</code> and <code>dplot()</code> functions see <a href="recipe-plottingSnippets.html#recipe:plottingSnippets">22</a>. The legacy <code>dcut()</code> can simply be replaced using <code>normalize_length()</code> in combination with <code>dplyr::filter()</code>. Finally, it is worth noting that for backward compatibility the legacy <code>trackdata</code> object is still available by explicitly setting the <code>resultType</code> parameter of <code>get_trackdata()</code>.</p>
 </div>
