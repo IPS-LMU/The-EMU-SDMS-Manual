@@ -492,8 +492,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     71e7c966-9113-4d5c-81fb-8f85870628c9 
-## Directory:    /tmp/RtmpHE7MYf/my-first_emuDB 
+## UUID:     c4684f83-3101-4232-89d1-f31d53c9510f 
+## Directory:    /tmp/RtmpEbLlTI/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -601,7 +601,7 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. 71e7c9~ 0000    msajc~            98          98 Phon~
+## 1 n      1032. 1196. c4684f~ 0000    msajc~            98          98 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -800,7 +800,7 @@ Having this hierarchical annotation structure now allows us to formulate a query
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. 71e7c9~ 0000    msajc~           103         103 Phon~
+## 1 @      1506. 1548. c4684f~ 0000    msajc~           103         103 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -826,7 +826,7 @@ As the type of word (content vs.~function) for each \emph{@} vowel that was just
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA 71e7c9~ 0000    msajc~            16          16 Word 
+## 1 F         NA    NA c4684f~ 0000    msajc~            16          16 Word 
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -925,18 +925,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  2         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  3         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  4         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  5         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  6         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  7         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  8         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-##  9         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-## 10         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-## 11         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
-## 12         5 @      2447. 2506. 71e7c9~ 0000    msajc~           119         119
+##  1         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  2         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  3         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  4         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  5         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  6         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  7         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  8         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+##  9         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+## 10         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+## 11         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
+## 12         5 @      2447. 2506. c4684f~ 0000    msajc~           119         119
 ## # ... with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
@@ -1347,8 +1347,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     ad575580-6390-4b0d-a4f9-ba94b420b917 
-## Directory:    /tmp/RtmpellMXo/fromScratch_emuDB 
+## UUID:     18df95b5-f10b-4855-8792-083c473bbf51 
+## Directory:    /tmp/Rtmp5JPbXD/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1704,8 +1704,8 @@ The previous sections of this chapter defined the simple structure of the \emph{
 ## # A tibble: 2 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpellMXo/fromScratch_emuDB/fromWavFile~
-## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpellMXo/fromScratch_emuDB/fromWavFile~
+## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/Rtmp5JPbXD/fromScratch_emuDB/fromWavFile~
+## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/Rtmp5JPbXD/fromScratch_emuDB/fromWavFile~
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB} containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every \texttt{\_annot.json} file created contains an empty \texttt{Word} and \texttt{Phonetic} level array and the links array is also empty.
@@ -1751,9 +1751,9 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 ## # A tibble: 3 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpellMXo/fromScratch_emuDB/fromWavFile~
-## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpellMXo/fromScratch_emuDB/fromWavFile~
-## 3 fromWavFi~ msajc0~ msajc003.zcr /tmp/RtmpellMXo/fromScratch_emuDB/fromWavFile~
+## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/Rtmp5JPbXD/fromScratch_emuDB/fromWavFile~
+## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/Rtmp5JPbXD/fromScratch_emuDB/fromWavFile~
+## 3 fromWavFi~ msajc0~ msajc003.zcr /tmp/Rtmp5JPbXD/fromScratch_emuDB/fromWavFile~
 \end{verbatim}
 
 \hypertarget{ssff-track-definitions}{%
@@ -2572,13 +2572,13 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 ## # A tibble: 7 x 4
 ##   session bundle   file      absolute_file_path                                 
 ##   <chr>   <chr>    <chr>     <chr>                                              
-## 1 0000    msajc003 msajc003~ /tmp/RtmptadJ4k/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 2 0000    msajc010 msajc010~ /tmp/RtmptadJ4k/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 3 0000    msajc012 msajc012~ /tmp/RtmptadJ4k/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 4 0000    msajc015 msajc015~ /tmp/RtmptadJ4k/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 5 0000    msajc022 msajc022~ /tmp/RtmptadJ4k/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 6 0000    msajc023 msajc023~ /tmp/RtmptadJ4k/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 7 0000    msajc057 msajc057~ /tmp/RtmptadJ4k/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 1 0000    msajc003 msajc003~ /tmp/Rtmpbb3a4M/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 2 0000    msajc010 msajc010~ /tmp/Rtmpbb3a4M/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 3 0000    msajc012 msajc012~ /tmp/Rtmpbb3a4M/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 4 0000    msajc015 msajc015~ /tmp/Rtmpbb3a4M/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 5 0000    msajc022 msajc022~ /tmp/Rtmpbb3a4M/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 6 0000    msajc023 msajc023~ /tmp/Rtmpbb3a4M/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 7 0000    msajc057 msajc057~ /tmp/Rtmpbb3a4M/emuR_demoData/ae_emuDB/0000_ses/ms~
 \end{verbatim}
 
 \begin{Shaded}
@@ -2819,7 +2819,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /tmp/RtmpzNSayl/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/Rtmprz1VwW/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -2885,7 +2885,7 @@ As can be seen in the above R code snippet, the resulting \texttt{au} object is 
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpzNSayl/emuR_demoData/ae_emuDB/0000_s..."
+## [1] "/tmp/Rtmprz1VwW/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -3236,7 +3236,7 @@ As it can be extremely important to keep track of information about how certain 
 \begin{verbatim}
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-11-18 15:54:56 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2019-11-18 16:32:10 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 \end{verbatim}
 
@@ -9435,9 +9435,9 @@ Regarding stat\_ellipse() this is worth pointing out: \url{https://github.com/ti
 \hypertarget{version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab}{%
 \chapter{Version control of emuDBs including collaborative annotation with Git and GitLab}\label{version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab}}
 
-This document describes how to do Git versioning of an emuDB for collaboratively working on and annotating an emuDB. In this recipe we will focus on using the GitLab instance provided by the \href{https://www.lrz.de/}{LRZ} (\url{https://gitlab.lrz.de/}). However, any GitLab instance available to you should work. It is worth noting that GitLab instances may vary in the allowed maximum size of a Git repositories. As emuDBs tend to be a lot larger than an avarege code repository, please make sure you comply with your instances size limits. \footnote{As of now the GitLab API doesn't support fetching and posting of LFS (large file storage) files. This is also true for the \texttt{git2r} package. Once this is available, we will update this documentation on how to use this feature.}
+This document describes how to do Git versioning of an emuDB for collaboratively working on and annotating speech databases. In this recipe we will focus on using the GitLab instance provided by the \href{https://www.lrz.de/}{LRZ} (\url{https://gitlab.lrz.de/}). However, any GitLab instance available to you should work. It is worth noting that GitLab instances may vary in the allowed maximum size of a Git repository. As emuDBs tend to be a lot larger than an avarege code repository, please make sure you comply with your instance's size limits. \footnote{As of now, the GitLab API doesn't support fetching and posting of LFS (large file storage) files. This is also true for the \texttt{git2r} package. Once this is available, we will update this documentation on how to use this feature.}
 
-As we will be using a R package called \texttt{git2r} please make sure it is installed:
+As we will be using an R package called \texttt{git2r}, please make sure it is installed:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9445,7 +9445,7 @@ As we will be using a R package called \texttt{git2r} please make sure it is ins
 \end{Highlighting}
 \end{Shaded}
 
-As this recipe uses features that aren't available in the current CRAN release of emuR please also install the current developer version from GitHub (needed version \textgreater{}= 2.0.4.9000):
+As this recipe uses features that aren't available in the current CRAN release of emuR, please also install the current developer version from GitHub (needed version \textgreater{}= 2.0.4.9000):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9478,16 +9478,16 @@ The first thing we need to do is create and load an example emuDB:
 \end{Highlighting}
 \end{Shaded}
 
-As the ae emuDB is not yet under Git version control we will proceed by initialising a new Git repository in the emuDB directory using \texttt{git2r}.:
+As the ae emuDB is not yet under Git version control, we will proceed by initialising a new Git repository in the emuDB directory using \texttt{git2r}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# git2r:: prefix can be ommited}
+\CommentTok{# git2r:: prefix can be omitted}
 \NormalTok{repo =}\StringTok{ }\NormalTok{git2r}\OperatorTok{::}\KeywordTok{init}\NormalTok{(}\DataTypeTok{path =}\NormalTok{ db}\OperatorTok{$}\NormalTok{basePath)}
 \end{Highlighting}
 \end{Shaded}
 
-this is followed by a basic user configuration
+This is followed by a basic user configuration:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9497,7 +9497,7 @@ this is followed by a basic user configuration
 \end{Highlighting}
 \end{Shaded}
 
-Now we will add everything to the Git repository and create our initial commit. In a terminal type:
+Now we will add everything to the Git repository and create our initial commit. In a terminal, type:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9510,10 +9510,10 @@ Now we will add everything to the Git repository and create our initial commit. 
 \end{Shaded}
 
 \begin{verbatim}
-## [0cde6ae] 2019-11-18: initial commit
+## [d292821] 2019-11-18: initial commit
 \end{verbatim}
 
-This is it for the initial local setup of Git. If you just wish to work locally simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
+This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
 
 \hypertarget{using-gitlab-to-host-the-emudb}{%
 \subsection{Using GitLab to host the emuDB}\label{using-gitlab-to-host-the-emudb}}
@@ -9538,7 +9538,7 @@ Make sure to change the \texttt{Project\ slug} to match the casing (\_emuDB vs.~
 \end{Highlighting}
 \end{Shaded}
 
-To be allowed to push to the remote repository we will use personal access tokens provided by GitLab. In GitLab navigate to \texttt{Settings} -\textgreater{} \texttt{Access\ Tokens} and create a personal access token with a fitting name and an \textbf{api} scope.
+To be allowed to push to the remote repository we will use personal access tokens provided by GitLab. In GitLab, navigate to \texttt{Settings} -\textgreater{} \texttt{Access\ Tokens} and create a personal access token with a fitting name and an \textbf{api} scope.
 
 \begin{center}\includegraphics[width=0.75\linewidth]{pics/GitLab-AccessTokens} \end{center}
 
@@ -9550,11 +9550,11 @@ Once a private token was created and copied, add the following line to your \tex
 \end{Highlighting}
 \end{Shaded}
 
-Adding this token to your \texttt{.Renviron} file has the advantage that you will not have to include your token as part of your R scripts which makes your scripts transferable. As the \texttt{.Renviron} file is read during R's start-up please close and reopen RStudio.
+The \texttt{.Renviron} file is read during R's start-up -- therefore you need to close and reopen RStudio. Adding the token to your \texttt{.Renviron} file has the advantage that you will not have to include it in your R scripts, which allows you to share these scripts without the need to redact the secret token.
 
-A note on security: personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: Is is meant for your eyes only. If a token gets lost or stolen please revoke the token immediately (GitLab: \texttt{Settings} -\textgreater{} \texttt{Access\ Tokens} -\textgreater{} \texttt{Revoke})!!!!
+A note on security: Personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: Is is meant for your eyes only. If a token gets lost or stolen, please revoke the token immediately (GitLab: \texttt{Settings} -\textgreater{} \texttt{Access\ Tokens} -\textgreater{} \texttt{Revoke})!!!!
 
-Now the token is set up, we can use it to push the emuDB to the GitLab instance:
+Now that the token is set up, we can use it to push the emuDB to the GitLab instance:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9566,7 +9566,7 @@ Now the token is set up, we can use it to push the emuDB to the GitLab instance:
 \end{Highlighting}
 \end{Shaded}
 
-To pull any changes from the remote repository simply type:
+To pull any changes from the remote repository, simply type:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9578,11 +9578,11 @@ To pull any changes from the remote repository simply type:
 \hypertarget{collaborating-with-others}{%
 \section{Collaborating with others}\label{collaborating-with-others}}
 
-If you wish others to access and/or collaborate with you on the database you simply have to add them as ``Project members'' in GitLab. Under \texttt{Project\ -\textgreater{}\ Settings\ -\textgreater{}\ Members} select your collaborator and choose ``Maintainer'' (read and write access) as their role permission:
+If you wish others to access and/or collaborate with you on the database, you simply have to add them as ``Project members'' in GitLab. Under \texttt{Project\ -\textgreater{}\ Settings\ -\textgreater{}\ Members}, select your collaborator and choose ``Maintainer'' (read and write access) as their role permission:
 
 \begin{center}\includegraphics[width=0.75\linewidth]{pics/GitLab-addMember} \end{center}
 
-Once this is set, the collaborator is able to clone the repository using their own credentials:
+Once this is set, the collaborator is able to clone the repository using their own credentials (they have to create a personal access token just like you did, see above):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9595,9 +9595,9 @@ Once this is set, the collaborator is able to clone the repository using their o
 \hypertarget{default-work-flow}{%
 \subsection{Default work-flow}\label{default-work-flow}}
 
-When collaborating with multiple people it is usually a good idea to do the following:
+When collaborating with multiple people, it is usually a good idea to do the following:
 
-1.) \textbf{every time} before you start working on an emuDB get the newest version:
+1.) \textbf{every time} before you start working on an emuDB, get the newest version:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9617,10 +9617,12 @@ When collaborating with multiple people it is usually a good idea to do the foll
 \end{Highlighting}
 \end{Shaded}
 
+Once again, remember to write a helpful and concise commit message.
+
 \hypertarget{assigning-bundles-to-annotators}{%
 \subsection{Assigning bundles to annotators}\label{assigning-bundles-to-annotators}}
 
-How the EMU-SDMS handles user management/collaborative annotations is quite simple. Within an emuDB you can create an optional directory called \texttt{bundleLists/}. Within that directory you can place so called bundle list JSON files. An example of such a file is shown below.
+How the EMU-SDMS handles user management/collaborative annotations is quite simple. Within an emuDB you can create an optional directory called \texttt{bundleLists/}. Within that directory you can place so-called bundle list JSON files. An example of such a file is shown below.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9628,7 +9630,7 @@ How the EMU-SDMS handles user management/collaborative annotations is quite simp
     \FunctionTok{\{}
         \DataTypeTok{"session"}\FunctionTok{:} \StringTok{"0000"}\FunctionTok{,}
         \DataTypeTok{"name"}\FunctionTok{:} \StringTok{"msajc012"}\FunctionTok{,}
-        \DataTypeTok{"comment"}\FunctionTok{:} \StringTok{"slight due"}\FunctionTok{,}
+        \DataTypeTok{"comment"}\FunctionTok{:} \StringTok{"vowel offset unclear"}\FunctionTok{,}
         \DataTypeTok{"finishedEditing"}\FunctionTok{:} \KeywordTok{false}
     \FunctionTok{\}}\OtherTok{,}
     \FunctionTok{\{}
@@ -9641,7 +9643,7 @@ How the EMU-SDMS handles user management/collaborative annotations is quite simp
 \end{Highlighting}
 \end{Shaded}
 
-These files describe what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g. \texttt{raphael.winkelmann\_bundleList.json}. As of emuR version 2.0.4.9000 (currently only available on GitHub with \texttt{devtools::install\_github("IPS-LMU/emuR")}) it is possible to read and write these bundle lists:
+These files describe, what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g. \texttt{raphael.winkelmann\_bundleList.json}. As of emuR version 2.0.4.9000 (currently only available on GitHub with \texttt{devtools::install\_github("IPS-LMU/emuR")}) it is possible to read and write these bundle lists:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9657,7 +9659,7 @@ These files describe what bundles are allocated to a certain user. The name of t
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/Rtmp03omTq/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpBwbFMh/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 \end{verbatim}
 
 \begin{Shaded}
@@ -9711,18 +9713,18 @@ As of version 1.1.0 of the EMU-webApp it can communicate directly with a emuDB r
 \item
   \texttt{gitlabURL=https://gitlab.lrz.de}: URL of GitLab instance
 \item
-  \texttt{projectID=44728}: project ID (see project page of GitLab determine the projects ID)
+  \texttt{projectID=44728}: project ID (see project page of GitLab to determine the project's ID)
 \item
-  \texttt{emuDBname=ae}: name of emuDB used to identify \texttt{\_DBconfig.json} prefix
+  \texttt{emuDBname=ae}: name of the emuDB (used to identify the prefix of the \texttt{\_DBconfig.json} file)
 \item
   \texttt{bundleListName=raphael.winkelmann}: name of bundleList to access
 \item
-  \texttt{privateToken=reQFspQnbCHbvTfHjwfP}: used for read and write access
+  \texttt{privateToken=reQFspQnbCHbvTfHjwfP}: used for read and write access (\textbf{Do not share your own personal access token; tell the annotators to insert their own instead!})
 \end{itemize}
 
 These URL parameters are then used to construct a URL like the following: \url{https://ips-lmu.github.io/EMU-webApp/?autoConnect=true\&comMode=GITLAB\&gitlabURL=https:\%2F\%2Fgitlab.lrz.de\&projectID=44728\&emuDBname=ae\&bundleListName=test.user\&privateToken=reQFspQnbCHbvTfHjwfP}
 
-This step is usually performed by the project maintainer and the URLs are simply sent to the various annotators in the project. The only parameters the annotators have to set themselfs is their \texttt{privateToken}s. Once the link is opened in a browser, the EMU-webApp will have full read and write access to the repository and should open the first bundle in the bundle list automatically. On save a new commit is added to the repository of the updates made.
+This step is usually performed by the project maintainer and the URLs are simply sent to the various annotators in the project. The only parameters the annotators have to set themselves is their \texttt{privateToken}s. Once the link is opened in a browser, the EMU-webApp will have full read and write access to the repository and should open the first bundle in the bundle list automatically. While saving a bundle, a new commit with all updates is added to the repository.
 
 \hypertarget{caveat}{%
 \subsubsection{Caveat}\label{caveat}}
@@ -9732,7 +9734,7 @@ As the annotators have full read and write access to the GitLab emuDB repository
 \hypertarget{what-about-my-r-scripts-other-files}{%
 \subsection{What about my R scripts / other files?}\label{what-about-my-r-scripts-other-files}}
 
-Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g.~you might want to share your database but not your ``messy'' analysis script :-)). This can for example be done using a new R Studio project (\texttt{File\ -\textgreater{}\ New\ Project...} in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired I would recommend looking into Git submodules: \url{https://git-scm.com/book/en/v2/Git-Tools-Submodules}
+Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g.~you might want to share your database but not your ``messy'' analysis script :-)). This can for example be done using a new R Studio project (\texttt{File\ -\textgreater{}\ New\ Project...} in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired, I would recommend looking into Git submodules: \url{https://git-scm.com/book/en/v2/Git-Tools-Submodules}
 
 \bibliography{book.bib}
 

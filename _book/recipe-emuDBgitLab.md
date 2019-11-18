@@ -2,16 +2,16 @@
 
 
 
-This document describes how to do Git versioning of an emuDB for collaboratively working on and annotating an emuDB. In this recipe we will focus on using the GitLab instance provided by the [LRZ](https://www.lrz.de/) (https://gitlab.lrz.de/). However, any GitLab instance available to you should work. It is worth noting that GitLab instances may vary in the allowed maximum size of a Git repositories. As emuDBs tend to be a lot larger than an avarege code repository, please make sure you comply with your instances size limits. ^[As of now the GitLab API doesn't support fetching and posting of LFS (large file storage) files. This is also true for the `git2r` package. Once this is available, we will update this documentation on how to use this feature.]
+This document describes how to do Git versioning of an emuDB for collaboratively working on and annotating speech databases. In this recipe we will focus on using the GitLab instance provided by the [LRZ](https://www.lrz.de/) (https://gitlab.lrz.de/). However, any GitLab instance available to you should work. It is worth noting that GitLab instances may vary in the allowed maximum size of a Git repository. As emuDBs tend to be a lot larger than an avarege code repository, please make sure you comply with your instance's size limits. ^[As of now, the GitLab API doesn't support fetching and posting of LFS (large file storage) files. This is also true for the `git2r` package. Once this is available, we will update this documentation on how to use this feature.]
 
-As we will be using a R package called `git2r` please make sure it is installed:
+As we will be using an R package called `git2r`, please make sure it is installed:
 
 
 ```r
 install.packages("git2r")
 ```
 
-As this recipe uses features that aren't available in the current CRAN release of emuR please also install the current developer version from GitHub (needed version >= 2.0.4.9000):
+As this recipe uses features that aren't available in the current CRAN release of emuR, please also install the current developer version from GitHub (needed version >= 2.0.4.9000):
 
 
 ```r
@@ -40,15 +40,15 @@ db = load_emuDB(file.path(tempdir(),
                 verbose = F)
 ```
 
-As the ae emuDB is not yet under Git version control we will proceed by initialising a new Git repository in the emuDB directory using `git2r`.:
+As the ae emuDB is not yet under Git version control, we will proceed by initialising a new Git repository in the emuDB directory using `git2r`:
 
 
 ```r
-# git2r:: prefix can be ommited
+# git2r:: prefix can be omitted
 repo = git2r::init(path = db$basePath)
 ```
 
-this is followed by a basic user configuration 
+This is followed by a basic user configuration:
 
 
 ```r
@@ -57,7 +57,7 @@ git2r::config(repo,
               user.email = "raphael@example.org") # and email
 ```
 
-Now we will add everything to the Git repository and create our initial commit. In a terminal type:
+Now we will add everything to the Git repository and create our initial commit. In a terminal, type:
 
 
 ```r
@@ -69,10 +69,10 @@ git2r::commit(db$basePath,
 ```
 
 ```
-## [b63f551] 2019-11-18: initial commit
+## [16ff874] 2019-11-18: initial commit
 ```
 
-This is it for the initial local setup of Git. If you just wish to work locally simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
+This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
 
 ### Using GitLab to host the emuDB
 
@@ -95,7 +95,7 @@ git2r::remote_add(db$basePath,
                   url = "https://gitlab.lrz.de/raphywink/ae_emuDB.git")
 ```
 
-To be allowed to push to the remote repository we will use personal access tokens provided by GitLab. In GitLab navigate to `Settings` -> `Access Tokens` and create a personal access token with a fitting name and an **api** scope.
+To be allowed to push to the remote repository we will use personal access tokens provided by GitLab. In GitLab, navigate to `Settings` -> `Access Tokens` and create a personal access token with a fitting name and an **api** scope.
 
 <img src="pics/GitLab-AccessTokens.png" width="75%" style="display: block; margin: auto;" />
 
@@ -106,11 +106,11 @@ Once a private token was created and copied, add the following line to your `$HO
 GITLAB_PAT="reQFspQnbCHbvTfHjwfP" # replace with own access token
 ```
 
-Adding this token to your `.Renviron` file has the advantage that you will not have to include your token as part of your R scripts which makes your scripts transferable. As the `.Renviron` file is read during R's start-up please close and reopen RStudio.
+The `.Renviron` file is read during R's start-up – therefore you need to close and reopen RStudio. Adding the token to your `.Renviron` file has the advantage that you will not have to include it in your R scripts, which allows you to share these scripts without the need to redact the secret token.
 
-A note on security: personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: Is is meant for your eyes only. If a token gets lost or stolen please revoke the token immediately (GitLab: `Settings` -> `Access Tokens` -> `Revoke`)!!!!
+A note on security: Personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: Is is meant for your eyes only. If a token gets lost or stolen, please revoke the token immediately (GitLab: `Settings` -> `Access Tokens` -> `Revoke`)!!!!
 
-Now the token is set up, we can use it to push the emuDB to the GitLab instance:
+Now that the token is set up, we can use it to push the emuDB to the GitLab instance:
 
 
 ```r
@@ -121,7 +121,7 @@ git2r::push(db$basePath,
             credentials = git2r::cred_token(token = "GITLAB_PAT"))
 ```
 
-To pull any changes from the remote repository simply type:
+To pull any changes from the remote repository, simply type:
 
 
 ```r
@@ -131,11 +131,11 @@ git2r::pull(db$basePath,
 
 ## Collaborating with others
 
-If you wish others to access and/or collaborate with you on the database you simply have to add them as "Project members" in GitLab. Under `Project -> Settings -> Members` select your collaborator and choose "Maintainer" (read and write access) as their role permission:
+If you wish others to access and/or collaborate with you on the database, you simply have to add them as "Project members" in GitLab. Under `Project -> Settings -> Members`, select your collaborator and choose "Maintainer" (read and write access) as their role permission:
 
 <img src="pics/GitLab-addMember.png" width="75%" style="display: block; margin: auto;" />
 
-Once this is set, the collaborator is able to clone the repository using their own credentials:
+Once this is set, the collaborator is able to clone the repository using their own credentials (they have to create a personal access token just like you did, see above):
 
 
 ```r
@@ -146,9 +146,9 @@ git2r::clone(url = "https://gitlab.lrz.de/raphywink/ae_emuDB.git",
 
 ### Default work-flow
 
-When collaborating with multiple people it is usually a good idea to do the following:
+When collaborating with multiple people, it is usually a good idea to do the following:
 
-1.) **every time** before you start working on an emuDB get the newest version:
+1.) **every time** before you start working on an emuDB, get the newest version:
 
 
 ```r
@@ -166,10 +166,12 @@ git2r::commit(db$basePath,
               message = "added new bundleList")
 ```
 
+Once again, remember to write a helpful and concise commit message.
+
 
 ### Assigning bundles to annotators
 
-How the EMU-SDMS handles user management/collaborative annotations is quite simple. Within an emuDB you can create an optional directory called `bundleLists/`. Within that directory you can place so called bundle list JSON files. An example of such a file is shown below.
+How the EMU-SDMS handles user management/collaborative annotations is quite simple. Within an emuDB you can create an optional directory called `bundleLists/`. Within that directory you can place so-called bundle list JSON files. An example of such a file is shown below.
 
 
 ```json
@@ -177,7 +179,7 @@ How the EMU-SDMS handles user management/collaborative annotations is quite simp
     {
         "session": "0000",
         "name": "msajc012",
-        "comment": "slight due",
+        "comment": "vowel offset unclear",
         "finishedEditing": false
     },
     {
@@ -189,7 +191,7 @@ How the EMU-SDMS handles user management/collaborative annotations is quite simp
 ...
 ```
 
-These files describe what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g. `raphael.winkelmann_bundleList.json`. As of emuR version 2.0.4.9000 (currently only available on GitHub with `devtools::install_github("IPS-LMU/emuR")`) it is possible to read and write these bundle lists:
+These files describe, what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g. `raphael.winkelmann_bundleList.json`. As of emuR version 2.0.4.9000 (currently only available on GitHub with `devtools::install_github("IPS-LMU/emuR")`) it is possible to read and write these bundle lists:
 
 
 ```r
@@ -204,7 +206,7 @@ write_bundleList(db,
 ```
 
 ```
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpGvTtMi/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/Rtmp2uy9Us/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 ```
 
 ```r
@@ -248,14 +250,14 @@ As of version 1.1.0 of the EMU-webApp it can communicate directly with a emuDB r
 - `autoConnect=true`: automatically connect to the instance (obligatory)
 - `comMode=GITLAB`: communication mode = "GITLAB" (using the GitLab API)
 - `gitlabURL=https://gitlab.lrz.de`: URL of GitLab instance
-- `projectID=44728`: project ID (see project page of GitLab determine the projects ID)
-- `emuDBname=ae`: name of emuDB used to identify `_DBconfig.json` prefix
+- `projectID=44728`: project ID (see project page of GitLab to determine the project's ID)
+- `emuDBname=ae`: name of the emuDB (used to identify the prefix of the `_DBconfig.json` file)
 - `bundleListName=raphael.winkelmann`: name of bundleList to access
-- `privateToken=reQFspQnbCHbvTfHjwfP`: used for read and write access
+- `privateToken=reQFspQnbCHbvTfHjwfP`: used for read and write access (**Do not share your own personal access token; tell the annotators to insert their own instead!**)
 
 These URL parameters are then used to construct a URL like the following: https://ips-lmu.github.io/EMU-webApp/?autoConnect=true&comMode=GITLAB&gitlabURL=https:%2F%2Fgitlab.lrz.de&projectID=44728&emuDBname=ae&bundleListName=test.user&privateToken=reQFspQnbCHbvTfHjwfP
 
-This step is usually performed by the project maintainer and the URLs are simply sent to the various annotators in the project. The only parameters the annotators have to set themselfs is their `privateToken`s. Once the link is opened in a browser, the EMU-webApp will have full read and write access to the repository and should open the first bundle in the bundle list automatically. On save a new commit is added to the repository of the updates made.
+This step is usually performed by the project maintainer and the URLs are simply sent to the various annotators in the project. The only parameters the annotators have to set themselves is their `privateToken`s. Once the link is opened in a browser, the EMU-webApp will have full read and write access to the repository and should open the first bundle in the bundle list automatically. While saving a bundle, a new commit with all updates is added to the repository.
 
 #### Caveat
 
@@ -264,4 +266,4 @@ As the annotators have full read and write access to the GitLab emuDB repository
 
 ### What about my R scripts / other files?
 
-Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g. you might want to share your database but not your "messy" analysis script :-)). This can for example be done using a new R Studio project (`File -> New Project...` in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired I would recommend looking into Git submodules: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g. you might want to share your database but not your "messy" analysis script :-)). This can for example be done using a new R Studio project (`File -> New Project...` in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired, I would recommend looking into Git submodules: https://git-scm.com/book/en/v2/Git-Tools-Submodules

@@ -79,8 +79,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 a307577c-a4c1-45d2-a58c-c2c4f250ea3a 
-## Directory:	 /tmp/RtmpvzrtQj/fromScratch_emuDB 
+## UUID:	 01f8ef89-3d2d-4a9d-8003-3944761051b8 
+## Directory:	 /tmp/RtmpL10Rhp/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -405,8 +405,8 @@ as_tibble(head(list_files(dbHandle), n = 2))
 ## # A tibble: 2 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpvzrtQj/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpvzrtQj/fromScratch_emuDB/fromWavFile…
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpL10Rhp/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpL10Rhp/fromScratch_emuDB/fromWavFile…
 ```
 
 The `import_mediaFiles()` call above added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
@@ -450,9 +450,9 @@ as_tibble(head(list_files(dbHandle), n = 3))
 ## # A tibble: 3 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpvzrtQj/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpvzrtQj/fromScratch_emuDB/fromWavFile…
-## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpvzrtQj/fromScratch_emuDB/fromWavFile…
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpL10Rhp/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpL10Rhp/fromScratch_emuDB/fromWavFile…
+## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpL10Rhp/fromScratch_emuDB/fromWavFile…
 ```
 
 
