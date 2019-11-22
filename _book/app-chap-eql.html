@@ -500,7 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The conjunction operator is used to combine query conditions on the same level. This makes sense in two cases:</p>
 <ol style="list-style-type: decimal">
 <li>when to combining different attributes of the same level: <code>&quot;[Phonetic == l &amp; sonorant == T]&quot;</code> when <em>Sonorant</em> is an additional attribute of level <em>Phonetic</em>;</li>
-<li>when combining a basic query with a function (see sections Position and Count below): <code>&quot;[phonetic == l &amp; Start(word, phonetic) == 1]&quot;</code>.</li>
+<li>when combining a basic query with a function (see sections Position and Count below): <code>&quot;[phonetic == l &amp; Start(word, phonetic) == TRUE]&quot;</code>.</li>
 </ol>
 <p>Example questions and answers:</p>
 <ul>
@@ -613,32 +613,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all “n” Phoneme items at the beginning of a syllable?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == n &amp; Start(Syllable, Phoneme) == 1]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == n &amp; Start(Syllable, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-final “m” Phoneme items?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m &amp; End(Word, Phoneme) == 1]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m &amp; End(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all non-word-final “S” syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S &amp; End(Word, Syllable) == 0]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S &amp; End(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="position-and-boolean-1" class="section level3">
 <h3><span class="header-section-number">18.6.3</span> Position and boolean ^</h3>
-<p>The syntax for combining a position function with the boolean hierarchical operator is <code>[L == E ^ Start(L1, L2) == 1]</code>, where level <code>L</code> and level <code>L2</code> refer to different levels where either <code>L</code> dominates <code>L2</code>, or <code>L2</code> dominates <code>L</code>.</p>
+<p>The syntax for combining a position function with the boolean hierarchical operator is <code>[L == E ^ Start(L1, L2) == TRUE]</code>, where level <code>L</code> and level <code>L2</code> refer to different levels where either <code>L</code> dominates <code>L2</code>, or <code>L2</code> dominates <code>L</code>.</p>
 <p>Example questions and answers:</p>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “p” Phoneme items which occur in the first syllable of the word?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Start(Word, Syllable) == 1]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Start(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all phonemes which do not occur in the last syllable of the word?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme =~ .* ^ End(Word, Syllable) == 0]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme =~ .* ^ End(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
 <p>Count</p>
 <p>A schematic representation of a query string using the count mechanism looks like <code>[Num(L1, L2) == N]</code>, where <code>L1</code> contains <code>N</code> items in <code>L2</code>. For this type of query to work, <code>L1</code> has to dominate <code>L2</code>. As the query matches a number (<code>N</code>), it is also possible to use the operators <code>&gt;</code>} (more than), <code>&lt;</code> (less than) and <code>!=</code> (not equal). The resulting segment list contains items of <code>L1</code>.</p>
 <p>Example questions and answers:</p>
@@ -729,14 +729,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
 <a class="sourceLine" id="cb357-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
 <a class="sourceLine" id="cb357-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[Text =~ .* ^ Phoneme == @ &quot;</span>,</a>
-<a class="sourceLine" id="cb357-4" data-line-number="4">                 <span class="st">&quot;&amp; Start(Text, Phoneme) == 1]&quot;</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb357-4" data-line-number="4">                 <span class="st">&quot;&amp; Start(Text, Phoneme) == TRUE]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-initial “m” items in a “S” syllable preceding “o:”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
 <a class="sourceLine" id="cb358-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb358-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phoneme == m &amp; Start(Word, Phoneme) == 1 &quot;</span>,</a>
+<a class="sourceLine" id="cb358-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phoneme == m &amp; Start(Word, Phoneme) == TRUE &quot;</span>,</a>
 <a class="sourceLine" id="cb358-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phoneme == o:] ^ Syllable == S]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>Same question as the question above, but this time we want the “Text” items.</em>\</li>
@@ -744,7 +744,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
 <a class="sourceLine" id="cb359-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb359-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Phoneme == m &amp; Start(Word, Phoneme) == 1 &quot;</span>,</a>
+<a class="sourceLine" id="cb359-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Phoneme == m &amp; Start(Word, Phoneme) == TRUE &quot;</span>,</a>
 <a class="sourceLine" id="cb359-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phoneme == o:] ^ Syllable == S] &quot;</span>,</a>
 <a class="sourceLine" id="cb359-5" data-line-number="5">                 <span class="st">&quot;^ #Text =~ .*]&quot;</span>))</a></code></pre></div>
 </div>
@@ -755,7 +755,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all “m” or “n” phonemes which occur in the word-medial position?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m | n &amp; Medial(Word, Phoneme) == 1]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m | n &amp; Medial(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “H” phonetic segments followed by an arbitrary segment and then by either “I” or “U”?</em></li>
 <li><strong>A</strong>:</li>
@@ -768,7 +768,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all syllables which do not occur in word-medial positions?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* &amp; Medial(Word, Syllable) == 0]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* &amp; Medial(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve the “Text” items of all words containing two syllables?</em></li>
 <li><strong>A</strong>:</li>
@@ -800,7 +800,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
 <a class="sourceLine" id="cb368-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb368-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[Syllable == W &amp; End(Word, Syllable) == 1 &quot;</span>,</a>
+<a class="sourceLine" id="cb368-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[Syllable == W &amp; End(Word, Syllable) == TRUE &quot;</span>,</a>
 <a class="sourceLine" id="cb368-4" data-line-number="4">                 <span class="st">&quot;^ Num(Word, Syllable) == 3]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all phonemes dominating “H” Phonetic items at the beginning of a syllable and occurring in accented (“S”) words?</em></li>
@@ -809,7 +809,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
 <a class="sourceLine" id="cb369-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
 <a class="sourceLine" id="cb369-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Phoneme =~ .* ^ Phonetic == H] &quot;</span>,</a>
-<a class="sourceLine" id="cb369-4" data-line-number="4">                 <span class="st">&quot;^ Start(Word, Syllable) == 1] ^ Accent == S]&quot;</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb369-4" data-line-number="4">                 <span class="st">&quot;^ Start(Word, Syllable) == TRUE] ^ Accent == S]&quot;</span>))</a></code></pre></div>
 </div>
 <div id="differences-to-the-legacy-emu-query-language" class="section level2">
 <h2><span class="header-section-number">18.9</span> Differences to the legacy EMU query language</h2>

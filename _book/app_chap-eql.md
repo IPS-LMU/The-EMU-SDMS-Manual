@@ -142,7 +142,7 @@ The conjunction operator is used to combine query conditions on the same level. 
 
 
 1. when to combining different attributes of the same level: `"[Phonetic == l & sonorant == T]"` when *Sonorant* is an additional attribute of level *Phonetic*;
-2. when combining a basic query with a function (see sections Position and Count below): `"[phonetic == l & Start(word, phonetic) == 1]"`.
+2. when combining a basic query with a function (see sections Position and Count below): `"[phonetic == l & Start(word, phonetic) == TRUE]"`.
 
 Example questions and answers:
 
@@ -279,24 +279,24 @@ Example questions and answers:
 - **A**:
 
 ```r
-query(ae, "[Phoneme == n & Start(Syllable, Phoneme) == 1]")
+query(ae, "[Phoneme == n & Start(Syllable, Phoneme) == TRUE]")
 ```
 - **Q**: *What is the query to retrieve all word-final "m" Phoneme items?*
 - **A**:
 
 ```r
-query(ae, "[Phoneme == m & End(Word, Phoneme) == 1]")
+query(ae, "[Phoneme == m & End(Word, Phoneme) == TRUE]")
 ```
 - **Q**: *What is the query to retrieve all non-word-final "S" syllables?*
 - **A**:
 
 ```r
-query(ae, "[Syllable == S & End(Word, Syllable) == 0]")
+query(ae, "[Syllable == S & End(Word, Syllable) == FALSE]")
 ```
 
 ### Position and boolean ^
 
-The syntax for combining a position function with the boolean hierarchical operator is `[L == E ^ Start(L1, L2) == 1]`, where level `L` and level `L2` refer to different levels where either `L` dominates `L2`, or `L2` dominates `L`.
+The syntax for combining a position function with the boolean hierarchical operator is `[L == E ^ Start(L1, L2) == TRUE]`, where level `L` and level `L2` refer to different levels where either `L` dominates `L2`, or `L2` dominates `L`.
 
 Example questions and answers:
 
@@ -304,13 +304,13 @@ Example questions and answers:
 - **A**:
 
 ```r
-query(ae, "[Phoneme == p ^ Start(Word, Syllable) == 1]")
+query(ae, "[Phoneme == p ^ Start(Word, Syllable) == TRUE]")
 ```
 - **Q**: *What is the query to retrieve all phonemes which do not occur in the last syllable of the word?*
 - **A**:
 
 ```r
-query(ae, "[Phoneme =~ .* ^ End(Word, Syllable) == 0]")
+query(ae, "[Phoneme =~ .* ^ End(Word, Syllable) == FALSE]")
 ```
 
 Count
@@ -423,7 +423,7 @@ Example questions and answers:
 # NOTE: usage of paste0() is optional
 # as it is only used for formatting purposes
 query(ae, paste0("[Text =~ .* ^ Phoneme == @ ",
-                 "& Start(Text, Phoneme) == 1]"))
+                 "& Start(Text, Phoneme) == TRUE]"))
 ```
 - **Q**: *What is the query to retrieve all word-initial "m" items in a "S" syllable preceding "o:"?*
 - **A**:
@@ -431,7 +431,7 @@ query(ae, paste0("[Text =~ .* ^ Phoneme == @ ",
 ```r
 # NOTE: usage of paste0() is optional
 # as it is only used for formatting purposes
-query(ae, paste0("[[Phoneme == m & Start(Word, Phoneme) == 1 ",
+query(ae, paste0("[[Phoneme == m & Start(Word, Phoneme) == TRUE ",
                  "-> Phoneme == o:] ^ Syllable == S]"))
 ```
 - **Q**: *Same question as the question above, but this time we want the "Text" items.*\\
@@ -440,7 +440,7 @@ query(ae, paste0("[[Phoneme == m & Start(Word, Phoneme) == 1 ",
 ```r
 # NOTE: usage of paste0() is optional
 # as it is only used for formatting purposes
-query(ae, paste0("[[[Phoneme == m & Start(Word, Phoneme) == 1 ",
+query(ae, paste0("[[[Phoneme == m & Start(Word, Phoneme) == TRUE ",
                  "-> Phoneme == o:] ^ Syllable == S] ",
                  "^ #Text =~ .*]"))
 ```
@@ -451,7 +451,7 @@ query(ae, paste0("[[[Phoneme == m & Start(Word, Phoneme) == 1 ",
 - **A**:
 
 ```r
-query(ae, "[Phoneme == m | n & Medial(Word, Phoneme) == 1]")
+query(ae, "[Phoneme == m | n & Medial(Word, Phoneme) == TRUE]")
 ```
 - **Q**: *What is the query to retrieve all "H" phonetic segments followed by an arbitrary segment and then by either "I" or "U"?*
 - **A**:
@@ -466,7 +466,7 @@ query(ae, paste0("[[Phonetic == H -> Phonetic =~ .*] ",
 - **A**:
 
 ```r
-query(ae, "[Syllable =~ .* & Medial(Word, Syllable) == 0]")
+query(ae, "[Syllable =~ .* & Medial(Word, Syllable) == FALSE]")
 ```
 - **Q**: *What is the query to retrieve the "Text" items of all words containing two syllables?*
 - **A**:
@@ -504,7 +504,7 @@ query(ae,"[Phonetic =~ .* ^ #Syllable == W]")
 ```r
 # NOTE: usage of paste0() is optional
 # as it is only used for formatting purposes
-query(ae, paste0("[Syllable == W & End(Word, Syllable) == 1 ",
+query(ae, paste0("[Syllable == W & End(Word, Syllable) == TRUE ",
                  "^ Num(Word, Syllable) == 3]"))
 ```
 - **Q**: *What is the query to retrieve all phonemes dominating "H" Phonetic items at the beginning of a syllable and occurring in accented ("S") words?*
@@ -514,7 +514,7 @@ query(ae, paste0("[Syllable == W & End(Word, Syllable) == 1 ",
 # NOTE: usage of paste0() is optional
 # as it is only used for formatting purposes
 query(ae, paste0("[[[Phoneme =~ .* ^ Phonetic == H] ",
-                 "^ Start(Word, Syllable) == 1] ^ Accent == S]"))
+                 "^ Start(Word, Syllable) == TRUE] ^ Accent == S]"))
 ```
 
 

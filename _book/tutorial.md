@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 ff0fbff8-e1ab-4142-8097-80cf94eae8e6 
-## Directory:	 /tmp/RtmpNzGgs9/my-first_emuDB 
+## UUID:	 f26fde8a-0f6a-4271-b06c-8ca352cb2bbb 
+## Directory:	 /tmp/RtmpmmOq17/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -218,7 +218,7 @@ head(sl_phonetic, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. ff0fbf… 0000    msajc…            98          98 Phon…
+## 1 n      1032. 1196. f26fde… 0000    msajc…            98          98 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -400,7 +400,7 @@ head(sl_vowels, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. ff0fbf… 0000    msajc…           103         103 Phon…
+## 1 @      1506. 1548. f26fde… 0000    msajc…           103         103 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -425,7 +425,7 @@ head(sl_word_type, n = 1)
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA ff0fbf… 0000    msajc…            16          16 Word 
+## 1 F         NA    NA f26fde… 0000    msajc…            16          16 Word 
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -514,18 +514,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  2         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  3         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  4         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  5         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  6         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  7         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  8         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-##  9         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-## 10         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-## 11         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
-## 12         5 @      2447. 2506. ff0fbf… 0000    msajc…           119         119
+##  1         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  2         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  3         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  4         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  5         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  6         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  7         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  8         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  9         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+## 10         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+## 11         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+## 12         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
 ## # … with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
