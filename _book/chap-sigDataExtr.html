@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Signal data extraction14 | The EMU-SDMS Manual</title>
   <meta name="description" content="7 Signal data extraction14 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Signal data extraction14 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -398,41 +398,41 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 </p>
 </div>
 <p>The R code snippet below shows how to create the demo data that will be used throughout this chapter.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1"><span class="co"># load the package</span></a>
-<a class="sourceLine" id="cb141-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb141-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb141-4" data-line-number="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
-<a class="sourceLine" id="cb141-5" data-line-number="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb141-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb141-7" data-line-number="7"><span class="co"># get the path to a emuDB called &quot;ae&quot; that is part of the demo data</span></a>
-<a class="sourceLine" id="cb141-8" data-line-number="8">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), </a>
-<a class="sourceLine" id="cb141-9" data-line-number="9">                           <span class="st">&quot;emuR_demoData&quot;</span>, </a>
-<a class="sourceLine" id="cb141-10" data-line-number="10">                           <span class="st">&quot;ae_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb141-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb141-12" data-line-number="12"><span class="co"># load emuDB into current R session</span></a>
-<a class="sourceLine" id="cb141-13" data-line-number="13">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory)</a></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="co"># load the package</span></a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb134-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb134-4" data-line-number="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
+<a class="sourceLine" id="cb134-5" data-line-number="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb134-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb134-7" data-line-number="7"><span class="co"># get the path to a emuDB called &quot;ae&quot; that is part of the demo data</span></a>
+<a class="sourceLine" id="cb134-8" data-line-number="8">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), </a>
+<a class="sourceLine" id="cb134-9" data-line-number="9">                           <span class="st">&quot;emuR_demoData&quot;</span>, </a>
+<a class="sourceLine" id="cb134-10" data-line-number="10">                           <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb134-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb134-12" data-line-number="12"><span class="co"># load emuDB into current R session</span></a>
+<a class="sourceLine" id="cb134-13" data-line-number="13">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory)</a></code></pre></div>
 <div id="extracting-pre-defined-tracks" class="section level2">
 <h2><span class="header-section-number">7.1</span> Extracting pre-defined tracks</h2>
 <p>To access data that are stored in files, the user has to define tracks for a database that point to sequences of samples in files that match a user-specified file extension. The user-defined name of such a track can then be used to reference the track in the signal data extraction process. Internally, <code>emuR</code> uses <code>wrassp</code> to read the appropriate files from disk, extract the sample sequences that match the result of a query and return values to the user for further inspection and evaluation. The R code snippet below shows how a signal track that is already defined in the <code>ae</code> demo database can be extracted for all annotation items on the <code>Phonetic</code> level containing the label <em>ai</em>.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="co"># list currently available tracks</span></a>
-<a class="sourceLine" id="cb142-2" data-line-number="2"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="co"># list currently available tracks</span></a>
+<a class="sourceLine" id="cb135-2" data-line-number="2"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
 <pre><code>##   name columnName fileExtension
 ## 1  dft        dft           dft
 ## 2   fm         fm           fms</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb144-1" data-line-number="1"><span class="co"># query all &quot;ai&quot; phonetic segments</span></a>
-<a class="sourceLine" id="cb144-2" data-line-number="2">ai_segs =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == ai&quot;</span>)</a>
-<a class="sourceLine" id="cb144-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb144-4" data-line-number="4"><span class="co"># get &quot;fm&quot; track data for these segments</span></a>
-<a class="sourceLine" id="cb144-5" data-line-number="5"><span class="co"># Note that verbose is set to FALSE</span></a>
-<a class="sourceLine" id="cb144-6" data-line-number="6"><span class="co"># only to avoid a progress bar</span></a>
-<a class="sourceLine" id="cb144-7" data-line-number="7"><span class="co"># being printed in this document.</span></a>
-<a class="sourceLine" id="cb144-8" data-line-number="8">ai_td_fm =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
-<a class="sourceLine" id="cb144-9" data-line-number="9">                         <span class="dt">seglist =</span> ai_segs,</a>
-<a class="sourceLine" id="cb144-10" data-line-number="10">                         <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>,</a>
-<a class="sourceLine" id="cb144-11" data-line-number="11">                         <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb144-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb144-13" data-line-number="13"><span class="co"># show ai_td_fm (F1-F4 in columns T1-T4)</span></a>
-<a class="sourceLine" id="cb144-14" data-line-number="14">ai_td_fm</a></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" data-line-number="1"><span class="co"># query all &quot;ai&quot; phonetic segments</span></a>
+<a class="sourceLine" id="cb137-2" data-line-number="2">ai_segs =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == ai&quot;</span>)</a>
+<a class="sourceLine" id="cb137-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb137-4" data-line-number="4"><span class="co"># get &quot;fm&quot; track data for these segments</span></a>
+<a class="sourceLine" id="cb137-5" data-line-number="5"><span class="co"># Note that verbose is set to FALSE</span></a>
+<a class="sourceLine" id="cb137-6" data-line-number="6"><span class="co"># only to avoid a progress bar</span></a>
+<a class="sourceLine" id="cb137-7" data-line-number="7"><span class="co"># being printed in this document.</span></a>
+<a class="sourceLine" id="cb137-8" data-line-number="8">ai_td_fm =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
+<a class="sourceLine" id="cb137-9" data-line-number="9">                         <span class="dt">seglist =</span> ai_segs,</a>
+<a class="sourceLine" id="cb137-10" data-line-number="10">                         <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>,</a>
+<a class="sourceLine" id="cb137-11" data-line-number="11">                         <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb137-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb137-13" data-line-number="13"><span class="co"># show ai_td_fm (F1-F4 in columns T1-T4)</span></a>
+<a class="sourceLine" id="cb137-14" data-line-number="14">ai_td_fm</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
@@ -451,14 +451,14 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;, T2 &lt;int&gt;, T3 &lt;int&gt;, T4 &lt;int&gt;</code></pre>
 <p>Being able to access data that is stored in files is important for two main reasons. Firstly, it is possible to generate files using external programs such as VoiceSauce <span class="citation">(Shue et al. <a href="#ref-shue:2011a">2011</a>)</span>, which can export its calculated output to the general purpose SSFF file format. This file mechanism is also used to access data produced by EMA, EPG or many other forms of signal data recordings. Secondly, it is possible to track, save and access manipulated data such as formant values that have been manually corrected. It is also worth noting that the <code>get_trackdata()</code> function has a predefined track which is always available without it having to be defined. The name of this track is <code>MEDIAFILE_SAMPLES</code> which references the actual samples of the audio files of the database. The R code snippet below shows how this predefined track can be used to access the audio samples belonging to the segments in <code>ai_segs</code>.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1"><span class="co"># get media file samples</span></a>
-<a class="sourceLine" id="cb146-2" data-line-number="2">ai_td_mfs =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
-<a class="sourceLine" id="cb146-3" data-line-number="3">                          <span class="dt">seglist =</span> ai_segs,</a>
-<a class="sourceLine" id="cb146-4" data-line-number="4">                          <span class="dt">ssffTrackName =</span> <span class="st">&quot;MEDIAFILE_SAMPLES&quot;</span>,</a>
-<a class="sourceLine" id="cb146-5" data-line-number="5">                          <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb146-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb146-7" data-line-number="7"><span class="co"># ai_td_mfs (sample values in column T1)</span></a>
-<a class="sourceLine" id="cb146-8" data-line-number="8">ai_td_mfs</a></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb139-1" data-line-number="1"><span class="co"># get media file samples</span></a>
+<a class="sourceLine" id="cb139-2" data-line-number="2">ai_td_mfs =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
+<a class="sourceLine" id="cb139-3" data-line-number="3">                          <span class="dt">seglist =</span> ai_segs,</a>
+<a class="sourceLine" id="cb139-4" data-line-number="4">                          <span class="dt">ssffTrackName =</span> <span class="st">&quot;MEDIAFILE_SAMPLES&quot;</span>,</a>
+<a class="sourceLine" id="cb139-5" data-line-number="5">                          <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb139-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb139-7" data-line-number="7"><span class="co"># ai_td_mfs (sample values in column T1)</span></a>
+<a class="sourceLine" id="cb139-8" data-line-number="8">ai_td_mfs</a></code></pre></div>
 <pre><code>## # A tibble: 18,386 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
@@ -480,39 +480,39 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <div id="adding-new-tracks" class="section level2">
 <h2><span class="header-section-number">7.2</span> Adding new tracks</h2>
 <p>As described in detail in Section <a href="chap-wrassp.html#sec:wrassp-emu-sdms">8.7</a>, the signal processing routines provided by the <code>wrassp</code> package can be used to produce SSFF files containing various derived signal data (e.g., formants, fundamental frequency, etc.). The R code snippet below shows how the <code>add_ssffTrackDefinition()</code> can be used to add a new track to the <code>ae</code> <code>emuDB</code>. Using the <code>onTheFlyFunctionName</code> parameter, the <code>add_ssffTrackDefinition()</code> function automatically executes the <code>wrassp</code> signal processing function <code>ksvF0</code> (<code>onTheFlyFunctionName = &quot;ksvF0&quot;</code>) and stores the results in SSFF files in the bundle directories.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="co"># add new track and calculate</span></a>
-<a class="sourceLine" id="cb148-2" data-line-number="2"><span class="co"># .f0 files on-the-fly using wrassp::ksvF0()</span></a>
-<a class="sourceLine" id="cb148-3" data-line-number="3"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
-<a class="sourceLine" id="cb148-4" data-line-number="4">                        <span class="dt">name =</span> <span class="st">&quot;F0&quot;</span>,</a>
-<a class="sourceLine" id="cb148-5" data-line-number="5">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;ksvF0&quot;</span>,</a>
-<a class="sourceLine" id="cb148-6" data-line-number="6">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb148-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb148-8" data-line-number="8"><span class="co"># show newly added track</span></a>
-<a class="sourceLine" id="cb148-9" data-line-number="9"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb141-1" data-line-number="1"><span class="co"># add new track and calculate</span></a>
+<a class="sourceLine" id="cb141-2" data-line-number="2"><span class="co"># .f0 files on-the-fly using wrassp::ksvF0()</span></a>
+<a class="sourceLine" id="cb141-3" data-line-number="3"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
+<a class="sourceLine" id="cb141-4" data-line-number="4">                        <span class="dt">name =</span> <span class="st">&quot;F0&quot;</span>,</a>
+<a class="sourceLine" id="cb141-5" data-line-number="5">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;ksvF0&quot;</span>,</a>
+<a class="sourceLine" id="cb141-6" data-line-number="6">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb141-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb141-8" data-line-number="8"><span class="co"># show newly added track</span></a>
+<a class="sourceLine" id="cb141-9" data-line-number="9"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
 <pre><code>##   name columnName fileExtension
 ## 1  dft        dft           dft
 ## 2   fm         fm           fms
 ## 3   F0         F0            f0</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="co"># show newly added files</span></a>
-<a class="sourceLine" id="cb150-2" data-line-number="2"><span class="kw">list_files</span>(ae, <span class="dt">fileExtension =</span> <span class="st">&quot;f0&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="co"># show newly added files</span></a>
+<a class="sourceLine" id="cb143-2" data-line-number="2"><span class="kw">list_files</span>(ae, <span class="dt">fileExtension =</span> <span class="st">&quot;f0&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 4
 ##   session bundle   file      absolute_file_path                                 
 ##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;                                              
-## 1 0000    msajc003 msajc003… /tmp/RtmpNSfH2s/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 2 0000    msajc010 msajc010… /tmp/RtmpNSfH2s/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 3 0000    msajc012 msajc012… /tmp/RtmpNSfH2s/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 4 0000    msajc015 msajc015… /tmp/RtmpNSfH2s/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 5 0000    msajc022 msajc022… /tmp/RtmpNSfH2s/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 6 0000    msajc023 msajc023… /tmp/RtmpNSfH2s/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 7 0000    msajc057 msajc057… /tmp/RtmpNSfH2s/emuR_demoData/ae_emuDB/0000_ses/ms…</code></pre>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1"><span class="co"># extract newly added trackdata</span></a>
-<a class="sourceLine" id="cb152-2" data-line-number="2">ai_td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
-<a class="sourceLine" id="cb152-3" data-line-number="3">                      <span class="dt">seglist =</span> ai_segs,</a>
-<a class="sourceLine" id="cb152-4" data-line-number="4">                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;F0&quot;</span>,</a>
-<a class="sourceLine" id="cb152-5" data-line-number="5">                      <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb152-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb152-7" data-line-number="7"><span class="co"># show ai_td (F0 values in column T1)</span></a>
-<a class="sourceLine" id="cb152-8" data-line-number="8">ai_td</a></code></pre></div>
+## 1 0000    msajc003 msajc003… /tmp/RtmpEzejwb/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 2 0000    msajc010 msajc010… /tmp/RtmpEzejwb/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 3 0000    msajc012 msajc012… /tmp/RtmpEzejwb/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 4 0000    msajc015 msajc015… /tmp/RtmpEzejwb/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 5 0000    msajc022 msajc022… /tmp/RtmpEzejwb/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 6 0000    msajc023 msajc023… /tmp/RtmpEzejwb/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 7 0000    msajc057 msajc057… /tmp/RtmpEzejwb/emuR_demoData/ae_emuDB/0000_ses/ms…</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="co"># extract newly added trackdata</span></a>
+<a class="sourceLine" id="cb145-2" data-line-number="2">ai_td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
+<a class="sourceLine" id="cb145-3" data-line-number="3">                      <span class="dt">seglist =</span> ai_segs,</a>
+<a class="sourceLine" id="cb145-4" data-line-number="4">                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;F0&quot;</span>,</a>
+<a class="sourceLine" id="cb145-5" data-line-number="5">                      <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb145-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb145-7" data-line-number="7"><span class="co"># show ai_td (F0 values in column T1)</span></a>
+<a class="sourceLine" id="cb145-8" data-line-number="8">ai_td</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
@@ -534,13 +534,13 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <div id="calculating-tracks-on-the-fly" class="section level2">
 <h2><span class="header-section-number">7.3</span> Calculating tracks on-the-fly</h2>
 <p>With the <code>wrassp</code> package, we were able to implement a new form of signal data extraction which was not available in the legacy system. The user is now able to select one of the signal processing routines provided by <code>wrassp</code> and pass it on to the signal data extraction function. The signal data extraction function can then apply this <code>wrassp</code> function to each audio file as part of the signal data extraction process. This means that the user can quickly manipulate function parameters and evaluate the result without having to store to disk the files that would usually be generated by the various parameter experiments. In many cases this new functionality eliminates the need for defining a track definition for the entire database for temporary data analysis purposes. The R code snippet below shows how the <code>onTheFlyFunctionName</code> parameter of the <code>get_trackdata()</code> function is used.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1">ai_td_pit =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
-<a class="sourceLine" id="cb154-2" data-line-number="2">                          <span class="dt">seglist =</span> ai_segs,</a>
-<a class="sourceLine" id="cb154-3" data-line-number="3">                          <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;mhsF0&quot;</span>,</a>
-<a class="sourceLine" id="cb154-4" data-line-number="4">                          <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb154-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb154-6" data-line-number="6"><span class="co"># show ai_td_pit (F0 values in column T1)</span></a>
-<a class="sourceLine" id="cb154-7" data-line-number="7">ai_td_pit</a></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb147-1" data-line-number="1">ai_td_pit =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</a>
+<a class="sourceLine" id="cb147-2" data-line-number="2">                          <span class="dt">seglist =</span> ai_segs,</a>
+<a class="sourceLine" id="cb147-3" data-line-number="3">                          <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;mhsF0&quot;</span>,</a>
+<a class="sourceLine" id="cb147-4" data-line-number="4">                          <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb147-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb147-6" data-line-number="6"><span class="co"># show ai_td_pit (F0 values in column T1)</span></a>
+<a class="sourceLine" id="cb147-7" data-line-number="7">ai_td_pit</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
@@ -562,11 +562,11 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <div id="the-resulting-object-tibble" class="section level2">
 <h2><span class="header-section-number">7.4</span> The resulting object: <code>tibble</code></h2>
 <p>As of version 2.0.0 of <code>emuR</code> the default resulting object of a call to <code>get_trackdata()</code> is of class <code>tibble</code> (see R code snippet below).</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="co"># show class vector of ai_td_pit</span></a>
-<a class="sourceLine" id="cb156-2" data-line-number="2"><span class="kw">class</span>(ai_td_pit)</a></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="co"># show class vector of ai_td_pit</span></a>
+<a class="sourceLine" id="cb149-2" data-line-number="2"><span class="kw">class</span>(ai_td_pit)</a></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="co"># show ai_td_pit (F0 values in column T1)</span></a>
-<a class="sourceLine" id="cb158-2" data-line-number="2">ai_td_pit</a></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="co"># show ai_td_pit (F0 values in column T1)</span></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2">ai_td_pit</a></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
@@ -629,12 +629,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -646,6 +645,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

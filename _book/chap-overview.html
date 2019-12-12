@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual</title>
   <meta name="description" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -427,7 +427,7 @@ Figure 2.1: Schematic architecture of the EMU-SDMS
 </div>
 <div id="emu-sdms-is-it-something-for-you" class="section level2">
 <h2><span class="header-section-number">2.3</span> EMU-SDMS: Is it something for you?</h2>
-<p>Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems (e.g., <span class="citation">Boersma and Weenink (<a href="#ref-boersma:2011a">2016</a>)</span>, <span class="citation">Wittenburg et al. (<a href="#ref-wittenburg:2006a">2006</a>)</span>, <span class="citation">Fromont and Hay (<a href="#ref-fromont:2012a">2012</a>)</span>, <span class="citation">Rose et al. (<a href="#ref-rose:2006a">2006</a>)</span>, <span class="citation">McAuliffe and Sonderegger (<a href="#ref-mcauliffe:2016a">2016</a>)</span>). To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat’s tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure <a href="chap-overview.html#fig:overview-hybridAnnot">2.2</a>. These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter  for further information on hierarchical annotations and Chapter  on how to query these annotation structures).</p>
+<p>Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems (e.g., <span class="citation">Boersma and Weenink (<a href="#ref-boersma:2011a">2016</a>)</span>, <span class="citation">Wittenburg et al. (<a href="#ref-wittenburg:2006a">2006</a>)</span>, <span class="citation">Fromont and Hay (<a href="#ref-fromont:2012a">2012</a>)</span>, <span class="citation">Rose et al. (<a href="#ref-rose:2006a">2006</a>)</span>, <span class="citation">McAuliffe and Sonderegger (<a href="#ref-mcauliffe:2016a">2016</a>)</span>). To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat’s tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure <a href="chap-overview.html#fig:overview-hybridAnnot">2.2</a>. These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter @ref(chap:annot_struct_mod) for further information on hierarchical annotations and Chapter <a href="chap-querysys.html#chap:querysys">6</a> on how to query these annotation structures).</p>
 <div class="figure" style="text-align: center"><span id="fig:overview-hybridAnnot"></span>
 <img src="overview_files/figure-html/overview-hybridAnnot-1.png" alt="Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations." width="75%" />
 <p class="caption">
@@ -435,7 +435,7 @@ Figure 2.2: Example of a hybrid annotation combining time-based (<em>Phonetic</e
 </p>
 </div>
 <p>Further, to our knowledge, the EMU-SDMS is the first system that makes use of a web application as its primary GUI for annotating speech. This unique approach enables the GUI component to be used in multiple ways. It can be used as a stand-alone annotation tool, connected to a loaded <code>emuDB</code> via <code>emuR</code>’s <code>serve()</code> function and used to communicate to other servers. This enables it to be used as a collaborative annotation tool. An in-depth explanation of how this component can be used in these three scenarios is given in Chapter <a href="chap-emu-webApp.html#chap:emu-webApp">9</a>.</p>
-<p>As demonstrated in the default workflow of Section <a href="chap-overview.html#sec:overview-sysArch">2.2</a>, an additional unique feature provided by EMU-SDMS is the ability to use the result of a query to extract derived (e.g., formants and RMS values) and complementary signals (e.g., electromagnetic articulography (EMA) data) that match the segments of a query. This, for example, aids the user in answering questions related to derived speech signals such as: <em>Is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?</em>. Chapter  gives a complete walk-through of how to go about answering this question using the tools provided by the EMU-SDMS.</p>
+<p>As demonstrated in the default workflow of Section <a href="chap-overview.html#sec:overview-sysArch">2.2</a>, an additional unique feature provided by EMU-SDMS is the ability to use the result of a query to extract derived (e.g., formants and RMS values) and complementary signals (e.g., electromagnetic articulography (EMA) data) that match the segments of a query. This, for example, aids the user in answering questions related to derived speech signals such as: <em>Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?</em>. Chapter <a href="chap-tutorial.html#chap:tutorial">3</a> gives a complete walk-through of how to go about answering this question using the tools provided by the EMU-SDMS.</p>
 <p>The features provided by the EMU-SDMS make it an all-in-one speech database management solution that is centered around R. It enriches the R platform by providing specialized speech signal processing, speech database management, data extraction and speech annotation capabilities. By achieving this without relying on any external software sources except the web browser, the EMU-SDMS significantly reduces the number of tools the speech and spoken language researcher has to deal with and helps to simplify answering research questions. As the only prerequisite for using the EMU-SDMS is a basic familiarity with the R platform, if the above features would improve your workflow, the EMU-SDMS is indeed for you.</p>
 
 </div>
@@ -525,12 +525,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -542,6 +541,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

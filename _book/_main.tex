@@ -224,9 +224,9 @@ This document describes the following versions of the software components:
   \begin{itemize}
   \tightlist
   \item
-    Version: 1.1.1
+    Version: 1.1.2
   \item
-    Git SHA1: c6fa97ab2cb3d2eaa523a0fe53ce1ff5be23cdfe
+    Git SHA1: 3723d8e6d2d50c06d5ae3e69b68e3e426895af50
   \end{itemize}
 \end{itemize}
 
@@ -350,7 +350,7 @@ Initially the user creates a reference to an \texttt{emuDB} by loading it into t
 \hypertarget{emu-sdms-is-it-something-for-you}{%
 \section{EMU-SDMS: Is it something for you?}\label{emu-sdms-is-it-something-for-you}}
 
-Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems (e.g., \citet{boersma:2011a}, \citet{wittenburg:2006a}, \citet{fromont:2012a}, \citet{rose:2006a}, \citet{mcauliffe:2016a}). To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat's tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure \ref{fig:overview-hybridAnnot}. These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter \ref{chap:annot_struct_mod} for further information on hierarchical annotations and Chapter \ref{chap:querysys} on how to query these annotation structures).
+Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems (e.g., \citet{boersma:2011a}, \citet{wittenburg:2006a}, \citet{fromont:2012a}, \citet{rose:2006a}, \citet{mcauliffe:2016a}). To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat's tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure \ref{fig:overview-hybridAnnot}. These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter @ref(chap:annot\_struct\_mod) for further information on hierarchical annotations and Chapter \ref{chap:querysys} on how to query these annotation structures).
 
 \begin{figure}
 
@@ -363,7 +363,7 @@ Besides providing a fully integrated system, the EMU-SDMS has several unique fea
 
 Further, to our knowledge, the EMU-SDMS is the first system that makes use of a web application as its primary GUI for annotating speech. This unique approach enables the GUI component to be used in multiple ways. It can be used as a stand-alone annotation tool, connected to a loaded \texttt{emuDB} via \texttt{emuR}'s \texttt{serve()} function and used to communicate to other servers. This enables it to be used as a collaborative annotation tool. An in-depth explanation of how this component can be used in these three scenarios is given in Chapter \ref{chap:emu-webApp}.
 
-As demonstrated in the default workflow of Section \ref{sec:overview-sysArch}, an additional unique feature provided by EMU-SDMS is the ability to use the result of a query to extract derived (e.g., formants and RMS values) and complementary signals (e.g., electromagnetic articulography (EMA) data) that match the segments of a query. This, for example, aids the user in answering questions related to derived speech signals such as: \emph{Is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?}. Chapter \ref{chap:tutorial} gives a complete walk-through of how to go about answering this question using the tools provided by the EMU-SDMS.
+As demonstrated in the default workflow of Section \ref{sec:overview-sysArch}, an additional unique feature provided by EMU-SDMS is the ability to use the result of a query to extract derived (e.g., formants and RMS values) and complementary signals (e.g., electromagnetic articulography (EMA) data) that match the segments of a query. This, for example, aids the user in answering questions related to derived speech signals such as: \emph{Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?}. Chapter \ref{chap:tutorial} gives a complete walk-through of how to go about answering this question using the tools provided by the EMU-SDMS.
 
 The features provided by the EMU-SDMS make it an all-in-one speech database management solution that is centered around R. It enriches the R platform by providing specialized speech signal processing, speech database management, data extraction and speech annotation capabilities. By achieving this without relying on any external software sources except the web browser, the EMU-SDMS significantly reduces the number of tools the speech and spoken language researcher has to deal with and helps to simplify answering research questions. As the only prerequisite for using the EMU-SDMS is a basic familiarity with the R platform, if the above features would improve your workflow, the EMU-SDMS is indeed for you.
 
@@ -481,7 +481,7 @@ As mentioned in Section \ref{sec:overview-sysArch}, the first step when working 
 \hypertarget{overview}{%
 \subsection{Overview}\label{overview}}
 
-Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the current status and configuration of the database can be displayed using the \texttt{summary()} function as shown the below R code snippet.
+Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the current status and configuration of the database can be displayed using the \texttt{summary()} function as is shown by the below R code snippet.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -492,8 +492,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     c00b3dbe-1bcb-4f3c-b46b-a32a7538b18c 
-## Directory:    /tmp/RtmpPLDLwQ/my-first_emuDB 
+## UUID:     1cda5ddf-6d20-4eeb-beb7-0a2080585cd5 
+## Directory:    /tmp/RtmpAFoZ8C/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -530,18 +530,19 @@ The EMU-SDMS has a unique approach to annotating and visually inspecting databas
 \end{Highlighting}
 \end{Shaded}
 
-Executing this command will block the R console, automatically open up the system's default browser and display the following message in the R console:
+Executing this command will either automatically open up the system's default browser or, if using RStudio, download the current EMU-webApp and display it in RStudio's viewer pane and additionally display the following message in the R console:
 
 \begin{verbatim}
 ## Navigate your browser to the EMU-webApp URL: 
-##  http://ips-lmu.github.io/EMU-webApp/ (should happen autom...
+##  https://ips-lmu.github.io/EMU-webApp/ (should happen autom...
 ## Server connection URL:
 ##  ws://localhost:17890
-## To stop the server press the 'clear' button in the 
-## EMU-webApp or close/reload the webApp in your browser.
+## To stop the server either press the 'clear' button in the EMU-webApp, 
+##  close/reload the webApp in your browser,
+## or call the httpuv::stopAllServers() function
 \end{verbatim}
 
-The \texttt{EMU-webApp}, which is now connected to the database via the \texttt{serve()} function, can be used to visually inspect and annotate the \texttt{emuDB}. Figure \ref{fig:tutorial-emuWebAppMyFirst} displays a screenshot of what the \texttt{EMU-webApp} looks like after automatically connecting to the server. As the \texttt{EMU-webApp} is a very feature-rich software annotation tool, this documentation has a whole chapter (see Chapter \ref{chap:emu-webApp}) on how to use it, what it is capable of and how to configure it. Further, the web application provides its own documentation which can be accessed by clicking the EMU icon in the top right hand corner of the application's top menu bar. To close the connection and free up the blocked R console, simply click the \texttt{clear} button in the top menu bar of the \texttt{EMU-webApp}.
+The \texttt{EMU-webApp}, which is now connected to the database via the \texttt{serve()} function, can be used to visually inspect and annotate the \texttt{emuDB}. Figure \ref{fig:tutorial-emuWebAppMyFirst} displays a screenshot of what the \texttt{EMU-webApp} looks like after automatically connecting to the server. As the \texttt{EMU-webApp} is a very feature-rich software annotation tool, this documentation has a whole chapter (see Chapter \ref{chap:emu-webApp}) on how to use it, what it is capable of and how to configure it. To close the connection and free up the blocked R console, simply click the \texttt{clear} button in the top menu bar of the \texttt{EMU-webApp}.
 
 \begin{figure}
 
@@ -592,60 +593,33 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# show first entry of sl_phonetic}
-\KeywordTok{head}\NormalTok{(sl_phonetic, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show first few entries of sl_phonetic}
+\NormalTok{sl_phonetic}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. c00b3d~ 0000    msajc~            98          98 Phon~
+## # A tibble: 12 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 n      1032. 1196. 1cda5d~ 0000    msajc~            98          98 Phon~
+##  2 n      1741. 1791. 1cda5d~ 0000    msajc~           108         108 Phon~
+##  3 n      1515. 1554. 1cda5d~ 0000    msajc~           113         113 Phon~
+##  4 n      2431. 2528. 1cda5d~ 0000    msajc~           127         127 Phon~
+##  5 n       895. 1023. 1cda5d~ 0000    msajc~            98          98 Phon~
+##  6 n      2402. 2475. 1cda5d~ 0000    msajc~           122         122 Phon~
+##  7 n      2227. 2271. 1cda5d~ 0000    msajc~           132         132 Phon~
+##  8 n      3046. 3068. 1cda5d~ 0000    msajc~           145         145 Phon~
+##  9 n      1435. 1495. 1cda5d~ 0000    msajc~            91          91 Phon~
+## 10 n      1775. 1834. 1cda5d~ 0000    msajc~            96          96 Phon~
+## 11 n       509.  544. 1cda5d~ 0000    msajc~            97          97 Phon~
+## 12 n      2448. 2480. 1cda5d~ 0000    msajc~           130         130 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# show summary of sl_phonetic}
-\KeywordTok{summary}\NormalTok{(sl_phonetic)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##     labels              start             end         db_uuid         
-##  Length:12          Min.   : 508.7   Min.   : 544   Length:12         
-##  Class :character   1st Qu.:1334.1   1st Qu.:1420   Class :character  
-##  Mode  :character   Median :1758.2   Median :1813   Mode  :character  
-##                     Mean   :1788.0   Mean   :1855                     
-##                     3rd Qu.:2409.4   3rd Qu.:2476                     
-##                     Max.   :3046.1   Max.   :3068                     
-##    session             bundle          start_item_id     end_item_id    
-##  Length:12          Length:12          Min.   : 91.00   Min.   : 91.00  
-##  Class :character   Class :character   1st Qu.: 97.75   1st Qu.: 97.75  
-##  Mode  :character   Mode  :character   Median :110.50   Median :110.50  
-##                                        Mean   :113.08   Mean   :113.08  
-##                                        3rd Qu.:127.75   3rd Qu.:127.75  
-##                                        Max.   :145.00   Max.   :145.00  
-##     level            attribute         start_item_seq_idx end_item_seq_idx
-##  Length:12          Length:12          Min.   : 6.00      Min.   : 6.00   
-##  Class :character   Class :character   1st Qu.:14.50      1st Qu.:14.50   
-##  Mode  :character   Mode  :character   Median :22.00      Median :22.00   
-##                                        Mean   :24.58      Mean   :24.58   
-##                                        3rd Qu.:34.25      3rd Qu.:34.25   
-##                                        Max.   :46.00      Max.   :46.00   
-##      type            sample_start     sample_end     sample_rate   
-##  Length:12          Min.   :10174   Min.   :10879   Min.   :20000  
-##  Class :character   1st Qu.:26682   1st Qu.:28408   1st Qu.:20000  
-##  Mode  :character   Median :35164   Median :36253   Median :20000  
-##                     Mean   :35760   Mean   :37100   Mean   :20000  
-##                     3rd Qu.:48190   3rd Qu.:49525   3rd Qu.:20000  
-##                     Max.   :60923   Max.   :61353   Max.   :20000
-\end{verbatim}
-
-As demonstrated in the above R code, the result of a query is an \texttt{emuRsegs} object, which is a super-class of the common \texttt{data.frame}. This object is often referred to as a segment list, or ``seglist''. A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \ref{sec:query-emuRsegs}. The above R code snippet shows that the \texttt{summary()} function can also be applied to a segment list object to get an overview of what is contained within it. This can be especially useful when dealing with larger segment lists.
+As demonstrated in the above R code, the result of a query is a \texttt{tbl\_df} object (i.e.~a \href{https://tibble.tidyverse.org/index.html}{tibble object}), which is a super-class of the common \texttt{data.frame}. For historical reasons the result of a query is often referred to as a segment list, or ``seglist''. A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \ref{sec:query-emuRsegs}.
 
 \hypertarget{autobuilding}{%
 \section{Autobuilding}\label{autobuilding}}
@@ -791,22 +765,31 @@ Having this hierarchical annotation structure now allows us to formulate a query
 \CommentTok{# the labels @ on the Phonetic level}
 \NormalTok{sl_vowels =}\StringTok{ }\KeywordTok{query}\NormalTok{(db_handle, }\StringTok{"Phonetic == @"}\NormalTok{)}
 
-\CommentTok{# show first entry of sl_vowels}
-\KeywordTok{head}\NormalTok{(sl_vowels, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show sl_vowels}
+\NormalTok{sl_vowels}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. c00b3d~ 0000    msajc~           103         103 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
-## #   sample_rate <int>
+## # A tibble: 28 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 @      1506. 1548. 1cda5d~ 0000    msajc~           103         103 Phon~
+##  2 @      1715. 1741. 1cda5d~ 0000    msajc~           107         107 Phon~
+##  3 @      1967. 2034. 1cda5d~ 0000    msajc~           112         112 Phon~
+##  4 @      2303. 2362. 1cda5d~ 0000    msajc~           117         117 Phon~
+##  5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119 Phon~
+##  6 @      1917. 1958. 1cda5d~ 0000    msajc~           118         118 Phon~
+##  7 @      2022. 2078. 1cda5d~ 0000    msajc~           120         120 Phon~
+##  8 @      2382. 2431. 1cda5d~ 0000    msajc~           126         126 Phon~
+##  9 @       330.  380. 1cda5d~ 0000    msajc~            91          91 Phon~
+## 10 @      1472. 1490. 1cda5d~ 0000    msajc~           108         108 Phon~
+## # ... with 18 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
-As the type of word (content vs.~function) for each \emph{@} vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \ref{chap:querysys}) to retrieve the word type for each \emph{@} vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, \texttt{requery\_hier()}, to retrieve the appropriate annotation items from the \emph{Word} level.
+As the type of word (content vs.~function) for each \emph{@} vowel is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \ref{chap:querysys}) to retrieve the word type for each \emph{@} vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, \texttt{requery\_hier()}, to retrieve the appropriate annotation items from the \emph{Word} level.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -817,19 +800,28 @@ As the type of word (content vs.~function) for each \emph{@} vowel that was just
                            \DataTypeTok{level =} \StringTok{"Word"}\NormalTok{,}
                            \DataTypeTok{calcTimes =} \OtherTok{FALSE}\NormalTok{)}
 
-\CommentTok{# show first entry of sl_word_type}
-\KeywordTok{head}\NormalTok{(sl_word_type, }\DataTypeTok{n =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# show sl_word_type}
+\NormalTok{sl_word_type}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA c00b3d~ 0000    msajc~            16          16 Word 
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
-## #   sample_rate <int>
+## # A tibble: 28 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 F         NA    NA 1cda5d~ 0000    msajc~            16          16 Word 
+##  2 C         NA    NA 1cda5d~ 0000    msajc~            17          17 Word 
+##  3 C         NA    NA 1cda5d~ 0000    msajc~            17          17 Word 
+##  4 C         NA    NA 1cda5d~ 0000    msajc~            18          18 Word 
+##  5 C         NA    NA 1cda5d~ 0000    msajc~            18          18 Word 
+##  6 C         NA    NA 1cda5d~ 0000    msajc~            19          19 Word 
+##  7 C         NA    NA 1cda5d~ 0000    msajc~            20          20 Word 
+##  8 C         NA    NA 1cda5d~ 0000    msajc~            20          20 Word 
+##  9 F         NA    NA 1cda5d~ 0000    msajc~            13          13 Word 
+## 10 F         NA    NA 1cda5d~ 0000    msajc~            17          17 Word 
+## # ... with 18 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
 
 \begin{Shaded}
@@ -857,7 +849,6 @@ Now that the vowel and word type information including the vowel start and end t
 \NormalTok{td_vowels =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(db_handle,}
                           \DataTypeTok{seglist =}\NormalTok{ sl_vowels,}
                           \DataTypeTok{onTheFlyFunctionName =} \StringTok{"forest"}\NormalTok{,}
-                          \DataTypeTok{resultType =} \StringTok{"tibble"}\NormalTok{,}
                           \DataTypeTok{verbose =}\NormalTok{ F)}
 
 \CommentTok{# show class vector}
@@ -895,28 +886,6 @@ Now that the vowel and word type information including the vowel start and end t
 \begin{Highlighting}[]
 \CommentTok{# display all values for fifth segment using dplyr}
 \KeywordTok{library}\NormalTok{(dplyr)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{td_vowels }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(sl_rowIdx }\OperatorTok{==}\StringTok{ }\DecValTok{5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -925,18 +894,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  2         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  3         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  4         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  5         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  6         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  7         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  8         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-##  9         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-## 10         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-## 11         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
-## 12         5 @      2447. 2506. c00b3d~ 0000    msajc~           119         119
+##  1         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  2         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  3         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  4         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  5         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  6         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  7         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  8         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  9         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+## 10         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+## 11         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+## 12         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
 ## # ... with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
@@ -973,10 +942,6 @@ As can be seen by the call to the \texttt{class()} function, the resulting objec
 
 \caption{`ggplot()` plots of all F1 *\@* vowel trajectories.}\label{fig:tutorial-dplot1}
 \end{figure}
-
-\begin{verbatim}
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-\end{verbatim}
 
 \begin{figure}
 
@@ -1347,8 +1312,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     ca2fddc1-ee65-4c06-826c-895f666e99dd 
-## Directory:    /tmp/RtmphjS1md/fromScratch_emuDB 
+## UUID:     d7c41878-9d23-42fc-9614-6f4ed21873ba 
+## Directory:    /tmp/Rtmp4GG5JC/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1704,8 +1669,8 @@ The previous sections of this chapter defined the simple structure of the \emph{
 ## # A tibble: 2 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmphjS1md/fromScratch_emuDB/fromWavFile~
-## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmphjS1md/fromScratch_emuDB/fromWavFile~
+## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
+## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB} containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every \texttt{\_annot.json} file created contains an empty \texttt{Word} and \texttt{Phonetic} level array and the links array is also empty.
@@ -1751,9 +1716,9 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 ## # A tibble: 3 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmphjS1md/fromScratch_emuDB/fromWavFile~
-## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmphjS1md/fromScratch_emuDB/fromWavFile~
-## 3 fromWavFi~ msajc0~ msajc003.zcr /tmp/RtmphjS1md/fromScratch_emuDB/fromWavFile~
+## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
+## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
+## 3 fromWavFi~ msajc0~ msajc003.zcr /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
 \end{verbatim}
 
 \hypertarget{ssff-track-definitions}{%
@@ -2572,13 +2537,13 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 ## # A tibble: 7 x 4
 ##   session bundle   file      absolute_file_path                                 
 ##   <chr>   <chr>    <chr>     <chr>                                              
-## 1 0000    msajc003 msajc003~ /tmp/Rtmp74T2OB/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 2 0000    msajc010 msajc010~ /tmp/Rtmp74T2OB/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 3 0000    msajc012 msajc012~ /tmp/Rtmp74T2OB/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 4 0000    msajc015 msajc015~ /tmp/Rtmp74T2OB/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 5 0000    msajc022 msajc022~ /tmp/Rtmp74T2OB/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 6 0000    msajc023 msajc023~ /tmp/Rtmp74T2OB/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 7 0000    msajc057 msajc057~ /tmp/Rtmp74T2OB/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 1 0000    msajc003 msajc003~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 2 0000    msajc010 msajc010~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 3 0000    msajc012 msajc012~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 4 0000    msajc015 msajc015~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 5 0000    msajc022 msajc022~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 6 0000    msajc023 msajc023~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 7 0000    msajc057 msajc057~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
 \end{verbatim}
 
 \begin{Shaded}
@@ -2819,7 +2784,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /tmp/RtmpZnaLMA/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/Rtmp34plrN/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -2885,7 +2850,7 @@ As can be seen in the above R code snippet, the resulting \texttt{au} object is 
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpZnaLMA/emuR_demoData/ae_emuDB/0000_s..."
+## [1] "/tmp/Rtmp34plrN/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -3236,7 +3201,7 @@ As it can be extremely important to keep track of information about how certain 
 \begin{verbatim}
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-11-22 17:09:50 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2019-12-12 12:32:17 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 \end{verbatim}
 
@@ -9288,7 +9253,51 @@ This recipe contains various plotting snippets for various visualization challen
 \begin{Highlighting}[]
 \CommentTok{# time normalize the formant values}
 \NormalTok{ae_formants_norm =}\StringTok{ }\KeywordTok{normalize_length}\NormalTok{(ae_formants)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (14). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (17). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (16). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (9). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (15). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (13). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (18). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Row indexes must be between 0 and the number of rows (19). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# plot all normalized F2 trajectories}
 \KeywordTok{ggplot}\NormalTok{(ae_formants_norm) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_norm, }\DataTypeTok{y =}\NormalTok{ T2, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ sl_rowIdx) }\OperatorTok{+}
@@ -9510,7 +9519,7 @@ Now we will add everything to the Git repository and create our initial commit. 
 \end{Shaded}
 
 \begin{verbatim}
-## [7494fc3] 2019-11-22: initial commit
+## [143e49e] 2019-12-12: initial commit
 \end{verbatim}
 
 This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -9659,7 +9668,7 @@ These files describe, what bundles are allocated to a certain user. The name of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/Rtmp5p7sod/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/Rtmpxa8bUx/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 \end{verbatim}
 
 \begin{Shaded}

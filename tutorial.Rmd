@@ -92,7 +92,7 @@ db_handle = load_emuDB(path2directory, verbose = FALSE)
 
 ### Overview
 
-Now the *my-first* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as shown the below R code snippet.
+Now the *my-first* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as is shown by the below R code snippet.
 
 
 ```{r tidy.opts=list(width.cutoff = 30)}
@@ -112,19 +112,20 @@ The EMU-SDMS has a unique approach to annotating and visually inspecting databas
 serve(db_handle)
 ```
 
-Executing this command will block the R console, automatically open up the system's default browser and display the following message in the R console:
+Executing this command will either automatically open up the system's default browser or, if using RStudio, download the current EMU-webApp and display it in RStudio's viewer pane and additionally display the following message in the R console:
 
 ```{r echo=FALSE}
 cat(paste0(
   "Navigate your browser to the EMU-webApp URL: \n",
-  "\thttp://ips-lmu.github.io/EMU-webApp/ (should happen autom...\n",
+  "\thttps://ips-lmu.github.io/EMU-webApp/ (should happen autom...\n",
   "Server connection URL:\n",
   "\tws://localhost:17890\n",
-  "To stop the server press the 'clear' button in the \n",
-  "EMU-webApp or close/reload the webApp in your browser.\n"))
+  "To stop the server either press the 'clear' button in the EMU-webApp, \n",
+  "\tclose/reload the webApp in your browser,\n",
+  "or call the httpuv::stopAllServers() function"))
 ```
 
-The `EMU-webApp`, which is now connected to the database via the `serve()` function, can be used to visually inspect and annotate the `emuDB`. Figure \@ref(fig:tutorial-emuWebAppMyFirst) displays a screenshot of what the `EMU-webApp` looks like after automatically connecting to the server. As the `EMU-webApp` is a very feature-rich software annotation tool, this documentation has a whole chapter (see Chapter \@ref(chap:emu-webApp)) on how to use it, what it is capable of and how to configure it. Further, the web application provides its own documentation which can be accessed by clicking the EMU icon in the top right hand corner of the application's top menu bar. To close the connection and  free up the blocked R console, simply click the `clear` button in the top menu bar of the `EMU-webApp`.
+The `EMU-webApp`, which is now connected to the database via the `serve()` function, can be used to visually inspect and annotate the `emuDB`. Figure \@ref(fig:tutorial-emuWebAppMyFirst) displays a screenshot of what the `EMU-webApp` looks like after automatically connecting to the server. As the `EMU-webApp` is a very feature-rich software annotation tool, this documentation has a whole chapter (see Chapter \@ref(chap:emu-webApp)) on how to use it, what it is capable of and how to configure it. To close the connection and  free up the blocked R console, simply click the `clear` button in the top menu bar of the `EMU-webApp`.
 
 
 ```{r tutorial-emuWebAppMyFirst, fig.cap="Screenshot of `EMU-webApp` displaying `msajc003` bundle of *my-first* `emuDB`.", fig.align="center", echo=FALSE, out.width = "100%"}
@@ -162,14 +163,11 @@ sl_phonetic = query(db_handle,
 # show class vector of query result
 class(sl_phonetic)
 
-# show first entry of sl_phonetic
-head(sl_phonetic, n = 1)
-
-# show summary of sl_phonetic
-summary(sl_phonetic)
+# show first few entries of sl_phonetic
+sl_phonetic
 ```
 
-As demonstrated in the above R code, the result of a query is an `emuRsegs` object, which is a super-class of the common `data.frame`. This object is often referred to as a segment list, or "seglist". A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \@ref(sec:query-emuRsegs). The above R code snippet shows that the `summary()` function can also be applied to a segment list object to get an overview of what is contained within it. This can be especially useful when dealing with larger segment lists.
+As demonstrated in the above R code, the result of a query is a `tbl_df` object (i.e. a [tibble object](https://tibble.tidyverse.org/index.html)), which is a super-class of the common `data.frame`. For historical reasons the result of a query is often referred to as a segment list, or "seglist". A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \@ref(sec:query-emuRsegs).
 
 ## Autobuilding
 
@@ -341,11 +339,11 @@ Having this hierarchical annotation structure now allows us to formulate a query
 # the labels @ on the Phonetic level
 sl_vowels = query(db_handle, "Phonetic == @")
 
-# show first entry of sl_vowels
-head(sl_vowels, n = 1)
+# show sl_vowels
+sl_vowels
 ```
 
-As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word* level.
+As the type of word (content vs. function) for each *\@* vowel is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word* level.
 
 ```{r}
 # hierarchical requery starting from the items in sl_vowels
@@ -355,8 +353,8 @@ sl_word_type = requery_hier(db_handle,
                            level = "Word",
                            calcTimes = FALSE)
 
-# show first entry of sl_word_type
-head(sl_word_type, n = 1)
+# show sl_word_type
+sl_word_type
 
 # show that sl_vowel and sl_word_type have the
 # same number of row entries
@@ -371,12 +369,11 @@ As can be seen by the `nrow()` comparison in the above R code, the segment list 
 Now that the vowel and word type information including the vowel start and end time information has been extracted from the database, this information can be used to extract signal data that matches these segments. Using the `emuR` function `get_trackdata()` we can calculate the formant values in real time using the formant estimation function, `forest()`, provided by the `wrassp` package (see Chapter \@ref(chap:wrassp) for details). The following R code shows the usage of this function.
 
 
-```{r}
+```{r, message=F}
 # get formant values for the vowel segments
 td_vowels = get_trackdata(db_handle,
                           seglist = sl_vowels,
                           onTheFlyFunctionName = "forest",
-                          resultType = "tibble",
                           verbose = F)
 
 # show class vector
@@ -414,7 +411,7 @@ ggplot(td_vowels_norm) +
 ```
 
 
-```{r tutorial-dplot1, fig.cap = "`ggplot()` plots of all F1 *\\@* vowel trajectories.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6}
+```{r tutorial-dplot1, fig.cap = "`ggplot()` plots of all F1 *\\@* vowel trajectories.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6, message=F}
 # load package
 library(ggplot2)
 
@@ -425,8 +422,7 @@ ggplot(td_vowels) +
 
 ```
 
-
-```{r tutorial-dplot2, fig.cap = "`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\\@* vowels.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6}
+```{r tutorial-dplot2, fig.cap = "`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\\@* vowels.", fig.align="center", echo=FALSE, fig.width=6, fig.height=6, message=F, warning=F}
 # normalize length of segments
 td_vowels_norm = normalize_length(td_vowels)
 

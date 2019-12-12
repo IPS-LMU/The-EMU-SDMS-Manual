@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>16 The EMU-webApp-websocket-protocol Version 2.025 | The EMU-SDMS Manual</title>
   <meta name="description" content="16 The EMU-webApp-websocket-protocol Version 2.025 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="16 The EMU-webApp-websocket-protocol Version 2.025 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -408,24 +408,24 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb298-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETPROTOCOL&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb298-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb298-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb291-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETPROTOCOL&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb291-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb291-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb299"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb299-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb299-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb299-4" data-line-number="4">    <span class="st">&#39;protocol&#39;</span><span class="op">:</span> <span class="st">&#39;EMU-webApp-websocket-protocol&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb299-5" data-line-number="5">    <span class="st">&#39;version&#39;</span><span class="op">:</span> <span class="st">&#39;0.0.2&#39;</span></a>
-<a class="sourceLine" id="cb299-6" data-line-number="6">  <span class="op">},</span></a>
-<a class="sourceLine" id="cb299-7" data-line-number="7">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb299-8" data-line-number="8">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb299-9" data-line-number="9">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb299-10" data-line-number="10">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb299-11" data-line-number="11"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb292-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb292-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb292-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb292-4" data-line-number="4">    <span class="st">&#39;protocol&#39;</span><span class="op">:</span> <span class="st">&#39;EMU-webApp-websocket-protocol&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb292-5" data-line-number="5">    <span class="st">&#39;version&#39;</span><span class="op">:</span> <span class="st">&#39;0.0.2&#39;</span></a>
+<a class="sourceLine" id="cb292-6" data-line-number="6">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb292-7" data-line-number="7">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb292-8" data-line-number="8">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb292-9" data-line-number="9">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb292-10" data-line-number="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb292-11" data-line-number="11"><span class="op">}</span></a></code></pre></div>
 </div>
 <div id="getdousermanagement" class="section level3">
 <h3><span class="header-section-number">16.2.2</span> <code>GETDOUSERMANAGEMENT</code></h3>
@@ -433,21 +433,21 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb300-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETDOUSERMANAGEMENT&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb300-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb300-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb293-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb293-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETDOUSERMANAGEMENT&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb293-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb293-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb301"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb301-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb301-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;NO&#39;</span></a>
-<a class="sourceLine" id="cb301-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb301-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb301-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb301-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb301-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb294-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb294-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb294-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;NO&#39;</span></a>
+<a class="sourceLine" id="cb294-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb294-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb294-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb294-7" data-line-number="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb294-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 </div>
 <div id="logonuser" class="section level3">
 <h3><span class="header-section-number">16.2.3</span> <code>LOGONUSER</code></h3>
@@ -455,25 +455,25 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb302-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;LOGONUSER&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb302-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb302-4" data-line-number="4">    <span class="st">&#39;userName&#39;</span><span class="op">:</span> <span class="st">&#39;smith&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb302-5" data-line-number="5">    <span class="st">&#39;pwd&#39;</span><span class="op">:</span><span class="st">&#39;mySecretPwd&#39;</span></a>
-<a class="sourceLine" id="cb302-6" data-line-number="6">  <span class="op">},</span></a>
-<a class="sourceLine" id="cb302-7" data-line-number="7">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb302-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb295-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb295-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;LOGONUSER&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb295-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb295-4" data-line-number="4">    <span class="st">&#39;userName&#39;</span><span class="op">:</span> <span class="st">&#39;smith&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb295-5" data-line-number="5">    <span class="st">&#39;pwd&#39;</span><span class="op">:</span><span class="st">&#39;mySecretPwd&#39;</span></a>
+<a class="sourceLine" id="cb295-6" data-line-number="6">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb295-7" data-line-number="7">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb295-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb303"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb303-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb303-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;BADUSERNAME&#39;</span> <span class="op">|</span> <span class="st">&#39;BADPASSWORD&#39;</span> <span class="op">|</span> <span class="st">&#39;LOGGEDON&#39;</span></a>
-<a class="sourceLine" id="cb303-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb303-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb303-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb303-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb303-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb296-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb296-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;BADUSERNAME&#39;</span> <span class="op">|</span> <span class="st">&#39;BADPASSWORD&#39;</span> <span class="op">|</span> <span class="st">&#39;LOGGEDON&#39;</span></a>
+<a class="sourceLine" id="cb296-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb296-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb296-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb296-7" data-line-number="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb296-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 </div>
 <div id="getglobaldbconfig" class="section level3">
 <h3><span class="header-section-number">16.2.4</span> <code>GETGLOBALDBCONFIG</code></h3>
@@ -481,21 +481,21 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb304"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb304-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETGLOBALDBCONFIG&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb304-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb304-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb297-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETGLOBALDBCONFIG&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb297-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb297-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb305"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb305-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb305-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> configData<span class="op">,</span></a>
-<a class="sourceLine" id="cb305-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb305-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb305-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb305-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb305-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb298-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb298-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> configData<span class="op">,</span></a>
+<a class="sourceLine" id="cb298-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb298-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb298-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb298-7" data-line-number="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb298-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 <p>In the above Listing, <code>configData</code> represents the Javascript object that is the <code>_DBconfig.json</code> file of the respective database.</p>
 </div>
 <div id="getbundlelist" class="section level3">
@@ -504,21 +504,21 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb306"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb306-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb306-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLELIST&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb306-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb306-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLELIST&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb299-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb299-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb307"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb307-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb307-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleList<span class="op">,</span></a>
-<a class="sourceLine" id="cb307-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb307-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb307-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb307-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb307-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb300-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb300-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleList<span class="op">,</span></a>
+<a class="sourceLine" id="cb300-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb300-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb300-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb300-7" data-line-number="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb300-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 </div>
 <div id="getbundle" class="section level3">
 <h3><span class="header-section-number">16.2.6</span> <code>GETBUNDLE</code></h3>
@@ -526,23 +526,23 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb308"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb308-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLE&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb308-3" data-line-number="3">  <span class="st">&#39;name&#39;</span><span class="op">:</span> <span class="st">&#39;msajc003&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb308-4" data-line-number="4">  <span class="st">&#39;session&#39;</span><span class="op">:</span> <span class="st">&#39;0000&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb308-5" data-line-number="5">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb308-6" data-line-number="6"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb301-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLE&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb301-3" data-line-number="3">  <span class="st">&#39;name&#39;</span><span class="op">:</span> <span class="st">&#39;msajc003&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb301-4" data-line-number="4">  <span class="st">&#39;session&#39;</span><span class="op">:</span> <span class="st">&#39;0000&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb301-5" data-line-number="5">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb301-6" data-line-number="6"><span class="op">}</span></a></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb309"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb309-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb309-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></a>
-<a class="sourceLine" id="cb309-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb309-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb309-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb309-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb309-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb302-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb302-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></a>
+<a class="sourceLine" id="cb302-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb302-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb302-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb302-7" data-line-number="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb302-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
 <p>In the Listing above <code>bundleData</code> is the Javascript object containing all SSFF files (encoded as a base64 strings) and audio (encoded as a base64 string) and <code>_annot.json</code> that are associated with this bundle. An example of <code>_bndl.json</code> is given in Appendix <a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON">15.2.2</a>.</p>
 </div>
 <div id="savebundle" class="section level3">
@@ -551,22 +551,22 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb310"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb310-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb310-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SAVEBUNDLE&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb310-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></a>
-<a class="sourceLine" id="cb310-4" data-line-number="4">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb310-5" data-line-number="5"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb303-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb303-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SAVEBUNDLE&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb303-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></a>
+<a class="sourceLine" id="cb303-4" data-line-number="4">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb303-5" data-line-number="5"><span class="op">}</span></a></code></pre></div>
 <p>In the Listing above <code>bundleData</code> is a Javascript object that corresponds to a <code>_bndl.json</code> file. As currently only annotations and formant tracks can be altered by the <code>EMU-webApp</code>, only the <code>_annot.json</code> and formant track SSFF file (if applicable) are sent to the server to be saved.</p>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb311"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb311-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb311-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb311-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb311-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb311-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb311-6" data-line-number="6">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb311-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb304-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb304-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb304-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb304-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb304-6" data-line-number="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb304-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
 </div>
 <div id="disconnectwarning" class="section level3">
 <h3><span class="header-section-number">16.2.8</span> <code>DISCONNECTWARNING</code></h3>
@@ -574,20 +574,20 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb312"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb312-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;DISCONNECTWARNING&#39;</span></a>
-<a class="sourceLine" id="cb312-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb312-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb305-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;DISCONNECTWARNING&#39;</span></a>
+<a class="sourceLine" id="cb305-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
+<a class="sourceLine" id="cb305-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb313"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb313-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb313-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb313-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb313-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb313-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb313-6" data-line-number="6">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb313-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb306-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb306-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb306-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb306-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb306-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb306-6" data-line-number="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb306-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
 </div>
 <div id="error-handling" class="section level3">
 <h3><span class="header-section-number">16.2.9</span> Error handling</h3>
@@ -595,13 +595,13 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>ERROR response:</li>
 </ul>
-<div class="sourceCode" id="cb314"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb314-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb314-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb314-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;ERROR&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb314-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;An error occured trying to read a file from disk. Please make sure: /path/to/file exists or check the config...</span></a>
-<a class="sourceLine" id="cb314-6" data-line-number="6">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb314-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb307-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb307-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb307-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;ERROR&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb307-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;An error occured trying to read a file from disk. Please make sure: /path/to/file exists or check the config...</span></a>
+<a class="sourceLine" id="cb307-6" data-line-number="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb307-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
 
 </div>
 </div>
@@ -637,12 +637,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -654,6 +653,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

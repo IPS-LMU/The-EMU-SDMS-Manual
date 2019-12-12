@@ -55,7 +55,49 @@ ggplot(ae_formants) +
 ```r
 # time normalize the formant values
 ae_formants_norm = normalize_length(ae_formants)
+```
 
+```
+## Warning: Row indexes must be between 0 and the number of rows (14). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```
+## Warning: Row indexes must be between 0 and the number of rows (17). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```
+## Warning: Row indexes must be between 0 and the number of rows (16). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```
+## Warning: Row indexes must be between 0 and the number of rows (9). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```
+## Warning: Row indexes must be between 0 and the number of rows (15). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```
+## Warning: Row indexes must be between 0 and the number of rows (13). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```
+## Warning: Row indexes must be between 0 and the number of rows (18). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```
+## Warning: Row indexes must be between 0 and the number of rows (19). Use `NA` as row index to obtain a row full of `NA` values.
+## This warning is displayed once per session.
+```
+
+```r
 # plot all normalized F2 trajectories
 ggplot(ae_formants_norm) +
   aes(x = times_norm, y = T2, col = labels, group = sl_rowIdx) +

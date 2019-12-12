@@ -104,7 +104,7 @@ db_handle = load_emuDB(path2directory, verbose = FALSE)
 
 ### Overview
 
-Now the *my-first* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as shown the below R code snippet.
+Now the *my-first* `emuDB` is loaded into R, an overview of the current status and configuration of the database can be displayed using the `summary()` function as is shown by the below R code snippet.
 
 
 
@@ -115,8 +115,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 f26fde8a-0f6a-4271-b06c-8ca352cb2bbb 
-## Directory:	 /tmp/RtmpmmOq17/my-first_emuDB 
+## UUID:	 b02df9a4-237c-47bc-8066-8951448f69c8 
+## Directory:	 /tmp/Rtmp4Kktfk/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -152,19 +152,20 @@ The EMU-SDMS has a unique approach to annotating and visually inspecting databas
 serve(db_handle)
 ```
 
-Executing this command will block the R console, automatically open up the system's default browser and display the following message in the R console:
+Executing this command will either automatically open up the system's default browser or, if using RStudio, download the current EMU-webApp and display it in RStudio's viewer pane and additionally display the following message in the R console:
 
 
 ```
 ## Navigate your browser to the EMU-webApp URL: 
-## 	http://ips-lmu.github.io/EMU-webApp/ (should happen autom...
+## 	https://ips-lmu.github.io/EMU-webApp/ (should happen autom...
 ## Server connection URL:
 ## 	ws://localhost:17890
-## To stop the server press the 'clear' button in the 
-## EMU-webApp or close/reload the webApp in your browser.
+## To stop the server either press the 'clear' button in the EMU-webApp, 
+## 	close/reload the webApp in your browser,
+## or call the httpuv::stopAllServers() function
 ```
 
-The `EMU-webApp`, which is now connected to the database via the `serve()` function, can be used to visually inspect and annotate the `emuDB`. Figure \@ref(fig:tutorial-emuWebAppMyFirst) displays a screenshot of what the `EMU-webApp` looks like after automatically connecting to the server. As the `EMU-webApp` is a very feature-rich software annotation tool, this documentation has a whole chapter (see Chapter \@ref(chap:emu-webApp)) on how to use it, what it is capable of and how to configure it. Further, the web application provides its own documentation which can be accessed by clicking the EMU icon in the top right hand corner of the application's top menu bar. To close the connection and  free up the blocked R console, simply click the `clear` button in the top menu bar of the `EMU-webApp`.
+The `EMU-webApp`, which is now connected to the database via the `serve()` function, can be used to visually inspect and annotate the `emuDB`. Figure \@ref(fig:tutorial-emuWebAppMyFirst) displays a screenshot of what the `EMU-webApp` looks like after automatically connecting to the server. As the `EMU-webApp` is a very feature-rich software annotation tool, this documentation has a whole chapter (see Chapter \@ref(chap:emu-webApp)) on how to use it, what it is capable of and how to configure it. To close the connection and  free up the blocked R console, simply click the `clear` button in the top menu bar of the `EMU-webApp`.
 
 
 <div class="figure" style="text-align: center">
@@ -210,57 +211,32 @@ class(sl_phonetic)
 ```
 
 ```r
-# show first entry of sl_phonetic
-head(sl_phonetic, n = 1)
+# show first few entries of sl_phonetic
+sl_phonetic
 ```
 
 ```
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. f26fde… 0000    msajc…            98          98 Phon…
+## # A tibble: 12 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 n      1032. 1196. b02df9… 0000    msajc…            98          98 Phon…
+##  2 n      1741. 1791. b02df9… 0000    msajc…           108         108 Phon…
+##  3 n      1515. 1554. b02df9… 0000    msajc…           113         113 Phon…
+##  4 n      2431. 2528. b02df9… 0000    msajc…           127         127 Phon…
+##  5 n       895. 1023. b02df9… 0000    msajc…            98          98 Phon…
+##  6 n      2402. 2475. b02df9… 0000    msajc…           122         122 Phon…
+##  7 n      2227. 2271. b02df9… 0000    msajc…           132         132 Phon…
+##  8 n      3046. 3068. b02df9… 0000    msajc…           145         145 Phon…
+##  9 n      1435. 1495. b02df9… 0000    msajc…            91          91 Phon…
+## 10 n      1775. 1834. b02df9… 0000    msajc…            96          96 Phon…
+## 11 n       509.  544. b02df9… 0000    msajc…            97          97 Phon…
+## 12 n      2448. 2480. b02df9… 0000    msajc…           130         130 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
 
-```r
-# show summary of sl_phonetic
-summary(sl_phonetic)
-```
-
-```
-##     labels              start             end         db_uuid         
-##  Length:12          Min.   : 508.7   Min.   : 544   Length:12         
-##  Class :character   1st Qu.:1334.1   1st Qu.:1420   Class :character  
-##  Mode  :character   Median :1758.2   Median :1813   Mode  :character  
-##                     Mean   :1788.0   Mean   :1855                     
-##                     3rd Qu.:2409.4   3rd Qu.:2476                     
-##                     Max.   :3046.1   Max.   :3068                     
-##    session             bundle          start_item_id     end_item_id    
-##  Length:12          Length:12          Min.   : 91.00   Min.   : 91.00  
-##  Class :character   Class :character   1st Qu.: 97.75   1st Qu.: 97.75  
-##  Mode  :character   Mode  :character   Median :110.50   Median :110.50  
-##                                        Mean   :113.08   Mean   :113.08  
-##                                        3rd Qu.:127.75   3rd Qu.:127.75  
-##                                        Max.   :145.00   Max.   :145.00  
-##     level            attribute         start_item_seq_idx end_item_seq_idx
-##  Length:12          Length:12          Min.   : 6.00      Min.   : 6.00   
-##  Class :character   Class :character   1st Qu.:14.50      1st Qu.:14.50   
-##  Mode  :character   Mode  :character   Median :22.00      Median :22.00   
-##                                        Mean   :24.58      Mean   :24.58   
-##                                        3rd Qu.:34.25      3rd Qu.:34.25   
-##                                        Max.   :46.00      Max.   :46.00   
-##      type            sample_start     sample_end     sample_rate   
-##  Length:12          Min.   :10174   Min.   :10879   Min.   :20000  
-##  Class :character   1st Qu.:26682   1st Qu.:28408   1st Qu.:20000  
-##  Mode  :character   Median :35164   Median :36253   Median :20000  
-##                     Mean   :35760   Mean   :37100   Mean   :20000  
-##                     3rd Qu.:48190   3rd Qu.:49525   3rd Qu.:20000  
-##                     Max.   :60923   Max.   :61353   Max.   :20000
-```
-
-As demonstrated in the above R code, the result of a query is an `emuRsegs` object, which is a super-class of the common `data.frame`. This object is often referred to as a segment list, or "seglist". A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \@ref(sec:query-emuRsegs). The above R code snippet shows that the `summary()` function can also be applied to a segment list object to get an overview of what is contained within it. This can be especially useful when dealing with larger segment lists.
+As demonstrated in the above R code, the result of a query is a `tbl_df` object (i.e. a [tibble object](https://tibble.tidyverse.org/index.html)), which is a super-class of the common `data.frame`. For historical reasons the result of a query is often referred to as a segment list, or "seglist". A segment list carries information about the extracted annotation items such as the extracted labels, the start and end times of the segments, the sessions and bundles the items are from and the levels they belong to. An in-depth description of the information contained in a segment list is given in Section \@ref(sec:query-emuRsegs).
 
 ## Autobuilding
 
@@ -392,21 +368,30 @@ Having this hierarchical annotation structure now allows us to formulate a query
 # the labels @ on the Phonetic level
 sl_vowels = query(db_handle, "Phonetic == @")
 
-# show first entry of sl_vowels
-head(sl_vowels, n = 1)
+# show sl_vowels
+sl_vowels
 ```
 
 ```
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1506. 1548. f26fde… 0000    msajc…           103         103 Phon…
-## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
-## #   sample_rate <int>
+## # A tibble: 28 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 @      1506. 1548. b02df9… 0000    msajc…           103         103 Phon…
+##  2 @      1715. 1741. b02df9… 0000    msajc…           107         107 Phon…
+##  3 @      1967. 2034. b02df9… 0000    msajc…           112         112 Phon…
+##  4 @      2303. 2362. b02df9… 0000    msajc…           117         117 Phon…
+##  5 @      2447. 2506. b02df9… 0000    msajc…           119         119 Phon…
+##  6 @      1917. 1958. b02df9… 0000    msajc…           118         118 Phon…
+##  7 @      2022. 2078. b02df9… 0000    msajc…           120         120 Phon…
+##  8 @      2382. 2431. b02df9… 0000    msajc…           126         126 Phon…
+##  9 @       330.  380. b02df9… 0000    msajc…            91          91 Phon…
+## 10 @      1472. 1490. b02df9… 0000    msajc…           108         108 Phon…
+## # … with 18 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
-As the type of word (content vs. function) for each *\@* vowel that was just extracted is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word* level.
+As the type of word (content vs. function) for each *\@* vowel is also needed, we can use the requery functionality of the EMU-SDMS (see Chapter \@ref(chap:querysys)) to retrieve the word type for each *\@* vowel. A requery essentially moves through a hierarchical annotation (vertically or horizontally) starting from the segments that are passed into the requery function. The R code below illustrates the usage of the hierarchical requery function, `requery_hier()`, to retrieve the appropriate annotation items from the *Word* level.
 
 
 ```r
@@ -417,18 +402,27 @@ sl_word_type = requery_hier(db_handle,
                            level = "Word",
                            calcTimes = FALSE)
 
-# show first entry of sl_word_type
-head(sl_word_type, n = 1)
+# show sl_word_type
+sl_word_type
 ```
 
 ```
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 F         NA    NA f26fde… 0000    msajc…            16          16 Word 
-## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
-## #   sample_rate <int>
+## # A tibble: 28 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 F         NA    NA b02df9… 0000    msajc…            16          16 Word 
+##  2 C         NA    NA b02df9… 0000    msajc…            17          17 Word 
+##  3 C         NA    NA b02df9… 0000    msajc…            17          17 Word 
+##  4 C         NA    NA b02df9… 0000    msajc…            18          18 Word 
+##  5 C         NA    NA b02df9… 0000    msajc…            18          18 Word 
+##  6 C         NA    NA b02df9… 0000    msajc…            19          19 Word 
+##  7 C         NA    NA b02df9… 0000    msajc…            20          20 Word 
+##  8 C         NA    NA b02df9… 0000    msajc…            20          20 Word 
+##  9 F         NA    NA b02df9… 0000    msajc…            13          13 Word 
+## 10 F         NA    NA b02df9… 0000    msajc…            17          17 Word 
+## # … with 18 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 ```r
@@ -455,7 +449,6 @@ Now that the vowel and word type information including the vowel start and end t
 td_vowels = get_trackdata(db_handle,
                           seglist = sl_vowels,
                           onTheFlyFunctionName = "forest",
-                          resultType = "tibble",
                           verbose = F)
 
 # show class vector
@@ -487,26 +480,6 @@ max(td_vowels$sl_rowIdx)
 ```r
 # display all values for fifth segment using dplyr
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 td_vowels %>% filter(sl_rowIdx == 5)
 ```
 
@@ -514,18 +487,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  2         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  3         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  4         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  5         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  6         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  7         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  8         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-##  9         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-## 10         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-## 11         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
-## 12         5 @      2447. 2506. f26fde… 0000    msajc…           119         119
+##  1         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  2         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  3         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  4         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  5         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  6         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  7         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  8         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  9         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+## 10         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+## 11         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+## 12         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
 ## # … with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
@@ -558,12 +531,6 @@ ggplot(td_vowels_norm) +
 <img src="tutorial_files/figure-epub3/tutorial-dplot1-1.png" alt="`ggplot()` plots of all F1 *\@* vowel trajectories."  />
 <p class="caption">(\#fig:tutorial-dplot1)`ggplot()` plots of all F1 *\@* vowel trajectories.</p>
 </div>
-
-
-
-```
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
-```
 
 <div class="figure" style="text-align: center">
 <img src="tutorial_files/figure-epub3/tutorial-dplot2-1.png" alt="`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels."  />

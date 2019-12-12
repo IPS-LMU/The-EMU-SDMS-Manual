@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 The emuDB Format8 | The EMU-SDMS Manual</title>
   <meta name="description" content="5 The emuDB Format8 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 The emuDB Format8 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -411,36 +411,36 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <div id="creating-an-emudb-from-scratch" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Creating an <code>emuDB</code> from scratch</h3>
 <p>The R code snippet below shows how an empty <code>emuDB</code> is created in the directory provided by R’s <code>tempdir()</code> function. As can be seen by the output of the <code>list.files()</code> function, <code>create_emuDB()</code> creates a directory containing a <code>_DBconfig.json</code> file only.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="co"># load package</span></a>
-<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="kw">library</span>(emuR, <span class="dt">warn.conflicts =</span> F)</a>
-<a class="sourceLine" id="cb56-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb56-4" data-line-number="4"><span class="co"># create demo data in directory </span></a>
-<a class="sourceLine" id="cb56-5" data-line-number="5"><span class="co"># provided by tempdir()</span></a>
-<a class="sourceLine" id="cb56-6" data-line-number="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb56-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb56-8" data-line-number="8"><span class="co"># create emuDB called &quot;fromScratch&quot;</span></a>
-<a class="sourceLine" id="cb56-9" data-line-number="9"><span class="kw">create_emuDB</span>(<span class="dt">name =</span> <span class="st">&quot;fromScratch&quot;</span>,</a>
-<a class="sourceLine" id="cb56-10" data-line-number="10">             <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb56-11" data-line-number="11">             <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb56-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb56-13" data-line-number="13"><span class="co"># generate path to the empty fromScratch created above</span></a>
-<a class="sourceLine" id="cb56-14" data-line-number="14">dbPath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;fromScratch_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb56-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb56-16" data-line-number="16"><span class="co"># show content of empty fromScratch emuDB</span></a>
-<a class="sourceLine" id="cb56-17" data-line-number="17"><span class="kw">list.files</span>(dbPath)</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="co"># load package</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2"><span class="kw">library</span>(emuR, <span class="dt">warn.conflicts =</span> F)</a>
+<a class="sourceLine" id="cb49-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4"><span class="co"># create demo data in directory </span></a>
+<a class="sourceLine" id="cb49-5" data-line-number="5"><span class="co"># provided by tempdir()</span></a>
+<a class="sourceLine" id="cb49-6" data-line-number="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb49-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb49-8" data-line-number="8"><span class="co"># create emuDB called &quot;fromScratch&quot;</span></a>
+<a class="sourceLine" id="cb49-9" data-line-number="9"><span class="kw">create_emuDB</span>(<span class="dt">name =</span> <span class="st">&quot;fromScratch&quot;</span>,</a>
+<a class="sourceLine" id="cb49-10" data-line-number="10">             <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb49-11" data-line-number="11">             <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb49-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb49-13" data-line-number="13"><span class="co"># generate path to the empty fromScratch created above</span></a>
+<a class="sourceLine" id="cb49-14" data-line-number="14">dbPath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;fromScratch_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb49-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb49-16" data-line-number="16"><span class="co"># show content of empty fromScratch emuDB</span></a>
+<a class="sourceLine" id="cb49-17" data-line-number="17"><span class="kw">list.files</span>(dbPath)</a></code></pre></div>
 <pre><code>## [1] &quot;fromScratch_DBconfig.json&quot;</code></pre>
 </div>
 <div id="loading-and-editing-an-empty-database" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Loading and editing an empty database</h3>
 <p>The initial step in manipulating and generally interacting with a database is to load the database into the current R session. The R code below shows how to load the <em>fromScratch</em> database and shows the empty configuration by displaying the output of the <code>summary()</code> function.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="co"># load database</span></a>
-<a class="sourceLine" id="cb58-2" data-line-number="2">dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(dbPath, <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb58-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb58-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
-<a class="sourceLine" id="cb58-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co"># load database</span></a>
+<a class="sourceLine" id="cb51-2" data-line-number="2">dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(dbPath, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb51-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb51-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
+<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     fromScratch 
-## UUID:     548894d4-3253-4ff3-9a50-ec335a16aeb8 
-## Directory:    /tmp/RtmphQPeS4/fromScratch_emuDB 
+## UUID:     96952a71-5919-4ae1-b012-10750fec0c1c 
+## Directory:    /tmp/RtmpDiZxMM/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -457,8 +457,8 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 ## 
 ## Link definitions:
 ## NULL</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># show class vector of dbHandle</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="kw">class</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="co"># show class vector of dbHandle</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="kw">class</span>(dbHandle)</a></code></pre></div>
 <pre><code>## [1] &quot;emuDBhandle&quot;</code></pre>
 <p>As can be seen in the above R code example, the class of a loaded <code>emuDB</code> is <code>emuDBhandle</code>. A <code>emuDBhandle</code> object is used to reference a loaded <code>emuDB</code> in the database interaction functions of the <code>emuR</code> package. In this chapter we will show how to use this <code>emuDBhandle</code> object to perform database manipulation operations. Most of the <code>emuDB</code> manipulation functions follow the following function prefix naming convention:</p>
 <ul>
@@ -471,27 +471,27 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <h3><span class="header-section-number">5.2.3</span> Level definitions</h3>
 <p>Unlike other systems, the EMU-SDMS requires the user to formally define the annotation structure for the entire database. An essential structural element of any <code>emuDB</code> are its levels. A level is a more general term for what is often referred to as a tier. It is more general in the sense that people usually expect tiers to contain time information. Levels can either contain time information if they are of the type <code>EVENT</code> or of the type <code>SEGMENT</code> but are timeless if they are of the type <code>ITEM</code> (see Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a> for further details). It is also worth noting that an <code>emuDB</code> distinguishes between the definition of an annotation structure element and the actual annotations. The definition of an annotation structure element such as a level definition is merely an entry in the <code>_DBconfig.json</code> file which specifies that this level is allowed to be present in the <code>_annot.json</code> files. The levels that are present in an <code>_annot.json</code> file, on the other hand, have to adhere to the definitions in the <code>_DBconfig.json</code>.</p>
 <p>As the <em>fromScratch</em> database (already loaded) does not contain any annotation structural element definitions, the R code snippet below shows how a new level definition called <em>Phonetic</em> of type <code>SEGMENT</code> is added to the <code>emuDB</code>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># show no level definitions</span></a>
-<a class="sourceLine" id="cb62-2" data-line-number="2"><span class="co"># are present</span></a>
-<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="co"># show no level definitions</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="co"># are present</span></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># add level defintion</span></a>
-<a class="sourceLine" id="cb64-2" data-line-number="2"><span class="kw">add_levelDefinition</span>(dbHandle,</a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">                    <span class="dt">name =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
-<a class="sourceLine" id="cb64-4" data-line-number="4">                    <span class="dt">type =</span> <span class="st">&quot;SEGMENT&quot;</span>)</a>
-<a class="sourceLine" id="cb64-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb64-6" data-line-number="6"><span class="co"># show newly added level definition</span></a>
-<a class="sourceLine" id="cb64-7" data-line-number="7"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="co"># add level defintion</span></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"><span class="kw">add_levelDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb57-3" data-line-number="3">                    <span class="dt">name =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">                    <span class="dt">type =</span> <span class="st">&quot;SEGMENT&quot;</span>)</a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb57-6" data-line-number="6"><span class="co"># show newly added level definition</span></a>
+<a class="sourceLine" id="cb57-7" data-line-number="7"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
 <pre><code>##       name    type nrOfAttrDefs attrDefNames
 ## 1 Phonetic SEGMENT            1    Phonetic;</code></pre>
 <p>The example below shows how a further level definition is added that will contain the orthographic word transcriptions for the words uttered in our recordings. This level will be of the type <code>ITEM</code>, meaning that elements contained within the level are sequentially ordered but do not contain any time information.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># add level definition</span></a>
-<a class="sourceLine" id="cb66-2" data-line-number="2"><span class="kw">add_levelDefinition</span>(dbHandle,</a>
-<a class="sourceLine" id="cb66-3" data-line-number="3">                    <span class="dt">name =</span> <span class="st">&quot;Word&quot;</span>,</a>
-<a class="sourceLine" id="cb66-4" data-line-number="4">                    <span class="dt">type =</span> <span class="st">&quot;ITEM&quot;</span>)</a>
-<a class="sourceLine" id="cb66-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb66-6" data-line-number="6"><span class="co"># list newly added level definition</span></a>
-<a class="sourceLine" id="cb66-7" data-line-number="7"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="co"># add level definition</span></a>
+<a class="sourceLine" id="cb59-2" data-line-number="2"><span class="kw">add_levelDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb59-3" data-line-number="3">                    <span class="dt">name =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb59-4" data-line-number="4">                    <span class="dt">type =</span> <span class="st">&quot;ITEM&quot;</span>)</a>
+<a class="sourceLine" id="cb59-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb59-6" data-line-number="6"><span class="co"># list newly added level definition</span></a>
+<a class="sourceLine" id="cb59-7" data-line-number="7"><span class="kw">list_levelDefinitions</span>(dbHandle)</a></code></pre></div>
 <pre><code>##       name    type nrOfAttrDefs attrDefNames
 ## 1 Phonetic SEGMENT            1    Phonetic;
 ## 2     Word    ITEM            1        Word;</code></pre>
@@ -499,20 +499,20 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <div id="attribute-definitions" class="section level4">
 <h4><span class="header-section-number">5.2.3.1</span> Attribute definitions</h4>
 <p>Each level definition can contain multiple attributes, the most common, and currently only supported attribute being a label (of type <code>STRING</code>). Thus it is possible to have multiple parallel labels (i.e., attribute definitions) in a single level. This means that a single annotation item instance can contain multiple labels while sharing other properties such as the start and duration information. This can be useful when modeling certain types of data. An example of this would be the <em>Phonetic</em> level created above. It is often the case that databases contain both the phonetic transcript using IPA UTF-8 symbols as well as a transcript using Speech Assessment Methods Phonetic Alphabet (SAMPA) symbols. To avoid redundant time information, both of these annotations can be stored on the same <code>Phonetic</code> level using multiple attribute definitions (i.e., parallel labels). The next R code snippet shows the current attribute definitions of the <code>Phonetic</code> level.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="co"># list attribute definitions of &#39;Phonetic&#39; level</span></a>
-<a class="sourceLine" id="cb68-2" data-line-number="2"><span class="kw">list_attributeDefinitions</span>(dbHandle,</a>
-<a class="sourceLine" id="cb68-3" data-line-number="3">                          <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="co"># list attribute definitions of &#39;Phonetic&#39; level</span></a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">list_attributeDefinitions</span>(dbHandle,</a>
+<a class="sourceLine" id="cb61-3" data-line-number="3">                          <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
 <pre><code>##       name    level   type hasLabelGroups hasLegalLabels
 ## 1 Phonetic Phonetic STRING          FALSE          FALSE</code></pre>
 <p>Even though no attribute definition has been added to the <code>Phonetic</code> level, it already contains an attribute definition that has the same name as its level. This attribute definition represents the obligatory primary attribute of that level. As every level must contain an attribute definition that has the same name as its level, it is automatically added by the <code>add_levelDefinition()</code> function. To follow the above example, the next R code snippet adds a further attribute definition to the <code>Phonetic</code> level that contains the SAMPA versions of our annotations.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="co"># add</span></a>
-<a class="sourceLine" id="cb70-2" data-line-number="2"><span class="kw">add_attributeDefinition</span>(dbHandle,</a>
-<a class="sourceLine" id="cb70-3" data-line-number="3">                        <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
-<a class="sourceLine" id="cb70-4" data-line-number="4">                        <span class="dt">name =</span> <span class="st">&quot;SAMPA&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># add</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="kw">add_attributeDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb63-3" data-line-number="3">                        <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb63-4" data-line-number="4">                        <span class="dt">name =</span> <span class="st">&quot;SAMPA&quot;</span>)</a></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="co"># list attribute definitions of &#39;Phonetic&#39; level</span></a>
-<a class="sourceLine" id="cb72-2" data-line-number="2"><span class="kw">list_attributeDefinitions</span>(dbHandle,</a>
-<a class="sourceLine" id="cb72-3" data-line-number="3">                          <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># list attribute definitions of &#39;Phonetic&#39; level</span></a>
+<a class="sourceLine" id="cb65-2" data-line-number="2"><span class="kw">list_attributeDefinitions</span>(dbHandle,</a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">                          <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
 <pre><code>##       name    level   type hasLabelGroups hasLegalLabels
 ## 1 Phonetic Phonetic STRING          FALSE          FALSE
 ## 2    SAMPA Phonetic STRING          FALSE          FALSE</code></pre>
@@ -521,61 +521,61 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <div id="subsubsec:emuDBlegalLabels" class="section level4">
 <h4><span class="header-section-number">5.2.3.2</span> Legal labels</h4>
 <p>As can be inferred from the columns <code>hasLabelGroups</code> and <code>hasLegalLabels</code> of the output of the above <code>list_attributeDefinitions()</code> function, attribute definitions can also contain two further optional fields. The <code>legalLabels</code> field contains an array of strings that specifies the labels that are legal (i.e., allowed or valid) for the given attribute definition. As the <code>EMU-webApp</code> does not allow the annotator to enter any labels that are not specified in this array, this is a simple way of assuring that a level has a consistent label set. The following R code snippet shows how the <code>set_legalLabels</code> and <code>get_legalLabels</code> functions can be used to specify a legal label set for the primary <code>Word</code> attribute definition of the <code>Word</code> level.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="co"># define allowed word labels</span></a>
-<a class="sourceLine" id="cb74-2" data-line-number="2">wordLabels =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;amongst&quot;</span>, <span class="st">&quot;any&quot;</span>, <span class="st">&quot;are&quot;</span>,</a>
-<a class="sourceLine" id="cb74-3" data-line-number="3">               <span class="st">&quot;always&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;attracts&quot;</span>)</a>
-<a class="sourceLine" id="cb74-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb74-5" data-line-number="5"><span class="co"># show empty legal labels</span></a>
-<a class="sourceLine" id="cb74-6" data-line-number="6"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
-<a class="sourceLine" id="cb74-7" data-line-number="7"><span class="kw">get_legalLabels</span>(dbHandle,</a>
-<a class="sourceLine" id="cb74-8" data-line-number="8">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
-<a class="sourceLine" id="cb74-9" data-line-number="9">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="co"># define allowed word labels</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">wordLabels =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;amongst&quot;</span>, <span class="st">&quot;any&quot;</span>, <span class="st">&quot;are&quot;</span>,</a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">               <span class="st">&quot;always&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;attracts&quot;</span>)</a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb67-5" data-line-number="5"><span class="co"># show empty legal labels</span></a>
+<a class="sourceLine" id="cb67-6" data-line-number="6"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
+<a class="sourceLine" id="cb67-7" data-line-number="7"><span class="kw">get_legalLabels</span>(dbHandle,</a>
+<a class="sourceLine" id="cb67-8" data-line-number="8">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb67-9" data-line-number="9">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="co"># set legal labels values</span></a>
-<a class="sourceLine" id="cb76-2" data-line-number="2"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
-<a class="sourceLine" id="cb76-3" data-line-number="3"><span class="kw">set_legalLabels</span>(dbHandle,</a>
-<a class="sourceLine" id="cb76-4" data-line-number="4">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
-<a class="sourceLine" id="cb76-5" data-line-number="5">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>,</a>
-<a class="sourceLine" id="cb76-6" data-line-number="6">                <span class="dt">legalLabels =</span> wordLabels)</a>
-<a class="sourceLine" id="cb76-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb76-8" data-line-number="8"><span class="co"># show recently added legal labels</span></a>
-<a class="sourceLine" id="cb76-9" data-line-number="9"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
-<a class="sourceLine" id="cb76-10" data-line-number="10"><span class="kw">get_legalLabels</span>(dbHandle,</a>
-<a class="sourceLine" id="cb76-11" data-line-number="11">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
-<a class="sourceLine" id="cb76-12" data-line-number="12">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="co"># set legal labels values</span></a>
+<a class="sourceLine" id="cb69-2" data-line-number="2"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
+<a class="sourceLine" id="cb69-3" data-line-number="3"><span class="kw">set_legalLabels</span>(dbHandle,</a>
+<a class="sourceLine" id="cb69-4" data-line-number="4">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb69-5" data-line-number="5">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb69-6" data-line-number="6">                <span class="dt">legalLabels =</span> wordLabels)</a>
+<a class="sourceLine" id="cb69-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb69-8" data-line-number="8"><span class="co"># show recently added legal labels</span></a>
+<a class="sourceLine" id="cb69-9" data-line-number="9"><span class="co"># for &quot;Word&quot; attribute definition</span></a>
+<a class="sourceLine" id="cb69-10" data-line-number="10"><span class="kw">get_legalLabels</span>(dbHandle,</a>
+<a class="sourceLine" id="cb69-11" data-line-number="11">                <span class="dt">levelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb69-12" data-line-number="12">                <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Word&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;amongst&quot;  &quot;any&quot;      &quot;are&quot;      &quot;always&quot;   &quot;and&quot;      &quot;attracts&quot;</code></pre>
 <!-- % should be subsubsub sesion -->
 </div>
 <div id="label-groups" class="section level4">
 <h4><span class="header-section-number">5.2.3.3</span> Label groups</h4>
 <p>A further optional field is the <code>labelGroups</code> field. It contains specifications of groups of labels that can be referenced by a name given to the group while querying the <code>emuDB</code>. The R code below shows how the <code>add_attrDefLabelGroup()</code> function is used to add two label groups to the <code>Phonetic</code> attribute definition. One of the groups is used to reference a subset of <em>longVowels</em> and the other to reference a subset of <em>shortVowels</em> on the <code>Phonetic</code> level.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="co"># add long vowels label group</span></a>
-<a class="sourceLine" id="cb78-2" data-line-number="2"><span class="kw">add_attrDefLabelGroup</span>(dbHandle,</a>
-<a class="sourceLine" id="cb78-3" data-line-number="3">                      <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
-<a class="sourceLine" id="cb78-4" data-line-number="4">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
-<a class="sourceLine" id="cb78-5" data-line-number="5">                      <span class="dt">labelGroupName =</span> <span class="st">&quot;longVowels&quot;</span>,</a>
-<a class="sourceLine" id="cb78-6" data-line-number="6">                      <span class="dt">labelGroupValues =</span> <span class="kw">c</span>(<span class="st">&quot;i:&quot;</span>, <span class="st">&quot;u:&quot;</span>))</a>
-<a class="sourceLine" id="cb78-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb78-8" data-line-number="8"><span class="co"># add short vowels label group</span></a>
-<a class="sourceLine" id="cb78-9" data-line-number="9"><span class="kw">add_attrDefLabelGroup</span>(dbHandle,</a>
-<a class="sourceLine" id="cb78-10" data-line-number="10">                      <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
-<a class="sourceLine" id="cb78-11" data-line-number="11">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
-<a class="sourceLine" id="cb78-12" data-line-number="12">                      <span class="dt">labelGroupName =</span> <span class="st">&quot;shortVowels&quot;</span>,</a>
-<a class="sourceLine" id="cb78-13" data-line-number="13">                      <span class="dt">labelGroupValues =</span> <span class="kw">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;@&quot;</span>))</a>
-<a class="sourceLine" id="cb78-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb78-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb78-16" data-line-number="16"><span class="co"># list current label groups</span></a>
-<a class="sourceLine" id="cb78-17" data-line-number="17"><span class="kw">list_attrDefLabelGroups</span>(dbHandle,</a>
-<a class="sourceLine" id="cb78-18" data-line-number="18">                        <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
-<a class="sourceLine" id="cb78-19" data-line-number="19">                        <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="co"># add long vowels label group</span></a>
+<a class="sourceLine" id="cb71-2" data-line-number="2"><span class="kw">add_attrDefLabelGroup</span>(dbHandle,</a>
+<a class="sourceLine" id="cb71-3" data-line-number="3">                      <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-4" data-line-number="4">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-5" data-line-number="5">                      <span class="dt">labelGroupName =</span> <span class="st">&quot;longVowels&quot;</span>,</a>
+<a class="sourceLine" id="cb71-6" data-line-number="6">                      <span class="dt">labelGroupValues =</span> <span class="kw">c</span>(<span class="st">&quot;i:&quot;</span>, <span class="st">&quot;u:&quot;</span>))</a>
+<a class="sourceLine" id="cb71-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb71-8" data-line-number="8"><span class="co"># add short vowels label group</span></a>
+<a class="sourceLine" id="cb71-9" data-line-number="9"><span class="kw">add_attrDefLabelGroup</span>(dbHandle,</a>
+<a class="sourceLine" id="cb71-10" data-line-number="10">                      <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-11" data-line-number="11">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-12" data-line-number="12">                      <span class="dt">labelGroupName =</span> <span class="st">&quot;shortVowels&quot;</span>,</a>
+<a class="sourceLine" id="cb71-13" data-line-number="13">                      <span class="dt">labelGroupValues =</span> <span class="kw">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;u&quot;</span>, <span class="st">&quot;@&quot;</span>))</a>
+<a class="sourceLine" id="cb71-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb71-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb71-16" data-line-number="16"><span class="co"># list current label groups</span></a>
+<a class="sourceLine" id="cb71-17" data-line-number="17"><span class="kw">list_attrDefLabelGroups</span>(dbHandle,</a>
+<a class="sourceLine" id="cb71-18" data-line-number="18">                        <span class="dt">levelName =</span> <span class="st">&quot;Phonetic&quot;</span>,</a>
+<a class="sourceLine" id="cb71-19" data-line-number="19">                        <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
 <pre><code>##          name  values
 ## 1  longVowels  i:; u:
 ## 2 shortVowels i; u; @</code></pre>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="co"># query all short vowels</span></a>
-<a class="sourceLine" id="cb80-2" data-line-number="2"><span class="co"># Note the result of this query</span></a>
-<a class="sourceLine" id="cb80-3" data-line-number="3"><span class="co"># is empty as no annotations are present</span></a>
-<a class="sourceLine" id="cb80-4" data-line-number="4"><span class="co"># in the &#39;fromScratch&#39; emuDB</span></a>
-<a class="sourceLine" id="cb80-5" data-line-number="5"><span class="kw">query</span>(dbHandle, <span class="st">&quot;Phonetic == shortVowels&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="co"># query all short vowels</span></a>
+<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="co"># Note the result of this query</span></a>
+<a class="sourceLine" id="cb73-3" data-line-number="3"><span class="co"># is empty as no annotations are present</span></a>
+<a class="sourceLine" id="cb73-4" data-line-number="4"><span class="co"># in the &#39;fromScratch&#39; emuDB</span></a>
+<a class="sourceLine" id="cb73-5" data-line-number="5"><span class="kw">query</span>(dbHandle, <span class="st">&quot;Phonetic == shortVowels&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 0 x 16
 ## # … with 16 variables: labels &lt;chr&gt;, start &lt;dbl&gt;, end &lt;dbl&gt;, db_uuid &lt;chr&gt;,
 ## #   session &lt;chr&gt;, bundle &lt;chr&gt;, start_item_id &lt;int&gt;, end_item_id &lt;int&gt;,
@@ -589,19 +589,19 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <div id="link-definitions" class="section level3">
 <h3><span class="header-section-number">5.2.4</span> Link definitions</h3>
 <p>An essential and very powerful conceptual and structural element of any <code>emuDB</code> is its hierarchy. Using hierarchical structures is highly recommended but not a must. Hierarchical annotations allow for complex, rich data modeling and are often cleaner representations of the annotations at hand. As Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a> contains in-depth explanations of the annotation modeling capabilities of the EMU-SDMS and Chapter <a href="chap-querysys.html#chap:querysys">6</a> shows how these structures can be queried using <code>emuR</code>’s query mechanics, this chapter will omit an explanation of hierarchical annotation structures. The following R code shows how a <code>ONE_TO_MANY</code> relationship between the <code>Word</code> and <code>Phonetic</code> in the form of a link definition is added to an <code>emuDB</code>.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co"># show that currently no link definitions</span></a>
-<a class="sourceLine" id="cb82-2" data-line-number="2"><span class="co"># are present</span></a>
-<a class="sourceLine" id="cb82-3" data-line-number="3"><span class="kw">list_linkDefinitions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="co"># show that currently no link definitions</span></a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"><span class="co"># are present</span></a>
+<a class="sourceLine" id="cb75-3" data-line-number="3"><span class="kw">list_linkDefinitions</span>(dbHandle)</a></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co"># add new &quot;ONE_TO_MANY&quot; link definition</span></a>
-<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="co"># between &quot;Word&quot; and &quot;Phonetic&quot; levels</span></a>
-<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="kw">add_linkDefinition</span>(dbHandle,</a>
-<a class="sourceLine" id="cb84-4" data-line-number="4">                   <span class="dt">type =</span> <span class="st">&quot;ONE_TO_MANY&quot;</span>,</a>
-<a class="sourceLine" id="cb84-5" data-line-number="5">                   <span class="dt">superlevelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
-<a class="sourceLine" id="cb84-6" data-line-number="6">                   <span class="dt">sublevelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a>
-<a class="sourceLine" id="cb84-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb84-8" data-line-number="8"><span class="co"># show newly added link definition</span></a>
-<a class="sourceLine" id="cb84-9" data-line-number="9"><span class="kw">list_linkDefinitions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="co"># add new &quot;ONE_TO_MANY&quot; link definition</span></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="co"># between &quot;Word&quot; and &quot;Phonetic&quot; levels</span></a>
+<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="kw">add_linkDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb77-4" data-line-number="4">                   <span class="dt">type =</span> <span class="st">&quot;ONE_TO_MANY&quot;</span>,</a>
+<a class="sourceLine" id="cb77-5" data-line-number="5">                   <span class="dt">superlevelName =</span> <span class="st">&quot;Word&quot;</span>,</a>
+<a class="sourceLine" id="cb77-6" data-line-number="6">                   <span class="dt">sublevelName =</span> <span class="st">&quot;Phonetic&quot;</span>)</a>
+<a class="sourceLine" id="cb77-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb77-8" data-line-number="8"><span class="co"># show newly added link definition</span></a>
+<a class="sourceLine" id="cb77-9" data-line-number="9"><span class="kw">list_linkDefinitions</span>(dbHandle)</a></code></pre></div>
 <pre><code>##          type superlevelName sublevelName
 ## 1 ONE_TO_MANY           Word     Phonetic</code></pre>
 <p>A schematic of the simple hierarchical structure of the <em>fromScratch</em> created by the above R code is displayed in Figure <a href="chap-emuDB.html#fig:emuDB-fromScratchHier">5.2</a>.</p>
@@ -615,23 +615,23 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <div id="file-handling" class="section level3">
 <h3><span class="header-section-number">5.2.5</span> File handling</h3>
 <p>The previous sections of this chapter defined the simple structure of the <em>fromScratch</em> <code>emuDB</code>. An essential element that is still missing from the <code>emuDB</code> is the actual audio speech data<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>. The following R code example shows how the <code>import_mediaFiles()</code> function can be used to import audio files, referred to as media files in the context of an <code>emuDB</code>, into the <em>fromScratch</em> <code>emuDB</code>.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="co"># get the path to directory containing .wav files</span></a>
-<a class="sourceLine" id="cb86-2" data-line-number="2">wavDir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;txt_collection&quot;</span>)</a>
-<a class="sourceLine" id="cb86-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb86-4" data-line-number="4"><span class="co"># Import media files into emuDB session called fromWavFiles.</span></a>
-<a class="sourceLine" id="cb86-5" data-line-number="5"><span class="co"># Note that the txt_collection directory also contains .txt files.</span></a>
-<a class="sourceLine" id="cb86-6" data-line-number="6"><span class="co"># These are simply ignored by the import_mediaFiles() function.</span></a>
-<a class="sourceLine" id="cb86-7" data-line-number="7"><span class="kw">import_mediaFiles</span>(dbHandle,</a>
-<a class="sourceLine" id="cb86-8" data-line-number="8">                  <span class="dt">dir =</span> wavDir,</a>
-<a class="sourceLine" id="cb86-9" data-line-number="9">                  <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>,</a>
-<a class="sourceLine" id="cb86-10" data-line-number="10">                  <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb86-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb86-12" data-line-number="12"><span class="co"># list session</span></a>
-<a class="sourceLine" id="cb86-13" data-line-number="13"><span class="kw">list_sessions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="co"># get the path to directory containing .wav files</span></a>
+<a class="sourceLine" id="cb79-2" data-line-number="2">wavDir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;txt_collection&quot;</span>)</a>
+<a class="sourceLine" id="cb79-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb79-4" data-line-number="4"><span class="co"># Import media files into emuDB session called fromWavFiles.</span></a>
+<a class="sourceLine" id="cb79-5" data-line-number="5"><span class="co"># Note that the txt_collection directory also contains .txt files.</span></a>
+<a class="sourceLine" id="cb79-6" data-line-number="6"><span class="co"># These are simply ignored by the import_mediaFiles() function.</span></a>
+<a class="sourceLine" id="cb79-7" data-line-number="7"><span class="kw">import_mediaFiles</span>(dbHandle,</a>
+<a class="sourceLine" id="cb79-8" data-line-number="8">                  <span class="dt">dir =</span> wavDir,</a>
+<a class="sourceLine" id="cb79-9" data-line-number="9">                  <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>,</a>
+<a class="sourceLine" id="cb79-10" data-line-number="10">                  <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb79-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb79-12" data-line-number="12"><span class="co"># list session</span></a>
+<a class="sourceLine" id="cb79-13" data-line-number="13"><span class="kw">list_sessions</span>(dbHandle)</a></code></pre></div>
 <pre><code>##           name
 ## 1 fromWavFiles</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="co"># list bundles</span></a>
-<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="kw">list_bundles</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co"># list bundles</span></a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">list_bundles</span>(dbHandle)</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 2
 ##   session      name    
 ##   &lt;chr&gt;        &lt;chr&gt;   
@@ -642,44 +642,44 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 ## 5 fromWavFiles msajc022
 ## 6 fromWavFiles msajc023
 ## 7 fromWavFiles msajc057</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># show first two files in the emuDB</span></a>
-<a class="sourceLine" id="cb90-2" data-line-number="2"><span class="kw">library</span>(tibble) <span class="co"># convert to tibble only to prettify output</span></a>
-<a class="sourceLine" id="cb90-3" data-line-number="3"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="co"># show first two files in the emuDB</span></a>
+<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="kw">library</span>(tibble) <span class="co"># convert to tibble only to prettify output</span></a>
+<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">2</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmphQPeS4/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmphQPeS4/fromScratch_emuDB/fromWavFile…</code></pre>
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…</code></pre>
 <p>The <code>import_mediaFiles()</code> call above added a new session called <code>fromWavFiles</code> to the <em>fromScratch</em> <code>emuDB</code> containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every <code>_annot.json</code> file created contains an empty <code>Word</code> and <code>Phonetic</code> level array and the links array is also empty.</p>
 <p>The <code>emuR</code> package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an <code>emuDB</code>. The following R code shows how preexisting <code>.zcr</code> files that are produced by <code>wrassp</code>’s <code>zcrana()</code> function can be added to the preexisting session and bundle structure. As the directory referenced by <code>wavDir</code> does not contain any <code>.zcr</code> files, the next R code example first creates them and then adds them to the <code>emuDB</code> (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="co"># load wrassp package</span></a>
-<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">library</span>(wrassp)</a>
-<a class="sourceLine" id="cb92-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb92-4" data-line-number="4"><span class="co"># list all wav files in wavDir</span></a>
-<a class="sourceLine" id="cb92-5" data-line-number="5">wavFilePaths =<span class="st"> </span><span class="kw">list.files</span>(wavDir,</a>
-<a class="sourceLine" id="cb92-6" data-line-number="6">                          <span class="dt">pattern =</span> <span class="st">&quot;.*.wav&quot;</span>,</a>
-<a class="sourceLine" id="cb92-7" data-line-number="7">                          <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb92-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb92-9" data-line-number="9"><span class="co"># calculate zero-crossing-rate files</span></a>
-<a class="sourceLine" id="cb92-10" data-line-number="10"><span class="co"># using zcrana function of wrassp package</span></a>
-<a class="sourceLine" id="cb92-11" data-line-number="11"><span class="kw">zcrana</span>(<span class="dt">listOfFiles =</span> wavFilePaths,</a>
-<a class="sourceLine" id="cb92-12" data-line-number="12">       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="co"># load wrassp package</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">library</span>(wrassp)</a>
+<a class="sourceLine" id="cb85-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb85-4" data-line-number="4"><span class="co"># list all wav files in wavDir</span></a>
+<a class="sourceLine" id="cb85-5" data-line-number="5">wavFilePaths =<span class="st"> </span><span class="kw">list.files</span>(wavDir,</a>
+<a class="sourceLine" id="cb85-6" data-line-number="6">                          <span class="dt">pattern =</span> <span class="st">&quot;.*.wav&quot;</span>,</a>
+<a class="sourceLine" id="cb85-7" data-line-number="7">                          <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb85-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb85-9" data-line-number="9"><span class="co"># calculate zero-crossing-rate files</span></a>
+<a class="sourceLine" id="cb85-10" data-line-number="10"><span class="co"># using zcrana function of wrassp package</span></a>
+<a class="sourceLine" id="cb85-11" data-line-number="11"><span class="kw">zcrana</span>(<span class="dt">listOfFiles =</span> wavFilePaths,</a>
+<a class="sourceLine" id="cb85-12" data-line-number="12">       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="co"># add zcr files to emuDB</span></a>
-<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="kw">add_files</span>(dbHandle,</a>
-<a class="sourceLine" id="cb94-3" data-line-number="3">          <span class="dt">dir =</span> wavDir,</a>
-<a class="sourceLine" id="cb94-4" data-line-number="4">          <span class="dt">fileExtension =</span> <span class="st">&quot;zcr&quot;</span>,</a>
-<a class="sourceLine" id="cb94-5" data-line-number="5">          <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>)</a>
-<a class="sourceLine" id="cb94-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb94-7" data-line-number="7"><span class="co"># show first three files in emuDB (convert to tibble only</span></a>
-<a class="sourceLine" id="cb94-8" data-line-number="8"><span class="co"># to prettify output)</span></a>
-<a class="sourceLine" id="cb94-9" data-line-number="9"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">3</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="co"># add zcr files to emuDB</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2"><span class="kw">add_files</span>(dbHandle,</a>
+<a class="sourceLine" id="cb87-3" data-line-number="3">          <span class="dt">dir =</span> wavDir,</a>
+<a class="sourceLine" id="cb87-4" data-line-number="4">          <span class="dt">fileExtension =</span> <span class="st">&quot;zcr&quot;</span>,</a>
+<a class="sourceLine" id="cb87-5" data-line-number="5">          <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>)</a>
+<a class="sourceLine" id="cb87-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb87-7" data-line-number="7"><span class="co"># show first three files in emuDB (convert to tibble only</span></a>
+<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="co"># to prettify output)</span></a>
+<a class="sourceLine" id="cb87-9" data-line-number="9"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">3</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 4
 ##   session    bundle  file         absolute_file_path                            
 ##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmphQPeS4/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmphQPeS4/fromScratch_emuDB/fromWavFile…
-## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmphQPeS4/fromScratch_emuDB/fromWavFile…</code></pre>
+## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…
+## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…
+## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…</code></pre>
 </div>
 <div id="ssff-track-definitions" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> SSFF track definitions</h3>
@@ -689,38 +689,38 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <li>derived data, that is data that was calculated from the original audio signal such as formant values and their bandwidths or the short-term Root Mean Square amplitude of the signal.</li>
 </ul>
 <p>As Section <a href="chap-wrassp.html#sec:wrassp-emu-sdms">8.7</a> covers how the SSFF file output of a <code>wrassp</code> function can be added to an <code>emuDB</code>, an explanation will be omitted here. The following R code snippet shows how the <code>.zcr</code> files added in the R example above can be added as an SSFF track definition (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="co"># show that no SSFF track definitions</span></a>
-<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="co"># are present</span></a>
-<a class="sourceLine" id="cb96-3" data-line-number="3"><span class="kw">list_ssffTrackDefinitions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># show that no SSFF track definitions</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="co"># are present</span></a>
+<a class="sourceLine" id="cb89-3" data-line-number="3"><span class="kw">list_ssffTrackDefinitions</span>(dbHandle)</a></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="co"># add SSFF track definition to emuDB</span></a>
-<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">add_ssffTrackDefinition</span>(dbHandle,</a>
-<a class="sourceLine" id="cb98-3" data-line-number="3">                        <span class="dt">name =</span> <span class="st">&quot;zeroCrossing&quot;</span>,</a>
-<a class="sourceLine" id="cb98-4" data-line-number="4">                        <span class="dt">columnName =</span> <span class="st">&quot;zcr&quot;</span>,</a>
-<a class="sourceLine" id="cb98-5" data-line-number="5">                        <span class="dt">fileExtension =</span> <span class="st">&quot;zcr&quot;</span>)</a>
-<a class="sourceLine" id="cb98-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb98-7" data-line-number="7"><span class="co"># show newly added SSFF track definition</span></a>
-<a class="sourceLine" id="cb98-8" data-line-number="8"><span class="kw">list_ssffTrackDefinitions</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co"># add SSFF track definition to emuDB</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="kw">add_ssffTrackDefinition</span>(dbHandle,</a>
+<a class="sourceLine" id="cb91-3" data-line-number="3">                        <span class="dt">name =</span> <span class="st">&quot;zeroCrossing&quot;</span>,</a>
+<a class="sourceLine" id="cb91-4" data-line-number="4">                        <span class="dt">columnName =</span> <span class="st">&quot;zcr&quot;</span>,</a>
+<a class="sourceLine" id="cb91-5" data-line-number="5">                        <span class="dt">fileExtension =</span> <span class="st">&quot;zcr&quot;</span>)</a>
+<a class="sourceLine" id="cb91-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb91-7" data-line-number="7"><span class="co"># show newly added SSFF track definition</span></a>
+<a class="sourceLine" id="cb91-8" data-line-number="8"><span class="kw">list_ssffTrackDefinitions</span>(dbHandle)</a></code></pre></div>
 <pre><code>##           name columnName fileExtension
 ## 1 zeroCrossing        zcr           zcr</code></pre>
 </div>
 <div id="configuring-the-emu-webapp-and-annotating-the-emudb" class="section level3">
 <h3><span class="header-section-number">5.2.7</span> Configuring the <code>EMU-webApp</code> and annotating the <code>emuDB</code></h3>
 <p>As previously mentioned, the current <em>fromScratch</em> <code>emuDB</code> contains only empty levels. In order to start annotating the database, the <code>EMU-webApp</code> has to be configured to display the desired information. Although the configuration of the <code>EMU-webApp</code> is stored in the <code>_DBconfig.json</code> file and is therefore a part of the <code>emuDB</code> format, here we will omit an explanation of the extensive possibilities of configuring the web application (see Chapter <a href="chap-emu-webApp.html#chap:emu-webApp">9</a> for an in-depth explanation). The R code snippet below shows how the <code>Phonetic</code> level is added to the level canvases order array of the <em>default</em> perspective.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="co"># show empty level canvases order</span></a>
-<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="kw">get_levelCanvasesOrder</span>(dbHandle, <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="co"># show empty level canvases order</span></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2"><span class="kw">get_levelCanvasesOrder</span>(dbHandle, <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
 <pre><code>## NULL</code></pre>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co"># set level canvases order to display &quot;Phonetic&quot; level</span></a>
-<a class="sourceLine" id="cb102-2" data-line-number="2"><span class="kw">set_levelCanvasesOrder</span>(dbHandle,</a>
-<a class="sourceLine" id="cb102-3" data-line-number="3">                       <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,</a>
-<a class="sourceLine" id="cb102-4" data-line-number="4">                       <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;Phonetic&quot;</span>))</a>
-<a class="sourceLine" id="cb102-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb102-6" data-line-number="6"><span class="co"># show newly added level canvases order</span></a>
-<a class="sourceLine" id="cb102-7" data-line-number="7"><span class="kw">get_levelCanvasesOrder</span>(dbHandle, <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="co"># set level canvases order to display &quot;Phonetic&quot; level</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="kw">set_levelCanvasesOrder</span>(dbHandle,</a>
+<a class="sourceLine" id="cb95-3" data-line-number="3">                       <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>,</a>
+<a class="sourceLine" id="cb95-4" data-line-number="4">                       <span class="dt">order =</span> <span class="kw">c</span>(<span class="st">&quot;Phonetic&quot;</span>))</a>
+<a class="sourceLine" id="cb95-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb95-6" data-line-number="6"><span class="co"># show newly added level canvases order</span></a>
+<a class="sourceLine" id="cb95-7" data-line-number="7"><span class="kw">get_levelCanvasesOrder</span>(dbHandle, <span class="dt">perspectiveName =</span> <span class="st">&quot;default&quot;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;Phonetic&quot;</code></pre>
 <p>As a final step before beginning the annotation process, the <em>fromScratch</em> <code>emuDB</code> has to be served to the <code>EMU-webApp</code> for annotation and visualization purposes. The code below shows how this can be achieved using the <code>serve()</code> function.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="co"># serve &quot;fromScratch&quot; emuDB to the EMU-webApp</span></a>
-<a class="sourceLine" id="cb104-2" data-line-number="2"><span class="kw">serve</span>(dbHandle)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="co"># serve &quot;fromScratch&quot; emuDB to the EMU-webApp</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="kw">serve</span>(dbHandle)</a></code></pre></div>
 </div>
 </div>
 <div id="conclusion-2" class="section level2">
@@ -776,12 +776,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -793,6 +792,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
