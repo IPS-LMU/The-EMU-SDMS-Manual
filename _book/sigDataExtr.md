@@ -53,9 +53,7 @@ list_ssffTrackDefinitions(ae)
 ai_segs = query(ae, "Phonetic == ai")
 
 # get "fm" track data for these segments
-# Note that verbose is set to FALSE
-# only to avoid a progress bar
-# being printed in this document.
+# (verbose = F is only set to avoid additional output in manual)
 ai_td_fm = get_trackdata(ae,
                          seglist = ai_segs,
                          ssffTrackName = "fm",
@@ -90,6 +88,7 @@ Being able to access data that is stored in files is important for two main reas
 
 ```r
 # get media file samples
+# (verbose = F is only set to avoid additional output in manual)
 ai_td_mfs = get_trackdata(ae,
                           seglist = ai_segs,
                           ssffTrackName = "MEDIAFILE_SAMPLES",
@@ -127,6 +126,7 @@ As described in detail in Section \@ref(sec:wrassp-emu-sdms), the signal process
 ```r
 # add new track and calculate
 # .f0 files on-the-fly using wrassp::ksvF0()
+# (verbose = F is only set to avoid additional output in manual)
 add_ssffTrackDefinition(ae,
                         name = "F0",
                         onTheFlyFunctionName = "ksvF0",
@@ -152,17 +152,18 @@ list_files(ae, fileExtension = "f0")
 ## # A tibble: 7 x 4
 ##   session bundle   file      absolute_file_path                                 
 ##   <chr>   <chr>    <chr>     <chr>                                              
-## 1 0000    msajc003 msajc003… /tmp/RtmpEmP0Ec/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 2 0000    msajc010 msajc010… /tmp/RtmpEmP0Ec/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 3 0000    msajc012 msajc012… /tmp/RtmpEmP0Ec/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 4 0000    msajc015 msajc015… /tmp/RtmpEmP0Ec/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 5 0000    msajc022 msajc022… /tmp/RtmpEmP0Ec/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 6 0000    msajc023 msajc023… /tmp/RtmpEmP0Ec/emuR_demoData/ae_emuDB/0000_ses/ms…
-## 7 0000    msajc057 msajc057… /tmp/RtmpEmP0Ec/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 1 0000    msajc003 msajc003… /tmp/RtmprxkHXR/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 2 0000    msajc010 msajc010… /tmp/RtmprxkHXR/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 3 0000    msajc012 msajc012… /tmp/RtmprxkHXR/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 4 0000    msajc015 msajc015… /tmp/RtmprxkHXR/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 5 0000    msajc022 msajc022… /tmp/RtmprxkHXR/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 6 0000    msajc023 msajc023… /tmp/RtmprxkHXR/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 7 0000    msajc057 msajc057… /tmp/RtmprxkHXR/emuR_demoData/ae_emuDB/0000_ses/ms…
 ```
 
 ```r
 # extract newly added trackdata
+# (verbose = F is only set to avoid additional output in manual)
 ai_td = get_trackdata(ae,
                       seglist = ai_segs,
                       ssffTrackName = "F0",
@@ -200,6 +201,7 @@ With the `wrassp` package, we were able to implement a new form of signal data e
 
 
 ```r
+# (verbose = F is only set to avoid additional output in manual)
 ai_td_pit = get_trackdata(ae,
                           seglist = ai_segs,
                           onTheFlyFunctionName = "mhsF0",

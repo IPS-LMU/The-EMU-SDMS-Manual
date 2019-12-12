@@ -451,7 +451,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] &quot;AsspDataObj&quot;</code></pre>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="co"># show print() output of object</span></a>
 <a class="sourceLine" id="cb158-2" data-line-number="2"><span class="kw">print</span>(au)</a></code></pre></div>
-<pre><code>## Assp Data Object of file /tmp/RtmpZa1kqo/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+<pre><code>## Assp Data Object of file /tmp/RtmpUQuPBG/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 20000
 ## 
 ## $filePath
-## [1] &quot;/tmp/RtmpZa1kqo/emuR_demoData/ae_emuDB/0000_s...&quot;
+## [1] &quot;/tmp/RtmpUQuPBG/emuR_demoData/ae_emuDB/0000_s...&quot;
 ## 
 ## $origFreq
 ## [1] 0
@@ -690,7 +690,7 @@ Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rms
 <a class="sourceLine" id="cb197-2" data-line-number="2"><span class="kw">readLines</span>(path2logFile)[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;&quot;                                   &quot;##################################&quot;
 ## [3] &quot;##################################&quot; &quot;######## ksvF0 performed ########&quot; 
-## [5] &quot;Timestamp:  2019-12-12 12:30:16 &quot;   &quot;windowShift : 10 &quot;                 
+## [5] &quot;Timestamp:  2019-12-12 16:43:07 &quot;   &quot;windowShift : 10 &quot;                 
 ## [7] &quot;forceToLog : T &quot;                    &quot; =&gt; on files:&quot;</code></pre>
 </div>
 <div id="sec:wrassp-emu-sdms" class="section level2">
@@ -729,19 +729,21 @@ Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rms
 <a class="sourceLine" id="cb202-9" data-line-number="9"><span class="co"># get trackdata calculating ZCR values on-the-fly</span></a>
 <a class="sourceLine" id="cb202-10" data-line-number="10"><span class="co"># using the above parameters. Note that no files</span></a>
 <a class="sourceLine" id="cb202-11" data-line-number="11"><span class="co"># are generated.</span></a>
-<a class="sourceLine" id="cb202-12" data-line-number="12">td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl,</a>
-<a class="sourceLine" id="cb202-13" data-line-number="13">                   <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;zcrana&quot;</span>,</a>
-<a class="sourceLine" id="cb202-14" data-line-number="14">                   <span class="dt">onTheFlyParams =</span> zcranaParams,</a>
-<a class="sourceLine" id="cb202-15" data-line-number="15">                   <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb202-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb202-12" data-line-number="12"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb202-13" data-line-number="13">td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, sl,</a>
+<a class="sourceLine" id="cb202-14" data-line-number="14">                   <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;zcrana&quot;</span>,</a>
+<a class="sourceLine" id="cb202-15" data-line-number="15">                   <span class="dt">onTheFlyParams =</span> zcranaParams,</a>
+<a class="sourceLine" id="cb202-16" data-line-number="16">                   <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb202-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb202-18" data-line-number="18"><span class="co"># add SSFF track definition. Note that</span></a>
-<a class="sourceLine" id="cb202-19" data-line-number="19"><span class="co"># this time files are generated.</span></a>
-<a class="sourceLine" id="cb202-20" data-line-number="20"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
-<a class="sourceLine" id="cb202-21" data-line-number="21">                        <span class="dt">name =</span> <span class="st">&quot;zcr&quot;</span>,</a>
-<a class="sourceLine" id="cb202-22" data-line-number="22">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;zcrana&quot;</span>,</a>
-<a class="sourceLine" id="cb202-23" data-line-number="23">                        <span class="dt">onTheFlyParams =</span> zcranaParams,</a>
-<a class="sourceLine" id="cb202-24" data-line-number="24">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb202-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb202-19" data-line-number="19"><span class="co"># add SSFF track definition. Note that</span></a>
+<a class="sourceLine" id="cb202-20" data-line-number="20"><span class="co"># this time files are generated.</span></a>
+<a class="sourceLine" id="cb202-21" data-line-number="21"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb202-22" data-line-number="22"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
+<a class="sourceLine" id="cb202-23" data-line-number="23">                        <span class="dt">name =</span> <span class="st">&quot;zcr&quot;</span>,</a>
+<a class="sourceLine" id="cb202-24" data-line-number="24">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;zcrana&quot;</span>,</a>
+<a class="sourceLine" id="cb202-25" data-line-number="25">                        <span class="dt">onTheFlyParams =</span> zcranaParams,</a>
+<a class="sourceLine" id="cb202-26" data-line-number="26">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 </div>
 <div id="sec:wrassp_genSSFF" class="section level2">
 <h2><span class="header-section-number">8.8</span> Storing data in the SSFF file format</h2>

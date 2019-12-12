@@ -474,7 +474,9 @@ As mentioned in Section \ref{sec:overview-sysArch}, the first step when working 
 \NormalTok{path2directory =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"my-first_emuDB"}\NormalTok{)}
 
 \CommentTok{# load emuDB into current R session}
-\NormalTok{db_handle =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
+\NormalTok{db_handle =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2directory, }
+                       \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -492,8 +494,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     1cda5ddf-6d20-4eeb-beb7-0a2080585cd5 
-## Directory:    /tmp/RtmpAFoZ8C/my-first_emuDB 
+## UUID:     eada418e-d441-48f9-8c91-75ed623e7e9c 
+## Directory:    /tmp/Rtmp8h7X9t/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -602,18 +604,18 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 n      1032. 1196. 1cda5d~ 0000    msajc~            98          98 Phon~
-##  2 n      1741. 1791. 1cda5d~ 0000    msajc~           108         108 Phon~
-##  3 n      1515. 1554. 1cda5d~ 0000    msajc~           113         113 Phon~
-##  4 n      2431. 2528. 1cda5d~ 0000    msajc~           127         127 Phon~
-##  5 n       895. 1023. 1cda5d~ 0000    msajc~            98          98 Phon~
-##  6 n      2402. 2475. 1cda5d~ 0000    msajc~           122         122 Phon~
-##  7 n      2227. 2271. 1cda5d~ 0000    msajc~           132         132 Phon~
-##  8 n      3046. 3068. 1cda5d~ 0000    msajc~           145         145 Phon~
-##  9 n      1435. 1495. 1cda5d~ 0000    msajc~            91          91 Phon~
-## 10 n      1775. 1834. 1cda5d~ 0000    msajc~            96          96 Phon~
-## 11 n       509.  544. 1cda5d~ 0000    msajc~            97          97 Phon~
-## 12 n      2448. 2480. 1cda5d~ 0000    msajc~           130         130 Phon~
+##  1 n      1032. 1196. eada41~ 0000    msajc~            98          98 Phon~
+##  2 n      1741. 1791. eada41~ 0000    msajc~           108         108 Phon~
+##  3 n      1515. 1554. eada41~ 0000    msajc~           113         113 Phon~
+##  4 n      2431. 2528. eada41~ 0000    msajc~           127         127 Phon~
+##  5 n       895. 1023. eada41~ 0000    msajc~            98          98 Phon~
+##  6 n      2402. 2475. eada41~ 0000    msajc~           122         122 Phon~
+##  7 n      2227. 2271. eada41~ 0000    msajc~           132         132 Phon~
+##  8 n      3046. 3068. eada41~ 0000    msajc~           145         145 Phon~
+##  9 n      1435. 1495. eada41~ 0000    msajc~            91          91 Phon~
+## 10 n      1775. 1834. eada41~ 0000    msajc~            96          96 Phon~
+## 11 n       509.  544. eada41~ 0000    msajc~            97          97 Phon~
+## 12 n      2448. 2480. eada41~ 0000    msajc~           130         130 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -700,16 +702,17 @@ As the \texttt{autobuild\_linkFromTimes()} function automatically creates backup
 \begin{Highlighting}[]
 \CommentTok{# remove the levels containing the "-autobuildBackup"}
 \CommentTok{# suffix}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{remove_levelDefinition}\NormalTok{(db_handle,}
                        \DataTypeTok{name =} \StringTok{"Word-autobuildBackup"}\NormalTok{,}
                        \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
                        \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
-
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{remove_levelDefinition}\NormalTok{(db_handle,}
                        \DataTypeTok{name =} \StringTok{"Syllable-autobuildBackup"}\NormalTok{,}
                        \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
                        \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
-
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{remove_levelDefinition}\NormalTok{(db_handle,}
                        \DataTypeTok{name =} \StringTok{"Phoneme-autobuildBackup"}\NormalTok{,}
                        \DataTypeTok{force =} \OtherTok{TRUE}\NormalTok{,}
@@ -774,16 +777,16 @@ Having this hierarchical annotation structure now allows us to formulate a query
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 @      1506. 1548. 1cda5d~ 0000    msajc~           103         103 Phon~
-##  2 @      1715. 1741. 1cda5d~ 0000    msajc~           107         107 Phon~
-##  3 @      1967. 2034. 1cda5d~ 0000    msajc~           112         112 Phon~
-##  4 @      2303. 2362. 1cda5d~ 0000    msajc~           117         117 Phon~
-##  5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119 Phon~
-##  6 @      1917. 1958. 1cda5d~ 0000    msajc~           118         118 Phon~
-##  7 @      2022. 2078. 1cda5d~ 0000    msajc~           120         120 Phon~
-##  8 @      2382. 2431. 1cda5d~ 0000    msajc~           126         126 Phon~
-##  9 @       330.  380. 1cda5d~ 0000    msajc~            91          91 Phon~
-## 10 @      1472. 1490. 1cda5d~ 0000    msajc~           108         108 Phon~
+##  1 @      1506. 1548. eada41~ 0000    msajc~           103         103 Phon~
+##  2 @      1715. 1741. eada41~ 0000    msajc~           107         107 Phon~
+##  3 @      1967. 2034. eada41~ 0000    msajc~           112         112 Phon~
+##  4 @      2303. 2362. eada41~ 0000    msajc~           117         117 Phon~
+##  5 @      2447. 2506. eada41~ 0000    msajc~           119         119 Phon~
+##  6 @      1917. 1958. eada41~ 0000    msajc~           118         118 Phon~
+##  7 @      2022. 2078. eada41~ 0000    msajc~           120         120 Phon~
+##  8 @      2382. 2431. eada41~ 0000    msajc~           126         126 Phon~
+##  9 @       330.  380. eada41~ 0000    msajc~            91          91 Phon~
+## 10 @      1472. 1490. eada41~ 0000    msajc~           108         108 Phon~
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -809,16 +812,16 @@ As the type of word (content vs.~function) for each \emph{@} vowel is also neede
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 F         NA    NA 1cda5d~ 0000    msajc~            16          16 Word 
-##  2 C         NA    NA 1cda5d~ 0000    msajc~            17          17 Word 
-##  3 C         NA    NA 1cda5d~ 0000    msajc~            17          17 Word 
-##  4 C         NA    NA 1cda5d~ 0000    msajc~            18          18 Word 
-##  5 C         NA    NA 1cda5d~ 0000    msajc~            18          18 Word 
-##  6 C         NA    NA 1cda5d~ 0000    msajc~            19          19 Word 
-##  7 C         NA    NA 1cda5d~ 0000    msajc~            20          20 Word 
-##  8 C         NA    NA 1cda5d~ 0000    msajc~            20          20 Word 
-##  9 F         NA    NA 1cda5d~ 0000    msajc~            13          13 Word 
-## 10 F         NA    NA 1cda5d~ 0000    msajc~            17          17 Word 
+##  1 F         NA    NA eada41~ 0000    msajc~            16          16 Word 
+##  2 C         NA    NA eada41~ 0000    msajc~            17          17 Word 
+##  3 C         NA    NA eada41~ 0000    msajc~            17          17 Word 
+##  4 C         NA    NA eada41~ 0000    msajc~            18          18 Word 
+##  5 C         NA    NA eada41~ 0000    msajc~            18          18 Word 
+##  6 C         NA    NA eada41~ 0000    msajc~            19          19 Word 
+##  7 C         NA    NA eada41~ 0000    msajc~            20          20 Word 
+##  8 C         NA    NA eada41~ 0000    msajc~            20          20 Word 
+##  9 F         NA    NA eada41~ 0000    msajc~            13          13 Word 
+## 10 F         NA    NA eada41~ 0000    msajc~            17          17 Word 
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -846,6 +849,7 @@ Now that the vowel and word type information including the vowel start and end t
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# get formant values for the vowel segments}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{td_vowels =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(db_handle,}
                           \DataTypeTok{seglist =}\NormalTok{ sl_vowels,}
                           \DataTypeTok{onTheFlyFunctionName =} \StringTok{"forest"}\NormalTok{,}
@@ -894,18 +898,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  2         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  3         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  4         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  5         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  6         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  7         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  8         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-##  9         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-## 10         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-## 11         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
-## 12         5 @      2447. 2506. 1cda5d~ 0000    msajc~           119         119
+##  1         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  2         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  3         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  4         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  5         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  6         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  7         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  8         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+##  9         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+## 10         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+## 11         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
+## 12         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
 ## # ... with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
@@ -1279,6 +1283,7 @@ The R code snippet below shows how an empty \texttt{emuDB} is created in the dir
 \KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
 
 \CommentTok{# create emuDB called "fromScratch"}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{create_emuDB}\NormalTok{(}\DataTypeTok{name =} \StringTok{"fromScratch"}\NormalTok{,}
              \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(),}
              \DataTypeTok{verbose =}\NormalTok{ F)}
@@ -1303,6 +1308,7 @@ The initial step in manipulating and generally interacting with a database is to
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# load database}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{dbHandle =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(dbPath, }\DataTypeTok{verbose =}\NormalTok{ F)}
 
 \CommentTok{# show summary of dbHandle}
@@ -1312,8 +1318,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     d7c41878-9d23-42fc-9614-6f4ed21873ba 
-## Directory:    /tmp/Rtmp4GG5JC/fromScratch_emuDB 
+## UUID:     6b1f7d58-902f-46ba-8e09-6773db9d7056 
+## Directory:    /tmp/RtmpHzF0aq/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1542,7 +1548,7 @@ A further optional field is the \texttt{labelGroups} field. It contains specific
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# query all short vowels}
-\CommentTok{# Note the result of this query}
+\CommentTok{# Note that the result of this query}
 \CommentTok{# is empty as no annotations are present}
 \CommentTok{# in the 'fromScratch' emuDB}
 \KeywordTok{query}\NormalTok{(dbHandle, }\StringTok{"Phonetic == shortVowels"}\NormalTok{)}
@@ -1622,6 +1628,7 @@ The previous sections of this chapter defined the simple structure of the \emph{
 \CommentTok{# Import media files into emuDB session called fromWavFiles.}
 \CommentTok{# Note that the txt_collection directory also contains .txt files.}
 \CommentTok{# These are simply ignored by the import_mediaFiles() function.}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{import_mediaFiles}\NormalTok{(dbHandle,}
                   \DataTypeTok{dir =}\NormalTok{ wavDir,}
                   \DataTypeTok{targetSessionName =} \StringTok{"fromWavFiles"}\NormalTok{,}
@@ -1659,18 +1666,29 @@ The previous sections of this chapter defined the simple structure of the \emph{
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# show first two files in the emuDB}
-\KeywordTok{library}\NormalTok{(tibble) }\CommentTok{# convert to tibble only to prettify output}
-\KeywordTok{as_tibble}\NormalTok{(}\KeywordTok{head}\NormalTok{(}\KeywordTok{list_files}\NormalTok{(dbHandle), }\DataTypeTok{n =} \DecValTok{2}\NormalTok{))}
+\CommentTok{# show first few files in the emuDB}
+\KeywordTok{list_files}\NormalTok{(dbHandle)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 2 x 4
-##   session    bundle  file         absolute_file_path                            
-##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
-## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
+## # A tibble: 14 x 4
+##    session    bundle  file         absolute_file_path                           
+##    <chr>      <chr>   <chr>        <chr>                                        
+##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  3 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  4 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  5 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  6 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  7 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  8 fromWavFi~ msajc0~ msajc015.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  9 fromWavFi~ msajc0~ msajc022_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+## 10 fromWavFi~ msajc0~ msajc022.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+## 11 fromWavFi~ msajc0~ msajc023_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+## 12 fromWavFi~ msajc0~ msajc023.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+## 13 fromWavFi~ msajc0~ msajc057_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+## 14 fromWavFi~ msajc0~ msajc057.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB} containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every \texttt{\_annot.json} file created contains an empty \texttt{Word} and \texttt{Phonetic} level array and the links array is also empty.
@@ -1689,6 +1707,7 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 
 \CommentTok{# calculate zero-crossing-rate files}
 \CommentTok{# using zcrana function of wrassp package}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{zcrana}\NormalTok{(}\DataTypeTok{listOfFiles =}\NormalTok{ wavFilePaths,}
        \DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
@@ -1706,25 +1725,32 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
           \DataTypeTok{fileExtension =} \StringTok{"zcr"}\NormalTok{,}
           \DataTypeTok{targetSessionName =} \StringTok{"fromWavFiles"}\NormalTok{)}
 
-\CommentTok{# show first three files in emuDB (convert to tibble only}
-\CommentTok{# to prettify output)}
-\KeywordTok{as_tibble}\NormalTok{(}\KeywordTok{head}\NormalTok{(}\KeywordTok{list_files}\NormalTok{(dbHandle), }\DataTypeTok{n =} \DecValTok{3}\NormalTok{))}
+\CommentTok{# show first few files in emuDB}
+\KeywordTok{list_files}\NormalTok{(dbHandle)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 3 x 4
-##   session    bundle  file         absolute_file_path                            
-##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi~ msajc0~ msajc003_an~ /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
-## 2 fromWavFi~ msajc0~ msajc003.wav /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
-## 3 fromWavFi~ msajc0~ msajc003.zcr /tmp/Rtmp4GG5JC/fromScratch_emuDB/fromWavFile~
+## # A tibble: 21 x 4
+##    session    bundle  file         absolute_file_path                           
+##    <chr>      <chr>   <chr>        <chr>                                        
+##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  3 fromWavFi~ msajc0~ msajc003.zcr /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  4 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  5 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  6 fromWavFi~ msajc0~ msajc010.zcr /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  7 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  8 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  9 fromWavFi~ msajc0~ msajc012.zcr /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+## 10 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+## # ... with 11 more rows
 \end{verbatim}
 
 \hypertarget{ssff-track-definitions}{%
 \subsection{SSFF track definitions}\label{ssff-track-definitions}}
 
-A further important structural element of any \texttt{emuDB} is use of the so-called SSFF tracks, which are often simply referred to as tracks. These SSFF tracks reference data that is stored in the SSFF (see Appendix \ref{subsec:app-chapFileFormatsSSFF} for a detailed description of the file format) within the \texttt{\_bndl} directories. The two main types of data are:
+A further important structural element of any \texttt{emuDB} is use of the so-called SSFF tracks, which are often simply referred to as tracks. These SSFF tracks reference data that is stored in the SSFF file format (see Appendix \ref{subsec:app-chapFileFormatsSSFF} for a detailed description of the file format) within the \texttt{\_bndl} directories. The two main types of data are:
 
 \begin{itemize}
 \tightlist
@@ -1843,6 +1869,7 @@ The R code snippet below shows how to create the demo data that is provided by t
 \NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
 
 \CommentTok{# load database}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
@@ -2432,9 +2459,7 @@ To access data that are stored in files, the user has to define tracks for a dat
 \NormalTok{ai_segs =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic == ai"}\NormalTok{)}
 
 \CommentTok{# get "fm" track data for these segments}
-\CommentTok{# Note that verbose is set to FALSE}
-\CommentTok{# only to avoid a progress bar}
-\CommentTok{# being printed in this document.}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ai_td_fm =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
                          \DataTypeTok{seglist =}\NormalTok{ ai_segs,}
                          \DataTypeTok{ssffTrackName =} \StringTok{"fm"}\NormalTok{,}
@@ -2470,6 +2495,7 @@ Being able to access data that is stored in files is important for two main reas
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# get media file samples}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ai_td_mfs =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
                           \DataTypeTok{seglist =}\NormalTok{ ai_segs,}
                           \DataTypeTok{ssffTrackName =} \StringTok{"MEDIAFILE_SAMPLES"}\NormalTok{,}
@@ -2509,6 +2535,7 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 \begin{Highlighting}[]
 \CommentTok{# add new track and calculate}
 \CommentTok{# .f0 files on-the-fly using wrassp::ksvF0()}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{add_ssffTrackDefinition}\NormalTok{(ae,}
                         \DataTypeTok{name =} \StringTok{"F0"}\NormalTok{,}
                         \DataTypeTok{onTheFlyFunctionName =} \StringTok{"ksvF0"}\NormalTok{,}
@@ -2537,18 +2564,19 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 ## # A tibble: 7 x 4
 ##   session bundle   file      absolute_file_path                                 
 ##   <chr>   <chr>    <chr>     <chr>                                              
-## 1 0000    msajc003 msajc003~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 2 0000    msajc010 msajc010~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 3 0000    msajc012 msajc012~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 4 0000    msajc015 msajc015~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 5 0000    msajc022 msajc022~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 6 0000    msajc023 msajc023~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 7 0000    msajc057 msajc057~ /tmp/Rtmp974wFj/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 1 0000    msajc003 msajc003~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 2 0000    msajc010 msajc010~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 3 0000    msajc012 msajc012~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 4 0000    msajc015 msajc015~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 5 0000    msajc022 msajc022~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 6 0000    msajc023 msajc023~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 7 0000    msajc057 msajc057~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# extract newly added trackdata}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ai_td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
                       \DataTypeTok{seglist =}\NormalTok{ ai_segs,}
                       \DataTypeTok{ssffTrackName =} \StringTok{"F0"}\NormalTok{,}
@@ -2586,6 +2614,7 @@ With the \texttt{wrassp} package, we were able to implement a new form of signal
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ai_td_pit =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
                           \DataTypeTok{seglist =}\NormalTok{ ai_segs,}
                           \DataTypeTok{onTheFlyFunctionName =} \StringTok{"mhsF0"}\NormalTok{,}
@@ -2784,7 +2813,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /tmp/Rtmp34plrN/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/RtmpIzmTzz/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -2850,7 +2879,7 @@ As can be seen in the above R code snippet, the resulting \texttt{au} object is 
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/Rtmp34plrN/emuR_demoData/ae_emuDB/0000_s..."
+## [1] "/tmp/RtmpIzmTzz/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -3201,7 +3230,7 @@ As it can be extremely important to keep track of information about how certain 
 \begin{verbatim}
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-12-12 12:32:17 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2019-12-12 16:45:28 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 \end{verbatim}
 
@@ -3259,6 +3288,7 @@ A further way to utilize \texttt{wrassp}'s signal processing functions as part o
 \CommentTok{# get trackdata calculating ZCR values on-the-fly}
 \CommentTok{# using the above parameters. Note that no files}
 \CommentTok{# are generated.}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, sl,}
                    \DataTypeTok{onTheFlyFunctionName =} \StringTok{"zcrana"}\NormalTok{,}
                    \DataTypeTok{onTheFlyParams =}\NormalTok{ zcranaParams,}
@@ -3267,6 +3297,7 @@ A further way to utilize \texttt{wrassp}'s signal processing functions as part o
 
 \CommentTok{# add SSFF track definition. Note that}
 \CommentTok{# this time files are generated.}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{add_ssffTrackDefinition}\NormalTok{(ae,}
                         \DataTypeTok{name =} \StringTok{"zcr"}\NormalTok{,}
                         \DataTypeTok{onTheFlyFunctionName =} \StringTok{"zcrana"}\NormalTok{,}
@@ -3599,6 +3630,7 @@ The R code snippet below shows how to create and load the demo data that will be
 \NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(}\KeywordTok{tempdir}\NormalTok{(), }\StringTok{"emuR_demoData"}\NormalTok{, }\StringTok{"ae_emuDB"}\NormalTok{)}
 
 \CommentTok{# load database}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
@@ -4012,8 +4044,11 @@ Similar to the \texttt{convert\_TextGridCollection()} function, the \texttt{emuR
                            \StringTok{"BPF_collection"}\NormalTok{)}
 
 \CommentTok{# convert this BPFCollection to the emuDB format}
-\KeywordTok{convert_BPFCollection}\NormalTok{(path2directory, }\DataTypeTok{dbName =} \StringTok{'myBPF-DB'}\NormalTok{,}
-                      \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(), }\DataTypeTok{verbose =}\NormalTok{ F)}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
+\KeywordTok{convert_BPFCollection}\NormalTok{(path2directory, }
+                      \DataTypeTok{dbName =} \StringTok{'myBPF-DB'}\NormalTok{,}
+                      \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(), }
+                      \DataTypeTok{verbose =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4033,6 +4068,7 @@ A further conversion routine provided by the \texttt{emuR} package is the \textt
                            \StringTok{"txt_collection"}\NormalTok{)}
 
 \CommentTok{# convert this txtCollection to the emuDB format}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{convert_txtCollection}\NormalTok{(}\DataTypeTok{sourceDir =}\NormalTok{ path2directory,}
                       \DataTypeTok{dbName =} \StringTok{"txtCol"}\NormalTok{,}
                       \DataTypeTok{targetDir =} \KeywordTok{tempdir}\NormalTok{(),}
@@ -7850,6 +7886,7 @@ How this function can be applied to wav files of an emuDB is shown below.
 \NormalTok{\}}
 
 \CommentTok{# load emuDB}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
 \CommentTok{# add SSFF track definition}
@@ -7861,7 +7898,11 @@ How this function can be applied to wav files of an emuDB is shown below.
 \CommentTok{# test query + get_trackdata}
 \NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic == n"}\NormalTok{)}
 
-\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, sl, }\DataTypeTok{ssffTrackName =} \StringTok{"praatFms"}\NormalTok{, }\DataTypeTok{verbose =}\NormalTok{ F)}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
+\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, }
+\NormalTok{                   sl, }
+                   \DataTypeTok{ssffTrackName =} \StringTok{"praatFms"}\NormalTok{, }
+                   \DataTypeTok{verbose =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8083,6 +8124,7 @@ How this function can be applied to wav files of an emuDB is shown below.
 \NormalTok{\}}
 
 \CommentTok{# load emuDB}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
 \CommentTok{# add SSFF track definition}
@@ -8093,8 +8135,11 @@ How this function can be applied to wav files of an emuDB is shown below.
 
 \CommentTok{# test query + get_trackdata}
 \NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic == n"}\NormalTok{)}
-
-\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, sl, }\DataTypeTok{ssffTrackName =} \StringTok{"praatF0"}\NormalTok{, }\DataTypeTok{verbose =}\NormalTok{ F)}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
+\NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae, }
+\NormalTok{                   sl, }
+                   \DataTypeTok{ssffTrackName =} \StringTok{"praatF0"}\NormalTok{, }
+                   \DataTypeTok{verbose =}\NormalTok{ F)}
 
 \CommentTok{# configure EMU-webApp to show new track}
 \NormalTok{sc_order =}\StringTok{ }\KeywordTok{get_signalCanvasesOrder}\NormalTok{(ae, }\StringTok{"default"}\NormalTok{)}
@@ -8226,6 +8271,7 @@ How this function can be applied to wav files of an emuDB is shown below.
 \NormalTok{\}}
 
 \CommentTok{# load emuDB}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
 
 \CommentTok{# add SSFF track definition}
@@ -8236,7 +8282,7 @@ How this function can be applied to wav files of an emuDB is shown below.
 
 \CommentTok{# test query + get_trackdata}
 \NormalTok{sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }\StringTok{"Phonetic == n"}\NormalTok{)}
-
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{td =}\StringTok{ }\KeywordTok{get_trackdata}\NormalTok{(ae,}
 \NormalTok{                   sl,}
                    \DataTypeTok{ssffTrackName =} \StringTok{"SMILExtract"}\NormalTok{,}
@@ -8292,6 +8338,7 @@ Let us now load the needed libraries and create a demo emuDB to play with:
 \NormalTok{path2ae =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(demo_data_dir, }\StringTok{"ae_emuDB"}\NormalTok{)}
 
 \CommentTok{# load database}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =}\NormalTok{ F)}
 
 \KeywordTok{list_ssffTrackDefinitions}\NormalTok{(ae)}
@@ -8304,6 +8351,7 @@ The procedure to calculate your own dft-files is identical to that of calculatin
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \KeywordTok{add_ssffTrackDefinition}\NormalTok{(ae,}
                         \DataTypeTok{name =} \StringTok{"dft"}\NormalTok{,}
                         \DataTypeTok{onTheFlyFunctionName =} \StringTok{"dftSpectrum"}\NormalTok{,}
@@ -8910,6 +8958,7 @@ Another use-case for dct-smoothing are bumpy formant tracks. Consider e.g.~this 
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =}\NormalTok{ F)}
 \NormalTok{i.sl =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae, }
              \DataTypeTok{query =} \StringTok{"[Phonetic == i:]"}\NormalTok{)}
@@ -9217,6 +9266,7 @@ This recipe contains various plotting snippets for various visualization challen
                     \StringTok{"ae_emuDB"}\NormalTok{)}
 
 \CommentTok{# load database}
+\CommentTok{# (verbose = F is only set to avoid additional output in manual)}
 \NormalTok{ae =}\StringTok{ }\KeywordTok{load_emuDB}\NormalTok{(path2ae, }\DataTypeTok{verbose =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
@@ -9519,7 +9569,7 @@ Now we will add everything to the Git repository and create our initial commit. 
 \end{Shaded}
 
 \begin{verbatim}
-## [143e49e] 2019-12-12: initial commit
+## [c7dee10] 2019-12-12: initial commit
 \end{verbatim}
 
 This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -9668,7 +9718,7 @@ These files describe, what bundles are allocated to a certain user. The name of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/Rtmpxa8bUx/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpruWSne/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 \end{verbatim}
 
 \begin{Shaded}

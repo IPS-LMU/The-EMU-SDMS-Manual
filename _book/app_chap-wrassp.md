@@ -158,6 +158,7 @@ for(fp in paths2wavFiles){
 }
 
 # load emuDB
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = FALSE)
 
 # add SSFF track definition
@@ -169,7 +170,11 @@ add_ssffTrackDefinition(ae,
 # test query + get_trackdata
 sl = query(ae, "Phonetic == n")
 
-td = get_trackdata(ae, sl, ssffTrackName = "praatFms", verbose = F)
+# (verbose = F is only set to avoid additional output in manual)
+td = get_trackdata(ae, 
+                   sl, 
+                   ssffTrackName = "praatFms", 
+                   verbose = F)
 ```
 
 
@@ -376,6 +381,7 @@ for(fp in paths2wavFiles){
 }
 
 # load emuDB
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = FALSE)
 
 # add SSFF track definition
@@ -386,8 +392,11 @@ add_ssffTrackDefinition(ae,
 
 # test query + get_trackdata
 sl = query(ae, "Phonetic == n")
-
-td = get_trackdata(ae, sl, ssffTrackName = "praatF0", verbose = F)
+# (verbose = F is only set to avoid additional output in manual)
+td = get_trackdata(ae, 
+                   sl, 
+                   ssffTrackName = "praatF0", 
+                   verbose = F)
 
 # configure EMU-webApp to show new track
 sc_order = get_signalCanvasesOrder(ae, "default")
@@ -520,6 +529,7 @@ for(fp in paths2wavFiles){
 }
 
 # load emuDB
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = FALSE)
 
 # add SSFF track definition
@@ -530,7 +540,7 @@ add_ssffTrackDefinition(ae,
 
 # test query + get_trackdata
 sl = query(ae, "Phonetic == n")
-
+# (verbose = F is only set to avoid additional output in manual)
 td = get_trackdata(ae,
                    sl,
                    ssffTrackName = "SMILExtract",

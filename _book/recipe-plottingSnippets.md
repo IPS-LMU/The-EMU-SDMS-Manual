@@ -21,6 +21,7 @@ path2ae = file.path(demo_data_dir,
                     "ae_emuDB")
 
 # load database
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = F)
 ```
 

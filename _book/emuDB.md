@@ -49,6 +49,7 @@ library(emuR, warn.conflicts = F)
 create_emuRdemoData(dir = tempdir())
 
 # create emuDB called "fromScratch"
+# (verbose = F is only set to avoid additional output in manual)
 create_emuDB(name = "fromScratch",
              targetDir = tempdir(),
              verbose = F)
@@ -71,6 +72,7 @@ The initial step in manipulating and generally interacting with a database is to
 
 ```r
 # load database
+# (verbose = F is only set to avoid additional output in manual)
 dbHandle = load_emuDB(dbPath, verbose = F)
 
 # show summary of dbHandle
@@ -79,8 +81,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 c321d853-2803-448a-8ad5-eb5216e274be 
-## Directory:	 /tmp/Rtmpqhkpwz/fromScratch_emuDB 
+## UUID:	 d422782b-f5f8-4297-9d61-1b33ea1d698f 
+## Directory:	 /tmp/RtmplIxRO2/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -289,7 +291,7 @@ list_attrDefLabelGroups(dbHandle,
 
 ```r
 # query all short vowels
-# Note the result of this query
+# Note that the result of this query
 # is empty as no annotations are present
 # in the 'fromScratch' emuDB
 query(dbHandle, "Phonetic == shortVowels")
@@ -363,6 +365,7 @@ wavDir = file.path(tempdir(), "emuR_demoData", "txt_collection")
 # Import media files into emuDB session called fromWavFiles.
 # Note that the txt_collection directory also contains .txt files.
 # These are simply ignored by the import_mediaFiles() function.
+# (verbose = F is only set to avoid additional output in manual)
 import_mediaFiles(dbHandle,
                   dir = wavDir,
                   targetSessionName = "fromWavFiles",
@@ -396,17 +399,28 @@ list_bundles(dbHandle)
 ```
 
 ```r
-# show first two files in the emuDB
-library(tibble) # convert to tibble only to prettify output
-as_tibble(head(list_files(dbHandle), n = 2))
+# show first few files in the emuDB
+list_files(dbHandle)
 ```
 
 ```
-## # A tibble: 2 x 4
-##   session    bundle  file         absolute_file_path                            
-##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/Rtmpqhkpwz/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/Rtmpqhkpwz/fromScratch_emuDB/fromWavFile…
+## # A tibble: 14 x 4
+##    session    bundle  file         absolute_file_path                           
+##    <chr>      <chr>   <chr>        <chr>                                        
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc010_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc012_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc012.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc015_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc015.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc022_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc022.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+## 11 fromWavFi… msajc0… msajc023_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+## 12 fromWavFi… msajc0… msajc023.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+## 13 fromWavFi… msajc0… msajc057_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+## 14 fromWavFi… msajc0… msajc057.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
 ```
 
 The `import_mediaFiles()` call above added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
@@ -426,6 +440,7 @@ wavFilePaths = list.files(wavDir,
 
 # calculate zero-crossing-rate files
 # using zcrana function of wrassp package
+# (verbose = F is only set to avoid additional output in manual)
 zcrana(listOfFiles = wavFilePaths,
        verbose = FALSE)
 ```
@@ -441,24 +456,31 @@ add_files(dbHandle,
           fileExtension = "zcr",
           targetSessionName = "fromWavFiles")
 
-# show first three files in emuDB (convert to tibble only
-# to prettify output)
-as_tibble(head(list_files(dbHandle), n = 3))
+# show first few files in emuDB
+list_files(dbHandle)
 ```
 
 ```
-## # A tibble: 3 x 4
-##   session    bundle  file         absolute_file_path                            
-##   <chr>      <chr>   <chr>        <chr>                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/Rtmpqhkpwz/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/Rtmpqhkpwz/fromScratch_emuDB/fromWavFile…
-## 3 fromWavFi… msajc0… msajc003.zcr /tmp/Rtmpqhkpwz/fromScratch_emuDB/fromWavFile…
+## # A tibble: 21 x 4
+##    session    bundle  file         absolute_file_path                           
+##    <chr>      <chr>   <chr>        <chr>                                        
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc010.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc010.zcr /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc012_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc012.wav /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc012.zcr /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc015_an… /tmp/RtmplIxRO2/fromScratch_emuDB/fromWavFil…
+## # … with 11 more rows
 ```
 
 
 ### SSFF track definitions
 
-A further important structural element of any `emuDB` is use of the so-called SSFF tracks, which are often simply referred to as tracks. These SSFF tracks reference data that is stored in the SSFF (see Appendix \@ref(subsec:app-chapFileFormatsSSFF) for a detailed description of the file format) within the `_bndl` directories. The two main types of data are:
+A further important structural element of any `emuDB` is use of the so-called SSFF tracks, which are often simply referred to as tracks. These SSFF tracks reference data that is stored in the SSFF file format (see Appendix \@ref(subsec:app-chapFileFormatsSSFF) for a detailed description of the file format) within the `_bndl` directories. The two main types of data are:
 
 - complementary data that was acquired during the recording such as by EMA or EPG; or
 - derived data, that is data that was calculated from the original audio signal such as formant values and their bandwidths or the short-term Root Mean Square amplitude of the signal.

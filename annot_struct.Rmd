@@ -23,6 +23,7 @@ library(jpeg)
 
 unlink(file.path(tempdir(), "emuR_demoData"), recursive = T)
 create_emuRdemoData()
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(file.path(tempdir(), "emuR_demoData", "ae_emuDB"), verbose = F)
 
 # extract symbolic information we are interessted in
@@ -34,7 +35,8 @@ sl_phoneme_parents = requery_hier(ae, sl_phoneme, "Syllable")
 sl_phonetic = query(ae, "[Phonetic =~.* ^ Text == violently]")
 sl_phonetic_parents = requery_hier(ae, sl_phonetic, "Phoneme")
 
-# # extract the according sample values
+# extract the according sample values
+# (verbose = F is only set to avoid additional output in manual)
 td = get_trackdata(ae, sl_text, "MEDIAFILE_SAMPLES", resultType = "emuRtrackdata", verbose = F)
 # create sample numbers
 sampleNrs = seq(sl_text$sample_start, sl_text$sample_end, 1)

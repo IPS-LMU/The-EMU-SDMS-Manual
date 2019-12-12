@@ -99,7 +99,9 @@ As mentioned in Section \@ref(sec:overview-sysArch), the first step when working
 path2directory = file.path(tempdir(), "my-first_emuDB")
 
 # load emuDB into current R session
-db_handle = load_emuDB(path2directory, verbose = FALSE)
+# (verbose = F is only set to avoid additional output in manual)
+db_handle = load_emuDB(path2directory, 
+                       verbose = FALSE)
 ```
 
 ### Overview
@@ -115,8 +117,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 b02df9a4-237c-47bc-8066-8951448f69c8 
-## Directory:	 /tmp/Rtmp4Kktfk/my-first_emuDB 
+## UUID:	 428aadd3-fb00-4e32-aefc-1d7933b68d33 
+## Directory:	 /tmp/Rtmp4gM82u/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -219,18 +221,18 @@ sl_phonetic
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 n      1032. 1196. b02df9… 0000    msajc…            98          98 Phon…
-##  2 n      1741. 1791. b02df9… 0000    msajc…           108         108 Phon…
-##  3 n      1515. 1554. b02df9… 0000    msajc…           113         113 Phon…
-##  4 n      2431. 2528. b02df9… 0000    msajc…           127         127 Phon…
-##  5 n       895. 1023. b02df9… 0000    msajc…            98          98 Phon…
-##  6 n      2402. 2475. b02df9… 0000    msajc…           122         122 Phon…
-##  7 n      2227. 2271. b02df9… 0000    msajc…           132         132 Phon…
-##  8 n      3046. 3068. b02df9… 0000    msajc…           145         145 Phon…
-##  9 n      1435. 1495. b02df9… 0000    msajc…            91          91 Phon…
-## 10 n      1775. 1834. b02df9… 0000    msajc…            96          96 Phon…
-## 11 n       509.  544. b02df9… 0000    msajc…            97          97 Phon…
-## 12 n      2448. 2480. b02df9… 0000    msajc…           130         130 Phon…
+##  1 n      1032. 1196. 428aad… 0000    msajc…            98          98 Phon…
+##  2 n      1741. 1791. 428aad… 0000    msajc…           108         108 Phon…
+##  3 n      1515. 1554. 428aad… 0000    msajc…           113         113 Phon…
+##  4 n      2431. 2528. 428aad… 0000    msajc…           127         127 Phon…
+##  5 n       895. 1023. 428aad… 0000    msajc…            98          98 Phon…
+##  6 n      2402. 2475. 428aad… 0000    msajc…           122         122 Phon…
+##  7 n      2227. 2271. 428aad… 0000    msajc…           132         132 Phon…
+##  8 n      3046. 3068. 428aad… 0000    msajc…           145         145 Phon…
+##  9 n      1435. 1495. 428aad… 0000    msajc…            91          91 Phon…
+## 10 n      1775. 1834. 428aad… 0000    msajc…            96          96 Phon…
+## 11 n       509.  544. 428aad… 0000    msajc…            97          97 Phon…
+## 12 n      2448. 2480. 428aad… 0000    msajc…           130         130 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -309,16 +311,17 @@ list_levelDefinitions(db_handle)
 ```r
 # remove the levels containing the "-autobuildBackup"
 # suffix
+# (verbose = F is only set to avoid additional output in manual)
 remove_levelDefinition(db_handle,
                        name = "Word-autobuildBackup",
                        force = TRUE,
                        verbose = FALSE)
-
+# (verbose = F is only set to avoid additional output in manual)
 remove_levelDefinition(db_handle,
                        name = "Syllable-autobuildBackup",
                        force = TRUE,
                        verbose = FALSE)
-
+# (verbose = F is only set to avoid additional output in manual)
 remove_levelDefinition(db_handle,
                        name = "Phoneme-autobuildBackup",
                        force = TRUE,
@@ -376,16 +379,16 @@ sl_vowels
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 @      1506. 1548. b02df9… 0000    msajc…           103         103 Phon…
-##  2 @      1715. 1741. b02df9… 0000    msajc…           107         107 Phon…
-##  3 @      1967. 2034. b02df9… 0000    msajc…           112         112 Phon…
-##  4 @      2303. 2362. b02df9… 0000    msajc…           117         117 Phon…
-##  5 @      2447. 2506. b02df9… 0000    msajc…           119         119 Phon…
-##  6 @      1917. 1958. b02df9… 0000    msajc…           118         118 Phon…
-##  7 @      2022. 2078. b02df9… 0000    msajc…           120         120 Phon…
-##  8 @      2382. 2431. b02df9… 0000    msajc…           126         126 Phon…
-##  9 @       330.  380. b02df9… 0000    msajc…            91          91 Phon…
-## 10 @      1472. 1490. b02df9… 0000    msajc…           108         108 Phon…
+##  1 @      1506. 1548. 428aad… 0000    msajc…           103         103 Phon…
+##  2 @      1715. 1741. 428aad… 0000    msajc…           107         107 Phon…
+##  3 @      1967. 2034. 428aad… 0000    msajc…           112         112 Phon…
+##  4 @      2303. 2362. 428aad… 0000    msajc…           117         117 Phon…
+##  5 @      2447. 2506. 428aad… 0000    msajc…           119         119 Phon…
+##  6 @      1917. 1958. 428aad… 0000    msajc…           118         118 Phon…
+##  7 @      2022. 2078. 428aad… 0000    msajc…           120         120 Phon…
+##  8 @      2382. 2431. 428aad… 0000    msajc…           126         126 Phon…
+##  9 @       330.  380. 428aad… 0000    msajc…            91          91 Phon…
+## 10 @      1472. 1490. 428aad… 0000    msajc…           108         108 Phon…
 ## # … with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -410,16 +413,16 @@ sl_word_type
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 F         NA    NA b02df9… 0000    msajc…            16          16 Word 
-##  2 C         NA    NA b02df9… 0000    msajc…            17          17 Word 
-##  3 C         NA    NA b02df9… 0000    msajc…            17          17 Word 
-##  4 C         NA    NA b02df9… 0000    msajc…            18          18 Word 
-##  5 C         NA    NA b02df9… 0000    msajc…            18          18 Word 
-##  6 C         NA    NA b02df9… 0000    msajc…            19          19 Word 
-##  7 C         NA    NA b02df9… 0000    msajc…            20          20 Word 
-##  8 C         NA    NA b02df9… 0000    msajc…            20          20 Word 
-##  9 F         NA    NA b02df9… 0000    msajc…            13          13 Word 
-## 10 F         NA    NA b02df9… 0000    msajc…            17          17 Word 
+##  1 F         NA    NA 428aad… 0000    msajc…            16          16 Word 
+##  2 C         NA    NA 428aad… 0000    msajc…            17          17 Word 
+##  3 C         NA    NA 428aad… 0000    msajc…            17          17 Word 
+##  4 C         NA    NA 428aad… 0000    msajc…            18          18 Word 
+##  5 C         NA    NA 428aad… 0000    msajc…            18          18 Word 
+##  6 C         NA    NA 428aad… 0000    msajc…            19          19 Word 
+##  7 C         NA    NA 428aad… 0000    msajc…            20          20 Word 
+##  8 C         NA    NA 428aad… 0000    msajc…            20          20 Word 
+##  9 F         NA    NA 428aad… 0000    msajc…            13          13 Word 
+## 10 F         NA    NA 428aad… 0000    msajc…            17          17 Word 
 ## # … with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -446,6 +449,7 @@ Now that the vowel and word type information including the vowel start and end t
 
 ```r
 # get formant values for the vowel segments
+# (verbose = F is only set to avoid additional output in manual)
 td_vowels = get_trackdata(db_handle,
                           seglist = sl_vowels,
                           onTheFlyFunctionName = "forest",
@@ -487,18 +491,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  2         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  3         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  4         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  5         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  6         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  7         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  8         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-##  9         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-## 10         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-## 11         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
-## 12         5 @      2447. 2506. b02df9… 0000    msajc…           119         119
+##  1         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  2         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  3         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  4         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  5         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  6         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  7         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  8         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+##  9         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+## 10         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+## 11         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
+## 12         5 @      2447. 2506. 428aad… 0000    msajc…           119         119
 ## # … with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,

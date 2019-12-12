@@ -409,15 +409,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb383-14" data-line-number="14">path2ae =<span class="st"> </span><span class="kw">file.path</span>(demo_data_dir, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
 <a class="sourceLine" id="cb383-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb383-16" data-line-number="16"><span class="co"># load database</span></a>
-<a class="sourceLine" id="cb383-17" data-line-number="17">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb383-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb383-19" data-line-number="19"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
+<a class="sourceLine" id="cb383-17" data-line-number="17"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb383-18" data-line-number="18">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb383-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb383-20" data-line-number="20"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
 <p>The <code>ae</code> emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for “Discrete Fourier Transform” which converts a signal into a time-series of spectra. This transformation can be done with <code>wrassp</code>’s function <code>dftSpectrum()</code> which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a “short-term spectral analysis of the signal in <listOfFiles> using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g. ‘.dft’). Default output is in SSFF format with the spectrum type in lower case as track name.” (cited from <code>?wrassp::dftSpectrum</code>).</p>
 <p>The procedure to calculate your own dft-files is identical to that of calculating formants, or fundamental frequency, or any other function that is available in <code>wrassp</code> (see also <a href="http://www.phonetik.uni-muenchen.de/%7Ejmh/lehre/sem/ws1819/emuR/LESSON4/Signal_Data_Calculation_Extraction_Plotting.html">this document</a> ):</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
-<a class="sourceLine" id="cb384-2" data-line-number="2">                        <span class="dt">name =</span> <span class="st">&quot;dft&quot;</span>,</a>
-<a class="sourceLine" id="cb384-3" data-line-number="3">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;dftSpectrum&quot;</span>,</a>
-<a class="sourceLine" id="cb384-4" data-line-number="4">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb384-2" data-line-number="2"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
+<a class="sourceLine" id="cb384-3" data-line-number="3">                        <span class="dt">name =</span> <span class="st">&quot;dft&quot;</span>,</a>
+<a class="sourceLine" id="cb384-4" data-line-number="4">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;dftSpectrum&quot;</span>,</a>
+<a class="sourceLine" id="cb384-5" data-line-number="5">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>In this case, there is no need to subset the data in order to use speaker specific settings, not only because there is only one speaker in our database, but also because <code>dftSpectrum()</code> simply doesn’t need to be adjusted to speaker-specific features.</p>
 <p>We then query for a segment list and then get the trackdata:</p>
 <div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1">sS.sl =<span class="st"> </span><span class="kw">query</span>(ae, </a>
@@ -787,24 +789,25 @@ This simply means that in the range of 0 to 10000 Hz, /s/ has more energy in the
 <div id="p.s.-use-dct-in-order-to-smooth-formant-trajectories" class="section level3">
 <h3><span class="header-section-number">21.3.1</span> P.S.: Use DCT in order to smooth formant trajectories</h3>
 <p>Another use-case for dct-smoothing are bumpy formant tracks. Consider e.g. this case:</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb418-2" data-line-number="2">i.sl =<span class="st"> </span><span class="kw">query</span>(ae, </a>
-<a class="sourceLine" id="cb418-3" data-line-number="3">             <span class="dt">query =</span> <span class="st">&quot;[Phonetic == i:]&quot;</span>)</a>
-<a class="sourceLine" id="cb418-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb418-5" data-line-number="5">i.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, </a>
-<a class="sourceLine" id="cb418-6" data-line-number="6">                      <span class="dt">seglist =</span> i.sl, </a>
-<a class="sourceLine" id="cb418-7" data-line-number="7">                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>, </a>
-<a class="sourceLine" id="cb418-8" data-line-number="8">                      <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>)</a>
-<a class="sourceLine" id="cb418-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb418-10" data-line-number="10">i.dft =<span class="st"> </span>i.dft <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb418-11" data-line-number="11"><span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb418-12" data-line-number="12"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">F2_smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(T2, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T))</a>
-<a class="sourceLine" id="cb418-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb418-14" data-line-number="14"><span class="kw">ggplot</span>(i.dft) <span class="op">+</span></a>
-<a class="sourceLine" id="cb418-15" data-line-number="15"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T2, <span class="dt">group =</span> sl_rowIdx)<span class="op">+</span></a>
-<a class="sourceLine" id="cb418-16" data-line-number="16"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb418-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> F2_smoothed, <span class="dt">col =</span> <span class="st">&quot;smoothed&quot;</span>))<span class="op">+</span></a>
-<a class="sourceLine" id="cb418-18" data-line-number="18"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Orig. (black) vs. smoothed (red) F2-tracks in /i:/&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb418-2" data-line-number="2">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb418-3" data-line-number="3">i.sl =<span class="st"> </span><span class="kw">query</span>(ae, </a>
+<a class="sourceLine" id="cb418-4" data-line-number="4">             <span class="dt">query =</span> <span class="st">&quot;[Phonetic == i:]&quot;</span>)</a>
+<a class="sourceLine" id="cb418-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb418-6" data-line-number="6">i.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, </a>
+<a class="sourceLine" id="cb418-7" data-line-number="7">                      <span class="dt">seglist =</span> i.sl, </a>
+<a class="sourceLine" id="cb418-8" data-line-number="8">                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>, </a>
+<a class="sourceLine" id="cb418-9" data-line-number="9">                      <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>)</a>
+<a class="sourceLine" id="cb418-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb418-11" data-line-number="11">i.dft =<span class="st"> </span>i.dft <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb418-12" data-line-number="12"><span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb418-13" data-line-number="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">F2_smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(T2, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T))</a>
+<a class="sourceLine" id="cb418-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb418-15" data-line-number="15"><span class="kw">ggplot</span>(i.dft) <span class="op">+</span></a>
+<a class="sourceLine" id="cb418-16" data-line-number="16"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T2, <span class="dt">group =</span> sl_rowIdx)<span class="op">+</span></a>
+<a class="sourceLine" id="cb418-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb418-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> F2_smoothed, <span class="dt">col =</span> <span class="st">&quot;smoothed&quot;</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb418-19" data-line-number="19"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Orig. (black) vs. smoothed (red) F2-tracks in /i:/&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 </div>

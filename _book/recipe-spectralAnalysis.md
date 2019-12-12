@@ -31,6 +31,7 @@ demo_data_dir = file.path(tempdir(), "emuR_demoData")
 path2ae = file.path(demo_data_dir, "ae_emuDB")
 
 # load database
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = F)
 
 list_ssffTrackDefinitions(ae)
@@ -42,6 +43,7 @@ The procedure to calculate your own dft-files is identical to that of calculatin
 
 
 ```r
+# (verbose = F is only set to avoid additional output in manual)
 add_ssffTrackDefinition(ae,
                         name = "dft",
                         onTheFlyFunctionName = "dftSpectrum",
@@ -593,6 +595,7 @@ Another use-case for dct-smoothing are bumpy formant tracks. Consider e.g. this 
 
 
 ```r
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = F)
 i.sl = query(ae, 
              query = "[Phonetic == i:]")

@@ -93,7 +93,7 @@ print(au)
 ```
 
 ```
-## Assp Data Object of file /tmp/RtmpamCCHB/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/RtmpWZoHd0/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -153,7 +153,7 @@ attributes(au)
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpamCCHB/emuR_demoData/ae_emuDB/0000_s..."
+## [1] "/tmp/RtmpWZoHd0/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -480,7 +480,7 @@ readLines(path2logFile)[1:8]
 ```
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-12-12 12:34:42 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2019-12-12 16:48:16 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 ```
 
@@ -534,6 +534,7 @@ sl = query(ae, "Phonetic == n")
 # get trackdata calculating ZCR values on-the-fly
 # using the above parameters. Note that no files
 # are generated.
+# (verbose = F is only set to avoid additional output in manual)
 td = get_trackdata(ae, sl,
                    onTheFlyFunctionName = "zcrana",
                    onTheFlyParams = zcranaParams,
@@ -542,6 +543,7 @@ td = get_trackdata(ae, sl,
 
 # add SSFF track definition. Note that
 # this time files are generated.
+# (verbose = F is only set to avoid additional output in manual)
 add_ssffTrackDefinition(ae,
                         name = "zcr",
                         onTheFlyFunctionName = "zcrana",

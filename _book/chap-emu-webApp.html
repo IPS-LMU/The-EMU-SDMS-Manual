@@ -542,7 +542,8 @@ Figure 9.9: Screenshot of the hierarchy modal window of the <code>EMU-webApp</co
 <a class="sourceLine" id="cb209-8" data-line-number="8">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
 <a class="sourceLine" id="cb209-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb209-10" data-line-number="10"><span class="co"># load database</span></a>
-<a class="sourceLine" id="cb209-11" data-line-number="11">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a></code></pre></div>
+<a class="sourceLine" id="cb209-11" data-line-number="11"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb209-12" data-line-number="12">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>As mentioned above, the <code>EMU-webApp</code> subdivides different ways to look at an <code>emuDB</code> into so-called <code>perspective</code>s. Users can switch between these <code>perspective</code>s in the web application. They contain, for example, information on what levels are displayed, which SSFF tracks are drawn. The R code snippet below shows how the current <code>perspective</code>s can be listed using the <code>list_perspectives()</code> function.</p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1"><span class="co"># list perspectives of ae emuDB</span></a>
 <a class="sourceLine" id="cb210-2" data-line-number="2"><span class="kw">list_perspectives</span>(ae)</a></code></pre></div>

@@ -406,6 +406,7 @@ sl = query(ae, "Phonetic == n")
 # get trackdata calculating ZCR values on-the-fly
 # using the above parameters. Note that no files
 # are generated.
+# (verbose = F is only set to avoid additional output in manual)
 td = get_trackdata(ae, sl,
                    onTheFlyFunctionName = "zcrana",
                    onTheFlyParams = zcranaParams,
@@ -414,6 +415,7 @@ td = get_trackdata(ae, sl,
 
 # add SSFF track definition. Note that
 # this time files are generated.
+# (verbose = F is only set to avoid additional output in manual)
 add_ssffTrackDefinition(ae,
                         name = "zcr",
                         onTheFlyFunctionName = "zcrana",

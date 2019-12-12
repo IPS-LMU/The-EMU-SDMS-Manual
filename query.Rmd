@@ -25,6 +25,7 @@ create_emuRdemoData(dir = tempdir())
 path2ae = file.path(tempdir(), "emuR_demoData", "ae_emuDB")
 
 # load database
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = F)
 ```
 

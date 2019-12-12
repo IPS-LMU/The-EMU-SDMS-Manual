@@ -75,6 +75,7 @@ Besides providing a fully integrated system, the EMU-SDMS has several unique fea
 ```{r overview-hybridAnnot, fig.align = "center", fig.cap = "Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations.", echo=FALSE, out.width = "75%"}
 
 library(ggplot2)
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(file.path(tempdir(), "emuR_demoData", "ae_emuDB"), verbose = F)
 
 # extract symbolic information we are interessted in
@@ -88,6 +89,7 @@ sl_phonetic_parents = requery_hier(ae, sl_phonetic, level = "Phoneme")
 
 
 # extract the according sample values
+# (verbose = F is only set to avoid additional output in manual)
 td = get_trackdata(ae, sl_text, "MEDIAFILE_SAMPLES", resultType = "emuRtrackdata", verbose = F)
 # create sample numbers
 sampleNrs = seq(sl_text$sample_start, sl_text$sample_end, 1)

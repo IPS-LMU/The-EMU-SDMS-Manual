@@ -89,8 +89,11 @@ path2directory = file.path(tempdir(),
                            "BPF_collection")
 
 # convert this BPFCollection to the emuDB format
-convert_BPFCollection(path2directory, dbName = 'myBPF-DB',
-                      targetDir = tempdir(), verbose = F)
+# (verbose = F is only set to avoid additional output in manual)
+convert_BPFCollection(path2directory, 
+                      dbName = 'myBPF-DB',
+                      targetDir = tempdir(), 
+                      verbose = F)
 ```
 
 As the BPF format also permits annotation items to be linked to one another, this conversion function can optionally preserve this hierarchical information by specifying the `refLevel` argument.
@@ -110,6 +113,7 @@ path2directory = file.path(tempdir(),
                            "txt_collection")
 
 # convert this txtCollection to the emuDB format
+# (verbose = F is only set to avoid additional output in manual)
 convert_txtCollection(sourceDir = path2directory,
                       dbName = "txtCol",
                       targetDir = tempdir(),

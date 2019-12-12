@@ -419,28 +419,30 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 <a class="sourceLine" id="cb49-6" data-line-number="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
 <a class="sourceLine" id="cb49-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb49-8" data-line-number="8"><span class="co"># create emuDB called &quot;fromScratch&quot;</span></a>
-<a class="sourceLine" id="cb49-9" data-line-number="9"><span class="kw">create_emuDB</span>(<span class="dt">name =</span> <span class="st">&quot;fromScratch&quot;</span>,</a>
-<a class="sourceLine" id="cb49-10" data-line-number="10">             <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb49-11" data-line-number="11">             <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb49-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb49-13" data-line-number="13"><span class="co"># generate path to the empty fromScratch created above</span></a>
-<a class="sourceLine" id="cb49-14" data-line-number="14">dbPath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;fromScratch_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb49-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb49-16" data-line-number="16"><span class="co"># show content of empty fromScratch emuDB</span></a>
-<a class="sourceLine" id="cb49-17" data-line-number="17"><span class="kw">list.files</span>(dbPath)</a></code></pre></div>
+<a class="sourceLine" id="cb49-9" data-line-number="9"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb49-10" data-line-number="10"><span class="kw">create_emuDB</span>(<span class="dt">name =</span> <span class="st">&quot;fromScratch&quot;</span>,</a>
+<a class="sourceLine" id="cb49-11" data-line-number="11">             <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb49-12" data-line-number="12">             <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb49-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb49-14" data-line-number="14"><span class="co"># generate path to the empty fromScratch created above</span></a>
+<a class="sourceLine" id="cb49-15" data-line-number="15">dbPath =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;fromScratch_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb49-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb49-17" data-line-number="17"><span class="co"># show content of empty fromScratch emuDB</span></a>
+<a class="sourceLine" id="cb49-18" data-line-number="18"><span class="kw">list.files</span>(dbPath)</a></code></pre></div>
 <pre><code>## [1] &quot;fromScratch_DBconfig.json&quot;</code></pre>
 </div>
 <div id="loading-and-editing-an-empty-database" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Loading and editing an empty database</h3>
 <p>The initial step in manipulating and generally interacting with a database is to load the database into the current R session. The R code below shows how to load the <em>fromScratch</em> database and shows the empty configuration by displaying the output of the <code>summary()</code> function.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co"># load database</span></a>
-<a class="sourceLine" id="cb51-2" data-line-number="2">dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(dbPath, <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb51-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb51-4" data-line-number="4"><span class="co"># show summary of dbHandle</span></a>
-<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
+<a class="sourceLine" id="cb51-2" data-line-number="2"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb51-3" data-line-number="3">dbHandle =<span class="st"> </span><span class="kw">load_emuDB</span>(dbPath, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb51-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="co"># show summary of dbHandle</span></a>
+<a class="sourceLine" id="cb51-6" data-line-number="6"><span class="kw">summary</span>(dbHandle)</a></code></pre></div>
 <pre><code>## Name:     fromScratch 
-## UUID:     96952a71-5919-4ae1-b012-10750fec0c1c 
-## Directory:    /tmp/RtmpDiZxMM/fromScratch_emuDB 
+## UUID:     c7402161-f131-4511-8b6b-850bddd6f7e6 
+## Directory:    /tmp/RtmpV4dDNB/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -572,7 +574,7 @@ Figure 5.1: Schematic <code>emuDB</code> file and directory structure.
 ## 1  longVowels  i:; u:
 ## 2 shortVowels i; u; @</code></pre>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="co"># query all short vowels</span></a>
-<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="co"># Note the result of this query</span></a>
+<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="co"># Note that the result of this query</span></a>
 <a class="sourceLine" id="cb73-3" data-line-number="3"><span class="co"># is empty as no annotations are present</span></a>
 <a class="sourceLine" id="cb73-4" data-line-number="4"><span class="co"># in the &#39;fromScratch&#39; emuDB</span></a>
 <a class="sourceLine" id="cb73-5" data-line-number="5"><span class="kw">query</span>(dbHandle, <span class="st">&quot;Phonetic == shortVowels&quot;</span>)</a></code></pre></div>
@@ -621,13 +623,14 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <a class="sourceLine" id="cb79-4" data-line-number="4"><span class="co"># Import media files into emuDB session called fromWavFiles.</span></a>
 <a class="sourceLine" id="cb79-5" data-line-number="5"><span class="co"># Note that the txt_collection directory also contains .txt files.</span></a>
 <a class="sourceLine" id="cb79-6" data-line-number="6"><span class="co"># These are simply ignored by the import_mediaFiles() function.</span></a>
-<a class="sourceLine" id="cb79-7" data-line-number="7"><span class="kw">import_mediaFiles</span>(dbHandle,</a>
-<a class="sourceLine" id="cb79-8" data-line-number="8">                  <span class="dt">dir =</span> wavDir,</a>
-<a class="sourceLine" id="cb79-9" data-line-number="9">                  <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>,</a>
-<a class="sourceLine" id="cb79-10" data-line-number="10">                  <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb79-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb79-12" data-line-number="12"><span class="co"># list session</span></a>
-<a class="sourceLine" id="cb79-13" data-line-number="13"><span class="kw">list_sessions</span>(dbHandle)</a></code></pre></div>
+<a class="sourceLine" id="cb79-7" data-line-number="7"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb79-8" data-line-number="8"><span class="kw">import_mediaFiles</span>(dbHandle,</a>
+<a class="sourceLine" id="cb79-9" data-line-number="9">                  <span class="dt">dir =</span> wavDir,</a>
+<a class="sourceLine" id="cb79-10" data-line-number="10">                  <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>,</a>
+<a class="sourceLine" id="cb79-11" data-line-number="11">                  <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb79-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb79-13" data-line-number="13"><span class="co"># list session</span></a>
+<a class="sourceLine" id="cb79-14" data-line-number="14"><span class="kw">list_sessions</span>(dbHandle)</a></code></pre></div>
 <pre><code>##           name
 ## 1 fromWavFiles</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co"># list bundles</span></a>
@@ -642,14 +645,25 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 ## 5 fromWavFiles msajc022
 ## 6 fromWavFiles msajc023
 ## 7 fromWavFiles msajc057</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="co"># show first two files in the emuDB</span></a>
-<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="kw">library</span>(tibble) <span class="co"># convert to tibble only to prettify output</span></a>
-<a class="sourceLine" id="cb83-3" data-line-number="3"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">2</span>))</a></code></pre></div>
-<pre><code>## # A tibble: 2 x 4
-##   session    bundle  file         absolute_file_path                            
-##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="co"># show first few files in the emuDB</span></a>
+<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="kw">list_files</span>(dbHandle)</a></code></pre></div>
+<pre><code>## # A tibble: 14 x 4
+##    session    bundle  file         absolute_file_path                           
+##    &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                        
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc010_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc012_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc012.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc015_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc015.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc022_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc022.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+## 11 fromWavFi… msajc0… msajc023_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+## 12 fromWavFi… msajc0… msajc023.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+## 13 fromWavFi… msajc0… msajc057_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+## 14 fromWavFi… msajc0… msajc057.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…</code></pre>
 <p>The <code>import_mediaFiles()</code> call above added a new session called <code>fromWavFiles</code> to the <em>fromScratch</em> <code>emuDB</code> containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every <code>_annot.json</code> file created contains an empty <code>Word</code> and <code>Phonetic</code> level array and the links array is also empty.</p>
 <p>The <code>emuR</code> package also provides a mechanism for adding files to preexisting bundle directories, as this can be quite tedious to perform manually due to the nested directory structure of an <code>emuDB</code>. The following R code shows how preexisting <code>.zcr</code> files that are produced by <code>wrassp</code>’s <code>zcrana()</code> function can be added to the preexisting session and bundle structure. As the directory referenced by <code>wavDir</code> does not contain any <code>.zcr</code> files, the next R code example first creates them and then adds them to the <code>emuDB</code> (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details).</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="co"># load wrassp package</span></a>
@@ -662,8 +676,9 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <a class="sourceLine" id="cb85-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb85-9" data-line-number="9"><span class="co"># calculate zero-crossing-rate files</span></a>
 <a class="sourceLine" id="cb85-10" data-line-number="10"><span class="co"># using zcrana function of wrassp package</span></a>
-<a class="sourceLine" id="cb85-11" data-line-number="11"><span class="kw">zcrana</span>(<span class="dt">listOfFiles =</span> wavFilePaths,</a>
-<a class="sourceLine" id="cb85-12" data-line-number="12">       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb85-11" data-line-number="11"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb85-12" data-line-number="12"><span class="kw">zcrana</span>(<span class="dt">listOfFiles =</span> wavFilePaths,</a>
+<a class="sourceLine" id="cb85-13" data-line-number="13">       <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## [1] 7</code></pre>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="co"># add zcr files to emuDB</span></a>
 <a class="sourceLine" id="cb87-2" data-line-number="2"><span class="kw">add_files</span>(dbHandle,</a>
@@ -671,19 +686,26 @@ Figure 5.2: A schematic representation of the simple hierarchical structure of t
 <a class="sourceLine" id="cb87-4" data-line-number="4">          <span class="dt">fileExtension =</span> <span class="st">&quot;zcr&quot;</span>,</a>
 <a class="sourceLine" id="cb87-5" data-line-number="5">          <span class="dt">targetSessionName =</span> <span class="st">&quot;fromWavFiles&quot;</span>)</a>
 <a class="sourceLine" id="cb87-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb87-7" data-line-number="7"><span class="co"># show first three files in emuDB (convert to tibble only</span></a>
-<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="co"># to prettify output)</span></a>
-<a class="sourceLine" id="cb87-9" data-line-number="9"><span class="kw">as_tibble</span>(<span class="kw">head</span>(<span class="kw">list_files</span>(dbHandle), <span class="dt">n =</span> <span class="dv">3</span>))</a></code></pre></div>
-<pre><code>## # A tibble: 3 x 4
-##   session    bundle  file         absolute_file_path                            
-##   &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                         
-## 1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…
-## 2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…
-## 3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpDiZxMM/fromScratch_emuDB/fromWavFile…</code></pre>
+<a class="sourceLine" id="cb87-7" data-line-number="7"><span class="co"># show first few files in emuDB</span></a>
+<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="kw">list_files</span>(dbHandle)</a></code></pre></div>
+<pre><code>## # A tibble: 21 x 4
+##    session    bundle  file         absolute_file_path                           
+##    &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;                                        
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc010.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc010.zcr /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc012_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc012.wav /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc012.zcr /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc015_an… /tmp/RtmpV4dDNB/fromScratch_emuDB/fromWavFil…
+## # … with 11 more rows</code></pre>
 </div>
 <div id="ssff-track-definitions" class="section level3">
 <h3><span class="header-section-number">5.2.6</span> SSFF track definitions</h3>
-<p>A further important structural element of any <code>emuDB</code> is use of the so-called SSFF tracks, which are often simply referred to as tracks. These SSFF tracks reference data that is stored in the SSFF (see Appendix <a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF">15.1.3</a> for a detailed description of the file format) within the <code>_bndl</code> directories. The two main types of data are:</p>
+<p>A further important structural element of any <code>emuDB</code> is use of the so-called SSFF tracks, which are often simply referred to as tracks. These SSFF tracks reference data that is stored in the SSFF file format (see Appendix <a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF">15.1.3</a> for a detailed description of the file format) within the <code>_bndl</code> directories. The two main types of data are:</p>
 <ul>
 <li>complementary data that was acquired during the recording such as by EMA or EPG; or</li>
 <li>derived data, that is data that was calculated from the original audio signal such as formant values and their bandwidths or the short-term Root Mean Square amplitude of the signal.</li>

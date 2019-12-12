@@ -32,6 +32,7 @@ demo_data_dir = file.path(tempdir(), "emuR_demoData")
 path2ae = file.path(demo_data_dir, "ae_emuDB")
 
 # load database
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = F)
 
 list_ssffTrackDefinitions(ae)
@@ -42,6 +43,7 @@ The `ae` emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files c
 The procedure to calculate your own dft-files is identical to that of calculating formants, or fundamental frequency, or any other function that is available in `wrassp` (see also [this document](http://www.phonetik.uni-muenchen.de/%7Ejmh/lehre/sem/ws1819/emuR/LESSON4/Signal_Data_Calculation_Extraction_Plotting.html) ):
 
 ```{r, eval = FALSE}
+# (verbose = F is only set to avoid additional output in manual)
 add_ssffTrackDefinition(ae,
                         name = "dft",
                         onTheFlyFunctionName = "dftSpectrum",
@@ -436,6 +438,7 @@ grid.arrange(a, b, ncol = 2)
 Another use-case for dct-smoothing are bumpy formant tracks. Consider e.g. this case:
 
 ```{r,message=FALSE,results='hide'}
+# (verbose = F is only set to avoid additional output in manual)
 ae = load_emuDB(path2ae, verbose = F)
 i.sl = query(ae, 
              query = "[Phonetic == i:]")

@@ -448,8 +448,11 @@ The above R code snippet creates a new <code>emuDB</code> in the directory <code
 <a class="sourceLine" id="cb232-5" data-line-number="5">                           <span class="st">&quot;BPF_collection&quot;</span>)</a>
 <a class="sourceLine" id="cb232-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb232-7" data-line-number="7"><span class="co"># convert this BPFCollection to the emuDB format</span></a>
-<a class="sourceLine" id="cb232-8" data-line-number="8"><span class="kw">convert_BPFCollection</span>(path2directory, <span class="dt">dbName =</span> <span class="st">&#39;myBPF-DB&#39;</span>,</a>
-<a class="sourceLine" id="cb232-9" data-line-number="9">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(), <span class="dt">verbose =</span> F)</a></code></pre></div>
+<a class="sourceLine" id="cb232-8" data-line-number="8"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb232-9" data-line-number="9"><span class="kw">convert_BPFCollection</span>(path2directory, </a>
+<a class="sourceLine" id="cb232-10" data-line-number="10">                      <span class="dt">dbName =</span> <span class="st">&#39;myBPF-DB&#39;</span>,</a>
+<a class="sourceLine" id="cb232-11" data-line-number="11">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(), </a>
+<a class="sourceLine" id="cb232-12" data-line-number="12">                      <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>As the BPF format also permits annotation items to be linked to one another, this conversion function can optionally preserve this hierarchical information by specifying the <code>refLevel</code> argument.</p>
 </div>
 <div id="txt-collections" class="section level3">
@@ -462,11 +465,12 @@ The above R code snippet creates a new <code>emuDB</code> in the directory <code
 <a class="sourceLine" id="cb233-5" data-line-number="5">                           <span class="st">&quot;txt_collection&quot;</span>)</a>
 <a class="sourceLine" id="cb233-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb233-7" data-line-number="7"><span class="co"># convert this txtCollection to the emuDB format</span></a>
-<a class="sourceLine" id="cb233-8" data-line-number="8"><span class="kw">convert_txtCollection</span>(<span class="dt">sourceDir =</span> path2directory,</a>
-<a class="sourceLine" id="cb233-9" data-line-number="9">                      <span class="dt">dbName =</span> <span class="st">&quot;txtCol&quot;</span>,</a>
-<a class="sourceLine" id="cb233-10" data-line-number="10">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb233-11" data-line-number="11">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;transcription&quot;</span>,</a>
-<a class="sourceLine" id="cb233-12" data-line-number="12">                      <span class="dt">verbose =</span> F)</a></code></pre></div>
+<a class="sourceLine" id="cb233-8" data-line-number="8"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb233-9" data-line-number="9"><span class="kw">convert_txtCollection</span>(<span class="dt">sourceDir =</span> path2directory,</a>
+<a class="sourceLine" id="cb233-10" data-line-number="10">                      <span class="dt">dbName =</span> <span class="st">&quot;txtCol&quot;</span>,</a>
+<a class="sourceLine" id="cb233-11" data-line-number="11">                      <span class="dt">targetDir =</span> <span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb233-12" data-line-number="12">                      <span class="dt">attributeDefinitionName =</span> <span class="st">&quot;transcription&quot;</span>,</a>
+<a class="sourceLine" id="cb233-13" data-line-number="13">                      <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>Using this conversion routine creates a bare-bone, single route node <code>emuDB</code> which either can be further manually annotated or automatically hierarchically annotated using the <code>runBASwebservice_*</code><a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> functions of <code>emuR</code>. It is worth noting that these functions are already part of the <code>emuR</code> package; however, they are still considered to have a beta status which is why they are omitted from this documentation. In future versions of this documentation a section or chapter will be dedicated to using the BAS Webservices <span class="citation">(Kisler, Schiel, and Sloetjes <a href="#ref-kisler:2012a">2012</a>)</span> to automatically generate a hierarchical annotation structure for an entire <code>emuDB</code>.</p>
 </div>
 </div>
