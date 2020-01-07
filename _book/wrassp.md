@@ -93,7 +93,7 @@ print(au)
 ```
 
 ```
-## Assp Data Object of file /tmp/RtmpWZoHd0/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/RtmpA4QCtZ/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -153,7 +153,7 @@ attributes(au)
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpWZoHd0/emuR_demoData/ae_emuDB/0000_s..."
+## [1] "/tmp/RtmpA4QCtZ/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -480,7 +480,7 @@ readLines(path2logFile)[1:8]
 ```
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-12-12 16:48:16 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2020-01-07 15:53:55 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 ```
 

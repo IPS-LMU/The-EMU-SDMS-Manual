@@ -1,3 +1,6 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
 \documentclass[]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
@@ -6,30 +9,31 @@
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
 \else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
+  \usepackage{unicode-math}
   \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
 \fi
 % use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
 \usepackage{hyperref}
-\hypersetup{unicode=true,
+\hypersetup{
             pdftitle={The EMU-SDMS Manual},
             pdfauthor={Raphael Winkelmann},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -71,11 +75,9 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
-\usepackage{graphicx}
-% grffile has become a legacy package: https://ctan.org/pkg/grffile
-\IfFileExists{grffile.sty}{%
-\usepackage{grffile}
-}{}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -84,12 +86,6 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -104,31 +100,11 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{The EMU-SDMS Manual}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Raphael Winkelmann}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-    \date{}
-    \predate{}\postdate{}
-  
 \usepackage{booktabs}
 \usepackage{amsthm}
 \makeatletter
@@ -137,6 +113,12 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{The EMU-SDMS Manual}
+\author{Raphael Winkelmann}
+\date{}
 
 \begin{document}
 \maketitle
@@ -494,8 +476,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     eada418e-d441-48f9-8c91-75ed623e7e9c 
-## Directory:    /tmp/Rtmp8h7X9t/my-first_emuDB 
+## UUID:     6e24d034-a765-4da3-b35b-a3a939f586b7 
+## Directory:    /tmp/RtmpFZoUtk/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -604,19 +586,19 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 n      1032. 1196. eada41~ 0000    msajc~            98          98 Phon~
-##  2 n      1741. 1791. eada41~ 0000    msajc~           108         108 Phon~
-##  3 n      1515. 1554. eada41~ 0000    msajc~           113         113 Phon~
-##  4 n      2431. 2528. eada41~ 0000    msajc~           127         127 Phon~
-##  5 n       895. 1023. eada41~ 0000    msajc~            98          98 Phon~
-##  6 n      2402. 2475. eada41~ 0000    msajc~           122         122 Phon~
-##  7 n      2227. 2271. eada41~ 0000    msajc~           132         132 Phon~
-##  8 n      3046. 3068. eada41~ 0000    msajc~           145         145 Phon~
-##  9 n      1435. 1495. eada41~ 0000    msajc~            91          91 Phon~
-## 10 n      1775. 1834. eada41~ 0000    msajc~            96          96 Phon~
-## 11 n       509.  544. eada41~ 0000    msajc~            97          97 Phon~
-## 12 n      2448. 2480. eada41~ 0000    msajc~           130         130 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+##  1 n      1032. 1196. 6e24d0… 0000    msajc…            98          98 Phon…
+##  2 n      1741. 1791. 6e24d0… 0000    msajc…           108         108 Phon…
+##  3 n      1515. 1554. 6e24d0… 0000    msajc…           113         113 Phon…
+##  4 n      2431. 2528. 6e24d0… 0000    msajc…           127         127 Phon…
+##  5 n       895. 1023. 6e24d0… 0000    msajc…            98          98 Phon…
+##  6 n      2402. 2475. 6e24d0… 0000    msajc…           122         122 Phon…
+##  7 n      2227. 2271. 6e24d0… 0000    msajc…           132         132 Phon…
+##  8 n      3046. 3068. 6e24d0… 0000    msajc…           145         145 Phon…
+##  9 n      1435. 1495. 6e24d0… 0000    msajc…            91          91 Phon…
+## 10 n      1775. 1834. 6e24d0… 0000    msajc…            96          96 Phon…
+## 11 n       509.  544. 6e24d0… 0000    msajc…            97          97 Phon…
+## 12 n      2448. 2480. 6e24d0… 0000    msajc…           130         130 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -777,17 +759,17 @@ Having this hierarchical annotation structure now allows us to formulate a query
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 @      1506. 1548. eada41~ 0000    msajc~           103         103 Phon~
-##  2 @      1715. 1741. eada41~ 0000    msajc~           107         107 Phon~
-##  3 @      1967. 2034. eada41~ 0000    msajc~           112         112 Phon~
-##  4 @      2303. 2362. eada41~ 0000    msajc~           117         117 Phon~
-##  5 @      2447. 2506. eada41~ 0000    msajc~           119         119 Phon~
-##  6 @      1917. 1958. eada41~ 0000    msajc~           118         118 Phon~
-##  7 @      2022. 2078. eada41~ 0000    msajc~           120         120 Phon~
-##  8 @      2382. 2431. eada41~ 0000    msajc~           126         126 Phon~
-##  9 @       330.  380. eada41~ 0000    msajc~            91          91 Phon~
-## 10 @      1472. 1490. eada41~ 0000    msajc~           108         108 Phon~
-## # ... with 18 more rows, and 7 more variables: attribute <chr>,
+##  1 @      1506. 1548. 6e24d0… 0000    msajc…           103         103 Phon…
+##  2 @      1715. 1741. 6e24d0… 0000    msajc…           107         107 Phon…
+##  3 @      1967. 2034. 6e24d0… 0000    msajc…           112         112 Phon…
+##  4 @      2303. 2362. 6e24d0… 0000    msajc…           117         117 Phon…
+##  5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119 Phon…
+##  6 @      1917. 1958. 6e24d0… 0000    msajc…           118         118 Phon…
+##  7 @      2022. 2078. 6e24d0… 0000    msajc…           120         120 Phon…
+##  8 @      2382. 2431. 6e24d0… 0000    msajc…           126         126 Phon…
+##  9 @       330.  380. 6e24d0… 0000    msajc…            91          91 Phon…
+## 10 @      1472. 1490. 6e24d0… 0000    msajc…           108         108 Phon…
+## # … with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
@@ -812,17 +794,17 @@ As the type of word (content vs.~function) for each \emph{@} vowel is also neede
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 F         NA    NA eada41~ 0000    msajc~            16          16 Word 
-##  2 C         NA    NA eada41~ 0000    msajc~            17          17 Word 
-##  3 C         NA    NA eada41~ 0000    msajc~            17          17 Word 
-##  4 C         NA    NA eada41~ 0000    msajc~            18          18 Word 
-##  5 C         NA    NA eada41~ 0000    msajc~            18          18 Word 
-##  6 C         NA    NA eada41~ 0000    msajc~            19          19 Word 
-##  7 C         NA    NA eada41~ 0000    msajc~            20          20 Word 
-##  8 C         NA    NA eada41~ 0000    msajc~            20          20 Word 
-##  9 F         NA    NA eada41~ 0000    msajc~            13          13 Word 
-## 10 F         NA    NA eada41~ 0000    msajc~            17          17 Word 
-## # ... with 18 more rows, and 7 more variables: attribute <chr>,
+##  1 F         NA    NA 6e24d0… 0000    msajc…            16          16 Word 
+##  2 C         NA    NA 6e24d0… 0000    msajc…            17          17 Word 
+##  3 C         NA    NA 6e24d0… 0000    msajc…            17          17 Word 
+##  4 C         NA    NA 6e24d0… 0000    msajc…            18          18 Word 
+##  5 C         NA    NA 6e24d0… 0000    msajc…            18          18 Word 
+##  6 C         NA    NA 6e24d0… 0000    msajc…            19          19 Word 
+##  7 C         NA    NA 6e24d0… 0000    msajc…            20          20 Word 
+##  8 C         NA    NA 6e24d0… 0000    msajc…            20          20 Word 
+##  9 F         NA    NA 6e24d0… 0000    msajc…            13          13 Word 
+## 10 F         NA    NA 6e24d0… 0000    msajc…            17          17 Word 
+## # … with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
@@ -898,19 +880,19 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  2         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  3         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  4         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  5         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  6         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  7         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  8         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-##  9         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-## 10         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-## 11         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-## 12         5 @      2447. 2506. eada41~ 0000    msajc~           119         119
-## # ... with 15 more variables: level <chr>, attribute <chr>,
+##  1         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  2         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  3         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  4         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  5         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  6         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  7         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  8         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+##  9         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+## 10         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+## 11         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+## 12         5 @      2447. 2506. 6e24d0… 0000    msajc…           119         119
+## # … with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>, T4 <int>
@@ -1318,8 +1300,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     6b1f7d58-902f-46ba-8e09-6773db9d7056 
-## Directory:    /tmp/RtmpHzF0aq/fromScratch_emuDB 
+## UUID:     9f0eb8da-0d5f-4d2d-846a-e4a6fa01f8e4 
+## Directory:    /tmp/RtmpyWYRfd/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1557,7 +1539,7 @@ A further optional field is the \texttt{labelGroups} field. It contains specific
 
 \begin{verbatim}
 ## # A tibble: 0 x 16
-## # ... with 16 variables: labels <chr>, start <dbl>, end <dbl>, db_uuid <chr>,
+## # … with 16 variables: labels <chr>, start <dbl>, end <dbl>, db_uuid <chr>,
 ## #   session <chr>, bundle <chr>, start_item_id <int>, end_item_id <int>,
 ## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
@@ -1675,20 +1657,20 @@ The previous sections of this chapter defined the simple structure of the \emph{
 ## # A tibble: 14 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  3 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  4 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  5 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  6 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  7 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  8 fromWavFi~ msajc0~ msajc015.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  9 fromWavFi~ msajc0~ msajc022_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-## 10 fromWavFi~ msajc0~ msajc022.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-## 11 fromWavFi~ msajc0~ msajc023_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-## 12 fromWavFi~ msajc0~ msajc023.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-## 13 fromWavFi~ msajc0~ msajc057_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-## 14 fromWavFi~ msajc0~ msajc057.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc010_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc012_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc012.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc015_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc015.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc022_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc022.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+## 11 fromWavFi… msajc0… msajc023_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+## 12 fromWavFi… msajc0… msajc023.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+## 13 fromWavFi… msajc0… msajc057_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+## 14 fromWavFi… msajc0… msajc057.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB} containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every \texttt{\_annot.json} file created contains an empty \texttt{Word} and \texttt{Phonetic} level array and the links array is also empty.
@@ -1734,17 +1716,17 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 ## # A tibble: 21 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  3 fromWavFi~ msajc0~ msajc003.zcr /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  4 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  5 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  6 fromWavFi~ msajc0~ msajc010.zcr /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  7 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  8 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-##  9 fromWavFi~ msajc0~ msajc012.zcr /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-## 10 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpHzF0aq/fromScratch_emuDB/fromWavFil~
-## # ... with 11 more rows
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc010.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc010.zcr /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc012_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc012.wav /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc012.zcr /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc015_an… /tmp/RtmpyWYRfd/fromScratch_emuDB/fromWavFil…
+## # … with 11 more rows
 \end{verbatim}
 
 \hypertarget{ssff-track-definitions}{%
@@ -1904,8 +1886,8 @@ In \texttt{emuR} the result of a query or requery (see Section \ref{subsec:reque
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -1955,8 +1937,8 @@ The most basic form of an EQL query is a simple equality, inequality, matching o
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 L-      1107     0 0fc618~ 0000    msajc~           183         183 Tone 
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 L-      1107     0 0fc618… 0000    msajc…           183         183 Tone 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -1978,8 +1960,8 @@ The R code snippet above queries two levels that contain time information: a seg
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2054,8 +2036,8 @@ The syntax of a query string using the \texttt{-\textgreater{}} sequence operato
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @->n   1715. 1791. 0fc618~ 0000    msajc~           167         168 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 @->n   1715. 1791. 0fc618… 0000    msajc…           167         168 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2079,8 +2061,8 @@ Because users are often interested in just one element of a compound query such 
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1715. 1741. 0fc618~ 0000    msajc~           167         167 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 @      1715. 1741. 0fc618… 0000    msajc…           167         167 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2099,8 +2081,8 @@ Because users are often interested in just one element of a compound query such 
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1741. 1791. 0fc618~ 0000    msajc~           168         168 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 n      1741. 1791. 0fc618… 0000    msajc…           168         168 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2132,8 +2114,8 @@ An example of a query string using the conjunction operator is displayed in the 
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 always  775. 1280. 0fc618~ 0000    msajc~            28          28 Word 
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 always  775. 1280. 0fc618… 0000    msajc…            28          28 Word 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2145,14 +2127,14 @@ The above R code snippet does not make use of the result modifier symbol. Howeve
 
 Compared to sequence and conjunction queries, a domination query using the operator \emph{\^{}} is not bound to a single level. Instead, it allows users to query annotation items that are directly or indirectly linked over one or more levels. Queries using the domination operator are often referred to as hierarchical queries as they provide the ability to query the hierarchical annotations in a vertical or inter-level manner. Figure \ref{fig:amongstHierDomintation} shows the same partial hierarchy as Figure \ref{fig:amongstHier} but highlights the annotational items that are dominated by the strong syllable (\emph{S}) of the \emph{Syllable} level. Such linked hierarchical sub-structures can be queried using hierarchical/domination queries.
 
-\textbackslash{}begin\{figure\}
+\begin{figure}
 
-\{\centering \includegraphics[width=0.75\linewidth]{pics/amongstHierDomination}
+{\centering \includegraphics[width=0.75\linewidth]{pics/amongstHierDomination} 
 
-\}
+}
 
-\textbackslash{}caption\{Partial hierarchy depicting all annotation items that are dominated by the strong syllable (\emph{S}) of the \emph{Syllable} level (inside dashed box). Items marked extcolor\{three\_color\_c1\}\{green\} belong to the extcolor\{three\_color\_c1\}\{\emph{Phoneme}\} level, items marked extcolor\{three\_color\_c2\}\{orange\} belong to the extcolor\{three\_color\_c2\}\{\emph{Phonetic}\} level and the extcolor\{three\_color\_c3\}\{purple\} dashed box indicates the set of items that are dominated by \emph{S}.\}\label{fig:amongstHierDomintation}
-\textbackslash{}end\{figure\}
+\caption{Partial hierarchy depicting all annotation items that are dominated by the strong syllable (*S*) of the *Syllable* level (inside dashed box). Items marked green belong to the *Phoneme* level, items marked orange belong to the *Phonetic* level and the purple dashed box indicates the set of items that are dominated by *S*.}\label{fig:amongstHierDomintation}
+\end{figure}
 
 A schematic representation of a simple domination query string that retrieves all annotation items \emph{A} of level \texttt{L1} that are dominated by items \texttt{B} in level \texttt{L2} (i.e., items that are directly or indirectly linked) is \texttt{{[}L1\ ==\ A\ \^{}\{} L2 == B{]}\}. Although the domination relationship is directed the domination operator is not. This means that either items in \texttt{L1} dominate items in \texttt{L2} or items in \texttt{L2} dominate items in \texttt{L1}. Note that link definitions that specify the validity of the domination have to be present in the \texttt{emuDB} configuration for this to work (see Chapter \ref{chap:emuDB} for details). An example of a query string using the domination operator is displayed in the R code snippet below.
 
@@ -2171,8 +2153,8 @@ A schematic representation of a simple domination query string that retrieves al
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 p       559.  640. 0fc618~ 0000    msajc~           147         147 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 p       559.  640. 0fc618… 0000    msajc…           147         147 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2184,14 +2166,14 @@ As with the conjunction query, if no result modifier is present, a dominates que
 
 The EQL has three function terms that specify where in a domination relationship a child level annotation item is allowed to occur. The three function terms are \texttt{Start()}, \texttt{End()} and \texttt{Medial()}. A schematic representation of a query string representing a simple usage of the \texttt{Start()}, \texttt{End()} and \texttt{Medial()} function would be: \texttt{POSFCT(L1,\ L2)\ ==\ TRUE}. In this representation \texttt{POSFCT} is a placeholder for one of the three functions, at which level \texttt{L1} must dominate level \texttt{L2}. Where \texttt{L1} does indeed dominate \texttt{L2}, the corresponding item from level \texttt{L2} is returned. If the expression is set to \texttt{FALSE} (i.e., \texttt{POSFCT(L1,\ L2)\ ==\ FALSE}), all the items that do not match the condition of \texttt{L2} are returned. An illustration of what is returned by each of the position functions depending on if they are set to \texttt{TRUE} or \texttt{FALSE} is depicted in Figure \ref{fig:query-positionSimple}, while the R code snippet below shows an example query using a position query term.
 
-\textbackslash{}begin\{figure\}
+\begin{figure}
 
-\{\centering \includegraphics[width=0.75\linewidth]{pics/positionSimple}
+{\centering \includegraphics[width=0.75\linewidth]{pics/positionSimple} 
 
-\}
+}
 
-\textbackslash{}caption\{Illustration of what is returned by the \texttt{Start()}, \texttt{Medial()} and \texttt{End()} functions depending if they are set to extbf\{A:\} extcolor\{three\_color\_c1\}\{\texttt{TRUE}\} (green) or extbf\{B:\} extcolor\{three\_color\_c2\}\{\texttt{FALSE}\} (orange).\}\label{fig:query-positionSimple}
-\textbackslash{}end\{figure\}
+\caption{Illustration of what is returned by the `Start()`, `Medial()` and `End()` functions depending if they are set to **A:** `TRUE` (green) or **B:** `FALSE` (orange).}\label{fig:query-positionSimple}
+\end{figure}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2208,8 +2190,8 @@ The EQL has three function terms that specify where in a domination relationship
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 V       187.  257. 0fc618~ 0000    msajc~           114         114 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 V       187.  257. 0fc618… 0000    msajc…           114         114 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2241,12 +2223,12 @@ A schematic representation of a query string utilizing the count mechanism would
 ## # A tibble: 5 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
-## 2 S       740. 1289. 0fc618~ 0000    msajc~           105         105 Syll~
-## 3 W      2228. 2754. 0fc618~ 0000    msajc~           118         118 Syll~
-## 4 S      1890. 2470. 0fc618~ 0000    msajc~           105         105 Syll~
-## 5 S      1964. 2554. 0fc618~ 0000    msajc~            90          90 Syll~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## 2 S       740. 1289. 0fc618… 0000    msajc…           105         105 Syll…
+## 3 W      2228. 2754. 0fc618… 0000    msajc…           118         118 Syll…
+## 4 S      1890. 2470. 0fc618… 0000    msajc…           105         105 Syll…
+## 5 S      1964. 2554. 0fc618… 0000    msajc…            90          90 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2286,8 +2268,8 @@ The combine query is depicted in the R code snippet below. This complex query de
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 his    2694. 2781. 0fc618~ 0000    msajc~           101         101 Word 
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 his    2694. 2781. 0fc618… 0000    msajc…           101         101 Word 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2313,8 +2295,8 @@ The default behavior of the legacy EMU system was to automatically deduce time i
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2357,8 +2339,8 @@ The R code snippet below illustrates how the same results of the sequential quer
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 E       950. 1032. 0fc618~ 0000    msajc~           157         157 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 E       950. 1032. 0fc618… 0000    msajc…           157         157 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2384,8 +2366,8 @@ The R code snippet below illustrates how the same results of the sequential quer
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 m->V-~  257.  674. 0fc618~ 0000    msajc~           148         153 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 m->V-…  257.  674. 0fc618… 0000    msajc…           148         153 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -2474,17 +2456,17 @@ To access data that are stored in files, the user has to define tracks for a dat
 ## # A tibble: 183 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 15 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>, T4 <int>
@@ -2510,20 +2492,20 @@ Being able to access data that is stored in files is important for two main reas
 ## # A tibble: 18,386 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 18,376 more rows, and 12 more variables: level <chr>,
-## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
-## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 18,376 more rows, and 12 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <int>
 \end{verbatim}
 
 \hypertarget{adding-new-tracks}{%
@@ -2564,13 +2546,13 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 ## # A tibble: 7 x 4
 ##   session bundle   file      absolute_file_path                                 
 ##   <chr>   <chr>    <chr>     <chr>                                              
-## 1 0000    msajc003 msajc003~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 2 0000    msajc010 msajc010~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 3 0000    msajc012 msajc012~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 4 0000    msajc015 msajc015~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 5 0000    msajc022 msajc022~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 6 0000    msajc023 msajc023~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 7 0000    msajc057 msajc057~ /tmp/RtmpcN1iAG/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 1 0000    msajc003 msajc003… /tmp/RtmpqyFD8R/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 2 0000    msajc010 msajc010… /tmp/RtmpqyFD8R/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 3 0000    msajc012 msajc012… /tmp/RtmpqyFD8R/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 4 0000    msajc015 msajc015… /tmp/RtmpqyFD8R/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 5 0000    msajc022 msajc022… /tmp/RtmpqyFD8R/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 6 0000    msajc023 msajc023… /tmp/RtmpqyFD8R/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 7 0000    msajc057 msajc057… /tmp/RtmpqyFD8R/emuR_demoData/ae_emuDB/0000_ses/ms…
 \end{verbatim}
 
 \begin{Shaded}
@@ -2591,17 +2573,17 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 ## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
@@ -2629,17 +2611,17 @@ With the \texttt{wrassp} package, we were able to implement a new form of signal
 ## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
@@ -2672,17 +2654,17 @@ As of version 2.0.0 of \texttt{emuR} the default resulting object of a call to \
 ## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
@@ -2813,7 +2795,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /tmp/RtmpIzmTzz/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/Rtmp5L4By1/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -2879,7 +2861,7 @@ As can be seen in the above R code snippet, the resulting \texttt{au} object is 
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpIzmTzz/emuR_demoData/ae_emuDB/0000_s..."
+## [1] "/tmp/Rtmp5L4By1/emuR_demoData/ae_emuDB/0000_s..."
 ## 
 ## $origFreq
 ## [1] 0
@@ -3230,7 +3212,7 @@ As it can be extremely important to keep track of information about how certain 
 \begin{verbatim}
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2019-12-12 16:45:28 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2020-01-07 15:51:47 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 \end{verbatim}
 
@@ -4806,8 +4788,8 @@ The first thing that has to be done to address this fairly simple question is to
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1032. 1196. 0fc618~ 0000    msajc~           158         158 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 n      1032. 1196. 0fc618… 0000    msajc…           158         158 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 \end{verbatim}
@@ -4879,17 +4861,17 @@ If the \texttt{resultType} parameter is not set the call to \texttt{get\textback
 ## # A tibble: 641 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  2         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  3         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  4         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  5         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  6         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  7         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  8         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-##  9         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-## 10         1 V       187.  257. 0fc618~ 0000    msajc~           147         147
-## # ... with 631 more rows, and 15 more variables: level <chr>, attribute <chr>,
+##  1         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  2         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  3         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  4         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  5         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  6         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  7         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  8         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+##  9         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+## 10         1 V       187.  257. 0fc618… 0000    msajc…           147         147
+## # … with 631 more rows, and 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>, T4 <int>
@@ -4939,17 +4921,17 @@ As with the previous use cases, the initial step is to query the database to ext
 ## # A tibble: 32 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 s       483.  567. 0fc618~ 0000    msajc~           151         151 Phon~
-##  2 z      1196. 1289. 0fc618~ 0000    msajc~           159         159 Phon~
-##  3 S      1289. 1420. 0fc618~ 0000    msajc~           160         160 Phon~
-##  4 z      1548. 1634. 0fc618~ 0000    msajc~           164         164 Phon~
-##  5 s      1791. 1893. 0fc618~ 0000    msajc~           169         169 Phon~
-##  6 z       476.  572. 0fc618~ 0000    msajc~           155         155 Phon~
-##  7 z      2078. 2169. 0fc618~ 0000    msajc~           178         178 Phon~
-##  8 s      2228. 2319. 0fc618~ 0000    msajc~           180         180 Phon~
-##  9 s      2528. 2754. 0fc618~ 0000    msajc~           185         185 Phon~
-## 10 S       427.  546. 0fc618~ 0000    msajc~           153         153 Phon~
-## # ... with 22 more rows, and 7 more variables: attribute <chr>,
+##  1 s       483.  567. 0fc618… 0000    msajc…           151         151 Phon…
+##  2 z      1196. 1289. 0fc618… 0000    msajc…           159         159 Phon…
+##  3 S      1289. 1420. 0fc618… 0000    msajc…           160         160 Phon…
+##  4 z      1548. 1634. 0fc618… 0000    msajc…           164         164 Phon…
+##  5 s      1791. 1893. 0fc618… 0000    msajc…           169         169 Phon…
+##  6 z       476.  572. 0fc618… 0000    msajc…           155         155 Phon…
+##  7 z      2078. 2169. 0fc618… 0000    msajc…           178         178 Phon…
+##  8 s      2228. 2319. 0fc618… 0000    msajc…           180         180 Phon…
+##  9 s      2528. 2754. 0fc618… 0000    msajc…           185         185 Phon…
+## 10 S       427.  546. 0fc618… 0000    msajc…           153         153 Phon…
+## # … with 22 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
@@ -4970,17 +4952,17 @@ The \texttt{requery\_hier()} function can now be used to perform a hierarchical 
 ## # A tibble: 32 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 C       187.  674. 0fc618~ 0000    msajc~             2           2 Word 
-##  2 C       740. 1289. 0fc618~ 0000    msajc~            30          30 Word 
-##  3 F      1289. 1463. 0fc618~ 0000    msajc~            43          43 Word 
-##  4 F      1463. 1634. 0fc618~ 0000    msajc~            52          52 Word 
-##  5 C      1634. 2150. 0fc618~ 0000    msajc~            61          61 Word 
-##  6 F       412.  572. 0fc618~ 0000    msajc~            14          14 Word 
-##  7 C      1958. 2754. 0fc618~ 0000    msajc~            80          80 Word 
-##  8 C      1958. 2754. 0fc618~ 0000    msajc~            80          80 Word 
-##  9 C      1958. 2754. 0fc618~ 0000    msajc~            80          80 Word 
-## 10 C       380.  745. 0fc618~ 0000    msajc~            13          13 Word 
-## # ... with 22 more rows, and 7 more variables: attribute <chr>,
+##  1 C       187.  674. 0fc618… 0000    msajc…             2           2 Word 
+##  2 C       740. 1289. 0fc618… 0000    msajc…            30          30 Word 
+##  3 F      1289. 1463. 0fc618… 0000    msajc…            43          43 Word 
+##  4 F      1463. 1634. 0fc618… 0000    msajc…            52          52 Word 
+##  5 C      1634. 2150. 0fc618… 0000    msajc…            61          61 Word 
+##  6 F       412.  572. 0fc618… 0000    msajc…            14          14 Word 
+##  7 C      1958. 2754. 0fc618… 0000    msajc…            80          80 Word 
+##  8 C      1958. 2754. 0fc618… 0000    msajc…            80          80 Word 
+##  9 C      1958. 2754. 0fc618… 0000    msajc…            80          80 Word 
+## 10 C       380.  745. 0fc618… 0000    msajc…            13          13 Word 
+## # … with 22 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
@@ -5001,17 +4983,17 @@ As seen in the above R code snippet, the result is not quite what one would expe
 ## # A tibble: 32 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 among~  187.  674. 0fc618~ 0000    msajc~             2           2 Word 
-##  2 frien~  740. 1289. 0fc618~ 0000    msajc~            30          30 Word 
-##  3 she    1289. 1463. 0fc618~ 0000    msajc~            43          43 Word 
-##  4 was    1463. 1634. 0fc618~ 0000    msajc~            52          52 Word 
-##  5 consi~ 1634. 2150. 0fc618~ 0000    msajc~            61          61 Word 
-##  6 is      412.  572. 0fc618~ 0000    msajc~            14          14 Word 
-##  7 resis~ 1958. 2754. 0fc618~ 0000    msajc~            80          80 Word 
-##  8 resis~ 1958. 2754. 0fc618~ 0000    msajc~            80          80 Word 
-##  9 resis~ 1958. 2754. 0fc618~ 0000    msajc~            80          80 Word 
-## 10 chill   380.  745. 0fc618~ 0000    msajc~            13          13 Word 
-## # ... with 22 more rows, and 7 more variables: attribute <chr>,
+##  1 among…  187.  674. 0fc618… 0000    msajc…             2           2 Word 
+##  2 frien…  740. 1289. 0fc618… 0000    msajc…            30          30 Word 
+##  3 she    1289. 1463. 0fc618… 0000    msajc…            43          43 Word 
+##  4 was    1463. 1634. 0fc618… 0000    msajc…            52          52 Word 
+##  5 consi… 1634. 2150. 0fc618… 0000    msajc…            61          61 Word 
+##  6 is      412.  572. 0fc618… 0000    msajc…            14          14 Word 
+##  7 resis… 1958. 2754. 0fc618… 0000    msajc…            80          80 Word 
+##  8 resis… 1958. 2754. 0fc618… 0000    msajc…            80          80 Word 
+##  9 resis… 1958. 2754. 0fc618… 0000    msajc…            80          80 Word 
+## 10 chill   380.  745. 0fc618… 0000    msajc…            13          13 Word 
+## # … with 22 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
@@ -5035,17 +5017,17 @@ As we have answered the first part of the question, the R code snippet below wil
 ## # A tibble: 32 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 N       427.  483. 0fc618~ 0000    msajc~           150         150 Phon~
-##  2 n      1032. 1196. 0fc618~ 0000    msajc~           158         158 Phon~
-##  3 z      1196. 1289. 0fc618~ 0000    msajc~           159         159 Phon~
-##  4 @      1506. 1548. 0fc618~ 0000    msajc~           163         163 Phon~
-##  5 n      1741. 1791. 0fc618~ 0000    msajc~           168         168 Phon~
-##  6 I       412.  476. 0fc618~ 0000    msajc~           154         154 Phon~
-##  7 @      2022. 2078. 0fc618~ 0000    msajc~           177         177 Phon~
-##  8 I      2169. 2228. 0fc618~ 0000    msajc~           179         179 Phon~
-##  9 n      2431. 2528. 0fc618~ 0000    msajc~           184         184 Phon~
-## 10 t       380.  427. 0fc618~ 0000    msajc~           152         152 Phon~
-## # ... with 22 more rows, and 7 more variables: attribute <chr>,
+##  1 N       427.  483. 0fc618… 0000    msajc…           150         150 Phon…
+##  2 n      1032. 1196. 0fc618… 0000    msajc…           158         158 Phon…
+##  3 z      1196. 1289. 0fc618… 0000    msajc…           159         159 Phon…
+##  4 @      1506. 1548. 0fc618… 0000    msajc…           163         163 Phon…
+##  5 n      1741. 1791. 0fc618… 0000    msajc…           168         168 Phon…
+##  6 I       412.  476. 0fc618… 0000    msajc…           154         154 Phon…
+##  7 @      2022. 2078. 0fc618… 0000    msajc…           177         177 Phon…
+##  8 I      2169. 2228. 0fc618… 0000    msajc…           179         179 Phon…
+##  9 n      2431. 2528. 0fc618… 0000    msajc…           184         184 Phon…
+## 10 t       380.  427. 0fc618… 0000    msajc…           152         152 Phon…
+## # … with 22 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
@@ -5091,17 +5073,17 @@ As can be seen by the error message in the above R code snippet, four of the sib
 ## # A tibble: 32 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 t       567.  597. 0fc618~ 0000    msajc~           152         152 Phon~
-##  2 S      1289. 1420. 0fc618~ 0000    msajc~           160         160 Phon~
-##  3 i:     1420. 1463. 0fc618~ 0000    msajc~           161         161 Phon~
-##  4 k      1634. 1676. 0fc618~ 0000    msajc~           165         165 Phon~
-##  5 I      1893. 1945. 0fc618~ 0000    msajc~           170         170 Phon~
-##  6 f       572.  674. 0fc618~ 0000    msajc~           156         156 Phon~
-##  7 I      2169. 2228. 0fc618~ 0000    msajc~           179         179 Phon~
-##  8 t      2319. 2345. 0fc618~ 0000    msajc~           181         181 Phon~
+##  1 t       567.  597. 0fc618… 0000    msajc…           152         152 Phon…
+##  2 S      1289. 1420. 0fc618… 0000    msajc…           160         160 Phon…
+##  3 i:     1420. 1463. 0fc618… 0000    msajc…           161         161 Phon…
+##  4 k      1634. 1676. 0fc618… 0000    msajc…           165         165 Phon…
+##  5 I      1893. 1945. 0fc618… 0000    msajc…           170         170 Phon…
+##  6 f       572.  674. 0fc618… 0000    msajc…           156         156 Phon…
+##  7 I      2169. 2228. 0fc618… 0000    msajc…           179         179 Phon…
+##  8 t      2319. 2345. 0fc618… 0000    msajc…           181         181 Phon…
 ##  9 <NA>     NA    NA  <NA>    <NA>    <NA>              NA          NA <NA> 
-## 10 I       546.  615. 0fc618~ 0000    msajc~           154         154 Phon~
-## # ... with 22 more rows, and 7 more variables: attribute <chr>,
+## 10 I       546.  615. 0fc618… 0000    msajc…           154         154 Phon…
+## # … with 22 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <dbl>, end_item_seq_idx <dbl>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 \end{verbatim}
@@ -8540,21 +8522,21 @@ However, we don't have to do so, as another function of \texttt{emuR} called \te
 ## # A tibble: 5,397 x 23
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  2         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  3         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  4         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  5         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  6         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  7         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  8         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  9         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-## 10         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-## # ... with 5,387 more rows, and 14 more variables: level <chr>,
-## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
-## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, track_name <chr>,
-## #   track_value <dbl>, freq <dbl>
+##  1         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  2         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  3         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  4         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  5         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  6         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  7         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  8         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  9         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+## 10         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+## # … with 5,387 more rows, and 14 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, track_name <chr>, track_value <dbl>,
+## #   freq <dbl>
 \end{verbatim}
 
 So, instead of columns named T1, T2, \ldots{} Tn, we now have three other columns:
@@ -8870,7 +8852,7 @@ E.g.
 ##  8 s             11  42.4  -9.84 -5.85 -0.190 -0.131 5.35 
 ##  9 s             13  46.4  -9.95 -7.75 -0.655  0.909 4.43 
 ## 10 s             15  48.0 -11.1  -7.09  0.728  0.608 2.54 
-## # ... with 11 more rows
+## # … with 11 more rows
 \end{verbatim}
 
 After this quite complicated procedure, we can finally have a look at the importance of the first three coefficients as far as the power to divide categories is concerned. Let do it in reverse order:
@@ -9130,7 +9112,7 @@ In order to apply the moments function to our spectral data in the long format t
 ##  8 s             11   5653. 7033307.  -0.301  -0.845
 ##  9 s             13   5606. 6847687.  -0.258  -0.867
 ## 10 s             15   5653. 6923524.  -0.281  -0.868
-## # ... with 11 more rows
+## # … with 11 more rows
 \end{verbatim}
 
 However, the above command may sometimes fail. This is because some of the dB values can be negative and yet the calculation of moments assumes that the values for the observations are positive (it would never be possible, for example, to have a negative value in counting how many cars crossed the bridge in an hourly time interval!). To overcome this problem, the dB values are typically rescaled in calculating moments so that the minimum dB value is set to zero (as a result of which all dB values are positive and the smallest value is 0 dB). The \texttt{moments()} function does this whenever the argument \texttt{minval\ =\ T} is included. Thus:
@@ -9163,7 +9145,7 @@ However, the above command may sometimes fail. This is because some of the dB va
 ##  8 s             11   5688. 6938212.  -0.314  -0.816
 ##  9 s             13   5484. 7217595.  -0.215  -0.955
 ## 10 s             15   5551. 7211331.  -0.244  -0.941
-## # ... with 11 more rows
+## # … with 11 more rows
 \end{verbatim}
 
 We can now check, which of the moments could be good separators between {[}s{]} and {[}ʃ{]}:
@@ -9569,7 +9551,7 @@ Now we will add everything to the Git repository and create our initial commit. 
 \end{Shaded}
 
 \begin{verbatim}
-## [c7dee10] 2019-12-12: initial commit
+## [eebbe28] 2020-01-07: initial commit
 \end{verbatim}
 
 This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -9718,7 +9700,7 @@ These files describe, what bundles are allocated to a certain user. The name of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpruWSne/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpSOJL9w/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 \end{verbatim}
 
 \begin{Shaded}
@@ -9796,6 +9778,5 @@ As the annotators have full read and write access to the GitLab emuDB repository
 Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g.~you might want to share your database but not your ``messy'' analysis script :-)). This can for example be done using a new R Studio project (\texttt{File\ -\textgreater{}\ New\ Project...} in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired, I would recommend looking into Git submodules: \url{https://git-scm.com/book/en/v2/Git-Tools-Submodules}
 
 \bibliography{book.bib}
-
 
 \end{document}
