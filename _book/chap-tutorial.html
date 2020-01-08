@@ -176,14 +176,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
-<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> The resulting object of a query</a></li>
 <li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
 <li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
-<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
-<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
-<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
-<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
 <li class="chapter" data-level="6.2.7" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.2.7</b> Requery</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
@@ -460,8 +460,8 @@ Figure 3.1: TextGrid annotation of the <code>emuR_demoData/TextGrid_collection/m
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># show summary</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">summary</span>(db_handle)</a></code></pre></div>
 <pre><code>## Name:     my-first 
-## UUID:     bf83c771-31ac-4763-b71f-e2e7fc1ce9ff 
-## Directory:    /tmp/Rtmpi0VCMI/my-first_emuDB 
+## UUID:     b82bf00d-d339-4a00-b5f2-e2716fadfa4d 
+## Directory:    /tmp/RtmpUvgg3J/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -538,18 +538,18 @@ Figure 3.2: Screenshot of <code>EMU-webApp</code> displaying <code>msajc003</cod
 <pre><code>## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
-##  1 n      1032. 1196. bf83c7… 0000    msajc…            98          98 Phon…
-##  2 n      1741. 1791. bf83c7… 0000    msajc…           108         108 Phon…
-##  3 n      1515. 1554. bf83c7… 0000    msajc…           113         113 Phon…
-##  4 n      2431. 2528. bf83c7… 0000    msajc…           127         127 Phon…
-##  5 n       895. 1023. bf83c7… 0000    msajc…            98          98 Phon…
-##  6 n      2402. 2475. bf83c7… 0000    msajc…           122         122 Phon…
-##  7 n      2227. 2271. bf83c7… 0000    msajc…           132         132 Phon…
-##  8 n      3046. 3068. bf83c7… 0000    msajc…           145         145 Phon…
-##  9 n      1435. 1495. bf83c7… 0000    msajc…            91          91 Phon…
-## 10 n      1775. 1834. bf83c7… 0000    msajc…            96          96 Phon…
-## 11 n       509.  544. bf83c7… 0000    msajc…            97          97 Phon…
-## 12 n      2448. 2480. bf83c7… 0000    msajc…           130         130 Phon…
+##  1 n      1032. 1196. b82bf0… 0000    msajc…            98          98 Phon…
+##  2 n      1741. 1791. b82bf0… 0000    msajc…           108         108 Phon…
+##  3 n      1515. 1554. b82bf0… 0000    msajc…           113         113 Phon…
+##  4 n      2431. 2528. b82bf0… 0000    msajc…           127         127 Phon…
+##  5 n       895. 1023. b82bf0… 0000    msajc…            98          98 Phon…
+##  6 n      2402. 2475. b82bf0… 0000    msajc…           122         122 Phon…
+##  7 n      2227. 2271. b82bf0… 0000    msajc…           132         132 Phon…
+##  8 n      3046. 3068. b82bf0… 0000    msajc…           145         145 Phon…
+##  9 n      1435. 1495. b82bf0… 0000    msajc…            91          91 Phon…
+## 10 n      1775. 1834. b82bf0… 0000    msajc…            96          96 Phon…
+## 11 n       509.  544. b82bf0… 0000    msajc…            97          97 Phon…
+## 12 n      2448. 2480. b82bf0… 0000    msajc…           130         130 Phon…
 ## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
 ## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;,
 ## #   sample_rate &lt;int&gt;</code></pre>
@@ -658,16 +658,16 @@ Figure 3.5: Screenshot of <code>EMU-webApp</code> displaying the autobuilt hiera
 <pre><code>## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
-##  1 @      1506. 1548. bf83c7… 0000    msajc…           103         103 Phon…
-##  2 @      1715. 1741. bf83c7… 0000    msajc…           107         107 Phon…
-##  3 @      1967. 2034. bf83c7… 0000    msajc…           112         112 Phon…
-##  4 @      2303. 2362. bf83c7… 0000    msajc…           117         117 Phon…
-##  5 @      2447. 2506. bf83c7… 0000    msajc…           119         119 Phon…
-##  6 @      1917. 1958. bf83c7… 0000    msajc…           118         118 Phon…
-##  7 @      2022. 2078. bf83c7… 0000    msajc…           120         120 Phon…
-##  8 @      2382. 2431. bf83c7… 0000    msajc…           126         126 Phon…
-##  9 @       330.  380. bf83c7… 0000    msajc…            91          91 Phon…
-## 10 @      1472. 1490. bf83c7… 0000    msajc…           108         108 Phon…
+##  1 @      1506. 1548. b82bf0… 0000    msajc…           103         103 Phon…
+##  2 @      1715. 1741. b82bf0… 0000    msajc…           107         107 Phon…
+##  3 @      1967. 2034. b82bf0… 0000    msajc…           112         112 Phon…
+##  4 @      2303. 2362. b82bf0… 0000    msajc…           117         117 Phon…
+##  5 @      2447. 2506. b82bf0… 0000    msajc…           119         119 Phon…
+##  6 @      1917. 1958. b82bf0… 0000    msajc…           118         118 Phon…
+##  7 @      2022. 2078. b82bf0… 0000    msajc…           120         120 Phon…
+##  8 @      2382. 2431. b82bf0… 0000    msajc…           126         126 Phon…
+##  9 @       330.  380. b82bf0… 0000    msajc…            91          91 Phon…
+## 10 @      1472. 1490. b82bf0… 0000    msajc…           108         108 Phon…
 ## # … with 18 more rows, and 7 more variables: attribute &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
@@ -684,16 +684,16 @@ Figure 3.5: Screenshot of <code>EMU-webApp</code> displaying the autobuilt hiera
 <pre><code>## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
-##  1 F         NA    NA bf83c7… 0000    msajc…            16          16 Word 
-##  2 C         NA    NA bf83c7… 0000    msajc…            17          17 Word 
-##  3 C         NA    NA bf83c7… 0000    msajc…            17          17 Word 
-##  4 C         NA    NA bf83c7… 0000    msajc…            18          18 Word 
-##  5 C         NA    NA bf83c7… 0000    msajc…            18          18 Word 
-##  6 C         NA    NA bf83c7… 0000    msajc…            19          19 Word 
-##  7 C         NA    NA bf83c7… 0000    msajc…            20          20 Word 
-##  8 C         NA    NA bf83c7… 0000    msajc…            20          20 Word 
-##  9 F         NA    NA bf83c7… 0000    msajc…            13          13 Word 
-## 10 F         NA    NA bf83c7… 0000    msajc…            17          17 Word 
+##  1 F         NA    NA b82bf0… 0000    msajc…            16          16 Word 
+##  2 C         NA    NA b82bf0… 0000    msajc…            17          17 Word 
+##  3 C         NA    NA b82bf0… 0000    msajc…            17          17 Word 
+##  4 C         NA    NA b82bf0… 0000    msajc…            18          18 Word 
+##  5 C         NA    NA b82bf0… 0000    msajc…            18          18 Word 
+##  6 C         NA    NA b82bf0… 0000    msajc…            19          19 Word 
+##  7 C         NA    NA b82bf0… 0000    msajc…            20          20 Word 
+##  8 C         NA    NA b82bf0… 0000    msajc…            20          20 Word 
+##  9 F         NA    NA b82bf0… 0000    msajc…            13          13 Word 
+## 10 F         NA    NA b82bf0… 0000    msajc…            17          17 Word 
 ## # … with 18 more rows, and 7 more variables: attribute &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
@@ -729,18 +729,18 @@ Figure 3.5: Screenshot of <code>EMU-webApp</code> displaying the autobuilt hiera
 <pre><code>## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
-##  1         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  2         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  3         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  4         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  5         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  6         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  7         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  8         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-##  9         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-## 10         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-## 11         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
-## 12         5 @      2447. 2506. bf83c7… 0000    msajc…           119         119
+##  1         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  2         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  3         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  4         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  5         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  6         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  7         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  8         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+##  9         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+## 10         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+## 11         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
+## 12         5 @      2447. 2506. b82bf0… 0000    msajc…           119         119
 ## # … with 15 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,

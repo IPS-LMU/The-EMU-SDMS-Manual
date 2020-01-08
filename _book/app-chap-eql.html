@@ -176,14 +176,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
-<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> The resulting object of a query</a></li>
 <li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
 <li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
-<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
-<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
-<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
-<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
 <li class="chapter" data-level="6.2.7" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.2.7</b> Requery</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
@@ -390,17 +390,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="app-chap:eql" class="section level1">
 <h1><span class="header-section-number">18</span> EQL: further examples</h1>
 <p>Below are examples of query strings that have been adapted from <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a">2001</a>)</span> and <span class="citation">Harrington and Cassidy (<a href="#ref-harrington:2002aa">2002</a>)</span> and which are displayed as questions and answers. All examples use the <em>ae</em> demo <code>emuDB</code>, which is provided by the <code>emuR</code> package, and were extracted from the <code>EQL</code> vignette of the <code>emuR</code> package. Descriptions (some of them duplicates of those in Chapter <a href="chap-querysys.html#chap:querysys">6</a>) of the various syntaxes and query components are also included for easier reading. The R code snippet below shows how to access the <em>ae</em> demo <code>emuDB</code>.</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="co"># load the package </span></a>
-<a class="sourceLine" id="cb308-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb308-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb308-4" data-line-number="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
-<a class="sourceLine" id="cb308-5" data-line-number="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb308-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb308-7" data-line-number="7"><span class="co"># get the path to emuDB called &#39;ae&#39; that is part of the demo data</span></a>
-<a class="sourceLine" id="cb308-8" data-line-number="8">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb308-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb308-10" data-line-number="10"><span class="co"># load emuDB into current R session</span></a>
-<a class="sourceLine" id="cb308-11" data-line-number="11">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory)</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="co"># load the package </span></a>
+<a class="sourceLine" id="cb305-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb305-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb305-4" data-line-number="4"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
+<a class="sourceLine" id="cb305-5" data-line-number="5"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb305-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb305-7" data-line-number="7"><span class="co"># get the path to emuDB called &#39;ae&#39; that is part of the demo data</span></a>
+<a class="sourceLine" id="cb305-8" data-line-number="8">path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb305-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb305-10" data-line-number="10"><span class="co"># load emuDB into current R session</span></a>
+<a class="sourceLine" id="cb305-11" data-line-number="11">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory)</a></code></pre></div>
 <div id="simple-equality-inequality-matching-non-matching-queries-single-argument" class="section level2">
 <h2><span class="header-section-number">18.1</span> Simple equality, inequality, matching and non-matching queries (single-argument)</h2>
 <p>The syntax of a simple, equality, inequality, matching and non-matching query is <code>[L OPERATOR A]</code> where <code>L</code> specifies a level (or alternatively the name of a parallel attribute definition), <code>OPERATOR</code> is one of the following operators: <code>==</code> (equality); <code>!=</code> (inequality); <code>=~</code> (matching) or <code>!~</code> (non-matching), and <code>A</code> is an expression specifying the labels of the annotation items of <code>L</code>.</p>
@@ -409,36 +409,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all items containing the label “m” in the “Phonetic” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
-<a class="sourceLine" id="cb309-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Phonetic == m]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
+<a class="sourceLine" id="cb306-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Phonetic == m]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all items containing the label “m” or “n” in the “Phonetic” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
-<a class="sourceLine" id="cb310-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Phonetic == m | n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
+<a class="sourceLine" id="cb307-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Phonetic == m | n]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all items that do not contain the label “m” or “n”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
-<a class="sourceLine" id="cb311-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Phonetic != m | n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
+<a class="sourceLine" id="cb308-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Phonetic != m | n]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all items in the “Syllable” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
-<a class="sourceLine" id="cb312-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Syllable =~ .*]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae, </a>
+<a class="sourceLine" id="cb309-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Syllable =~ .*]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all items that begin with “a” in the “Text” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ a.*]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ a.*]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all items that do not begin with “a” in the “Text” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text !~ a.*]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text !~ a.*]&quot;</span>)</a></code></pre></div>
 <p>The above examples use three operators that are new to the EQL as of version 2. One is the <code>==</code> equal operator, which has the same meaning as the <code>=</code> operator of the EQL version 1 (which is also still available) while providing a cleaner, more precise syntax. The other two are <code>=~</code> and <code>!~</code>, which are the new matching and non-matching regular expression operators. Further, it is worth noting that the use of parentheses, blanks or characters that represent operands used by the EQL (see EBNF in Appendix <a href="app-chap-EQL-EBNF.html#app-chap:EQL-EBNF">17</a>) as part of a label matching string (the string on the right hand side of one of the operands mentioned above), must be placed in additional single quotation marks to escape these characters. For example, searching for the items containing the labels <code>O_'</code> on the Phonetic level could not be written as <code>&quot;[Phonetic == O_']&quot;</code> but would have to be written as <code>&quot;[Phonetic == 'O_'']&quot;</code>. Reversing the order of single vs. double quotation marks is currently not supported, that is <code>'[Phonetic == &quot;O_'&quot;]'</code> will currently not work. Hence, to avoid this issue only double quotation marks for the outer wrapping of the query string should be used.</p>
 </div>
 <div id="sequence-queries-using-the---sequence-operator" class="section level2">
@@ -449,26 +449,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all sequences of items containing the label “@” followed by items containing the label “n” on the “Phonetic” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: all row entries in the resulting </span></a>
-<a class="sourceLine" id="cb315-2" data-line-number="2"><span class="co"># segment list have the start time of &quot;@&quot;, the </span></a>
-<a class="sourceLine" id="cb315-3" data-line-number="3"><span class="co"># end time of &quot;n&quot;, and their labels will be &quot;@-&gt;n&quot;</span></a>
-<a class="sourceLine" id="cb315-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: all row entries in the resulting </span></a>
+<a class="sourceLine" id="cb312-2" data-line-number="2"><span class="co"># segment list have the start time of &quot;@&quot;, the </span></a>
+<a class="sourceLine" id="cb312-3" data-line-number="3"><span class="co"># end time of &quot;n&quot;, and their labels will be &quot;@-&gt;n&quot;</span></a>
+<a class="sourceLine" id="cb312-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>Same as the question above but this time we are only interested in the items containing the label “@” in the sequences.</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: all row entries in the resulting</span></a>
-<a class="sourceLine" id="cb316-2" data-line-number="2"><span class="co"># segment list have the start time of &quot;@&quot;, the</span></a>
-<a class="sourceLine" id="cb316-3" data-line-number="3"><span class="co"># end time of &quot;@&quot; and their labels will also be &quot;@&quot;</span></a>
-<a class="sourceLine" id="cb316-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="st">&quot;[#Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: all row entries in the resulting</span></a>
+<a class="sourceLine" id="cb313-2" data-line-number="2"><span class="co"># segment list have the start time of &quot;@&quot;, the</span></a>
+<a class="sourceLine" id="cb313-3" data-line-number="3"><span class="co"># end time of &quot;@&quot; and their labels will also be &quot;@&quot;</span></a>
+<a class="sourceLine" id="cb313-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="st">&quot;[#Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>Same as the first question but this time we are only interested in the items containing the label “n”.</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: all row entries in the resulting</span></a>
-<a class="sourceLine" id="cb317-2" data-line-number="2"><span class="co"># segment list have the start time of &quot;n&quot;, the</span></a>
-<a class="sourceLine" id="cb317-3" data-line-number="3"><span class="co"># end time of &quot;n&quot; and their labels will also be &quot;n&quot;</span></a>
-<a class="sourceLine" id="cb317-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; #Phonetic == n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: all row entries in the resulting</span></a>
+<a class="sourceLine" id="cb314-2" data-line-number="2"><span class="co"># segment list have the start time of &quot;n&quot;, the</span></a>
+<a class="sourceLine" id="cb314-3" data-line-number="3"><span class="co"># end time of &quot;n&quot; and their labels will also be &quot;n&quot;</span></a>
+<a class="sourceLine" id="cb314-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; #Phonetic == n]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="subsequent-sequence-queries-using-nesting-of-the---sequence-operator" class="section level2">
 <h2><span class="header-section-number">18.3</span> Subsequent sequence queries using nesting of the <code>-&gt;</code> sequence operator</h2>
@@ -478,20 +478,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all sequences of items containing the labels “@”, “n” and “s” on the “Phonetic” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Phonetic == @ -&gt; Phonetic == n] -&gt; Phonetic == s]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Phonetic == @ -&gt; Phonetic == n] -&gt; Phonetic == s]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all sequences of items containing the labels “to”, “offer” and “any” on the “Text” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Text == to -&gt; Text == offer] -&gt; Text == any]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Text == to -&gt; Text == offer] -&gt; Text == any]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all sequences of items containing labels “offer” followed by two arbitrary labels followed by “resistance”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
-<a class="sourceLine" id="cb320-2" data-line-number="2"><span class="co"># as it is only used for formating purposes</span></a>
-<a class="sourceLine" id="cb320-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Text == offer -&gt; Text =~ .*] &quot;</span>,</a>
-<a class="sourceLine" id="cb320-4" data-line-number="4">                 <span class="st">&quot;-&gt; Text =~ .*] -&gt; Text == resistance]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
+<a class="sourceLine" id="cb317-2" data-line-number="2"><span class="co"># as it is only used for formating purposes</span></a>
+<a class="sourceLine" id="cb317-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Text == offer -&gt; Text =~ .*] &quot;</span>,</a>
+<a class="sourceLine" id="cb317-4" data-line-number="4">                 <span class="st">&quot;-&gt; Text =~ .*] -&gt; Text == resistance]&quot;</span>))</a></code></pre></div>
 <p>As the EQL1 did not have a regular expression operator, users often resorted to using queries such as <code>[Phonetic != XXX]</code> (where XXX is a label that was not part of the label set of the <em>Phonetic</em> level) to match every label on the <code>Phonetic</code> level. Although this is still possible in the EQL2, we strongly recommend using regular expressions as they provide a much clearer and more precise syntax and are less error-prone.</p>
 </div>
 <div id="conjunction-operator" class="section level2">
@@ -507,17 +507,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all items containing the label “always” in the “Text” attribute definition which also have the label “C” on a parallel attribute definition called “Word”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text == always &amp; Word == C]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text == always &amp; Word == C]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all items of the attribute definition “Text” of the level “Word” that were also labeled as function words (labeled “F” in the “Word” level)?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Word == F]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Word == F]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all items of the attribute definition “Text” of the level “Word” that were also labeled as content words (labeled “C” in the “Word” level) and as accented (labeled “S” in the attribute definition “Accent” of the same level)?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Word == C &amp; Accent == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Word == C &amp; Accent == S]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="domination-operator-hierarchical-queries" class="section level2">
 <h2><span class="header-section-number">18.5</span> Domination operator ^ (hierarchical queries)</h2>
@@ -529,24 +529,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all items containing the label “p” in the “Phoneme” level that occur in strong syllables (i.e., dominated by/linked to items of the level “Syllable” that contain the label “S”)?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Syllable == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Syllable == S]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all syllable items which contain a Phoneme item labeled “p”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* ^ Phoneme == p]&quot;</span>) </a>
-<a class="sourceLine" id="cb325-2" data-line-number="2"><span class="co"># or </span></a>
-<a class="sourceLine" id="cb325-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ #Syllable =~ .*]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* ^ Phoneme == p]&quot;</span>) </a>
+<a class="sourceLine" id="cb322-2" data-line-number="2"><span class="co"># or </span></a>
+<a class="sourceLine" id="cb322-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ #Syllable =~ .*]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all syllable items that have links to Phoneme items that are not labeled “k” or “p” or “t”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* ^ Phoneme != p | t | k]&quot;</span>)</a>
-<a class="sourceLine" id="cb326-2" data-line-number="2"><span class="co"># or </span></a>
-<a class="sourceLine" id="cb326-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme != p | t | k ^ #Syllable =~ .*]&quot;</span>)</a>
-<a class="sourceLine" id="cb326-4" data-line-number="4"><span class="co"># note: every syllable with a link to not p | t | k is returned</span></a>
-<a class="sourceLine" id="cb326-5" data-line-number="5"><span class="co"># including those with links to multiple phonemes where a single linked</span></a>
-<a class="sourceLine" id="cb326-6" data-line-number="6"><span class="co"># item doesn&#39;t contain the label &#39;p&#39;, &#39;t&#39; or &#39;k&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* ^ Phoneme != p | t | k]&quot;</span>)</a>
+<a class="sourceLine" id="cb323-2" data-line-number="2"><span class="co"># or </span></a>
+<a class="sourceLine" id="cb323-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme != p | t | k ^ #Syllable =~ .*]&quot;</span>)</a>
+<a class="sourceLine" id="cb323-4" data-line-number="4"><span class="co"># note: every syllable with a link to not p | t | k is returned</span></a>
+<a class="sourceLine" id="cb323-5" data-line-number="5"><span class="co"># including those with links to multiple phonemes where a single linked</span></a>
+<a class="sourceLine" id="cb323-6" data-line-number="6"><span class="co"># item doesn&#39;t contain the label &#39;p&#39;, &#39;t&#39; or &#39;k&#39;</span></a></code></pre></div>
 <p>Even though the domination operator is not directional, what you place to the left and right of the operator does have an impact on the result. If no result modifier (the hash tag <code>\#</code>) is used, the query engine will automatically assume that the expression to the left of the operator specifies what is to be returned. This means that the schematic query string <code>[L1 == A ^ L2 == B]</code> is semantically equal to the query string <code>[\#L1 == A ^ L2 == B]</code>. As it is more explicit to mark the desired result we recommend you always use the result modifier where possible.</p>
 </div>
 <div id="multiple-domination" class="section level3">
@@ -557,18 +557,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all items on the “Phonetic” level that are part of a strong syllable (labeled “S”) and belong to the words “amongst” or “beautiful”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of R&#39;s paste0() function is optional</span></a>
-<a class="sourceLine" id="cb327-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb327-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[#Phonetic =~ .* ^ Syllable == S] &quot;</span>,</a>
-<a class="sourceLine" id="cb327-4" data-line-number="4">                 <span class="st">&quot;^ Text == amongst | beautiful]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of R&#39;s paste0() function is optional</span></a>
+<a class="sourceLine" id="cb324-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb324-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[#Phonetic =~ .* ^ Syllable == S] &quot;</span>,</a>
+<a class="sourceLine" id="cb324-4" data-line-number="4">                 <span class="st">&quot;^ Text == amongst | beautiful]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>The same as the question above but this time we want the “Text” items.</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of R&#39;s paste0() function is optional</span></a>
-<a class="sourceLine" id="cb328-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb328-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phonetic =~ .* ^ Syllable == S] &quot;</span>,</a>
-<a class="sourceLine" id="cb328-4" data-line-number="4">                 <span class="st">&quot;^ #Text == amongst | beautiful]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of R&#39;s paste0() function is optional</span></a>
+<a class="sourceLine" id="cb325-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb325-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phonetic =~ .* ^ Syllable == S] &quot;</span>,</a>
+<a class="sourceLine" id="cb325-4" data-line-number="4">                 <span class="st">&quot;^ #Text == amongst | beautiful]&quot;</span>))</a></code></pre></div>
 </div>
 </div>
 <div id="position" class="section level2">
@@ -583,27 +583,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-initial syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-initial phonemes?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all non-word-initial syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-final syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[End(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[End(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-medial syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Medial(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Medial(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="position-and-boolean" class="section level3">
 <h3><span class="header-section-number">18.6.2</span> Position and boolean &amp;</h3>
@@ -613,17 +613,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all “n” Phoneme items at the beginning of a syllable?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == n &amp; Start(Syllable, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == n &amp; Start(Syllable, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-final “m” Phoneme items?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m &amp; End(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m &amp; End(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all non-word-final “S” syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S &amp; End(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S &amp; End(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="position-and-boolean-1" class="section level3">
 <h3><span class="header-section-number">18.6.3</span> Position and boolean ^</h3>
@@ -633,12 +633,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all “p” Phoneme items which occur in the first syllable of the word?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Start(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Start(Word, Syllable) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all phonemes which do not occur in the last syllable of the word?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme =~ .* ^ End(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme =~ .* ^ End(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
 <p>Count</p>
 <p>A schematic representation of a query string using the count mechanism looks like <code>[Num(L1, L2) == N]</code>, where <code>L1</code> contains <code>N</code> items in <code>L2</code>. For this type of query to work, <code>L1</code> has to dominate <code>L2</code>. As the query matches a number (<code>N</code>), it is also possible to use the operators <code>&gt;</code>} (more than), <code>&lt;</code> (less than) and <code>!=</code> (not equal). The resulting segment list contains items of <code>L1</code>.</p>
 <p>Example questions and answers:</p>
@@ -646,12 +646,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all words that contain four syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Num(Word, Syllable) == 4]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Num(Word, Syllable) == 4]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all syllables that contain more than six phonemes?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Num(Syllable, Phoneme) &gt; 6]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Num(Syllable, Phoneme) &gt; 6]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="count-and-boolean" class="section level3">
 <h3><span class="header-section-number">18.6.4</span> Count and boolean <code>&amp;</code></h3>
@@ -661,14 +661,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve the “Text” of all words which consist of more than five phonemes?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Num(Text, Phoneme) &gt; 5]&quot;</span>) </a>
-<a class="sourceLine" id="cb341-2" data-line-number="2"><span class="co"># or </span></a>
-<a class="sourceLine" id="cb341-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Num(Word, Phoneme) &gt; 5]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Num(Text, Phoneme) &gt; 5]&quot;</span>) </a>
+<a class="sourceLine" id="cb338-2" data-line-number="2"><span class="co"># or </span></a>
+<a class="sourceLine" id="cb338-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Num(Word, Phoneme) &gt; 5]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all strong syllables that contain five phonemes?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S &amp; Num(Syllable, Phoneme) == 5]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S &amp; Num(Syllable, Phoneme) == 5]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="count-and" class="section level3">
 <h3><span class="header-section-number">18.6.5</span> Count and ^</h3>
@@ -678,17 +678,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all “m” phonemes in three-syllable words?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m ^ Num(Word, Syllable) == 3]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m ^ Num(Word, Syllable) == 3]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “W” syllables in words of three syllables or less?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable = W ^ Num(Word, Syllable) &lt;= 3]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable = W ^ Num(Word, Syllable) &lt;= 3]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all words containing syllables which contain four phonemes?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* ^ Num(Syllable, Phoneme) == 4]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* ^ Num(Syllable, Phoneme) == 4]&quot;</span>)</a></code></pre></div>
 </div>
 </div>
 <div id="combinations" class="section level2">
@@ -701,23 +701,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all “m” preceding “p” when “m” is part of an “S” syllable?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Phoneme == m -&gt; Phoneme =~ p] ^ Syllable == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Phoneme == m -&gt; Phoneme =~ p] ^ Syllable == S]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “s” preceding “t” when “t” is part of a “W” syllable?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == s -&gt; [Phoneme == t ^ Syllable == W]]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == s -&gt; [Phoneme == t ^ Syllable == W]]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “S” syllables, containing an “s” phoneme and preceding an “S” syllable?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[#Syllable == S ^ Phoneme == s] -&gt; Syllable == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[#Syllable == S ^ Phoneme == s] -&gt; Syllable == S]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>Same question as above but this time we want all “s” items where “s” is part of a “S” syllable and the “S” syllable precedes another “S” syllable.</em></li>
 <li><strong>A</strong>:
 <code>&quot;[[Phoneme == s ^ Syllable == S] -&gt; Syllable == S]&quot;</code> would cause an error as <code>Phoneme == s</code> and <code>Syllable == S</code> are not on the same level. Therefore, the correct answer is:</li>
 </ul>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Syllable == S ^ #Phoneme == s] -&gt; Syllable == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[[Syllable == S ^ #Phoneme == s] -&gt; Syllable == S]&quot;</span>)</a></code></pre></div>
 </div>
 <div id="and---and-domination-and-sequence-and-boolean" class="section level3">
 <h3><span class="header-section-number">18.7.2</span> ^ and -&gt; and &amp; (domination and sequence and boolean &amp;)</h3>
@@ -726,27 +726,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve the “Text” of all words beginning with a “@” on the “Phoneme” level?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
-<a class="sourceLine" id="cb350-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb350-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[Text =~ .* ^ Phoneme == @ &quot;</span>,</a>
-<a class="sourceLine" id="cb350-4" data-line-number="4">                 <span class="st">&quot;&amp; Start(Text, Phoneme) == TRUE]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
+<a class="sourceLine" id="cb347-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb347-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[Text =~ .* ^ Phoneme == @ &quot;</span>,</a>
+<a class="sourceLine" id="cb347-4" data-line-number="4">                 <span class="st">&quot;&amp; Start(Text, Phoneme) == TRUE]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all word-initial “m” items in a “S” syllable preceding “o:”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
-<a class="sourceLine" id="cb351-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb351-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phoneme == m &amp; Start(Word, Phoneme) == TRUE &quot;</span>,</a>
-<a class="sourceLine" id="cb351-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phoneme == o:] ^ Syllable == S]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
+<a class="sourceLine" id="cb348-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb348-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phoneme == m &amp; Start(Word, Phoneme) == TRUE &quot;</span>,</a>
+<a class="sourceLine" id="cb348-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phoneme == o:] ^ Syllable == S]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>Same question as the question above, but this time we want the “Text” items.</em>\</li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
-<a class="sourceLine" id="cb352-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb352-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Phoneme == m &amp; Start(Word, Phoneme) == TRUE &quot;</span>,</a>
-<a class="sourceLine" id="cb352-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phoneme == o:] ^ Syllable == S] &quot;</span>,</a>
-<a class="sourceLine" id="cb352-5" data-line-number="5">                 <span class="st">&quot;^ #Text =~ .*]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
+<a class="sourceLine" id="cb349-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb349-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Phoneme == m &amp; Start(Word, Phoneme) == TRUE &quot;</span>,</a>
+<a class="sourceLine" id="cb349-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phoneme == o:] ^ Syllable == S] &quot;</span>,</a>
+<a class="sourceLine" id="cb349-5" data-line-number="5">                 <span class="st">&quot;^ #Text =~ .*]&quot;</span>))</a></code></pre></div>
 </div>
 </div>
 <div id="a-few-more-questions-and-answers" class="section level2">
@@ -755,61 +755,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Q</strong>: <em>What is the query to retrieve all “m” or “n” phonemes which occur in the word-medial position?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m | n &amp; Medial(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == m | n &amp; Medial(Word, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “H” phonetic segments followed by an arbitrary segment and then by either “I” or “U”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
-<a class="sourceLine" id="cb354-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb354-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phonetic == H -&gt; Phonetic =~ .*] &quot;</span>,</a>
-<a class="sourceLine" id="cb354-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phonetic == I | U]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
+<a class="sourceLine" id="cb351-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb351-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[Phonetic == H -&gt; Phonetic =~ .*] &quot;</span>,</a>
+<a class="sourceLine" id="cb351-4" data-line-number="4">                 <span class="st">&quot;-&gt; Phonetic == I | U]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all syllables which do not occur in word-medial positions?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* &amp; Medial(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable =~ .* &amp; Medial(Word, Syllable) == FALSE]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve the “Text” items of all words containing two syllables?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Num(Text, Syllable) == 2]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text =~ .* &amp; Num(Text, Syllable) == 2]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve the “Text” items of all accented words following “the”?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text == the -&gt; #Text =~ .* &amp; Accent == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Text == the -&gt; #Text =~ .* &amp; Accent == S]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “S” (strong) syllables consisting of five phonemes?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable = S ^ Num(Word, Phoneme) == 5]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable = S ^ Num(Word, Phoneme) == 5]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all “W” (weak) syllables containing a “@” phoneme?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == W ^ Phoneme == @]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == W ^ Phoneme == @]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all Phonetic items belonging to a “W” (weak) syllable?</em>\</li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1"><span class="kw">query</span>(ae,<span class="st">&quot;[Phonetic =~ .* ^ #Syllable == W]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">query</span>(ae,<span class="st">&quot;[Phonetic =~ .* ^ #Syllable == W]&quot;</span>)</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve “W” (weak) syllables in word-final position occurring in three-syllable words?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
-<a class="sourceLine" id="cb361-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb361-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[Syllable == W &amp; End(Word, Syllable) == TRUE &quot;</span>,</a>
-<a class="sourceLine" id="cb361-4" data-line-number="4">                 <span class="st">&quot;^ Num(Word, Syllable) == 3]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
+<a class="sourceLine" id="cb358-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb358-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[Syllable == W &amp; End(Word, Syllable) == TRUE &quot;</span>,</a>
+<a class="sourceLine" id="cb358-4" data-line-number="4">                 <span class="st">&quot;^ Num(Word, Syllable) == 3]&quot;</span>))</a></code></pre></div>
 <ul>
 <li><strong>Q</strong>: <em>What is the query to retrieve all phonemes dominating “H” Phonetic items at the beginning of a syllable and occurring in accented (“S”) words?</em></li>
 <li><strong>A</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
-<a class="sourceLine" id="cb362-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb362-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Phoneme =~ .* ^ Phonetic == H] &quot;</span>,</a>
-<a class="sourceLine" id="cb362-4" data-line-number="4">                 <span class="st">&quot;^ Start(Word, Syllable) == TRUE] ^ Accent == S]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1"><span class="co"># </span><span class="al">NOTE</span><span class="co">: usage of paste0() is optional</span></a>
+<a class="sourceLine" id="cb359-2" data-line-number="2"><span class="co"># as it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb359-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Phoneme =~ .* ^ Phonetic == H] &quot;</span>,</a>
+<a class="sourceLine" id="cb359-4" data-line-number="4">                 <span class="st">&quot;^ Start(Word, Syllable) == TRUE] ^ Accent == S]&quot;</span>))</a></code></pre></div>
 </div>
 <div id="differences-to-the-legacy-emu-query-language" class="section level2">
 <h2><span class="header-section-number">18.9</span> Differences to the legacy EMU query language</h2>
@@ -833,9 +833,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="legacy-emu" class="section level3">
 <h3><span class="header-section-number">18.9.5</span> legacy EMU</h3>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" data-line-number="1"><span class="kw">emu.query</span>(<span class="dt">template =</span> <span class="st">&quot;andosl&quot;</span>, </a>
-<a class="sourceLine" id="cb364-2" data-line-number="2">          <span class="dt">pattern =</span> <span class="st">&quot;*&quot;</span>,</a>
-<a class="sourceLine" id="cb364-3" data-line-number="3">          <span class="dt">query =</span> <span class="st">&quot;[Text=spring &amp; #Accent=S]&quot;</span>)<span class="er">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1"><span class="kw">emu.query</span>(<span class="dt">template =</span> <span class="st">&quot;andosl&quot;</span>, </a>
+<a class="sourceLine" id="cb361-2" data-line-number="2">          <span class="dt">pattern =</span> <span class="st">&quot;*&quot;</span>,</a>
+<a class="sourceLine" id="cb361-3" data-line-number="3">          <span class="dt">query =</span> <span class="st">&quot;[Text=spring &amp; #Accent=S]&quot;</span>)<span class="er">}</span></a></code></pre></div>
 <p>yielded:</p>
 <pre><code>## moving data from Tcl to R
 ## Read 1 records
@@ -844,9 +844,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   labels    start      end     utts
 ## 1 spring 2288.959 2704.466 msajc094</code></pre>
 <p>and</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1"><span class="kw">emu.query</span>(<span class="dt">template =</span> <span class="st">&quot;andosl&quot;</span>,</a>
-<a class="sourceLine" id="cb366-2" data-line-number="2">          <span class="dt">pattern =</span> <span class="st">&quot;*&quot;</span>,</a>
-<a class="sourceLine" id="cb366-3" data-line-number="3">          <span class="dt">query =</span> <span class="st">&quot;[#Text=spring &amp; #Accent=S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1"><span class="kw">emu.query</span>(<span class="dt">template =</span> <span class="st">&quot;andosl&quot;</span>,</a>
+<a class="sourceLine" id="cb363-2" data-line-number="2">          <span class="dt">pattern =</span> <span class="st">&quot;*&quot;</span>,</a>
+<a class="sourceLine" id="cb363-3" data-line-number="3">          <span class="dt">query =</span> <span class="st">&quot;[#Text=spring &amp; #Accent=S]&quot;</span>)</a></code></pre></div>
 <p>yielded the identical:</p>
 <pre><code>## moving data from Tcl to R
 ## Read 1 records
@@ -857,9 +857,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hence, the hash tag <code>#</code> had no effect.</p>
 <div id="emur" class="section level4">
 <h4><span class="header-section-number">18.9.5.1</span> emuR</h4>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> andosl,</a>
-<a class="sourceLine" id="cb368-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Text == spring &amp; #Accent == S]&quot;</span>,</a>
-<a class="sourceLine" id="cb368-3" data-line-number="3">      <span class="dt">resultType =</span> <span class="st">&quot;emusegs&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> andosl,</a>
+<a class="sourceLine" id="cb365-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Text == spring &amp; #Accent == S]&quot;</span>,</a>
+<a class="sourceLine" id="cb365-3" data-line-number="3">      <span class="dt">resultType =</span> <span class="st">&quot;emusegs&quot;</span>)</a></code></pre></div>
 <pre><code>## segment  list from database:  andosl
 ## query was:  [Text=spring &amp; #Accent=S]
 ##   labels    start      end          utts
@@ -867,8 +867,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Returns the same item but with the label of the hashed
 attribute definition name. The second legacy example is not a valid
 <code>emuR</code> query (two hash tags) and will return an error message.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">dbName =</span> <span class="st">&quot;andosl&quot;</span>,</a>
-<a class="sourceLine" id="cb370-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[#Text == spring &amp; #Accent == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">dbName =</span> <span class="st">&quot;andosl&quot;</span>,</a>
+<a class="sourceLine" id="cb367-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[#Text == spring &amp; #Accent == S]&quot;</span>)</a></code></pre></div>
 <pre><code>## Error in query.database.eql.KONJA(dbConfig, qTrim) :
 ## Only one hashtag allowed in linear query term: #Text=spring &amp; #Accent=S</code></pre>
 </div>
@@ -883,9 +883,9 @@ attribute definition name. The second legacy example is not a valid
 <div id="legacy-emu-1" class="section level3">
 <h3><span class="header-section-number">18.10.2</span> legacy EMU</h3>
 <p>It appears that the OR operator <code>|</code> was mistakenly ignored when used in conjunction with the inequality operator <code>!=</code>:</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" data-line-number="1"><span class="kw">emu.query</span>(<span class="dt">template =</span> <span class="st">&quot;ae&quot;</span>,</a>
-<a class="sourceLine" id="cb372-2" data-line-number="2">          <span class="dt">pattern =</span> <span class="st">&quot;*&quot;</span>,</a>
-<a class="sourceLine" id="cb372-3" data-line-number="3">          <span class="dt">query =</span> <span class="st">&quot;[Text != beautiful | futile ^ Phoneme = u:]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1"><span class="kw">emu.query</span>(<span class="dt">template =</span> <span class="st">&quot;ae&quot;</span>,</a>
+<a class="sourceLine" id="cb369-2" data-line-number="2">          <span class="dt">pattern =</span> <span class="st">&quot;*&quot;</span>,</a>
+<a class="sourceLine" id="cb369-3" data-line-number="3">          <span class="dt">query =</span> <span class="st">&quot;[Text != beautiful | futile ^ Phoneme = u:]&quot;</span>)</a></code></pre></div>
 <p>yielded:</p>
 <pre><code>## moving data from Tcl to R
 ## Read 4 records
@@ -900,9 +900,9 @@ attribute definition name. The second legacy example is not a valid
 <div id="emur-1" class="section level3">
 <h3><span class="header-section-number">18.10.3</span> emuR</h3>
 <p>The query engine of the <code>emuR</code> package respects the presence of the OR operator in such queries:</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae,</a>
-<a class="sourceLine" id="cb374-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Text != beautiful | futile ^ Phoneme == u:]&quot;</span>,</a>
-<a class="sourceLine" id="cb374-3" data-line-number="3">      <span class="dt">resultType =</span> <span class="st">&quot;emusegs&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1"><span class="kw">query</span>(<span class="dt">emuDBhandle =</span> ae,</a>
+<a class="sourceLine" id="cb371-2" data-line-number="2">      <span class="dt">query =</span> <span class="st">&quot;[Text != beautiful | futile ^ Phoneme == u:]&quot;</span>,</a>
+<a class="sourceLine" id="cb371-3" data-line-number="3">      <span class="dt">resultType =</span> <span class="st">&quot;emusegs&quot;</span>)</a></code></pre></div>
 <pre><code>## segment  list from database:  ae
 ## query was:  [Text!=beautiful|futile ^ Phoneme=u:]
 ##   labels    start      end          utts

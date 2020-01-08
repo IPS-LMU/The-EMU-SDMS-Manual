@@ -69,7 +69,7 @@ git2r::commit(db$basePath,
 ```
 
 ```
-## [5be5a6d] 2020-01-07: initial commit
+## [ad673e6] 2020-01-08: initial commit
 ```
 
 This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -206,7 +206,7 @@ write_bundleList(db,
 ```
 
 ```
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpBytFHF/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpGhEBYH/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 ```
 
 ```r

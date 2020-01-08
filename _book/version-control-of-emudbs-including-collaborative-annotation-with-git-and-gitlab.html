@@ -176,14 +176,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
-<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> <code>emuRsegs</code>: The resulting object of a query</a></li>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> The resulting object of a query</a></li>
 <li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
 <li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
-<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
-<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
-<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
-<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query_deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
 <li class="chapter" data-level="6.2.7" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.2.7</b> Requery</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
@@ -391,35 +391,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">23</span> Version control of emuDBs including collaborative annotation with Git and GitLab</h1>
 <p>This document describes how to do Git versioning of an emuDB for collaboratively working on and annotating speech databases. In this recipe we will focus on using the GitLab instance provided by the <a href="https://www.lrz.de/">LRZ</a> (<a href="https://gitlab.lrz.de/" class="uri">https://gitlab.lrz.de/</a>). However, any GitLab instance available to you should work. It is worth noting that GitLab instances may vary in the allowed maximum size of a Git repository. As emuDBs tend to be a lot larger than an avarege code repository, please make sure you comply with your instance’s size limits.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></p>
 <p>As we will be using an R package called <code>git2r</code>, please make sure it is installed:</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;git2r&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;git2r&quot;</span>)</a></code></pre></div>
 <p>As this recipe uses features that aren’t available in the current CRAN release of emuR, please also install the current developer version from GitHub (needed version &gt;= 2.0.4.9000):</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;IPS-LMU/emuR&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;IPS-LMU/emuR&quot;</span>)</a></code></pre></div>
 <p>Next let us load the needed packages:</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb454-2" data-line-number="2"><span class="kw">library</span>(git2r)</a></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb451-2" data-line-number="2"><span class="kw">library</span>(git2r)</a></code></pre></div>
 <div id="setup" class="section level2">
 <h2><span class="header-section-number">23.1</span> Setup</h2>
 <p>The first thing we need to do is create and load an example emuDB:</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb455-2" data-line-number="2"><span class="kw">create_emuRdemoData</span>()</a>
-<a class="sourceLine" id="cb455-3" data-line-number="3">db =<span class="st"> </span><span class="kw">load_emuDB</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
-<a class="sourceLine" id="cb455-4" data-line-number="4">                          <span class="st">&quot;emuR_demoData&quot;</span>,</a>
-<a class="sourceLine" id="cb455-5" data-line-number="5">                          <span class="st">&quot;ae_emuDB&quot;</span>),</a>
-<a class="sourceLine" id="cb455-6" data-line-number="6">                <span class="dt">verbose =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb452-2" data-line-number="2"><span class="kw">create_emuRdemoData</span>()</a>
+<a class="sourceLine" id="cb452-3" data-line-number="3">db =<span class="st"> </span><span class="kw">load_emuDB</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(),</a>
+<a class="sourceLine" id="cb452-4" data-line-number="4">                          <span class="st">&quot;emuR_demoData&quot;</span>,</a>
+<a class="sourceLine" id="cb452-5" data-line-number="5">                          <span class="st">&quot;ae_emuDB&quot;</span>),</a>
+<a class="sourceLine" id="cb452-6" data-line-number="6">                <span class="dt">verbose =</span> F)</a></code></pre></div>
 <p>As the ae emuDB is not yet under Git version control, we will proceed by initialising a new Git repository in the emuDB directory using <code>git2r</code>:</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="co"># git2r:: prefix can be omitted</span></a>
-<a class="sourceLine" id="cb456-2" data-line-number="2">repo =<span class="st"> </span>git2r<span class="op">::</span><span class="kw">init</span>(<span class="dt">path =</span> db<span class="op">$</span>basePath)</a></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1"><span class="co"># git2r:: prefix can be omitted</span></a>
+<a class="sourceLine" id="cb453-2" data-line-number="2">repo =<span class="st"> </span>git2r<span class="op">::</span><span class="kw">init</span>(<span class="dt">path =</span> db<span class="op">$</span>basePath)</a></code></pre></div>
 <p>This is followed by a basic user configuration:</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">config</span>(repo, </a>
-<a class="sourceLine" id="cb457-2" data-line-number="2">              <span class="dt">user.name =</span> <span class="st">&quot;Raphael Winkelmann&quot;</span>, <span class="co"># change to your user name</span></a>
-<a class="sourceLine" id="cb457-3" data-line-number="3">              <span class="dt">user.email =</span> <span class="st">&quot;raphael@example.org&quot;</span>) <span class="co"># and email</span></a></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">config</span>(repo, </a>
+<a class="sourceLine" id="cb454-2" data-line-number="2">              <span class="dt">user.name =</span> <span class="st">&quot;Raphael Winkelmann&quot;</span>, <span class="co"># change to your user name</span></a>
+<a class="sourceLine" id="cb454-3" data-line-number="3">              <span class="dt">user.email =</span> <span class="st">&quot;raphael@example.org&quot;</span>) <span class="co"># and email</span></a></code></pre></div>
 <p>Now we will add everything to the Git repository and create our initial commit. In a terminal, type:</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1"><span class="co"># add everything</span></a>
-<a class="sourceLine" id="cb458-2" data-line-number="2">git2r<span class="op">::</span><span class="kw">add</span>(db<span class="op">$</span>basePath, <span class="dt">path =</span> <span class="st">&quot;*&quot;</span>)</a>
-<a class="sourceLine" id="cb458-3" data-line-number="3"><span class="co"># and commit</span></a>
-<a class="sourceLine" id="cb458-4" data-line-number="4">git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb458-5" data-line-number="5">              <span class="dt">message =</span> <span class="st">&quot;initial commit&quot;</span>)</a></code></pre></div>
-<pre><code>## [69a9fbe] 2020-01-07: initial commit</code></pre>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="co"># add everything</span></a>
+<a class="sourceLine" id="cb455-2" data-line-number="2">git2r<span class="op">::</span><span class="kw">add</span>(db<span class="op">$</span>basePath, <span class="dt">path =</span> <span class="st">&quot;*&quot;</span>)</a>
+<a class="sourceLine" id="cb455-3" data-line-number="3"><span class="co"># and commit</span></a>
+<a class="sourceLine" id="cb455-4" data-line-number="4">git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb455-5" data-line-number="5">              <span class="dt">message =</span> <span class="st">&quot;initial commit&quot;</span>)</a></code></pre></div>
+<pre><code>## [c72c22c] 2020-01-08: initial commit</code></pre>
 <p>This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don’t forget to use a concise commit message).</p>
 <div id="using-gitlab-to-host-the-emudb" class="section level3">
 <h3><span class="header-section-number">23.1.1</span> Using GitLab to host the emuDB</h3>
@@ -429,24 +429,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>that has the same name as the emuDB:</p>
 <p><img src="pics/GitLab-newProject2.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Make sure to change the <code>Project slug</code> to match the casing (_emuDB vs. emudb) of the database suffix. The URL of the repository should now be something like: <a href="https://gitlab.lrz.de/raphywink/ae_emuDB.git" class="uri">https://gitlab.lrz.de/raphywink/ae_emuDB.git</a>. Next, we will add the newly created remote repo to the configuration of the local repo. In the R console type:</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">remote_add</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb460-2" data-line-number="2">                  <span class="dt">name =</span> <span class="st">&quot;origin&quot;</span>, </a>
-<a class="sourceLine" id="cb460-3" data-line-number="3">                  <span class="dt">url =</span> <span class="st">&quot;https://gitlab.lrz.de/raphywink/ae_emuDB.git&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">remote_add</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb457-2" data-line-number="2">                  <span class="dt">name =</span> <span class="st">&quot;origin&quot;</span>, </a>
+<a class="sourceLine" id="cb457-3" data-line-number="3">                  <span class="dt">url =</span> <span class="st">&quot;https://gitlab.lrz.de/raphywink/ae_emuDB.git&quot;</span>)</a></code></pre></div>
 <p>To be allowed to push to the remote repository we will use personal access tokens provided by GitLab. In GitLab, navigate to <code>Settings</code> -&gt; <code>Access Tokens</code> and create a personal access token with a fitting name and an <strong>api</strong> scope.</p>
 <p><img src="pics/GitLab-AccessTokens.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Once a private token was created and copied, add the following line to your <code>$HOME/.Renviron</code> file (the location of the <code>.Renviron</code> file may vary on Windows):</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">GITLAB_PAT=<span class="st">&quot;reQFspQnbCHbvTfHjwfP&quot;</span> <span class="co"># replace with own access token</span></a></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">GITLAB_PAT=<span class="st">&quot;reQFspQnbCHbvTfHjwfP&quot;</span> <span class="co"># replace with own access token</span></a></code></pre></div>
 <p>The <code>.Renviron</code> file is read during R’s start-up – therefore you need to close and reopen RStudio. Adding the token to your <code>.Renviron</code> file has the advantage that you will not have to include it in your R scripts, which allows you to share these scripts without the need to redact the secret token.</p>
 <p>A note on security: Personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: Is is meant for your eyes only. If a token gets lost or stolen, please revoke the token immediately (GitLab: <code>Settings</code> -&gt; <code>Access Tokens</code> -&gt; <code>Revoke</code>)!!!!</p>
 <p>Now that the token is set up, we can use it to push the emuDB to the GitLab instance:</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">push</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb462-2" data-line-number="2">            <span class="dt">name =</span> <span class="st">&quot;origin&quot;</span>,</a>
-<a class="sourceLine" id="cb462-3" data-line-number="3">            <span class="dt">refspec =</span> <span class="st">&quot;refs/heads/master&quot;</span>,</a>
-<a class="sourceLine" id="cb462-4" data-line-number="4">            <span class="dt">set_upstream =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb462-5" data-line-number="5">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">push</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb459-2" data-line-number="2">            <span class="dt">name =</span> <span class="st">&quot;origin&quot;</span>,</a>
+<a class="sourceLine" id="cb459-3" data-line-number="3">            <span class="dt">refspec =</span> <span class="st">&quot;refs/heads/master&quot;</span>,</a>
+<a class="sourceLine" id="cb459-4" data-line-number="4">            <span class="dt">set_upstream =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb459-5" data-line-number="5">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
 <p>To pull any changes from the remote repository, simply type:</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">pull</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb463-2" data-line-number="2">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">pull</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb460-2" data-line-number="2">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
 </div>
 </div>
 <div id="collaborating-with-others" class="section level2">
@@ -454,52 +454,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you wish others to access and/or collaborate with you on the database, you simply have to add them as “Project members” in GitLab. Under <code>Project -&gt; Settings -&gt; Members</code>, select your collaborator and choose “Maintainer” (read and write access) as their role permission:</p>
 <p><img src="pics/GitLab-addMember.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Once this is set, the collaborator is able to clone the repository using their own credentials (they have to create a personal access token just like you did, see above):</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">clone</span>(<span class="dt">url =</span> <span class="st">&quot;https://gitlab.lrz.de/raphywink/ae_emuDB.git&quot;</span>,</a>
-<a class="sourceLine" id="cb464-2" data-line-number="2">             <span class="dt">local_path =</span> <span class="st">&quot;save/in/this/dir&quot;</span>,</a>
-<a class="sourceLine" id="cb464-3" data-line-number="3">             <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">clone</span>(<span class="dt">url =</span> <span class="st">&quot;https://gitlab.lrz.de/raphywink/ae_emuDB.git&quot;</span>,</a>
+<a class="sourceLine" id="cb461-2" data-line-number="2">             <span class="dt">local_path =</span> <span class="st">&quot;save/in/this/dir&quot;</span>,</a>
+<a class="sourceLine" id="cb461-3" data-line-number="3">             <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
 <div id="default-work-flow" class="section level3">
 <h3><span class="header-section-number">23.2.1</span> Default work-flow</h3>
 <p>When collaborating with multiple people, it is usually a good idea to do the following:</p>
 <p>1.) <strong>every time</strong> before you start working on an emuDB, get the newest version:</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">pull</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb465-2" data-line-number="2">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">git2r<span class="op">::</span><span class="kw">pull</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb462-2" data-line-number="2">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
 <p>2.) once you have made changes that you wish to share, create a new commit and push it to the remote repository so the others can access your changes:</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1"><span class="co"># add everything with &quot;*&quot;</span></a>
-<a class="sourceLine" id="cb466-2" data-line-number="2">git2r<span class="op">::</span><span class="kw">add</span>(db<span class="op">$</span>basePath, <span class="st">&quot;*&quot;</span>)</a>
-<a class="sourceLine" id="cb466-3" data-line-number="3">git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb466-4" data-line-number="4">              <span class="dt">message =</span> <span class="st">&quot;added new bundleList&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1"><span class="co"># add everything with &quot;*&quot;</span></a>
+<a class="sourceLine" id="cb463-2" data-line-number="2">git2r<span class="op">::</span><span class="kw">add</span>(db<span class="op">$</span>basePath, <span class="st">&quot;*&quot;</span>)</a>
+<a class="sourceLine" id="cb463-3" data-line-number="3">git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb463-4" data-line-number="4">              <span class="dt">message =</span> <span class="st">&quot;added new bundleList&quot;</span>)</a></code></pre></div>
 <p>Once again, remember to write a helpful and concise commit message.</p>
 </div>
 <div id="assigning-bundles-to-annotators" class="section level3">
 <h3><span class="header-section-number">23.2.2</span> Assigning bundles to annotators</h3>
 <p>How the EMU-SDMS handles user management/collaborative annotations is quite simple. Within an emuDB you can create an optional directory called <code>bundleLists/</code>. Within that directory you can place so-called bundle list JSON files. An example of such a file is shown below.</p>
-<div class="sourceCode" id="cb467"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb467-1" data-line-number="1"><span class="ot">[</span></a>
-<a class="sourceLine" id="cb467-2" data-line-number="2">    <span class="fu">{</span></a>
-<a class="sourceLine" id="cb467-3" data-line-number="3">        <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb467-4" data-line-number="4">        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc012&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb467-5" data-line-number="5">        <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;vowel offset unclear&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb467-6" data-line-number="6">        <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
-<a class="sourceLine" id="cb467-7" data-line-number="7">    <span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb467-8" data-line-number="8">    <span class="fu">{</span></a>
-<a class="sourceLine" id="cb467-9" data-line-number="9">        <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb467-10" data-line-number="10">        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc010&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb467-11" data-line-number="11">        <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb467-12" data-line-number="12">        <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
-<a class="sourceLine" id="cb467-13" data-line-number="13">    <span class="fu">}</span></a>
-<a class="sourceLine" id="cb467-14" data-line-number="14"><span class="er">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb464-1" data-line-number="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb464-2" data-line-number="2">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb464-3" data-line-number="3">        <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb464-4" data-line-number="4">        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc012&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb464-5" data-line-number="5">        <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;vowel offset unclear&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb464-6" data-line-number="6">        <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb464-7" data-line-number="7">    <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb464-8" data-line-number="8">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb464-9" data-line-number="9">        <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb464-10" data-line-number="10">        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc010&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb464-11" data-line-number="11">        <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb464-12" data-line-number="12">        <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb464-13" data-line-number="13">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb464-14" data-line-number="14"><span class="er">...</span></a></code></pre></div>
 <p>These files describe, what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g. <code>raphael.winkelmann_bundleList.json</code>. As of emuR version 2.0.4.9000 (currently only available on GitHub with <code>devtools::install_github(&quot;IPS-LMU/emuR&quot;)</code>) it is possible to read and write these bundle lists:</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1"><span class="co"># list all files in session &quot;0000&quot;</span></a>
-<a class="sourceLine" id="cb468-2" data-line-number="2">bndls =<span class="st"> </span><span class="kw">list_bundles</span>(db, </a>
-<a class="sourceLine" id="cb468-3" data-line-number="3">                     <span class="dt">session =</span> <span class="st">&quot;0000&quot;</span>)</a>
-<a class="sourceLine" id="cb468-4" data-line-number="4"><span class="co"># write these to a bundle list called raphael.winkelmann</span></a>
-<a class="sourceLine" id="cb468-5" data-line-number="5"><span class="co"># therefore assigning them to that user </span></a>
-<a class="sourceLine" id="cb468-6" data-line-number="6"><span class="kw">write_bundleList</span>(db, </a>
-<a class="sourceLine" id="cb468-7" data-line-number="7">                 <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>, </a>
-<a class="sourceLine" id="cb468-8" data-line-number="8">                 bndls)</a></code></pre></div>
-<pre><code>## [1] &quot;INFO: No bundleList dir found in emuDB (path: /tmp/RtmpaYrP2K/emuR_demoData/ae_emuDB/bundleLists)! Creating directory...&quot;</code></pre>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" data-line-number="1"><span class="co"># and read that bundle list to check its content</span></a>
-<a class="sourceLine" id="cb470-2" data-line-number="2"><span class="kw">read_bundleList</span>(db, </a>
-<a class="sourceLine" id="cb470-3" data-line-number="3">                <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1"><span class="co"># list all files in session &quot;0000&quot;</span></a>
+<a class="sourceLine" id="cb465-2" data-line-number="2">bndls =<span class="st"> </span><span class="kw">list_bundles</span>(db, </a>
+<a class="sourceLine" id="cb465-3" data-line-number="3">                     <span class="dt">session =</span> <span class="st">&quot;0000&quot;</span>)</a>
+<a class="sourceLine" id="cb465-4" data-line-number="4"><span class="co"># write these to a bundle list called raphael.winkelmann</span></a>
+<a class="sourceLine" id="cb465-5" data-line-number="5"><span class="co"># therefore assigning them to that user </span></a>
+<a class="sourceLine" id="cb465-6" data-line-number="6"><span class="kw">write_bundleList</span>(db, </a>
+<a class="sourceLine" id="cb465-7" data-line-number="7">                 <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>, </a>
+<a class="sourceLine" id="cb465-8" data-line-number="8">                 bndls)</a></code></pre></div>
+<pre><code>## [1] &quot;INFO: No bundleList dir found in emuDB (path: /tmp/RtmpoEjxDu/emuR_demoData/ae_emuDB/bundleLists)! Creating directory...&quot;</code></pre>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1"><span class="co"># and read that bundle list to check its content</span></a>
+<a class="sourceLine" id="cb467-2" data-line-number="2"><span class="kw">read_bundleList</span>(db, </a>
+<a class="sourceLine" id="cb467-3" data-line-number="3">                <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 4
 ##   session name     comment finishedEditing
 ##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;lgl&gt;          
@@ -511,13 +511,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 0000    msajc023 &quot;&quot;      FALSE          
 ## 7 0000    msajc057 &quot;&quot;      FALSE</code></pre>
 <p>This newly created <code>raphael.winkelmann_bundleList.json</code> file now has to be added to the repository, commited and pushed to GitLab:</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" data-line-number="1"><span class="co"># add everything with &quot;*&quot; as nothing else has changed</span></a>
-<a class="sourceLine" id="cb472-2" data-line-number="2">git2r<span class="op">::</span><span class="kw">add</span>(db<span class="op">$</span>basePath, <span class="st">&quot;*&quot;</span>)</a>
-<a class="sourceLine" id="cb472-3" data-line-number="3">git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb472-4" data-line-number="4">              <span class="dt">message =</span> <span class="st">&quot;added new bundleList&quot;</span>)</a>
-<a class="sourceLine" id="cb472-5" data-line-number="5"><span class="co"># and push to GitLab</span></a>
-<a class="sourceLine" id="cb472-6" data-line-number="6">git2r<span class="op">::</span><span class="kw">push</span>(db<span class="op">$</span>basePath, </a>
-<a class="sourceLine" id="cb472-7" data-line-number="7">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1"><span class="co"># add everything with &quot;*&quot; as nothing else has changed</span></a>
+<a class="sourceLine" id="cb469-2" data-line-number="2">git2r<span class="op">::</span><span class="kw">add</span>(db<span class="op">$</span>basePath, <span class="st">&quot;*&quot;</span>)</a>
+<a class="sourceLine" id="cb469-3" data-line-number="3">git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb469-4" data-line-number="4">              <span class="dt">message =</span> <span class="st">&quot;added new bundleList&quot;</span>)</a>
+<a class="sourceLine" id="cb469-5" data-line-number="5"><span class="co"># and push to GitLab</span></a>
+<a class="sourceLine" id="cb469-6" data-line-number="6">git2r<span class="op">::</span><span class="kw">push</span>(db<span class="op">$</span>basePath, </a>
+<a class="sourceLine" id="cb469-7" data-line-number="7">            <span class="dt">credentials =</span> git2r<span class="op">::</span><span class="kw">cred_token</span>(<span class="dt">token =</span> <span class="st">&quot;GITLAB_PAT&quot;</span>))</a></code></pre></div>
 <p>Next, the annotator would have to be added to the GitLab repository as a collaborator so she/he has read and write access.</p>
 </div>
 <div id="pointing-the-emu-webapp-to-the-gitlab-repository" class="section level3">

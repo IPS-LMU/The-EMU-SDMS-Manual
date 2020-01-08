@@ -29,9 +29,9 @@ path2ae = file.path(tempdir(), "emuR_demoData", "ae_emuDB")
 ae = load_emuDB(path2ae, verbose = F)
 ```
 
-## `emuRsegs`: The resulting object of a query {#sec:query-emuRsegs}
+## The resulting object of a query {#sec:query-emuRsegs}
 
-In `emuR` the result of a query or requery (see Section \@ref(subsec:requery)) is a pre-specified object which is a superclass of the common `data.frame`. R code snippet below shows the result of a slightly expanded version of the above query (`"Syllable == S"`), which additionally uses the dominates operator (i.e., the `^` operator; for further information see Section \@ref(subsubsec:query_dominationQueries)) to reduce the queried annotations to the partial hierarchy depicted in Figure \@ref(fig:amongstHier} in the *ae* demo `emuDB`. In this example, the classes of the resulting object including its printed output are displayed. The class vector of a resulting `emuRsegs` object also contains the legacy EMU system's `emusegs` class, which indicates that this object is fully backwards compatible with the legacy class and the methods available for it (see @harrington:2010a for details). The printed output provides information about which database was queried and what the query was as well as information about the labels, start and end times (in milliseconds), session, bundle, level and type information. The call to `colnames()` shows that the resulting object has additional columns, which are ignored by the `print()` function. This somewhat hidden information is used to store information about what the exact items or sequence of items were retrieved from the `emuDB`. This information is needed to know which items to start from in a requery (see Section \@ref(subsec:requery}) and is also the reason why an `emuRsegs` object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an `emuDB`.
+In `emuR` the result of a query or requery (see Section \@ref(subsec:requery)) is an object of the popular type [`tibble`](https://tibble.tidyverse.org/) (see also https://tidyverse.org/) which is a superclass of the common `data.frame`. R code snippet below shows the result of a slightly expanded version of the above query (`"Syllable == S"`), which additionally uses the dominates operator (i.e., the `^` operator; for further information see Section \@ref(subsubsec:query-dominationQueries)) to reduce the queried annotations to the partial hierarchy depicted in Figure \@ref(fig:amongstHier) in the *ae* demo `emuDB`. In this example, the classes of the resulting object including its printed output are displayed. The printed output provides information about the labels, start and end times (in milliseconds), session, bundle, level and attribute among other information which is predominantly used to store information about what the exact items or sequence of items were retrieved from the `emuDB`. This information is needed to know which items to start from in a requery (see Section \@ref(subsec:requery)) and is also the reason why the resulting object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an `emuDB`.
 
 
 ```r
@@ -61,27 +61,13 @@ sl
 ## #   sample_rate <int>
 ```
 
-```r
-# show all (incl. hidden) column names
-colnames(sl)
-```
-
-```
-##  [1] "labels"             "start"              "end"               
-##  [4] "db_uuid"            "session"            "bundle"            
-##  [7] "start_item_id"      "end_item_id"        "level"             
-## [10] "attribute"          "start_item_seq_idx" "end_item_seq_idx"  
-## [13] "type"               "sample_start"       "sample_end"        
-## [16] "sample_rate"
-```
-
 ## `EQL`: The EMU Query Language version 2
 
 The EQL user interface was retained from the legacy system because it was sufficiently flexible and expressive enough to meet the query needs in most types of speech science research. The EQL parser implemented in `emuR` is based on the Extended Backus–Naur form (EBNF) [@garshol:2003a] formal language definition of @john:2012a, which defines the symbols and the relationship of those symbols to each other on which this language is built (see adapted version of entire EBNF in Appendix \@ref(app-chap:EQL-EBNF)). Here we will describe the various terms and components that comprise the slightly adapted version 2 of the EQL. It is worth noting that the new query mechanism uses a relational back-end to handle the various query operations (see Chapter \@ref(chap:querysys-impl) for details). This means that expert users, who are proficient in Structured Query Language (SQL) may also query this relational back-end directly. However, we feel the EQL provides a simple abstraction layer which is sufficient for most speech and spoken language research.
 
 ### Simple queries
 
-The most basic form of an EQL query is a simple equality, inequality, matching or non-matching query, two of which are displayed in R code snippet below. The syntax of a simple query term is `[L OPERATOR A]`, where `L` specifies a level (or alternatively the name of a parallel attribute definition); `OPERATOR` is one of `==` (equality), `!$=$` (inequality), `=~` (matching) or `!~` (non-matching); and `A` is an expression specifying the labels of the annotation items of `L` [^1-chap:querysys]. The second query in the R code snippet below queries an event level. The result of querying an event level contains the same information as that of a segment level query except that the derived end times have the value zero.
+The most basic form of an EQL query is a simple equality, inequality, matching or non-matching query, two of which are displayed in R code snippet below. The syntax of a simple query term is `[L OPERATOR A]`, where `L` specifies a level (or alternatively the name of a parallel attribute definition); `OPERATOR` is one of `==` (equality), `!=` (inequality), `=~` (matching) or `!~` (non-matching); and `A` is an expression specifying the labels of the annotation items of `L` [^1-chap:querysys]. The second query in the R code snippet below queries an event level. The result of querying an event level contains the same information as that of a segment level query except that the derived end times have the value zero.
 
 [^1-chap:querysys]: The examples and syntax descriptions used in this chapter have been adapted from examples by @cassidy:sc2001a and @harrington:2002aa and were largely extracted from the `EQL` vignette of the `emuR` package. All of the examples were adapted to work with the supplied *ae* `emuDB`.
 
@@ -89,24 +75,48 @@ The most basic form of an EQL query is a simple equality, inequality, matching o
 ```r
 # query all annotation items containing
 # the label "m" on the "Phonetic" level
-sl = query(ae, "Phonetic == m")
-
-# query all items NOT containing the
-# label "H*" on the "Tone" level
-sl = query(ae, "Tone != H*")
-
-# show first entry of sl
-head(sl, n = 1)
+query(ae, "Phonetic == m")
 ```
 
 ```
-## # A tibble: 1 x 16
+## # A tibble: 7 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 L-      1107     0 0fc618… 0000    msajc…           183         183 Tone 
+## 1 m       257.  340. 0fc618… 0000    msajc…           148         148 Phon…
+## 2 m      1490. 1565. 0fc618… 0000    msajc…           169         169 Phon…
+## 3 m       497.  559. 0fc618… 0000    msajc…           188         188 Phon…
+## 4 m      1587. 1656. 0fc618… 0000    msajc…           149         149 Phon…
+## 5 m       819.  903. 0fc618… 0000    msajc…           120         120 Phon…
+## 6 m      1630. 1709. 0fc618… 0000    msajc…           185         185 Phon…
+## 7 m      2173. 2233. 0fc618… 0000    msajc…           194         194 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
+```
+
+```r
+# query all items NOT containing the
+# label "H*" on the "Tone" level
+query(ae, "Tone != H*")
+```
+
+```
+## # A tibble: 34 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 L-     1107      0 0fc618… 0000    msajc…           183         183 Tone 
+##  2 L-     2543.     0 0fc618… 0000    msajc…           186         186 Tone 
+##  3 L%     2578.     0 0fc618… 0000    msajc…           187         187 Tone 
+##  4 L-     1012.     0 0fc618… 0000    msajc…           187         187 Tone 
+##  5 L-     2459.     0 0fc618… 0000    msajc…           190         190 Tone 
+##  6 L%     2490.     0 0fc618… 0000    msajc…           191         191 Tone 
+##  7 !H*     836.     0 0fc618… 0000    msajc…           188         188 Tone 
+##  8 L-      973.     0 0fc618… 0000    msajc…           189         189 Tone 
+##  9 L-     1558.     0 0fc618… 0000    msajc…           191         191 Tone 
+## 10 !H*    2151.     0 0fc618… 0000    msajc…           193         193 Tone 
+## # … with 24 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 The R code snippet above queries two levels that contain time information: a segment level and an event level. As described in Chapter \@ref(chap:annot-struct-mod), annotations in the EMU-SDMS may also contain levels that do not contain time information. The R code snippet below shows a query that queries annotation items on a level that does not contain time information (the *Syllable* level) to show that the result contains deduced time information from the time-bearing sub-level.
@@ -115,45 +125,33 @@ The R code snippet above queries two levels that contain time information: a seg
 ```r
 # query all annotation items containing
 # the label S on the Syllable level
-sl = query(ae, "Syllable == S")
-
-# show first entry of sl
-head(sl, n = 1)
+query(ae, "Syllable == S")
 ```
 
 ```
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
-## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
-## #   sample_rate <int>
+## # A tibble: 37 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+##  2 S       674.  740. 0fc618… 0000    msajc…           104         104 Syll…
+##  3 S       740. 1289. 0fc618… 0000    msajc…           105         105 Syll…
+##  4 S      1791. 1945. 0fc618… 0000    msajc…           109         109 Syll…
+##  5 S      2034. 2284. 0fc618… 0000    msajc…           111         111 Syll…
+##  6 S       572.  798. 0fc618… 0000    msajc…           107         107 Syll…
+##  7 S       798. 1091. 0fc618… 0000    msajc…           108         108 Syll…
+##  8 S      1222. 1391. 0fc618… 0000    msajc…           110         110 Syll…
+##  9 S      1437. 1515. 0fc618… 0000    msajc…           112         112 Syll…
+## 10 S      1628. 1864. 0fc618… 0000    msajc…           114         114 Syll…
+## # … with 27 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 
 #### Queries using regular expressions
 
-The slightly expanded version 2 of the EQL, which comes with the `emuR` package, introduces regular expression operators (`=~` and `!~`). These allow users to formulate regular expressions for more expressive and precise pattern matching of annotations. A minimal set of examples displaying the new regular expression operators is shown in Table \@ref(table:eqlExamples).
+The slightly expanded version 2 of the EQL, which comes with the `emuR` package, introduces regular expression operators (`=~` and `!~`). These allow users to formulate regular expressions for more expressive and precise pattern matching of annotations. A minimal set of examples displaying the new regular expression operators is shown in Table \@ref(tab:eqlExamples).
 
-
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
 
 <table>
 <caption>(\#tab:eqlExamples)EQL V2: examples of simple and complex query strings using RegEx operators including their function descriptions.</caption>
@@ -197,17 +195,19 @@ The syntax of a query string using the `->` sequence operator is `[L == A -> L =
 # query all sequences of items on the "Phonetic" level
 # in which an item containing the label "@" is followed by
 # an item containing the label "n"
-sl = query(ae, "[Phonetic == @ -> Phonetic == n]")
-
-# show first entry of sl
-head(sl, n = 1)
+query(ae, "[Phonetic == @ -> Phonetic == n]")
 ```
 
 ```
-## # A tibble: 1 x 16
+## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
 ## 1 @->n   1715. 1791. 0fc618… 0000    msajc…           167         168 Phon…
+## 2 @->n   2382. 2528. 0fc618… 0000    msajc…           183         184 Phon…
+## 3 @->n   2356. 2475. 0fc618… 0000    msajc…           181         182 Phon…
+## 4 @->n   2201. 2271. 0fc618… 0000    msajc…           215         216 Phon…
+## 5 @->n   1422. 1495. 0fc618… 0000    msajc…           126         127 Phon…
+## 6 @->n   2407. 2480. 0fc618… 0000    msajc…           198         199 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -215,22 +215,24 @@ head(sl, n = 1)
 
 #### Result modifier
 
-Because users are often interested in just one element of a compound query such as sequence queries (e.g., the *\@*s in a *\@->n* sequences), the EQL offers a so-called result modifier symbol, `#`. This symbol may be placed in front of any simple query component of a multi component query as depicted in the R code snippet below. Placing the hashtag in front of either the left or the right simple query term will result in segment lists that contains only the annotation items of the simple query term that have the hashtag in front of it. Only one result modifier may be used per query.
+Because users are often interested in just one element of a compound query such as sequence queries (e.g., the *\@*s in a *\@->n* sequences), the EQL offers a so-called result modifier symbol, `#`. This symbol may be placed in front of any simple query component of a multi component query as depicted in the R code snippet below. Placing the hashtag in front of either the left or the right simple query term will result in segment lists that contain only the annotation items of the simple query term that have the hashtag in front of it. Only one result modifier may be used per query.
 
 
 ```r
 # query the "@"s in "@->n" sequences
-sl = query(ae, "[#Phonetic == @ -> Phonetic == n]")
-
-# show first entry of sl
-head(sl, n = 1)
+query(ae, "[#Phonetic == @ -> Phonetic == n]")
 ```
 
 ```
-## # A tibble: 1 x 16
+## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
 ## 1 @      1715. 1741. 0fc618… 0000    msajc…           167         167 Phon…
+## 2 @      2382. 2431. 0fc618… 0000    msajc…           183         183 Phon…
+## 3 @      2356. 2402. 0fc618… 0000    msajc…           181         181 Phon…
+## 4 @      2201. 2227. 0fc618… 0000    msajc…           215         215 Phon…
+## 5 @      1422. 1435. 0fc618… 0000    msajc…           126         126 Phon…
+## 6 @      2407. 2448. 0fc618… 0000    msajc…           198         198 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -238,17 +240,19 @@ head(sl, n = 1)
 
 ```r
 # query the "n"s in a "@->n" sequences
-sl = query(ae, "[Phonetic == @ -> #Phonetic == n]")
-
-# show first entry of sl
-head(sl, n = 1)
+query(ae, "[Phonetic == @ -> #Phonetic == n]")
 ```
 
 ```
-## # A tibble: 1 x 16
+## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
 ## 1 n      1741. 1791. 0fc618… 0000    msajc…           168         168 Phon…
+## 2 n      2431. 2528. 0fc618… 0000    msajc…           184         184 Phon…
+## 3 n      2402. 2475. 0fc618… 0000    msajc…           182         182 Phon…
+## 4 n      2227. 2271. 0fc618… 0000    msajc…           216         216 Phon…
+## 5 n      1435. 1495. 0fc618… 0000    msajc…           127         127 Phon…
+## 6 n      2448. 2480. 0fc618… 0000    msajc…           199         199 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -292,23 +296,22 @@ Compared to sequence and conjunction queries, a domination query using the opera
 <p class="caption">(\#fig:amongstHierDomintation)Partial hierarchy depicting all annotation items that are dominated by the strong syllable (*S*) of the *Syllable* level (inside dashed box). Items marked green belong to the *Phoneme* level, items marked orange belong to the *Phonetic* level and the purple dashed box indicates the set of items that are dominated by *S*.</p>
 </div>
 
-A schematic representation of a simple domination query string that retrieves all annotation items *A* of level `L1` that are dominated by items `B` in level `L2` (i.e., items that are directly or indirectly linked) is `[L1 == A ^{`  L2 == B]}. Although the domination relationship is directed the domination operator is not. This means that either items in `L1` dominate items in `L2` or items in `L2` dominate items in `L1`. Note that link definitions that specify the validity of the domination have to be present in the `emuDB` configuration for this to work (see Chapter \@ref(chap:emuDB) for details). An example of a query string using the domination operator is displayed in the R code snippet below.
+A schematic representation of a simple domination query string that retrieves all annotation items *A* of level `L1` that are dominated by items `B` in level `L2` (i.e., items that are directly or indirectly linked) is `[L1 == A ^  L2 == B]`. Although the domination relationship is directed the domination operator is not. This means that either items in `L1` dominate items in `L2` or items in `L2` dominate items in `L1`. Note that link definitions that specify the validity of the domination have to be present in the `emuDB` configuration for this to work (see Chapter \@ref(chap:emuDB) for details). An example of a query string using the domination operator is displayed in the R code snippet below.
 
 
 ```r
 # query all "p" phoneme items that belong
 # to / are dominated by a strong syllable ("S")
-sl = query(ae, "[Phoneme == p ^ Syllable == S]")
-
-# show first entry of sl
-head(sl, n = 1)
+query(ae, "[Phoneme == p ^ Syllable == S]")
 ```
 
 ```
-## # A tibble: 1 x 16
+## # A tibble: 3 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
 ## 1 p       559.  640. 0fc618… 0000    msajc…           147         147 Phon…
+## 2 p      1656. 1699. 0fc618… 0000    msajc…           122         122 Phon…
+## 3 p       864.  970. 0fc618… 0000    msajc…           136         136 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -317,7 +320,7 @@ head(sl, n = 1)
 As with the conjunction query, if no result modifier is present, a dominates query returns the annotation items of the left simple query term. Hence, the more explicit variant of the above query is `"[#Phoneme == p ^ Syllable == S]"`.
 
 
-### Position queries {#subsec:query_positionQueries}
+### Position queries {#subsec:query-positionQueries}
 
 The EQL has three function terms that specify where in a domination relationship a child level annotation item is allowed to occur. The three function terms are `Start()`, `End()` and `Medial()`. A schematic representation of a query string representing a simple usage of the `Start()`, `End()` and `Medial()` function would be: `POSFCT(L1, L2) == TRUE`. In this representation `POSFCT` is a placeholder for one of the three functions, at which level `L1` must dominate level `L2`. Where `L1` does indeed dominate `L2`, the corresponding item from level `L2` is returned. If the expression is set to `FALSE` (i.e., `POSFCT(L1, L2) == FALSE`), all the items that do not match the condition of `L2` are returned. An illustration of what is returned by each of the position functions depending on if they are set to `TRUE` or `FALSE` is depicted in Figure \@ref(fig:query-positionSimple), while the R code snippet below shows an example query using a position query term.
 
@@ -331,26 +334,32 @@ The EQL has three function terms that specify where in a domination relationship
 ```r
 # query all phoneme items that occur
 # at the start of a syllable
-sl = query(ae, "[Start(Syllable, Phoneme) == TRUE]")
-
-# show first entry of sl
-head(sl, n = 1)
+query(ae, "[Start(Syllable, Phoneme) == TRUE]")
 ```
 
 ```
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 V       187.  257. 0fc618… 0000    msajc…           114         114 Phon…
-## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
-## #   sample_rate <int>
+## # A tibble: 83 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 V       187.  257. 0fc618… 0000    msajc…           114         114 Phon…
+##  2 m       257.  340. 0fc618… 0000    msajc…           115         115 Phon…
+##  3 @:      674.  740. 0fc618… 0000    msajc…           120         120 Phon…
+##  4 f       740.  893. 0fc618… 0000    msajc…           121         121 Phon…
+##  5 S      1289. 1420. 0fc618… 0000    msajc…           126         126 Phon…
+##  6 w      1463. 1506. 0fc618… 0000    msajc…           128         128 Phon…
+##  7 k      1634. 1715. 0fc618… 0000    msajc…           131         131 Phon…
+##  8 s      1791. 1893. 0fc618… 0000    msajc…           134         134 Phon…
+##  9 d      1945. 1967. 0fc618… 0000    msajc…           136         136 Phon…
+## 10 b      2034. 2150. 0fc618… 0000    msajc…           139         139 Phon…
+## # … with 73 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
-### Count queries {#subsec:query_countQueries}
+### Count queries {#subsec:query-countQueries}
 
 
-A further query component of the EQL are so-called count queries. They allow the user to specify how many child nodes a parent annotation item is allowed to have. Figure \@ref(fig:query_amongstHierCount) displays two syllables, one containing one phoneme and one phonetic annotation item, the other containing five phoneme and six phonetic items. Using EQL's `Num()` function it is possible to specify which of the two syllables should be retrieved, depending on the number of phonemic or phonetic elements to which it is directly or indirectly linked. The R code snippet below shows a query that queries all syllables that contain five phonemes.
+A further query component of the EQL are so-called count queries. They allow the user to specify how many child nodes a parent annotation item is allowed to have. Figure \@ref(fig:query-amongstHierCount) displays two syllables, one containing one phoneme and one phonetic annotation item, the other containing five phoneme and six phonetic items. Using EQL's `Num()` function it is possible to specify which of the two syllables should be retrieved, depending on the number of phonemic or phonetic elements to which it is directly or indirectly linked. The R code snippet below shows a query that queries all syllables that contain five phonemes.
 
 
 <div class="figure" style="text-align: center">
@@ -380,7 +389,7 @@ query(ae, "[Num(Syllable, Phoneme) == 5]")
 ## #   sample_rate <int>
 ```
 
-### More complex queries {#subsec:query_moreComplexQueries}
+### More complex queries {#subsec:query-moreComplexQueries}
 
 By using the correct bracketing, all of the above query components can be combined to formulate more complex queries that can be used to answer questions such as: *Which occurrences of the word "his" follow three-syllable words which contain a schwa (\@) in the first syllable?* Such multi-part questions can usually be broken down into several sub-queries. These sub-queries can then be recombined to formulate the complex query. The steps to answering the above multi-part question are:
 
@@ -413,24 +422,27 @@ query(ae, paste0("[[[Num(Text, Syllable) == 3] ",
 
 As mastering these complex compound queries can require some practice, several simple as well as more complex examples that combine the various EQL components described above are available in Appendix \@ref(app-chap:eql). These examples provide practical examples to help users find queries suited to their needs.
 
-### Deducing time {#subsec:query_deducingTime}
+### Deducing time {#subsec:query-deducingTime}
 
 The default behavior of the legacy EMU system was to automatically deduce time information for queries of levels that do not contain time information. This was achieved by searching for the time-bearing sub-level and calculating the start and end times from the left-most and right-most annotation items which where directly or indirectly linked to the retrieved parent item. This upward purculation of time information is also the default behavior of the new EMU-SDMS. However, a new feature has been added to the query engine which allows the calculation of time to be switched off for a given query using the `calcTimes` parameter of the `query()` function. This is beneficial in two ways: for one, levels that do not have a time-bearing sub-level may be queried and secondly, the execution time of queries can be greatly improved. The performance increase becomes evident when performing queries on large data sets on one of the top levels of the hierarchy (e.g., *Utterance* or *Intonational* in the *ae* `emuDB`). When deducing time information for annotation items that contain large portions of the hierarchy, the query engine has to walk down large partial hierarchies to find the left-most and right-most items on the time-bearing sub-level. This can be a computationally expensive operation and is often unnecessary, especially during data exploration. The R code snippet below shows the usage of this parameter by querying all of the items of the *Intonational* level and displaying the `NA` values for start and end times in the resulting segment list. It is worth noting that the missing time information excluded during the original query can be retrieved at a later point in time by performing a hierarchical requery (see Section \@ref(subsec:requery)) on the same level.
 
 
 ```r
 # query all intonational items
-sl = query(ae, "Intonational =~ .*", calcTimes = F)
-
- # show first entry of sl
-head(sl, n = 1)
+query(ae, "Intonational =~ .*", calcTimes = F)
 ```
 
 ```
-## # A tibble: 1 x 16
+## # A tibble: 7 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
 ## 1 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 2 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 3 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 4 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 5 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 6 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 7 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -442,11 +454,11 @@ A popular feature of the legacy system was the ability to use the result of a qu
 
 
 <div class="figure" style="text-align: center">
-<img src="pics/requery.png" alt="Three-step (	extcolor{three_color_c1}{query} -&gt; 	extcolor{three_color_c2}{requery_hier} -&gt; 	extcolor{three_color_c3}{requery_seq}) requery procedure, its single 	extcolor{darkgray}{query} counterpart and their color coded movements within the annotation hierarchy." width="75%" />
-<p class="caption">(\#fig:query-requery)Three-step (	extcolor{three_color_c1}{query} -> 	extcolor{three_color_c2}{requery_hier} -> 	extcolor{three_color_c3}{requery_seq}) requery procedure, its single 	extcolor{darkgray}{query} counterpart and their color coded movements within the annotation hierarchy.</p>
+<img src="pics/requery.png" alt="Three-step (query (green) -&gt; requery_hier (orange) -&gt; requery_seq (purple)) requery procedure, its single query (grey) counterpart and their color coded movements within the annotation hierarchy." width="75%" />
+<p class="caption">(\#fig:query-requery)Three-step (query (green) -> requery_hier (orange) -> requery_seq (purple)) requery procedure, its single query (grey) counterpart and their color coded movements within the annotation hierarchy.</p>
 </div>
 
-The R code snippet below illustrates how the same results of the sequential query `[\#Phonetic =~ .* -> Phonetic == n]` can be achieved using the `requery_seq()` function. Further, it shows how the `requery_hier()` function can be used to move vertically through the annotation structure by starting at the *Syllable* level and retrieving all the *Phonetic* items for the query result.
+The R code snippet below illustrates how the same results of the sequential query `[#Phonetic =~ .* -> Phonetic == n]` can be achieved using the `requery_seq()` function. Further, it shows how the `requery_hier()` function can be used to move vertically through the annotation structure by starting at the *Syllable* level and retrieving all the *Phonetic* items for the query result.
 
 
 
@@ -460,17 +472,27 @@ sl_n = query(ae, "Phonetic == n")
 # sequential requery (left shift result by 1 (== offset of -1))
 # and hence retrieve all phonetic items directly preceeding
 # all "n" phonetic items
-sl_precn = requery_seq(ae, seglist = sl_n, offset = -1)
-
-# show first entry of sl_precn
-head(sl_precn, n = 1)
+requery_seq(ae, 
+            seglist = sl_n, 
+            offset = -1)
 ```
 
 ```
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 E       950. 1032. 0fc618… 0000    msajc…           157         157 Phon…
+## # A tibble: 12 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 E       950. 1032. 0fc618… 0000    msajc…           157         157 Phon…
+##  2 @      1715. 1741. 0fc618… 0000    msajc…           167         167 Phon…
+##  3 E      1437. 1515. 0fc618… 0000    msajc…           169         169 Phon…
+##  4 @      2382. 2431. 0fc618… 0000    msajc…           183         183 Phon…
+##  5 I       812.  895. 0fc618… 0000    msajc…           157         157 Phon…
+##  6 @      2356. 2402. 0fc618… 0000    msajc…           181         181 Phon…
+##  7 @      2201. 2227. 0fc618… 0000    msajc…           215         215 Phon…
+##  8 H      3027. 3046. 0fc618… 0000    msajc…           228         228 Phon…
+##  9 @      1422. 1435. 0fc618… 0000    msajc…           126         126 Phon…
+## 10 k      1705. 1775. 0fc618… 0000    msajc…           131         131 Phon…
+## 11 On      476.  509. 0fc618… 0000    msajc…           165         165 Phon…
+## 12 @      2407. 2448. 0fc618… 0000    msajc…           198         198 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -484,21 +506,28 @@ head(sl_precn, n = 1)
 sl_s = query(ae, "Syllable == S")
 
 # hierarchical requery
-sl_phonetic = requery_hier(ae, seglist = sl_s,
-                           level = "Phonetic")
-
-# show first entry of sl_phonetic
-head(sl_phonetic, n = 1)
+requery_hier(ae, 
+             seglist = sl_s,
+             level = "Phonetic")
 ```
 
 ```
-## # A tibble: 1 x 16
-##   labels start   end db_uuid session bundle start_item_id end_item_id level
-##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 m->V-…  257.  674. 0fc618… 0000    msajc…           148         153 Phon…
-## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
-## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
-## #   sample_rate <int>
+## # A tibble: 37 x 16
+##    labels start   end db_uuid session bundle start_item_id end_item_id level
+##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
+##  1 m->V-…  257.  674. 0fc618… 0000    msajc…           148         153 Phon…
+##  2 @:      674.  740. 0fc618… 0000    msajc…           154         154 Phon…
+##  3 f->r-…  740. 1289. 0fc618… 0000    msajc…           155         159 Phon…
+##  4 s->I   1791. 1945. 0fc618… 0000    msajc…           169         170 Phon…
+##  5 db->j… 2034. 2284. 0fc618… 0000    msajc…           173         175 Phon…
+##  6 f->j-…  572.  798. 0fc618… 0000    msajc…           156         158 Phon…
+##  7 t->H-…  798. 1091. 0fc618… 0000    msajc…           159         162 Phon…
+##  8 O->f   1222. 1391. 0fc618… 0000    msajc…           166         167 Phon…
+##  9 E      1437. 1515. 0fc618… 0000    msajc…           169         169 Phon…
+## 10 f->@:  1628. 1864. 0fc618… 0000    msajc…           172         173 Phon…
+## # … with 27 more rows, and 7 more variables: attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
 
 ## Discussion
