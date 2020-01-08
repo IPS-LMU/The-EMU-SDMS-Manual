@@ -415,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>See R’s <code>help()</code> function for a comprehensive list of every function and object provided by the <code>wrassp</code> package is required (see R code snippet below).</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1"><span class="kw">help</span>(<span class="dt">package=</span><span class="st">&quot;wrassp&quot;</span>)</a></code></pre></div>
-<p>As the <code>wrassp</code> package can be used independently of the EMU-SDMS this chapter largely focuses on using it as an independent component. However, Section <a href="chap-wrassp.html#sec:wrassp-emu-sdms">8.7</a> provides an overview of how the package is integrated into the EMU-SDMS. Further, although the <code>wrassp</code> package has its own set of example audio files (which can be accessed in the directory provided by <code>system.file('extdata', package='wrassp')</code>), this chapter will use the audio and SSFF files that are part of the <code>ae</code> <code>emuDB</code> of the demo data provided by the <code>emuR</code> package. This is done primarily to provide an overview of what it is like using <code>wrassp</code> to work on files in an <code>emuDB</code>. The R code snippet below shows how to generate this demo data followed by a listing of the files contained in a directory of a single bundle called <code>msajc003</code> (see Chapter @ref(chap:emuDB} for information about the <code>emuDB</code> format). The output of the call to <code>list.files()</code> shows four files where the <code>.dft</code> and <code>.fms</code> files are in the SSFF file format (see Appendix <a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF">15.1.3</a> for further details). The <code>_annot.json</code> file contains the annotation information, and the <code>.wav</code> file is one of the audio files that will be used in various signal processing examples in this chapter.</p>
+<p>As the <code>wrassp</code> package can be used independently of the EMU-SDMS this chapter largely focuses on using it as an independent component. However, Section <a href="chap-wrassp.html#sec:wrassp-emu-sdms">8.7</a> provides an overview of how the package is integrated into the EMU-SDMS. Further, although the <code>wrassp</code> package has its own set of example audio files (which can be accessed in the directory provided by <code>system.file('extdata', package='wrassp')</code>), this chapter will use the audio and SSFF files that are part of the <code>ae</code> <code>emuDB</code> of the demo data provided by the <code>emuR</code> package. This is done primarily to provide an overview of what it is like using <code>wrassp</code> to work on files in an <code>emuDB</code>. The R code snippet below shows how to generate this demo data followed by a listing of the files contained in a directory of a single bundle called <code>msajc003</code> (see Chapter <a href="chap-emuDB.html#chap:emuDB">5</a> for information about the <code>emuDB</code> format). The output of the call to <code>list.files()</code> shows four files where the <code>.dft</code> and <code>.fms</code> files are in the SSFF file format (see Appendix <a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF">15.1.3</a> for further details). The <code>_annot.json</code> file contains the annotation information, and the <code>.wav</code> file is one of the audio files that will be used in various signal processing examples in this chapter.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1"><span class="co"># load the emuR package</span></a>
 <a class="sourceLine" id="cb151-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
 <a class="sourceLine" id="cb151-3" data-line-number="3"></a>
@@ -426,17 +426,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb151-8" data-line-number="8"><span class="co"># create path to demo database</span></a>
 <a class="sourceLine" id="cb151-9" data-line-number="9">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
 <a class="sourceLine" id="cb151-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb151-11" data-line-number="11"><span class="co"># create path to bundle in database</span></a>
-<a class="sourceLine" id="cb151-12" data-line-number="12">path2bndl =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;0000_ses&quot;</span>, <span class="st">&quot;msajc003_bndl&quot;</span>)</a>
-<a class="sourceLine" id="cb151-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb151-14" data-line-number="14"><span class="co"># list files in bundle directory</span></a>
-<a class="sourceLine" id="cb151-15" data-line-number="15"><span class="kw">list.files</span>(path2bndl)</a></code></pre></div>
+<a class="sourceLine" id="cb151-11" data-line-number="11"><span class="co"># load database</span></a>
+<a class="sourceLine" id="cb151-12" data-line-number="12"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb151-13" data-line-number="13">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb151-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb151-15" data-line-number="15"><span class="co"># create path to bundle in database</span></a>
+<a class="sourceLine" id="cb151-16" data-line-number="16">path2bndl =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;0000_ses&quot;</span>, <span class="st">&quot;msajc003_bndl&quot;</span>)</a>
+<a class="sourceLine" id="cb151-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb151-18" data-line-number="18"><span class="co"># list files in bundle directory</span></a>
+<a class="sourceLine" id="cb151-19" data-line-number="19"><span class="kw">list.files</span>(path2bndl)</a></code></pre></div>
 <pre><code>## [1] &quot;msajc003_annot.json&quot; &quot;msajc003.dft&quot;        &quot;msajc003.fms&quot;       
 ## [4] &quot;msajc003.wav&quot;</code></pre>
 </div>
 <div id="file-i0-and-the-asspdataobj" class="section level2">
 <h2><span class="header-section-number">8.2</span> File I/0 and the <code>AsspDataObj</code></h2>
-<p>One of the aims of <code>wrassp</code> is to provide mechanisms for handling speech-related files such as audio files and derived and complementary signal files. To have an in-memory object that can hold these file types in a uniform way the <code>wrassp</code> package provides the <code>AsspDataObj</code> data type. The R code snippet below shows how the <code>read.AsspDataObj()</code> can be used to import a <code>.wav</code> audio file.</p>
+<p>One of the aims of <code>wrassp</code> is to provide mechanisms for handling speech-related files such as audio files and derived and complementary signal files. To have an in-memory object that can hold these file types in a uniform way the <code>wrassp</code> package provides the <code>AsspDataObj</code> data type. The R code snippet below shows how the <code>read.AsspDataObj()</code> can be used to import a <code>.wav</code> audio file into R.</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="co"># load the wrassp package</span></a>
 <a class="sourceLine" id="cb153-2" data-line-number="2"><span class="kw">library</span>(wrassp)</a>
 <a class="sourceLine" id="cb153-3" data-line-number="3"></a>
@@ -450,8 +454,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb153-11" data-line-number="11"><span class="kw">class</span>(au)</a></code></pre></div>
 <pre><code>## [1] &quot;AsspDataObj&quot;</code></pre>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="co"># show print() output of object</span></a>
-<a class="sourceLine" id="cb155-2" data-line-number="2"><span class="kw">print</span>(au)</a></code></pre></div>
-<pre><code>## Assp Data Object of file /tmp/RtmpzisOA9/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+<a class="sourceLine" id="cb155-2" data-line-number="2">au</a></code></pre></div>
+<pre><code>## Assp Data Object of file /tmp/RtmppbN5l9/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -467,13 +471,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="co"># show number of records/samples</span></a>
 <a class="sourceLine" id="cb161-2" data-line-number="2"><span class="kw">numRecs.AsspDataObj</span>(au)</a></code></pre></div>
 <pre><code>## [1] 58089</code></pre>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1"><span class="co"># shorten filePath attribute</span></a>
-<a class="sourceLine" id="cb163-2" data-line-number="2"><span class="co"># to 10 chars only to prettify output</span></a>
-<a class="sourceLine" id="cb163-3" data-line-number="3"><span class="kw">attr</span>(au, <span class="st">&quot;filePath&quot;</span>)  =<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">substr</span>(<span class="kw">attr</span>(au, <span class="st">&quot;filePath&quot;</span>),</a>
-<a class="sourceLine" id="cb163-4" data-line-number="4">                                      <span class="dt">start =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb163-5" data-line-number="5">                                      <span class="dt">stop =</span> <span class="dv">45</span>), <span class="st">&quot;...&quot;</span>)</a>
-<a class="sourceLine" id="cb163-6" data-line-number="6"><span class="co"># show additional attributes</span></a>
-<a class="sourceLine" id="cb163-7" data-line-number="7"><span class="kw">attributes</span>(au)</a></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1"><span class="co"># show additional attributes</span></a>
+<a class="sourceLine" id="cb163-2" data-line-number="2"><span class="kw">attributes</span>(au)</a></code></pre></div>
 <pre><code>## $names
 ## [1] &quot;audio&quot;
 ## 
@@ -484,7 +483,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 20000
 ## 
 ## $filePath
-## [1] &quot;/tmp/RtmpzisOA9/emuR_demoData/ae_emuDB/0000_s...&quot;
+## [1] &quot;/tmp/RtmppbN5l9/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav&quot;
 ## 
 ## $origFreq
 ## [1] 0
@@ -574,7 +573,7 @@ Figure 8.1: Oscillogram generated from samples stored in the <code>audio</code> 
 <h2><span class="header-section-number">8.5</span> Formants and their bandwidths</h2>
 <p>The already mentioned <code>forest()</code> is <code>wrassp</code>’s formant estimation function. The default behavior of this formant tracker is to calculate the first four formants and their bandwidths. The R code snippet below shows the usage of this function. As the default behavior of every signal processing function provided by <code>wrassp</code> is to store its result to a file, the <code>toFile</code> parameter of <code>forest()</code> is set to <code>FALSE</code> to prevent this behavior. This results in the same <code>AsspDataObj</code> object as when exporting the result to file and then importing the file into R using <code>read.AsspDataObj()</code>, but circumvents the disk reading/writing overhead.</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="co"># calculate formants and corresponding bandwidth values</span></a>
-<a class="sourceLine" id="cb179-2" data-line-number="2">fmBwVals =<span class="st"> </span><span class="kw">forest</span>(path2wav, <span class="dt">toFile=</span>F)</a>
+<a class="sourceLine" id="cb179-2" data-line-number="2">fmBwVals =<span class="st"> </span><span class="kw">forest</span>(path2wav, <span class="dt">toFile =</span> F)</a>
 <a class="sourceLine" id="cb179-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb179-4" data-line-number="4"><span class="co"># show class vector</span></a>
 <a class="sourceLine" id="cb179-5" data-line-number="5"><span class="kw">class</span>(fmBwVals)</a></code></pre></div>
@@ -613,7 +612,7 @@ Figure 8.2: Matrix plot of formant values stored in the <code>fm</code> track of
 </div>
 <div id="subsec:wrassp_f0" class="section level3">
 <h3><span class="header-section-number">8.5.1</span> Fundamental frequency contour</h3>
-<p>The <code>wrassp</code> package includes two fundamental frequency estimation functions called <code>ksvF0()</code> and <code>mhsF0()</code>. The R code snippet below shows the usage of the <code>ksvF0()</code> function, this time not utilizing the <code>toFile</code> parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by <code>wrassp</code> creates a result file in the same directory as the audio file it was processing (except if the <code>outputDirectory</code> parameter is set otherwise). The default extension given by the <code>ksvF0()</code> is stored in <code>wrasspOutputInfos\$ksvF0\$ext</code>, which is used in the R code snippet below to create the newly generated file’s path.</p>
+<p>The <code>wrassp</code> package includes two fundamental frequency estimation functions called <code>ksvF0()</code> and <code>mhsF0()</code>. The R code snippet below shows the usage of the <code>ksvF0()</code> function, this time not utilizing the <code>toFile</code> parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by <code>wrassp</code> creates a result file in the same directory as the audio file it was processing (except if the <code>outputDirectory</code> parameter is set otherwise). The default extension given by the <code>ksvF0()</code> is stored in <code>wrasspOutputInfos$ksvF0$ext</code>, which is used in the R code snippet below to create the newly generated file’s path.</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="co"># calculate the fundamental frequency contour</span></a>
 <a class="sourceLine" id="cb188-2" data-line-number="2"><span class="kw">ksvF0</span>(path2wav)</a>
 <a class="sourceLine" id="cb188-3" data-line-number="3"></a>
@@ -624,7 +623,7 @@ Figure 8.2: Matrix plot of formant values stored in the <code>fm</code> track of
 <a class="sourceLine" id="cb188-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb188-9" data-line-number="9"><span class="co"># read file from disk</span></a>
 <a class="sourceLine" id="cb188-10" data-line-number="10">f0vals =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(path2f0file)</a></code></pre></div>
-<p>By analogy with to the formant estimation example, the R code snippet below shows how the <code>plot()</code> function can be used to visualize this data as in Figure <a href="chap-wrassp.html#fig:wrassp-plotF0">8.3</a>.</p>
+<p>Analogous to the formant estimation example, the R code snippet below shows how the <code>plot()</code> function can be used to visualize this data as in Figure <a href="chap-wrassp.html#fig:wrassp-plotF0">8.3</a>.</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="co"># plot the fundamental frequency contour</span></a>
 <a class="sourceLine" id="cb189-2" data-line-number="2"><span class="kw">plot</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="kw">numRecs.AsspDataObj</span>(f0vals) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb189-3" data-line-number="3">     <span class="op">/</span><span class="st"> </span><span class="kw">rate.AsspDataObj</span>(f0vals) <span class="op">+</span></a>
@@ -642,24 +641,23 @@ Figure 8.3: Plot of fundamental frequency values stored in the <code>F0</code> t
 </div>
 <div id="subsec:wrassp-RMS" class="section level3">
 <h3><span class="header-section-number">8.5.2</span> RMS energy contour</h3>
-<p>The <code>wrassp</code> function for calculating the short-term root mean square (RMS) amplitude of the signal is called <code>rmsana()</code>. As its usage is analogous to the above examples, here we will focus on using it to calculate the RMS values for all the audio files of the <code>ae</code> <code>emuDB</code>. The R code snippet below initially uses the <code>list.files()</code> function to aquire the file paths for every <code>.wav</code> file in the <code>ae</code> <code>emuDB</code>. As every signal processing function accepts one or multiple file paths, these file paths can simply be passed in as the main argument to the <code>rmsana()</code> function. As all of <code>wrassp</code>’s signal processing functions place their generated files in the same directory as the audio file they process, the <code>rmsana()</code> function will automatically place every <code>.rms</code> into the correct bundle directory.</p>
+<p>The <code>wrassp</code> function for calculating the short-term root mean square (RMS) amplitude of the signal is called <code>rmsana()</code>. As its usage is analogous to the above examples, here we will focus on using it to calculate the RMS values for all the audio files of the <code>ae</code> <code>emuDB</code>. The R code snippet below initially uses the <code>list_files()</code> function to aquire the file paths for every <code>.wav</code> file in the <code>ae</code> <code>emuDB</code>. As every signal processing function accepts one or multiple file paths, these file paths can simply be passed in as the main argument to the <code>rmsana()</code> function. As all of <code>wrassp</code>’s signal processing functions place their generated files in the same directory as the audio file they process, the <code>rmsana()</code> function will automatically place every <code>.rms</code> into the correct bundle directory.</p>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="co"># list all .wav files in the ae emuDB</span></a>
-<a class="sourceLine" id="cb190-2" data-line-number="2">paths2wavFiles =<span class="st"> </span><span class="kw">list.files</span>(path2ae, <span class="dt">pattern =</span> <span class="st">&quot;.*wav$&quot;</span>,</a>
-<a class="sourceLine" id="cb190-3" data-line-number="3">                            <span class="dt">recursive =</span> <span class="ot">TRUE</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb190-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb190-5" data-line-number="5"><span class="co"># calculate the RMS energy values for all .wav files</span></a>
-<a class="sourceLine" id="cb190-6" data-line-number="6"><span class="kw">rmsana</span>(paths2wavFiles)</a>
-<a class="sourceLine" id="cb190-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb190-8" data-line-number="8"><span class="co"># list new .rms files using</span></a>
-<a class="sourceLine" id="cb190-9" data-line-number="9"><span class="co"># wrasspOutputInfos-&gt;rmsana-&gt;ext</span></a>
-<a class="sourceLine" id="cb190-10" data-line-number="10">rmsFPs =<span class="st"> </span><span class="kw">list.files</span>(path2ae,</a>
-<a class="sourceLine" id="cb190-11" data-line-number="11">                    <span class="dt">pattern =</span> <span class="kw">paste0</span>(<span class="st">&quot;.*&quot;</span>,</a>
-<a class="sourceLine" id="cb190-12" data-line-number="12">                                     wrasspOutputInfos<span class="op">$</span>rmsana<span class="op">$</span>ext),</a>
-<a class="sourceLine" id="cb190-13" data-line-number="13">                    <span class="dt">recursive =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb190-14" data-line-number="14">                    <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb190-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb190-16" data-line-number="16"><span class="co"># read first RMS file</span></a>
-<a class="sourceLine" id="cb190-17" data-line-number="17">rmsvals =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(rmsFPs[<span class="dv">1</span>])</a></code></pre></div>
+<a class="sourceLine" id="cb190-2" data-line-number="2">paths2wavFiles =<span class="st"> </span><span class="kw">list_files</span>(ae, <span class="dt">fileExtension =</span> <span class="st">&quot;wav&quot;</span>)<span class="op">$</span>absolute_file_path</a>
+<a class="sourceLine" id="cb190-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb190-4" data-line-number="4"><span class="co"># calculate the RMS energy values for all .wav files</span></a>
+<a class="sourceLine" id="cb190-5" data-line-number="5"><span class="kw">rmsana</span>(paths2wavFiles)</a>
+<a class="sourceLine" id="cb190-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb190-7" data-line-number="7"><span class="co"># list new .rms files using</span></a>
+<a class="sourceLine" id="cb190-8" data-line-number="8"><span class="co"># wrasspOutputInfos-&gt;rmsana-&gt;ext</span></a>
+<a class="sourceLine" id="cb190-9" data-line-number="9">rmsFPs =<span class="st"> </span><span class="kw">list.files</span>(path2ae,</a>
+<a class="sourceLine" id="cb190-10" data-line-number="10">                    <span class="dt">pattern =</span> <span class="kw">paste0</span>(<span class="st">&quot;.*&quot;</span>,</a>
+<a class="sourceLine" id="cb190-11" data-line-number="11">                                     wrasspOutputInfos<span class="op">$</span>rmsana<span class="op">$</span>ext),</a>
+<a class="sourceLine" id="cb190-12" data-line-number="12">                    <span class="dt">recursive =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb190-13" data-line-number="13">                    <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb190-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb190-15" data-line-number="15"><span class="co"># read first RMS file</span></a>
+<a class="sourceLine" id="cb190-16" data-line-number="16">rmsvals =<span class="st"> </span><span class="kw">read.AsspDataObj</span>(rmsFPs[<span class="dv">1</span>])</a></code></pre></div>
 <p>The R code snippet below shows how the <code>plot()</code> function can be used to visualize this data as in Figure <a href="chap-wrassp.html#fig:wrassp-plotRMS">8.4</a>.</p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1"><span class="co"># plot the RMS energy contour</span></a>
 <a class="sourceLine" id="cb191-2" data-line-number="2"><span class="kw">plot</span>(<span class="kw">seq</span>(<span class="dv">0</span>, <span class="kw">numRecs.AsspDataObj</span>(rmsvals) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
@@ -684,13 +682,16 @@ Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rms
 <a class="sourceLine" id="cb192-2" data-line-number="2">path2logFile =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;wrassp.log&quot;</span>)</a>
 <a class="sourceLine" id="cb192-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb192-4" data-line-number="4"><span class="co"># calculate the fundamental frequency contour</span></a>
-<a class="sourceLine" id="cb192-5" data-line-number="5"><span class="kw">ksvF0</span>(path2wav, <span class="dt">windowShift =</span> <span class="dv">10</span>, <span class="dt">forceToLog =</span> T, <span class="dt">optLogFilePath =</span> path2logFile)</a></code></pre></div>
+<a class="sourceLine" id="cb192-5" data-line-number="5"><span class="kw">ksvF0</span>(path2wav, </a>
+<a class="sourceLine" id="cb192-6" data-line-number="6">      <span class="dt">windowShift =</span> <span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb192-7" data-line-number="7">      <span class="dt">forceToLog =</span> T, </a>
+<a class="sourceLine" id="cb192-8" data-line-number="8">      <span class="dt">optLogFilePath =</span> path2logFile)</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="co"># display content of log file (first 8 lines)</span></a>
 <a class="sourceLine" id="cb194-2" data-line-number="2"><span class="kw">readLines</span>(path2logFile)[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>]</a></code></pre></div>
 <pre><code>## [1] &quot;&quot;                                   &quot;##################################&quot;
 ## [3] &quot;##################################&quot; &quot;######## ksvF0 performed ########&quot; 
-## [5] &quot;Timestamp:  2020-01-08 16:10:30 &quot;   &quot;windowShift : 10 &quot;                 
+## [5] &quot;Timestamp:  2020-01-08 18:11:43 &quot;   &quot;windowShift : 10 &quot;                 
 ## [7] &quot;forceToLog : T &quot;                    &quot; =&gt; on files:&quot;</code></pre>
 </div>
 <div id="sec:wrassp-emu-sdms" class="section level2">
@@ -808,7 +809,7 @@ Figure 8.5: A single cycle sine wave consisting of 16000 samples.
 <a class="sourceLine" id="cb203-20" data-line-number="20"><span class="kw">write.AsspDataObj</span>(<span class="dt">dobj =</span> ado,</a>
 <a class="sourceLine" id="cb203-21" data-line-number="21">                  <span class="dt">file =</span> <span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;example.sine&quot;</span>))</a></code></pre></div>
 <pre><code>## NULL</code></pre>
-<p>Although somewhat of a generic example, the above R code snippet shows how to generate an <code>AsspDataObj</code> from scratch. This approach can, for example, be used to read in signal data produced by other software or signal data acquisition devices. Hence, this approach can be used to import many forms of data into the EMU-SDMS. Appendix @ref(sec:app-chap-wrassp-praatsSigProc} shows an example of how this approach can be used to take advantage of Praat’s signal processing capabilities and integrate its output into the EMU-SDMS.</p>
+<p>Although somewhat of a generic example, the above R code snippet shows how to generate an <code>AsspDataObj</code> from scratch. This approach can, for example, be used to read in signal data produced by other software or signal data acquisition devices. Hence, this approach can be used to import many forms of data into the EMU-SDMS. Appendix <a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc">19.1</a> shows an example of how this approach can be used to take advantage of Praat’s signal processing capabilities and integrate its output into the EMU-SDMS.</p>
 </div>
 <div id="conclusion-4" class="section level2">
 <h2><span class="header-section-number">8.9</span> Conclusion</h2>

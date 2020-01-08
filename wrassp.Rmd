@@ -37,7 +37,7 @@ help(package="wrassp")
 ```
 
 
-As the `wrassp` package can be used independently of the EMU-SDMS this chapter largely focuses on using it as an independent component. However, Section \@ref(sec:wrassp-emu-sdms) provides an overview of how the package is integrated into the EMU-SDMS. Further, although the `wrassp` package has its own set of example audio files (which can be accessed in the directory provided by `system.file('extdata', package='wrassp')`), this chapter will use the audio and SSFF files that are part of the `ae` `emuDB` of the demo data provided by the `emuR` package. This is done primarily to provide an overview of what it is like using `wrassp` to work on files in an `emuDB`. The R code snippet below shows how to generate this demo data followed by a listing of the files contained in a directory of a single bundle called `msajc003` (see Chapter \@ref(chap:emuDB} for information about the `emuDB` format). The output of the call to `list.files()` shows four files where the `.dft` and `.fms` files are in the SSFF file format (see Appendix \@ref(subsec:app-chapFileFormatsSSFF) for further details). The `_annot.json` file contains the annotation information, and the `.wav` file is one of the audio files that will be used in various signal processing examples in this chapter.
+As the `wrassp` package can be used independently of the EMU-SDMS this chapter largely focuses on using it as an independent component. However, Section \@ref(sec:wrassp-emu-sdms) provides an overview of how the package is integrated into the EMU-SDMS. Further, although the `wrassp` package has its own set of example audio files (which can be accessed in the directory provided by `system.file('extdata', package='wrassp')`), this chapter will use the audio and SSFF files that are part of the `ae` `emuDB` of the demo data provided by the `emuR` package. This is done primarily to provide an overview of what it is like using `wrassp` to work on files in an `emuDB`. The R code snippet below shows how to generate this demo data followed by a listing of the files contained in a directory of a single bundle called `msajc003` (see Chapter \@ref(chap:emuDB) for information about the `emuDB` format). The output of the call to `list.files()` shows four files where the `.dft` and `.fms` files are in the SSFF file format (see Appendix \@ref(subsec:app-chapFileFormatsSSFF) for further details). The `_annot.json` file contains the annotation information, and the `.wav` file is one of the audio files that will be used in various signal processing examples in this chapter.
 
 
 ```{r message=FALSE}
@@ -51,6 +51,10 @@ create_emuRdemoData(dir = tempdir())
 # create path to demo database
 path2ae = file.path(tempdir(), "emuR_demoData", "ae_emuDB")
 
+# load database
+# (verbose = F is only set to avoid additional output in manual)
+ae = load_emuDB(path2ae, verbose = F)
+
 # create path to bundle in database
 path2bndl = file.path(path2ae, "0000_ses", "msajc003_bndl")
 
@@ -61,7 +65,7 @@ list.files(path2bndl)
 
 ## File I/0 and the `AsspDataObj`
 
-One of the aims of `wrassp` is to provide mechanisms for handling speech-related files such as audio files and derived and complementary signal files. To have an in-memory object that can hold these file types in a uniform way the `wrassp` package provides the `AsspDataObj` data type. The R code snippet below shows how the `read.AsspDataObj()` can be used to import a `.wav` audio file.
+One of the aims of `wrassp` is to provide mechanisms for handling speech-related files such as audio files and derived and complementary signal files. To have an in-memory object that can hold these file types in a uniform way the `wrassp` package provides the `AsspDataObj` data type. The R code snippet below shows how the `read.AsspDataObj()` can be used to import a `.wav` audio file into R.
 
 ```{r tidy=TRUE}
 # load the wrassp package
@@ -77,7 +81,7 @@ au = read.AsspDataObj(path2wav)
 class(au)
 
 # show print() output of object
-print(au)
+au
 ```
 
 As can be seen in the above R code snippet, the resulting `au` object is of the class `AsspDataObj`. The output of `print` provides additional information about the object, such as its sampling rate, duration, data type and data structure information. Since the file we loaded is audio only, the object contains exactly one track. Further, since it is a mono file, this track only has a single field. We will later encounter different types of data with more than one track and multiple fields per track. The R code snippet below shows function calls that extract the various attributes from the object (e.g., duration, sampling rate and the number of records).
@@ -93,12 +97,6 @@ rate.AsspDataObj(au)
 # show number of records/samples
 numRecs.AsspDataObj(au)
 
-
-# shorten filePath attribute
-# to 10 chars only to prettify output
-attr(au, "filePath")  = paste0(substr(attr(au, "filePath"),
-                                      start = 1,
-                                      stop = 45), "...")
 # show additional attributes
 attributes(au)
 ```
@@ -197,7 +195,7 @@ The already mentioned `forest()` is `wrassp`'s formant estimation function. The 
 
 ```{r}
 # calculate formants and corresponding bandwidth values
-fmBwVals = forest(path2wav, toFile=F)
+fmBwVals = forest(path2wav, toFile = F)
 
 # show class vector
 class(fmBwVals)
@@ -257,7 +255,7 @@ legend("topright",
 
 ### Fundamental frequency contour {#subsec:wrassp_f0}
 
-The `wrassp` package includes two fundamental frequency estimation functions called `ksvF0()` and `mhsF0()`. The R code snippet below shows the usage of the `ksvF0()` function, this time not utilizing the `toFile` parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by `wrassp` creates a result file in the same directory as the audio file it was processing (except if the `outputDirectory` parameter is set otherwise). The default extension given by the `ksvF0()` is stored in `wrasspOutputInfos\$ksvF0\$ext`, which is used in the R code snippet below to create the newly generated file's path.
+The `wrassp` package includes two fundamental frequency estimation functions called `ksvF0()` and `mhsF0()`. The R code snippet below shows the usage of the `ksvF0()` function, this time not utilizing the `toFile` parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by `wrassp` creates a result file in the same directory as the audio file it was processing (except if the `outputDirectory` parameter is set otherwise). The default extension given by the `ksvF0()` is stored in `wrasspOutputInfos$ksvF0$ext`, which is used in the R code snippet below to create the newly generated file's path.
 
 
 ```{r results='hide'}
@@ -273,7 +271,7 @@ path2f0file = file.path(path2bndl,
 f0vals = read.AsspDataObj(path2f0file)
 ```
 
-By analogy with to the formant estimation example, the R code snippet below shows how the `plot()` function can be used to visualize this data as in Figure \@ref(fig:wrassp-plotF0).
+Analogous to the formant estimation example, the R code snippet below shows how the `plot()` function can be used to visualize this data as in Figure \@ref(fig:wrassp-plotF0).
 
 ```{r eval=FALSE}
 # plot the fundamental frequency contour
@@ -300,12 +298,11 @@ plot(seq(0,numRecs.AsspDataObj(f0vals) - 1)
 
 ### RMS energy contour {#subsec:wrassp-RMS}
 
-The `wrassp` function for calculating the short-term root mean square (RMS) amplitude of the signal is called `rmsana()`. As its usage is analogous to the above examples, here we will focus on using it to calculate the RMS values for all the audio files of the `ae` `emuDB`. The R code snippet below initially uses the `list.files()` function to aquire the file paths for every `.wav` file in the `ae` `emuDB`. As every signal processing function accepts one or multiple file paths, these file paths can simply be passed in as the main argument to the `rmsana()` function. As all of `wrassp`'s signal processing functions place their generated files in the same directory as the audio file they process, the `rmsana()` function will automatically place every `.rms` into the correct bundle directory.
+The `wrassp` function for calculating the short-term root mean square (RMS) amplitude of the signal is called `rmsana()`. As its usage is analogous to the above examples, here we will focus on using it to calculate the RMS values for all the audio files of the `ae` `emuDB`. The R code snippet below initially uses the `list_files()` function to aquire the file paths for every `.wav` file in the `ae` `emuDB`. As every signal processing function accepts one or multiple file paths, these file paths can simply be passed in as the main argument to the `rmsana()` function. As all of `wrassp`'s signal processing functions place their generated files in the same directory as the audio file they process, the `rmsana()` function will automatically place every `.rms` into the correct bundle directory.
 
 ```{r results='hide', message=FALSE}
 # list all .wav files in the ae emuDB
-paths2wavFiles = list.files(path2ae, pattern = ".*wav$",
-                            recursive = TRUE, full.names = TRUE)
+paths2wavFiles = list_files(ae, fileExtension = "wav")$absolute_file_path
 
 # calculate the RMS energy values for all .wav files
 rmsana(paths2wavFiles)
@@ -354,13 +351,15 @@ plot(seq(0, numRecs.AsspDataObj(rmsvals) - 1)
 As it can be extremely important to keep track of information about how certain files are created and calculated, every signal processing function provided by the `wrassp` package comes with the ability to log its function calls to a specified log file. The R code snippet below shows a call to the `ksvF0()` function where a single parameter was changed from its default value (`windowShift = 10`). The content of the created log files (shown by the call to `readLines()`) contains the function name, time stamp, parameters that were altered and processed file path information. It is worth noting that a log file can be reused for multiple function calls as the log function does not overwrite an existing file but merely appends new log information to it.
 
 
-```{r tidy=TRUE, warning=FALSE}
+```{r warning=FALSE}
 # create path to log file in root dir of ae emuDB
 path2logFile = file.path(path2ae, "wrassp.log")
 
 # calculate the fundamental frequency contour
-ksvF0(path2wav, windowShift = 10,
-      forceToLog = T, optLogFilePath = path2logFile)
+ksvF0(path2wav, 
+      windowShift = 10,
+      forceToLog = T, 
+      optLogFilePath = path2logFile)
 
 # display content of log file (first 8 lines)
 readLines(path2logFile)[1:8]
@@ -490,7 +489,7 @@ write.AsspDataObj(dobj = ado,
                   file = file.path(tempdir(), "example.sine"))
 ```
 
-Although somewhat of a generic example, the above R code snippet shows how to generate an `AsspDataObj` from scratch. This approach can, for example, be used to read in signal data produced by other software or signal data acquisition devices. Hence, this approach can be used to import many forms of data into the EMU-SDMS. Appendix \@ref(sec:app-chap-wrassp-praatsSigProc} shows an example of how this approach can be used to take advantage of Praat's signal processing capabilities and integrate its output into the EMU-SDMS.
+Although somewhat of a generic example, the above R code snippet shows how to generate an `AsspDataObj` from scratch. This approach can, for example, be used to read in signal data produced by other software or signal data acquisition devices. Hence, this approach can be used to import many forms of data into the EMU-SDMS. Appendix \@ref(sec:app-chap-wrassp-praatsSigProc) shows an example of how this approach can be used to take advantage of Praat's signal processing capabilities and integrate its output into the EMU-SDMS.
 
 
 ## Conclusion
