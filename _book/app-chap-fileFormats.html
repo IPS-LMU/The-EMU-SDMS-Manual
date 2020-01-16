@@ -804,28 +804,28 @@ label is for.</p></li>
 <div id="subsec:app-chapFileFormatsSSFF" class="section level3">
 <h3><span class="header-section-number">15.1.3</span> The SSFF file format</h3>
 <p>The SSFF file format is a binary file format which has a plain text header. This means that the header is human-readable and can be viewed with any text editor including common UNIX command line tools such as <code>less</code> or <code>cat</code>. Within R it is possible to view the header by using R’s <code>readLines()</code> function as displayed in the R code snippet below.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1"><span class="co"># load the emuR and wrassp packages</span></a>
-<a class="sourceLine" id="cb284-2" data-line-number="2"><span class="kw">library</span>(emuR, <span class="dt">warn.conflicts =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb284-3" data-line-number="3"><span class="kw">library</span>(wrassp)</a>
-<a class="sourceLine" id="cb284-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb284-5" data-line-number="5"><span class="co"># create demo data in directory </span></a>
-<a class="sourceLine" id="cb284-6" data-line-number="6"><span class="co"># provided by tempdir()</span></a>
-<a class="sourceLine" id="cb284-7" data-line-number="7"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb284-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb284-9" data-line-number="9"><span class="co"># create path to demo database</span></a>
-<a class="sourceLine" id="cb284-10" data-line-number="10">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb284-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb284-12" data-line-number="12"><span class="co"># create path to bundle in database</span></a>
-<a class="sourceLine" id="cb284-13" data-line-number="13">path2bndl =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;0000_ses&quot;</span>, <span class="st">&quot;msajc003_bndl&quot;</span>)</a>
-<a class="sourceLine" id="cb284-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb284-15" data-line-number="15"><span class="co"># create path to .fms file </span></a>
-<a class="sourceLine" id="cb284-16" data-line-number="16">path2fmsFile =<span class="st"> </span><span class="kw">file.path</span>(path2bndl, </a>
-<a class="sourceLine" id="cb284-17" data-line-number="17">                        <span class="kw">paste0</span>(<span class="st">&quot;msajc003.&quot;</span>, </a>
-<a class="sourceLine" id="cb284-18" data-line-number="18">                               wrasspOutputInfos<span class="op">$</span>forest<span class="op">$</span>ext))</a>
-<a class="sourceLine" id="cb284-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb284-20" data-line-number="20"><span class="co"># read in first 8 lines of .fms file.</span></a>
-<a class="sourceLine" id="cb284-21" data-line-number="21"><span class="co"># Note that the header length may vary in other SSFF files.</span></a>
-<a class="sourceLine" id="cb284-22" data-line-number="22"><span class="kw">readLines</span>(path2fmsFile, <span class="dt">n =</span> <span class="dv">8</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb281-1" data-line-number="1"><span class="co"># load the emuR and wrassp packages</span></a>
+<a class="sourceLine" id="cb281-2" data-line-number="2"><span class="kw">library</span>(emuR, <span class="dt">warn.conflicts =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb281-3" data-line-number="3"><span class="kw">library</span>(wrassp)</a>
+<a class="sourceLine" id="cb281-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb281-5" data-line-number="5"><span class="co"># create demo data in directory </span></a>
+<a class="sourceLine" id="cb281-6" data-line-number="6"><span class="co"># provided by tempdir()</span></a>
+<a class="sourceLine" id="cb281-7" data-line-number="7"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb281-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb281-9" data-line-number="9"><span class="co"># create path to demo database</span></a>
+<a class="sourceLine" id="cb281-10" data-line-number="10">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb281-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb281-12" data-line-number="12"><span class="co"># create path to bundle in database</span></a>
+<a class="sourceLine" id="cb281-13" data-line-number="13">path2bndl =<span class="st"> </span><span class="kw">file.path</span>(path2ae, <span class="st">&quot;0000_ses&quot;</span>, <span class="st">&quot;msajc003_bndl&quot;</span>)</a>
+<a class="sourceLine" id="cb281-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb281-15" data-line-number="15"><span class="co"># create path to .fms file </span></a>
+<a class="sourceLine" id="cb281-16" data-line-number="16">path2fmsFile =<span class="st"> </span><span class="kw">file.path</span>(path2bndl, </a>
+<a class="sourceLine" id="cb281-17" data-line-number="17">                        <span class="kw">paste0</span>(<span class="st">&quot;msajc003.&quot;</span>, </a>
+<a class="sourceLine" id="cb281-18" data-line-number="18">                               wrasspOutputInfos<span class="op">$</span>forest<span class="op">$</span>ext))</a>
+<a class="sourceLine" id="cb281-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb281-20" data-line-number="20"><span class="co"># read in first 8 lines of .fms file.</span></a>
+<a class="sourceLine" id="cb281-21" data-line-number="21"><span class="co"># Note that the header length may vary in other SSFF files.</span></a>
+<a class="sourceLine" id="cb281-22" data-line-number="22"><span class="kw">readLines</span>(path2fmsFile, <span class="dt">n =</span> <span class="dv">8</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;SSFF -- (c) SHLRC&quot;            &quot;Machine IBM-PC&quot;              
 ## [3] &quot;Record_Freq 200.0&quot;            &quot;Start_Time 0.0025&quot;           
 ## [5] &quot;Column fm SHORT 4&quot;            &quot;Column bw SHORT 4&quot;           
@@ -857,45 +857,45 @@ Figure 15.1: Schematic representation of the data block of the <code>msajc003.fm
 <h3><span class="header-section-number">15.2.1</span> <code>_bundleList.json</code></h3>
 <p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport information about all the available bundles to the <code>EMU-webApp</code>. It is not meant as an on-disk file format but rather should be generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in Listing <a href="#lst:bndlListJSON"><strong>??</strong></a>.</p>
 <!-- caption="Schematic example of a \_bundleList.json file" language="json" label="lst:bndlListJSON" startFrom="1" -->
-<div class="sourceCode" id="cb286"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="ot">[</span></a>
-<a class="sourceLine" id="cb286-2" data-line-number="2">  <span class="fu">{</span></a>
-<a class="sourceLine" id="cb286-3" data-line-number="3">  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc003&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-4" data-line-number="4">  <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-5" data-line-number="5">  <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-6" data-line-number="6">  <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-7" data-line-number="7">  <span class="dt">&quot;timeAnchors&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
-<a class="sourceLine" id="cb286-8" data-line-number="8">    <span class="fu">{</span></a>
-<a class="sourceLine" id="cb286-9" data-line-number="9">      <span class="dt">&quot;sample_start&quot;</span><span class="fu">:</span> <span class="dv">1000</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-10" data-line-number="10">      <span class="dt">&quot;sample_end&quot;</span><span class="fu">:</span> <span class="dv">2000</span></a>
-<a class="sourceLine" id="cb286-11" data-line-number="11">    <span class="fu">}</span><span class="ot">,</span> <span class="er">...</span></a>
-<a class="sourceLine" id="cb286-12" data-line-number="12">  <span class="ot">]</span></a>
-<a class="sourceLine" id="cb286-13" data-line-number="13">  <span class="fu">}</span><span class="ot">,</span></a>
-<a class="sourceLine" id="cb286-14" data-line-number="14">  <span class="fu">{</span></a>
-<a class="sourceLine" id="cb286-15" data-line-number="15">  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc010&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-16" data-line-number="16">  <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-17" data-line-number="17">  <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb286-18" data-line-number="18">  <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span></a>
-<a class="sourceLine" id="cb286-19" data-line-number="19">  <span class="fu">}</span></a>
-<a class="sourceLine" id="cb286-20" data-line-number="20"><span class="ot">]</span></a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb283-1" data-line-number="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb283-2" data-line-number="2">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb283-3" data-line-number="3">  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc003&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-4" data-line-number="4">  <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-5" data-line-number="5">  <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-6" data-line-number="6">  <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-7" data-line-number="7">  <span class="dt">&quot;timeAnchors&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb283-8" data-line-number="8">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb283-9" data-line-number="9">      <span class="dt">&quot;sample_start&quot;</span><span class="fu">:</span> <span class="dv">1000</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-10" data-line-number="10">      <span class="dt">&quot;sample_end&quot;</span><span class="fu">:</span> <span class="dv">2000</span></a>
+<a class="sourceLine" id="cb283-11" data-line-number="11">    <span class="fu">}</span><span class="ot">,</span> <span class="er">...</span></a>
+<a class="sourceLine" id="cb283-12" data-line-number="12">  <span class="ot">]</span></a>
+<a class="sourceLine" id="cb283-13" data-line-number="13">  <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb283-14" data-line-number="14">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb283-15" data-line-number="15">  <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;msajc010&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-16" data-line-number="16">  <span class="dt">&quot;session&quot;</span><span class="fu">:</span> <span class="st">&quot;0000&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-17" data-line-number="17">  <span class="dt">&quot;finishedEditing&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb283-18" data-line-number="18">  <span class="dt">&quot;comment&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb283-19" data-line-number="19">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb283-20" data-line-number="20"><span class="ot">]</span></a></code></pre></div>
 </div>
 <div id="subsec:app-chapExampleFilesBndlJSON" class="section level3">
 <h3><span class="header-section-number">15.2.2</span> <code>_bndl.json</code></h3>
 <p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport all the data belonging to a single bundle to the <code>EMU-webApp</code>. It is not meant as an on-disk file format by rather should generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in Listing <a href="#lst:bndlJSON"><strong>??</strong></a>.</p>
 <!-- lst:bndlJSON caption="Schematic example of a _bndl.json file" language="json" startFrom="1" -->
-<div class="sourceCode" id="cb287"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb287-1" data-line-number="1"><span class="fu">{</span></a>
-<a class="sourceLine" id="cb287-2" data-line-number="2"> <span class="dt">&quot;ssffFiles&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
-<a class="sourceLine" id="cb287-3" data-line-number="3">  <span class="fu">{</span></a>
-<a class="sourceLine" id="cb287-4" data-line-number="4">   <span class="dt">&quot;fileExtension&quot;</span><span class="fu">:</span> <span class="st">&quot;fms&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb287-5" data-line-number="5">   <span class="dt">&quot;encoding&quot;</span><span class="fu">:</span> <span class="st">&quot;BASE64&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb287-6" data-line-number="6">   <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="st">&quot;U1N...&quot;</span></a>
-<a class="sourceLine" id="cb287-7" data-line-number="7">  <span class="fu">}</span></a>
-<a class="sourceLine" id="cb287-8" data-line-number="8"> <span class="ot">]</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb287-9" data-line-number="9"> <span class="dt">&quot;mediaFile&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
-<a class="sourceLine" id="cb287-10" data-line-number="10">  <span class="dt">&quot;encoding&quot;</span><span class="fu">:</span> <span class="st">&quot;BASE64&quot;</span><span class="fu">,</span></a>
-<a class="sourceLine" id="cb287-11" data-line-number="11">  <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="st">&quot;Ukl...&quot;</span></a>
-<a class="sourceLine" id="cb287-12" data-line-number="12"> <span class="fu">},</span></a>
-<a class="sourceLine" id="cb287-13" data-line-number="13"> <span class="dt">&quot;annotation&quot;</span><span class="fu">:</span> <span class="er">contentOfAnnot.json</span></a>
-<a class="sourceLine" id="cb287-14" data-line-number="14"><span class="fu">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb284-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb284-2" data-line-number="2"> <span class="dt">&quot;ssffFiles&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb284-3" data-line-number="3">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb284-4" data-line-number="4">   <span class="dt">&quot;fileExtension&quot;</span><span class="fu">:</span> <span class="st">&quot;fms&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb284-5" data-line-number="5">   <span class="dt">&quot;encoding&quot;</span><span class="fu">:</span> <span class="st">&quot;BASE64&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb284-6" data-line-number="6">   <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="st">&quot;U1N...&quot;</span></a>
+<a class="sourceLine" id="cb284-7" data-line-number="7">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb284-8" data-line-number="8"> <span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb284-9" data-line-number="9"> <span class="dt">&quot;mediaFile&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb284-10" data-line-number="10">  <span class="dt">&quot;encoding&quot;</span><span class="fu">:</span> <span class="st">&quot;BASE64&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb284-11" data-line-number="11">  <span class="dt">&quot;data&quot;</span><span class="fu">:</span> <span class="st">&quot;Ukl...&quot;</span></a>
+<a class="sourceLine" id="cb284-12" data-line-number="12"> <span class="fu">},</span></a>
+<a class="sourceLine" id="cb284-13" data-line-number="13"> <span class="dt">&quot;annotation&quot;</span><span class="fu">:</span> <span class="er">contentOfAnnot.json</span></a>
+<a class="sourceLine" id="cb284-14" data-line-number="14"><span class="fu">}</span></a></code></pre></div>
 <p><code>contentOfAnnot.json</code> in Listing <a href="#lst:bndlJSON"><strong>??</strong></a> refers to the content of a <code>_annot.json</code> file.</p>
 
 </div>

@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="chap:emu-webApp" class="section level1">
 <h1><span class="header-section-number">9</span> The <code>EMU-webApp</code><a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></h1>
 <p><img src="pics/EMU-webAppEmu_emu-webApp.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>The EMU-SDMS has a unique approach to its GUI in that it utilizes a web application as its primary GUI. This is known as the <code>EMU-webApp</code> . The <code>EMU-webApp</code> is a fully fledged browser-based labeling and correction tool that offers a multitude of labeling and visualization features. These features include unlimited undo/redo, formant correction capabilities, the ability to snap a preselected boundary to the nearest top/bottom boundary, snap a preselected boundary to the nearest zero crossing, and many more. The web application is able to render everything directly in the user’s browser, including the calculation and rendering of the spectrogram, as it is written entirely using HTML, CSS and JavaScript. This means it can also be used as a standalone labeling application, as it does not require any server-side calculations or rendering. Further, it is designed to interact with any websocket server that implements the <code>EMU-webApp</code> websocket protocol (see Section <a href="chap-emu-webAppImplementation.html#subsec:emu-webAppTheProtocol">13.1</a>). This enables it to be used as a labeling tool for collaborative annotation efforts. Also, as the <code>EMU-webApp</code> is cached in the user’s browser on the first visit, it does not require any internet connectivity to be able to access the web application unless the user explicitly clears the browser’s cache. The URL of the current live version of the <code>EMU-webApp</code> is: <a href="http://ips-lmu.github.io/EMU-webApp/" class="uri">http://ips-lmu.github.io/EMU-webApp/</a>.</p>
+<p>The EMU-SDMS has a unique approach to its graphical user interface (GUI) in that it utilizes a web application as its primary GUI. This is known as the <code>EMU-webApp</code> . The <code>EMU-webApp</code> is a fully fledged browser-based labeling and correction tool that offers a multitude of labeling and visualization features. These features include unlimited undo/redo, formant correction capabilities, the ability to snap a preselected boundary to the nearest top/bottom boundary, snap a preselected boundary to the nearest zero crossing, and many more. The web application is able to render everything directly in the user’s browser, including the calculation and rendering of the spectrogram, as it is written entirely using HTML, CSS and JavaScript. This means it can also be used as a standalone labeling application, as it does not require any server-side calculations or rendering. Further, it is designed to interact with any websocket server that implements the <code>EMU-webApp</code> websocket protocol (see Section <a href="chap-emu-webAppImplementation.html#subsec:emu-webAppTheProtocol">13.1</a>). This enables it to be used as a labeling tool for collaborative annotation efforts. Also, as the <code>EMU-webApp</code> is cached in the user’s browser on the first visit, it does not require any internet connectivity to be able to access the web application unless the user explicitly clears the browser’s cache. The URL of the current live version of the <code>EMU-webApp</code> is: <a href="http://ips-lmu.github.io/EMU-webApp/" class="uri">http://ips-lmu.github.io/EMU-webApp/</a>.</p>
 <div id="sec:emu-webApp-mainLayout" class="section level2">
 <h2><span class="header-section-number">9.1</span> Main layout</h2>
 <p>The main screen of the <code>EMU-webApp</code> can be split into five areas. Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a> shows a screenshot of the <code>EMU-webApp</code>’s main screen displaying these five areas while displaying a bundle of the <em>ae</em> demo database. This database is served to the <code>EMU-webApp</code> by invoking the <code>serve()</code> command as shown in the R code snippet below. The left side bar (area marked 1 in Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a>) represents the bundle list side bar which, if connected to a database, displays the currently available bundles grouped by their sessions. The top and bottom menu bars (areas marked 2 and 5 in Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a>) display the currently available menu options, where the bottom menu bar contains the audio navigation and playback controls and also includes a scrollable mini map of the oscillogram. Area 3 of Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a> displays the signal canvas area currently displaying the oscillogram and the spectrogram. Other signal contours such as formant frequency contours and fundamental frequency contours are also displayed in this area. Area 4 of Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a> displays the area in which levels containing time information are displayed. It is worth noting that the main screen of the <code>EMU-webApp</code> does not display any levels that do not contain time information. The hierarchical annotation can be displayed and edited by clicking the <code>show hierarchy</code> button in the top menu bar (see Figure <a href="chap-emu-webApp.html#fig:webApp-hierModal">9.6</a> for an example of how the hierarchy is displayed).</p>
@@ -408,8 +408,8 @@ Figure 9.1: Screenshot of <code>EMU-webApp</code> displaying the <em>ae</em> dem
 <p>This section introduces the labeling mechanics and general labeling workflow of the <code>EMU-webApp</code>. The <code>EMU-webApp</code> makes heavy use of keyboard shortcuts. Is is worth noting that most of the keyboard shortcuts are centered around the <code>WASD</code> keys, which are the navigation shortcut keys (<code>W</code> to zoom in; <code>S</code> to zoom out; <code>A</code> to move left and <code>D</code> to move right). For a full list of the available keyboard shortcuts see the <code>EMU-webApp</code>’s own manual, which can be accessed by clicking the EMU icon on the right hand side of the top menu bar (area 2 in Figure <a href="chap-emu-webApp.html#fig:emu-web-emuWebAppLayout">9.1</a>).</p>
 <div id="annotating-levels-containing-time-information" class="section level3">
 <h3><span class="header-section-number">9.2.1</span> Annotating levels containing time information</h3>
-<div id="boundaries-and-events" class="section level4">
-<h4><span class="header-section-number">9.2.1.1</span> Boundaries and events</h4>
+<div id="boundaries-and-events" class="section level4 unnumbered">
+<h4>Boundaries and events</h4>
 <p>The <code>EMU-webApp</code> has slightly different labeling mechanics compared with other annotation software. Compared to the usual click and drag of segment boundaries and event markers, the web application continuously tracks the movement of the mouse in levels containing time information, highlighting the boundary or event marker that is closest to it by coloring it blue. Figure <a href="chap-emu-webApp.html#fig:webApp-preSelBoundary">9.2</a> displays this automatic boundary preselection.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-preSelBoundary"></span>
 <img src="pics/preSelBoundary.png" alt="Screenshot of segment level as displayed by the `EMU-webApp` with superimposed mouse cursor displaying the automatic boundary preselection of closest boundary (boundary marked blue)." width="40%" />
@@ -432,8 +432,8 @@ Figure 9.3: Screenshot of two levels as displayed by the <code>EMU-webApp</code>
 </div>
 <p>To add a boundary to the currently selected level one first has to select a point in time either in the spectrogram or the oscillogram by single-left-clicking on the desired location. Hitting the enter/return key adds a new boundary or event to the preselected level at the selected time point. Selecting a stretch of time in the spectrogram or the oscillogram (left-click-and-drag) and hitting enter will add a segment (not a boundary) to a preselected segment level.</p>
 </div>
-<div id="segments-events" class="section level4">
-<h4><span class="header-section-number">9.2.1.2</span> Segments and events</h4>
+<div id="segments-and-events-segments-events" class="section level4 unnumbered">
+<h4>Segments and events {#segments-events}</h4>
 <p>The <code>EMU-webApp</code> also allows segments and events to be preselected by single-left-clicking the desired item. The web application colors the preselected segments and events yellow to indicate their pre-selection as displayed in Figure <a href="chap-emu-webApp.html#fig:webApp-preSelSeg">9.4</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-preSelSeg"></span>
 <img src="pics/preSelSeg.png" alt="Screenshot of level as displayed by the `EMU-webApp`, where the /@/ segment is currently preselected as it is marked yellow." width="40%" />
@@ -453,8 +453,8 @@ Figure 9.4: Screenshot of level as displayed by the <code>EMU-webApp</code>, whe
 </ul>
 <p>By right-clicking adjacent segment or events (keyboard shortcut <code>SHIFT</code> plus left or right cursor keys), it is possible to select multiple items at once.</p>
 </div>
-<div id="parallel-labels-in-segments-and-events" class="section level4">
-<h4><span class="header-section-number">9.2.1.3</span> Parallel labels in segments and events</h4>
+<div id="parallel-labels-in-segments-and-events" class="section level4 unnumbered">
+<h4>Parallel labels in segments and events</h4>
 <p>If a level containing time information has multiple attribute definitions (i.e., multiple parallel labels per segment or event) the <code>EMU-webApp</code> automatically displays radio buttons underneath that level (see red square in Figure <a href="chap-emu-webApp.html#fig:webApp-parTimeLevel">9.5</a>) that allow the user to switch between the parallel labels. Figure <a href="chap-emu-webApp.html#fig:webApp-parTimeLevel">9.5</a> displays a segment level with three attribute definitions.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-parTimeLevel"></span>
 <img src="pics/emu-webAppParTimeLevel.png" alt="Screenshot of segment level with three attribute definitions. The radio buttons that switch between the parallel labels are highlighted by a red square." width="75%" />
@@ -463,15 +463,15 @@ Figure 9.5: Screenshot of segment level with three attribute definitions. The ra
 </p>
 </div>
 </div>
-<div id="legal-labels" class="section level4">
-<h4><span class="header-section-number">9.2.1.4</span> Legal labels</h4>
+<div id="legal-labels" class="section level4 unnumbered">
+<h4>Legal labels</h4>
 <p>As mentioned in Section <a href="chap-emuDB.html#subsubsec:emuDBlegalLabels">5.2.3.2</a>, an array of so-called legal labels can be defined for every level or, more specifically, for each attribute definition. The <code>EMU-webApp</code> enforces these legal labels by not allowing any other labels to be entered in the label editing text fields. If an illegal label is entered, the text field will turn red and the <code>EMU-webApp</code> will not permit this label to be saved.</p>
 </div>
 </div>
 <div id="working-with-hierarchical-annotations-2-chapemu-webapp" class="section level3">
 <h3><span class="header-section-number">9.2.2</span> Working with hierarchical annotations<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></h3>
-<div id="viewing-the-hierarchy" class="section level4">
-<h4><span class="header-section-number">9.2.2.1</span> Viewing the hierarchy</h4>
+<div id="viewing-the-hierarchy" class="section level4 unnumbered">
+<h4>Viewing the hierarchy</h4>
 <p>As mentioned in Section <a href="chap-emu-webApp.html#sec:emu-webApp-mainLayout">9.1</a>, pressing the <code>show hierarchy</code> button (keyboard shortcut <code>h</code>) in the top menu bar opens the hierarchy view modal window. As with most modal windows in the <code>EMU-webApp</code>, it can be closed by clicking on the <code>close</code> button, clicking the X circle icon in the top right hand corner of the modal or by hitting the <code>ESCAPE</code> key. By default, the hierarchy modal window displays a horizontal version of the hierarchy for a spatially economical visualization. As most people are more familiar with a vertical hierarchical annotation display, the hierarchy can be rotated by hitting the <code>rotate by 90°</code> button (keyboard shortcut <code>r</code>). Zooming in and out of the hierarchy can be achieved by using the mouse wheel, and moving through the hierarchy in time can be achieved by holding down the left mouse button and dragging the hierarchy in the desired direction. Figure <a href="chap-emu-webApp.html#fig:webApp-hierModal">9.6</a> shows the hierarchy modal window displaying the hierarchical annotation of a single path (<em>Utterance</em> -&gt; <em>Intonational</em> -&gt; <em>Intermediate</em> -&gt; <em>Word</em> -&gt; <em>Syllable</em> -&gt; <em>Phoneme</em> -&gt; <em>Phonetic</em>) through a multi-path hierarchy of the <em>ae</em> <code>emuDB</code> in its horizontal form.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-hierModal"></span>
 <img src="pics/emu-webAppHierModal.png" alt="Screenshot of the hierarchy modal window level displaying a path through the hierarchy of the *ae* `emuDB` in its horizontal form." width="75%" />
@@ -480,9 +480,9 @@ Figure 9.6: Screenshot of the hierarchy modal window level displaying a path thr
 </p>
 </div>
 </div>
-<div id="selecting-a-path-through-the-hierarchy" class="section level4">
-<h4><span class="header-section-number">9.2.2.2</span> Selecting a path through the hierarchy</h4>
-<p>As more complex databases have multiple hierarchical paths through their hierarchical annotation structure (see Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a> for an example of a multi-dimensional hierarchical annotation structure), the hierarchy modal offers a drop-down menu to choose the current path to be displayed. Area 2 in Figure <a href="chap-emu-webApp.html#fig:webApp-hierModalTop">9.7</a> marks the hierarchy path drop-down menu of the hierarchy modal.</p>
+<div id="selecting-a-path-through-the-hierarchy" class="section level4 unnumbered">
+<h4>Selecting a path through the hierarchy</h4>
+<p>As more complex databases have multiple hierarchical paths through their hierarchical annotation structure (see Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>B for an example of a multi-dimensional hierarchical annotation structure), the hierarchy modal offers a drop-down menu to choose the current path to be displayed. Area 2 in Figure <a href="chap-emu-webApp.html#fig:webApp-hierModalTop">9.7</a> marks the hierarchy path drop-down menu of the hierarchy modal.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-hierModalTop"></span>
 <img src="pics/emu-webAppHierModalTop.png" alt="Screenshot of top of hierarchy modal window of the `EMU-webApp` in which the area marked 1 shows the drop-down menus for selecting the parallel label for each level and area 2 marks the hierarchy path drop-down menu." width="85%" />
 <p class="caption">
@@ -491,16 +491,16 @@ Figure 9.7: Screenshot of top of hierarchy modal window of the <code>EMU-webApp<
 </div>
 <p>It is worth noting that only non-partial paths can be selected in the hierarchy path drop-down menu.</p>
 </div>
-<div id="selecting-parallel-labels-in-timeless-levels" class="section level4">
-<h4><span class="header-section-number">9.2.2.3</span> Selecting parallel labels in timeless levels</h4>
+<div id="selecting-parallel-labels-in-timeless-levels" class="section level4 unnumbered">
+<h4>Selecting parallel labels in timeless levels</h4>
 <p>As timeless levels may also contain multiple parallel labels, the hierarchy path modal window provides a drop-down menu for each level to select which label or attribute definition is to be displayed. Area 1 of Figure <a href="chap-emu-webApp.html#fig:webApp-hierModalTop">9.7</a> displays these drop-down menus.</p>
 </div>
-<div id="adding-a-new-item" class="section level4">
-<h4><span class="header-section-number">9.2.2.4</span> Adding a new item</h4>
+<div id="adding-a-new-item" class="section level4 unnumbered">
+<h4>Adding a new item</h4>
 <p>The hierarchy modal window provides two methods for adding new annotation items to a level. This can either be achieved by pressing the blue and white + button next to the level’s name (which appends a new item to the end of the level) or by preselecting an annotation item (by hovering the mouse over it) and hitting either the <code>n</code> (insert new item before preselected item) or the <code>m</code> key (insert new item after preselected item).</p>
 </div>
-<div id="modifying-an-annotation-item" class="section level4">
-<h4><span class="header-section-number">9.2.2.5</span> Modifying an annotation item</h4>
+<div id="modifying-an-annotation-item" class="section level4 unnumbered">
+<h4>Modifying an annotation item</h4>
 <p>An item’s context menu<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> is opened by single-left-clicking its node. The resulting context menu displays a text area in which the label of the annotation item can be edited, a play button to play the audio section associated with the item and a collapse arrow button allowing the user to collapse the sub-tree beneath the current item. Collapsing a sub-tree can be useful for masking parts of the hierarchy while editing. A screenshot of the context menu is displayed in Figure <a href="chap-emu-webApp.html#fig:webApp-hierContextMenu">9.8</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-hierContextMenu"></span>
 <img src="pics/emu-webAppHierContextMenu.png" alt="Screenshot of the hierarchy modal window of the `EMU-webApp` displaying an annotation item's context menu." width="65%" />
@@ -509,12 +509,12 @@ Figure 9.8: Screenshot of the hierarchy modal window of the <code>EMU-webApp</co
 </p>
 </div>
 </div>
-<div id="adding-a-new-link" class="section level4">
-<h4><span class="header-section-number">9.2.2.6</span> Adding a new link</h4>
+<div id="adding-a-new-link" class="section level4 unnumbered">
+<h4>Adding a new link</h4>
 <p>Adding a new link between two items can be achieved by hovering the mouse over one of the two items, holding down the <code>SHIFT</code> key and moving the mouse cursor to the other item. A green dashed line indicates that the link to be added is valid, while a red dashed line indicates it is not. A link’s validity is dependent on the database’s configuration (i.e., if there is a link definition present and the type of link definition) as well as the <em>non-crossing constraint</em> <span class="citation">(Coleman and Local <a href="#ref-coleman:lp1991a">1991</a>)</span> that essentially implies that links are not allowed to cross each other. If the link is valid (i.e., a green dashed line is present), releasing the <code>SHIFT</code> key will add the link to the annotation.</p>
 </div>
-<div id="deleting-an-annotation-item-or-a-link" class="section level4">
-<h4><span class="header-section-number">9.2.2.7</span> Deleting an annotation item or a link</h4>
+<div id="deleting-an-annotation-item-or-a-link" class="section level4 unnumbered">
+<h4>Deleting an annotation item or a link</h4>
 <p>Items and links are deleted by initially preselecting them by hovering the mouse cursor over them. The preselected items are marked blue and preselected links yellow. A preselected link is removed by hitting <code>BACKSPACE</code> and a preselected item is deleted by hitting the <code>y</code> key. Deleting an item will also delete all links leading to and from it.</p>
 </div>
 </div>
@@ -554,7 +554,7 @@ Figure 9.9: Screenshot of the hierarchy modal window of the <code>EMU-webApp</co
 <p>As it is sometimes necessary to add new or remove existing perspectives to or from a database, the R code snippet below shows how this can be achieved using <code>emuR</code>’s <code>add/remove_perspective()</code> functions.</p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="co"># add new perspective to ae emuDB</span></a>
 <a class="sourceLine" id="cb209-2" data-line-number="2"><span class="kw">add_perspective</span>(ae,</a>
-<a class="sourceLine" id="cb209-3" data-line-number="3">                <span class="dt">name =</span> <span class="st">&quot;tmpPersp&quot;</span>)</a>
+<a class="sourceLine" id="cb209-3" data-line-number="3">                <span class="dt">name =</span> <span class="st">&quot;tmp-persp&quot;</span>)</a>
 <a class="sourceLine" id="cb209-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb209-5" data-line-number="5"><span class="co"># show added perspective</span></a>
 <a class="sourceLine" id="cb209-6" data-line-number="6"><span class="kw">list_perspectives</span>(ae)</a></code></pre></div>
@@ -562,10 +562,10 @@ Figure 9.9: Screenshot of the hierarchy modal window of the <code>EMU-webApp</co
 ## 1       default          OSCI; SPEC     Phonetic; Tone
 ## 2 Phonetic-only          OSCI; SPEC           Phonetic
 ## 3     Tone-only          OSCI; SPEC               Tone
-## 4      tmpPersp          OSCI; SPEC</code></pre>
+## 4     tmp-persp          OSCI; SPEC</code></pre>
 <div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1"><span class="co"># remove newly added perspective</span></a>
 <a class="sourceLine" id="cb211-2" data-line-number="2"><span class="kw">remove_perspective</span>(ae,</a>
-<a class="sourceLine" id="cb211-3" data-line-number="3">                   <span class="dt">name =</span> <span class="st">&quot;tmpPersp&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb211-3" data-line-number="3">                   <span class="dt">name =</span> <span class="st">&quot;tmp-persp&quot;</span>)</a></code></pre></div>
 </div>
 <div id="signal-canvas-and-level-canvas-order" class="section level3">
 <h3><span class="header-section-number">9.3.2</span> Signal canvas and level canvas order</h3>
@@ -629,9 +629,9 @@ Figure 9.10: Screenshot of signal and level canvases displays of the <code>EMU-w
 <div id="subsec:emu-webAppAdvancedConfig" class="section level3">
 <h3><span class="header-section-number">9.3.3</span> Advanced configurations made by editing the <code>_DBconfig.json</code></h3>
 <p>Although the above configuration options cover the most common use cases, the <code>EMU-webApp</code> offers multiple other configuration options that are currently not configurable via functions provided by <code>emuR</code>. These advanced configuration options can currently only be achieved by manually editing the <code>_DBconfig.json</code> file using a text editor. As even the colors used in the <code>EMU-webApp</code> and every keyboard shortcut can be reconfigured, here we will focus on the more common advanced configuration options. A full list of the available configuration fields of the <code>EMUwebAppConfig</code> section of the <code>_DBconfig.json</code> including their meaning, can be found in Appendix <a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsDBconfig">15.1.1</a>.</p>
-<div id="overlaying-signal-canvases" class="section level4">
-<h4><span class="header-section-number">9.3.3.1</span> Overlaying signal canvases</h4>
-<p>To save space it can be beneficial to overlay one or more signal tracks onto other signal canvases. This can be achieved by manually editing the <code>assign</code> array of the <code>EMUwebAppConfig:perspectives[persp_idx]:signalCanvases</code> field in the <code>_DBconfig.json</code>. Listing <a href="#lst:webApp-overlay"><strong>??</strong></a> shows an example configuration that overlays the <em>fm</em> track on the oscillogram where the <code>OSCI</code> string can be replaced by any other entry in the <code>EMUwebAppConfig:perspectives[persp_idx]:signalCanvases:order</code> array. Figure <a href="chap-emu-webApp.html#fig:webApp-overlay1">9.11</a> displays a screenshot of such an overlay.</p>
+<div id="overlaying-signal-canvases" class="section level4 unnumbered">
+<h4>Overlaying signal canvases</h4>
+<p>To save space it can be beneficial to overlay one or more signal tracks onto other signal canvases. This can be achieved by manually editing the <code>assign</code> array of the <code>EMUwebAppConfig:perspectives[persp_idx]:signalCanvases</code> field in the <code>_DBconfig.json</code>. The Listing below shows an example configuration that overlays the <em>fm</em> track on the oscillogram where the <code>OSCI</code> string can be replaced by any other entry in the <code>EMUwebAppConfig:perspectives[persp_idx]:signalCanvases:order</code> array. Figure <a href="chap-emu-webApp.html#fig:webApp-overlay1">9.11</a> displays a screenshot of such an overlay.</p>
 <!-- [caption={Overlay configuration of fm track over OSCI}, label={lst:webApp_overlay}, language=json, firstnumber=1] -->
 <div class="sourceCode" id="cb221"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb221-1" data-line-number="1">...</a>
 <a class="sourceLine" id="cb221-2" data-line-number="2"><span class="st">&quot;assign&quot;</span><span class="op">:</span> [<span class="op">{</span></a>
@@ -654,9 +654,9 @@ Figure 9.11: Screenshot of signal canvases display of the <code>EMU-webApp</code
 </p>
 </div>
 </div>
-<div id="subsubsec:emu-webAppFreqAlignedFormants" class="section level4">
-<h4><span class="header-section-number">9.3.3.2</span> Frequency-aligned formant contours spectrogram overlay</h4>
-<p>The current mechanism for laying frequency-aligned formant contours over the spectrogram is to give the formant track the predefined name <em>FORMANTS</em>. If the formant track is called <em>FORMANTS</em> and it is assigned to be laid over the spectrogram (see Listing <a href="#lst:webApp-overlayFreqAlg"><strong>??</strong></a>) the <code>EMU-webApp</code> will frequency-align the contours to the current minimum and maximum spectrogram frequencies (see Figure <a href="chap-emu-webApp.html#fig:webApp-overlay2">9.12</a>).</p>
+<div id="frequency-aligned-formant-contours-spectrogram-overlay" class="section level4 unnumbered">
+<h4>Frequency-aligned formant contours spectrogram overlay</h4>
+<p>The current mechanism for laying frequency-aligned formant contours over the spectrogram is to give the formant track the predefined name <em>FORMANTS</em>. If the formant track is called <em>FORMANTS</em> and it is assigned to be laid over the spectrogram (see Listing below) the <code>EMU-webApp</code> will frequency-align the contours to the current minimum and maximum spectrogram frequencies (see Figure <a href="chap-emu-webApp.html#fig:webApp-overlay2">9.12</a>).</p>
 <!-- [caption={Overlay configuration of FORMANTS track over SPEC}, label={lst:webApp_overlayFreqAlg}, language=json, firstnumber=1] -->
 <div class="sourceCode" id="cb222"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb222-1" data-line-number="1">...</a>
 <a class="sourceLine" id="cb222-2" data-line-number="2"><span class="st">&quot;assign&quot;</span><span class="op">:</span> [<span class="op">{</span></a>
@@ -679,14 +679,14 @@ Figure 9.12: Screenshot of signal canvases area of the <code>EMU-webApp</code> d
 </p>
 </div>
 </div>
-<div id="correcting-formants" class="section level4">
-<h4><span class="header-section-number">9.3.3.3</span> Correcting formants</h4>
+<div id="correcting-formants" class="section level4 unnumbered">
+<h4>Correcting formants</h4>
 <p>The above configuration of the frequency-aligned formant contours will automatically allow the <em>FORMANTS</em> track to be manually corrected. Formants can be corrected by hitting the appropriate number key (<code>1</code> = first formant, <code>2</code> = second formant, …). Similar to boundaries and events, the mouse cursor will automatically be tracked in the <code>SPEC</code> canvas and the nearest formant value preselected. Holding down the <code>SHIFT</code> key moves the current formant value to the mouse position, hence allowing the contour to be redrawn and corrected.</p>
 </div>
 </div>
 <div id="d-canvas" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> 2D canvas</h3>
-<p>The <code>EMU-webApp</code> has an additional canvas which can be configured to display two-dimensional data. Figure <a href="chap-emu-webApp.html#fig:webApp-2dCanvas">9.13</a> shows a screenshot of the 2D canvas, which is placed in the bottom right hand corner of the level canvas area of the web application. The screenshot shows data representing EMA sensor positions on the mid sagittal plane. Listings <a href="#lst:webApp-2dCanvas"><strong>??</strong></a> shows how the 2D canvas can be configured. Essentially, every drawn dot is configured by assigning a column in an SSFF track that specifies the X values and an additional column that specifies the Y values.</p>
+<p>The <code>EMU-webApp</code> has an additional canvas which can be configured to display two-dimensional data. Figure <a href="chap-emu-webApp.html#fig:webApp-2dCanvas">9.13</a> shows a screenshot of the 2D canvas, which is placed in the bottom right hand corner of the level canvas area of the web application. The screenshot shows data representing EMA sensor positions on the mid sagittal plane. The Listing below shows how the 2D canvas can be configured. Essentially, every drawn dot is configured by assigning a column in an SSFF track that specifies the X values and an additional column that specifies the Y values.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-2dCanvas"></span>
 <img src="pics/emu-webApp2dCanvas.png" alt="Screenshot of 2D canvas of the `EMU-webApp` displaying two-dimensional EMA data." width="35%" />
 <p class="caption">
@@ -736,9 +736,9 @@ Figure 9.13: Screenshot of 2D canvas of the <code>EMU-webApp</code> displaying t
     },
 ...
 </script>
-<div id="epg" class="section level4">
-<h4><span class="header-section-number">9.3.4.1</span> EPG</h4>
-<p>The 2D canvas of the <code>EMU-webApp</code> can also be configured to display EPG data as displayed in Figure <a href="chap-emu-webApp.html#fig:webApp-2dEPG">9.14</a>. The SSFF file containing the EPG data has to be formated in a specific way. The format is a set of eight bytes per point in time, where each byte represents a row of electrodes on the artificial palate. Each binary bit value per byte indicates whether one of the eight sensors is activated or not (i.e., tongue contact was measured). If data in this format and an SSFF track with the predefined name <em>EPG</em> referencing the SSFF files are present, the 2D canvas can be configured to display this data by adding the <em>EPG</em> to the <code>twoDimCanvases:order</code> array as shown in Listing <a href="#lst:webApp-2dEPG"><strong>??</strong></a>.</p>
+<div id="epg" class="section level4 unnumbered">
+<h4>EPG</h4>
+<p>The 2D canvas of the <code>EMU-webApp</code> can also be configured to display EPG data as displayed in Figure <a href="chap-emu-webApp.html#fig:webApp-2dEPG">9.14</a>. The SSFF file containing the EPG data has to be formated in a specific way. The format is a set of eight bytes per point in time, where each byte represents a row of electrodes on the artificial palate. Each binary bit value per byte indicates whether one of the eight sensors is activated or not (i.e., tongue contact was measured). If data in this format and an SSFF track with the predefined name <em>EPG</em> referencing the SSFF files are present, the 2D canvas can be configured to display this data by adding the <em>EPG</em> to the <code>twoDimCanvases:order</code> array as shown in Listing below.</p>
 <div class="figure" style="text-align: center"><span id="fig:webApp-2dEPG"></span>
 <img src="pics/emu-webApp2dEPG.png" alt="Screenshot of 2D canvas of the `EMU-webApp` displaying EPG palate traces." width="35%" />
 <p class="caption">
@@ -755,10 +755,10 @@ Figure 9.14: Screenshot of 2D canvas of the <code>EMU-webApp</code> displaying E
 }
 </script>
 </div>
-<div id="ema-gestural-landmark-recognition" class="section level4">
-<h4><span class="header-section-number">9.3.4.2</span> EMA gestural landmark recognition</h4>
+<div id="ema-gestural-landmark-recognition" class="section level4 unnumbered">
+<h4>EMA gestural landmark recognition</h4>
 <p>The <code>EMU-webApp</code> can also be configured to semi-automatically detect gestural landmarks of EMA contours. The functions implemented in the <code>EMU-webApp</code> are based on various Matlab scripts by Phil Hoole. For a description of which gestural landmarks are detected and how these are detected, see <span class="citation">Bombien (<a href="#ref-bombien:2011aa">2011</a>)</span> page 61 ff.</p>
-<p>Compared to the above configurations, configuring the <code>EMU-webApp</code> to semi-automatically detect gestural landmarks of EMA contours is done as part of the level definition’s configuration entries of the <code>_DBconfig.json</code>. Listing <a href="#lst:webApp-EMAconfig"><strong>??</strong></a> shows the <code>anagestConfig</code> entry, which configures the <em>tongueTipGestures</em> event level for this purpose. Within the web application this level has to be preselected by the user and a region containing a gesture in the SSFF track selected (left click and drag). Hitting the <code>ENTER</code>/<code>RETURN</code> key then executes the semi-automatic gestural landmark recognition functions. If multiple candidates are recognized for certain landmarks, the user will be prompted to select the appropriate landmark.</p>
+<p>Compared to the above configurations, configuring the <code>EMU-webApp</code> to semi-automatically detect gestural landmarks of EMA contours is done as part of the level definition’s configuration entries of the <code>_DBconfig.json</code>. The Listing below shows the <code>anagestConfig</code> entry, which configures the <em>tongueTipGestures</em> event level for this purpose. Within the web application this level has to be preselected by the user and a region containing a gesture in the SSFF track selected (left click and drag). Hitting the <code>ENTER</code>/<code>RETURN</code> key then executes the semi-automatic gestural landmark recognition functions. If multiple candidates are recognized for certain landmarks, the user will be prompted to select the appropriate landmark.</p>
 <!-- [caption={EMA gestural landmark recognition configuration for the *tongueTipGestures* event level.}, label={lst:webApp_EMAconfig}, language=json, firstnumber=1] -->
 <div class="sourceCode" id="cb225"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb225-1" data-line-number="1">...</a>
 <a class="sourceLine" id="cb225-2" data-line-number="2"><span class="st">&quot;levelDefinitions&quot;</span><span class="op">:</span> [<span class="op">{</span></a>
