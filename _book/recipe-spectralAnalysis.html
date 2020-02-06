@@ -68,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -391,50 +391,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">21</span> Spectral analysis</h1>
 <p><em>(Adapted from WP 4.1 Sprachtechnologie (Vertiefung) course material by Jonathan Harrington and Ulrich Reubold)</em></p>
 <p>First of all, we need to install the package <code>gridExtra</code>, which allows for arranging several plots from <code>ggplot2</code> into a single figure:</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;gridExtra&quot;</span>)</a></code></pre></div>
 <p>Let us now load the needed libraries and create a demo emuDB to play with:</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1"><span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb377-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb377-3" data-line-number="3"><span class="kw">library</span>(tidyverse) <span class="co"># containing - amongst others - dplyr, purrr, tibble, and ggplot2</span></a>
-<a class="sourceLine" id="cb377-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb377-5" data-line-number="5"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
-<a class="sourceLine" id="cb377-6" data-line-number="6"><span class="co"># (of course other directory paths may be chosen)</span></a>
-<a class="sourceLine" id="cb377-7" data-line-number="7"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb377-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb377-9" data-line-number="9"><span class="co"># create path to demo data directory, which is</span></a>
-<a class="sourceLine" id="cb377-10" data-line-number="10"><span class="co"># called &quot;emuR_demoData&quot;</span></a>
-<a class="sourceLine" id="cb377-11" data-line-number="11">demo_data_dir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>)</a>
-<a class="sourceLine" id="cb377-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb377-13" data-line-number="13"><span class="co"># create path to ae_emuDB which is part of the demo data</span></a>
-<a class="sourceLine" id="cb377-14" data-line-number="14">path2ae =<span class="st"> </span><span class="kw">file.path</span>(demo_data_dir, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb377-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb377-16" data-line-number="16"><span class="co"># load database</span></a>
-<a class="sourceLine" id="cb377-17" data-line-number="17"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
-<a class="sourceLine" id="cb377-18" data-line-number="18">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb377-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb377-20" data-line-number="20"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
-<p>The <code>ae</code> emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for “Discrete Fourier Transform” which converts a signal into a time-series of spectra. This transformation can be done with <code>wrassp</code>’s function <code>dftSpectrum()</code> which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a “short-term spectral analysis of the signal in <listOfFiles> using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g. ‘.dft’). Default output is in SSFF format with the spectrum type in lower case as track name.” (cited from <code>?wrassp::dftSpectrum</code>).</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" title="1"><span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb377-2" title="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb377-3" title="3"><span class="kw">library</span>(tidyverse) <span class="co"># containing - amongst others - dplyr, purrr, tibble, and ggplot2</span></a>
+<a class="sourceLine" id="cb377-4" title="4"></a>
+<a class="sourceLine" id="cb377-5" title="5"><span class="co"># create demo data in directory provided by the tempdir() function</span></a>
+<a class="sourceLine" id="cb377-6" title="6"><span class="co"># (of course other directory paths may be chosen)</span></a>
+<a class="sourceLine" id="cb377-7" title="7"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb377-8" title="8"></a>
+<a class="sourceLine" id="cb377-9" title="9"><span class="co"># create path to demo data directory, which is</span></a>
+<a class="sourceLine" id="cb377-10" title="10"><span class="co"># called &quot;emuR_demoData&quot;</span></a>
+<a class="sourceLine" id="cb377-11" title="11">demo_data_dir =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>)</a>
+<a class="sourceLine" id="cb377-12" title="12"></a>
+<a class="sourceLine" id="cb377-13" title="13"><span class="co"># create path to ae_emuDB which is part of the demo data</span></a>
+<a class="sourceLine" id="cb377-14" title="14">path2ae =<span class="st"> </span><span class="kw">file.path</span>(demo_data_dir, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb377-15" title="15"></a>
+<a class="sourceLine" id="cb377-16" title="16"><span class="co"># load database</span></a>
+<a class="sourceLine" id="cb377-17" title="17"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb377-18" title="18">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb377-19" title="19"></a>
+<a class="sourceLine" id="cb377-20" title="20"><span class="kw">list_ssffTrackDefinitions</span>(ae)</a></code></pre></div>
+<p>The <code>ae</code> emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for “Discrete Fourier Transform” which converts a signal into a time-series of spectra. This transformation can be done with <code>wrassp</code>’s function <code>dftSpectrum()</code> which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a “short-term spectral analysis of the signal in <listOfFiles> using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g. ‘.dft’). Default output is in SSFF format with the spectrum type in lower case as track name.” (cited from <code>?wrassp::dftSpectrum</code>).</p>
 <p>The procedure to calculate your own dft-files is identical to that of calculating formants, or fundamental frequency, or any other function that is available in <code>wrassp</code> (see also <a href="http://www.phonetik.uni-muenchen.de/%7Ejmh/lehre/sem/ws1819/emuR/LESSON4/Signal_Data_Calculation_Extraction_Plotting.html">this document</a> ):</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" data-line-number="1"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
-<a class="sourceLine" id="cb378-2" data-line-number="2"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
-<a class="sourceLine" id="cb378-3" data-line-number="3">                        <span class="dt">name =</span> <span class="st">&quot;dft&quot;</span>,</a>
-<a class="sourceLine" id="cb378-4" data-line-number="4">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;dftSpectrum&quot;</span>,</a>
-<a class="sourceLine" id="cb378-5" data-line-number="5">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" title="1"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb378-2" title="2"><span class="kw">add_ssffTrackDefinition</span>(ae,</a>
+<a class="sourceLine" id="cb378-3" title="3">                        <span class="dt">name =</span> <span class="st">&quot;dft&quot;</span>,</a>
+<a class="sourceLine" id="cb378-4" title="4">                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;dftSpectrum&quot;</span>,</a>
+<a class="sourceLine" id="cb378-5" title="5">                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>In this case, there is no need to subset the data in order to use speaker specific settings, not only because there is only one speaker in our database, but also because <code>dftSpectrum()</code> simply doesn’t need to be adjusted to speaker-specific features.</p>
 <p>We then query for a segment list and then get the trackdata:</p>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1">sS.sl =<span class="st"> </span><span class="kw">query</span>(ae, </a>
-<a class="sourceLine" id="cb379-2" data-line-number="2">              <span class="st">&quot;[Phonetic == s|S]&quot;</span>)</a>
-<a class="sourceLine" id="cb379-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb379-4" data-line-number="4">sS.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, </a>
-<a class="sourceLine" id="cb379-5" data-line-number="5">                       <span class="dt">seglist =</span> sS.sl, </a>
-<a class="sourceLine" id="cb379-6" data-line-number="6">                       <span class="dt">ssffTrackName =</span> <span class="st">&quot;dft&quot;</span>, </a>
-<a class="sourceLine" id="cb379-7" data-line-number="7">                       <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>,</a>
-<a class="sourceLine" id="cb379-8" data-line-number="8">                       <span class="dt">cut =</span> <span class="fl">0.5</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" title="1">sS.sl =<span class="st"> </span><span class="kw">query</span>(ae, </a>
+<a class="sourceLine" id="cb379-2" title="2">              <span class="st">&quot;[Phonetic == s|S]&quot;</span>)</a>
+<a class="sourceLine" id="cb379-3" title="3"></a>
+<a class="sourceLine" id="cb379-4" title="4">sS.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, </a>
+<a class="sourceLine" id="cb379-5" title="5">                       <span class="dt">seglist =</span> sS.sl, </a>
+<a class="sourceLine" id="cb379-6" title="6">                       <span class="dt">ssffTrackName =</span> <span class="st">&quot;dft&quot;</span>, </a>
+<a class="sourceLine" id="cb379-7" title="7">                       <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>,</a>
+<a class="sourceLine" id="cb379-8" title="8">                       <span class="dt">cut =</span> <span class="fl">0.5</span>) </a></code></pre></div>
 <p>The following command can be used to look at the resulting data</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1"><span class="co">#view it in RStudio</span></a>
-<a class="sourceLine" id="cb380-2" data-line-number="2"><span class="kw">View</span>(sS.dft)</a></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" title="1"><span class="co">#view it in RStudio</span></a>
+<a class="sourceLine" id="cb380-2" title="2"><span class="kw">View</span>(sS.dft)</a></code></pre></div>
 <p>Let us now list the column names of the extracted trackdata object:</p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1"><span class="kw">names</span>(sS.dft)</a></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" title="1"><span class="kw">names</span>(sS.dft)</a></code></pre></div>
 <pre><code>##   [1] &quot;sl_rowIdx&quot;          &quot;labels&quot;             &quot;start&quot;             
 ##   [4] &quot;end&quot;                &quot;db_uuid&quot;            &quot;session&quot;           
 ##   [7] &quot;bundle&quot;             &quot;start_item_id&quot;      &quot;end_item_id&quot;       
@@ -530,18 +530,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [277] &quot;T257&quot;</code></pre>
 <p><code>sS.dft</code> contains spectral data, i.e. in this case 257 amplitude values per frame (in our case, we only have one frame per segment). So there are track colums T1 … T257 (and there could be even more - depending on the Nyquist frequency - see below) instead of only one track column (as it would be the case in e.g. fundamental frequency data) or 4 or 5 signal tracks as it would be the case for formants. Not only is it hard to plot data that is structured like this, we still miss some important information: the frequencies with which the amplitude values in T1…T257 are associated with.</p>
 <p>We could calculate these frequencies by dividing the sample rate of the signals</p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1"><span class="kw">unique</span>(sS.dft<span class="op">$</span>sample_rate)</a></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" title="1"><span class="kw">unique</span>(sS.dft<span class="op">$</span>sample_rate)</a></code></pre></div>
 <pre><code>## [1] 20000</code></pre>
 <p>by 2, in order to calculate the Nyquist frequency, and then by creating 257-1 equal-sized steps between 0 and this Nyquist frequency.</p>
-<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1">freqs =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="kw">unique</span>(sS.dft<span class="op">$</span>sample_rate),<span class="dt">length.out =</span> <span class="dv">257</span>)</a>
-<a class="sourceLine" id="cb385-2" data-line-number="2">freqs[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" title="1">freqs =<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>,<span class="dt">to=</span><span class="kw">unique</span>(sS.dft<span class="op">$</span>sample_rate),<span class="dt">length.out =</span> <span class="dv">257</span>)</a>
+<a class="sourceLine" id="cb385-2" title="2">freqs[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</a></code></pre></div>
 <pre><code>## [1]   0.000  78.125 156.250 234.375 312.500</code></pre>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1">freqs[<span class="dv">252</span><span class="op">:</span><span class="dv">257</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" title="1">freqs[<span class="dv">252</span><span class="op">:</span><span class="dv">257</span>]</a></code></pre></div>
 <pre><code>## [1] 19609.38 19687.50 19765.62 19843.75 19921.88 20000.00</code></pre>
 <p>However, we don’t have to do so, as another function of <code>emuR</code> called <code>convert_wideToLong()</code> does that for us when we set the parameter <code>calcFreq</code> to <code>TRUE</code>. As the name of the function suggests, the 257 columns that contain amplitudes will be transformed to 257 observations per frame in one single column:</p>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1">sS.dftlong =<span class="st"> </span><span class="kw">convert_wideToLong</span>(sS.dft,<span class="dt">calcFreqs =</span> T)</a>
-<a class="sourceLine" id="cb389-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb389-3" data-line-number="3">sS.dftlong</a></code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" title="1">sS.dftlong =<span class="st"> </span><span class="kw">convert_wideToLong</span>(sS.dft,<span class="dt">calcFreqs =</span> T)</a>
+<a class="sourceLine" id="cb389-2" title="2"></a>
+<a class="sourceLine" id="cb389-3" title="3">sS.dftlong</a></code></pre></div>
 <pre><code>## # A tibble: 5,397 x 23
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
@@ -567,38 +567,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>freq</code>: the frequencies with which the aforementioned amplitudes are associated with</li>
 </ul>
 <p>As all observations (i.e. the amplitudes) are now in one column (and frequency information in another column), we can easily plot this as xy-plot with ggplot2:</p>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" data-line-number="1"><span class="co"># plot the spectral slices</span></a>
-<a class="sourceLine" id="cb391-2" data-line-number="2"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
-<a class="sourceLine" id="cb391-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value,<span class="dt">col=</span>labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb391-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb391-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" title="1"><span class="co"># plot the spectral slices</span></a>
+<a class="sourceLine" id="cb391-2" title="2"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
+<a class="sourceLine" id="cb391-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value,<span class="dt">col=</span>labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb391-4" title="4"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb391-5" title="5"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>You could also use <code>geom_area()</code> (but be careful: use <code>geom_area()</code> only if you intend to plot individual slices):</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
-<a class="sourceLine" id="cb392-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value) <span class="op">+</span></a>
-<a class="sourceLine" id="cb392-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_area</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb392-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" title="1"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-2" title="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value) <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-3" title="3"><span class="st">  </span><span class="kw">geom_area</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb392-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>We can also summarise this easily to one averaged slice per fricative type:</p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" data-line-number="1">sS.dftlong.mean =<span class="st"> </span>sS.dftlong<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb393-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(labels,freq)<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb393-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">track_value=</span><span class="kw">mean</span>(track_value))</a>
-<a class="sourceLine" id="cb393-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb393-5" data-line-number="5"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb393-6" data-line-number="6"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col=</span>labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb393-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_line</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" title="1">sS.dftlong.mean =<span class="st"> </span>sS.dftlong<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb393-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(labels,freq)<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb393-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">track_value=</span><span class="kw">mean</span>(track_value))</a>
+<a class="sourceLine" id="cb393-4" title="4"></a>
+<a class="sourceLine" id="cb393-5" title="5"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb393-6" title="6"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col=</span>labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb393-7" title="7"><span class="st">  </span><span class="kw">geom_line</span>() </a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <div id="how-to-quantify-differences-between-spectra" class="section level2">
 <h2><span class="header-section-number">21.1</span> How to quantify differences between spectra?</h2>
 <p>When we look at the figure above, showing average spectra at the temporal midpoints of two fricative categories, it seems that one easy way to distinguish between the two would be to concentrate on the differences in the amplitudes in the 2000 - 3000 Hz range. We could e.g. take the mean in that frequency range across all tokens of the two types in order to check whether it is consistently the case that the alveolar contains much less energy in that frequency range than its postalveolar counterpart:</p>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1">sS2to3thousandHz =<span class="st"> </span>sS.dftlong<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb394-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(freq<span class="op">&gt;=</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="dv">3000</span>)<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb394-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx)<span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb394-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">amplitudes_2000_3000Hz =</span> <span class="kw">mean</span>(track_value))</a>
-<a class="sourceLine" id="cb394-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb394-6" data-line-number="6"><span class="kw">ggplot</span>(sS2to3thousandHz)<span class="op">+</span></a>
-<a class="sourceLine" id="cb394-7" data-line-number="7"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x=</span>labels,<span class="dt">y=</span>amplitudes_<span class="dv">2000</span>_3000Hz,<span class="dt">col=</span>labels)<span class="op">+</span></a>
-<a class="sourceLine" id="cb394-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" title="1">sS2to3thousandHz =<span class="st"> </span>sS.dftlong<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb394-2" title="2"><span class="st">  </span><span class="kw">filter</span>(freq<span class="op">&gt;=</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="dv">3000</span>)<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb394-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx)<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb394-4" title="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">amplitudes_2000_3000Hz =</span> <span class="kw">mean</span>(track_value))</a>
+<a class="sourceLine" id="cb394-5" title="5"></a>
+<a class="sourceLine" id="cb394-6" title="6"><span class="kw">ggplot</span>(sS2to3thousandHz)<span class="op">+</span></a>
+<a class="sourceLine" id="cb394-7" title="7"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x=</span>labels,<span class="dt">y=</span>amplitudes_<span class="dv">2000</span>_3000Hz,<span class="dt">col=</span>labels)<span class="op">+</span></a>
+<a class="sourceLine" id="cb394-8" title="8"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-14-1.png" width="480" /></p>
 <p>However, it would be more “elegant” to consider some aspects of the general “form” of a spectral slice.</p>
 <p>Each spectral slice is simply a vector of numbers (that has some hidden association to another verctor of the same size, i.e. the frequencies with which the amplitude values are associated with). One way of quantifying a numeric vector by a (usually smaller) set of numbers is the Discrete Cosine Transform.</p>
@@ -621,87 +621,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Because we are dealing with straight lines, k2 is here always 0 (and is therefore not shown in the fourth panel of the figure). However, the next plot shows k2 of four quadratic polynomials:</p>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-18-1.png" width="960" /></p>
 <p>So, if we want to get rid of too much detail (e.g. in signals frequency perturbations like jitter or error measurements), we can use the lower numbers of DCT to smooth the signal. We can apply DCT to a signal by means of the <code>emuR</code> function <code>dct(...,m=NULL,fit=TRUE)</code>, with <code>...</code> being one of the columns of an emuRtrackdata tibble:</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1"><span class="co"># calculate spectra reconstructed by dct() </span></a>
-<a class="sourceLine" id="cb395-2" data-line-number="2">sS.dftlong.mean =<span class="st"> </span>sS.dftlong.mean <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb395-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb395-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">reconstructed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">fit =</span> T))</a>
-<a class="sourceLine" id="cb395-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb395-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb395-7" data-line-number="7"><span class="co">#plot the reconstructed spectral slices</span></a>
-<a class="sourceLine" id="cb395-8" data-line-number="8"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb395-9" data-line-number="9"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> reconstructed, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb395-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" title="1"><span class="co"># calculate spectra reconstructed by dct() </span></a>
+<a class="sourceLine" id="cb395-2" title="2">sS.dftlong.mean =<span class="st"> </span>sS.dftlong.mean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb395-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb395-4" title="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">reconstructed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">fit =</span> T))</a>
+<a class="sourceLine" id="cb395-5" title="5"></a>
+<a class="sourceLine" id="cb395-6" title="6"></a>
+<a class="sourceLine" id="cb395-7" title="7"><span class="co">#plot the reconstructed spectral slices</span></a>
+<a class="sourceLine" id="cb395-8" title="8"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb395-9" title="9"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> reconstructed, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb395-10" title="10"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1"><span class="co"># this is obviously exactly the same as the original data: </span></a>
-<a class="sourceLine" id="cb396-2" data-line-number="2"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb396-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value,<span class="dt">col=</span>labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb396-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" title="1"><span class="co"># this is obviously exactly the same as the original data: </span></a>
+<a class="sourceLine" id="cb396-2" title="2"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb396-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value,<span class="dt">col=</span>labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb396-4" title="4"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-19-2.png" width="672" /></p>
 <p>However, if we use the parameter <code>m</code> in order to reduce the complexity of the spectral slices, they will become smoother:</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">sS.dftlong.mean =<span class="st"> </span>sS.dftlong.mean <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb397-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb397-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="co">#you can&#39;t use m=0 in order to calculate k0 only</span></a>
-<a class="sourceLine" id="cb397-4" data-line-number="4">    <span class="dt">smoothed_k0tok1 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">fit =</span> T),</a>
-<a class="sourceLine" id="cb397-5" data-line-number="5">    <span class="dt">smoothed_k0tok2 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T),</a>
-<a class="sourceLine" id="cb397-6" data-line-number="6">    <span class="dt">smoothed_k0tok3 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">3</span>, <span class="dt">fit =</span> T),</a>
-<a class="sourceLine" id="cb397-7" data-line-number="7">    <span class="dt">smoothed_k0tok4 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">4</span>, <span class="dt">fit =</span> T),</a>
-<a class="sourceLine" id="cb397-8" data-line-number="8">    <span class="dt">smoothed_k0tok5 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> T),</a>
-<a class="sourceLine" id="cb397-9" data-line-number="9">    <span class="dt">smoothed_k0tok6 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">6</span>, <span class="dt">fit =</span> T))</a>
-<a class="sourceLine" id="cb397-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb397-11" data-line-number="11"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb397-12" data-line-number="12"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok6, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb397-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb397-14" data-line-number="14"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 7 DCT-coefficients ()&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" title="1">sS.dftlong.mean =<span class="st"> </span>sS.dftlong.mean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(labels) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="co">#you can&#39;t use m=0 in order to calculate k0 only</span></a>
+<a class="sourceLine" id="cb397-4" title="4">    <span class="dt">smoothed_k0tok1 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">1</span>, <span class="dt">fit =</span> T),</a>
+<a class="sourceLine" id="cb397-5" title="5">    <span class="dt">smoothed_k0tok2 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T),</a>
+<a class="sourceLine" id="cb397-6" title="6">    <span class="dt">smoothed_k0tok3 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">3</span>, <span class="dt">fit =</span> T),</a>
+<a class="sourceLine" id="cb397-7" title="7">    <span class="dt">smoothed_k0tok4 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">4</span>, <span class="dt">fit =</span> T),</a>
+<a class="sourceLine" id="cb397-8" title="8">    <span class="dt">smoothed_k0tok5 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> T),</a>
+<a class="sourceLine" id="cb397-9" title="9">    <span class="dt">smoothed_k0tok6 =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">6</span>, <span class="dt">fit =</span> T))</a>
+<a class="sourceLine" id="cb397-10" title="10"></a>
+<a class="sourceLine" id="cb397-11" title="11"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb397-12" title="12"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok6, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb397-13" title="13"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb397-14" title="14"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 7 DCT-coefficients ()&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb398-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok5, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb398-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb398-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 6 DCT-coefficients (m=5)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" title="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb398-2" title="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok5, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb398-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb398-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 6 DCT-coefficients (m=5)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-2.png" width="672" /></p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok4, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb399-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 5 DCT-coefficients (m=4)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" title="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-2" title="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok4, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 5 DCT-coefficients (m=4)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb400-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok3, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb400-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>()  <span class="op">+</span></a>
-<a class="sourceLine" id="cb400-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 4 DCT-coefficients (m=3)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" title="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb400-2" title="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok3, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb400-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>()  <span class="op">+</span></a>
+<a class="sourceLine" id="cb400-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 4 DCT-coefficients (m=3)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-4.png" width="672" /></p>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok2, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>()  <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 3 DCT-coefficients (m=2)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" title="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-2" title="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok2, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>()  <span class="op">+</span></a>
+<a class="sourceLine" id="cb401-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 3 DCT-coefficients (m=2)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-5.png" width="672" /></p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
-<a class="sourceLine" id="cb402-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok1, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb402-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb402-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 2 DCT-coefficients (m=1)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" title="1"><span class="kw">ggplot</span>(sS.dftlong.mean) <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-2" title="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed_k0tok1, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-3" title="3"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb402-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Smoothed with 2 DCT-coefficients (m=1)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-6.png" width="672" /></p>
 <p>Remember, that the last figure shows only two (inverted) cosine functions of a certain amplitude with frequency 0.5. This is obviously not the best representation of the spectra of /s/ and /ʃ/. We need to find a compromise between too much and too less information. In this specific case, <code>m = 4</code> (= 5 DCT-coefficients) seems to be the best compromise.</p>
 <p>We can, of course, apply the <code>dct</code>-function also to the non-averaged data:</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1"><span class="co"># plot the spectral slices</span></a>
-<a class="sourceLine" id="cb403-2" data-line-number="2"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
-<a class="sourceLine" id="cb403-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb403-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb403-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" title="1"><span class="co"># plot the spectral slices</span></a>
+<a class="sourceLine" id="cb403-2" title="2"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
+<a class="sourceLine" id="cb403-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb403-4" title="4"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb403-5" title="5"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1">sS.dftlong =<span class="st"> </span>sS.dftlong <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb404-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb404-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">4</span>, <span class="dt">fit =</span> T))</a>
-<a class="sourceLine" id="cb404-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb404-5" data-line-number="5"><span class="co"># plot the smoothed slices</span></a>
-<a class="sourceLine" id="cb404-6" data-line-number="6"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
-<a class="sourceLine" id="cb404-7" data-line-number="7"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb404-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb404-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" title="1">sS.dftlong =<span class="st"> </span>sS.dftlong <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb404-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb404-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(track_value, <span class="dt">m =</span> <span class="dv">4</span>, <span class="dt">fit =</span> T))</a>
+<a class="sourceLine" id="cb404-4" title="4"></a>
+<a class="sourceLine" id="cb404-5" title="5"><span class="co"># plot the smoothed slices</span></a>
+<a class="sourceLine" id="cb404-6" title="6"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-7" title="7"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> smoothed, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-8" title="8"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb404-9" title="9"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="co"># or plot original and smoothed slices</span></a>
-<a class="sourceLine" id="cb405-2" data-line-number="2"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> smoothed), <span class="dt">lwd =</span> <span class="fl">1.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb405-6" data-line-number="6"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" title="1"><span class="co"># or plot original and smoothed slices</span></a>
+<a class="sourceLine" id="cb405-2" title="2"><span class="kw">ggplot</span>(sS.dftlong) <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> freq, <span class="dt">y =</span> track_value, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-4" title="4"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-5" title="5"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> smoothed), <span class="dt">lwd =</span> <span class="fl">1.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb405-6" title="6"><span class="st">  </span><span class="kw">facet_wrap</span>( <span class="op">~</span><span class="st"> </span>sl_rowIdx <span class="op">+</span><span class="st"> </span>labels)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-3.png" width="672" /></p>
 </div>
 <div id="dct-coefficients" class="section level2">
@@ -714,15 +714,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>However, this will not be enough: we then have a tibble with m + 1 observations (dct-coefficients in one column); our goal, however, is to have one column per DCT coefficient. In order to do so, we will have to convert the long format to the wide format by means of the <code>spread()</code> function. In order to being able to use this function, we have to introduce another column containing the indexical information which value in column <code>DCT</code> is which DCT-coefficient. Quite complicated, huh?</p>
 <p>E.g.</p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1"><span class="co"># calculate 6 dct coefficients for each token of s or S</span></a>
-<a class="sourceLine" id="cb406-2" data-line-number="2">sS.dctCoefficients =</a>
-<a class="sourceLine" id="cb406-3" data-line-number="3"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb406-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(labels, sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb406-5" data-line-number="5"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">DCT =</span> emuR<span class="op">::</span><span class="kw">dct</span>(.<span class="op">$</span>track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> F))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb406-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">DCTCOEF =</span> <span class="kw">paste0</span>(<span class="st">&quot;k&quot;</span>, <span class="dv">0</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb406-7" data-line-number="7"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(DCTCOEF, DCT)</a>
-<a class="sourceLine" id="cb406-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb406-9" data-line-number="9">sS.dctCoefficients</a></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" title="1"><span class="co"># calculate 6 dct coefficients for each token of s or S</span></a>
+<a class="sourceLine" id="cb406-2" title="2">sS.dctCoefficients =</a>
+<a class="sourceLine" id="cb406-3" title="3"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb406-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(labels, sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb406-5" title="5"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">DCT =</span> emuR<span class="op">::</span><span class="kw">dct</span>(.<span class="op">$</span>track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> F))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb406-6" title="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">DCTCOEF =</span> <span class="kw">paste0</span>(<span class="st">&quot;k&quot;</span>, <span class="dv">0</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb406-7" title="7"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(DCTCOEF, DCT)</a>
+<a class="sourceLine" id="cb406-8" title="8"></a>
+<a class="sourceLine" id="cb406-9" title="9">sS.dctCoefficients</a></code></pre></div>
 <pre><code>## # A tibble: 21 x 8
 ## # Groups:   labels, sl_rowIdx [21]
 ##    labels sl_rowIdx    k0     k1    k2     k3     k4    k5
@@ -739,75 +739,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 s             15  48.0 -11.1  -7.09  0.728  0.608 2.54 
 ## # … with 11 more rows</code></pre>
 <p>After this quite complicated procedure, we can finally have a look at the importance of the first three coefficients as far as the power to divide categories is concerned. Let do it in reverse order:</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1"><span class="co">#plot k2 (the curvature):</span></a>
-<a class="sourceLine" id="cb408-2" data-line-number="2"><span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span></a>
-<a class="sourceLine" id="cb408-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k2) <span class="op">+</span></a>
-<a class="sourceLine" id="cb408-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" title="1"><span class="co">#plot k2 (the curvature):</span></a>
+<a class="sourceLine" id="cb408-2" title="2"><span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span></a>
+<a class="sourceLine" id="cb408-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k2) <span class="op">+</span></a>
+<a class="sourceLine" id="cb408-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-23-1.png" width="480" /></p>
 <p>Okay, the curvature seems to be different, but are we sure what this means?
 A bit more intuitive may be k1, the slope:</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1"><span class="co">#plot k1 (the slope):</span></a>
-<a class="sourceLine" id="cb409-2" data-line-number="2"><span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span></a>
-<a class="sourceLine" id="cb409-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k1) <span class="op">+</span></a>
-<a class="sourceLine" id="cb409-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" title="1"><span class="co">#plot k1 (the slope):</span></a>
+<a class="sourceLine" id="cb409-2" title="2"><span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k1) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-24-1.png" width="480" /></p>
 <p>Recall that k1 is inversely correlated with the spectral slopes, so /s/ has a steeper <strong>positive</strong> slope than /ʃ/ (/ʃ/’s slope is close to zero anyway).
 This simply means that in the range of 0 to 10000 Hz, /s/ has more energy in the high frequency range than in the low frequency range, whereas the energy is more evenly distributed in that frequency range in /ʃ/.</p>
 <p>What about k0?</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="co">#plot k0 (the slope):</span></a>
-<a class="sourceLine" id="cb410-2" data-line-number="2"><span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span></a>
-<a class="sourceLine" id="cb410-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k0) <span class="op">+</span></a>
-<a class="sourceLine" id="cb410-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" title="1"><span class="co">#plot k0 (the slope):</span></a>
+<a class="sourceLine" id="cb410-2" title="2"><span class="kw">ggplot</span>(sS.dctCoefficients) <span class="op">+</span></a>
+<a class="sourceLine" id="cb410-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k0) <span class="op">+</span></a>
+<a class="sourceLine" id="cb410-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-25-1.png" width="480" /></p>
 <p>k0 simply corresponds to the mean of the energy in the whole frequency range. This only allows us to find out which of the categories is generally “louder”. As we can see, the mean of the energy is of no use if we want to devide between these two fricatives; it would be much more conveniant to have a function that is able to find the mean of the distribution along the frequency axis (and not along the amplitude axis). There is such a function, which is called <strong>spectral moments</strong> and which we will discuss next week.</p>
 <p>The only thing we could do is to use dct-k0 only in a certain frequency range (e.g. 2000 to 3000 Hz). However, this is equivalent to taking the mean of the energy in that frequency range, as we already had done above:</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1"><span class="co">#repetition: take the mean of the energy in a certain range:</span></a>
-<a class="sourceLine" id="cb411-2" data-line-number="2">sS2to3thousandHz =<span class="st"> </span>sS.dftlong <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(freq <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">amplitudes_2000_3000Hz =</span> <span class="kw">mean</span>(track_value))</a>
-<a class="sourceLine" id="cb411-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb411-7" data-line-number="7">a =<span class="st"> </span><span class="kw">ggplot</span>(sS2to3thousandHz) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-8" data-line-number="8"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> amplitudes_<span class="dv">2000</span>_3000Hz, <span class="dt">col =</span> labels) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a>
-<a class="sourceLine" id="cb411-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb411-11" data-line-number="11"><span class="co"># or calculate k0 in the same frequency range:</span></a>
-<a class="sourceLine" id="cb411-12" data-line-number="12">sS.dctCoefficients2to3thousandHz =</a>
-<a class="sourceLine" id="cb411-13" data-line-number="13"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-14" data-line-number="14"><span class="st">  </span><span class="kw">filter</span>(freq<span class="op">&gt;=</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-15" data-line-number="15"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-16" data-line-number="16"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">DCT =</span> emuR<span class="op">::</span><span class="kw">dct</span>(.<span class="op">$</span>track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> F))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-17" data-line-number="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">DCTCOEF =</span> <span class="kw">paste0</span>(<span class="st">&quot;k&quot;</span>, <span class="dv">0</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb411-18" data-line-number="18"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(DCTCOEF, DCT)</a>
-<a class="sourceLine" id="cb411-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb411-20" data-line-number="20">b =<span class="st"> </span><span class="kw">ggplot</span>(sS.dctCoefficients2to3thousandHz)<span class="op">+</span></a>
-<a class="sourceLine" id="cb411-21" data-line-number="21"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k0, <span class="dt">col =</span> labels)<span class="op">+</span></a>
-<a class="sourceLine" id="cb411-22" data-line-number="22"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a>
-<a class="sourceLine" id="cb411-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb411-24" data-line-number="24"><span class="kw">grid.arrange</span>(a, b, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" title="1"><span class="co">#repetition: take the mean of the energy in a certain range:</span></a>
+<a class="sourceLine" id="cb411-2" title="2">sS2to3thousandHz =<span class="st"> </span>sS.dftlong <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-3" title="3"><span class="st">  </span><span class="kw">filter</span>(freq <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-5" title="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">amplitudes_2000_3000Hz =</span> <span class="kw">mean</span>(track_value))</a>
+<a class="sourceLine" id="cb411-6" title="6"></a>
+<a class="sourceLine" id="cb411-7" title="7">a =<span class="st"> </span><span class="kw">ggplot</span>(sS2to3thousandHz) <span class="op">+</span></a>
+<a class="sourceLine" id="cb411-8" title="8"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> amplitudes_<span class="dv">2000</span>_3000Hz, <span class="dt">col =</span> labels) <span class="op">+</span></a>
+<a class="sourceLine" id="cb411-9" title="9"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a>
+<a class="sourceLine" id="cb411-10" title="10"></a>
+<a class="sourceLine" id="cb411-11" title="11"><span class="co"># or calculate k0 in the same frequency range:</span></a>
+<a class="sourceLine" id="cb411-12" title="12">sS.dctCoefficients2to3thousandHz =</a>
+<a class="sourceLine" id="cb411-13" title="13"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-14" title="14"><span class="st">  </span><span class="kw">filter</span>(freq<span class="op">&gt;=</span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>freq <span class="op">&lt;=</span><span class="st"> </span><span class="dv">3000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-15" title="15"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-16" title="16"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">DCT =</span> emuR<span class="op">::</span><span class="kw">dct</span>(.<span class="op">$</span>track_value, <span class="dt">m =</span> <span class="dv">5</span>, <span class="dt">fit =</span> F))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-17" title="17"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">DCTCOEF =</span> <span class="kw">paste0</span>(<span class="st">&quot;k&quot;</span>, <span class="dv">0</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb411-18" title="18"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(DCTCOEF, DCT)</a>
+<a class="sourceLine" id="cb411-19" title="19"></a>
+<a class="sourceLine" id="cb411-20" title="20">b =<span class="st"> </span><span class="kw">ggplot</span>(sS.dctCoefficients2to3thousandHz)<span class="op">+</span></a>
+<a class="sourceLine" id="cb411-21" title="21"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> k0, <span class="dt">col =</span> labels)<span class="op">+</span></a>
+<a class="sourceLine" id="cb411-22" title="22"><span class="st">  </span><span class="kw">geom_boxplot</span>()</a>
+<a class="sourceLine" id="cb411-23" title="23"></a>
+<a class="sourceLine" id="cb411-24" title="24"><span class="kw">grid.arrange</span>(a, b, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <div id="p.s.-use-dct-in-order-to-smooth-formant-trajectories" class="section level3">
 <h3><span class="header-section-number">21.3.1</span> P.S.: Use DCT in order to smooth formant trajectories</h3>
 <p>Another use-case for dct-smoothing are bumpy formant tracks. Consider e.g. this case:</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
-<a class="sourceLine" id="cb412-2" data-line-number="2">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
-<a class="sourceLine" id="cb412-3" data-line-number="3">i.sl =<span class="st"> </span><span class="kw">query</span>(ae, </a>
-<a class="sourceLine" id="cb412-4" data-line-number="4">             <span class="dt">query =</span> <span class="st">&quot;[Phonetic == i:]&quot;</span>)</a>
-<a class="sourceLine" id="cb412-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb412-6" data-line-number="6">i.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, </a>
-<a class="sourceLine" id="cb412-7" data-line-number="7">                      <span class="dt">seglist =</span> i.sl, </a>
-<a class="sourceLine" id="cb412-8" data-line-number="8">                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>, </a>
-<a class="sourceLine" id="cb412-9" data-line-number="9">                      <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>)</a>
-<a class="sourceLine" id="cb412-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb412-11" data-line-number="11">i.dft =<span class="st"> </span>i.dft <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb412-12" data-line-number="12"><span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb412-13" data-line-number="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">F2_smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(T2, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T))</a>
-<a class="sourceLine" id="cb412-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb412-15" data-line-number="15"><span class="kw">ggplot</span>(i.dft) <span class="op">+</span></a>
-<a class="sourceLine" id="cb412-16" data-line-number="16"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T2, <span class="dt">group =</span> sl_rowIdx)<span class="op">+</span></a>
-<a class="sourceLine" id="cb412-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb412-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> F2_smoothed, <span class="dt">col =</span> <span class="st">&quot;smoothed&quot;</span>))<span class="op">+</span></a>
-<a class="sourceLine" id="cb412-19" data-line-number="19"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Orig. (black) vs. smoothed (red) F2-tracks in /i:/&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" title="1"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb412-2" title="2">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a>
+<a class="sourceLine" id="cb412-3" title="3">i.sl =<span class="st"> </span><span class="kw">query</span>(ae, </a>
+<a class="sourceLine" id="cb412-4" title="4">             <span class="dt">query =</span> <span class="st">&quot;[Phonetic == i:]&quot;</span>)</a>
+<a class="sourceLine" id="cb412-5" title="5"></a>
+<a class="sourceLine" id="cb412-6" title="6">i.dft =<span class="st"> </span><span class="kw">get_trackdata</span>(ae, </a>
+<a class="sourceLine" id="cb412-7" title="7">                      <span class="dt">seglist =</span> i.sl, </a>
+<a class="sourceLine" id="cb412-8" title="8">                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>, </a>
+<a class="sourceLine" id="cb412-9" title="9">                      <span class="dt">resultType =</span> <span class="st">&quot;tibble&quot;</span>)</a>
+<a class="sourceLine" id="cb412-10" title="10"></a>
+<a class="sourceLine" id="cb412-11" title="11">i.dft =<span class="st"> </span>i.dft <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb412-12" title="12"><span class="st">  </span><span class="kw">group_by</span>(sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb412-13" title="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">F2_smoothed =</span> emuR<span class="op">::</span><span class="kw">dct</span>(T2, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">fit =</span> T))</a>
+<a class="sourceLine" id="cb412-14" title="14"></a>
+<a class="sourceLine" id="cb412-15" title="15"><span class="kw">ggplot</span>(i.dft) <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-16" title="16"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> times_norm, <span class="dt">y =</span> T2, <span class="dt">group =</span> sl_rowIdx)<span class="op">+</span></a>
+<a class="sourceLine" id="cb412-17" title="17"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-18" title="18"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> F2_smoothed, <span class="dt">col =</span> <span class="st">&quot;smoothed&quot;</span>))<span class="op">+</span></a>
+<a class="sourceLine" id="cb412-19" title="19"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Orig. (black) vs. smoothed (red) F2-tracks in /i:/&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 </div>
 </div>
@@ -816,7 +816,7 @@ This simply means that in the range of 0 to 10000 Hz, /s/ has more energy in the
 <p>The types of parameters discussed in the preceding section can often effectively distinguish between spectra of different phonetic categories. Another useful way of quantifying spectral differences is to reduce the spectrum to a small number of parameters that encode basic properties of its shape. This can be done by calculating what are often called spectral moments (Forrest et al., 1988). The function for calculating moments is borrowed from statistics in which the first four moments describe the <strong>mean, variance, skew, and kurtosis</strong> of a probability distribution.</p>
 <p>Before looking at spectral moments, it will be helpful to consider
 (statistical) moments in general. The matrix bridge includes some hypotheticaldata of counts that were made on three separate days of the number of cars crossing a bridge at hourly intervals. It looks like this:</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">bridge</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" title="1">bridge</a></code></pre></div>
 <pre><code>##    Mon Tues Wed
 ## 0    9    1   0
 ## 1   35    1   1
@@ -834,15 +834,15 @@ This simply means that in the range of 0 to 10000 Hz, /s/ has more energy in the
 <p>The first row shows that between midday and 1 p.m., 9 cars were counted on
 Monday, one on Tuesday, and none on Wednesday. The second row has the same
 meaning but is the count of cars between 1 p.m. and 2 p.m. The figure below shows the distribution of the counts on these three separate days:</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) </a>
-<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="kw">barplot</span>(bridge[,<span class="dv">1</span>], </a>
-<a class="sourceLine" id="cb415-3" data-line-number="3">        <span class="dt">ylab =</span> <span class="st">&quot;Observed number of cars&quot;</span>, </a>
-<a class="sourceLine" id="cb415-4" data-line-number="4">        <span class="dt">main =</span> <span class="st">&quot;Monday&quot;</span>) </a>
-<a class="sourceLine" id="cb415-5" data-line-number="5"><span class="kw">barplot</span>(bridge[,<span class="dv">2</span>], </a>
-<a class="sourceLine" id="cb415-6" data-line-number="6">        <span class="dt">xlab =</span> <span class="st">&quot;Hours&quot;</span>,</a>
-<a class="sourceLine" id="cb415-7" data-line-number="7">        <span class="dt">main =</span> <span class="st">&quot;Tuesday&quot;</span>) </a>
-<a class="sourceLine" id="cb415-8" data-line-number="8"><span class="kw">barplot</span>(bridge[,<span class="dv">3</span>], </a>
-<a class="sourceLine" id="cb415-9" data-line-number="9">        <span class="dt">main =</span> <span class="st">&quot;Wednesday&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)) </a>
+<a class="sourceLine" id="cb415-2" title="2"><span class="kw">barplot</span>(bridge[,<span class="dv">1</span>], </a>
+<a class="sourceLine" id="cb415-3" title="3">        <span class="dt">ylab =</span> <span class="st">&quot;Observed number of cars&quot;</span>, </a>
+<a class="sourceLine" id="cb415-4" title="4">        <span class="dt">main =</span> <span class="st">&quot;Monday&quot;</span>) </a>
+<a class="sourceLine" id="cb415-5" title="5"><span class="kw">barplot</span>(bridge[,<span class="dv">2</span>], </a>
+<a class="sourceLine" id="cb415-6" title="6">        <span class="dt">xlab =</span> <span class="st">&quot;Hours&quot;</span>,</a>
+<a class="sourceLine" id="cb415-7" title="7">        <span class="dt">main =</span> <span class="st">&quot;Tuesday&quot;</span>) </a>
+<a class="sourceLine" id="cb415-8" title="8"><span class="kw">barplot</span>(bridge[,<span class="dv">3</span>], </a>
+<a class="sourceLine" id="cb415-9" title="9">        <span class="dt">main =</span> <span class="st">&quot;Wednesday&quot;</span>) </a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-29"></span>
 <img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-29-1.png" alt="*Hypothetical data of the count of the number of cars crossing a bridge in a 12 hour period.*" width="672" />
 <p class="caption">
@@ -868,11 +868,11 @@ different values for skew (3rd moment).</p></li>
 <p>The core calculation of moments involves the formula:</p>
 <p><span class="math inline">\(\frac{\sum{f(x-k)^m}}{\sum{f}}\)</span></p>
 <p>in which f is the observed frequency (observed number of cars in this example) x is the class (hours from 0 to 12 in our example), m is the moment (m =1, 2, 3, 4) and k is a constant (see also Harrington, 2009). The above formula can be calculated with a function in the Emu-R library, moments(count, x). In this function, count is the observed frequency of occurence and x the class. So the first four moments for the Monday data are given by</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1">hours =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">12</span></a>
-<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="kw">moments</span>(bridge[,<span class="dv">1</span>], hours)</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" title="1">hours =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">12</span></a>
+<a class="sourceLine" id="cb416-2" title="2"><span class="kw">moments</span>(bridge[,<span class="dv">1</span>], hours)</a></code></pre></div>
 <pre><code>## [1] 4.17200000 4.42241600 0.47063226 0.08290827</code></pre>
 <p>while all four moments for Monday, Tuesday, Wednesday are given by:</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1"><span class="kw">apply</span>(bridge, <span class="dv">2</span>, moments, hours)</a></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" title="1"><span class="kw">apply</span>(bridge, <span class="dv">2</span>, moments, hours)</a></code></pre></div>
 <pre><code>##             Mon        Tues         Wed
 ## [1,] 4.17200000  7.82800000  5.99200000
 ## [2,] 4.42241600  4.42241600  2.85193600
@@ -883,14 +883,14 @@ different values for skew (3rd moment).</p></li>
 <p>Finally, the kurtosis is also a dimensionless number that is zero for a normal Gaussian distribution. Kurtosis is often described as a measure of how ‘peaked’ a distribution is. In very general terms, if the distribution is flat – that is, its shape looks rectangular – then kurtosis is negative, whereas if the distribution is peaked, then kurtosis is typically positive. However, this general assumption only applies if the distributions are not skewed (skewed distributions tend to have positive kurtosis) and kurtosis depends not just on the peak but also on whether there are high values at the extremes of the distribution (see Wuensch, 2006 for some good examples of this). For all these reasons - and in particular in view of the fact that spectra are not usually symmetrical about the frequency axis - it is quite difficult to use kurtosis to make predictions about the spectral differences between phonetic categories.</p>
 <p>When spectral moments are calculated, then x and f in both (1) and corresponding R function are the frequency in Hz and the corresponding dB values (and not the other way round!). This can be understood most easily by having another look at the plots of spectral slices above and the observation that a spectral slice has a horizontal axis of frequency in Hz and a vertical axis of dB. On this assumption, the calculation of the 1st spectral moment results in a value in <span class="math inline">\(Hz\)</span> (analogous to a value in hours for the worked example above), and the second spectral moment a value in <span class="math inline">\(Hz^2\)</span>, while the 3rd and 4th spectral moments are dimensionless, as before.</p>
 <p>In order to apply the moments function to our spectral data in the long format tibble, we use the same procedure that we had used in order to calculate dct-coefficients:</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1">sS.moments =</a>
-<a class="sourceLine" id="cb420-2" data-line-number="2"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb420-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb420-4" data-line-number="4"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">Moments =</span> emuR<span class="op">::</span><span class="kw">moments</span>(.<span class="op">$</span>track_value,.<span class="op">$</span>freq))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb420-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Momentnumbers =</span> <span class="kw">paste0</span>(<span class="st">&quot;Moment&quot;</span>,<span class="dv">1</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx)))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb420-6" data-line-number="6"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(Momentnumbers, Moments)</a>
-<a class="sourceLine" id="cb420-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb420-8" data-line-number="8">sS.moments</a></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" title="1">sS.moments =</a>
+<a class="sourceLine" id="cb420-2" title="2"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(labels,sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-4" title="4"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">Moments =</span> emuR<span class="op">::</span><span class="kw">moments</span>(.<span class="op">$</span>track_value,.<span class="op">$</span>freq))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Momentnumbers =</span> <span class="kw">paste0</span>(<span class="st">&quot;Moment&quot;</span>,<span class="dv">1</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx)))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb420-6" title="6"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(Momentnumbers, Moments)</a>
+<a class="sourceLine" id="cb420-7" title="7"></a>
+<a class="sourceLine" id="cb420-8" title="8">sS.moments</a></code></pre></div>
 <pre><code>## # A tibble: 21 x 6
 ## # Groups:   labels, sl_rowIdx [21]
 ##    labels sl_rowIdx Moment1  Moment2 Moment3 Moment4
@@ -907,14 +907,14 @@ different values for skew (3rd moment).</p></li>
 ## 10 s             15   5653. 6923524.  -0.281  -0.868
 ## # … with 11 more rows</code></pre>
 <p>However, the above command may sometimes fail. This is because some of the dB values can be negative and yet the calculation of moments assumes that the values for the observations are positive (it would never be possible, for example, to have a negative value in counting how many cars crossed the bridge in an hourly time interval!). To overcome this problem, the dB values are typically rescaled in calculating moments so that the minimum dB value is set to zero (as a result of which all dB values are positive and the smallest value is 0 dB). The <code>moments()</code> function does this whenever the argument <code>minval = T</code> is included. Thus:</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" data-line-number="1">sS.moments =</a>
-<a class="sourceLine" id="cb422-2" data-line-number="2"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb422-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(labels, sl_rowIdx) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb422-4" data-line-number="4"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">Moments =</span> emuR<span class="op">::</span><span class="kw">moments</span>(.<span class="op">$</span>track_value,.<span class="op">$</span>freq, <span class="dt">minval =</span> <span class="ot">TRUE</span>))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb422-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Momentnumbers =</span> <span class="kw">paste0</span>(<span class="st">&quot;Moment&quot;</span>, <span class="dv">1</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx)))) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb422-6" data-line-number="6"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(Momentnumbers, Moments)</a>
-<a class="sourceLine" id="cb422-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb422-8" data-line-number="8">sS.moments</a></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" title="1">sS.moments =</a>
+<a class="sourceLine" id="cb422-2" title="2"><span class="st">  </span>sS.dftlong <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb422-3" title="3"><span class="st">  </span><span class="kw">group_by</span>(labels, sl_rowIdx) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb422-4" title="4"><span class="st">  </span><span class="kw">do</span>(<span class="kw">data_frame</span>(<span class="dt">Moments =</span> emuR<span class="op">::</span><span class="kw">moments</span>(.<span class="op">$</span>track_value,.<span class="op">$</span>freq, <span class="dt">minval =</span> <span class="ot">TRUE</span>))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb422-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Momentnumbers =</span> <span class="kw">paste0</span>(<span class="st">&quot;Moment&quot;</span>, <span class="dv">1</span><span class="op">:</span>(<span class="kw">table</span>(sl_rowIdx)))) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb422-6" title="6"><span class="st">  </span>tidyr<span class="op">::</span><span class="kw">spread</span>(Momentnumbers, Moments)</a>
+<a class="sourceLine" id="cb422-7" title="7"></a>
+<a class="sourceLine" id="cb422-8" title="8">sS.moments</a></code></pre></div>
 <pre><code>## # A tibble: 21 x 6
 ## # Groups:   labels, sl_rowIdx [21]
 ##    labels sl_rowIdx Moment1  Moment2 Moment3 Moment4
@@ -934,38 +934,38 @@ different values for skew (3rd moment).</p></li>
 <ul>
 <li>As [ʃ] has a much lower spectral “center of gravity”, it is reasonable to assume that the mean of the distribution of dB-values is lower along the frequency axis:</li>
 </ul>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" data-line-number="1"><span class="co"># plot moment no. 1 (mean of the distribution):</span></a>
-<a class="sourceLine" id="cb424-2" data-line-number="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
-<a class="sourceLine" id="cb424-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment1) <span class="op">+</span></a>
-<a class="sourceLine" id="cb424-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb424-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 1 (means of the spectral distributions)</span><span class="ch">\n</span><span class="st">(= spectral center of gravity)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" title="1"><span class="co"># plot moment no. 1 (mean of the distribution):</span></a>
+<a class="sourceLine" id="cb424-2" title="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
+<a class="sourceLine" id="cb424-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment1) <span class="op">+</span></a>
+<a class="sourceLine" id="cb424-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb424-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 1 (means of the spectral distributions)</span><span class="ch">\n</span><span class="st">(= spectral center of gravity)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-34-1.png" width="480" /></p>
 <ul>
 <li>However, there is no reason to believe that variance - expressed here by the spectral moment no. 2 - should be extremely different between the two sibilants:</li>
 </ul>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" data-line-number="1"><span class="co"># plot moment no. 2 (variance of the distribution):</span></a>
-<a class="sourceLine" id="cb425-2" data-line-number="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
-<a class="sourceLine" id="cb425-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment2) <span class="op">+</span></a>
-<a class="sourceLine" id="cb425-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb425-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 2 (variances of the distributions)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" title="1"><span class="co"># plot moment no. 2 (variance of the distribution):</span></a>
+<a class="sourceLine" id="cb425-2" title="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
+<a class="sourceLine" id="cb425-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment2) <span class="op">+</span></a>
+<a class="sourceLine" id="cb425-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb425-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 2 (variances of the distributions)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-35-1.png" width="480" /></p>
 <ul>
 <li>Another parameter, the skew of the distribution of dB-values along the frequency axis, should be different, with a greater skew towards the right for [s] as compared to the post-alveolar, that is distributed more around the center of the frequency range 0-10000 Hz:</li>
 </ul>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" data-line-number="1"><span class="co"># plot moment no. 3 (skew of the distribution):</span></a>
-<a class="sourceLine" id="cb426-2" data-line-number="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
-<a class="sourceLine" id="cb426-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment3) <span class="op">+</span></a>
-<a class="sourceLine" id="cb426-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb426-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 3 (skew values of the distributions)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" title="1"><span class="co"># plot moment no. 3 (skew of the distribution):</span></a>
+<a class="sourceLine" id="cb426-2" title="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
+<a class="sourceLine" id="cb426-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment3) <span class="op">+</span></a>
+<a class="sourceLine" id="cb426-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb426-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 3 (skew values of the distributions)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-36-1.png" width="480" /></p>
 <ul>
 <li>It has been mentioned earlier, that it is usually quite difficult to use kurtosis to make predictions about the spectral differences between phonetic categories, for various reasons. In this specific case, however, kurtosis would nicely divide the two fricative types:</li>
 </ul>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1"><span class="co"># plot moment no. 4 (kurtosis of the distribution):</span></a>
-<a class="sourceLine" id="cb427-2" data-line-number="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
-<a class="sourceLine" id="cb427-3" data-line-number="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment4) <span class="op">+</span></a>
-<a class="sourceLine" id="cb427-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb427-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 4 (kurtosis values of the distributions)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" title="1"><span class="co"># plot moment no. 4 (kurtosis of the distribution):</span></a>
+<a class="sourceLine" id="cb427-2" title="2"><span class="kw">ggplot</span>(sS.moments) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-3" title="3"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> labels, <span class="dt">y =</span> Moment4) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;moment no. 4 (kurtosis values of the distributions)&quot;</span>)</a></code></pre></div>
 <p><img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-37-1.png" width="480" /></p>
 <p>So, in our case, the two best variables that would differ most when we were trying to distinguish between alveolar and post-alveolar fricatives, would be the skew of the dB-distribution along the frequency axis (at least in out case, where frequency varies between 0 and 10000 Hz), and, as a measure for spectral <strong>center of gravity</strong>, the first spectral moment, i.e. the mean of the distribution along the frequency axis (which is quite a different thing than the first dct coefficient, which represents the mean along the dB-axis).</p>
 

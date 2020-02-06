@@ -68,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -663,7 +663,7 @@ EQL = CONJQ | SEQQ | DOMQ;
 </tr>
 <tr>
 <td style="text-align:left;">
-DOMQ = “[&quot;, ( CONJQ | DOMQ | SEQQ ), &quot;^&quot;, ( CONJQ | DOMQ | SEQQ ), &quot;]”;
+DOMQ = “[", ( CONJQ | DOMQ | SEQQ ), "^", ( CONJQ | DOMQ | SEQQ ), "]”;
 </td>
 <td style="text-align:left;">
 <strong>dom</strong>inance <strong>q</strong>uery
@@ -674,7 +674,7 @@ levels must be hierarchically associated
 </tr>
 <tr>
 <td style="text-align:left;">
-SEQQ = “[&quot;, ( CONJQ | SEQQ | DOMQ ), &quot;-&gt;&quot;, ( CONJQ | SEQQ | DOMQ ), &quot;]”;
+SEQQ = “[", ( CONJQ | SEQQ | DOMQ ), "-&gt;", ( CONJQ | SEQQ | DOMQ ), "]”;
 </td>
 <td style="text-align:left;">
 <strong>seq</strong>uential <strong>q</strong>uery
@@ -685,7 +685,7 @@ levels must be linearly associated
 </tr>
 <tr>
 <td style="text-align:left;">
-CONJQ = { “[&quot; }, SQ, { &quot;&amp;&quot;, SQ }, { &quot;]” };
+CONJQ = { “[" }, SQ, { "&amp;", SQ }, { "]” };
 </td>
 <td style="text-align:left;">
 <strong>conj</strong>unction <strong>q</strong>uery

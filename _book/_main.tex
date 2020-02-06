@@ -105,6 +105,12 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
 \usepackage{booktabs}
 \usepackage{amsthm}
 \makeatletter
@@ -113,6 +119,22 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+% https://github.com/rstudio/rmarkdown/issues/337
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+% https://github.com/rstudio/rmarkdown/pull/252
+\usepackage{titling}
+\setlength{\droptitle}{-2em}
+
+\pretitle{\vspace{\droptitle}\centering\huge}
+\posttitle{\par}
+
+\preauthor{\centering\large\emph}
+\postauthor{\par}
+
+\predate{\centering\large\emph}
+\postdate{\par}
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
@@ -295,7 +317,7 @@ It is worth noting that throughout this manual R code snippets will be given in 
 \hypertarget{sec:overview-sysArch}{%
 \section{EMU-SDMS: System architecture and default workflow}\label{sec:overview-sysArch}}
 
-As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the \texttt{emuDB} format; the R packages \texttt{wrassp} and \texttt{emuR}; and the web application, the \texttt{EMU-webApp}, which is EMU-SDMS's new GUI component. An overview of the EMU-SDMS's architecture and the components' relationships within the system is shown in Figure \ref{fig:overview-archOver}. In Figure \ref{fig:overview-archOver}, the \texttt{emuR} package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an \texttt{emuDB} (see Chapter @ref(chap:annot\_struct\_mod)); it uses the \texttt{wrassp} package for signal processing purposes (see Chapter \ref{chap:wrassp}; and it can serve \texttt{emuDB}s to the \texttt{EMU-webApp} (see Chapter \ref{chap:emu-webApp}).
+As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the \texttt{emuDB} format; the R packages \texttt{wrassp} and \texttt{emuR}; and the web application, the \texttt{EMU-webApp}, which is EMU-SDMS's new GUI component. An overview of the EMU-SDMS's architecture and the components' relationships within the system is shown in Figure \ref{fig:overview-archOver}. In Figure \ref{fig:overview-archOver}, the \texttt{emuR} package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an \texttt{emuDB} (see Chapter \ref{chap:annot-struct-mod}); it uses the \texttt{wrassp} package for signal processing purposes (see Chapter \ref{chap:wrassp}; and it can serve \texttt{emuDB}s to the \texttt{EMU-webApp} (see Chapter \ref{chap:emu-webApp}).
 
 \begin{figure}
 
@@ -476,8 +498,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     66ed383a-7ad0-43db-9ba5-f22c297a9fa8 
-## Directory:    /tmp/RtmpLfZjvi/my-first_emuDB 
+## UUID:     f0dd8964-7c7c-4cea-a561-624ba406dce5 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpuMOuRJ/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -586,18 +608,18 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 n      1032. 1196. 66ed38~ 0000    msajc~            98          98 Phon~
-##  2 n      1741. 1791. 66ed38~ 0000    msajc~           108         108 Phon~
-##  3 n      1515. 1554. 66ed38~ 0000    msajc~           113         113 Phon~
-##  4 n      2431. 2528. 66ed38~ 0000    msajc~           127         127 Phon~
-##  5 n       895. 1023. 66ed38~ 0000    msajc~            98          98 Phon~
-##  6 n      2402. 2475. 66ed38~ 0000    msajc~           122         122 Phon~
-##  7 n      2227. 2271. 66ed38~ 0000    msajc~           132         132 Phon~
-##  8 n      3046. 3068. 66ed38~ 0000    msajc~           145         145 Phon~
-##  9 n      1435. 1495. 66ed38~ 0000    msajc~            91          91 Phon~
-## 10 n      1775. 1834. 66ed38~ 0000    msajc~            96          96 Phon~
-## 11 n       509.  544. 66ed38~ 0000    msajc~            97          97 Phon~
-## 12 n      2448. 2480. 66ed38~ 0000    msajc~           130         130 Phon~
+##  1 n      1032. 1196. f0dd89~ 0000    msajc~            98          98 Phon~
+##  2 n      1741. 1791. f0dd89~ 0000    msajc~           108         108 Phon~
+##  3 n      1515. 1554. f0dd89~ 0000    msajc~           113         113 Phon~
+##  4 n      2431. 2528. f0dd89~ 0000    msajc~           127         127 Phon~
+##  5 n       895. 1023. f0dd89~ 0000    msajc~            98          98 Phon~
+##  6 n      2402. 2475. f0dd89~ 0000    msajc~           122         122 Phon~
+##  7 n      2227. 2271. f0dd89~ 0000    msajc~           132         132 Phon~
+##  8 n      3046. 3068. f0dd89~ 0000    msajc~           145         145 Phon~
+##  9 n      1435. 1495. f0dd89~ 0000    msajc~            91          91 Phon~
+## 10 n      1775. 1834. f0dd89~ 0000    msajc~            96          96 Phon~
+## 11 n       509.  544. f0dd89~ 0000    msajc~            97          97 Phon~
+## 12 n      2448. 2480. f0dd89~ 0000    msajc~           130         130 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -759,16 +781,16 @@ Having this hierarchical annotation structure now allows us to formulate a query
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 @      1506. 1548. 66ed38~ 0000    msajc~           103         103 Phon~
-##  2 @      1715. 1741. 66ed38~ 0000    msajc~           107         107 Phon~
-##  3 @      1967. 2034. 66ed38~ 0000    msajc~           112         112 Phon~
-##  4 @      2303. 2362. 66ed38~ 0000    msajc~           117         117 Phon~
-##  5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119 Phon~
-##  6 @      1917. 1958. 66ed38~ 0000    msajc~           118         118 Phon~
-##  7 @      2022. 2078. 66ed38~ 0000    msajc~           120         120 Phon~
-##  8 @      2382. 2431. 66ed38~ 0000    msajc~           126         126 Phon~
-##  9 @       330.  380. 66ed38~ 0000    msajc~            91          91 Phon~
-## 10 @      1472. 1490. 66ed38~ 0000    msajc~           108         108 Phon~
+##  1 @      1506. 1548. f0dd89~ 0000    msajc~           103         103 Phon~
+##  2 @      1715. 1741. f0dd89~ 0000    msajc~           107         107 Phon~
+##  3 @      1967. 2034. f0dd89~ 0000    msajc~           112         112 Phon~
+##  4 @      2303. 2362. f0dd89~ 0000    msajc~           117         117 Phon~
+##  5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119 Phon~
+##  6 @      1917. 1958. f0dd89~ 0000    msajc~           118         118 Phon~
+##  7 @      2022. 2078. f0dd89~ 0000    msajc~           120         120 Phon~
+##  8 @      2382. 2431. f0dd89~ 0000    msajc~           126         126 Phon~
+##  9 @       330.  380. f0dd89~ 0000    msajc~            91          91 Phon~
+## 10 @      1472. 1490. f0dd89~ 0000    msajc~           108         108 Phon~
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -794,16 +816,16 @@ As the type of word (content vs.~function) for each \emph{@} vowel is also neede
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 F         NA    NA 66ed38~ 0000    msajc~            16          16 Word 
-##  2 C         NA    NA 66ed38~ 0000    msajc~            17          17 Word 
-##  3 C         NA    NA 66ed38~ 0000    msajc~            17          17 Word 
-##  4 C         NA    NA 66ed38~ 0000    msajc~            18          18 Word 
-##  5 C         NA    NA 66ed38~ 0000    msajc~            18          18 Word 
-##  6 C         NA    NA 66ed38~ 0000    msajc~            19          19 Word 
-##  7 C         NA    NA 66ed38~ 0000    msajc~            20          20 Word 
-##  8 C         NA    NA 66ed38~ 0000    msajc~            20          20 Word 
-##  9 F         NA    NA 66ed38~ 0000    msajc~            13          13 Word 
-## 10 F         NA    NA 66ed38~ 0000    msajc~            17          17 Word 
+##  1 F         NA    NA f0dd89~ 0000    msajc~            16          16 Word 
+##  2 C         NA    NA f0dd89~ 0000    msajc~            17          17 Word 
+##  3 C         NA    NA f0dd89~ 0000    msajc~            17          17 Word 
+##  4 C         NA    NA f0dd89~ 0000    msajc~            18          18 Word 
+##  5 C         NA    NA f0dd89~ 0000    msajc~            18          18 Word 
+##  6 C         NA    NA f0dd89~ 0000    msajc~            19          19 Word 
+##  7 C         NA    NA f0dd89~ 0000    msajc~            20          20 Word 
+##  8 C         NA    NA f0dd89~ 0000    msajc~            20          20 Word 
+##  9 F         NA    NA f0dd89~ 0000    msajc~            13          13 Word 
+## 10 F         NA    NA f0dd89~ 0000    msajc~            17          17 Word 
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -880,18 +902,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  2         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  3         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  4         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  5         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  6         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  7         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  8         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  9         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-## 10         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-## 11         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-## 12         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
+##  1         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  2         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  3         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  4         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  5         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  6         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  7         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  8         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+##  9         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+## 10         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+## 11         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
+## 12         5 @      2447. 2506. f0dd89~ 0000    msajc~           119         119
 ## # ... with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
@@ -979,8 +1001,8 @@ Figures \ref{fig:tutorial-dplot1} and \ref{fig:tutorial-dplot2} give an overview
 
 Figure \ref{fig:tutorial-eplot} displays the first two formants extracted at the temporal midpoint of every \emph{@} vowel in \texttt{sl\_vowels}. The centroid of these formants is plotted on the F2 x F1 plane, and their 95\% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the \texttt{dplyr} and \texttt{ggplot2} packages can be very helpful tools for providing an overview of the data at hand.
 
-\hypertarget{vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis}{%
-\section{Vowel height as a function of word types (content vs.~function): evaluation and statistical analysis}\label{vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis}}
+\hypertarget{vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis}{%
+\section{Vowel height as a function of word types (content vs.~function): evaluation and statistical analysis}\label{vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis}}
 
 The above data exploration only dealt with the actual \emph{@} vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the \emph{@} vowel occurs in a content (labeled \emph{C}) or function (labeled \emph{F}) word. For data inspection purposes, the R code snippet below initially extracts the central 60\% (\texttt{filter()} conditions \texttt{times\_norm\ \textgreater{}=\ 0.2} and \texttt{times\_norm\ \textless{}=\ 0.8}) of the formant trajectories from \texttt{td\_vowels\_norm} using \texttt{dplyr} and displays them using \texttt{ggplot()}. It should be noted that before the call to \texttt{ggplot()} the labels of the \texttt{td\_vowels\_mid\_sec} are replaced with those of \texttt{sl\_word\_type}. This allows \texttt{ggplot()} to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \ref{fig:tutorial-dplotSylTyp}.
 
@@ -1123,7 +1145,7 @@ To confirm or reject this, the following R code presents a very simple statistic
 \caption{Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code.}\label{fig:tutorial-stats1}
 \end{figure}
 
-As shown by the result of \texttt{wilcox.test()} in the above R code, word type (\emph{C} vs. \emph{F}) has a significant influence on the vowel's F1 (W=121, p\textless{}0.05). Hence, the answer to the initially proposed question: \emph{Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?} is yes!
+As shown by the result of \texttt{wilcox.test()} in the above R code, word type (\emph{C} vs.~\emph{F}) has a significant influence on the vowel's F1 (W=121, p\textless{}0.05). Hence, the answer to the initially proposed question: \emph{Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?} is yes!
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
@@ -1184,7 +1206,7 @@ Based on our experience, the explicit definition of the annotation structure for
 \hypertarget{parallel-labels-and-multiple-attributes}{%
 \section{Parallel labels and multiple attributes}\label{parallel-labels-and-multiple-attributes}}
 
-The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called \emph{Category} might have been included as a separate level from \emph{Word} for marking words' grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate \emph{Stress} tier (description taken from \citet{harrington:2010a} page 77). Using \texttt{ONE\_TO\_ONE} link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term ``attribute'' (vs. ``label'') was chosen to have the flexibility of adding attributes that are not of the type \texttt{STRING} (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure \ref{fig:paraLabels} shows the annotation structure modeling difference between linearly linked levels (see Figure \ref{fig:paraLabels}A) and an annotation structure using multiple attributes (see Figure \ref{fig:paraLabels}B). Figure \ref{fig:paraLabels}A shows three separate levels (\emph{Word}, \emph{Accent} and \emph{Text}) that have a \texttt{ONE\_TO\_ONE} relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., \emph{A1-A3}). Figure \ref{fig:paraLabels}B shows a single level that has three attribute definitions (\emph{Word}, \emph{Accent} and \emph{Text}) and each annotation item contains three attributes (e.g., \emph{A1-A3}).
+The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called \emph{Category} might have been included as a separate level from \emph{Word} for marking words' grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate \emph{Stress} tier (description taken from \citet{harrington:2010a} page 77). Using \texttt{ONE\_TO\_ONE} link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term ``attribute'' (vs.~``label'') was chosen to have the flexibility of adding attributes that are not of the type \texttt{STRING} (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure \ref{fig:paraLabels} shows the annotation structure modeling difference between linearly linked levels (see Figure \ref{fig:paraLabels}A) and an annotation structure using multiple attributes (see Figure \ref{fig:paraLabels}B). Figure \ref{fig:paraLabels}A shows three separate levels (\emph{Word}, \emph{Accent} and \emph{Text}) that have a \texttt{ONE\_TO\_ONE} relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., \emph{A1-A3}). Figure \ref{fig:paraLabels}B shows a single level that has three attribute definitions (\emph{Word}, \emph{Accent} and \emph{Text}) and each annotation item contains three attributes (e.g., \emph{A1-A3}).
 
 \begin{figure}
 
@@ -1300,8 +1322,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     42ade61b-e4f2-4220-b282-55d770fc98d3 
-## Directory:    /tmp/RtmpyLhXKb/fromScratch_emuDB 
+## UUID:     ab400a00-1a65-4007-ab13-3c52a68d832c 
+## Directory:    /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpvpkoCG/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1657,20 +1679,20 @@ The previous sections of this chapter defined the simple structure of the \emph{
 ## # A tibble: 14 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  3 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  4 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  5 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  6 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  7 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  8 fromWavFi~ msajc0~ msajc015.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  9 fromWavFi~ msajc0~ msajc022_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 10 fromWavFi~ msajc0~ msajc022.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 11 fromWavFi~ msajc0~ msajc023_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 12 fromWavFi~ msajc0~ msajc023.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 13 fromWavFi~ msajc0~ msajc057_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 14 fromWavFi~ msajc0~ msajc057.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
+##  1 fromWavFi~ msajc0~ msajc003_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  2 fromWavFi~ msajc0~ msajc003.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  3 fromWavFi~ msajc0~ msajc010_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  4 fromWavFi~ msajc0~ msajc010.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  5 fromWavFi~ msajc0~ msajc012_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  6 fromWavFi~ msajc0~ msajc012.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  7 fromWavFi~ msajc0~ msajc015_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  8 fromWavFi~ msajc0~ msajc015.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  9 fromWavFi~ msajc0~ msajc022_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+## 10 fromWavFi~ msajc0~ msajc022.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+## 11 fromWavFi~ msajc0~ msajc023_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+## 12 fromWavFi~ msajc0~ msajc023.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+## 13 fromWavFi~ msajc0~ msajc057_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+## 14 fromWavFi~ msajc0~ msajc057.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB} containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every \texttt{\_annot.json} file created contains an empty \texttt{Word} and \texttt{Phonetic} level array and the links array is also empty.
@@ -1716,16 +1738,16 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 ## # A tibble: 21 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  3 fromWavFi~ msajc0~ msajc003.zcr /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  4 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  5 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  6 fromWavFi~ msajc0~ msajc010.zcr /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  7 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  8 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  9 fromWavFi~ msajc0~ msajc012.zcr /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 10 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
+##  1 fromWavFi~ msajc0~ msajc003_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  2 fromWavFi~ msajc0~ msajc003.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  3 fromWavFi~ msajc0~ msajc003.zcr /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  4 fromWavFi~ msajc0~ msajc010_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  5 fromWavFi~ msajc0~ msajc010.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  6 fromWavFi~ msajc0~ msajc010.zcr /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  7 fromWavFi~ msajc0~ msajc012_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  8 fromWavFi~ msajc0~ msajc012.wav /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+##  9 fromWavFi~ msajc0~ msajc012.zcr /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
+## 10 fromWavFi~ msajc0~ msajc015_an~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1s~
 ## # ... with 11 more rows
 \end{verbatim}
 
@@ -2574,15 +2596,15 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 
 \begin{verbatim}
 ## # A tibble: 7 x 4
-##   session bundle   file      absolute_file_path                                 
-##   <chr>   <chr>    <chr>     <chr>                                              
-## 1 0000    msajc003 msajc003~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 2 0000    msajc010 msajc010~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 3 0000    msajc012 msajc012~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 4 0000    msajc015 msajc015~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 5 0000    msajc022 msajc022~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 6 0000    msajc023 msajc023~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 7 0000    msajc057 msajc057~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
+##   session bundle   file     absolute_file_path                                  
+##   <chr>   <chr>    <chr>    <chr>                                               
+## 1 0000    msajc003 msajc00~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld98000~
+## 2 0000    msajc010 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld98000~
+## 3 0000    msajc012 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld98000~
+## 4 0000    msajc015 msajc01~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld98000~
+## 5 0000    msajc022 msajc02~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld98000~
+## 6 0000    msajc023 msajc02~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld98000~
+## 7 0000    msajc057 msajc05~ /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld98000~
 \end{verbatim}
 
 \begin{Shaded}
@@ -2829,7 +2851,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /tmp/RtmpS2CrSb/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpkQEa1N/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -2890,7 +2912,7 @@ As can be seen in the above R code snippet, the resulting \texttt{au} object is 
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpS2CrSb/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav"
+## [1] "/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T//RtmpkQEa1N/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav"
 ## 
 ## $origFreq
 ## [1] 0
@@ -3243,7 +3265,7 @@ As it can be extremely important to keep track of information about how certain 
 \begin{verbatim}
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2020-01-16 12:01:30 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2020-02-06 12:05:05 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 \end{verbatim}
 
@@ -3489,9 +3511,9 @@ To add a new boundary or event to a level the user initially has to select the d
 
 To add a boundary to the currently selected level one first has to select a point in time either in the spectrogram or the oscillogram by single-left-clicking on the desired location. Hitting the enter/return key adds a new boundary or event to the preselected level at the selected time point. Selecting a stretch of time in the spectrogram or the oscillogram (left-click-and-drag) and hitting enter will add a segment (not a boundary) to a preselected segment level.
 
-\hypertarget{segments-and-events-segments-events}{%
-\subsubsection*{Segments and events \{\#segments-events\}}\label{segments-and-events-segments-events}}
-\addcontentsline{toc}{subsubsection}{Segments and events \{\#segments-events\}}
+\hypertarget{segments-events}{%
+\subsubsection*{Segments and events}\label{segments-events}}
+\addcontentsline{toc}{subsubsection}{Segments and events}
 
 The \texttt{EMU-webApp} also allows segments and events to be preselected by single-left-clicking the desired item. The web application colors the preselected segments and events yellow to indicate their pre-selection as displayed in Figure \ref{fig:webApp-preSelSeg}.
 
@@ -5542,7 +5564,7 @@ The \texttt{\_DBconfig.json} file contains the following fields:
       \item
         \texttt{"ssffTrackName"} The name of the \texttt{ssffTrackName} for which colors are defined. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
       \item
-        \texttt{"colors"} An array of RGB strings (e.g. \texttt{{[}"rgb(238,130,238)"}, \texttt{"rgb(127,255,212)"{]}}) that specify the color of the contour (first value = first contour color and so on). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
+        \texttt{"colors"} An array of RGB strings (e.g.~\texttt{{[}"rgb(238,130,238)"}, \texttt{"rgb(127,255,212)"{]}}) that specify the color of the contour (first value = first contour color and so on). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
       \end{itemize}
     \item
       \texttt{"levelCanvases"} Configuration options for the
@@ -5598,9 +5620,9 @@ The \texttt{\_DBconfig.json} file contains the following fields:
       \item
         \texttt{"yNameCoordinate"} y-coordinate specifying the location at which name should be drawn. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
-        \texttt{"xCoordinates"} An array of x-coordinates (e.g. \texttt{{[}300,~300,~900,~900,~300{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
+        \texttt{"xCoordinates"} An array of x-coordinates (e.g.~\texttt{{[}300,~300,~900,~900,~300{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
-        \texttt{"yCoordinates"} An array of y-coordinates (e.g. \texttt{{[}880,~2540,~2540,~880,~880{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
+        \texttt{"yCoordinates"} An array of y-coordinates (e.g.~\texttt{{[}880,~2540,~2540,~880,~880{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
         \texttt{"connect"} A boolean value that specifies whether or not to connect the static dots with lines. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
@@ -6759,7 +6781,7 @@ Example \textbf{Q} \& \textbf{A}'s:
 \hypertarget{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}{%
 \section{\texorpdfstring{Subsequent sequence queries using nesting of the \texttt{-\textgreater{}} sequence operator}{Subsequent sequence queries using nesting of the -\textgreater{} sequence operator}}\label{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}}
 
-The general strategy for constructing a query string that retrieves subsequent sequences of labels is to nest multiple sequences while paying close attention to the correct placement of the parentheses. An abstract version of such a query string for the subsequent sequence of arguments \texttt{A1}, \texttt{A2}, \texttt{A3} and \texttt{A4} would be: \texttt{{[}{[}{[}{[}A1\ -\textgreater{}\ A2{]}\ -\textgreater{}\ A3{]}\ -\textgreater{}\ A4{]}\ -\textgreater{}\ A5{]}} where each argument (e.g. \texttt{A1}) represents an equality, inequality, matching or non-matching expression on the same level (alternatively, parallel attribute definitions of the same level may also be chosen).
+The general strategy for constructing a query string that retrieves subsequent sequences of labels is to nest multiple sequences while paying close attention to the correct placement of the parentheses. An abstract version of such a query string for the subsequent sequence of arguments \texttt{A1}, \texttt{A2}, \texttt{A3} and \texttt{A4} would be: \texttt{{[}{[}{[}{[}A1\ -\textgreater{}\ A2{]}\ -\textgreater{}\ A3{]}\ -\textgreater{}\ A4{]}\ -\textgreater{}\ A5{]}} where each argument (e.g.~\texttt{A1}) represents an equality, inequality, matching or non-matching expression on the same level (alternatively, parallel attribute definitions of the same level may also be chosen).
 
 Example questions and answers:
 
@@ -7717,7 +7739,7 @@ To our knowledge, the order of a segment list in the legacy EMU system was never
 \item
   The query mechanics of \texttt{emuR} accepts the double equal character string \texttt{==} (recommended) as well as the single \texttt{=} equal character string as an equal operator.
 \item
-  The EQL2 is capable of querying labels by matching regular expressions using the \texttt{=\textasciitilde{}} (matching) and \texttt{!\textasciitilde{}} (non-matching) operators. It is worth noting that the regular expression pattern is always meant to consume the entire label string i.e.~wrapping the RegEx in \texttt{"\^{}\ RegEx\ \$"} is not necessary. If substring matching is desired this must be formulated explicitly (e.g. \texttt{".*substring.*"})
+  The EQL2 is capable of querying labels by matching regular expressions using the \texttt{=\textasciitilde{}} (matching) and \texttt{!\textasciitilde{}} (non-matching) operators. It is worth noting that the regular expression pattern is always meant to consume the entire label string i.e.~wrapping the RegEx in \texttt{"\^{}\ RegEx\ \$"} is not necessary. If substring matching is desired this must be formulated explicitly (e.g.~\texttt{".*substring.*"})
 
   \begin{itemize}
   \tightlist
@@ -8348,7 +8370,7 @@ Let us now load the needed libraries and create a demo emuDB to play with:
 \end{Highlighting}
 \end{Shaded}
 
-The \texttt{ae} emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for ``Discrete Fourier Transform'' which converts a signal into a time-series of spectra. This transformation can be done with \texttt{wrassp}'s function \texttt{dftSpectrum()} which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a ``short-term spectral analysis of the signal in using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g. `.dft'). Default output is in SSFF format with the spectrum type in lower case as track name.'' (cited from \texttt{?wrassp::dftSpectrum}).
+The \texttt{ae} emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for ``Discrete Fourier Transform'' which converts a signal into a time-series of spectra. This transformation can be done with \texttt{wrassp}'s function \texttt{dftSpectrum()} which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a ``short-term spectral analysis of the signal in using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g.~`.dft'). Default output is in SSFF format with the spectrum type in lower case as track name.'' (cited from \texttt{?wrassp::dftSpectrum}).
 
 The procedure to calculate your own dft-files is identical to that of calculating formants, or fundamental frequency, or any other function that is available in \texttt{wrassp} (see also \href{http://www.phonetik.uni-muenchen.de/\%7Ejmh/lehre/sem/ws1819/emuR/LESSON4/Signal_Data_Calculation_Extraction_Plotting.html}{this document} ):
 
@@ -9306,51 +9328,7 @@ This recipe contains various plotting snippets for various visualization challen
 \begin{Highlighting}[]
 \CommentTok{# time normalize the formant values}
 \NormalTok{ae_formants_norm =}\StringTok{ }\KeywordTok{normalize_length}\NormalTok{(ae_formants)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (14). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (17). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (16). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (9). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (15). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (13). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (18). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (19). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# plot all normalized F2 trajectories}
 \KeywordTok{ggplot}\NormalTok{(ae_formants_norm) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_norm, }\DataTypeTok{y =}\NormalTok{ T2, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ sl_rowIdx) }\OperatorTok{+}
@@ -9572,7 +9550,7 @@ Now we will add everything to the Git repository and create our initial commit. 
 \end{Shaded}
 
 \begin{verbatim}
-## [dbb6cca] 2020-01-16: initial commit
+## [4225ae6] 2020-02-06: initial commit
 \end{verbatim}
 
 This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -9705,7 +9683,7 @@ How the EMU-SDMS handles user management/collaborative annotations is quite simp
 \end{Highlighting}
 \end{Shaded}
 
-These files describe, what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g. \texttt{raphael.winkelmann\_bundleList.json}. As of emuR version 2.0.4.9000 (currently only available on GitHub with \texttt{devtools::install\_github("IPS-LMU/emuR")}) it is possible to read and write these bundle lists:
+These files describe, what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g.~\texttt{raphael.winkelmann\_bundleList.json}. As of emuR version 2.0.4.9000 (currently only available on GitHub with \texttt{devtools::install\_github("IPS-LMU/emuR")}) it is possible to read and write these bundle lists:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9721,7 +9699,7 @@ These files describe, what bundles are allocated to a certain user. The name of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpjvGiyd/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /private/var/folders/yk/8z9tn7kx6hbcg_9n4c1sld980000gn/T/RtmpbVIkDH/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 \end{verbatim}
 
 \begin{Shaded}

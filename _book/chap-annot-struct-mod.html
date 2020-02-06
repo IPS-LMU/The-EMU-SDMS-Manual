@@ -68,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -419,7 +419,7 @@ Figure 4.2: <strong>A:</strong> a schematic representation of the hierarchical s
 </div>
 <div id="parallel-labels-and-multiple-attributes" class="section level2">
 <h2><span class="header-section-number">4.2</span> Parallel labels and multiple attributes</h2>
-<p>The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called <em>Category</em> might have been included as a separate level from <em>Word</em> for marking words’ grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate <em>Stress</em> tier (description taken from <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span> page 77). Using <code>ONE_TO_ONE</code> link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term “attribute” (vs. “label”) was chosen to have the flexibility of adding attributes that are not of the type <code>STRING</code> (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a> shows the annotation structure modeling difference between linearly linked levels (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A) and an annotation structure using multiple attributes (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A shows three separate levels (<em>Word</em>, <em>Accent</em> and <em>Text</em>) that have a <code>ONE_TO_ONE</code> relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., <em>A1-A3</em>). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B shows a single level that has three attribute definitions (<em>Word</em>, <em>Accent</em> and <em>Text</em>) and each annotation item contains three attributes (e.g., <em>A1-A3</em>).</p>
+<p>The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called <em>Category</em> might have been included as a separate level from <em>Word</em> for marking words’ grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate <em>Stress</em> tier (description taken from <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span> page 77). Using <code>ONE_TO_ONE</code> link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term “attribute” (vs. “label”) was chosen to have the flexibility of adding attributes that are not of the type <code>STRING</code> (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a> shows the annotation structure modeling difference between linearly linked levels (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A) and an annotation structure using multiple attributes (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A shows three separate levels (<em>Word</em>, <em>Accent</em> and <em>Text</em>) that have a <code>ONE_TO_ONE</code> relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., <em>A1-A3</em>). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B shows a single level that has three attribute definitions (<em>Word</em>, <em>Accent</em> and <em>Text</em>) and each annotation item contains three attributes (e.g., <em>A1-A3</em>).</p>
 <div class="figure" style="text-align: center"><span id="fig:paraLabels"></span>
 <img src="pics/annotStruct.png" alt="Schematic representation of annotation structure modeling difference between **A:** linearly linked levels and **B:** an annotation structure using multiple attributes." width="75%" />
 <p class="caption">
@@ -453,25 +453,25 @@ Figure 4.4: Hierarchical annotation displaying single bundle root node metadata 
 <p>Beckman, Mary E, and Gayle Ayers. 1997. “Guidelines for ToBI Labelling.” <em>The OSU Research Foundation</em> 3.</p>
 </div>
 <div id="ref-bird:sc2001a">
-<p>Bird, Steven, and Mark Liberman. 2001. “A Formal Framework for Linguistic Annotation.” <em>Speech Communication</em> 33 (1). Elsevier: 23–60.</p>
+<p>Bird, Steven, and Mark Liberman. 2001. “A Formal Framework for Linguistic Annotation.” <em>Speech Communication</em> 33 (1): 23–60.</p>
 </div>
 <div id="ref-boersma:2011a">
 <p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/">http://www.fon.hum.uva.nl/praat/</a>.</p>
 </div>
 <div id="ref-cassidy:sc2001a">
-<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1). Elsevier: 61–77.</p>
+<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1): 61–77.</p>
 </div>
 <div id="ref-coleman:lp1991a">
-<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3). Springer: 295–338.</p>
+<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3): 295–338.</p>
 </div>
 <div id="ref-harrington:2010a">
 <p>Harrington, Jonathan. 2010. <em>Phonetic Analysis of Speech Corpora</em>. John Wiley &amp; Sons.</p>
 </div>
 <div id="ref-harrington:csl1993a">
-<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4). Elsevier: 305–31.</p>
+<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4): 305–31.</p>
 </div>
 <div id="ref-ide:nle2004a">
-<p>Ide, Nancy, and Laurent Romary. 2004. “International Standard for a Linguistic Annotation Framework.” <em>Natural Language Engineering</em> 10 (3-4). Cambridge Univ Press: 211–25.</p>
+<p>Ide, Nancy, and Laurent Romary. 2004. “International Standard for a Linguistic Annotation Framework.” <em>Natural Language Engineering</em> 10 (3-4): 211–25.</p>
 </div>
 <div id="ref-ISOLAF">
 <p>ISO. 2012. “Language Resource Management — Linguistic Annotation Framework (Laf).” ISO 24612:2012. Geneva, Switzerland: International Organization for Standardization.</p>

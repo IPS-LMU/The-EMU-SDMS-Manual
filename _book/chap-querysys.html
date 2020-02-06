@@ -68,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -390,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="chap:querysys" class="section level1">
 <h1><span class="header-section-number">6</span> The query system</h1>
 <p><img src="pics/EMU-webAppEmu_query.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>This chapter describes the newly implemented query system of the <code>emuR</code> package. When developing the new <code>emuR</code> package it was essential that it had a query mechanism allowing users to query a database’s annotations in a simple manner. The EMU query language (EQL) of the EMU-SDMS arose out of years of developing and improving upon the query language of the legacy system (e.g., <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a">2001</a>)</span>, <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span>, <span class="citation">John (<a href="#ref-john:2012a">2012</a>)</span>). As a result, today we have an expressive, powerful, yet simple to learn and domain-specific query language. The EQL defines a user interface by allowing the user to formulate a formal language expression in the form of a query string. The evaluation of a query string results in a set of annotation items or, alternatively, a sequence of items of a single annotation level in the <code>emuDB</code> from which time information, if applicable (see Section <a href="chap-querysys.html#subsec:query-deducingTime">6.2.6</a>), has been deduced from the time-bearing sub-level. An example of this is a simple query that extracts all strong syllables (i.e., syllable annotation items containing the label <em>S</em> on the <em>Syllable</em> level) from a set of hierarchical annotations (see Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a> for an example of a hierarchical annotation). The respective EQL query string <code>&quot;Syllable == S&quot;</code> results in a set of segments containing the annotation label <em>S</em>. Due to the temporal inclusion constraint of the domination relationship, the start and end times of the queried segments are derived from the respective items of the <em>Phonetic</em> level (i.e., the <em>m</em> and <em>H</em> nodes in Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a>, as this is the time-bearing sub-level. The EQL described here allows users to query the complex hierarchical annotation structures in their entirety as they are described in Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a>.</p>
+<p>This chapter describes the newly implemented query system of the <code>emuR</code> package. When developing the new <code>emuR</code> package it was essential that it had a query mechanism allowing users to query a database’s annotations in a simple manner. The EMU query language (EQL) of the EMU-SDMS arose out of years of developing and improving upon the query language of the legacy system (e.g., <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a">2001</a>)</span>, <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span>, <span class="citation">John (<a href="#ref-john:2012a">2012</a>)</span>). As a result, today we have an expressive, powerful, yet simple to learn and domain-specific query language. The EQL defines a user interface by allowing the user to formulate a formal language expression in the form of a query string. The evaluation of a query string results in a set of annotation items or, alternatively, a sequence of items of a single annotation level in the <code>emuDB</code> from which time information, if applicable (see Section <a href="chap-querysys.html#subsec:query-deducingTime">6.2.6</a>), has been deduced from the time-bearing sub-level. An example of this is a simple query that extracts all strong syllables (i.e., syllable annotation items containing the label <em>S</em> on the <em>Syllable</em> level) from a set of hierarchical annotations (see Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a> for an example of a hierarchical annotation). The respective EQL query string <code>"Syllable == S"</code> results in a set of segments containing the annotation label <em>S</em>. Due to the temporal inclusion constraint of the domination relationship, the start and end times of the queried segments are derived from the respective items of the <em>Phonetic</em> level (i.e., the <em>m</em> and <em>H</em> nodes in Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a>, as this is the time-bearing sub-level. The EQL described here allows users to query the complex hierarchical annotation structures in their entirety as they are described in Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:amongstHier"></span>
 <img src="pics/amongstHier.png" alt="Simple partial hierarchy of an annotation of the word *amongst* in the *msajc003* bundle in the *ae* demo `emuDB`." width="75%" />
 <p class="caption">
@@ -398,30 +398,30 @@ Figure 6.1: Simple partial hierarchy of an annotation of the word <em>amongst</e
 </p>
 </div>
 <p>The R code snippet below shows how to create the demo data that is provided by the <code>emuR</code> package followed by loading an example <code>emuDB</code> called <em>ae</em> into the current R session. This database will be used in all the examples throughout this chapter.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="co"># load package</span></a>
-<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">library</span>(emuR)</a>
-<a class="sourceLine" id="cb98-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb98-4" data-line-number="4"><span class="co"># create demo data in directory</span></a>
-<a class="sourceLine" id="cb98-5" data-line-number="5"><span class="co"># provided by tempdir()</span></a>
-<a class="sourceLine" id="cb98-6" data-line-number="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
-<a class="sourceLine" id="cb98-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb98-8" data-line-number="8"><span class="co"># create path to demo database</span></a>
-<a class="sourceLine" id="cb98-9" data-line-number="9">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
-<a class="sourceLine" id="cb98-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb98-11" data-line-number="11"><span class="co"># load database</span></a>
-<a class="sourceLine" id="cb98-12" data-line-number="12"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
-<a class="sourceLine" id="cb98-13" data-line-number="13">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" title="1"><span class="co"># load package</span></a>
+<a class="sourceLine" id="cb98-2" title="2"><span class="kw">library</span>(emuR)</a>
+<a class="sourceLine" id="cb98-3" title="3"></a>
+<a class="sourceLine" id="cb98-4" title="4"><span class="co"># create demo data in directory</span></a>
+<a class="sourceLine" id="cb98-5" title="5"><span class="co"># provided by tempdir()</span></a>
+<a class="sourceLine" id="cb98-6" title="6"><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</a>
+<a class="sourceLine" id="cb98-7" title="7"></a>
+<a class="sourceLine" id="cb98-8" title="8"><span class="co"># create path to demo database</span></a>
+<a class="sourceLine" id="cb98-9" title="9">path2ae =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="st">&quot;emuR_demoData&quot;</span>, <span class="st">&quot;ae_emuDB&quot;</span>)</a>
+<a class="sourceLine" id="cb98-10" title="10"></a>
+<a class="sourceLine" id="cb98-11" title="11"><span class="co"># load database</span></a>
+<a class="sourceLine" id="cb98-12" title="12"><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></a>
+<a class="sourceLine" id="cb98-13" title="13">ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</a></code></pre></div>
 <div id="sec:query-emuRsegs" class="section level2">
 <h2><span class="header-section-number">6.1</span> The resulting object of a query</h2>
-<p>In <code>emuR</code> the result of a query or requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) is an object of the popular type <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> (see also <a href="https://tidyverse.org/" class="uri">https://tidyverse.org/</a>) which is a superclass of the common <code>data.frame</code>. R code snippet below shows the result of a slightly expanded version of the above query (<code>&quot;Syllable == S&quot;</code>), which additionally uses the dominates operator (i.e., the <code>^</code> operator; for further information see Section <a href="#subsubsec:query-dominationQueries"><strong>??</strong></a>) to reduce the queried annotations to the partial hierarchy depicted in Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a> in the <em>ae</em> demo <code>emuDB</code>. In this example, the classes of the resulting object including its printed output are displayed. The printed output provides information about the labels, start and end times (in milliseconds), session, bundle, level and attribute among other information which is predominantly used to store information about what the exact items or sequence of items were retrieved from the <code>emuDB</code>. This information is needed to know which items to start from in a requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) and is also the reason why the resulting object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an <code>emuDB</code>.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="co"># query database</span></a>
-<a class="sourceLine" id="cb99-2" data-line-number="2">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S ^ Text == amongst]&quot;</span>)</a>
-<a class="sourceLine" id="cb99-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb99-4" data-line-number="4"><span class="co"># show class vector</span></a>
-<a class="sourceLine" id="cb99-5" data-line-number="5"><span class="kw">class</span>(sl)</a></code></pre></div>
+<p>In <code>emuR</code> the result of a query or requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) is an object of the popular type <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> (see also <a href="https://tidyverse.org/" class="uri">https://tidyverse.org/</a>) which is a superclass of the common <code>data.frame</code>. R code snippet below shows the result of a slightly expanded version of the above query (<code>"Syllable == S"</code>), which additionally uses the dominates operator (i.e., the <code>^</code> operator; for further information see Section <a href="#subsubsec:query-dominationQueries"><strong>??</strong></a>) to reduce the queried annotations to the partial hierarchy depicted in Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a> in the <em>ae</em> demo <code>emuDB</code>. In this example, the classes of the resulting object including its printed output are displayed. The printed output provides information about the labels, start and end times (in milliseconds), session, bundle, level and attribute among other information which is predominantly used to store information about what the exact items or sequence of items were retrieved from the <code>emuDB</code>. This information is needed to know which items to start from in a requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) and is also the reason why the resulting object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an <code>emuDB</code>.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" title="1"><span class="co"># query database</span></a>
+<a class="sourceLine" id="cb99-2" title="2">sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S ^ Text == amongst]&quot;</span>)</a>
+<a class="sourceLine" id="cb99-3" title="3"></a>
+<a class="sourceLine" id="cb99-4" title="4"><span class="co"># show class vector</span></a>
+<a class="sourceLine" id="cb99-5" title="5"><span class="kw">class</span>(sl)</a></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="co"># show sl object</span></a>
-<a class="sourceLine" id="cb101-2" data-line-number="2">sl</a></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" title="1"><span class="co"># show sl object</span></a>
+<a class="sourceLine" id="cb101-2" title="2">sl</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -436,9 +436,9 @@ Figure 6.1: Simple partial hierarchy of an annotation of the word <em>amongst</e
 <div id="simple-queries" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Simple queries</h3>
 <p>The most basic form of an EQL query is a simple equality, inequality, matching or non-matching query, two of which are displayed in R code snippet below. The syntax of a simple query term is <code>[L OPERATOR A]</code>, where <code>L</code> specifies a level (or alternatively the name of a parallel attribute definition); <code>OPERATOR</code> is one of <code>==</code> (equality), <code>!=</code> (inequality), <code>=~</code> (matching) or <code>!~</code> (non-matching); and <code>A</code> is an expression specifying the labels of the annotation items of <code>L</code>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> The second query in the R code snippet below queries an event level. The result of querying an event level contains the same information as that of a segment level query except that the derived end times have the value zero.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co"># query all annotation items containing</span></a>
-<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="co"># the label &quot;m&quot; on the &quot;Phonetic&quot; level</span></a>
-<a class="sourceLine" id="cb103-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == m&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" title="1"><span class="co"># query all annotation items containing</span></a>
+<a class="sourceLine" id="cb103-2" title="2"><span class="co"># the label &quot;m&quot; on the &quot;Phonetic&quot; level</span></a>
+<a class="sourceLine" id="cb103-3" title="3"><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == m&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -452,9 +452,9 @@ Figure 6.1: Simple partial hierarchy of an annotation of the word <em>amongst</e
 ## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
 ## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;,
 ## #   sample_rate &lt;int&gt;</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># query all items NOT containing the</span></a>
-<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="co"># label &quot;H*&quot; on the &quot;Tone&quot; level</span></a>
-<a class="sourceLine" id="cb105-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;Tone != H*&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" title="1"><span class="co"># query all items NOT containing the</span></a>
+<a class="sourceLine" id="cb105-2" title="2"><span class="co"># label &quot;H*&quot; on the &quot;Tone&quot; level</span></a>
+<a class="sourceLine" id="cb105-3" title="3"><span class="kw">query</span>(ae, <span class="st">&quot;Tone != H*&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 34 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -472,9 +472,9 @@ Figure 6.1: Simple partial hierarchy of an annotation of the word <em>amongst</e
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;</code></pre>
 <p>The R code snippet above queries two levels that contain time information: a segment level and an event level. As described in Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a>, annotations in the EMU-SDMS may also contain levels that do not contain time information. The R code snippet below shows a query that queries annotation items on a level that does not contain time information (the <em>Syllable</em> level) to show that the result contains deduced time information from the time-bearing sub-level.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="co"># query all annotation items containing</span></a>
-<a class="sourceLine" id="cb107-2" data-line-number="2"><span class="co"># the label S on the Syllable level</span></a>
-<a class="sourceLine" id="cb107-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;Syllable == S&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" title="1"><span class="co"># query all annotation items containing</span></a>
+<a class="sourceLine" id="cb107-2" title="2"><span class="co"># the label S on the Syllable level</span></a>
+<a class="sourceLine" id="cb107-3" title="3"><span class="kw">query</span>(ae, <span class="st">&quot;Syllable == S&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 37 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -551,10 +551,10 @@ All syllables that dominate an n segment of the Phonetic level
 <div id="sequence-queries" class="section level4">
 <h4><span class="header-section-number">6.2.2.1</span> Sequence queries</h4>
 <p>The syntax of a query string using the <code>-&gt;</code> sequence operator is <code>[L == A -&gt; L == B]</code> where annotation item <code>A</code> on level <code>L</code> precedes item <code>B</code> on level <code>L</code>. For a sequence query to work, both arguments must be on the same level. Alternatively parallel attribute definitions of the same level may also be chosen (see Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a> for further details). An example of a query string using the sequence operator is displayed in the R code snippet below. All rows in the resulting segment list have the start time of <em>@</em>, the end time of <em>n</em> and their labels are <em>@-&gt;n</em>, where the <em>-&gt;</em> substring denotes the sequence.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1"><span class="co"># query all sequences of items on the &quot;Phonetic&quot; level</span></a>
-<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="co"># in which an item containing the label &quot;@&quot; is followed by</span></a>
-<a class="sourceLine" id="cb109-3" data-line-number="3"><span class="co"># an item containing the label &quot;n&quot;</span></a>
-<a class="sourceLine" id="cb109-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" title="1"><span class="co"># query all sequences of items on the &quot;Phonetic&quot; level</span></a>
+<a class="sourceLine" id="cb109-2" title="2"><span class="co"># in which an item containing the label &quot;@&quot; is followed by</span></a>
+<a class="sourceLine" id="cb109-3" title="3"><span class="co"># an item containing the label &quot;n&quot;</span></a>
+<a class="sourceLine" id="cb109-4" title="4"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -571,8 +571,8 @@ All syllables that dominate an n segment of the Phonetic level
 <div id="result-modifier" class="section level4">
 <h4><span class="header-section-number">6.2.2.2</span> Result modifier</h4>
 <p>Because users are often interested in just one element of a compound query such as sequence queries (e.g., the <em>@</em>s in a <em>@-&gt;n</em> sequences), the EQL offers a so-called result modifier symbol, <code>#</code>. This symbol may be placed in front of any simple query component of a multi component query as depicted in the R code snippet below. Placing the hashtag in front of either the left or the right simple query term will result in segment lists that contain only the annotation items of the simple query term that have the hashtag in front of it. Only one result modifier may be used per query.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="co"># query the &quot;@&quot;s in &quot;@-&gt;n&quot; sequences</span></a>
-<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="kw">query</span>(ae, <span class="st">&quot;[#Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1"><span class="co"># query the &quot;@&quot;s in &quot;@-&gt;n&quot; sequences</span></a>
+<a class="sourceLine" id="cb111-2" title="2"><span class="kw">query</span>(ae, <span class="st">&quot;[#Phonetic == @ -&gt; Phonetic == n]&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -585,8 +585,8 @@ All syllables that dominate an n segment of the Phonetic level
 ## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
 ## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;,
 ## #   sample_rate &lt;int&gt;</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="co"># query the &quot;n&quot;s in a &quot;@-&gt;n&quot; sequences</span></a>
-<a class="sourceLine" id="cb113-2" data-line-number="2"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; #Phonetic == n]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1"><span class="co"># query the &quot;n&quot;s in a &quot;@-&gt;n&quot; sequences</span></a>
+<a class="sourceLine" id="cb113-2" title="2"><span class="kw">query</span>(ae, <span class="st">&quot;[Phonetic == @ -&gt; #Phonetic == n]&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -608,9 +608,9 @@ All syllables that dominate an n segment of the Phonetic level
 <li>It combines a simple query with a function query (see Position Queries Section <a href="chap-querysys.html#subsec:query-positionQueries">6.2.3</a>): <em>[Phonetic == l &amp; Start(Word, Phonetic) == 1]</em>.</li>
 </ul>
 <p>An example of a query string using the conjunction operator is displayed in the R code snippet below.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="co"># query all words with the orthographic transcription &quot;always&quot;</span></a>
-<a class="sourceLine" id="cb115-2" data-line-number="2"><span class="co"># that also have a strong word accent (&quot;S&quot;)</span></a>
-<a class="sourceLine" id="cb115-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Text == always &amp; Accent == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1"><span class="co"># query all words with the orthographic transcription &quot;always&quot;</span></a>
+<a class="sourceLine" id="cb115-2" title="2"><span class="co"># that also have a strong word accent (&quot;S&quot;)</span></a>
+<a class="sourceLine" id="cb115-3" title="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Text == always &amp; Accent == S]&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -630,9 +630,9 @@ Figure 6.2: Partial hierarchy depicting all annotation items that are dominated 
 </p>
 </div>
 <p>A schematic representation of a simple domination query string that retrieves all annotation items <em>A</em> of level <code>L1</code> that are dominated by items <code>B</code> in level <code>L2</code> (i.e., items that are directly or indirectly linked) is <code>[L1 == A ^  L2 == B]</code>. Although the domination relationship is directed the domination operator is not. This means that either items in <code>L1</code> dominate items in <code>L2</code> or items in <code>L2</code> dominate items in <code>L1</code>. Note that link definitions that specify the validity of the domination have to be present in the <code>emuDB</code> configuration for this to work (see Chapter <a href="chap-emuDB.html#chap:emuDB">5</a> for details). An example of a query string using the domination operator is displayed in the R code snippet below.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="co"># query all &quot;p&quot; phoneme items that belong</span></a>
-<a class="sourceLine" id="cb117-2" data-line-number="2"><span class="co"># to / are dominated by a strong syllable (&quot;S&quot;)</span></a>
-<a class="sourceLine" id="cb117-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Syllable == S]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1"><span class="co"># query all &quot;p&quot; phoneme items that belong</span></a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="co"># to / are dominated by a strong syllable (&quot;S&quot;)</span></a>
+<a class="sourceLine" id="cb117-3" title="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Phoneme == p ^ Syllable == S]&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -642,7 +642,7 @@ Figure 6.2: Partial hierarchy depicting all annotation items that are dominated 
 ## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
 ## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;,
 ## #   sample_rate &lt;int&gt;</code></pre>
-<p>As with the conjunction query, if no result modifier is present, a dominates query returns the annotation items of the left simple query term. Hence, the more explicit variant of the above query is <code>&quot;[#Phoneme == p ^ Syllable == S]&quot;</code>.</p>
+<p>As with the conjunction query, if no result modifier is present, a dominates query returns the annotation items of the left simple query term. Hence, the more explicit variant of the above query is <code>"[#Phoneme == p ^ Syllable == S]"</code>.</p>
 </div>
 </div>
 <div id="subsec:query-positionQueries" class="section level3">
@@ -654,9 +654,9 @@ Figure 6.2: Partial hierarchy depicting all annotation items that are dominated 
 Figure 6.3: Illustration of what is returned by the <code>Start()</code>, <code>Medial()</code> and <code>End()</code> functions depending if they are set to <strong>A:</strong> <code>TRUE</code> (green) or <strong>B:</strong> <code>FALSE</code> (orange).
 </p>
 </div>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="co"># query all phoneme items that occur</span></a>
-<a class="sourceLine" id="cb119-2" data-line-number="2"><span class="co"># at the start of a syllable</span></a>
-<a class="sourceLine" id="cb119-3" data-line-number="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Syllable, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1"><span class="co"># query all phoneme items that occur</span></a>
+<a class="sourceLine" id="cb119-2" title="2"><span class="co"># at the start of a syllable</span></a>
+<a class="sourceLine" id="cb119-3" title="3"><span class="kw">query</span>(ae, <span class="st">&quot;[Start(Syllable, Phoneme) == TRUE]&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 83 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -684,8 +684,8 @@ Figure 6.4: Partial hierarchy depicting a <em>Syllable</em> containing one <em>P
 </p>
 </div>
 <p>A schematic representation of a query string utilizing the count mechanism would be <code>[Num(L1, L2) == N]</code>, where <code>L1</code> contains <code>N</code> annotation items in <code>L2</code>. For this type of query to work <code>L1</code> has to dominate <code>L2</code> (i.e., be a parent level to <code>L2</code>). As the query matches a number (<code>N</code>), it is also possible to use the operators <code>&gt;</code> (more than), <code>&lt;</code> (less than) and <code>!=</code> (not equal to). The resulting segment list contains items of <code>L1</code>.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1"><span class="co"># retrieve all syllables that contain five phonemes</span></a>
-<a class="sourceLine" id="cb121-2" data-line-number="2"><span class="kw">query</span>(ae, <span class="st">&quot;[Num(Syllable, Phoneme) == 5]&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="co"># retrieve all syllables that contain five phonemes</span></a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="kw">query</span>(ae, <span class="st">&quot;[Num(Syllable, Phoneme) == 5]&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -708,12 +708,12 @@ Figure 6.4: Partial hierarchy depicting a <em>Syllable</em> containing one <em>P
 <li>All three can be combined by saying 2 dominates 3 (<code>[2 ^ 3]</code>) and these are followed by 1 (<code>[2 ^ 3] -&gt; 1]</code>)</li>
 </ol>
 <p>The combine query is depicted in the R code snippet below. This complex query demonstrates the expressive power of the query mechanism that the EMU-SDMS provides.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="co"># perform complex query</span></a>
-<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="co"># Note that the use of paste0() is optional, as</span></a>
-<a class="sourceLine" id="cb123-3" data-line-number="3"><span class="co"># it is only used for formatting purposes</span></a>
-<a class="sourceLine" id="cb123-4" data-line-number="4"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Num(Text, Syllable) == 3] &quot;</span>,</a>
-<a class="sourceLine" id="cb123-5" data-line-number="5">                 <span class="st">&quot;^ [Phoneme == @ ^ Start(Word, Syllable) == 1]] &quot;</span>,</a>
-<a class="sourceLine" id="cb123-6" data-line-number="6">                 <span class="st">&quot;-&gt; #Text = his]&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="co"># perform complex query</span></a>
+<a class="sourceLine" id="cb123-2" title="2"><span class="co"># Note that the use of paste0() is optional, as</span></a>
+<a class="sourceLine" id="cb123-3" title="3"><span class="co"># it is only used for formatting purposes</span></a>
+<a class="sourceLine" id="cb123-4" title="4"><span class="kw">query</span>(ae, <span class="kw">paste0</span>(<span class="st">&quot;[[[Num(Text, Syllable) == 3] &quot;</span>,</a>
+<a class="sourceLine" id="cb123-5" title="5">                 <span class="st">&quot;^ [Phoneme == @ ^ Start(Word, Syllable) == 1]] &quot;</span>,</a>
+<a class="sourceLine" id="cb123-6" title="6">                 <span class="st">&quot;-&gt; #Text = his]&quot;</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -726,8 +726,8 @@ Figure 6.4: Partial hierarchy depicting a <em>Syllable</em> containing one <em>P
 <div id="subsec:query-deducingTime" class="section level3">
 <h3><span class="header-section-number">6.2.6</span> Deducing time</h3>
 <p>The default behavior of the legacy EMU system was to automatically deduce time information for queries of levels that do not contain time information. This was achieved by searching for the time-bearing sub-level and calculating the start and end times from the left-most and right-most annotation items which where directly or indirectly linked to the retrieved parent item. This upward purculation of time information is also the default behavior of the new EMU-SDMS. However, a new feature has been added to the query engine which allows the calculation of time to be switched off for a given query using the <code>calcTimes</code> parameter of the <code>query()</code> function. This is beneficial in two ways: for one, levels that do not have a time-bearing sub-level may be queried and secondly, the execution time of queries can be greatly improved. The performance increase becomes evident when performing queries on large data sets on one of the top levels of the hierarchy (e.g., <em>Utterance</em> or <em>Intonational</em> in the <em>ae</em> <code>emuDB</code>). When deducing time information for annotation items that contain large portions of the hierarchy, the query engine has to walk down large partial hierarchies to find the left-most and right-most items on the time-bearing sub-level. This can be a computationally expensive operation and is often unnecessary, especially during data exploration. The R code snippet below shows the usage of this parameter by querying all of the items of the <em>Intonational</em> level and displaying the <code>NA</code> values for start and end times in the resulting segment list. It is worth noting that the missing time information excluded during the original query can be retrieved at a later point in time by performing a hierarchical requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) on the same level.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="co"># query all intonational items</span></a>
-<a class="sourceLine" id="cb125-2" data-line-number="2"><span class="kw">query</span>(ae, <span class="st">&quot;Intonational =~ .*&quot;</span>, <span class="dt">calcTimes =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="co"># query all intonational items</span></a>
+<a class="sourceLine" id="cb125-2" title="2"><span class="kw">query</span>(ae, <span class="st">&quot;Intonational =~ .*&quot;</span>, <span class="dt">calcTimes =</span> F)</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -752,18 +752,18 @@ Figure 6.5: Three-step (query (green) -&gt; requery_hier (orange) -&gt; requery_
 </p>
 </div>
 <p>The R code snippet below illustrates how the same results of the sequential query <code>[#Phonetic =~ .* -&gt; Phonetic == n]</code> can be achieved using the <code>requery_seq()</code> function. Further, it shows how the <code>requery_hier()</code> function can be used to move vertically through the annotation structure by starting at the <em>Syllable</em> level and retrieving all the <em>Phonetic</em> items for the query result.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="co">########################</span></a>
-<a class="sourceLine" id="cb127-2" data-line-number="2"><span class="co"># requery_seq()</span></a>
-<a class="sourceLine" id="cb127-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb127-4" data-line-number="4"><span class="co"># query all &quot;n&quot; phonetic items</span></a>
-<a class="sourceLine" id="cb127-5" data-line-number="5">sl_n =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)</a>
-<a class="sourceLine" id="cb127-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb127-7" data-line-number="7"><span class="co"># sequential requery (left shift result by 1 (== offset of -1))</span></a>
-<a class="sourceLine" id="cb127-8" data-line-number="8"><span class="co"># and hence retrieve all phonetic items directly preceeding</span></a>
-<a class="sourceLine" id="cb127-9" data-line-number="9"><span class="co"># all &quot;n&quot; phonetic items</span></a>
-<a class="sourceLine" id="cb127-10" data-line-number="10"><span class="kw">requery_seq</span>(ae, </a>
-<a class="sourceLine" id="cb127-11" data-line-number="11">            <span class="dt">seglist =</span> sl_n, </a>
-<a class="sourceLine" id="cb127-12" data-line-number="12">            <span class="dt">offset =</span> <span class="dv">-1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="co">########################</span></a>
+<a class="sourceLine" id="cb127-2" title="2"><span class="co"># requery_seq()</span></a>
+<a class="sourceLine" id="cb127-3" title="3"></a>
+<a class="sourceLine" id="cb127-4" title="4"><span class="co"># query all &quot;n&quot; phonetic items</span></a>
+<a class="sourceLine" id="cb127-5" title="5">sl_n =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == n&quot;</span>)</a>
+<a class="sourceLine" id="cb127-6" title="6"></a>
+<a class="sourceLine" id="cb127-7" title="7"><span class="co"># sequential requery (left shift result by 1 (== offset of -1))</span></a>
+<a class="sourceLine" id="cb127-8" title="8"><span class="co"># and hence retrieve all phonetic items directly preceeding</span></a>
+<a class="sourceLine" id="cb127-9" title="9"><span class="co"># all &quot;n&quot; phonetic items</span></a>
+<a class="sourceLine" id="cb127-10" title="10"><span class="kw">requery_seq</span>(ae, </a>
+<a class="sourceLine" id="cb127-11" title="11">            <span class="dt">seglist =</span> sl_n, </a>
+<a class="sourceLine" id="cb127-12" title="12">            <span class="dt">offset =</span> <span class="dv">-1</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -782,16 +782,16 @@ Figure 6.5: Three-step (query (green) -&gt; requery_hier (orange) -&gt; requery_
 ## # … with 7 more variables: attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;,
 ## #   end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;,
 ## #   sample_rate &lt;int&gt;</code></pre>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" data-line-number="1"><span class="co">########################</span></a>
-<a class="sourceLine" id="cb129-2" data-line-number="2"><span class="co"># requery_hier()</span></a>
-<a class="sourceLine" id="cb129-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb129-4" data-line-number="4"><span class="co"># query all strong syllables (S)</span></a>
-<a class="sourceLine" id="cb129-5" data-line-number="5">sl_s =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Syllable == S&quot;</span>)</a>
-<a class="sourceLine" id="cb129-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb129-7" data-line-number="7"><span class="co"># hierarchical requery</span></a>
-<a class="sourceLine" id="cb129-8" data-line-number="8"><span class="kw">requery_hier</span>(ae, </a>
-<a class="sourceLine" id="cb129-9" data-line-number="9">             <span class="dt">seglist =</span> sl_s,</a>
-<a class="sourceLine" id="cb129-10" data-line-number="10">             <span class="dt">level =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="co">########################</span></a>
+<a class="sourceLine" id="cb129-2" title="2"><span class="co"># requery_hier()</span></a>
+<a class="sourceLine" id="cb129-3" title="3"></a>
+<a class="sourceLine" id="cb129-4" title="4"><span class="co"># query all strong syllables (S)</span></a>
+<a class="sourceLine" id="cb129-5" title="5">sl_s =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Syllable == S&quot;</span>)</a>
+<a class="sourceLine" id="cb129-6" title="6"></a>
+<a class="sourceLine" id="cb129-7" title="7"><span class="co"># hierarchical requery</span></a>
+<a class="sourceLine" id="cb129-8" title="8"><span class="kw">requery_hier</span>(ae, </a>
+<a class="sourceLine" id="cb129-9" title="9">             <span class="dt">seglist =</span> sl_s,</a>
+<a class="sourceLine" id="cb129-10" title="10">             <span class="dt">level =</span> <span class="st">&quot;Phonetic&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 37 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt; &lt;chr&gt;
@@ -813,15 +813,15 @@ Figure 6.5: Three-step (query (green) -&gt; requery_hier (orange) -&gt; requery_
 <div id="discussion" class="section level2">
 <h2><span class="header-section-number">6.3</span> Discussion</h2>
 <p>This chapter gave an overview of the abilities of the query system of the EMU-SDMS. We feel the EQL is an expressive, powerful, yet simple to learn and domain-specific query language that allows users to adequately query complex annotation structures. Further, the query system provided by the EMU-SDMS surpasses the querying capabilities of most commonly used systems. As the result of a query is a superclass of the common <code>data.frame</code> object, these results can easily be further processed using various R functions (e.g., to remove unwanted segments). Further, the results of queries can be used as input to the <code>get_trackdata()</code> function (see Chapter <a href="chap-sigDataExtr.html#chap:sigDataExtr">7</a>) which makes the query system a vital part in the default workflow described in Chapter <a href="chap-overview.html#chap:overview">2</a>.</p>
-<p>Although the query mechanism of the EMU-SDMS covers most linguistic annotation query needs (including co-occurrence and domination relationship child position queries), it has limitations due to its domain-specific nature, its simplicity and its predefined result type. Performing more general queries such as: <em>What is the average age of the male speakers in the database who are taller than 1.8 meters?</em> is not directly possible using the EQL. Even if the gender, height and age parameters are available as part of the database’s annotations (e.g., using the single bundle root node metadata strategy described in Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a>) they would be encoded as strings, which do not permit direct calculations or numerical comparisons. However, it is possible to answer these types of questions using a multi-step approach. One could, for example, extract all height items and convert the strings into numbers to filter the items containing a label that is greater than 1.8. These filtered items could then be used to perform two requeries to extract all male speakers and their age labels. These age labels could once again be converted into numbers to calculate their average. Although not as elegant as other languages, we have found that most questions that arise as part of studies working with spoken language database can be answered using such a multi-step process including some data manipulation in R, provided the necessary information is encoded in the database. Additionally, from the viewpoint of a speech scientist, we feel that the intuitiveness of an EQL expression (e.g., a query to extract the sibilant items for the question asked in the introduction: <code>&quot;Phonetic == s|z|S|Z&quot;</code>) exceeds that of a comparable general purpose query language (e.g. a semantically similar SQL statement: <code>SELECT desired_columns FROM items AS i, labels AS l WHERE i.unique_bundle_item_id = l.uniq_bundle_item_id AND l.label = 's' OR l.label = 'z' OR l.label = 's' OR l.label = 'S' OR l.label = 'Z'</code>). This difference becomes even more apparent with more complex EQL statements, which can have very long, complicated and sometimes multi-expression SQL counterparts.</p>
-<p>A problem which the EMU-SDMS does not explicitly address is the problem of cross-corpus searches. Different <code>emuDB</code>s may have varying annotation structures with varying semantics regarding the names or labels given to objects or annotation items in the databases. This means that it is very likely that a complex query formulated for a certain <code>emuDB</code> will fail when used to query other databases. If, however, the user either finds a query that works on every <code>emuDB</code> or adapts the query to extract the items she/he is interested in, a cross-corpus comparison is simple. As the result of a query and the corresponding data extraction routines are the same, regardless of database they where extracted from, these results are easily comparable. However, it is worth noting that the EMU-SDMS is completely indifferent to the semantics of labels and level names, which means it is the user’s responsibility to check if a comparison between databases is justifiable (e.g., <em>are all segments containing the label “@” of the level “Phonetic”&quot; in all <code>emuDB</code>s annotating the same type of phoneme?</em>).</p>
+<p>Although the query mechanism of the EMU-SDMS covers most linguistic annotation query needs (including co-occurrence and domination relationship child position queries), it has limitations due to its domain-specific nature, its simplicity and its predefined result type. Performing more general queries such as: <em>What is the average age of the male speakers in the database who are taller than 1.8 meters?</em> is not directly possible using the EQL. Even if the gender, height and age parameters are available as part of the database’s annotations (e.g., using the single bundle root node metadata strategy described in Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a>) they would be encoded as strings, which do not permit direct calculations or numerical comparisons. However, it is possible to answer these types of questions using a multi-step approach. One could, for example, extract all height items and convert the strings into numbers to filter the items containing a label that is greater than 1.8. These filtered items could then be used to perform two requeries to extract all male speakers and their age labels. These age labels could once again be converted into numbers to calculate their average. Although not as elegant as other languages, we have found that most questions that arise as part of studies working with spoken language database can be answered using such a multi-step process including some data manipulation in R, provided the necessary information is encoded in the database. Additionally, from the viewpoint of a speech scientist, we feel that the intuitiveness of an EQL expression (e.g., a query to extract the sibilant items for the question asked in the introduction: <code>"Phonetic == s|z|S|Z"</code>) exceeds that of a comparable general purpose query language (e.g. a semantically similar SQL statement: <code>SELECT desired_columns FROM items AS i, labels AS l WHERE i.unique_bundle_item_id = l.uniq_bundle_item_id AND l.label = 's' OR l.label = 'z' OR l.label = 's' OR l.label = 'S' OR l.label = 'Z'</code>). This difference becomes even more apparent with more complex EQL statements, which can have very long, complicated and sometimes multi-expression SQL counterparts.</p>
+<p>A problem which the EMU-SDMS does not explicitly address is the problem of cross-corpus searches. Different <code>emuDB</code>s may have varying annotation structures with varying semantics regarding the names or labels given to objects or annotation items in the databases. This means that it is very likely that a complex query formulated for a certain <code>emuDB</code> will fail when used to query other databases. If, however, the user either finds a query that works on every <code>emuDB</code> or adapts the query to extract the items she/he is interested in, a cross-corpus comparison is simple. As the result of a query and the corresponding data extraction routines are the same, regardless of database they where extracted from, these results are easily comparable. However, it is worth noting that the EMU-SDMS is completely indifferent to the semantics of labels and level names, which means it is the user’s responsibility to check if a comparison between databases is justifiable (e.g., <em>are all segments containing the label “@” of the level “Phonetic”" in all <code>emuDB</code>s annotating the same type of phoneme?</em>).</p>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-cassidy:sc2001a">
-<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1). Elsevier: 61–77.</p>
+<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1): 61–77.</p>
 </div>
 <div id="ref-garshol:2003a">
 <p>Garshol, Lars Marius. 2003. “BNF and EBNF: What Are They and How Do They Work.” <em>Acedida Pela última Vez Em</em> 16.</p>
