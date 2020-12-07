@@ -12,7 +12,7 @@ The EMU-SDMS facilitates annotation structure modeling that surpasses that avail
 Linguists who deal with speech and language on a purely symbolic level tend to be more familiar with a different type of annotation structure modeling. They often model their structures in the form of a vertically oriented, directed acyclic graph that, but for a few exceptions that are needed for things like elision modeling (e.g., the /ɪ/ elision that may occur between the canonical representation of the word *family* /fæmɪli/ and its phonetic representation [fæmli]), loosely adheres to the formal definition of a tree in the graph-theoretical sense (@knuth:ar1968a) as depicted in Figure \@ref(fig:annot-structhybridAnnot)B. While this form of modeling explicitly defines relationships between annotation items (represented by dashed lines in Figure \@ref(fig:annot-structhybridAnnot)B), it lacks the ability to map these items to the timeline and therefore the matching speech signal.
 
 <div class="figure" style="text-align: center">
-<img src="annot_struct_files/figure-epub3/annot-structhybridAnnot-1.png" alt="**A:** a purely time-aligned annotation; **B:** a purely timeless, symbolic annotation; **C:** a time-aligned hierarchical annotation." width="100%" keepaspectratio />
+<img src="annot_struct_files/figure-html/annot-structhybridAnnot-1.png" alt="**A:** a purely time-aligned annotation; **B:** a purely timeless, symbolic annotation; **C:** a time-aligned hierarchical annotation." width="100%" keepaspectratio />
 <p class="caption">(\#fig:annot-structhybridAnnot)**A:** a purely time-aligned annotation; **B:** a purely timeless, symbolic annotation; **C:** a time-aligned hierarchical annotation.</p>
 </div>
 

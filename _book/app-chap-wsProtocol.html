@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>16 The EMU-webApp-websocket-protocol Version 2.025 | The EMU-SDMS Manual</title>
   <meta name="description" content="16 The EMU-webApp-websocket-protocol Version 2.025 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="16 The EMU-webApp-websocket-protocol Version 2.025 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -49,12 +49,15 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -63,14 +66,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -114,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -127,9 +131,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">The EMU-SDMS Manual</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
 <li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
@@ -152,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -367,9 +368,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -408,24 +406,24 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb285"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb285-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb285-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETPROTOCOL&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb285-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb285-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb296-1"><a href="app-chap-wsProtocol.html#cb296-1"></a><span class="op">{</span></span>
+<span id="cb296-2"><a href="app-chap-wsProtocol.html#cb296-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETPROTOCOL&#39;</span><span class="op">,</span></span>
+<span id="cb296-3"><a href="app-chap-wsProtocol.html#cb296-3"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb296-4"><a href="app-chap-wsProtocol.html#cb296-4"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb286"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb286-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb286-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb286-4" data-line-number="4">    <span class="st">&#39;protocol&#39;</span><span class="op">:</span> <span class="st">&#39;EMU-webApp-websocket-protocol&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb286-5" data-line-number="5">    <span class="st">&#39;version&#39;</span><span class="op">:</span> <span class="st">&#39;0.0.2&#39;</span></a>
-<a class="sourceLine" id="cb286-6" data-line-number="6">  <span class="op">},</span></a>
-<a class="sourceLine" id="cb286-7" data-line-number="7">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb286-8" data-line-number="8">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb286-9" data-line-number="9">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb286-10" data-line-number="10">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb286-11" data-line-number="11"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb297-1"><a href="app-chap-wsProtocol.html#cb297-1"></a><span class="op">{</span></span>
+<span id="cb297-2"><a href="app-chap-wsProtocol.html#cb297-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb297-3"><a href="app-chap-wsProtocol.html#cb297-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb297-4"><a href="app-chap-wsProtocol.html#cb297-4"></a>    <span class="st">&#39;protocol&#39;</span><span class="op">:</span> <span class="st">&#39;EMU-webApp-websocket-protocol&#39;</span><span class="op">,</span></span>
+<span id="cb297-5"><a href="app-chap-wsProtocol.html#cb297-5"></a>    <span class="st">&#39;version&#39;</span><span class="op">:</span> <span class="st">&#39;0.0.2&#39;</span></span>
+<span id="cb297-6"><a href="app-chap-wsProtocol.html#cb297-6"></a>  <span class="op">},</span></span>
+<span id="cb297-7"><a href="app-chap-wsProtocol.html#cb297-7"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb297-8"><a href="app-chap-wsProtocol.html#cb297-8"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb297-9"><a href="app-chap-wsProtocol.html#cb297-9"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb297-10"><a href="app-chap-wsProtocol.html#cb297-10"></a>  <span class="op">}</span></span>
+<span id="cb297-11"><a href="app-chap-wsProtocol.html#cb297-11"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="getdousermanagement" class="section level3">
 <h3><span class="header-section-number">16.2.2</span> <code>GETDOUSERMANAGEMENT</code></h3>
@@ -433,21 +431,21 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb287"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb287-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb287-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETDOUSERMANAGEMENT&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb287-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb287-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb298-1"><a href="app-chap-wsProtocol.html#cb298-1"></a><span class="op">{</span></span>
+<span id="cb298-2"><a href="app-chap-wsProtocol.html#cb298-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETDOUSERMANAGEMENT&#39;</span><span class="op">,</span></span>
+<span id="cb298-3"><a href="app-chap-wsProtocol.html#cb298-3"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb298-4"><a href="app-chap-wsProtocol.html#cb298-4"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb288"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb288-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb288-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb288-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;NO&#39;</span></a>
-<a class="sourceLine" id="cb288-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb288-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb288-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb288-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb288-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb299-1"><a href="app-chap-wsProtocol.html#cb299-1"></a><span class="op">{</span></span>
+<span id="cb299-2"><a href="app-chap-wsProtocol.html#cb299-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb299-3"><a href="app-chap-wsProtocol.html#cb299-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;NO&#39;</span></span>
+<span id="cb299-4"><a href="app-chap-wsProtocol.html#cb299-4"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb299-5"><a href="app-chap-wsProtocol.html#cb299-5"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb299-6"><a href="app-chap-wsProtocol.html#cb299-6"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb299-7"><a href="app-chap-wsProtocol.html#cb299-7"></a>  <span class="op">}</span></span>
+<span id="cb299-8"><a href="app-chap-wsProtocol.html#cb299-8"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="logonuser" class="section level3">
 <h3><span class="header-section-number">16.2.3</span> <code>LOGONUSER</code></h3>
@@ -455,25 +453,25 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb289"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb289-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb289-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;LOGONUSER&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb289-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb289-4" data-line-number="4">    <span class="st">&#39;userName&#39;</span><span class="op">:</span> <span class="st">&#39;smith&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb289-5" data-line-number="5">    <span class="st">&#39;pwd&#39;</span><span class="op">:</span><span class="st">&#39;mySecretPwd&#39;</span></a>
-<a class="sourceLine" id="cb289-6" data-line-number="6">  <span class="op">},</span></a>
-<a class="sourceLine" id="cb289-7" data-line-number="7">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb289-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb300-1"><a href="app-chap-wsProtocol.html#cb300-1"></a><span class="op">{</span></span>
+<span id="cb300-2"><a href="app-chap-wsProtocol.html#cb300-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;LOGONUSER&#39;</span><span class="op">,</span></span>
+<span id="cb300-3"><a href="app-chap-wsProtocol.html#cb300-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb300-4"><a href="app-chap-wsProtocol.html#cb300-4"></a>    <span class="st">&#39;userName&#39;</span><span class="op">:</span> <span class="st">&#39;smith&#39;</span><span class="op">,</span></span>
+<span id="cb300-5"><a href="app-chap-wsProtocol.html#cb300-5"></a>    <span class="st">&#39;pwd&#39;</span><span class="op">:</span><span class="st">&#39;mySecretPwd&#39;</span></span>
+<span id="cb300-6"><a href="app-chap-wsProtocol.html#cb300-6"></a>  <span class="op">},</span></span>
+<span id="cb300-7"><a href="app-chap-wsProtocol.html#cb300-7"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb300-8"><a href="app-chap-wsProtocol.html#cb300-8"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb290"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb290-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb290-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb290-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;BADUSERNAME&#39;</span> <span class="op">|</span> <span class="st">&#39;BADPASSWORD&#39;</span> <span class="op">|</span> <span class="st">&#39;LOGGEDON&#39;</span></a>
-<a class="sourceLine" id="cb290-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb290-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb290-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb290-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb290-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb301-1"><a href="app-chap-wsProtocol.html#cb301-1"></a><span class="op">{</span></span>
+<span id="cb301-2"><a href="app-chap-wsProtocol.html#cb301-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb301-3"><a href="app-chap-wsProtocol.html#cb301-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> <span class="st">&#39;BADUSERNAME&#39;</span> <span class="op">|</span> <span class="st">&#39;BADPASSWORD&#39;</span> <span class="op">|</span> <span class="st">&#39;LOGGEDON&#39;</span></span>
+<span id="cb301-4"><a href="app-chap-wsProtocol.html#cb301-4"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb301-5"><a href="app-chap-wsProtocol.html#cb301-5"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb301-6"><a href="app-chap-wsProtocol.html#cb301-6"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb301-7"><a href="app-chap-wsProtocol.html#cb301-7"></a>  <span class="op">}</span></span>
+<span id="cb301-8"><a href="app-chap-wsProtocol.html#cb301-8"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="getglobaldbconfig" class="section level3">
 <h3><span class="header-section-number">16.2.4</span> <code>GETGLOBALDBCONFIG</code></h3>
@@ -481,21 +479,21 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb291"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb291-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETGLOBALDBCONFIG&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb291-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb291-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb302-1"><a href="app-chap-wsProtocol.html#cb302-1"></a><span class="op">{</span></span>
+<span id="cb302-2"><a href="app-chap-wsProtocol.html#cb302-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETGLOBALDBCONFIG&#39;</span><span class="op">,</span></span>
+<span id="cb302-3"><a href="app-chap-wsProtocol.html#cb302-3"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb302-4"><a href="app-chap-wsProtocol.html#cb302-4"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb292"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb292-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb292-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb292-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> configData<span class="op">,</span></a>
-<a class="sourceLine" id="cb292-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb292-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb292-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb292-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb292-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb303-1"><a href="app-chap-wsProtocol.html#cb303-1"></a><span class="op">{</span></span>
+<span id="cb303-2"><a href="app-chap-wsProtocol.html#cb303-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb303-3"><a href="app-chap-wsProtocol.html#cb303-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> configData<span class="op">,</span></span>
+<span id="cb303-4"><a href="app-chap-wsProtocol.html#cb303-4"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb303-5"><a href="app-chap-wsProtocol.html#cb303-5"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb303-6"><a href="app-chap-wsProtocol.html#cb303-6"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb303-7"><a href="app-chap-wsProtocol.html#cb303-7"></a>  <span class="op">}</span></span>
+<span id="cb303-8"><a href="app-chap-wsProtocol.html#cb303-8"></a><span class="op">}</span></span></code></pre></div>
 <p>In the above Listing, <code>configData</code> represents the Javascript object that is the <code>_DBconfig.json</code> file of the respective database.</p>
 </div>
 <div id="getbundlelist" class="section level3">
@@ -504,21 +502,21 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb293"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb293-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb293-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLELIST&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb293-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb293-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb304-1"><a href="app-chap-wsProtocol.html#cb304-1"></a><span class="op">{</span></span>
+<span id="cb304-2"><a href="app-chap-wsProtocol.html#cb304-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLELIST&#39;</span><span class="op">,</span></span>
+<span id="cb304-3"><a href="app-chap-wsProtocol.html#cb304-3"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb304-4"><a href="app-chap-wsProtocol.html#cb304-4"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb294"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb294-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb294-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb294-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleList<span class="op">,</span></a>
-<a class="sourceLine" id="cb294-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb294-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb294-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb294-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb294-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb305-1"><a href="app-chap-wsProtocol.html#cb305-1"></a><span class="op">{</span></span>
+<span id="cb305-2"><a href="app-chap-wsProtocol.html#cb305-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb305-3"><a href="app-chap-wsProtocol.html#cb305-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleList<span class="op">,</span></span>
+<span id="cb305-4"><a href="app-chap-wsProtocol.html#cb305-4"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb305-5"><a href="app-chap-wsProtocol.html#cb305-5"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb305-6"><a href="app-chap-wsProtocol.html#cb305-6"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb305-7"><a href="app-chap-wsProtocol.html#cb305-7"></a>  <span class="op">}</span></span>
+<span id="cb305-8"><a href="app-chap-wsProtocol.html#cb305-8"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="getbundle" class="section level3">
 <h3><span class="header-section-number">16.2.6</span> <code>GETBUNDLE</code></h3>
@@ -526,23 +524,23 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb295"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb295-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb295-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLE&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb295-3" data-line-number="3">  <span class="st">&#39;name&#39;</span><span class="op">:</span> <span class="st">&#39;msajc003&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb295-4" data-line-number="4">  <span class="st">&#39;session&#39;</span><span class="op">:</span> <span class="st">&#39;0000&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb295-5" data-line-number="5">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb295-6" data-line-number="6"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb306-1"><a href="app-chap-wsProtocol.html#cb306-1"></a><span class="op">{</span></span>
+<span id="cb306-2"><a href="app-chap-wsProtocol.html#cb306-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;GETBUNDLE&#39;</span><span class="op">,</span></span>
+<span id="cb306-3"><a href="app-chap-wsProtocol.html#cb306-3"></a>  <span class="st">&#39;name&#39;</span><span class="op">:</span> <span class="st">&#39;msajc003&#39;</span><span class="op">,</span></span>
+<span id="cb306-4"><a href="app-chap-wsProtocol.html#cb306-4"></a>  <span class="st">&#39;session&#39;</span><span class="op">:</span> <span class="st">&#39;0000&#39;</span><span class="op">,</span></span>
+<span id="cb306-5"><a href="app-chap-wsProtocol.html#cb306-5"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb306-6"><a href="app-chap-wsProtocol.html#cb306-6"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb296"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb296-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb296-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></a>
-<a class="sourceLine" id="cb296-4" data-line-number="4">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb296-5" data-line-number="5">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb296-6" data-line-number="6">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb296-7" data-line-number="7">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb296-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb307-1"><a href="app-chap-wsProtocol.html#cb307-1"></a><span class="op">{</span></span>
+<span id="cb307-2"><a href="app-chap-wsProtocol.html#cb307-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb307-3"><a href="app-chap-wsProtocol.html#cb307-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></span>
+<span id="cb307-4"><a href="app-chap-wsProtocol.html#cb307-4"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb307-5"><a href="app-chap-wsProtocol.html#cb307-5"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb307-6"><a href="app-chap-wsProtocol.html#cb307-6"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb307-7"><a href="app-chap-wsProtocol.html#cb307-7"></a>  <span class="op">}</span></span>
+<span id="cb307-8"><a href="app-chap-wsProtocol.html#cb307-8"></a><span class="op">}</span></span></code></pre></div>
 <p>In the Listing above <code>bundleData</code> is the Javascript object containing all SSFF files (encoded as a base64 strings) and audio (encoded as a base64 string) and <code>_annot.json</code> that are associated with this bundle. An example of <code>_bndl.json</code> is given in Appendix <a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON">15.2.2</a>.</p>
 </div>
 <div id="savebundle" class="section level3">
@@ -551,22 +549,22 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb297"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb297-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb297-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SAVEBUNDLE&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb297-3" data-line-number="3">  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></a>
-<a class="sourceLine" id="cb297-4" data-line-number="4">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb297-5" data-line-number="5"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb308-1"><a href="app-chap-wsProtocol.html#cb308-1"></a><span class="op">{</span></span>
+<span id="cb308-2"><a href="app-chap-wsProtocol.html#cb308-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SAVEBUNDLE&#39;</span><span class="op">,</span></span>
+<span id="cb308-3"><a href="app-chap-wsProtocol.html#cb308-3"></a>  <span class="st">&#39;data&#39;</span><span class="op">:</span> bundleData<span class="op">,</span></span>
+<span id="cb308-4"><a href="app-chap-wsProtocol.html#cb308-4"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb308-5"><a href="app-chap-wsProtocol.html#cb308-5"></a><span class="op">}</span></span></code></pre></div>
 <p>In the Listing above <code>bundleData</code> is a Javascript object that corresponds to a <code>_bndl.json</code> file. As currently only annotations and formant tracks can be altered by the <code>EMU-webApp</code>, only the <code>_annot.json</code> and formant track SSFF file (if applicable) are sent to the server to be saved.</p>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb298-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb298-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb298-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb298-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb298-6" data-line-number="6">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb298-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb309-1"><a href="app-chap-wsProtocol.html#cb309-1"></a><span class="op">{</span></span>
+<span id="cb309-2"><a href="app-chap-wsProtocol.html#cb309-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb309-3"><a href="app-chap-wsProtocol.html#cb309-3"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb309-4"><a href="app-chap-wsProtocol.html#cb309-4"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb309-5"><a href="app-chap-wsProtocol.html#cb309-5"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb309-6"><a href="app-chap-wsProtocol.html#cb309-6"></a>  <span class="op">}</span></span>
+<span id="cb309-7"><a href="app-chap-wsProtocol.html#cb309-7"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="disconnectwarning" class="section level3">
 <h3><span class="header-section-number">16.2.8</span> <code>DISCONNECTWARNING</code></h3>
@@ -574,20 +572,20 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>Request (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb299"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb299-2" data-line-number="2">  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;DISCONNECTWARNING&#39;</span></a>
-<a class="sourceLine" id="cb299-3" data-line-number="3">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></a>
-<a class="sourceLine" id="cb299-4" data-line-number="4"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb310-1"><a href="app-chap-wsProtocol.html#cb310-1"></a><span class="op">{</span></span>
+<span id="cb310-2"><a href="app-chap-wsProtocol.html#cb310-2"></a>  <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;DISCONNECTWARNING&#39;</span></span>
+<span id="cb310-3"><a href="app-chap-wsProtocol.html#cb310-3"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="st">&#39;xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx&#39;</span></span>
+<span id="cb310-4"><a href="app-chap-wsProtocol.html#cb310-4"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li>Response (sent JSON file):</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb300-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb300-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb300-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb300-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb300-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb300-6" data-line-number="6">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb300-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb311-1"><a href="app-chap-wsProtocol.html#cb311-1"></a><span class="op">{</span></span>
+<span id="cb311-2"><a href="app-chap-wsProtocol.html#cb311-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb311-3"><a href="app-chap-wsProtocol.html#cb311-3"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb311-4"><a href="app-chap-wsProtocol.html#cb311-4"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;SUCCESS&#39;</span><span class="op">,</span></span>
+<span id="cb311-5"><a href="app-chap-wsProtocol.html#cb311-5"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb311-6"><a href="app-chap-wsProtocol.html#cb311-6"></a>  <span class="op">}</span></span>
+<span id="cb311-7"><a href="app-chap-wsProtocol.html#cb311-7"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <div id="error-handling" class="section level3">
 <h3><span class="header-section-number">16.2.9</span> Error handling</h3>
@@ -595,13 +593,13 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <ul>
 <li>ERROR response:</li>
 </ul>
-<div class="sourceCode" id="cb301"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="op">{</span></a>
-<a class="sourceLine" id="cb301-2" data-line-number="2">  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb301-3" data-line-number="3">  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb301-4" data-line-number="4">    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;ERROR&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb301-5" data-line-number="5">    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;An error occured trying to read a file from disk. Please make sure: /path/to/file exists or check the config...</span></a>
-<a class="sourceLine" id="cb301-6" data-line-number="6">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb301-7" data-line-number="7"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb312-1"><a href="app-chap-wsProtocol.html#cb312-1"></a><span class="op">{</span></span>
+<span id="cb312-2"><a href="app-chap-wsProtocol.html#cb312-2"></a>  <span class="st">&#39;callbackID&#39;</span><span class="op">:</span> <span class="va">request</span>.<span class="at">callbackID</span><span class="op">,</span></span>
+<span id="cb312-3"><a href="app-chap-wsProtocol.html#cb312-3"></a>  <span class="st">&#39;status&#39;</span><span class="op">:</span> <span class="op">{</span></span>
+<span id="cb312-4"><a href="app-chap-wsProtocol.html#cb312-4"></a>    <span class="st">&#39;type&#39;</span><span class="op">:</span> <span class="st">&#39;ERROR&#39;</span><span class="op">,</span></span>
+<span id="cb312-5"><a href="app-chap-wsProtocol.html#cb312-5"></a>    <span class="st">&#39;message&#39;</span><span class="op">:</span> <span class="st">&#39;An error occured trying to read a file from disk. Please make sure: /path/to/file exists or check the config...</span></span>
+<span id="cb312-6"><a href="app-chap-wsProtocol.html#cb312-6"></a>  <span class="op">}</span></span>
+<span id="cb312-7"><a href="app-chap-wsProtocol.html#cb312-7"></a><span class="op">}</span></span></code></pre></div>
 
 </div>
 </div>
@@ -609,7 +607,7 @@ Figure 16.1: Schematic of the <code>EMU-webApp-websocket-protocol</code>.
 <div class="footnotes">
 <hr />
 <ol start="25">
-<li id="fn25"><p>This appendix chapter is an updated version of a similar description that is part of the <code>EMU-webApp</code> manual.<a href="app-chap-wsProtocol.html#fnref25" class="footnote-back">↩</a></p></li>
+<li id="fn25"><p>This appendix chapter is an updated version of a similar description that is part of the <code>EMU-webApp</code> manual.<a href="app-chap-wsProtocol.html#fnref25" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -649,8 +647,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/app_chap-wsProtocol.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

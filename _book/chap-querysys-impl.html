@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>11 Implementation of the query system22 | The EMU-SDMS Manual</title>
   <meta name="description" content="11 Implementation of the query system22 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="11 Implementation of the query system22 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -49,12 +49,15 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -63,14 +66,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -114,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -127,9 +131,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">The EMU-SDMS Manual</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
 <li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
@@ -152,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -367,9 +368,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -389,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="chap:querysys-impl" class="section level1">
 <h1><span class="header-section-number">11</span> Implementation of the query system<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a></h1>
-<p>Compatibly with other query languages, the EQL defines the user a front-end interface and infers the query’s results from its semantics. However, a query language does not define any data structures or specify how the query engine is to be implemented. As mentioned in Chapter <a href="chap-overview.html#chap:overview">2</a>, a major user requirement was database portability, simple package installation, tolerable run times over complex queries, and a system that did not rely on external software at runtime. The only available back-end implementation that met those needs and was also available as an R package at the time was (R)SQLite (<span class="citation">Hipp and Kennedy (<a href="#ref-hipp:2007a">2007</a>)</span>, <span class="citation">Wickham, James, and Falcon (<a href="#ref-wickham:2014a">2014</a>)</span>). As (R)SQLite is a relational database management system, <code>emuR</code>’s query system could not be implemented so as to use directly the primary data sources of an <code>emuDB</code>, that is, the JSON files described in Chapter <a href="chap-emuDB.html#chap:emuDB">5</a>. A syncing mechanism that maps the primary data sources to a relational form for querying purposes had to be implemented. This relational form is referred to as the <code>emuDBcache</code> in the context of an <code>emuDB</code>. The data sources are synchronized while an <code>emuDB</code> is being loaded and when changes are made to the annotation files. To address load time issues, we implemented a file check-sum mechanism which only reloads and synchronizes annotation files that have a changed MD5-sum <span class="citation">(Rivest <a href="#ref-rivest:1992a">1992</a>)</span>. Figure <a href="chap-querysys-impl.html#fig:query-schematic-emuR-structure">11.1</a> is a schematic representation of how the various <code>emuDB</code> interaction functions interact with either the file representation or the relational cache.</p>
+<p>Compatibly with other query languages, the EQL defines the user a front-end interface and infers the query’s results from its semantics. However, a query language does not define any data structures or specify how the query engine is to be implemented. As mentioned in Chapter <a href="chap-overview.html#chap:overview">2</a>, a major user requirement was database portability, simple package installation, tolerable run times over complex queries, and a system that did not rely on external software at runtime. The only available back-end implementation that met those needs and was also available as an R package at the time was (R)SQLite (<span class="citation">Hipp and Kennedy (<a href="#ref-hipp:2007a" role="doc-biblioref">2007</a>)</span>, <span class="citation">Wickham, James, and Falcon (<a href="#ref-wickham:2014a" role="doc-biblioref">2014</a>)</span>). As (R)SQLite is a relational database management system, <code>emuR</code>’s query system could not be implemented so as to use directly the primary data sources of an <code>emuDB</code>, that is, the JSON files described in Chapter <a href="chap-emuDB.html#chap:emuDB">5</a>. A syncing mechanism that maps the primary data sources to a relational form for querying purposes had to be implemented. This relational form is referred to as the <code>emuDBcache</code> in the context of an <code>emuDB</code>. The data sources are synchronized while an <code>emuDB</code> is being loaded and when changes are made to the annotation files. To address load time issues, we implemented a file check-sum mechanism which only reloads and synchronizes annotation files that have a changed MD5-sum <span class="citation">(Rivest <a href="#ref-rivest:1992a" role="doc-biblioref">1992</a>)</span>. Figure <a href="chap-querysys-impl.html#fig:query-schematic-emuR-structure">11.1</a> is a schematic representation of how the various <code>emuDB</code> interaction functions interact with either the file representation or the relational cache.</p>
 <div class="figure" style="text-align: center"><span id="fig:query-schematic-emuR-structure"></span>
 <img src="pics/emuRstruct.png" alt="Schematic architecture of `emuDB` interaction functions of the `emuR` package. textcolor{three-color-c2}{Orange} paths show examples of functions interacting with the files of the `emuDB`, while  extcolor{three-color-c1}{green} paths show functions accessing the relational annotation structure. Actions like saving a changed annotation using the `EMU-webApp` first save the `_annot.json` to disk then update the relational annotation structure." width="75%" />
 <p class="caption">
@@ -530,6 +528,19 @@ msajc003.wav
 <li><code>items</code>: containing all annotation items of <code>emuDB</code> (columns: <code>db_uuid</code>, <code>session</code>, <code>bundle</code>, <code>item_id</code>, <code>level</code>, <code>type</code>, <code>seq_idx</code>, <code>sample_rate</code>, <code>sample_point</code>, <code>sample_start</code>, <code>sample_dur</code>),</li>
 </ol>
 <table>
+<colgroup>
+<col width="27%" />
+<col width="5%" />
+<col width="6%" />
+<col width="5%" />
+<col width="6%" />
+<col width="5%" />
+<col width="5%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="8%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">db_uuid</th>
@@ -646,7 +657,7 @@ msajc003.wav
 <p>While performing a query the engine uses an aggregate key to address every annotation item and its labels (<code>db_uuid</code>, <code>session</code>, <code>bundle</code>, <code>item_id</code>) and a similar aggregate key to dereference the links (<code>db_uuid</code>, <code>session</code>, <code>bundle</code>, <code>from_id</code> / <code>to_id</code>) which connect items. As the records in relational tables are not intrinsically ordered a further aggregate key is used to address the annotation item via its index and level (<code>uuid</code>, <code>session</code>, <code>bundle</code>, <code>level</code> / <code>seq_idx</code>). This is used, for example, during sequential queries to provide an ordering of the individual annotation items. It is worth noting that a plethora of other tables are created at query time to store various temporary results of a query. However, these tables are created as temporary tables during the query and are deleted on completion which means they are not permanently stored in the <code>emuDBcache</code>.</p>
 <div id="sec:query-queryExpressionParser" class="section level2">
 <h2><span class="header-section-number">11.1</span> Query expression parser</h2>
-<p>The query engine parses an EQL query expression while simultaneously executing partial query expressions. This ad-hoc string evaluation parsing strategy is different from multiple other query systems which incorporate a query planner stage to pre-parse and optimize the query execution stage (e.g., <span class="citation">Hipp and Kennedy (<a href="#ref-hipp:2007a">2007</a>)</span>, <span class="citation">Conway et al. (<a href="#ref-conway:2016a">2016</a>)</span>). Although no pre-optimization can be performed, this strategy simplifies the execution of a query as it follows a constant heuristic evaluation strategy. This section describes this heuristic evaluation and parsing strategy based on the EQL expression <code>[[Syllable == W -&gt; Syllable == W] ^ [Phoneme == @ -&gt; #Phoneme == s]]</code>.</p>
+<p>The query engine parses an EQL query expression while simultaneously executing partial query expressions. This ad-hoc string evaluation parsing strategy is different from multiple other query systems which incorporate a query planner stage to pre-parse and optimize the query execution stage (e.g., <span class="citation">Hipp and Kennedy (<a href="#ref-hipp:2007a" role="doc-biblioref">2007</a>)</span>, <span class="citation">Conway et al. (<a href="#ref-conway:2016a" role="doc-biblioref">2016</a>)</span>). Although no pre-optimization can be performed, this strategy simplifies the execution of a query as it follows a constant heuristic evaluation strategy. This section describes this heuristic evaluation and parsing strategy based on the EQL expression <code>[[Syllable == W -&gt; Syllable == W] ^ [Phoneme == @ -&gt; #Phoneme == s]]</code>.</p>
 <p>The main strategy of the query expression parser is to recursively parse and split an EQL expression into left and right sub-expressions until a so-called Simple Query (SQ term is found and can be executed (see EBNF in Appendix <a href="app-chap-EQL-EBNF.html#app-chap:EQL-EBNF">17</a> for more information on the elements comprising the EQL). This is done by determining the operator which is the first to be evaluated on the current expression. This operator is determined by the sub-expression grouping provided by the bracketing. Each sub-expression is then considered to be a fully valid EQL expression and once again parsed. Figure <a href="chap-querysys-impl.html#fig:query-queryParserExample1">11.2</a>, which is split into seven stages (marked S1-S7), shows the example EQL expression being parsed (S1-S3) and the resulting items being merged to meet the requirements of the individual operator (S4-S6) of the original query. S1 to S3 show the splitting operator character (e.g., textcolor{three_color_c3}{<code>-&gt;</code>} in purple) which splits the expression into a textcolor{three_color_c1}{left} (green) and textcolor{three_color_c2}{right} (orange) sub-expression.</p>
 <div class="figure" style="text-align: center"><span id="fig:query-queryParserExample1"></span>
 <img src="pics/queryParserExample1.png" alt="Example of how the query expression parser parses and evaluates an EQL expression and merges the result according to the respective EQL operators." width="100%" />
@@ -886,8 +897,8 @@ Figure 11.5: Schematic of hierarchy graph <em>ae</em>; extbf{A}: legacy redundan
 <div class="footnotes">
 <hr />
 <ol start="22">
-<li id="fn22"><p>Sections of this chapter have been published in <span class="citation">Winkelmann, Harrington, and Jänsch (<a href="#ref-winkelmann:2017aa">2017</a>)</span>.<a href="chap-querysys-impl.html#fnref22" class="footnote-back">↩</a></p></li>
-<li id="fn23"><p>The R code that implements this pseudo code can be found here: <a href="https://github.com/IPS-LMU/emuR/blob/master/R/emuR-query.database.R" class="uri">https://github.com/IPS-LMU/emuR/blob/master/R/emuR-query.database.R</a>.<a href="chap-querysys-impl.html#fnref23" class="footnote-back">↩</a></p></li>
+<li id="fn22"><p>Sections of this chapter have been published in <span class="citation">Winkelmann, Harrington, and Jänsch (<a href="#ref-winkelmann:2017aa" role="doc-biblioref">2017</a>)</span>.<a href="chap-querysys-impl.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p>The R code that implements this pseudo code can be found here: <a href="https://github.com/IPS-LMU/emuR/blob/master/R/emuR-query.database.R" class="uri">https://github.com/IPS-LMU/emuR/blob/master/R/emuR-query.database.R</a>.<a href="chap-querysys-impl.html#fnref23" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -927,8 +938,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/query_impl.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

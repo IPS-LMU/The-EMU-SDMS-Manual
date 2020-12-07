@@ -76,7 +76,13 @@ One of the aims of `wrassp` is to provide mechanisms for handling speech-related
 ```r
 # load the wrassp package
 library(wrassp)
+```
 
+```
+## Loading required package: tibble
+```
+
+```r
 # create path to wav file
 path2wav = file.path(path2bndl, "msajc003.wav")
 
@@ -97,7 +103,7 @@ au
 ```
 
 ```
-## Assp Data Object of file /tmp/RtmpTe5Sfc/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/Rtmp9Z4kNp/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -152,7 +158,7 @@ attributes(au)
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpTe5Sfc/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav"
+## [1] "/tmp/Rtmp9Z4kNp/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav"
 ## 
 ## $origFreq
 ## [1] 0
@@ -235,7 +241,7 @@ plot(samplesTime,
 ```
 
 <div class="figure">
-<img src="wrassp_files/figure-epub3/wrassp-plotOsci-1.png" alt="Oscillogram generated from samples stored in the `audio` track of the object `au`."  />
+<img src="wrassp_files/figure-html/wrassp-plotOsci-1.png" alt="Oscillogram generated from samples stored in the `audio` track of the object `au`." width="576" />
 <p class="caption">(\#fig:wrassp-plotOsci)Oscillogram generated from samples stored in the `audio` track of the object `au`.</p>
 </div>
 
@@ -362,7 +368,7 @@ legend("topright",
 
 
 <div class="figure">
-<img src="wrassp_files/figure-epub3/wrassp-plotFms-1.png" alt="Matrix plot of formant values stored in the `fm` track of `fmBwVals` object."  />
+<img src="wrassp_files/figure-html/wrassp-plotFms-1.png" alt="Matrix plot of formant values stored in the `fm` track of `fmBwVals` object." width="576" />
 <p class="caption">(\#fig:wrassp-plotFms)Matrix plot of formant values stored in the `fm` track of `fmBwVals` object.</p>
 </div>
 
@@ -402,7 +408,7 @@ plot(seq(0,numRecs.AsspDataObj(f0vals) - 1)
 
 
 <div class="figure">
-<img src="wrassp_files/figure-epub3/wrassp-plotF0-1.png" alt="Plot of fundamental frequency values stored in the `F0` track of `f0vals` object."  />
+<img src="wrassp_files/figure-html/wrassp-plotF0-1.png" alt="Plot of fundamental frequency values stored in the `F0` track of `f0vals` object." width="576" />
 <p class="caption">(\#fig:wrassp-plotF0)Plot of fundamental frequency values stored in the `F0` track of `f0vals` object.</p>
 </div>
 
@@ -447,7 +453,7 @@ plot(seq(0, numRecs.AsspDataObj(rmsvals) - 1)
 
 
 <div class="figure">
-<img src="wrassp_files/figure-epub3/wrassp-plotRMS-1.png" alt="Plot of RMS values stored in `rms` track of the `rmsvals` object."  />
+<img src="wrassp_files/figure-html/wrassp-plotRMS-1.png" alt="Plot of RMS values stored in `rms` track of the `rmsvals` object." width="576" />
 <p class="caption">(\#fig:wrassp-plotRMS)Plot of RMS values stored in `rms` track of the `rmsvals` object.</p>
 </div>
 
@@ -481,7 +487,7 @@ readLines(path2logFile)[1:8]
 ```
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2020-01-16 12:03:28 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2020-12-07 15:30:47 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 ```
 
@@ -566,7 +572,7 @@ plot(x, sineWave, type = 'l',
 ```
 
 <div class="figure">
-<img src="wrassp_files/figure-epub3/wrassp-genSin-1.png" alt="A single cycle sine wave consisting of 16000 samples."  />
+<img src="wrassp_files/figure-html/wrassp-genSin-1.png" alt="A single cycle sine wave consisting of 16000 samples." width="576" />
 <p class="caption">(\#fig:wrassp-genSin)A single cycle sine wave consisting of 16000 samples.</p>
 </div>
 

@@ -69,7 +69,7 @@ git2r::commit(db$basePath,
 ```
 
 ```
-## [d8fff5d] 2020-01-16: initial commit
+## [093636f] 2020-12-07: initial commit
 ```
 
 This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -108,7 +108,7 @@ GITLAB_PAT="reQFspQnbCHbvTfHjwfP" # replace with own access token
 
 The `.Renviron` file is read during R's start-up – therefore you need to close and reopen RStudio. Adding the token to your `.Renviron` file has the advantage that you will not have to include it in your R scripts, which allows you to share these scripts without the need to redact the secret token.
 
-A note on security: Personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: Is is meant for your eyes only. If a token gets lost or stolen, please revoke the token immediately (GitLab: `Settings` -> `Access Tokens` -> `Revoke`)!!!!
+A note on security: Personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: It is meant for your eyes only. If a token gets lost or stolen, please revoke the token immediately (GitLab: `Settings` -> `Access Tokens` -> `Revoke`)!!!!
 
 Now that the token is set up, we can use it to push the emuDB to the GitLab instance:
 
@@ -206,7 +206,7 @@ write_bundleList(db,
 ```
 
 ```
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/Rtmpl7GhJE/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpZj0Ysv/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 ```
 
 ```r

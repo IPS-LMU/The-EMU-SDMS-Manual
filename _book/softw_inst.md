@@ -17,16 +17,16 @@
 This document describes the following versions of the software components:
 
 - `wrassp`
-    - Package version: 0.1.8
-    - Git tag name: v0.1.6 (on master branch)
+    - Package version: 0.1.9
+    - Git tag name: 0.1.9 (on master branch)
 
 - `emuR`
-    - Package version: 2.0.4.9000
-    - Git tag name: v2.0.4 (on master branch)
+    - Package version: 2.1.1
+    - Git tag name: v2.1.1 (on master branch)
 
 - `EMU-webApp`
-    - Version: 1.1.2
-    - Git SHA1: 3723d8e6d2d50c06d5ae3e69b68e3e426895af50
+    - Version: 1.3.4
+    - Git SHA1: b6caa4c64d729fa042fcf3eec7dc35acc51d5694
 
 As the development of the EMU Speech Database Management System is still ongoing, be sure you have the correct documentation to go with the version you are using.
 

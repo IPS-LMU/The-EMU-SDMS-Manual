@@ -257,7 +257,7 @@ ggplot(sS.dftlong) +
   facet_wrap( ~ sl_rowIdx + labels)
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 You could also use `geom_area()` (but be careful: use `geom_area()` only if you intend to plot individual slices):
 
@@ -269,7 +269,7 @@ ggplot(sS.dftlong) +
   facet_wrap( ~ sl_rowIdx + labels)
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 
 We can also summarise this easily to one averaged slice per fricative type:
 
@@ -278,13 +278,19 @@ We can also summarise this easily to one averaged slice per fricative type:
 sS.dftlong.mean = sS.dftlong%>%
   group_by(labels,freq)%>%
   summarise(track_value=mean(track_value))
+```
 
+```
+## `summarise()` regrouping output by 'labels' (override with `.groups` argument)
+```
+
+```r
 ggplot(sS.dftlong.mean) +
   aes(x = freq, y = track_value, col=labels) +
   geom_line() 
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-13-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 
 ## How to quantify differences between spectra?
 
@@ -296,13 +302,19 @@ sS2to3thousandHz = sS.dftlong%>%
   filter(freq>=2000 & freq <=3000)%>%
   group_by(labels,sl_rowIdx)%>%
   summarise(amplitudes_2000_3000Hz = mean(track_value))
+```
 
+```
+## `summarise()` regrouping output by 'labels' (override with `.groups` argument)
+```
+
+```r
 ggplot(sS2to3thousandHz)+
   aes(x=labels,y=amplitudes_2000_3000Hz,col=labels)+
   geom_boxplot()
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-14-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-14-1.png" width="480" />
 
 However, it would be more "elegant" to consider some aspects of the general "form" of a spectral slice. 
 
@@ -328,13 +340,13 @@ Higher DCT coefficients correspond to the details of the "finite sequence of n d
 
 
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-16-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 Because we are dealing with straight lines, k2 is here always 0 (and is therefore not shown in the fourth panel of the figure). However, the next plot shows k2 of four quadratic polynomials: 
 
 
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-18-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-18-1.png" width="960" />
 
 So, if we want to get rid of too much detail (e.g. in signals frequency perturbations like jitter or error measurements), we can use the lower numbers of DCT to smooth the signal. We can apply DCT to a signal by means of the `emuR` function `dct(...,m=NULL,fit=TRUE)`, with `...` being one of the columns of an emuRtrackdata tibble:
 
@@ -352,7 +364,7 @@ ggplot(sS.dftlong.mean) +
   geom_line()
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-19-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-19-1.png" width="672" />
 
 ```r
 # this is obviously exactly the same as the original data: 
@@ -361,7 +373,7 @@ ggplot(sS.dftlong.mean) +
   geom_line()
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-19-2.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-19-2.png" width="672" />
 
 However, if we use the parameter `m` in order to reduce the complexity of the spectral slices, they will become smoother:
 
@@ -383,7 +395,7 @@ ggplot(sS.dftlong.mean) +
   ggtitle("Smoothed with 7 DCT-coefficients ()")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-20-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 
 ```r
 ggplot(sS.dftlong.mean) +
@@ -392,7 +404,7 @@ ggplot(sS.dftlong.mean) +
   ggtitle("Smoothed with 6 DCT-coefficients (m=5)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-20-2.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-2.png" width="672" />
 
 ```r
 ggplot(sS.dftlong.mean) +
@@ -401,7 +413,7 @@ ggplot(sS.dftlong.mean) +
   ggtitle("Smoothed with 5 DCT-coefficients (m=4)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-20-3.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-3.png" width="672" />
 
 ```r
 ggplot(sS.dftlong.mean) +
@@ -410,7 +422,7 @@ ggplot(sS.dftlong.mean) +
   ggtitle("Smoothed with 4 DCT-coefficients (m=3)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-20-4.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-4.png" width="672" />
 
 ```r
 ggplot(sS.dftlong.mean) +
@@ -419,7 +431,7 @@ ggplot(sS.dftlong.mean) +
   ggtitle("Smoothed with 3 DCT-coefficients (m=2)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-20-5.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-5.png" width="672" />
 
 ```r
 ggplot(sS.dftlong.mean) +
@@ -428,7 +440,7 @@ ggplot(sS.dftlong.mean) +
   ggtitle("Smoothed with 2 DCT-coefficients (m=1)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-20-6.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-20-6.png" width="672" />
 
 Remember, that the last figure shows only two (inverted) cosine functions of a certain amplitude with frequency 0.5. This is obviously not the best representation of the spectra of /s/ and /ʃ/. We need to find a compromise between too much and too less information. In this specific case, `m = 4` (= 5 DCT-coefficients) seems to be the best compromise.
 
@@ -443,7 +455,7 @@ ggplot(sS.dftlong) +
   facet_wrap( ~ sl_rowIdx + labels)
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-21-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 
 ```r
 sS.dftlong = sS.dftlong %>%
@@ -457,7 +469,7 @@ ggplot(sS.dftlong) +
   facet_wrap( ~ sl_rowIdx + labels)
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-21-2.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-2.png" width="672" />
 
 ```r
 # or plot original and smoothed slices
@@ -468,7 +480,7 @@ ggplot(sS.dftlong) +
   facet_wrap( ~ sl_rowIdx + labels)
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-21-3.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-21-3.png" width="672" />
 
 ## DCT coefficients
 
@@ -525,7 +537,7 @@ ggplot(sS.dctCoefficients) +
   geom_boxplot()
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-23-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-23-1.png" width="480" />
 
 Okay, the curvature seems to be different, but are we sure what this means?
 A bit more intuitive may be k1, the slope:
@@ -538,7 +550,7 @@ ggplot(sS.dctCoefficients) +
   geom_boxplot()
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-24-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-24-1.png" width="480" />
 
 Recall that k1 is inversely correlated with the spectral slopes, so /s/ has a steeper **positive** slope than /ʃ/ (/ʃ/'s slope is close to zero anyway).
 This simply means that in the range of 0 to 10000 Hz, /s/ has more energy in the high frequency range than in the low frequency range, whereas the energy is more evenly distributed in that frequency range in /ʃ/.
@@ -553,7 +565,7 @@ ggplot(sS.dctCoefficients) +
   geom_boxplot()
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-25-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-25-1.png" width="480" />
 
 k0 simply corresponds to the mean of the energy in the whole frequency range. This only allows us to find out which of the categories is generally "louder". As we can see, the mean of the energy is of no use if we want to devide between these two fricatives; it would be much more conveniant to have a function that is able to find the mean of the distribution along the frequency axis (and not along the amplitude axis). There is such a function, which is called **spectral moments** and which we will discuss next week.
 
@@ -566,7 +578,13 @@ sS2to3thousandHz = sS.dftlong %>%
   filter(freq >= 2000 & freq <= 3000) %>%
   group_by(labels,sl_rowIdx) %>%
   summarise(amplitudes_2000_3000Hz = mean(track_value))
+```
 
+```
+## `summarise()` regrouping output by 'labels' (override with `.groups` argument)
+```
+
+```r
 a = ggplot(sS2to3thousandHz) +
   aes(x = labels, y = amplitudes_2000_3000Hz, col = labels) +
   geom_boxplot()
@@ -587,7 +605,7 @@ b = ggplot(sS.dctCoefficients2to3thousandHz)+
 grid.arrange(a, b, ncol = 2)
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-26-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 
 ### P.S.: Use DCT in order to smooth formant trajectories
 
@@ -616,7 +634,7 @@ ggplot(i.dft) +
   ggtitle("Orig. (black) vs. smoothed (red) F2-tracks in /i:/")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-27-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 
 ## Spectral moments
 
@@ -665,7 +683,7 @@ barplot(bridge[,3],
 ```
 
 <div class="figure">
-<img src="recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-29-1.png" alt="*Hypothetical data of the count of the number of cars crossing a bridge in a 12 hour period.*"  />
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-29-1.png" alt="*Hypothetical data of the count of the number of cars crossing a bridge in a 12 hour period.*" width="672" />
 <p class="caption">(\#fig:unnamed-chunk-29)*Hypothetical data of the count of the number of cars crossing a bridge in a 12 hour period.*</p>
 </div>
 
@@ -805,7 +823,7 @@ ggplot(sS.moments) +
   ggtitle("moment no. 1 (means of the spectral distributions)\n(= spectral center of gravity)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-34-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-34-1.png" width="480" />
 
 - However, there is no reason to believe that variance - expressed here by the spectral moment no. 2 - should be extremely different between the two sibilants:
 
@@ -818,7 +836,7 @@ ggplot(sS.moments) +
   ggtitle("moment no. 2 (variances of the distributions)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-35-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-35-1.png" width="480" />
 
 - Another parameter, the skew of the distribution of dB-values along the frequency axis, should be different, with a greater skew towards the right for [s] as compared to the post-alveolar, that is distributed more around the center of the frequency range 0-10000 Hz:
 
@@ -831,7 +849,7 @@ ggplot(sS.moments) +
   ggtitle("moment no. 3 (skew values of the distributions)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-36-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-36-1.png" width="480" />
 
 - It has been mentioned earlier, that it is usually quite difficult to use kurtosis to make predictions about the spectral differences between phonetic categories, for various reasons. In this specific case, however, kurtosis would nicely divide the two fricative types:
 
@@ -844,7 +862,7 @@ ggplot(sS.moments) +
   ggtitle("moment no. 4 (kurtosis values of the distributions)")
 ```
 
-![](recipe-spectralAnalysis_files/figure-epub3/unnamed-chunk-37-1.png)<!-- -->
+<img src="recipe-spectralAnalysis_files/figure-html/unnamed-chunk-37-1.png" width="480" />
 
 So, in our case, the two best variables that would differ most when we were trying to distinguish between alveolar and post-alveolar fricatives, would be the skew of the dB-distribution along the frequency axis (at least in out case, where frequency varies between 0 and 10000 Hz), and, as a measure for spectral **center of gravity**, the first spectral moment, i.e. the mean of the distribution along the frequency axis (which is quite a different thing than the first dct coefficient, which represents the mean along the dB-axis).
 

@@ -1,39 +1,46 @@
-\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[]{book}
+\documentclass[
+]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provides euro and other symbols
-\else % if luatex or xelatex
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
   \usepackage{unicode-math}
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\usepackage{hyperref}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdftitle={The EMU-SDMS Manual},
-            pdfauthor={Raphael Winkelmann},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
+  pdftitle={The EMU-SDMS Manual},
+  pdfauthor={Raphael Winkelmann},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -75,8 +82,14 @@
 \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -86,25 +99,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% set default figure placement to htbp
+% Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
 \usepackage{booktabs}
 \usepackage{amsthm}
 \makeatletter
@@ -169,7 +171,7 @@ The EMU Speech Database Management System (EMU-SDMS) is a collection of software
   \begin{itemize}
   \tightlist
   \item
-    The only thing needed to use the \texttt{EMU-webApp} is a current HTML5 compatible browser (Chrome/Firefox/Safari/Opera/\ldots{}). However, as most of the development and testing is done using Chrome we recommend using it, as it is by far the best tested browser.
+    The only thing needed to use the \texttt{EMU-webApp} is a current HTML5 compatible browser (Chrome/Firefox/Safari/Opera/\ldots). However, as most of the development and testing is done using Chrome we recommend using it, as it is by far the best tested browser.
   \end{itemize}
 \end{enumerate}
 
@@ -186,9 +188,9 @@ This document describes the following versions of the software components:
   \begin{itemize}
   \tightlist
   \item
-    Package version: 0.1.8
+    Package version: 0.1.9
   \item
-    Git tag name: v0.1.6 (on master branch)
+    Git tag name: 0.1.9 (on master branch)
   \end{itemize}
 \item
   \texttt{emuR}
@@ -196,9 +198,9 @@ This document describes the following versions of the software components:
   \begin{itemize}
   \tightlist
   \item
-    Package version: 2.0.4.9000
+    Package version: 2.1.1
   \item
-    Git tag name: v2.0.4 (on master branch)
+    Git tag name: v2.1.1 (on master branch)
   \end{itemize}
 \item
   \texttt{EMU-webApp}
@@ -206,9 +208,9 @@ This document describes the following versions of the software components:
   \begin{itemize}
   \tightlist
   \item
-    Version: 1.1.2
+    Version: 1.3.4
   \item
-    Git SHA1: 3723d8e6d2d50c06d5ae3e69b68e3e426895af50
+    Git SHA1: b6caa4c64d729fa042fcf3eec7dc35acc51d5694
   \end{itemize}
 \end{itemize}
 
@@ -295,7 +297,7 @@ It is worth noting that throughout this manual R code snippets will be given in 
 \hypertarget{sec:overview-sysArch}{%
 \section{EMU-SDMS: System architecture and default workflow}\label{sec:overview-sysArch}}
 
-As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the \texttt{emuDB} format; the R packages \texttt{wrassp} and \texttt{emuR}; and the web application, the \texttt{EMU-webApp}, which is EMU-SDMS's new GUI component. An overview of the EMU-SDMS's architecture and the components' relationships within the system is shown in Figure \ref{fig:overview-archOver}. In Figure \ref{fig:overview-archOver}, the \texttt{emuR} package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an \texttt{emuDB} (see Chapter @ref(chap:annot\_struct\_mod)); it uses the \texttt{wrassp} package for signal processing purposes (see Chapter \ref{chap:wrassp}; and it can serve \texttt{emuDB}s to the \texttt{EMU-webApp} (see Chapter \ref{chap:emu-webApp}).
+As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the \texttt{emuDB} format; the R packages \texttt{wrassp} and \texttt{emuR}; and the web application, the \texttt{EMU-webApp}, which is EMU-SDMS's new GUI component. An overview of the EMU-SDMS's architecture and the components' relationships within the system is shown in Figure \ref{fig:overview-archOver}. In Figure \ref{fig:overview-archOver}, the \texttt{emuR} package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an \texttt{emuDB} (see Chapter \ref{chap:annot-struct-mod}); it uses the \texttt{wrassp} package for signal processing purposes (see Chapter \ref{chap:wrassp}; and it can serve \texttt{emuDB}s to the \texttt{EMU-webApp} (see Chapter \ref{chap:emu-webApp}).
 
 \begin{figure}
 
@@ -417,14 +419,14 @@ This tutorial will start by converting a TextGrid collection containing seven an
 ## [13] "msajc057.TextGrid" "msajc057.wav"
 \end{verbatim}
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics[width=0.85\linewidth]{pics/msajc003_praat}
 
 \}
 
-\textbackslash{}caption\{TextGrid annotation of the \texttt{emuR\_demoData/TextGrid\_collection/msajc003.wav} / \texttt{.TextGrid} file pair containing the tiers (from top to bottom): \emph{Utterance}, \emph{Intonational}, \emph{Intermediate}, \emph{Word}, \emph{Accent}, \emph{Text}, \emph{Syllable}, \emph{Phoneme}, \emph{Phonetic}, \emph{Tone}, \emph{Foot}.\}\label{fig:msajc003-praatTG}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{TextGrid annotation of the \texttt{emuR\_demoData/TextGrid\_collection/msajc003.wav} / \texttt{.TextGrid} file pair containing the tiers (from top to bottom): \emph{Utterance}, \emph{Intonational}, \emph{Intermediate}, \emph{Word}, \emph{Accent}, \emph{Text}, \emph{Syllable}, \emph{Phoneme}, \emph{Phonetic}, \emph{Tone}, \emph{Foot}.\}\label{fig:msajc003-praatTG}
+\textbackslash end\{figure\}
 
 \hypertarget{converting-the-textgrid-collection}{%
 \section{Converting the TextGrid collection}\label{converting-the-textgrid-collection}}
@@ -476,8 +478,8 @@ Now the \emph{my-first} \texttt{emuDB} is loaded into R, an overview of the curr
 
 \begin{verbatim}
 ## Name:     my-first 
-## UUID:     66ed383a-7ad0-43db-9ba5-f22c297a9fa8 
-## Directory:    /tmp/RtmpLfZjvi/my-first_emuDB 
+## UUID:     34a867ba-f747-4564-9879-594054129582 
+## Directory:    /tmp/RtmpZ27Sls/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -586,18 +588,18 @@ The output of the \texttt{summary()} command in the R code snippet below and the
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 n      1032. 1196. 66ed38~ 0000    msajc~            98          98 Phon~
-##  2 n      1741. 1791. 66ed38~ 0000    msajc~           108         108 Phon~
-##  3 n      1515. 1554. 66ed38~ 0000    msajc~           113         113 Phon~
-##  4 n      2431. 2528. 66ed38~ 0000    msajc~           127         127 Phon~
-##  5 n       895. 1023. 66ed38~ 0000    msajc~            98          98 Phon~
-##  6 n      2402. 2475. 66ed38~ 0000    msajc~           122         122 Phon~
-##  7 n      2227. 2271. 66ed38~ 0000    msajc~           132         132 Phon~
-##  8 n      3046. 3068. 66ed38~ 0000    msajc~           145         145 Phon~
-##  9 n      1435. 1495. 66ed38~ 0000    msajc~            91          91 Phon~
-## 10 n      1775. 1834. 66ed38~ 0000    msajc~            96          96 Phon~
-## 11 n       509.  544. 66ed38~ 0000    msajc~            97          97 Phon~
-## 12 n      2448. 2480. 66ed38~ 0000    msajc~           130         130 Phon~
+##  1 n      1032. 1196. 34a867~ 0000    msajc~            98          98 Phon~
+##  2 n      1741. 1791. 34a867~ 0000    msajc~           108         108 Phon~
+##  3 n      1515. 1554. 34a867~ 0000    msajc~           113         113 Phon~
+##  4 n      2431. 2528. 34a867~ 0000    msajc~           127         127 Phon~
+##  5 n       895. 1023. 34a867~ 0000    msajc~            98          98 Phon~
+##  6 n      2402. 2475. 34a867~ 0000    msajc~           122         122 Phon~
+##  7 n      2227. 2271. 34a867~ 0000    msajc~           132         132 Phon~
+##  8 n      3046. 3068. 34a867~ 0000    msajc~           145         145 Phon~
+##  9 n      1435. 1495. 34a867~ 0000    msajc~            91          91 Phon~
+## 10 n      1775. 1834. 34a867~ 0000    msajc~            96          96 Phon~
+## 11 n       509.  544. 34a867~ 0000    msajc~            97          97 Phon~
+## 12 n      2448. 2480. 34a867~ 0000    msajc~           130         130 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -759,16 +761,16 @@ Having this hierarchical annotation structure now allows us to formulate a query
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 @      1506. 1548. 66ed38~ 0000    msajc~           103         103 Phon~
-##  2 @      1715. 1741. 66ed38~ 0000    msajc~           107         107 Phon~
-##  3 @      1967. 2034. 66ed38~ 0000    msajc~           112         112 Phon~
-##  4 @      2303. 2362. 66ed38~ 0000    msajc~           117         117 Phon~
-##  5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119 Phon~
-##  6 @      1917. 1958. 66ed38~ 0000    msajc~           118         118 Phon~
-##  7 @      2022. 2078. 66ed38~ 0000    msajc~           120         120 Phon~
-##  8 @      2382. 2431. 66ed38~ 0000    msajc~           126         126 Phon~
-##  9 @       330.  380. 66ed38~ 0000    msajc~            91          91 Phon~
-## 10 @      1472. 1490. 66ed38~ 0000    msajc~           108         108 Phon~
+##  1 @      1506. 1548. 34a867~ 0000    msajc~           103         103 Phon~
+##  2 @      1715. 1741. 34a867~ 0000    msajc~           107         107 Phon~
+##  3 @      1967. 2034. 34a867~ 0000    msajc~           112         112 Phon~
+##  4 @      2303. 2362. 34a867~ 0000    msajc~           117         117 Phon~
+##  5 @      2447. 2506. 34a867~ 0000    msajc~           119         119 Phon~
+##  6 @      1917. 1958. 34a867~ 0000    msajc~           118         118 Phon~
+##  7 @      2022. 2078. 34a867~ 0000    msajc~           120         120 Phon~
+##  8 @      2382. 2431. 34a867~ 0000    msajc~           126         126 Phon~
+##  9 @       330.  380. 34a867~ 0000    msajc~            91          91 Phon~
+## 10 @      1472. 1490. 34a867~ 0000    msajc~           108         108 Phon~
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -794,16 +796,16 @@ As the type of word (content vs.~function) for each \emph{@} vowel is also neede
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 F         NA    NA 66ed38~ 0000    msajc~            16          16 Word 
-##  2 C         NA    NA 66ed38~ 0000    msajc~            17          17 Word 
-##  3 C         NA    NA 66ed38~ 0000    msajc~            17          17 Word 
-##  4 C         NA    NA 66ed38~ 0000    msajc~            18          18 Word 
-##  5 C         NA    NA 66ed38~ 0000    msajc~            18          18 Word 
-##  6 C         NA    NA 66ed38~ 0000    msajc~            19          19 Word 
-##  7 C         NA    NA 66ed38~ 0000    msajc~            20          20 Word 
-##  8 C         NA    NA 66ed38~ 0000    msajc~            20          20 Word 
-##  9 F         NA    NA 66ed38~ 0000    msajc~            13          13 Word 
-## 10 F         NA    NA 66ed38~ 0000    msajc~            17          17 Word 
+##  1 F         NA    NA 34a867~ 0000    msajc~            16          16 Word 
+##  2 C         NA    NA 34a867~ 0000    msajc~            17          17 Word 
+##  3 C         NA    NA 34a867~ 0000    msajc~            17          17 Word 
+##  4 C         NA    NA 34a867~ 0000    msajc~            18          18 Word 
+##  5 C         NA    NA 34a867~ 0000    msajc~            18          18 Word 
+##  6 C         NA    NA 34a867~ 0000    msajc~            19          19 Word 
+##  7 C         NA    NA 34a867~ 0000    msajc~            20          20 Word 
+##  8 C         NA    NA 34a867~ 0000    msajc~            20          20 Word 
+##  9 F         NA    NA 34a867~ 0000    msajc~            13          13 Word 
+## 10 F         NA    NA 34a867~ 0000    msajc~            17          17 Word 
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -880,18 +882,18 @@ Now that the vowel and word type information including the vowel start and end t
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  2         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  3         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  4         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  5         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  6         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  7         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  8         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-##  9         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-## 10         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-## 11         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
-## 12         5 @      2447. 2506. 66ed38~ 0000    msajc~           119         119
+##  1         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  2         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  3         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  4         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  5         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  6         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  7         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  8         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+##  9         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+## 10         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+## 11         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
+## 12         5 @      2447. 2506. 34a867~ 0000    msajc~           119         119
 ## # ... with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
@@ -968,19 +970,19 @@ Figures \ref{fig:tutorial-dplot1} and \ref{fig:tutorial-dplot2} give an overview
 ## [1] 28 24
 \end{verbatim}
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics{tutorial_files/figure-latex/tutorial-eplot-1}
 
 \}
 
-\textbackslash{}caption\{95\% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments.\}\label{fig:tutorial-eplot}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{95\% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments.\}\label{fig:tutorial-eplot}
+\textbackslash end\{figure\}
 
 Figure \ref{fig:tutorial-eplot} displays the first two formants extracted at the temporal midpoint of every \emph{@} vowel in \texttt{sl\_vowels}. The centroid of these formants is plotted on the F2 x F1 plane, and their 95\% ellipsis distribution is also shown. Although not necessarily applicable to the question posed at the beginning of this tutorial, the data exploration using the \texttt{dplyr} and \texttt{ggplot2} packages can be very helpful tools for providing an overview of the data at hand.
 
-\hypertarget{vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis}{%
-\section{Vowel height as a function of word types (content vs.~function): evaluation and statistical analysis}\label{vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis}}
+\hypertarget{vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis}{%
+\section{Vowel height as a function of word types (content vs.~function): evaluation and statistical analysis}\label{vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis}}
 
 The above data exploration only dealt with the actual \emph{@} vowels and disregarded the syllable type they occurred in. However, the question in the introduction of this chapter focuses on whether the \emph{@} vowel occurs in a content (labeled \emph{C}) or function (labeled \emph{F}) word. For data inspection purposes, the R code snippet below initially extracts the central 60\% (\texttt{filter()} conditions \texttt{times\_norm\ \textgreater{}=\ 0.2} and \texttt{times\_norm\ \textless{}=\ 0.8}) of the formant trajectories from \texttt{td\_vowels\_norm} using \texttt{dplyr} and displays them using \texttt{ggplot()}. It should be noted that before the call to \texttt{ggplot()} the labels of the \texttt{td\_vowels\_mid\_sec} are replaced with those of \texttt{sl\_word\_type}. This allows \texttt{ggplot()} to group the trajectories by their word type as opposed to their vowel labels as displayed in Figure \ref{fig:tutorial-dplotSylTyp}.
 
@@ -1004,14 +1006,14 @@ The above data exploration only dealt with the actual \emph{@} vowels and disreg
 ## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 \end{verbatim}
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics{tutorial_files/figure-latex/tutorial-dplotSylTyp-1}
 
 \}
 
-\textbackslash{}caption\{Ensemble averages of F1 contours of all tokens of the central 60\% of vowels grouped by word type (function (\emph{F}) vs.~content (\emph{W})).\}\label{fig:tutorial-dplotSylTyp}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{Ensemble averages of F1 contours of all tokens of the central 60\% of vowels grouped by word type (function (\emph{F}) vs.~content (\emph{W})).\}\label{fig:tutorial-dplotSylTyp}
+\textbackslash end\{figure\}
 
 As can be seen in Figure \ref{fig:tutorial-dplotSylTyp}, there seems to be a distinction in F1 trajectory height between vowels in content and function words. The following R snippet shows the code to produce a boxplot once again using the \texttt{ggplot2} package to further visually inspect the data (see Figure \ref{fig:tutorial-boxplot} for the plot produced by the below code).
 
@@ -1030,6 +1032,10 @@ As can be seen in Figure \ref{fig:tutorial-dplotSylTyp}, there seems to be a dis
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Word type"}\NormalTok{, }\DataTypeTok{y =} \StringTok{"mean F1 (Hz)"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
 
 \begin{figure}
 
@@ -1060,7 +1066,7 @@ To confirm or reject this, the following R code presents a very simple statistic
 ## 
 ##  Shapiro-Wilk normality test
 ## 
-## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F",     ]$meanF1
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F", ]$meanF1
 ## W = 0.98618, p-value = 0.9868
 \end{verbatim}
 
@@ -1086,7 +1092,7 @@ To confirm or reject this, the following R code presents a very simple statistic
 ## 
 ##  Shapiro-Wilk normality test
 ## 
-## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C",     ]$meanF1
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C", ]$meanF1
 ## W = 0.67216, p-value = 1.819e-05
 \end{verbatim}
 
@@ -1107,7 +1113,7 @@ To confirm or reject this, the following R code presents a very simple statistic
 
 \begin{verbatim}
 ## 
-##  Wilcoxon rank sum test
+##  Wilcoxon rank sum exact test
 ## 
 ## data:  meanF1 by labels
 ## W = 119, p-value = 0.04875
@@ -1123,7 +1129,7 @@ To confirm or reject this, the following R code presents a very simple statistic
 \caption{Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code.}\label{fig:tutorial-stats1}
 \end{figure}
 
-As shown by the result of \texttt{wilcox.test()} in the above R code, word type (\emph{C} vs. \emph{F}) has a significant influence on the vowel's F1 (W=121, p\textless{}0.05). Hence, the answer to the initially proposed question: \emph{Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?} is yes!
+As shown by the result of \texttt{wilcox.test()} in the above R code, word type (\emph{C} vs.~\emph{F}) has a significant influence on the vowel's F1 (W=121, p\textless0.05). Hence, the answer to the initially proposed question: \emph{Given an annotated speech database, is vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a content or function word?} is yes!
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
@@ -1184,7 +1190,7 @@ Based on our experience, the explicit definition of the annotation structure for
 \hypertarget{parallel-labels-and-multiple-attributes}{%
 \section{Parallel labels and multiple attributes}\label{parallel-labels-and-multiple-attributes}}
 
-The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called \emph{Category} might have been included as a separate level from \emph{Word} for marking words' grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate \emph{Stress} tier (description taken from \citet{harrington:2010a} page 77). Using \texttt{ONE\_TO\_ONE} link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term ``attribute'' (vs. ``label'') was chosen to have the flexibility of adding attributes that are not of the type \texttt{STRING} (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure \ref{fig:paraLabels} shows the annotation structure modeling difference between linearly linked levels (see Figure \ref{fig:paraLabels}A) and an annotation structure using multiple attributes (see Figure \ref{fig:paraLabels}B). Figure \ref{fig:paraLabels}A shows three separate levels (\emph{Word}, \emph{Accent} and \emph{Text}) that have a \texttt{ONE\_TO\_ONE} relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., \emph{A1-A3}). Figure \ref{fig:paraLabels}B shows a single level that has three attribute definitions (\emph{Word}, \emph{Accent} and \emph{Text}) and each annotation item contains three attributes (e.g., \emph{A1-A3}).
+The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called \emph{Category} might have been included as a separate level from \emph{Word} for marking words' grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate \emph{Stress} tier (description taken from \citet{harrington:2010a} page 77). Using \texttt{ONE\_TO\_ONE} link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term ``attribute'' (vs.~``label'') was chosen to have the flexibility of adding attributes that are not of the type \texttt{STRING} (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure \ref{fig:paraLabels} shows the annotation structure modeling difference between linearly linked levels (see Figure \ref{fig:paraLabels}A) and an annotation structure using multiple attributes (see Figure \ref{fig:paraLabels}B). Figure \ref{fig:paraLabels}A shows three separate levels (\emph{Word}, \emph{Accent} and \emph{Text}) that have a \texttt{ONE\_TO\_ONE} relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., \emph{A1-A3}). Figure \ref{fig:paraLabels}B shows a single level that has three attribute definitions (\emph{Word}, \emph{Accent} and \emph{Text}) and each annotation item contains three attributes (e.g., \emph{A1-A3}).
 
 \begin{figure}
 
@@ -1223,7 +1229,7 @@ The annotation structure modeling capabilities of the EMU-SDMS surpass those of 
 
 This chapter describes the \texttt{emuDB} format, which is the new database format of the EMU-SDMS, and shows how to create and interact with this format. The \texttt{emuDB} format is meant as a simple, general purpose way of storing speech databases that may contain complex, rich, hierarchical annotations as well as derived and complementary speech data. These different components will be described throughout this chapter, and examples will show how to generate and manipulate them. On designing the new EMU system, considerable effort went into designing an appropriate database format. We needed a format that was standardized, well structured, easy to maintain, easy to produce, easy to manipulate and portable.
 
-We decided on the JavaScript Object Notation (JSON) file format\footnote{JSON schema files available here \url{https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles}} as our primary data source for several reasons. It is simple, standardized, widely-used and text-based as well as machine and human readable. In addition, this portable text format allows expert users to (semi-) automatically process and/or generate annotations. Other tools such as the BAS Webservices \citep{kisler:2012a} and SpeechRecorder \citep{draxler:2004a} have already taken advantage of being able to produce such annotations. Using database back-end options such as relational or graph databases of either the SQL or NoSQL variety as the primary data source for annotations would not directly permit other tools to produce annotations because intermediary exchange file formats would have to be defined to permit this functionality with these back-ends. Our choice of the JSON format was also guided by the decision to incorporate web technologies as part of the EMU-SDMS for which the JSON format is the de facto standard (see Chapter \ref{chap:emu-webApp}). Further, as the default encoding of the JSON format is UTF-8 the EMU-SDMS fully supports the Unicode character set for any user-defined string within an \texttt{emuDB} (e.g.~level names and labels)\footnote{According to the JSON specification (see \url{https://json.org/}) the only characters that have to be escaped within a JSON string are: '' (as this marks the start/end of a string), \textbackslash{} (as this is the escape character) or control-characters (\textbackslash{}b = backspace, \textbackslash{}f = form feed, \textbackslash{}n = new line, \textbackslash{}r = carriage return, \textbackslash{}t = tab). Unicode characters in their hexadecimal form using the \textbackslash{}u followed by for-hex-digits may also be used.}.
+We decided on the JavaScript Object Notation (JSON) file format\footnote{JSON schema files available here \url{https://github.com/IPS-LMU/EMU-webApp/tree/master/dist/schemaFiles}} as our primary data source for several reasons. It is simple, standardized, widely-used and text-based as well as machine and human readable. In addition, this portable text format allows expert users to (semi-) automatically process and/or generate annotations. Other tools such as the BAS Webservices \citep{kisler:2012a} and SpeechRecorder \citep{draxler:2004a} have already taken advantage of being able to produce such annotations. Using database back-end options such as relational or graph databases of either the SQL or NoSQL variety as the primary data source for annotations would not directly permit other tools to produce annotations because intermediary exchange file formats would have to be defined to permit this functionality with these back-ends. Our choice of the JSON format was also guided by the decision to incorporate web technologies as part of the EMU-SDMS for which the JSON format is the de facto standard (see Chapter \ref{chap:emu-webApp}). Further, as the default encoding of the JSON format is UTF-8 the EMU-SDMS fully supports the Unicode character set for any user-defined string within an \texttt{emuDB} (e.g.~level names and labels)\footnote{According to the JSON specification (see \url{https://json.org/}) the only characters that have to be escaped within a JSON string are: '' (as this marks the start/end of a string), \textbackslash{} (as this is the escape character) or control-characters (\textbackslash b = backspace, \textbackslash f = form feed, \textbackslash n = new line, \textbackslash r = carriage return, \textbackslash t = tab). Unicode characters in their hexadecimal form using the \textbackslash u followed by for-hex-digits may also be used.}.
 
 We chose to use the widely adopted Waveform Audio File Format (\texttt{WAVE}, or more commonly known as \texttt{WAV} due to its filename extension) as our primary media/audio format. Although some components of the EMU-SDMS, notably the \texttt{wrassp} package, can handle various other media/audio formats (see \texttt{?wrassp::AsspFileFormats} for details) this is the only audio file format currently supported by every component of the EMU-SDMS. Nevertheless, the \texttt{wrassp} package can be utilized to convert files from one of it's other supported file formats to the \texttt{WAV} format \footnote{However, if things like resampeling are required we suggest using other tools such as the freely available Sound eXchange (SoX) command line tool (see \url{http://sox.sourceforge.net/}) to perform these operation}. Future releases of the EMU-SDMS might include the support of other media/audio formats.
 
@@ -1300,8 +1306,8 @@ The initial step in manipulating and generally interacting with a database is to
 
 \begin{verbatim}
 ## Name:     fromScratch 
-## UUID:     42ade61b-e4f2-4220-b282-55d770fc98d3 
-## Directory:    /tmp/RtmpyLhXKb/fromScratch_emuDB 
+## UUID:     43ee259f-d341-4a64-9d1a-531324c88637 
+## Directory:    /tmp/RtmpYGiF0f/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -1588,14 +1594,14 @@ An essential and very powerful conceptual and structural element of any \texttt{
 
 A schematic of the simple hierarchical structure of the \emph{fromScratch} created by the above R code is displayed in Figure \ref{fig:emuDB-fromScratchHier}.
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics[width=0.5\linewidth]{pics/fromScratchDBgraph}
 
 \}
 
-\textbackslash{}caption\{A schematic representation of the simple hierarchical structure of the \emph{fromScratch} created by the \texttt{add\_linkDefinition()} function call in above R code snippet.\}\label{fig:emuDB-fromScratchHier}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{A schematic representation of the simple hierarchical structure of the \emph{fromScratch} created by the \texttt{add\_linkDefinition()} function call in above R code snippet.\}\label{fig:emuDB-fromScratchHier}
+\textbackslash end\{figure\}
 
 \hypertarget{file-handling}{%
 \subsection{File handling}\label{file-handling}}
@@ -1657,20 +1663,20 @@ The previous sections of this chapter defined the simple structure of the \emph{
 ## # A tibble: 14 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  3 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  4 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  5 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  6 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  7 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  8 fromWavFi~ msajc0~ msajc015.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  9 fromWavFi~ msajc0~ msajc022_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 10 fromWavFi~ msajc0~ msajc022.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 11 fromWavFi~ msajc0~ msajc023_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 12 fromWavFi~ msajc0~ msajc023.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 13 fromWavFi~ msajc0~ msajc057_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 14 fromWavFi~ msajc0~ msajc057.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
+##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  3 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  4 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  5 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  6 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  7 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  8 fromWavFi~ msajc0~ msajc015.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  9 fromWavFi~ msajc0~ msajc022_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+## 10 fromWavFi~ msajc0~ msajc022.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+## 11 fromWavFi~ msajc0~ msajc023_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+## 12 fromWavFi~ msajc0~ msajc023.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+## 13 fromWavFi~ msajc0~ msajc057_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+## 14 fromWavFi~ msajc0~ msajc057.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
 \end{verbatim}
 
 The \texttt{import\_mediaFiles()} call above added a new session called \texttt{fromWavFiles} to the \emph{fromScratch} \texttt{emuDB} containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every \texttt{\_annot.json} file created contains an empty \texttt{Word} and \texttt{Phonetic} level array and the links array is also empty.
@@ -1681,7 +1687,15 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 \begin{Highlighting}[]
 \CommentTok{# load wrassp package}
 \KeywordTok{library}\NormalTok{(wrassp)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Loading required package: tibble
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# list all wav files in wavDir}
 \NormalTok{wavFilePaths =}\StringTok{ }\KeywordTok{list.files}\NormalTok{(wavDir,}
                           \DataTypeTok{pattern =} \StringTok{".*.wav"}\NormalTok{,}
@@ -1716,16 +1730,16 @@ The \texttt{emuR} package also provides a mechanism for adding files to preexist
 ## # A tibble: 21 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  3 fromWavFi~ msajc0~ msajc003.zcr /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  4 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  5 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  6 fromWavFi~ msajc0~ msajc010.zcr /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  7 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  8 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-##  9 fromWavFi~ msajc0~ msajc012.zcr /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
-## 10 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpyLhXKb/fromScratch_emuDB/fromWavFil~
+##  1 fromWavFi~ msajc0~ msajc003_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  2 fromWavFi~ msajc0~ msajc003.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  3 fromWavFi~ msajc0~ msajc003.zcr /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  4 fromWavFi~ msajc0~ msajc010_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  5 fromWavFi~ msajc0~ msajc010.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  6 fromWavFi~ msajc0~ msajc010.zcr /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  7 fromWavFi~ msajc0~ msajc012_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  8 fromWavFi~ msajc0~ msajc012.wav /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+##  9 fromWavFi~ msajc0~ msajc012.zcr /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
+## 10 fromWavFi~ msajc0~ msajc015_an~ /tmp/RtmpYGiF0f/fromScratch_emuDB/fromWavFil~
 ## # ... with 11 more rows
 \end{verbatim}
 
@@ -2017,7 +2031,7 @@ The EQL contains three operators that can be used to combine the simple query te
 \hypertarget{sequence-queries}{%
 \subsubsection{Sequence queries}\label{sequence-queries}}
 
-The syntax of a query string using the \texttt{-\textgreater{}} sequence operator is \texttt{{[}L\ ==\ A\ -\textgreater{}\ L\ ==\ B{]}} where annotation item \texttt{A} on level \texttt{L} precedes item \texttt{B} on level \texttt{L}. For a sequence query to work, both arguments must be on the same level. Alternatively parallel attribute definitions of the same level may also be chosen (see Chapter \ref{chap:annot-struct-mod} for further details). An example of a query string using the sequence operator is displayed in the R code snippet below. All rows in the resulting segment list have the start time of \emph{@}, the end time of \emph{n} and their labels are \emph{@-\textgreater{}n}, where the \emph{-\textgreater{}} substring denotes the sequence.
+The syntax of a query string using the \texttt{-\textgreater{}} sequence operator is \texttt{{[}L\ ==\ A\ -\textgreater{}\ L\ ==\ B{]}} where annotation item \texttt{A} on level \texttt{L} precedes item \texttt{B} on level \texttt{L}. For a sequence query to work, both arguments must be on the same level. Alternatively parallel attribute definitions of the same level may also be chosen (see Chapter \ref{chap:annot-struct-mod} for further details). An example of a query string using the sequence operator is displayed in the R code snippet below. All rows in the resulting segment list have the start time of \emph{@}, the end time of \emph{n} and their labels are \emph{@-\textgreater n}, where the \emph{-\textgreater{}} substring denotes the sequence.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2046,7 +2060,7 @@ The syntax of a query string using the \texttt{-\textgreater{}} sequence operato
 \hypertarget{result-modifier}{%
 \subsubsection{Result modifier}\label{result-modifier}}
 
-Because users are often interested in just one element of a compound query such as sequence queries (e.g., the \emph{@}s in a \emph{@-\textgreater{}n} sequences), the EQL offers a so-called result modifier symbol, \texttt{\#}. This symbol may be placed in front of any simple query component of a multi component query as depicted in the R code snippet below. Placing the hashtag in front of either the left or the right simple query term will result in segment lists that contain only the annotation items of the simple query term that have the hashtag in front of it. Only one result modifier may be used per query.
+Because users are often interested in just one element of a compound query such as sequence queries (e.g., the \emph{@}s in a \emph{@-\textgreater n} sequences), the EQL offers a so-called result modifier symbol, \texttt{\#}. This symbol may be placed in front of any simple query component of a multi component query as depicted in the R code snippet below. Placing the hashtag in front of either the left or the right simple query term will result in segment lists that contain only the annotation items of the simple query term that have the hashtag in front of it. Only one result modifier may be used per query.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2095,7 +2109,7 @@ Because users are often interested in just one element of a compound query such 
 \hypertarget{conjunction-queries}{%
 \subsubsection{Conjunction queries}\label{conjunction-queries}}
 
-The syntax of a query string using the conjunction operator can schematically be written as: \texttt{{[}L\_a1\ ==\ A\ \&\ L\_a2\ ==\ B\ \&\ L\_a3\ ==\ C\ \&\ L\_a4\ ==\ D\ \&\ ...\ \&\ L\_an\ ==\ N{]}}, where annotation items on level \texttt{L} have the label \texttt{A} and also have the parallel labels \texttt{B}, \texttt{C}, \texttt{D}, \ldots{}, \texttt{N} (see Chapter \ref{chap:annot-struct-mod} for more information about parallel labels). By analogy with the sequence operator, all simple query statements must refer to the same level (i.e., only parallel attributes definitions of the same level indicated by the \texttt{a1\ -\ an} may to be chosen). Hence, the conjunction operator is used to combine query conditions on the same level. Using the conjunction operator is useful for two reasons:
+The syntax of a query string using the conjunction operator can schematically be written as: \texttt{{[}L\_a1\ ==\ A\ \&\ L\_a2\ ==\ B\ \&\ L\_a3\ ==\ C\ \&\ L\_a4\ ==\ D\ \&\ ...\ \&\ L\_an\ ==\ N{]}}, where annotation items on level \texttt{L} have the label \texttt{A} and also have the parallel labels \texttt{B}, \texttt{C}, \texttt{D}, \ldots, \texttt{N} (see Chapter \ref{chap:annot-struct-mod} for more information about parallel labels). By analogy with the sequence operator, all simple query statements must refer to the same level (i.e., only parallel attributes definitions of the same level indicated by the \texttt{a1\ -\ an} may to be chosen). Hence, the conjunction operator is used to combine query conditions on the same level. Using the conjunction operator is useful for two reasons:
 
 \begin{itemize}
 \tightlist
@@ -2319,14 +2333,14 @@ The default behavior of the legacy EMU system was to automatically deduce time i
 
 A popular feature of the legacy system was the ability to use the result of a query to perform an additional query, called a requery, starting from the resulting items of a query. The requery functionality was used to move either sequentially (horizontally) or hierarchically (vertically) through the hierarchical annotation structure. Although this feature technically does not extend the querying functionality (it is possible to formulate EQL queries that yield the same results as a query followed by \(1:n\) requeries), requeries benefit the user by breaking down the task of formulating long query terms into multiple, simpler queries. Compared with the legacy system, this feature is implemented in the \texttt{emuR} package in a more robust way, as unique item IDs are present in the result of a query, eliminating the need for searching the starting segments based on their time information. Examples of queries and their results within a hierarchical annotation based on a hierarchical and sequential requery as well as their EQL equivalents are illustrated in Figure \ref{fig:query-requery}.
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics[width=0.75\linewidth]{pics/requery}
 
 \}
 
-\textbackslash{}caption\{Three-step (query (green) -\textgreater{} requery\_hier (orange) -\textgreater{} requery\_seq (purple)) requery procedure, its single query (grey) counterpart and their color coded movements within the annotation hierarchy.\}\label{fig:query-requery}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{Three-step (query (green) -\textgreater{} requery\_hier (orange) -\textgreater{} requery\_seq (purple)) requery procedure, its single query (grey) counterpart and their color coded movements within the annotation hierarchy.\}\label{fig:query-requery}
+\textbackslash end\{figure\}
 
 The R code snippet below illustrates how the same results of the sequential query \texttt{{[}\#Phonetic\ =\textasciitilde{}\ .*\ -\textgreater{}\ Phonetic\ ==\ n{]}} can be achieved using the \texttt{requery\_seq()} function. Further, it shows how the \texttt{requery\_hier()} function can be used to move vertically through the annotation structure by starting at the \emph{Syllable} level and retrieving all the \emph{Phonetic} items for the query result.
 
@@ -2576,13 +2590,13 @@ As described in detail in Section \ref{sec:wrassp-emu-sdms}, the signal processi
 ## # A tibble: 7 x 4
 ##   session bundle   file      absolute_file_path                                 
 ##   <chr>   <chr>    <chr>     <chr>                                              
-## 1 0000    msajc003 msajc003~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 2 0000    msajc010 msajc010~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 3 0000    msajc012 msajc012~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 4 0000    msajc015 msajc015~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 5 0000    msajc022 msajc022~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 6 0000    msajc023 msajc023~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
-## 7 0000    msajc057 msajc057~ /tmp/RtmpmuF95m/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 1 0000    msajc003 msajc003~ /tmp/RtmpeZJvIf/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 2 0000    msajc010 msajc010~ /tmp/RtmpeZJvIf/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 3 0000    msajc012 msajc012~ /tmp/RtmpeZJvIf/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 4 0000    msajc015 msajc015~ /tmp/RtmpeZJvIf/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 5 0000    msajc022 msajc022~ /tmp/RtmpeZJvIf/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 6 0000    msajc023 msajc023~ /tmp/RtmpeZJvIf/emuR_demoData/ae_emuDB/0000_ses/ms~
+## 7 0000    msajc057 msajc057~ /tmp/RtmpeZJvIf/emuR_demoData/ae_emuDB/0000_ses/ms~
 \end{verbatim}
 
 \begin{Shaded}
@@ -2805,7 +2819,15 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \begin{Highlighting}[]
 \CommentTok{# load the wrassp package}
 \KeywordTok{library}\NormalTok{(wrassp)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Loading required package: tibble
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# create path to wav file}
 \NormalTok{path2wav =}\StringTok{ }\KeywordTok{file.path}\NormalTok{(path2bndl, }\StringTok{"msajc003.wav"}\NormalTok{)}
 
@@ -2829,7 +2851,7 @@ One of the aims of \texttt{wrassp} is to provide mechanisms for handling speech-
 \end{Shaded}
 
 \begin{verbatim}
-## Assp Data Object of file /tmp/RtmpS2CrSb/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
+## Assp Data Object of file /tmp/Rtmpws8WwG/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -2890,7 +2912,7 @@ As can be seen in the above R code snippet, the resulting \texttt{au} object is 
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "/tmp/RtmpS2CrSb/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav"
+## [1] "/tmp/Rtmpws8WwG/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav"
 ## 
 ## $origFreq
 ## [1] 0
@@ -3243,7 +3265,7 @@ As it can be extremely important to keep track of information about how certain 
 \begin{verbatim}
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2020-01-16 12:01:30 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2020-12-07 15:27:57 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 \end{verbatim}
 
@@ -3489,9 +3511,9 @@ To add a new boundary or event to a level the user initially has to select the d
 
 To add a boundary to the currently selected level one first has to select a point in time either in the spectrogram or the oscillogram by single-left-clicking on the desired location. Hitting the enter/return key adds a new boundary or event to the preselected level at the selected time point. Selecting a stretch of time in the spectrogram or the oscillogram (left-click-and-drag) and hitting enter will add a segment (not a boundary) to a preselected segment level.
 
-\hypertarget{segments-and-events-segments-events}{%
-\subsubsection*{Segments and events \{\#segments-events\}}\label{segments-and-events-segments-events}}
-\addcontentsline{toc}{subsubsection}{Segments and events \{\#segments-events\}}
+\hypertarget{segments-events}{%
+\subsubsection*{Segments and events}\label{segments-events}}
+\addcontentsline{toc}{subsubsection}{Segments and events}
 
 The \texttt{EMU-webApp} also allows segments and events to be preselected by single-left-clicking the desired item. The web application colors the preselected segments and events yellow to indicate their pre-selection as displayed in Figure \ref{fig:webApp-preSelSeg}.
 
@@ -3868,7 +3890,7 @@ The current mechanism for laying frequency-aligned formant contours over the spe
 \subsubsection*{Correcting formants}\label{correcting-formants}}
 \addcontentsline{toc}{subsubsection}{Correcting formants}
 
-The above configuration of the frequency-aligned formant contours will automatically allow the \emph{FORMANTS} track to be manually corrected. Formants can be corrected by hitting the appropriate number key (\texttt{1} = first formant, \texttt{2} = second formant, \ldots{}). Similar to boundaries and events, the mouse cursor will automatically be tracked in the \texttt{SPEC} canvas and the nearest formant value preselected. Holding down the \texttt{SHIFT} key moves the current formant value to the mouse position, hence allowing the contour to be redrawn and corrected.
+The above configuration of the frequency-aligned formant contours will automatically allow the \emph{FORMANTS} track to be manually corrected. Formants can be corrected by hitting the appropriate number key (\texttt{1} = first formant, \texttt{2} = second formant, \ldots). Similar to boundaries and events, the mouse cursor will automatically be tracked in the \texttt{SPEC} canvas and the nearest formant value preselected. Holding down the \texttt{SHIFT} key moves the current formant value to the mouse position, hence allowing the contour to be redrawn and corrected.
 
 \hypertarget{d-canvas}{%
 \subsection{2D canvas}\label{d-canvas}}
@@ -4291,14 +4313,14 @@ Although associated with data loss, the \texttt{emuR} package provides an export
 \end{Highlighting}
 \end{Shaded}
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics[width=0.75\linewidth]{pics/msajc003_fromExport}
 
 \}
 
-\textbackslash{}caption\{TextGrid annotation generated by the \texttt{export\_TextGridCollection()} function containing the tiers (from top to bottom): \emph{Text}, \emph{Syllable}, \emph{Phonetic}.\}\label{fig:emuRfuncs-msajc003-fromExport}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{TextGrid annotation generated by the \texttt{export\_TextGridCollection()} function containing the tiers (from top to bottom): \emph{Text}, \emph{Syllable}, \emph{Phonetic}.\}\label{fig:emuRfuncs-msajc003-fromExport}
+\textbackslash end\{figure\}
 
 Depending on user requirements, additional export routines might be added to the \texttt{emuR} in the future.
 
@@ -4315,14 +4337,14 @@ This chapter provided an overview of the essential functions and central objects
 
 Compatibly with other query languages, the EQL defines the user a front-end interface and infers the query's results from its semantics. However, a query language does not define any data structures or specify how the query engine is to be implemented. As mentioned in Chapter \ref{chap:overview}, a major user requirement was database portability, simple package installation, tolerable run times over complex queries, and a system that did not rely on external software at runtime. The only available back-end implementation that met those needs and was also available as an R package at the time was (R)SQLite (\citet{hipp:2007a}, \citet{wickham:2014a}). As (R)SQLite is a relational database management system, \texttt{emuR}'s query system could not be implemented so as to use directly the primary data sources of an \texttt{emuDB}, that is, the JSON files described in Chapter \ref{chap:emuDB}. A syncing mechanism that maps the primary data sources to a relational form for querying purposes had to be implemented. This relational form is referred to as the \texttt{emuDBcache} in the context of an \texttt{emuDB}. The data sources are synchronized while an \texttt{emuDB} is being loaded and when changes are made to the annotation files. To address load time issues, we implemented a file check-sum mechanism which only reloads and synchronizes annotation files that have a changed MD5-sum \citep{rivest:1992a}. Figure \ref{fig:query-schematic-emuR-structure} is a schematic representation of how the various \texttt{emuDB} interaction functions interact with either the file representation or the relational cache.
 
-\textbackslash{}begin\{figure\}
+\textbackslash begin\{figure\}
 
 \{\centering \includegraphics[width=0.75\linewidth]{pics/emuRstruct}
 
 \}
 
-\textbackslash{}caption\{Schematic architecture of \texttt{emuDB} interaction functions of the \texttt{emuR} package. textcolor\{three-color-c2\}\{Orange\} paths show examples of functions interacting with the files of the \texttt{emuDB}, while extcolor\{three-color-c1\}\{green\} paths show functions accessing the relational annotation structure. Actions like saving a changed annotation using the \texttt{EMU-webApp} first save the \texttt{\_annot.json} to disk then update the relational annotation structure.\}\label{fig:query-schematic-emuR-structure}
-\textbackslash{}end\{figure\}
+\textbackslash caption\{Schematic architecture of \texttt{emuDB} interaction functions of the \texttt{emuR} package. textcolor\{three-color-c2\}\{Orange\} paths show examples of functions interacting with the files of the \texttt{emuDB}, while extcolor\{three-color-c1\}\{green\} paths show functions accessing the relational annotation structure. Actions like saving a changed annotation using the \texttt{EMU-webApp} first save the \texttt{\_annot.json} to disk then update the relational annotation structure.\}\label{fig:query-schematic-emuR-structure}
+\textbackslash end\{figure\}
 
 Despite the disadvantages of cache invalidation problems, there are several advantages to having an object relational mapping between the JSON-based annotation structure of an \texttt{emuDB} and a relation table representation. One is that the user still has full access to the files within the directory structure of the \texttt{emuDB}. This means that external tools can be used to script, manipulate or simply interact with these files. This would not be the case if the files were stored in databases in a way that requires (semi-)advanced programming knowledge that might be beyond the capabilities of many users. Moreover, we can provide expert users with the option of using other relational database engines such as PostgreSQL, including all their performance-tweaking abilities, as their relational cache. This is especially valuable for handling very large speech databases.
 
@@ -4574,7 +4596,15 @@ To be able to access some of \texttt{libassp}'s internal variables further wrapp
 \begin{Highlighting}[]
 \CommentTok{# load the wrassp package}
 \KeywordTok{library}\NormalTok{(wrassp)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Loading required package: tibble
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# show AsspWindowTypes}
 \KeywordTok{AsspWindowTypes}\NormalTok{()}
 \end{Highlighting}
@@ -4769,7 +4799,7 @@ To add to the tutorial of Chapter \ref{chap:tutorial}, this chapter will present
   Section \ref{sec:app-chap-useCases-q3}: What words do the phonetic segments that carry the labels \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the \emph{ae} \texttt{emuDB} occur in and what is their phonetic context?
 \item
   Section \ref{sec:app-chap-useCases-q4}: Do the phonetic segments that carry the labels \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the \emph{ae} \texttt{emuDB} differ with respect to their first spectral moment?
-  \textbackslash{}end\{itemize\}
+  \textbackslash end\{itemize\}
 \end{itemize}
 
 The R code snippet below shows how the \texttt{emuR} demo data used in this chapter is created.
@@ -4913,6 +4943,10 @@ As the \texttt{tibble} class is a superclass to the common \texttt{data.frame} c
 \StringTok{  }\KeywordTok{guides}\NormalTok{(}\DataTypeTok{colour=}\OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning: Use of `td$labels` is discouraged. Use `labels` instead.
+\end{verbatim}
 
 \begin{figure}
 
@@ -5112,7 +5146,7 @@ As can be seen by the error message in the above R code snippet, four of the sib
 However, the resulting \texttt{rightContext} contains rows that only contain \texttt{NA} values. This indicates that no values where found for the corresponding row in the \texttt{sibil} segment list.
 
 \hypertarget{sec:app-chap-useCases-q4}{%
-\section{\texorpdfstring{Do the phonetic segments labeled \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the \emph{ae} \texttt{emuDB} differ with respect to their first spectral moment?\protect\textbackslash{}footnote\{The original version of this use case was written by Florian Schiel as part of the \texttt{emuR\_intro} vignette that is part of the \texttt{emuR} package.}{Do the phonetic segments labeled s, z, S or Z in the ae emuDB differ with respect to their first spectral moment?\textbackslash{}footnote\{The original version of this use case was written by Florian Schiel as part of the emuR\_intro vignette that is part of the emuR package.}}\label{sec:app-chap-useCases-q4}}
+\section{\texorpdfstring{Do the phonetic segments labeled \emph{s}, \emph{z}, \emph{S} or \emph{Z} in the \emph{ae} \texttt{emuDB} differ with respect to their first spectral moment?\protect\textbackslash footnote\{The original version of this use case was written by Florian Schiel as part of the \texttt{emuR\_intro} vignette that is part of the \texttt{emuR} package.}{Do the phonetic segments labeled s, z, S or Z in the ae emuDB differ with respect to their first spectral moment?\textbackslash footnote\{The original version of this use case was written by Florian Schiel as part of the emuR\_intro vignette that is part of the emuR package.}}\label{sec:app-chap-useCases-q4}}
 
 \hypertarget{note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis}{%
 \subsection{NOTE: See \ref{recipe:spectralAnalysis} for more up to date methods of performing spectral analysis}\label{note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis}}
@@ -5124,6 +5158,14 @@ Once again, the segments of interest are queried first. The R code snippet below
 \NormalTok{sibil =}\StringTok{ }\KeywordTok{query}\NormalTok{(ae,}\StringTok{"Phonetic =~ '[szSZ]'"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning in query_labels(emuDBhandle, levelName = lvlName, intermResTableSuffix = intermResTableSuffix, : =~ now requires ^ if you wish to match the
+## first character in a sequence i.e. 'a.*' now also matches
+## 'weakness' as it contains the sequence. '^a.*'
+## matches sequences that start with 'a.*'
+## e.g. the word 'amongst'.
+\end{verbatim}
 
 The R code snippet below shows how the \texttt{get\_trackdata()} function can be used to calculate the Discrete Fourier Transform values for the extracted segments.
 
@@ -5542,7 +5584,7 @@ The \texttt{\_DBconfig.json} file contains the following fields:
       \item
         \texttt{"ssffTrackName"} The name of the \texttt{ssffTrackName} for which colors are defined. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
       \item
-        \texttt{"colors"} An array of RGB strings (e.g. \texttt{{[}"rgb(238,130,238)"}, \texttt{"rgb(127,255,212)"{]}}) that specify the color of the contour (first value = first contour color and so on). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
+        \texttt{"colors"} An array of RGB strings (e.g.~\texttt{{[}"rgb(238,130,238)"}, \texttt{"rgb(127,255,212)"{]}}) that specify the color of the contour (first value = first contour color and so on). (NOTE: indentation level reduced by 1 to avoid max indentation problems)
       \end{itemize}
     \item
       \texttt{"levelCanvases"} Configuration options for the
@@ -5598,9 +5640,9 @@ The \texttt{\_DBconfig.json} file contains the following fields:
       \item
         \texttt{"yNameCoordinate"} y-coordinate specifying the location at which name should be drawn. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
-        \texttt{"xCoordinates"} An array of x-coordinates (e.g. \texttt{{[}300,~300,~900,~900,~300{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
+        \texttt{"xCoordinates"} An array of x-coordinates (e.g.~\texttt{{[}300,~300,~900,~900,~300{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
-        \texttt{"yCoordinates"} An array of y-coordinates (e.g. \texttt{{[}880,~2540,~2540,~880,~880{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
+        \texttt{"yCoordinates"} An array of y-coordinates (e.g.~\texttt{{[}880,~2540,~2540,~880,~880{]}}). (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
         \texttt{"connect"} A boolean value that specifies whether or not to connect the static dots with lines. (NOTE: indentation level reduced by 2 to avoid max indentation problems)
       \item
@@ -5747,7 +5789,7 @@ The \texttt{\_DBconfig.json} file contains the following fields:
     \item
       \texttt{"resizeSignalCanvas"} A boolean value specifying whether to
       allow the user to resize the \texttt{signalCanvases} (\texttt{"OSCI"},
-      \texttt{"SPEC"}, \ldots{}).
+      \texttt{"SPEC"}, \ldots).
     \item
       \texttt{"openDemoDB"} A boolean value specifying whether to show
       the \texttt{open\ demoDB} button.
@@ -5872,7 +5914,15 @@ The SSFF file format is a binary file format which has a plain text header. This
 \CommentTok{# load the emuR and wrassp packages}
 \KeywordTok{library}\NormalTok{(emuR, }\DataTypeTok{warn.conflicts =} \OtherTok{FALSE}\NormalTok{)}
 \KeywordTok{library}\NormalTok{(wrassp)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Loading required package: tibble
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# create demo data in directory }
 \CommentTok{# provided by tempdir()}
 \KeywordTok{create_emuRdemoData}\NormalTok{(}\DataTypeTok{dir =} \KeywordTok{tempdir}\NormalTok{())}
@@ -6410,7 +6460,7 @@ Regular expression non-matching
 
 Greater than
 
-\textgreater{}=
+\textgreater=
 
 Equal to or greater than
 
@@ -6418,7 +6468,7 @@ Equal to or greater than
 
 Less than
 
-\textgreater{}=
+\textgreater=
 
 Equal to or less than
 
@@ -6507,7 +6557,7 @@ DOMQ = ``{[}", ( CONJQ \textbar{} DOMQ \textbar{} SEQQ ), "\^{}", ( CONJQ \textb
 
 levels must be hierarchically associated
 
-SEQQ = ``{[}", ( CONJQ \textbar{} SEQQ \textbar{} DOMQ ), "-\textgreater{}", ( CONJQ \textbar{} SEQQ \textbar{} DOMQ ), "{]}'';
+SEQQ = ``{[}", ( CONJQ \textbar{} SEQQ \textbar{} DOMQ ), "-\textgreater", ( CONJQ \textbar{} SEQQ \textbar{} DOMQ ), "{]}'';
 
 \textbf{seq}uential \textbf{q}uery
 
@@ -6557,7 +6607,7 @@ POSFCT = ``Start'' \textbar{} ``Medial'' \textbar{} ``End'';
 
 \textbf{pos}ition \textbf{f}un\textbf{ct}ion
 
-COP = ``='' \textbar{} ``=='' \textbar{} ``!='' \textbar{} ``\textgreater{}'' \textbar{} ``\textless{}'' \textbar{} ``\textless{}='' \textbar{} ``\textgreater{}='';
+COP = ``='' \textbar{} ``=='' \textbar{} ``!='' \textbar{} ``\textgreater{}'' \textbar{} ``\textless{}'' \textbar{} ``\textless='' \textbar{} ``\textgreater='';
 
 \textbf{c}omparison \textbf{o}perator
 
@@ -6682,6 +6732,14 @@ Example questions and answers:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning in query_labels(emuDBhandle, levelName = lvlName, intermResTableSuffix = intermResTableSuffix, : =~ now requires ^ if you wish to match the
+## first character in a sequence i.e. 'a.*' now also matches
+## 'weakness' as it contains the sequence. '^a.*'
+## matches sequences that start with 'a.*'
+## e.g. the word 'amongst'.
+\end{verbatim}
+
 \begin{itemize}
 \tightlist
 \item
@@ -6759,7 +6817,7 @@ Example \textbf{Q} \& \textbf{A}'s:
 \hypertarget{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}{%
 \section{\texorpdfstring{Subsequent sequence queries using nesting of the \texttt{-\textgreater{}} sequence operator}{Subsequent sequence queries using nesting of the -\textgreater{} sequence operator}}\label{subsequent-sequence-queries-using-nesting-of-the---sequence-operator}}
 
-The general strategy for constructing a query string that retrieves subsequent sequences of labels is to nest multiple sequences while paying close attention to the correct placement of the parentheses. An abstract version of such a query string for the subsequent sequence of arguments \texttt{A1}, \texttt{A2}, \texttt{A3} and \texttt{A4} would be: \texttt{{[}{[}{[}{[}A1\ -\textgreater{}\ A2{]}\ -\textgreater{}\ A3{]}\ -\textgreater{}\ A4{]}\ -\textgreater{}\ A5{]}} where each argument (e.g. \texttt{A1}) represents an equality, inequality, matching or non-matching expression on the same level (alternatively, parallel attribute definitions of the same level may also be chosen).
+The general strategy for constructing a query string that retrieves subsequent sequences of labels is to nest multiple sequences while paying close attention to the correct placement of the parentheses. An abstract version of such a query string for the subsequent sequence of arguments \texttt{A1}, \texttt{A2}, \texttt{A3} and \texttt{A4} would be: \texttt{{[}{[}{[}{[}A1\ -\textgreater{}\ A2{]}\ -\textgreater{}\ A3{]}\ -\textgreater{}\ A4{]}\ -\textgreater{}\ A5{]}} where each argument (e.g.~\texttt{A1}) represents an equality, inequality, matching or non-matching expression on the same level (alternatively, parallel attribute definitions of the same level may also be chosen).
 
 Example questions and answers:
 
@@ -6813,7 +6871,7 @@ As the EQL1 did not have a regular expression operator, users often resorted to 
 \hypertarget{conjunction-operator}{%
 \section{Conjunction operator \&}\label{conjunction-operator}}
 
-The syntax of a query string using the conjunction operator can schematically be written as: \texttt{{[}L\ ==\ A\ \&\ L\_a2\ ==\ B\ \&\ L\_a3\ ==\ C\ \&\ L\_a4\ ==\ D\ \&\ ...\ \&\ L\_an\ ==\ N{]}}, where items on level \texttt{L} have the label \texttt{A} (technically belonging to the first attribute of that level, i.e., \texttt{L\_a1}, which per default has the same name as its level) also have the attributes \texttt{B}, \texttt{C}, \texttt{D}, \ldots\{\}, \texttt{N}. As with the sequence operator all expressions must be on the same level (i.e., parallel attribute definitions of the same level indicated by the \texttt{a2\ -\ an} may to be chosen).
+The syntax of a query string using the conjunction operator can schematically be written as: \texttt{{[}L\ ==\ A\ \&\ L\_a2\ ==\ B\ \&\ L\_a3\ ==\ C\ \&\ L\_a4\ ==\ D\ \&\ ...\ \&\ L\_an\ ==\ N{]}}, where items on level \texttt{L} have the label \texttt{A} (technically belonging to the first attribute of that level, i.e., \texttt{L\_a1}, which per default has the same name as its level) also have the attributes \texttt{B}, \texttt{C}, \texttt{D}, \ldots{}, \texttt{N}. As with the sequence operator all expressions must be on the same level (i.e., parallel attribute definitions of the same level indicated by the \texttt{a2\ -\ an} may to be chosen).
 
 The conjunction operator is used to combine query conditions on the same level. This makes sense in two cases:
 
@@ -7284,6 +7342,14 @@ Example questions and answers:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## Warning in query_labels(emuDBhandle, levelName = lvlName, intermResTableSuffix = intermResTableSuffix, : =~ now requires ^ if you wish to match the
+## first character in a sequence i.e. 'a.*' now also matches
+## 'weakness' as it contains the sequence. '^a.*'
+## matches sequences that start with 'a.*'
+## e.g. the word 'amongst'.
+\end{verbatim}
+
 \begin{itemize}
 \tightlist
 \item
@@ -7717,7 +7783,7 @@ To our knowledge, the order of a segment list in the legacy EMU system was never
 \item
   The query mechanics of \texttt{emuR} accepts the double equal character string \texttt{==} (recommended) as well as the single \texttt{=} equal character string as an equal operator.
 \item
-  The EQL2 is capable of querying labels by matching regular expressions using the \texttt{=\textasciitilde{}} (matching) and \texttt{!\textasciitilde{}} (non-matching) operators. It is worth noting that the regular expression pattern is always meant to consume the entire label string i.e.~wrapping the RegEx in \texttt{"\^{}\ RegEx\ \$"} is not necessary. If substring matching is desired this must be formulated explicitly (e.g. \texttt{".*substring.*"})
+  The EQL2 is capable of querying labels by matching regular expressions using the \texttt{=\textasciitilde{}} (matching) and \texttt{!\textasciitilde{}} (non-matching) operators. It is worth noting that the regular expression pattern is always meant to consume the entire label string i.e.~wrapping the RegEx in \texttt{"\^{}\ RegEx\ \$"} is not necessary. If substring matching is desired this must be formulated explicitly (e.g.~\texttt{".*substring.*"})
 
   \begin{itemize}
   \tightlist
@@ -8348,7 +8414,7 @@ Let us now load the needed libraries and create a demo emuDB to play with:
 \end{Highlighting}
 \end{Shaded}
 
-The \texttt{ae} emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for ``Discrete Fourier Transform'' which converts a signal into a time-series of spectra. This transformation can be done with \texttt{wrassp}'s function \texttt{dftSpectrum()} which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a ``short-term spectral analysis of the signal in using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g. `.dft'). Default output is in SSFF format with the spectrum type in lower case as track name.'' (cited from \texttt{?wrassp::dftSpectrum}).
+The \texttt{ae} emuDB has ssffTrackDefinitions for pre-calculated so-called dft-files containing dft data. DFT stands for ``Discrete Fourier Transform'' which converts a signal into a time-series of spectra. This transformation can be done with \texttt{wrassp}'s function \texttt{dftSpectrum()} which - despite of its name - actually uses a Fast Fourier Transform algorithm. The function produces a ``short-term spectral analysis of the signal in using the Fast Fourier Transform. The default is to calculate an unsmoothed narrow-band spectrum with the size of the analysis window equal to the length of the FFT. The output from the FFT will be converted to a power spectrum in dB from 0 Hz up to and including the Nyquist rate. Analysis results will be written to a file with the base name of the input file and the spectrum type in lower case as extension (e.g.~`.dft'). Default output is in SSFF format with the spectrum type in lower case as track name.'' (cited from \texttt{?wrassp::dftSpectrum}).
 
 The procedure to calculate your own dft-files is identical to that of calculating formants, or fundamental frequency, or any other function that is available in \texttt{wrassp} (see also \href{http://www.phonetik.uni-muenchen.de/\%7Ejmh/lehre/sem/ws1819/emuR/LESSON4/Signal_Data_Calculation_Extraction_Plotting.html}{this document} ):
 
@@ -8492,7 +8558,7 @@ Let us now list the column names of the extracted trackdata object:
 ## [277] "T257"
 \end{verbatim}
 
-\texttt{sS.dft} contains spectral data, i.e.~in this case 257 amplitude values per frame (in our case, we only have one frame per segment). So there are track colums T1 \ldots{} T257 (and there could be even more - depending on the Nyquist frequency - see below) instead of only one track column (as it would be the case in e.g.~fundamental frequency data) or 4 or 5 signal tracks as it would be the case for formants. Not only is it hard to plot data that is structured like this, we still miss some important information: the frequencies with which the amplitude values in T1\ldots{}T257 are associated with.
+\texttt{sS.dft} contains spectral data, i.e.~in this case 257 amplitude values per frame (in our case, we only have one frame per segment). So there are track colums T1 \ldots{} T257 (and there could be even more - depending on the Nyquist frequency - see below) instead of only one track column (as it would be the case in e.g.~fundamental frequency data) or 4 or 5 signal tracks as it would be the case for formants. Not only is it hard to plot data that is structured like this, we still miss some important information: the frequencies with which the amplitude values in T1\ldots T257 are associated with.
 
 We could calculate these frequencies by dividing the sample rate of the signals
 
@@ -8606,7 +8672,15 @@ We can also summarise this easily to one averaged slice per fricative type:
 \NormalTok{sS.dftlong.mean =}\StringTok{ }\NormalTok{sS.dftlong}\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(labels,freq)}\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{track_value=}\KeywordTok{mean}\NormalTok{(track_value))}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## `summarise()` regrouping output by 'labels' (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(sS.dftlong.mean) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ freq, }\DataTypeTok{y =}\NormalTok{ track_value, }\DataTypeTok{col=}\NormalTok{labels) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{() }
@@ -8626,7 +8700,15 @@ When we look at the figure above, showing average spectra at the temporal midpoi
 \StringTok{  }\KeywordTok{filter}\NormalTok{(freq}\OperatorTok{>=}\DecValTok{2000} \OperatorTok{&}\StringTok{ }\NormalTok{freq }\OperatorTok{<=}\DecValTok{3000}\NormalTok{)}\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(labels,sl_rowIdx)}\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{amplitudes_2000_3000Hz =} \KeywordTok{mean}\NormalTok{(track_value))}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## `summarise()` regrouping output by 'labels' (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(sS2to3thousandHz)}\OperatorTok{+}
 \StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{labels,}\DataTypeTok{y=}\NormalTok{amplitudes_}\DecValTok{2000}\NormalTok{_3000Hz,}\DataTypeTok{col=}\NormalTok{labels)}\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}
@@ -8930,7 +9012,15 @@ The only thing we could do is to use dct-k0 only in a certain frequency range (e
 \StringTok{  }\KeywordTok{filter}\NormalTok{(freq }\OperatorTok{>=}\StringTok{ }\DecValTok{2000} \OperatorTok{&}\StringTok{ }\NormalTok{freq }\OperatorTok{<=}\StringTok{ }\DecValTok{3000}\NormalTok{) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(labels,sl_rowIdx) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{amplitudes_2000_3000Hz =} \KeywordTok{mean}\NormalTok{(track_value))}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## `summarise()` regrouping output by 'labels' (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{a =}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(sS2to3thousandHz) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ labels, }\DataTypeTok{y =}\NormalTok{ amplitudes_}\DecValTok{2000}\NormalTok{_3000Hz, }\DataTypeTok{col =}\NormalTok{ labels) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}
@@ -9306,51 +9396,7 @@ This recipe contains various plotting snippets for various visualization challen
 \begin{Highlighting}[]
 \CommentTok{# time normalize the formant values}
 \NormalTok{ae_formants_norm =}\StringTok{ }\KeywordTok{normalize_length}\NormalTok{(ae_formants)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (14). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (17). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (16). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (9). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (15). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (13). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (18). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Row indexes must be between 0 and the number of rows (19). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# plot all normalized F2 trajectories}
 \KeywordTok{ggplot}\NormalTok{(ae_formants_norm) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ times_norm, }\DataTypeTok{y =}\NormalTok{ T2, }\DataTypeTok{col =}\NormalTok{ labels, }\DataTypeTok{group =}\NormalTok{ sl_rowIdx) }\OperatorTok{+}
@@ -9428,7 +9474,7 @@ This recipe contains various plotting snippets for various visualization challen
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: Removed 3 rows containing missing values (geom_path).
+## Warning: Removed 3 row(s) containing missing values (geom_path).
 \end{verbatim}
 
 \includegraphics{recipe-plottingSnippets_files/figure-latex/unnamed-chunk-6-1.pdf}
@@ -9507,7 +9553,7 @@ As we will be using an R package called \texttt{git2r}, please make sure it is i
 \end{Highlighting}
 \end{Shaded}
 
-As this recipe uses features that aren't available in the current CRAN release of emuR, please also install the current developer version from GitHub (needed version \textgreater{}= 2.0.4.9000):
+As this recipe uses features that aren't available in the current CRAN release of emuR, please also install the current developer version from GitHub (needed version \textgreater= 2.0.4.9000):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9572,7 +9618,7 @@ Now we will add everything to the Git repository and create our initial commit. 
 \end{Shaded}
 
 \begin{verbatim}
-## [dbb6cca] 2020-01-16: initial commit
+## [81f2ed4] 2020-12-07: initial commit
 \end{verbatim}
 
 This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don't forget to use a concise commit message).
@@ -9614,7 +9660,7 @@ Once a private token was created and copied, add the following line to your \tex
 
 The \texttt{.Renviron} file is read during R's start-up -- therefore you need to close and reopen RStudio. Adding the token to your \texttt{.Renviron} file has the advantage that you will not have to include it in your R scripts, which allows you to share these scripts without the need to redact the secret token.
 
-A note on security: Personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: Is is meant for your eyes only. If a token gets lost or stolen, please revoke the token immediately (GitLab: \texttt{Settings} -\textgreater{} \texttt{Access\ Tokens} -\textgreater{} \texttt{Revoke})!!!!
+A note on security: Personal access tokens like the above grant full access to your GitLab account. It is therefore to be treated the same way a password is! In other words: It is meant for your eyes only. If a token gets lost or stolen, please revoke the token immediately (GitLab: \texttt{Settings} -\textgreater{} \texttt{Access\ Tokens} -\textgreater{} \texttt{Revoke})!!!!
 
 Now that the token is set up, we can use it to push the emuDB to the GitLab instance:
 
@@ -9705,7 +9751,7 @@ How the EMU-SDMS handles user management/collaborative annotations is quite simp
 \end{Highlighting}
 \end{Shaded}
 
-These files describe, what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g. \texttt{raphael.winkelmann\_bundleList.json}. As of emuR version 2.0.4.9000 (currently only available on GitHub with \texttt{devtools::install\_github("IPS-LMU/emuR")}) it is possible to read and write these bundle lists:
+These files describe, what bundles are allocated to a certain user. The name of the files indicate which user the assignment belongs to e.g.~\texttt{raphael.winkelmann\_bundleList.json}. As of emuR version 2.0.4.9000 (currently only available on GitHub with \texttt{devtools::install\_github("IPS-LMU/emuR")}) it is possible to read and write these bundle lists:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9721,7 +9767,7 @@ These files describe, what bundles are allocated to a certain user. The name of 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/RtmpjvGiyd/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
+## [1] "INFO: No bundleList dir found in emuDB (path: /tmp/Rtmpxs5I16/emuR_demoData/ae_emuDB/bundleLists)! Creating directory..."
 \end{verbatim}
 
 \begin{Shaded}
@@ -9798,6 +9844,6 @@ As the annotators have full read and write access to the GitLab emuDB repository
 
 Although ultimately up to the user (the possibilities with Git are basically endless), we recommend keeping the analysis scripts separate from the emuDB for a better separation of concerns (e.g.~you might want to share your database but not your ``messy'' analysis script :-)). This can for example be done using a new R Studio project (\texttt{File\ -\textgreater{}\ New\ Project...} in R Studio) which once again is put under Git version control (usually no Git-LFS necessary). If a combination of the emuDB and the analysis Project is desired, I would recommend looking into Git submodules: \url{https://git-scm.com/book/en/v2/Git-Tools-Submodules}
 
-\bibliography{book.bib}
+  \bibliography{book.bib}
 
 \end{document}

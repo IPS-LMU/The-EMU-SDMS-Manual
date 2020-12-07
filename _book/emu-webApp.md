@@ -54,7 +54,7 @@ To add a new boundary or event to a level the user initially has to select the d
 
 To add a boundary to the currently selected level one first has to select a point in time either in the spectrogram or the oscillogram by single-left-clicking on the desired location. Hitting the enter/return key adds a new boundary or event to the preselected level at the selected time point. Selecting a stretch of time in the spectrogram or the oscillogram (left-click-and-drag) and hitting enter will add a segment (not a boundary) to a preselected segment level.
 
-#### Segments and events {#segments-events} {-}
+#### Segments and events {-#segments-events}
 
 The `EMU-webApp` also allows segments and events to be preselected by single-left-clicking the desired item. The web application colors the preselected segments and events yellow to indicate their pre-selection as displayed in Figure \@ref(fig:webApp-preSelSeg).
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>17 EQL EBNF26 | The EMU-SDMS Manual</title>
   <meta name="description" content="17 EQL EBNF26 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="17 EQL EBNF26 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -49,12 +49,15 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -63,14 +66,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -114,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -127,9 +131,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">The EMU-SDMS Manual</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
 <li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
@@ -152,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -367,9 +368,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -389,7 +387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="app-chap:EQL-EBNF" class="section level1">
 <h1><span class="header-section-number">17</span> EQL EBNF<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></h1>
-<p>This chapter presents the EBNF <span class="citation">(Garshol <a href="#ref-garshol:2003a">2003</a>)</span> that describes version 2 of the EQL. As the original EBNF adapted from <span class="citation">John (<a href="#ref-john:2012a">2012</a>)</span> was written in German, some of the abbreviation terms were translated into English abbreviations (e.g., DOMA is the abbreviation for the German term <strong>Dom</strong>inanz<strong>a</strong>bfrage and the newly translated DOMQ is the abbreviation for the English term <strong>dom</strong>ination <strong>q</strong>uery).</p>
+<p>This chapter presents the EBNF <span class="citation">(Garshol <a href="#ref-garshol:2003a" role="doc-biblioref">2003</a>)</span> that describes version 2 of the EQL. As the original EBNF adapted from <span class="citation">John (<a href="#ref-john:2012a" role="doc-biblioref">2012</a>)</span> was written in German, some of the abbreviation terms were translated into English abbreviations (e.g., DOMA is the abbreviation for the German term <strong>Dom</strong>inanz<strong>a</strong>bfrage and the newly translated DOMQ is the abbreviation for the English term <strong>dom</strong>ination <strong>q</strong>uery).</p>
 <div id="terminal-symbols-of-eql2-operators-and-their-meaning" class="section level2">
 <h2><span class="header-section-number">17.1</span> Terminal symbols of EQL2 (operators) and their meaning</h2>
 <p>The terminal symbols described below are listed in descending order by their binding priority.</p>
@@ -663,7 +661,7 @@ EQL = CONJQ | SEQQ | DOMQ;
 </tr>
 <tr>
 <td style="text-align:left;">
-DOMQ = “[&quot;, ( CONJQ | DOMQ | SEQQ ), &quot;^&quot;, ( CONJQ | DOMQ | SEQQ ), &quot;]”;
+DOMQ = “[", ( CONJQ | DOMQ | SEQQ ), "^", ( CONJQ | DOMQ | SEQQ ), "]”;
 </td>
 <td style="text-align:left;">
 <strong>dom</strong>inance <strong>q</strong>uery
@@ -674,7 +672,7 @@ levels must be hierarchically associated
 </tr>
 <tr>
 <td style="text-align:left;">
-SEQQ = “[&quot;, ( CONJQ | SEQQ | DOMQ ), &quot;-&gt;&quot;, ( CONJQ | SEQQ | DOMQ ), &quot;]”;
+SEQQ = “[", ( CONJQ | SEQQ | DOMQ ), "-&gt;", ( CONJQ | SEQQ | DOMQ ), "]”;
 </td>
 <td style="text-align:left;">
 <strong>seq</strong>uential <strong>q</strong>uery
@@ -685,7 +683,7 @@ levels must be linearly associated
 </tr>
 <tr>
 <td style="text-align:left;">
-CONJQ = { “[&quot; }, SQ, { &quot;&amp;&quot;, SQ }, { &quot;]” };
+CONJQ = { “[" }, SQ, { "&amp;", SQ }, { "]” };
 </td>
 <td style="text-align:left;">
 <strong>conj</strong>unction <strong>q</strong>uery
@@ -839,7 +837,7 @@ DIGIT = “0” | “1” | “2” | “3” | “4” | “5” | “6” | �
 <div class="footnotes">
 <hr />
 <ol start="26">
-<li id="fn26"><p>The EBNF presented here is an updated version of the EBNF of the <code>EQL</code> vignette.<a href="app-chap-EQL-EBNF.html#fnref26" class="footnote-back">↩</a></p></li>
+<li id="fn26"><p>The EBNF presented here is an updated version of the EBNF of the <code>EQL</code> vignette.<a href="app-chap-EQL-EBNF.html#fnref26" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -879,8 +877,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/app_chap-ebnf.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

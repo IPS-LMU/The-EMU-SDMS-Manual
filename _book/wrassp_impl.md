@@ -49,7 +49,13 @@ To be able to access some of `libassp`'s internal variables further wrapper func
 ```r
 # load the wrassp package
 library(wrassp)
+```
 
+```
+## Loading required package: tibble
+```
+
+```r
 # show AsspWindowTypes
 AsspWindowTypes()
 ```

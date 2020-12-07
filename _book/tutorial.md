@@ -117,8 +117,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 5c108054-5b05-4a34-a833-9d48528e397c 
-## Directory:	 /tmp/RtmpBJ30VV/my-first_emuDB 
+## UUID:	 ab0a8ecc-c332-4e62-888c-d528d3358031 
+## Directory:	 /tmp/RtmpCYQMHI/my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -221,18 +221,18 @@ sl_phonetic
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 n      1032. 1196. 5c1080… 0000    msajc…            98          98 Phon…
-##  2 n      1741. 1791. 5c1080… 0000    msajc…           108         108 Phon…
-##  3 n      1515. 1554. 5c1080… 0000    msajc…           113         113 Phon…
-##  4 n      2431. 2528. 5c1080… 0000    msajc…           127         127 Phon…
-##  5 n       895. 1023. 5c1080… 0000    msajc…            98          98 Phon…
-##  6 n      2402. 2475. 5c1080… 0000    msajc…           122         122 Phon…
-##  7 n      2227. 2271. 5c1080… 0000    msajc…           132         132 Phon…
-##  8 n      3046. 3068. 5c1080… 0000    msajc…           145         145 Phon…
-##  9 n      1435. 1495. 5c1080… 0000    msajc…            91          91 Phon…
-## 10 n      1775. 1834. 5c1080… 0000    msajc…            96          96 Phon…
-## 11 n       509.  544. 5c1080… 0000    msajc…            97          97 Phon…
-## 12 n      2448. 2480. 5c1080… 0000    msajc…           130         130 Phon…
+##  1 n      1032. 1196. ab0a8e… 0000    msajc…            98          98 Phon…
+##  2 n      1741. 1791. ab0a8e… 0000    msajc…           108         108 Phon…
+##  3 n      1515. 1554. ab0a8e… 0000    msajc…           113         113 Phon…
+##  4 n      2431. 2528. ab0a8e… 0000    msajc…           127         127 Phon…
+##  5 n       895. 1023. ab0a8e… 0000    msajc…            98          98 Phon…
+##  6 n      2402. 2475. ab0a8e… 0000    msajc…           122         122 Phon…
+##  7 n      2227. 2271. ab0a8e… 0000    msajc…           132         132 Phon…
+##  8 n      3046. 3068. ab0a8e… 0000    msajc…           145         145 Phon…
+##  9 n      1435. 1495. ab0a8e… 0000    msajc…            91          91 Phon…
+## 10 n      1775. 1834. ab0a8e… 0000    msajc…            96          96 Phon…
+## 11 n       509.  544. ab0a8e… 0000    msajc…            97          97 Phon…
+## 12 n      2448. 2480. ab0a8e… 0000    msajc…           130         130 Phon…
 ## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -245,7 +245,7 @@ As demonstrated in the above R code, the result of a query is a `tbl_df` object 
 The simple queries illustrated above query segments from a single level that match a certain label. However, the EMU-SDMS offers a mechanism for performing inter-level queries such as: *Query all Phonetic items that contain the label "n" and are part of a content word*. For such queries to be possible, the EMU-SDMS offers very sophisticated annotation structure modeling capabilities, which are described in Chapter \@ref(chap:annot-struct-mod). For the sake of this tutorial we will focus on converting the flat segment level annotation structure displayed in Figure \@ref(fig:tutorial-emuWebAppMyFirst) to a hierarchical form as displayed in Figure \@ref(fig:tutorial-violentlyHier), where only the *Phonetic* level carries time information and the annotation items on the other levels are explicitly linked to each other to form a hierarchical annotation structure.
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`."  />
+<img src="tutorial_files/figure-html/tutorial-violentlyHier-1.png" alt="Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`." width="432" />
 <p class="caption">(\#fig:tutorial-violentlyHier)Example of a hierarchical annotation of the content (==*C*) word *violently* belonging to the *msajc012* bundle of the *my-first* demo `emuDB`.</p>
 </div>
 
@@ -379,16 +379,16 @@ sl_vowels
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 @      1506. 1548. 5c1080… 0000    msajc…           103         103 Phon…
-##  2 @      1715. 1741. 5c1080… 0000    msajc…           107         107 Phon…
-##  3 @      1967. 2034. 5c1080… 0000    msajc…           112         112 Phon…
-##  4 @      2303. 2362. 5c1080… 0000    msajc…           117         117 Phon…
-##  5 @      2447. 2506. 5c1080… 0000    msajc…           119         119 Phon…
-##  6 @      1917. 1958. 5c1080… 0000    msajc…           118         118 Phon…
-##  7 @      2022. 2078. 5c1080… 0000    msajc…           120         120 Phon…
-##  8 @      2382. 2431. 5c1080… 0000    msajc…           126         126 Phon…
-##  9 @       330.  380. 5c1080… 0000    msajc…            91          91 Phon…
-## 10 @      1472. 1490. 5c1080… 0000    msajc…           108         108 Phon…
+##  1 @      1506. 1548. ab0a8e… 0000    msajc…           103         103 Phon…
+##  2 @      1715. 1741. ab0a8e… 0000    msajc…           107         107 Phon…
+##  3 @      1967. 2034. ab0a8e… 0000    msajc…           112         112 Phon…
+##  4 @      2303. 2362. ab0a8e… 0000    msajc…           117         117 Phon…
+##  5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119 Phon…
+##  6 @      1917. 1958. ab0a8e… 0000    msajc…           118         118 Phon…
+##  7 @      2022. 2078. ab0a8e… 0000    msajc…           120         120 Phon…
+##  8 @      2382. 2431. ab0a8e… 0000    msajc…           126         126 Phon…
+##  9 @       330.  380. ab0a8e… 0000    msajc…            91          91 Phon…
+## 10 @      1472. 1490. ab0a8e… 0000    msajc…           108         108 Phon…
 ## # … with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -413,16 +413,16 @@ sl_word_type
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 F         NA    NA 5c1080… 0000    msajc…            16          16 Word 
-##  2 C         NA    NA 5c1080… 0000    msajc…            17          17 Word 
-##  3 C         NA    NA 5c1080… 0000    msajc…            17          17 Word 
-##  4 C         NA    NA 5c1080… 0000    msajc…            18          18 Word 
-##  5 C         NA    NA 5c1080… 0000    msajc…            18          18 Word 
-##  6 C         NA    NA 5c1080… 0000    msajc…            19          19 Word 
-##  7 C         NA    NA 5c1080… 0000    msajc…            20          20 Word 
-##  8 C         NA    NA 5c1080… 0000    msajc…            20          20 Word 
-##  9 F         NA    NA 5c1080… 0000    msajc…            13          13 Word 
-## 10 F         NA    NA 5c1080… 0000    msajc…            17          17 Word 
+##  1 F         NA    NA ab0a8e… 0000    msajc…            16          16 Word 
+##  2 C         NA    NA ab0a8e… 0000    msajc…            17          17 Word 
+##  3 C         NA    NA ab0a8e… 0000    msajc…            17          17 Word 
+##  4 C         NA    NA ab0a8e… 0000    msajc…            18          18 Word 
+##  5 C         NA    NA ab0a8e… 0000    msajc…            18          18 Word 
+##  6 C         NA    NA ab0a8e… 0000    msajc…            19          19 Word 
+##  7 C         NA    NA ab0a8e… 0000    msajc…            20          20 Word 
+##  8 C         NA    NA ab0a8e… 0000    msajc…            20          20 Word 
+##  9 F         NA    NA ab0a8e… 0000    msajc…            13          13 Word 
+## 10 F         NA    NA ab0a8e… 0000    msajc…            17          17 Word 
 ## # … with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -491,18 +491,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  2         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  3         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  4         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  5         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  6         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  7         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  8         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-##  9         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-## 10         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-## 11         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
-## 12         5 @      2447. 2506. 5c1080… 0000    msajc…           119         119
+##  1         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  2         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  3         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  4         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  5         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  6         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  7         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  8         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+##  9         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+## 10         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+## 11         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
+## 12         5 @      2447. 2506. ab0a8e… 0000    msajc…           119         119
 ## # … with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
@@ -532,12 +532,12 @@ ggplot(td_vowels_norm) +
 
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-dplot1-1.png" alt="`ggplot()` plots of all F1 *\@* vowel trajectories."  />
+<img src="tutorial_files/figure-html/tutorial-dplot1-1.png" alt="`ggplot()` plots of all F1 *\@* vowel trajectories." width="576" />
 <p class="caption">(\#fig:tutorial-dplot1)`ggplot()` plots of all F1 *\@* vowel trajectories.</p>
 </div>
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-dplot2-1.png" alt="`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels."  />
+<img src="tutorial_files/figure-html/tutorial-dplot2-1.png" alt="`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels." width="576" />
 <p class="caption">(\#fig:tutorial-dplot2)`ggplot()` plots of the F1 smoothed conditional mean trajectories of all *\@* vowels.</p>
 </div>
 
@@ -572,7 +572,7 @@ ggplot(td_vowels_midpoint, aes(x = T2, y = T1, colour = labels, label = labels))
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-eplot-1.png" alt="95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments."  />
+<img src="tutorial_files/figure-html/tutorial-eplot-1.png" alt="95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments." width="576" />
 <p class="caption">(\#fig:tutorial-eplot)95% ellipse plot including centroid for F2 x F1 data extracted from the temporal midpoint of the vowel segments.</p>
 </div>
 
@@ -604,7 +604,7 @@ ggplot(td_vowels_mid_sec) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-dplotSylTyp-1.png" alt="Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*))."  />
+<img src="tutorial_files/figure-html/tutorial-dplotSylTyp-1.png" alt="Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*))." width="576" />
 <p class="caption">(\#fig:tutorial-dplotSylTyp)Ensemble averages of F1 contours of all tokens of the central 60% of vowels grouped by word type (function (*F*) vs. content (*W*)).</p>
 </div>
 
@@ -626,8 +626,13 @@ ggplot(td_vowels_mid_sec_mean, aes(labels, meanF1)) +
   labs(x = "Word type", y = "mean F1 (Hz)")
 ```
 
+
+```
+## `summarise()` ungrouping output (override with `.groups` argument)
+```
+
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word."  />
+<img src="tutorial_files/figure-html/tutorial-boxplot-1.png" alt="Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word." width="576" />
 <p class="caption">(\#fig:tutorial-boxplot)Boxplot produced using `ggplot2` to visualize the difference in F1 depending on whether the vowel occurs in content (*C*) or function (*F*) word.</p>
 </div>
 
@@ -652,7 +657,7 @@ shapiro.test(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F",]$meanF
 ## 
 ## 	Shapiro-Wilk normality test
 ## 
-## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F",     ]$meanF1
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "F", ]$meanF1
 ## W = 0.98618, p-value = 0.9868
 ```
 
@@ -676,7 +681,7 @@ shapiro.test(td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C",]$meanF
 ## 
 ## 	Shapiro-Wilk normality test
 ## 
-## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C",     ]$meanF1
+## data:  td_vowels_mid_sec_mean[td_vowels_mid_sec_mean$labels == "C", ]$meanF1
 ## W = 0.67216, p-value = 1.819e-05
 ```
 
@@ -695,7 +700,7 @@ wilcox.test(meanF1 ~ labels, data = td_vowels_mid_sec_mean)
 
 ```
 ## 
-## 	Wilcoxon rank sum test
+## 	Wilcoxon rank sum exact test
 ## 
 ## data:  meanF1 by labels
 ## W = 119, p-value = 0.04875
@@ -703,7 +708,7 @@ wilcox.test(meanF1 ~ labels, data = td_vowels_mid_sec_mean)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="tutorial_files/figure-epub3/tutorial-stats1-1.png" alt="Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code."  />
+<img src="tutorial_files/figure-html/tutorial-stats1-1.png" alt="Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code." width="576" />
 <p class="caption">(\#fig:tutorial-stats1)Plots of density distributions of vowels in content words (left plot) and vowels in function words (right plot) of the above R code.</p>
 </div>
 

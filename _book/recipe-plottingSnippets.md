@@ -50,55 +50,13 @@ ggplot(ae_formants) +
   theme(legend.position = "none")
 ```
 
-![](recipe-plottingSnippets_files/figure-epub3/unnamed-chunk-2-1.png)<!-- -->
+<img src="recipe-plottingSnippets_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 
 ```r
 # time normalize the formant values
 ae_formants_norm = normalize_length(ae_formants)
-```
 
-```
-## Warning: Row indexes must be between 0 and the number of rows (14). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```
-## Warning: Row indexes must be between 0 and the number of rows (17). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```
-## Warning: Row indexes must be between 0 and the number of rows (16). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```
-## Warning: Row indexes must be between 0 and the number of rows (9). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```
-## Warning: Row indexes must be between 0 and the number of rows (15). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```
-## Warning: Row indexes must be between 0 and the number of rows (13). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```
-## Warning: Row indexes must be between 0 and the number of rows (18). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```
-## Warning: Row indexes must be between 0 and the number of rows (19). Use `NA` as row index to obtain a row full of `NA` values.
-## This warning is displayed once per session.
-```
-
-```r
 # plot all normalized F2 trajectories
 ggplot(ae_formants_norm) +
   aes(x = times_norm, y = T2, col = labels, group = sl_rowIdx) +
@@ -107,7 +65,7 @@ ggplot(ae_formants_norm) +
   theme(legend.position = "none")
 ```
 
-![](recipe-plottingSnippets_files/figure-epub3/unnamed-chunk-3-1.png)<!-- -->
+<img src="recipe-plottingSnippets_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 
 ```r
@@ -123,7 +81,7 @@ ggplot(ae_formants_norm_average) +
   theme(legend.position = "none")
 ```
 
-![](recipe-plottingSnippets_files/figure-epub3/unnamed-chunk-4-1.png)<!-- -->
+<img src="recipe-plottingSnippets_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 ## F1/F2 plots (equivalent to the legacy `eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)`)
 
@@ -156,7 +114,7 @@ ggplot(ae_midpoints) +
   theme(legend.position = "none")
 ```
 
-![](recipe-plottingSnippets_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
+<img src="recipe-plottingSnippets_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 ```r
@@ -171,10 +129,10 @@ ggplot(ae_midpoints) +
 ```
 
 ```
-## Warning: Removed 3 rows containing missing values (geom_path).
+## Warning: Removed 3 row(s) containing missing values (geom_path).
 ```
 
-![](recipe-plottingSnippets_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
+<img src="recipe-plottingSnippets_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
 
 ```r
@@ -196,7 +154,7 @@ ggplot(ae_midpoints_Eiu) +
   geom_text(data = ae_centroid)
 ```
 
-![](recipe-plottingSnippets_files/figure-epub3/unnamed-chunk-7-1.png)<!-- -->
+<img src="recipe-plottingSnippets_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 Regarding stat_ellipse() this is worth pointing out: https://github.com/tidyverse/ggplot2/issues/2776
 
@@ -232,7 +190,7 @@ ggplot(ae_midpoints) +
   facet_wrap(~bundle) 
 ```
 
-![](recipe-plottingSnippets_files/figure-epub3/unnamed-chunk-8-1.png)<!-- -->
+<img src="recipe-plottingSnippets_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual</title>
   <meta name="description" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 An overview of the EMU-SDMS1 | The EMU-SDMS Manual" />
   <meta property="og:type" content="book" />
@@ -49,12 +49,15 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -63,14 +66,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -79,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -114,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -127,9 +131,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">The EMU-SDMS Manual</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
 <li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
@@ -152,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
-<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
@@ -367,9 +368,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -390,23 +388,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="chap:overview" class="section level1">
 <h1><span class="header-section-number">2</span> An overview of the EMU-SDMS<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h1>
 <p><img src="pics/EMU-webAppIcon-roundCorners.png" width="35%" style="display: block; margin: auto;" /></p>
-<p>The EMU Speech Database Management System (EMU-SDMS) is a collection of software tools which aims to be as close to an all-in-one solution for generating, manipulating, querying, analyzing and managing speech databases as possible. It was developed to fill the void in the landscape of software tools for the speech sciences by providing an integrated system that is centered around the R language and environment for statistical computing and graphics (<span class="citation">R Core Team (<a href="#ref-r-core-team:2016a">2016</a>)</span>). This manual contains the documentation for the three software components <code>wrassp</code>, <code>emuR</code> and the <code>EMU-webApp</code>. In addition, it provides an in-depth description of the <code>emuDB</code> database format which is also considered an integral part of the new system. These four components comprise the EMU-SDMS and benefit the speech sciences and spoken language research by providing an integrated system to answer research questions such as: <em>Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?</em></p>
-<p>This manual is targeted at new EMU-SDMS users as well as users familiar with the legacy EMU system. In addition, it is aimed at people who are interested in the technical details such as data structures/formats and implementation strategies, be it for reimplementation purposes or simply for a better understanding of the inner workings of the new system. To accommodate these different target groups, after initially giving an overview of the system, this manual presents a usage tutorial that walks the user through the entire process of answering a research question. This tutorial will start with a set of <code>.wav</code> audio and Praat <code>.TextGrid</code> (<span class="citation">Boersma and Weenink (<a href="#ref-boersma:2011a">2016</a>)</span>) annotation files and end with a statistical analysis to address the hypothesis posed by the research question. The following Part I of this documentation is separated into six chapters that give an in-depth explanation of the various components that comprise the EMU-SDMS and integral concepts of the new system. These chapters provide a tutorial-like overview by providing multiple examples. To give the reader a synopsis of the main functions and central objects that are provided by EMU-SDMS’s main R package <code>emuR</code>, an overview of these functions is presented in Part II. Part III focuses on the actual implementation of the components and is geared towards people interested in the technical details. Further examples and file format descriptions are available in various appendices. This structure enables the novice EMU-SDMS user to simply skip the technical details and still get an in-depth overview of how to work with the new system and discover what it is capable of.</p>
+<p>The EMU Speech Database Management System (EMU-SDMS) is a collection of software tools which aims to be as close to an all-in-one solution for generating, manipulating, querying, analyzing and managing speech databases as possible. It was developed to fill the void in the landscape of software tools for the speech sciences by providing an integrated system that is centered around the R language and environment for statistical computing and graphics (<span class="citation">R Core Team (<a href="#ref-r-core-team:2016a" role="doc-biblioref">2016</a>)</span>). This manual contains the documentation for the three software components <code>wrassp</code>, <code>emuR</code> and the <code>EMU-webApp</code>. In addition, it provides an in-depth description of the <code>emuDB</code> database format which is also considered an integral part of the new system. These four components comprise the EMU-SDMS and benefit the speech sciences and spoken language research by providing an integrated system to answer research questions such as: <em>Given an annotated speech database, is the vowel height of the vowel @ (measured by its correlate, the first formant frequency) influenced by whether it appears in a strong or weak syllable?</em></p>
+<p>This manual is targeted at new EMU-SDMS users as well as users familiar with the legacy EMU system. In addition, it is aimed at people who are interested in the technical details such as data structures/formats and implementation strategies, be it for reimplementation purposes or simply for a better understanding of the inner workings of the new system. To accommodate these different target groups, after initially giving an overview of the system, this manual presents a usage tutorial that walks the user through the entire process of answering a research question. This tutorial will start with a set of <code>.wav</code> audio and Praat <code>.TextGrid</code> (<span class="citation">Boersma and Weenink (<a href="#ref-boersma:2011a" role="doc-biblioref">2016</a>)</span>) annotation files and end with a statistical analysis to address the hypothesis posed by the research question. The following Part I of this documentation is separated into six chapters that give an in-depth explanation of the various components that comprise the EMU-SDMS and integral concepts of the new system. These chapters provide a tutorial-like overview by providing multiple examples. To give the reader a synopsis of the main functions and central objects that are provided by EMU-SDMS’s main R package <code>emuR</code>, an overview of these functions is presented in Part II. Part III focuses on the actual implementation of the components and is geared towards people interested in the technical details. Further examples and file format descriptions are available in various appendices. This structure enables the novice EMU-SDMS user to simply skip the technical details and still get an in-depth overview of how to work with the new system and discover what it is capable of.</p>
 <p>A prerequisite that is presumed throughout this document is the reader’s familiarity with basic terminology in the speech sciences (e.g., familiarity with the international phonetic alphabet (IPA) and how speech is annotated at a coarse and fine grained level). Further, we assume the reader has a grasp of the basic concepts of the R language and environment for statistical computing and graphics. For readers new to R, there are multiple, freely available R tutorials online (e.g., <a href="https://en.wikibooks.org/wiki/Statistical_Analysis:_an_Introduction_using_R/R_basics" class="uri">https://en.wikibooks.org/wiki/Statistical_Analysis:_an_Introduction_using_R/R_basics</a>). R also has a set of very detailed manuals and tutorials that come preinstalled with R. To be able to access R’s own “An Introduction to R” introduction, simply type <code>help.start()</code> into the R console and click on the link to the tutorial.</p>
 <div id="the-evolution-of-the-emu-sdms" class="section level2">
 <h2><span class="header-section-number">2.1</span> The evolution of the EMU-SDMS</h2>
-<p>The EMU-SDMS has a number of predecessors that have been continuously developed over a number of years (e.g., <span class="citation">Harrington et al. (<a href="#ref-harrington:csl1993a">1993</a>)</span>, <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:1996a">1996</a>)</span>, <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a">2001</a>)</span>, <span class="citation">Bombien et al. (<a href="#ref-bombien:2006a">2006</a>)</span>, <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span>, <span class="citation">John (<a href="#ref-john:2012a">2012</a>)</span>). The components presented here are the completely rewritten and newly designed, next incarnation of the EMU system, which we will refer to as the EMU Speech Database Management System (EMU-SDMS). The EMU-SDMS keeps most of the core concepts of the previous system, which we will refer to as the legacy system, in place while improving on things like usability, maintainability, scalability, stability, speed and more. We feel the redesign and reimplementation elevates the system into a modern set of speech and language tools that enables a workflow adapted to the challenges confronting speech scientists and the ever growing size of speech databases. The redesign has enabled us to implement several components of the new EMU-SDMS so that they can be used independently of the EMU-SDMS for tasks such as web-based collaborative annotation efforts and performing speech signal processing in a statistical programming environment. Nevertheless, the main goal of the redesign and reimplementation was to provide a modern set of tools that reduces the complexity of the tool chain needed to answer spoken language research questions down to a few interoperable tools. The tools the EMU-SDMS provides are designed to streamline the process of obtaining usable data, all from within an environment that can also be used to analyze, visualize and statistically evaluate the data.</p>
-<p>Upon developing the new system, rather than starting completely from scratch it seemed more appropriate to partially reuse the concepts of the legacy system in order to achieve our goals. A major observation at the time was that the R language and environment for statistical computing and graphics (<span class="citation">R Core Team (<a href="#ref-r-core-team:2016a">2016</a>)</span>) was gaining more and more traction for statistical and data visualization purposes in the speech and spoken language research community. However, R was mostly only used towards the end of the data analysis chain where data usually was pre-converted into a comma-separated values or equivalent file format by the user using other tools to calculate, extract and pre-process the data. While designing the new EMU-SDMS, we brought R to the front of the tool chain to the point just beyond data acquisition. This allows the entire data annotation, data extraction and analysis process to be completed in R, while keeping the key user requirements in mind. Due to personal experiences gained by using the legacy system for research puposes and in various undergraduate courses (course material usually based on <span class="citation">Harrington (<a href="#ref-harrington:2010a">2010</a>)</span>), we learned that the key user requirements were data and database portability, a simple installation process, a simplified/streamlined user experience and cross-platform availability. Supplying all of EMU-SDMS’s core functionality in the form of R packages that do not rely on external software at runtime seemed to meet all of these requirements.</p>
-<p>As the early incarnations of the legacy EMU system and its predecessors were conceived either at a time that predated the R system or during the infancy of R’s package ecosystem, the legacy system was implemented as a modular yet composite standalone program with a communication and data exchange interface to the R/Splus systems (see <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a">2001</a>)</span> Section 3 for details). Recent developments in the package ecosystem of R such as the availability of the <code>DBI</code> package (<span class="citation">R Special Interest Group on Databases (R-SIG-DB), Wickham, and Müller (<a href="#ref-r-special-interest-group-on-databases-r-sig-db:2016a">2016</a>)</span>) and the related packages <code>RSQLite</code> and <code>RPostgreSQL</code> (<span class="citation">Wickham, James, and Falcon (<a href="#ref-wickham:2014a">2014</a>)</span>, <span class="citation">Conway et al. (<a href="#ref-conway:2016a">2016</a>)</span>), as well as the <code>jsonlite</code> package (<span class="citation">Ooms (<a href="#ref-ooms:as2014a">2014</a>)</span>) and the <code>httpuv</code> package (<span class="citation">RStudio and Inc. (<a href="#ref-rstudio:2015a">2015</a>)</span>), have made R an attractive sole target platform for the EMU-SDMS. These and other packages provide additional functional power that enabled the EMU-SDMS’s core functionality to be implemented in the form of R packages. The availability of certain R packages had a large impact on the architectural design decisions that we made for the new system.</p>
+<p>The EMU-SDMS has a number of predecessors that have been continuously developed over a number of years (e.g., <span class="citation">Harrington et al. (<a href="#ref-harrington:csl1993a" role="doc-biblioref">1993</a>)</span>, <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:1996a" role="doc-biblioref">1996</a>)</span>, <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a" role="doc-biblioref">2001</a>)</span>, <span class="citation">Bombien et al. (<a href="#ref-bombien:2006a" role="doc-biblioref">2006</a>)</span>, <span class="citation">Harrington (<a href="#ref-harrington:2010a" role="doc-biblioref">2010</a>)</span>, <span class="citation">John (<a href="#ref-john:2012a" role="doc-biblioref">2012</a>)</span>). The components presented here are the completely rewritten and newly designed, next incarnation of the EMU system, which we will refer to as the EMU Speech Database Management System (EMU-SDMS). The EMU-SDMS keeps most of the core concepts of the previous system, which we will refer to as the legacy system, in place while improving on things like usability, maintainability, scalability, stability, speed and more. We feel the redesign and reimplementation elevates the system into a modern set of speech and language tools that enables a workflow adapted to the challenges confronting speech scientists and the ever growing size of speech databases. The redesign has enabled us to implement several components of the new EMU-SDMS so that they can be used independently of the EMU-SDMS for tasks such as web-based collaborative annotation efforts and performing speech signal processing in a statistical programming environment. Nevertheless, the main goal of the redesign and reimplementation was to provide a modern set of tools that reduces the complexity of the tool chain needed to answer spoken language research questions down to a few interoperable tools. The tools the EMU-SDMS provides are designed to streamline the process of obtaining usable data, all from within an environment that can also be used to analyze, visualize and statistically evaluate the data.</p>
+<p>Upon developing the new system, rather than starting completely from scratch it seemed more appropriate to partially reuse the concepts of the legacy system in order to achieve our goals. A major observation at the time was that the R language and environment for statistical computing and graphics (<span class="citation">R Core Team (<a href="#ref-r-core-team:2016a" role="doc-biblioref">2016</a>)</span>) was gaining more and more traction for statistical and data visualization purposes in the speech and spoken language research community. However, R was mostly only used towards the end of the data analysis chain where data usually was pre-converted into a comma-separated values or equivalent file format by the user using other tools to calculate, extract and pre-process the data. While designing the new EMU-SDMS, we brought R to the front of the tool chain to the point just beyond data acquisition. This allows the entire data annotation, data extraction and analysis process to be completed in R, while keeping the key user requirements in mind. Due to personal experiences gained by using the legacy system for research puposes and in various undergraduate courses (course material usually based on <span class="citation">Harrington (<a href="#ref-harrington:2010a" role="doc-biblioref">2010</a>)</span>), we learned that the key user requirements were data and database portability, a simple installation process, a simplified/streamlined user experience and cross-platform availability. Supplying all of EMU-SDMS’s core functionality in the form of R packages that do not rely on external software at runtime seemed to meet all of these requirements.</p>
+<p>As the early incarnations of the legacy EMU system and its predecessors were conceived either at a time that predated the R system or during the infancy of R’s package ecosystem, the legacy system was implemented as a modular yet composite standalone program with a communication and data exchange interface to the R/Splus systems (see <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a" role="doc-biblioref">2001</a>)</span> Section 3 for details). Recent developments in the package ecosystem of R such as the availability of the <code>DBI</code> package (<span class="citation">R Special Interest Group on Databases (R-SIG-DB), Wickham, and Müller (<a href="#ref-r-special-interest-group-on-databases-r-sig-db:2016a" role="doc-biblioref">2016</a>)</span>) and the related packages <code>RSQLite</code> and <code>RPostgreSQL</code> (<span class="citation">Wickham, James, and Falcon (<a href="#ref-wickham:2014a" role="doc-biblioref">2014</a>)</span>, <span class="citation">Conway et al. (<a href="#ref-conway:2016a" role="doc-biblioref">2016</a>)</span>), as well as the <code>jsonlite</code> package (<span class="citation">Ooms (<a href="#ref-ooms:as2014a" role="doc-biblioref">2014</a>)</span>) and the <code>httpuv</code> package (<span class="citation">RStudio and Inc. (<a href="#ref-rstudio:2015a" role="doc-biblioref">2015</a>)</span>), have made R an attractive sole target platform for the EMU-SDMS. These and other packages provide additional functional power that enabled the EMU-SDMS’s core functionality to be implemented in the form of R packages. The availability of certain R packages had a large impact on the architectural design decisions that we made for the new system.</p>
 <p>The R code snippet below shows the simple installation process which we were able to achieve due to the R package infrastructure. Compared to the legacy EMU and other systems, the installation process of the entire system has been reduced to a single R command. Throughout this documentation we will try to highlight how the EMU-SDMS is also able to meet the rest of the above key user requirements.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install the entire EMU-SDMS</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># by installing the emuR package</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;emuR&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chap-overview.html#cb1-1"></a><span class="co"># install the entire EMU-SDMS</span></span>
+<span id="cb1-2"><a href="chap-overview.html#cb1-2"></a><span class="co"># by installing the emuR package</span></span>
+<span id="cb1-3"><a href="chap-overview.html#cb1-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;emuR&quot;</span>)</span></code></pre></div>
 <p>It is worth noting that throughout this manual R code snippets will be given in the form of the above snippet. These examples represent working R code that allow the reader to follow along in a hands-on manor and give a feel for what it is like working with the new EMU-SDMS.</p>
 </div>
 <div id="sec:overview-sysArch" class="section level2">
 <h2><span class="header-section-number">2.2</span> EMU-SDMS: System architecture and default workflow</h2>
-<p>As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the <code>emuDB</code> format; the R packages <code>wrassp</code> and <code>emuR</code>; and the web application, the <code>EMU-webApp</code>, which is EMU-SDMS’s new GUI component. An overview of the EMU-SDMS’s architecture and the components’ relationships within the system is shown in Figure <a href="chap-overview.html#fig:overview-archOver">2.1</a>. In Figure <a href="chap-overview.html#fig:overview-archOver">2.1</a>, the <code>emuR</code> package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an <code>emuDB</code> (see Chapter @ref(chap:annot_struct_mod)); it uses the <code>wrassp</code> package for signal processing purposes (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a>; and it can serve <code>emuDB</code>s to the <code>EMU-webApp</code> (see Chapter <a href="chap-emu-webApp.html#chap:emu-webApp">9</a>).</p>
+<p>As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the <code>emuDB</code> format; the R packages <code>wrassp</code> and <code>emuR</code>; and the web application, the <code>EMU-webApp</code>, which is EMU-SDMS’s new GUI component. An overview of the EMU-SDMS’s architecture and the components’ relationships within the system is shown in Figure <a href="chap-overview.html#fig:overview-archOver">2.1</a>. In Figure <a href="chap-overview.html#fig:overview-archOver">2.1</a>, the <code>emuR</code> package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an <code>emuDB</code> (see Chapter <a href="chap-annot-struct-mod.html#chap:annot-struct-mod">4</a>); it uses the <code>wrassp</code> package for signal processing purposes (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a>; and it can serve <code>emuDB</code>s to the <code>EMU-webApp</code> (see Chapter <a href="chap-emu-webApp.html#chap:emu-webApp">9</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:overview-archOver"></span>
 <img src="pics/overview.png" alt="Schematic architecture of the EMU-SDMS" width="75%" />
 <p class="caption">
@@ -427,7 +425,7 @@ Figure 2.1: Schematic architecture of the EMU-SDMS
 </div>
 <div id="emu-sdms-is-it-something-for-you" class="section level2">
 <h2><span class="header-section-number">2.3</span> EMU-SDMS: Is it something for you?</h2>
-<p>Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems (e.g., <span class="citation">Boersma and Weenink (<a href="#ref-boersma:2011a">2016</a>)</span>, <span class="citation">Wittenburg et al. (<a href="#ref-wittenburg:2006a">2006</a>)</span>, <span class="citation">Fromont and Hay (<a href="#ref-fromont:2012a">2012</a>)</span>, <span class="citation">Rose et al. (<a href="#ref-rose:2006a">2006</a>)</span>, <span class="citation">McAuliffe and Sonderegger (<a href="#ref-mcauliffe:2016a">2016</a>)</span>). To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat’s tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure <a href="chap-overview.html#fig:overview-hybridAnnot">2.2</a>. These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter @ref(chap:annot_struct_mod) for further information on hierarchical annotations and Chapter <a href="chap-querysys.html#chap:querysys">6</a> on how to query these annotation structures).</p>
+<p>Besides providing a fully integrated system, the EMU-SDMS has several unique features that set it apart from other current, widely used systems (e.g., <span class="citation">Boersma and Weenink (<a href="#ref-boersma:2011a" role="doc-biblioref">2016</a>)</span>, <span class="citation">Wittenburg et al. (<a href="#ref-wittenburg:2006a" role="doc-biblioref">2006</a>)</span>, <span class="citation">Fromont and Hay (<a href="#ref-fromont:2012a" role="doc-biblioref">2012</a>)</span>, <span class="citation">Rose et al. (<a href="#ref-rose:2006a" role="doc-biblioref">2006</a>)</span>, <span class="citation">McAuliffe and Sonderegger (<a href="#ref-mcauliffe:2016a" role="doc-biblioref">2016</a>)</span>). To our knowledge, the EMU-SDMS is the only system that allows the user to model their annotation structures based on a hybrid model of time-based annotations (such as those offered by Praat’s tier-based annotation mechanics) and hierarchical timeless annotations. An example of such a hybrid annotation structure is displayed in Figure <a href="chap-overview.html#fig:overview-hybridAnnot">2.2</a>. These hybrid annotations benefit the user in multiple ways, as they reduce data redundancy and explicitly allow relationships to be expressed across annotation levels (see Chapter @ref(chap:annot_struct_mod) for further information on hierarchical annotations and Chapter <a href="chap-querysys.html#chap:querysys">6</a> on how to query these annotation structures).</p>
 <div class="figure" style="text-align: center"><span id="fig:overview-hybridAnnot"></span>
 <img src="overview_files/figure-html/overview-hybridAnnot-1.png" alt="Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations." width="75%" />
 <p class="caption">
@@ -452,7 +450,7 @@ Figure 2.2: Example of a hybrid annotation combining time-based (<em>Phonetic</e
 <p>Cassidy, Steve, and Jonathan Harrington. 1996. “Emu: An Enhanced Hierarchical Speech Data Management System.” In <em>Proceedings of the Sixth Australian International Conference on Speech Science and Technology</em>, 361–66.</p>
 </div>
 <div id="ref-cassidy:sc2001a">
-<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1). Elsevier: 61–77.</p>
+<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1): 61–77.</p>
 </div>
 <div id="ref-conway:2016a">
 <p>Conway, Joe, Dirk Eddelbuettel, Tomoaki Nishiyama, Sameer Kumar Prayaga, and Neil Tiffin. 2016. <em>RPostgreSQL: R Interface to the Postgresql Database System</em>. <a href="https://CRAN.R-project.org/package=RPostgreSQL">https://CRAN.R-project.org/package=RPostgreSQL</a>.</p>
@@ -464,7 +462,7 @@ Figure 2.2: Example of a hybrid annotation combining time-based (<em>Phonetic</e
 <p>Harrington, Jonathan. 2010. <em>Phonetic Analysis of Speech Corpora</em>. John Wiley &amp; Sons.</p>
 </div>
 <div id="ref-harrington:csl1993a">
-<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4). Elsevier: 305–31.</p>
+<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4): 305–31.</p>
 </div>
 <div id="ref-john:2012a">
 <p>John, Tina. 2012. “Emu Speech Database System.” PhD thesis, Ludwig Maximilian University of Munich.</p>
@@ -497,7 +495,7 @@ Figure 2.2: Example of a hybrid annotation combining time-based (<em>Phonetic</e
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Sections of this chapter have been published in <span class="citation">Winkelmann, Harrington, and Jänsch (<a href="#ref-winkelmann:2017aa">2017</a>)</span><a href="chap-overview.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>Sections of this chapter have been published in <span class="citation">Winkelmann, Harrington, and Jänsch (<a href="#ref-winkelmann:2017aa" role="doc-biblioref">2017</a>)</span><a href="chap-overview.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -537,8 +535,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/overview.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,

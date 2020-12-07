@@ -145,8 +145,13 @@ ggplot(td, aes(x=T2, y=T1, label=td$labels)) +
   guides(colour=FALSE)
 ```
 
+
+```
+## Warning: Use of `td$labels` is discouraged. Use `labels` instead.
+```
+
 <div class="figure" style="text-align: center">
-<img src="app_chap-useCases_files/figure-epub3/usecases-uc2plot-1.png" alt="F1 by F2 distribution for *I*, *o:*, *u:*, *V* and *@*."  />
+<img src="app_chap-useCases_files/figure-html/usecases-uc2plot-1.png" alt="F1 by F2 distribution for *I*, *o:*, *u:*, *V* and *@*." width="480" />
 <p class="caption">(\#fig:usecases-uc2plot)F1 by F2 distribution for *I*, *o:*, *u:*, *V* and *@*.</p>
 </div>
 
@@ -341,6 +346,14 @@ Once again, the segments of interest are queried first. The R code snippet below
 sibil = query(ae,"Phonetic =~ '[szSZ]'")
 ```
 
+```
+## Warning in query_labels(emuDBhandle, levelName = lvlName, intermResTableSuffix = intermResTableSuffix, : =~ now requires ^ if you wish to match the
+## first character in a sequence i.e. 'a.*' now also matches
+## 'weakness' as it contains the sequence. '^a.*'
+## matches sequences that start with 'a.*'
+## e.g. the word 'amongst'.
+```
+
 The R code snippet below shows how the `get_trackdata()` function can be used to calculate the Discrete Fourier Transform values for the extracted segments.
 
 
@@ -393,7 +406,7 @@ dplot(dftTdRelFreqMom[, 1],
 ```
 
 <div class="figure" style="text-align: center">
-<img src="app_chap-useCases_files/figure-epub3/usecases-uc4dplot1-1.png" alt="Time-normalized first spectral moment trajectories color coded by sibilant class."  />
+<img src="app_chap-useCases_files/figure-html/usecases-uc4dplot1-1.png" alt="Time-normalized first spectral moment trajectories color coded by sibilant class." width="576" />
 <p class="caption">(\#fig:usecases-uc4dplot1)Time-normalized first spectral moment trajectories color coded by sibilant class.</p>
 </div>
 
@@ -413,7 +426,7 @@ dplot(dftTdRelFreqMom[,1],
 ```
 
 <div class="figure" style="text-align: center">
-<img src="app_chap-useCases_files/figure-epub3/usecases-uc4dplot2-1.png" alt="Time-normalized first spectral moment ensemble average trajectories per sibilant class."  />
+<img src="app_chap-useCases_files/figure-html/usecases-uc4dplot2-1.png" alt="Time-normalized first spectral moment ensemble average trajectories per sibilant class." width="576" />
 <p class="caption">(\#fig:usecases-uc4dplot2)Time-normalized first spectral moment ensemble average trajectories per sibilant class.</p>
 </div>
 
@@ -450,7 +463,7 @@ boxplot(meanFirstMoments ~ sibil$labels,
 ```
 
 <div class="figure" style="text-align: center">
-<img src="app_chap-useCases_files/figure-epub3/usecases-uc4boxplot-1.png" alt="Boxplots of the first spectral moments grouped by their sibilant class."  />
+<img src="app_chap-useCases_files/figure-html/usecases-uc4boxplot-1.png" alt="Boxplots of the first spectral moments grouped by their sibilant class." width="576" />
 <p class="caption">(\#fig:usecases-uc4boxplot)Boxplots of the first spectral moments grouped by their sibilant class.</p>
 </div>
 

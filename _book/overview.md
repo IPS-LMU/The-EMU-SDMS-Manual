@@ -38,7 +38,7 @@ It is worth noting that throughout this manual R code snippets will be given in 
 
 ## EMU-SDMS: System architecture and default workflow{#sec:overview-sysArch}
 
-As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the `emuDB` format; the R packages `wrassp` and `emuR`; and the web application, the `EMU-webApp`, which is EMU-SDMS's new GUI component. An overview of the EMU-SDMS's architecture and the components' relationships within the system is shown in Figure \@ref(fig:overview-archOver). In Figure \@ref(fig:overview-archOver), the `emuR` package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an `emuDB` (see Chapter \@ref(chap:annot_struct_mod)); it uses the `wrassp` package for signal processing purposes (see Chapter \@ref(chap:wrassp); and it can serve `emuDB`s to the `EMU-webApp` (see Chapter \@ref(chap:emu-webApp)).
+As was previously mentioned, the new EMU-SDMS is made up of four main components. The components are the `emuDB` format; the R packages `wrassp` and `emuR`; and the web application, the `EMU-webApp`, which is EMU-SDMS's new GUI component. An overview of the EMU-SDMS's architecture and the components' relationships within the system is shown in Figure \@ref(fig:overview-archOver). In Figure \@ref(fig:overview-archOver), the `emuR` package plays a central role as it is the only component that interacts with all of the other components of the EMU-SDMS. It performs file and DB handling for the files that comprise an `emuDB` (see Chapter \@ref(chap:annot-struct-mod)); it uses the `wrassp` package for signal processing purposes (see Chapter \@ref(chap:wrassp); and it can serve `emuDB`s to the `EMU-webApp` (see Chapter \@ref(chap:emu-webApp)).
 
 
 
@@ -67,7 +67,7 @@ Besides providing a fully integrated system, the EMU-SDMS has several unique fea
 
 
 <div class="figure" style="text-align: center">
-<img src="overview_files/figure-epub3/overview-hybridAnnot-1.png" alt="Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations." width="75%" />
+<img src="overview_files/figure-html/overview-hybridAnnot-1.png" alt="Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations." width="75%" />
 <p class="caption">(\#fig:overview-hybridAnnot)Example of a hybrid annotation combining time-based (*Phonetic* level) and hierarchical (*Phoneme*, *Syllable*, *Text* levels including the inter-level links) annotations.</p>
 </div>
 

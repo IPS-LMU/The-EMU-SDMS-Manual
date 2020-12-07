@@ -59,6 +59,14 @@ query(emuDBhandle = ae,
 ```r
 query(ae, "[Text =~ a.*]")
 ```
+
+```
+## Warning in query_labels(emuDBhandle, levelName = lvlName, intermResTableSuffix = intermResTableSuffix, : =~ now requires ^ if you wish to match the
+## first character in a sequence i.e. 'a.*' now also matches
+## 'weakness' as it contains the sequence. '^a.*'
+## matches sequences that start with 'a.*'
+## e.g. the word 'amongst'.
+```
 - **Q**: *What is the query to retrieve all items that do not begin with "a" in the "Text" level?*
 - **A**:
 
@@ -391,6 +399,14 @@ Example questions and answers:
 
 ```r
 query(ae, "[[Phoneme == m -> Phoneme =~ p] ^ Syllable == S]")
+```
+
+```
+## Warning in query_labels(emuDBhandle, levelName = lvlName, intermResTableSuffix = intermResTableSuffix, : =~ now requires ^ if you wish to match the
+## first character in a sequence i.e. 'a.*' now also matches
+## 'weakness' as it contains the sequence. '^a.*'
+## matches sequences that start with 'a.*'
+## e.g. the word 'amongst'.
 ```
 - **Q**: *What is the query to retrieve all "s" preceding "t" when "t" is part of a "W" syllable?*
 - **A**:

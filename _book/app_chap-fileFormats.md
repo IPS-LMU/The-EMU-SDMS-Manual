@@ -540,7 +540,13 @@ The SSFF file format is a binary file format which has a plain text header. This
 # load the emuR and wrassp packages
 library(emuR, warn.conflicts = FALSE)
 library(wrassp)
+```
 
+```
+## Loading required package: tibble
+```
+
+```r
 # create demo data in directory 
 # provided by tempdir()
 create_emuRdemoData(dir = tempdir())

@@ -101,26 +101,26 @@ The relational form of the annotation structure is split into six tables in the 
 
 
 
-db_uuid                                session   bundle     item_id   level      type      seq_idx   sample_rate   sample_point   sample_start   sample_dur 
--------------------------------------  --------  ---------  --------  ---------  --------  --------  ------------  -------------  -------------  -----------
-0fc618dc-8980-414d-8c7a-144a649ce199   0000      msajc003   147       Phonetic   SEGMENT   1         20000         NA             3749           1389       
-...                                    ...       ...        ...       ...        ...       ...       ...           ...            ...            ...        
+|db_uuid                              |session |bundle   |item_id |level    |type    |seq_idx |sample_rate |sample_point |sample_start |sample_dur |
+|:------------------------------------|:-------|:--------|:-------|:--------|:-------|:-------|:-----------|:------------|:------------|:----------|
+|0fc618dc-8980-414d-8c7a-144a649ce199 |0000    |msajc003 |147     |Phonetic |SEGMENT |1       |20000       |NA           |3749         |1389       |
+|...                                  |...     |...      |...     |...      |...     |...     |...         |...          |...          |...        |
 
 5. `labels`: containing all labels belonging to all items (columns: `db_uuid`, `session`, `bundle`, `item_id`, `label_idx`, `name`, `label`), and
 
 
-db_uuid                                session   bundle     item_id   label_idx   name       label 
--------------------------------------  --------  ---------  --------  ----------  ---------  ------
-0fc618dc-8980-414d-8c7a-144a649ce199   0000      msajc003   147       1           Phonetic   V     
-...                                    ...       ...        ...       ...         ...        ...   
+|db_uuid                              |session |bundle   |item_id |label_idx |name     |label |
+|:------------------------------------|:-------|:--------|:-------|:---------|:--------|:-----|
+|0fc618dc-8980-414d-8c7a-144a649ce199 |0000    |msajc003 |147     |1         |Phonetic |V     |
+|...                                  |...     |...      |...     |...       |...      |...   |
 
 6. `links`: containing all links between annotation items of `emuDB` (columns: `db_uuid`, `session`, `bundle`, `from_id`, `to_id`, `label`).
 
 
-db_uuid                                session   bundle     from_id    to_id  label 
--------------------------------------  --------  ---------  --------  ------  ------
-0fc618dc-8980-414d-8c7a-144a649ce199   0000      msajc003   8              7  NA    
-...                                    ...       ...        ...            7  NA    
+|db_uuid                              |session |bundle   |from_id | to_id|label |
+|:------------------------------------|:-------|:--------|:-------|-----:|:-----|
+|0fc618dc-8980-414d-8c7a-144a649ce199 |0000    |msajc003 |8       |     7|NA    |
+|...                                  |...     |...      |...     |     7|NA    |
 
 While performing a query the engine uses an aggregate key to address every annotation item and its labels (`db_uuid`, `session`, `bundle`, `item_id`) and a similar aggregate key to dereference the links (`db_uuid`, `session`, `bundle`, `from_id` / `to_id`) which connect items. As the records in relational tables are not intrinsically ordered a further aggregate key is used to address the annotation item via its index and level (`uuid`, `session`, `bundle`, `level` / `seq_idx`). This is used, for example, during sequential queries to provide an ordering of the individual annotation items. It is worth noting that a plethora of other tables are created at query time to store various temporary results of a query. However, these tables are created as temporary tables during the query and are deleted on completion which means they are not permanently stored in the `emuDBcache`.
 
