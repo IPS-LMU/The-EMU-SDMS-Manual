@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Annotation Structure Modeling5 | The EMU-SDMS Manual</title>
+  <meta name="description" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/" />
+  <meta property="og:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
+  <meta property="og:description" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
+  <meta name="github-repo" content="IPS-LMU/The-EMU-SDMS-Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
+  
+  <meta name="twitter:description" content="4 Annotation Structure Modeling5 | The EMU-SDMS Manual" />
+  <meta name="twitter:image" content="https://ips-lmu.github.io/The-EMU-SDMS-Manual/pics/EMU-webAppIcon-roundCorners.png" />
+
+<meta name="author" content="Raphael Winkelmann" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-tutorial.html"/>
+<link rel="next" href="chap-emuDB.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
+<li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
+<li class="chapter" data-level="1.2" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.2</b> For developers and people interested in the source code</a></li>
+</ul></li>
+<li class="part"><span><b>I Overview and tutorial</b></span></li>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#sec:overview-sysArch"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a><ul>
+<li class="chapter" data-level="3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#converting-the-textgrid-collection"><i class="fa fa-check"></i><b>3.1</b> Converting the TextGrid collection</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.2</b> Loading and inspecting the database</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#overview"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-annotation-and-visual-inspection"><i class="fa fa-check"></i><b>3.2.2</b> Database annotation and visual inspection</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-and-autobuilding-the-annotation-structure"><i class="fa fa-check"></i><b>3.3</b> Querying and autobuilding the annotation structure</a></li>
+<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.4</b> Autobuilding</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
+<li class="chapter" data-level="3.6" data-path="chap-tutorial.html"><a href="chap-tutorial.html#vowel-height-as-a-function-of-word-types-content-vs.-function-evaluation-and-statistical-analysis"><i class="fa fa-check"></i><b>3.6</b> Vowel height as a function of word types (content vs. function): evaluation and statistical analysis</a></li>
+<li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>II Main components and concepts</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html"><i class="fa fa-check"></i><b>4</b> Annotation Structure Modeling</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#per-database-annotation-structure-definition"><i class="fa fa-check"></i><b>4.1</b> Per database annotation structure definition</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#parallel-labels-and-multiple-attributes"><i class="fa fa-check"></i><b>4.2</b> Parallel labels and multiple attributes</a></li>
+<li class="chapter" data-level="4.3" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#metadata-strategy-using-single-bundle-root-nodes"><i class="fa fa-check"></i><b>4.3</b> Metadata strategy using single bundle root nodes</a></li>
+<li class="chapter" data-level="4.4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#conclusion-1"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-emuDB.html"><a href="chap-emuDB.html"><i class="fa fa-check"></i><b>5</b> The <code>emuDB</code> Format</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#database-design"><i class="fa fa-check"></i><b>5.1</b> Database design</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb"><i class="fa fa-check"></i><b>5.2</b> Creating an <code>emuDB</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb-from-scratch"><i class="fa fa-check"></i><b>5.2.1</b> Creating an <code>emuDB</code> from scratch</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#loading-and-editing-an-empty-database"><i class="fa fa-check"></i><b>5.2.2</b> Loading and editing an empty database</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#level-definitions"><i class="fa fa-check"></i><b>5.2.3</b> Level definitions</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-emuDB.html"><a href="chap-emuDB.html#link-definitions"><i class="fa fa-check"></i><b>5.2.4</b> Link definitions</a></li>
+<li class="chapter" data-level="5.2.5" data-path="chap-emuDB.html"><a href="chap-emuDB.html#file-handling"><i class="fa fa-check"></i><b>5.2.5</b> File handling</a></li>
+<li class="chapter" data-level="5.2.6" data-path="chap-emuDB.html"><a href="chap-emuDB.html#ssff-track-definitions"><i class="fa fa-check"></i><b>5.2.6</b> SSFF track definitions</a></li>
+<li class="chapter" data-level="5.2.7" data-path="chap-emuDB.html"><a href="chap-emuDB.html#configuring-the-emu-webapp-and-annotating-the-emudb"><i class="fa fa-check"></i><b>5.2.7</b> Configuring the <code>EMU-webApp</code> and annotating the <code>emuDB</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> The resulting object of a query</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-countQueries"><i class="fa fa-check"></i><b>6.2.4</b> Count queries</a></li>
+<li class="chapter" data-level="6.2.5" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-moreComplexQueries"><i class="fa fa-check"></i><b>6.2.5</b> More complex queries</a></li>
+<li class="chapter" data-level="6.2.6" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-deducingTime"><i class="fa fa-check"></i><b>6.2.6</b> Deducing time</a></li>
+<li class="chapter" data-level="6.2.7" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:requery"><i class="fa fa-check"></i><b>6.2.7</b> Requery</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html"><i class="fa fa-check"></i><b>7</b> Signal data extraction</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
+<li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
+<li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-tibble"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>tibble</code></a></li>
+<li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#file-i0-and-the-asspdataobj"><i class="fa fa-check"></i><b>8.2</b> File I/0 and the <code>AsspDataObj</code></a></li>
+<li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
+<li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
+<li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:emu-webApp-mainLayout"><i class="fa fa-check"></i><b>9.1</b> Main layout</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:webApp-generalUsage"><i class="fa fa-check"></i><b>9.2</b> General usage</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#annotating-levels-containing-time-information"><i class="fa fa-check"></i><b>9.2.1</b> Annotating levels containing time information</a></li>
+<li class="chapter" data-level="9.2.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#working-with-hierarchical-annotations-2-chapemu-webapp"><i class="fa fa-check"></i><b>9.2.2</b> Working with hierarchical annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#configuring-the-emu-webapp"><i class="fa fa-check"></i><b>9.3</b> Configuring the <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppConfigWithEmuR"><i class="fa fa-check"></i><b>9.3.1</b> Basic configurations using <code>emuR</code></a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#signal-canvas-and-level-canvas-order"><i class="fa fa-check"></i><b>9.3.2</b> Signal canvas and level canvas order</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppAdvancedConfig"><i class="fa fa-check"></i><b>9.3.3</b> Advanced configurations made by editing the <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="9.3.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#d-canvas"><i class="fa fa-check"></i><b>9.3.4</b> 2D canvas</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#conclusion-5"><i class="fa fa-check"></i><b>9.4</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>III Main <code>emuR</code> function and object index</b></span></li>
+<li class="chapter" data-level="10" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html"><i class="fa fa-check"></i><b>10</b> <code>emuR</code> - package functions</a><ul>
+<li class="chapter" data-level="10.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-importRoutines"><i class="fa fa-check"></i><b>10.1</b> Import and conversion routines</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#legacy-emu-databases"><i class="fa fa-check"></i><b>10.1.1</b> Legacy EMU databases</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#textgrid-collections"><i class="fa fa-check"></i><b>10.1.2</b> TextGrid collections</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#bpf-collections"><i class="fa fa-check"></i><b>10.1.3</b> BPF collections</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#txt-collections"><i class="fa fa-check"></i><b>10.1.4</b> txt collections</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-emuDBinteract"><i class="fa fa-check"></i><b>10.2</b> <code>emuDB</code> interaction and configuration routines</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-emuWebAppConfig"><i class="fa fa-check"></i><b>10.3</b> <code>EMU-webApp</code> configuration routines</a></li>
+<li class="chapter" data-level="10.4" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-dataExtr"><i class="fa fa-check"></i><b>10.4</b> Data extraction routines</a></li>
+<li class="chapter" data-level="10.5" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-centralObjects"><i class="fa fa-check"></i><b>10.5</b> Central objects</a></li>
+<li class="chapter" data-level="10.6" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-exportRoutines"><i class="fa fa-check"></i><b>10.6</b> Export routines</a></li>
+<li class="chapter" data-level="10.7" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#conclusion-6"><i class="fa fa-check"></i><b>10.7</b> Conclusion</a></li>
+</ul></li>
+<li class="part"><span><b>IV Implementation</b></span></li>
+<li class="chapter" data-level="11" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html"><i class="fa fa-check"></i><b>11</b> Implementation of the query system</a><ul>
+<li class="chapter" data-level="11.1" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#sec:query-queryExpressionParser"><i class="fa fa-check"></i><b>11.1</b> Query expression parser</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#subsec:query-redundantLinks"><i class="fa fa-check"></i><b>11.2</b> Redundant links</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html"><i class="fa fa-check"></i><b>12</b> <code>wrassp</code> implementation</a><ul>
+<li class="chapter" data-level="12.1" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html#the-libassp-port"><i class="fa fa-check"></i><b>12.1</b> The <code>libassp</code> port</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html"><i class="fa fa-check"></i><b>13</b> <code>EMU-webApp</code> implementation</a><ul>
+<li class="chapter" data-level="13.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#subsec:emu-webAppTheProtocol"><i class="fa fa-check"></i><b>13.1</b> Communication protocol</a></li>
+<li class="chapter" data-level="13.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#url-parameters"><i class="fa fa-check"></i><b>13.2</b> URL parameters</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#websocket-server-parameters"><i class="fa fa-check"></i><b>13.2.1</b> Websocket server parameters</a></li>
+<li class="chapter" data-level="13.2.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples"><i class="fa fa-check"></i><b>13.2.2</b> Examples</a></li>
+<li class="chapter" data-level="13.2.3" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#label-file-preview-parameters"><i class="fa fa-check"></i><b>13.2.3</b> Label file preview parameters</a></li>
+<li class="chapter" data-level="13.2.4" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples-1"><i class="fa fa-check"></i><b>13.2.4</b> Examples</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Appendices</b></span></li>
+<li class="chapter" data-level="14" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html"><i class="fa fa-check"></i><b>14</b> Use cases</a><ul>
+<li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
+<li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
+<li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis"><i class="fa fa-check"></i><b>14.4.1</b> NOTE: See @ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
+<li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsDBconfig"><i class="fa fa-check"></i><b>15.1.1</b> <code>_DBconfig.json</code></a></li>
+<li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
+<li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#example-files"><i class="fa fa-check"></i><b>15.2</b> Example files</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBundleList"><i class="fa fa-check"></i><b>15.2.1</b> <code>_bundleList.json</code></a></li>
+<li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html"><i class="fa fa-check"></i><b>16</b> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a><ul>
+<li class="chapter" data-level="16.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-overview"><i class="fa fa-check"></i><b>16.1</b> Protocol overview</a></li>
+<li class="chapter" data-level="16.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-commands"><i class="fa fa-check"></i><b>16.2</b> Protocol commands</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getprotocol"><i class="fa fa-check"></i><b>16.2.1</b> <code>GETPROTOCOL</code></a></li>
+<li class="chapter" data-level="16.2.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getdousermanagement"><i class="fa fa-check"></i><b>16.2.2</b> <code>GETDOUSERMANAGEMENT</code></a></li>
+<li class="chapter" data-level="16.2.3" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#logonuser"><i class="fa fa-check"></i><b>16.2.3</b> <code>LOGONUSER</code></a></li>
+<li class="chapter" data-level="16.2.4" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getglobaldbconfig"><i class="fa fa-check"></i><b>16.2.4</b> <code>GETGLOBALDBCONFIG</code></a></li>
+<li class="chapter" data-level="16.2.5" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getbundlelist"><i class="fa fa-check"></i><b>16.2.5</b> <code>GETBUNDLELIST</code></a></li>
+<li class="chapter" data-level="16.2.6" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getbundle"><i class="fa fa-check"></i><b>16.2.6</b> <code>GETBUNDLE</code></a></li>
+<li class="chapter" data-level="16.2.7" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#savebundle"><i class="fa fa-check"></i><b>16.2.7</b> <code>SAVEBUNDLE</code></a></li>
+<li class="chapter" data-level="16.2.8" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#disconnectwarning"><i class="fa fa-check"></i><b>16.2.8</b> <code>DISCONNECTWARNING</code></a></li>
+<li class="chapter" data-level="16.2.9" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#error-handling"><i class="fa fa-check"></i><b>16.2.9</b> Error handling</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html"><i class="fa fa-check"></i><b>17</b> EQL EBNF</a><ul>
+<li class="chapter" data-level="17.1" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-operators-and-their-meaning"><i class="fa fa-check"></i><b>17.1</b> Terminal symbols of EQL2 (operators) and their meaning</a></li>
+<li class="chapter" data-level="17.2" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-brackets-and-their-meanings."><i class="fa fa-check"></i><b>17.2</b> Terminal symbols of EQL2 (brackets) and their meanings.</a></li>
+<li class="chapter" data-level="17.3" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-functions-and-their-meanings."><i class="fa fa-check"></i><b>17.3</b> Terminal symbols of EQL2 (functions) and their meanings.</a></li>
+<li class="chapter" data-level="17.4" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#formal-description-of-emu-query-language-version-2"><i class="fa fa-check"></i><b>17.4</b> Formal description of EMU Query Language Version 2</a></li>
+<li class="chapter" data-level="17.5" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#restrictions"><i class="fa fa-check"></i><b>17.5</b> Restrictions</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="app-chap-eql.html"><a href="app-chap-eql.html"><i class="fa fa-check"></i><b>18</b> EQL: further examples</a><ul>
+<li class="chapter" data-level="18.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-equality-inequality-matching-non-matching-queries-single-argument"><i class="fa fa-check"></i><b>18.1</b> Simple equality, inequality, matching and non-matching queries (single-argument)</a></li>
+<li class="chapter" data-level="18.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#sequence-queries-using-the---sequence-operator"><i class="fa fa-check"></i><b>18.2</b> Sequence queries using the -&gt; sequence operator</a></li>
+<li class="chapter" data-level="18.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#subsequent-sequence-queries-using-nesting-of-the---sequence-operator"><i class="fa fa-check"></i><b>18.3</b> Subsequent sequence queries using nesting of the <code>-&gt;</code> sequence operator</a></li>
+<li class="chapter" data-level="18.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#conjunction-operator"><i class="fa fa-check"></i><b>18.4</b> Conjunction operator &amp;</a></li>
+<li class="chapter" data-level="18.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#domination-operator-hierarchical-queries"><i class="fa fa-check"></i><b>18.5</b> Domination operator ^ (hierarchical queries)</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-domination"><i class="fa fa-check"></i><b>18.5.1</b> Simple domination</a></li>
+<li class="chapter" data-level="18.5.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#multiple-domination"><i class="fa fa-check"></i><b>18.5.2</b> Multiple domination</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position"><i class="fa fa-check"></i><b>18.6</b> Position</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-usage-of-start-end-and-medial"><i class="fa fa-check"></i><b>18.6.1</b> Simple usage of <code>Start()</code>, <code>End()</code> and <code>Medial()</code></a></li>
+<li class="chapter" data-level="18.6.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean"><i class="fa fa-check"></i><b>18.6.2</b> Position and boolean &amp;</a></li>
+<li class="chapter" data-level="18.6.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean-1"><i class="fa fa-check"></i><b>18.6.3</b> Position and boolean ^</a></li>
+<li class="chapter" data-level="18.6.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and-boolean"><i class="fa fa-check"></i><b>18.6.4</b> Count and boolean <code>&amp;</code></a></li>
+<li class="chapter" data-level="18.6.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and"><i class="fa fa-check"></i><b>18.6.5</b> Count and ^</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="app-chap-eql.html"><a href="app-chap-eql.html#combinations"><i class="fa fa-check"></i><b>18.7</b> Combinations</a><ul>
+<li class="chapter" data-level="18.7.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---domination-and-sequence"><i class="fa fa-check"></i><b>18.7.1</b> ^ and -&gt; (domination and sequence)</a></li>
+<li class="chapter" data-level="18.7.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---and-domination-and-sequence-and-boolean"><i class="fa fa-check"></i><b>18.7.2</b> ^ and -&gt; and &amp; (domination and sequence and boolean &amp;)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="app-chap-eql.html"><a href="app-chap-eql.html#a-few-more-questions-and-answers"><i class="fa fa-check"></i><b>18.8</b> A few more questions and answers</a></li>
+<li class="chapter" data-level="18.9" data-path="app-chap-eql.html"><a href="app-chap-eql.html#differences-to-the-legacy-emu-query-language"><i class="fa fa-check"></i><b>18.9</b> Differences to the legacy EMU query language</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#function-call-syntax"><i class="fa fa-check"></i><b>18.9.1</b> Function call syntax</a></li>
+<li class="chapter" data-level="18.9.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#empty-result"><i class="fa fa-check"></i><b>18.9.2</b> Empty result</a></li>
+<li class="chapter" data-level="18.9.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#the-result-modifier-hash-tag"><i class="fa fa-check"></i><b>18.9.3</b> The result modifier hash tag <code>#</code></a></li>
+<li class="chapter" data-level="18.9.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#interpretation-of-the-hash-tag-in-conjunction-operator-queries"><i class="fa fa-check"></i><b>18.9.4</b> Interpretation of the hash tag <code>#</code> in conjunction operator queries</a></li>
+<li class="chapter" data-level="18.9.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu"><i class="fa fa-check"></i><b>18.9.5</b> legacy EMU</a></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="app-chap-eql.html"><a href="app-chap-eql.html#bugs-in-legacy-emu-function-emu.query"><i class="fa fa-check"></i><b>18.10</b> Bugs in legacy EMU function <code>emu.query()</code></a><ul>
+<li class="chapter" data-level="18.10.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#alternative-labels-in-inequality-queries"><i class="fa fa-check"></i><b>18.10.1</b> Alternative labels in inequality queries</a></li>
+<li class="chapter" data-level="18.10.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu-1"><i class="fa fa-check"></i><b>18.10.2</b> legacy EMU</a></li>
+<li class="chapter" data-level="18.10.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#emur-1"><i class="fa fa-check"></i><b>18.10.3</b> emuR</a></li>
+<li class="chapter" data-level="18.10.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#errors-caused-by-missing-or-superfluous-blanks-or-parentheses"><i class="fa fa-check"></i><b>18.10.4</b> Errors caused by missing or superfluous blanks or parentheses</a></li>
+<li class="chapter" data-level="18.10.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#order-of-result-segment-list"><i class="fa fa-check"></i><b>18.10.5</b> Order of result segment list</a></li>
+<li class="chapter" data-level="18.10.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#additional-features"><i class="fa fa-check"></i><b>18.10.6</b> Additional features</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-formant-burg...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.1</b> <code>To Formant (burg)...</code> to SSFF files</a></li>
+<li class="chapter" data-level="19.1.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-pitch...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.2</b> <code>To Pitch...</code> to SSFF files</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
+</ul></li>
+<li class="part"><span><b>VI Recipes</b></span></li>
+<li class="chapter" data-level="20" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>20</b> About</a></li>
+<li class="chapter" data-level="21" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
+<li class="chapter" data-level="21.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
+<li class="chapter" data-level="21.2" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
+<li class="chapter" data-level="21.3" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
+<li class="chapter" data-level="22.1" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
+<li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
+<li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs including collaborative annotation with Git and GitLab</a><ul>
+<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
+<li class="chapter" data-level="23.1.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#using-gitlab-to-host-the-emudb"><i class="fa fa-check"></i><b>23.1.1</b> Using GitLab to host the emuDB</a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
+<li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
+<li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#assigning-bundles-to-annotators"><i class="fa fa-check"></i><b>23.2.2</b> Assigning bundles to annotators</a></li>
+<li class="chapter" data-level="23.2.3" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#pointing-the-emu-webapp-to-the-gitlab-repository"><i class="fa fa-check"></i><b>23.2.3</b> Pointing the EMU-webApp to the GitLab repository</a></li>
+<li class="chapter" data-level="23.2.4" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#what-about-my-r-scripts-other-files"><i class="fa fa-check"></i><b>23.2.4</b> What about my R scripts / other files?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The EMU-SDMS Manual</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:annot-struct-mod" class="section level1">
+<h1><span class="header-section-number">4</span> Annotation Structure Modeling<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></h1>
+<p><img src="pics/EMU-webAppEmu_annotStruct.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>The EMU-SDMS facilitates annotation structure modeling that surpasses that available in many other commonly used systems. This chapter provides an in-depth explanation of the annotation structure modeling capabilities the EMU-SDMS offers. One of the most common approaches for creating time-aligned annotations has been to differentiate between events that occur at a specific point in time but have no duration and segments that start at a point in time and have a duration. These annotation items are then grouped into time-ordered sets that are often referred to as tiers. As certain research questions benefit from different granularities of annotation, the timeline is often used to relate implicitly items from multiple tiers to each other as shown in Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>A. While sufficient for single or unrelated tier annotations, we feel this type of representation is not suitable for more complex annotation structures, as it results in unnecessary, redundant data and data sets that are often difficult to analyze. This is because there are no explicit relationships between annotation items, and it is often necessary to introduce error tolerance values to analyze slightly misaligned time values to find relationships iteratively over multiple levels. The main reason for the prevalence of this sub-optimal strategy is largely because the available software tools (e.g., Praat by <span class="citation">Boersma and Weenink (<a href="#ref-boersma:2011a" role="doc-biblioref">2016</a>)</span>) do not permit any other forms of annotations. These widely used annotation tools often only permit the creation and manipulation of segment and event tiers which in turn has forced users to model their annotation structures on these building blocks alone.</p>
+<p>Linguists who deal with speech and language on a purely symbolic level tend to be more familiar with a different type of annotation structure modeling. They often model their structures in the form of a vertically oriented, directed acyclic graph that, but for a few exceptions that are needed for things like elision modeling (e.g., the /ɪ/ elision that may occur between the canonical representation of the word <em>family</em> /fæmɪli/ and its phonetic representation [fæmli]), loosely adheres to the formal definition of a tree in the graph-theoretical sense (<span class="citation">Knuth (<a href="#ref-knuth:ar1968a" role="doc-biblioref">1968</a>)</span>) as depicted in Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>B. While this form of modeling explicitly defines relationships between annotation items (represented by dashed lines in Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>B), it lacks the ability to map these items to the timeline and therefore the matching speech signal.</p>
+<div class="figure" style="text-align: center"><span id="fig:annot-structhybridAnnot"></span>
+<img src="annot_struct_files/figure-html/annot-structhybridAnnot-1.png" alt="**A:** a purely time-aligned annotation; **B:** a purely timeless, symbolic annotation; **C:** a time-aligned hierarchical annotation." width="100%" keepaspectratio />
+<p class="caption">
+Figure 4.1: <strong>A:</strong> a purely time-aligned annotation; <strong>B:</strong> a purely timeless, symbolic annotation; <strong>C:</strong> a time-aligned hierarchical annotation.
+</p>
+</div>
+<p>To our knowledge, the legacy EMU system (<span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a" role="doc-biblioref">2001</a>)</span>) and its predecessors (e.g., <span class="citation">Harrington et al. (<a href="#ref-harrington:csl1993a" role="doc-biblioref">1993</a>)</span>) were the first to fuse pragmatically purely time-aligned and symbolic tree-like annotations. This was achieved by providing software tools that allowed for these types of annotation structures to be generated, queried and evaluated. In practice, each annotation item had its own unique identifier within the annotation. These unique IDs could then be used to reference each individual item and link them together using dominance relations to form the hierarchical annotation structure. On the one hand, this dominance relation implies the temporal inclusion of the linked sub-level items and was partially predicated on the <em>no-crossing constraint</em> as described in <span class="citation">Coleman and Local (<a href="#ref-coleman:lp1991a" role="doc-biblioref">1991</a>)</span>). This constraint does not permit the crossing of dominance relationships with respect to their sequential ordering (see also Section 4.2 of <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a" role="doc-biblioref">2001</a>)</span>). Since the dominance relations imply temporal inclusion, events can only be children in a parent-child relationship. To allow for timeless annotation items, a further timeless level type was used to complement the segment and event type levels used for time-aligned annotations. Each level of annotation items was stored as an ordered set to ensure the sequential integrity of both the time-aligned and timeless item levels. The legacy system also reduced data redundancy by allowing parallel annotations to be defined in the form of linearly linked levels for any given level (e.g., a segment level bearing SAMPA annotations as well as IPA UTF-8 annotations).</p>
+<p>The new EMU-SDMS has adopted some concepts of the legacy system in that levels of type <code>SEGMENT</code> and <code>EVENT</code> contain annotation items with labels and time information, similar to the tiers known from other software tools such as Praat, while levels of type <code>ITEM</code> are timeless and contain annotation items with labels only. <code>SEGMENT</code> and <code>EVENT</code> levels differ in that units at the <code>SEGMENT</code>s level have a start time and a duration, while units at the <code>EVENT</code> level contain a single time point only. Additionally, every annotation item is able to contain multiple labels and has a unique identifier which is used to link items across levels. These building blocks provide the user with a general purpose annotation modeling tool that allows complex annotation structures to be modeled that best represent the data. An example of a time-aligned hierarchical annotation is depicted in Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>C, which essentially combines the annotation of Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>B with the most granular time-bearing level (i.e. the <em>“Phonetic”</em> level) of Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>A.</p>
+<p>In accordance with other approaches (among others see <span class="citation">Bird and Liberman (<a href="#ref-bird:sc2001a" role="doc-biblioref">2001</a>)</span>, <span class="citation">Zipser and Romary (<a href="#ref-zipser:2010a" role="doc-biblioref">2010</a>)</span>, <span class="citation">Ide and Romary (<a href="#ref-ide:nle2004a" role="doc-biblioref">2004</a>)</span>), the EMU-SDMS annotation structure can be viewed as a graph that consists of three types of nodes (<code>EVENT</code>s, <code>SEGMENT</code>s, <code>ITEM</code>s) and two types of relations (<code>dominance</code> and <code>sequence</code>) which are directed, transitive and indicate the dominance and sequential relationships between nodes of the graph. As was shown in a pseudo-code example that converted an Annotation Graph (<span class="citation">Bird and Liberman (<a href="#ref-bird:sc2001a" role="doc-biblioref">2001</a>)</span>) into the legacy EMU annotation format in <span class="citation">Cassidy and Harrington (<a href="#ref-cassidy:sc2001a" role="doc-biblioref">2001</a>)</span>, these formats can be viewed as conceptually equivalent sub- or super-set representations of each other. This has also been shown by developments of meta models with independent data representation such as <code>Salt</code> (<span class="citation">Zipser and Romary (<a href="#ref-zipser:2010a" role="doc-biblioref">2010</a>)</span>), which enable abstract internal representations to be derived that can be exported to equal-set or super-set formats without the loss of information. We therefore believe that the decision as to which data format serializations are used by a given application should be guided by the choice of technology and the target audience or research field. This is consistent with the views of the committee for the Linguistic Annotation Framework (LAF) who explicitly state in the ISO CD 24612 (LAF) document (<span class="citation">ISO (<a href="#ref-ISOLAF" role="doc-biblioref">2012</a>)</span>);</p>
+<blockquote>
+<p>Although the LAF pivot format may be used in any context, it is assumed that users will represent annotations using their own formats, which can then be transduced to the LAF pivot format for the purposes of exchange, merging and comparison.</p>
+</blockquote>
+<p>The transduction of an EMU annotation into a format such as the LAF pivot format is a simple process, as they share many of the same concepts and are well defined formats.</p>
+<div id="per-database-annotation-structure-definition" class="section level2">
+<h2><span class="header-section-number">4.1</span> Per database annotation structure definition</h2>
+<p>Unlike other systems, the EMU-SDMS requires the user to define the annotation structure formally for all annotations within a database. Much as Document Type Definition (DTD) or XML Schema Definition (XSD) describe the syntactically valid elements in an Extensible Markup Language (XML) document, the database configuration file of an <code>emuDB</code> defines the valid annotation levels and therefore the type of items that are allowed to be present in a database. Unlike DTDs or XSDs, the configuration file can also define semantic relationships between annotation levels which fall outside the scope of traditional, syntactically oriented schema definitions and validation. This global definition of an annotation structure has numerous benefits for the data integrity of the database, as the EMU-SDMS can perform consistency checks and prevent malformed as well as semantically void annotation structures.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Because of these formal definitions, the EMU system generally distinguishes between the actual representations of a structural element which are contained within the database and their formal definitions. An example of an actual representation, that is a subset of the actual annotation, would be a level contained in an annotation file that contains <code>SEGMENT</code>s that annotate a recording. The corresponding formal definition would be a level definition entry in the database’s configuration file, which specifies and validates the level’s existence within the database.</p>
+<p>As mentioned above, the actual annotation files of an <code>emuDB</code> contain the annotation items as well as their hierarchical linking information. To be able to check the validity of a connection between two items, the user specifies which links are permitted for the entire database just as for the level definitions. The permitted hierarchical relationships in an <code>emuDB</code> are expressed through link definitions between level definitions as part of the database configuration. There are three types of valid hierarchical relationships between levels: <code>ONE_TO_MANY</code>, <code>MANY_TO_MANY</code> and <code>ONE_TO_ONE</code>. These link definitions specify the permitted relationships between instances of annotation items of one level and those of another. The structure of the hierarchy that corresponds to the annotation depicted in Figure <a href="chap-annot-struct-mod.html#fig:annot-structhybridAnnot">4.1</a>C can be seen in Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>A. The structure in Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>A is a typical example of an EMU hierarchy where only the  level of type <code>SEGMENT</code> contains time information and the others are timeless as they are of the type <code>ITEM</code>. The top three levels, <em>Text</em>, <em>Syllable</em> and <em>Phoneme</em>, have a <code>ONE_TO_MANY</code> relationship specifying that a single item in the parent level may have a dominance relationship with multiple items in the child level. In this example, the relationship between  and <em>Phonetic</em> is <code>MANY_TO_MANY</code>: this type of relationship can be used to represent schwa elision and subsequent sonorant syllabification, as when the final syllable of <em>sudden</em> is <em><a href="mailto:d@n" class="email">d@n</a></em> at the <em>Phoneme</em> level but <em>dn</em> at the <em>Phonetic</em> level. Figure <a href="chap-annot-struct-mod.html#fig:annotStruct">4.2</a>B displays an example of a more complex, intersecting hierarchical structure definition where Abercrombian feet (<span class="citation">Abercombie (<a href="#ref-abercombie:1967a" role="doc-biblioref">1967</a>)</span>) are incorporated into the tones and break indices (ToBI) (<span class="citation">Beckman and Ayers (<a href="#ref-beckman:1997aa" role="doc-biblioref">1997</a>)</span>) prosodic hierarchy by allowing an intonational phrase to be made up of one or more feet (for further details see <span class="citation">Harrington (<a href="#ref-harrington:2010a" role="doc-biblioref">2010</a>)</span> page 98).</p>
+<div class="figure" style="text-align: center"><span id="fig:annotStruct"></span>
+<img src="pics/annotStruct.png" alt="**A:** a schematic representation of the hierarchical structure of an `emuDB` that corresponds to the annotation depicted in figure 4.1C; **B:** example of a more complex, intersecting hierarchical structure." width="75%" />
+<p class="caption">
+Figure 4.2: <strong>A:</strong> a schematic representation of the hierarchical structure of an <code>emuDB</code> that corresponds to the annotation depicted in figure 4.1C; <strong>B:</strong> example of a more complex, intersecting hierarchical structure.
+</p>
+</div>
+<p>Based on our experience, the explicit definition of the annotation structure for every database which was also integral to the legacy system addresses the excessively expressive nature of annotational modeling systems mentioned in <span class="citation">Bird and Liberman (<a href="#ref-bird:sc2001a" role="doc-biblioref">2001</a>)</span>. Although, in theory, infinitely large hierarchies can be defined for a database, users of the legacy system typically chose to use only moderately complex annotation structures. The largest hierarchy definitions we have encountered spanned up to fifteen levels while the average amount of levels was between three and five. This self-restriction is largely due to the primary focus of speech and spoken language domain-specific annotations, as the number of annotation levels between chunks of speech above the word level (intonational phrases/sentences/turns/etc.) and the lower levels (phonetic segmentation/EMA gestural landmark annotation/tone annotation/etc.) is a finite set.</p>
+</div>
+<div id="parallel-labels-and-multiple-attributes" class="section level2">
+<h2><span class="header-section-number">4.2</span> Parallel labels and multiple attributes</h2>
+<p>The legacy EMU system made a distinction between linearly and non-linearly linked inter-level links. Linearly linked levels were used to describe, enrich or supplement another level. For example, a level called <em>Category</em> might have been included as a separate level from <em>Word</em> for marking words’ grammatical category memberships (thus each word might be marked as one of adjective, noun, verb, etc.), or information about whether or not a syllable is stressed might be included on a separate <em>Stress</em> tier (description taken from <span class="citation">Harrington (<a href="#ref-harrington:2010a" role="doc-biblioref">2010</a>)</span> page 77). Using <code>ONE_TO_ONE</code> link definitions to define a relationship between two levels, it is still possible to model linearly linked levels in the new EMU-SDMS. However, an additional, cleaner concept that reduces the extra level overhead has been implemented that allows every annotation item to carry multiple attributes (i.e., labels). Further, using this construct reduces the number of levels, items and links and therefore the hierarchical complexity of an annotation. The generic term “attribute” (vs. “label”) was chosen to have the flexibility of adding attributes that are not of the type <code>STRING</code> (i.e., labels) to the annotation modeling capabilities of the EMU-SDMS in future versions. Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a> shows the annotation structure modeling difference between linearly linked levels (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A) and an annotation structure using multiple attributes (see Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>A shows three separate levels (<em>Word</em>, <em>Accent</em> and <em>Text</em>) that have a <code>ONE_TO_ONE</code> relationship. Each of their annotation items is linked to exactly one annotation item in the child level (e.g., <em>A1-A3</em>). Figure <a href="chap-annot-struct-mod.html#fig:paraLabels">4.3</a>B shows a single level that has three attribute definitions (<em>Word</em>, <em>Accent</em> and <em>Text</em>) and each annotation item contains three attributes (e.g., <em>A1-A3</em>).</p>
+<div class="figure" style="text-align: center"><span id="fig:paraLabels"></span>
+<img src="pics/annotStruct.png" alt="Schematic representation of annotation structure modeling difference between **A:** linearly linked levels and **B:** an annotation structure using multiple attributes." width="75%" />
+<p class="caption">
+Figure 4.3: Schematic representation of annotation structure modeling difference between <strong>A:</strong> linearly linked levels and <strong>B:</strong> an annotation structure using multiple attributes.
+</p>
+</div>
+<p>It is worth noting that every level definition must have an attribute definition which matches its level name. This primary attribute definition must also be present in every annotation item belonging to a level. As <code>emuR</code>’s database interaction functions, such as <code>add_levelDefinition()</code>, and the <code>EMU-webApp</code> automatically perform the necessary actions this should only be of interest to (semi-)advanced users wishing to automatically generate the <code>_annot.json</code> format.</p>
+</div>
+<div id="metadata-strategy-using-single-bundle-root-nodes" class="section level2">
+<h2><span class="header-section-number">4.3</span> Metadata strategy using single bundle root nodes</h2>
+<p>As the legacy EMU system and the new EMU-SDMS do not have an explicit method for storing metadata associated with bundles<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>, over the years an annotation structure convention has been developed to combat this issue. The convention is to use a generic top level (often simply called <code>bundle</code>) that contains a single annotation item in every annotation file. Using the multiple attribute annotation structure modeling capability of the EMU-SDMS, this single annotation item can hold any meta data associated with the bundle. Additionally linking the item to all the annotation items of its child level effectively makes it a parent to every item of the hierarchy. This linking information can later be exploited to query only bundles with matching meta data (see Chapter <a href="chap-querysys.html#chap:querysys">6</a> for details). Figure <a href="chap-annot-struct-mod.html#fig:singleBundleRootNode">4.4</a> displays a hierarchical annotation where the top level (<code>bundle</code>) contains information about the speaker’s <code>gender</code>, the city of birth (<code>COB</code>) and <code>age</code>.</p>
+<div class="figure" style="text-align: center"><span id="fig:singleBundleRootNode"></span>
+<img src="pics/singleBundleRootNode.png" alt="Hierarchical annotation displaying single bundle root node metadata strategy where the label of the primary attribute definition (*bundle*) is empty, *gender* encodes the speaker's gender, *COB* encodes the speakers city of birth and *age* encodes the speaker's age in the form of a string." width="65%" />
+<p class="caption">
+Figure 4.4: Hierarchical annotation displaying single bundle root node metadata strategy where the label of the primary attribute definition (<em>bundle</em>) is empty, <em>gender</em> encodes the speaker’s gender, <em>COB</em> encodes the speakers city of birth and <em>age</em> encodes the speaker’s age in the form of a string.
+</p>
+</div>
+</div>
+<div id="conclusion-1" class="section level2">
+<h2><span class="header-section-number">4.4</span> Conclusion</h2>
+<p>The annotation structure modeling capabilities of the EMU-SDMS surpass those of many other commonly used systems. They do so by not only allowing the use of levels containing time information (levels of type <code>SEGMENT</code> and <code>EVENT</code>) but also timeless levels (levels of type <code>ITEM</code>). Additionally, they allow users to define hierarchical annotation structures by allowing explicit links to be implemented from one level’s items to those of another. Although it is not obligatory to use them in the EMU-SDMS, we feel the usage of hierarchical annotations allow for complex rich data modeling and are often cleaner representations of the annotations at hand.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-abercombie:1967a">
+<p>Abercombie, David. 1967. <em>Elements of General Phonetics</em>. Aldine Pub. Company.</p>
+</div>
+<div id="ref-beckman:1997aa">
+<p>Beckman, Mary E, and Gayle Ayers. 1997. “Guidelines for ToBI Labelling.” <em>The OSU Research Foundation</em> 3.</p>
+</div>
+<div id="ref-bird:sc2001a">
+<p>Bird, Steven, and Mark Liberman. 2001. “A Formal Framework for Linguistic Annotation.” <em>Speech Communication</em> 33 (1): 23–60.</p>
+</div>
+<div id="ref-boersma:2011a">
+<p>Boersma, Paul, and David Weenink. 2016. “Praat: Doing Phonetics by Computer (Version 6.0.19).” <a href="http://www.fon.hum.uva.nl/praat/">http://www.fon.hum.uva.nl/praat/</a>.</p>
+</div>
+<div id="ref-cassidy:sc2001a">
+<p>Cassidy, Steve, and Jonathan Harrington. 2001. “Multi-Level Annotation in the Emu Speech Database Management System.” <em>Speech Communication</em> 33 (1): 61–77.</p>
+</div>
+<div id="ref-coleman:lp1991a">
+<p>Coleman, John, and John Local. 1991. “The ‘No Crossing Constraint’ in Autosegmental Phonology.” <em>Linguistics and Philosophy</em> 14 (3): 295–338.</p>
+</div>
+<div id="ref-harrington:2010a">
+<p>Harrington, Jonathan. 2010. <em>Phonetic Analysis of Speech Corpora</em>. John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-harrington:csl1993a">
+<p>Harrington, Jonathan, Steve Cassidy, Janet Fletcher, and Andrew Mc Veigh. 1993. “The Mu+ System for Corpus Based Speech Research.” <em>Computer Speech &amp; Language</em> 7 (4): 305–31.</p>
+</div>
+<div id="ref-ide:nle2004a">
+<p>Ide, Nancy, and Laurent Romary. 2004. “International Standard for a Linguistic Annotation Framework.” <em>Natural Language Engineering</em> 10 (3-4): 211–25.</p>
+</div>
+<div id="ref-ISOLAF">
+<p>ISO. 2012. “Language Resource Management — Linguistic Annotation Framework (Laf).” ISO 24612:2012. Geneva, Switzerland: International Organization for Standardization.</p>
+</div>
+<div id="ref-knuth:ar1968a">
+<p>Knuth, Donald E. 1968. “The Art of Computer Programming Vol. 1, Fundamental Algorithms.” <em>Addison-Wesley, Reading, MA</em> 9: 364–69.</p>
+</div>
+<div id="ref-zipser:2010a">
+<p>Zipser, Florian, and Laurent Romary. 2010. “A model oriented approach to the mapping of annotation formats using standards.” In <em>Workshop on Language Resource and Language Technology Standards, LREC 2010</em>. La Valette, Malta. <a href="https://hal.inria.fr/inria-00527799">https://hal.inria.fr/inria-00527799</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>Sections of this chapter where previously published in <span class="citation">Winkelmann, Harrington, and Jänsch (<a href="#ref-winkelmann:2017aa" role="doc-biblioref">2017</a>)</span><a href="chap-annot-struct-mod.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Although the consistency is ensured by the <code>EMU-SDMS</code> while annotation editing operations are performed, currently no actual consistency checks are performed while loading or saving an annotation. However, we plan to add this functionality in future releases.<a href="chap-annot-struct-mod.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Future versions of <code>emuR</code> may allow <code>_meta.json</code> files containing meta information in the form of key-value pairs to be placed in either the <code>_emuDB</code>, the <code>_ses</code> or the <code>_bndl</code> directories.<a href="chap-annot-struct-mod.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-tutorial.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-emuDB.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
