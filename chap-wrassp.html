@@ -202,12 +202,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
 <li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
 <li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
@@ -453,7 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] &quot;AsspDataObj&quot;</code></pre>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="chap-wrassp.html#cb160-1"></a><span class="co"># show print() output of object</span></span>
 <span id="cb160-2"><a href="chap-wrassp.html#cb160-2"></a>au</span></code></pre></div>
-<pre><code>## Assp Data Object of file C:\Users\rapha\AppData\Local\Temp\Rtmp2pa03l\emuR_demoData\ae_emuDB\0000_ses\msajc003_bndl\msajc003.wav.
+<pre><code>## Assp Data Object of file C:\Users\rapha\AppData\Local\Temp\Rtmp0gRJMh\emuR_demoData\ae_emuDB\0000_ses\msajc003_bndl\msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -481,7 +481,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] 20000
 ## 
 ## $filePath
-## [1] &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp2pa03l\\emuR_demoData\\ae_emuDB\\0000_ses\\msajc003_bndl\\msajc003.wav&quot;
+## [1] &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp0gRJMh\\emuR_demoData\\ae_emuDB\\0000_ses\\msajc003_bndl\\msajc003.wav&quot;
 ## 
 ## $origFreq
 ## [1] 0
@@ -535,7 +535,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 8.1: Oscillogram generated from samples stored in the <code>audio</code> track of the object <code>au</code>.
 </p>
 </div>
-<p>The export counterpart to <code>read.AsspDataObj()</code> function is <code>write.AsspDataObj()</code>. It is used to store in-memory <code>AsspDataObj</code> objects to disk and is particularly useful for converting other formats to or storing data in the SSFF file format as described in Section <a href="#sec:wrassp-genSSFF"><strong>??</strong></a>. To show how this function can be used to write a slightly altered version of the <code>au</code> object to a file, the R code snippet below initially multiplies all the sample values of <code>au$audio</code> by a factor of <code>0.5</code>. The resulting <code>AsspDataObj</code> is then written to an audio file in a temporary directory provided by <code>R</code>’s <code>tempdir()</code> function.</p>
+<p>The export counterpart to <code>read.AsspDataObj()</code> function is <code>write.AsspDataObj()</code>. It is used to store in-memory <code>AsspDataObj</code> objects to disk and is particularly useful for converting other formats to or storing data in the SSFF file format as described in Section <a href="chap-wrassp.html#sec:wrassp-genSSFF">8.8</a>. To show how this function can be used to write a slightly altered version of the <code>au</code> object to a file, the R code snippet below initially multiplies all the sample values of <code>au$audio</code> by a factor of <code>0.5</code>. The resulting <code>AsspDataObj</code> is then written to an audio file in a temporary directory provided by <code>R</code>’s <code>tempdir()</code> function.</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="chap-wrassp.html#cb179-1"></a><span class="co"># manipulate the audio samples</span></span>
 <span id="cb179-2"><a href="chap-wrassp.html#cb179-2"></a>au<span class="op">$</span>audio =<span class="st"> </span>au<span class="op">$</span>audio <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span></span>
 <span id="cb179-3"><a href="chap-wrassp.html#cb179-3"></a><span class="co"># write to file in directory</span></span>
@@ -544,7 +544,7 @@ Figure 8.1: Oscillogram generated from samples stored in the <code>audio</code> 
 </div>
 <div id="signal-processing" class="section level2">
 <h2><span class="header-section-number">8.3</span> Signal processing</h2>
-<p>As mentioned in the introduction to this chapter, the <code>wrassp</code> package is capable of more than just the mere importing and exporting of specific signal file formats. This section will focus on demonstrating three of <code>wrassp</code>’s signal processing functions that calculate formant values, their corresponding bandwidths, the fundamental frequency contour and the RMS energy contour. Section <a href="chap-wrassp.html#subsec:wrassp-formants">8.5</a> and <a href="#subsec:wrassp-f0"><strong>??</strong></a> demonstrates signal processing to the audio file saved under <code>path2wav</code>, while Section <a href="chap-wrassp.html#subsec:wrassp-RMS">8.5.2</a> adresses processing all the audio files belonging to the <em>ae</em> <code>emuDB</code>.</p>
+<p>As mentioned in the introduction to this chapter, the <code>wrassp</code> package is capable of more than just the mere importing and exporting of specific signal file formats. This section will focus on demonstrating three of <code>wrassp</code>’s signal processing functions that calculate formant values, their corresponding bandwidths, the fundamental frequency contour and the RMS energy contour. Section <a href="chap-wrassp.html#subsec:wrassp-formants">8.5</a> and <a href="chap-wrassp.html#subsec:wrassp-f0">8.5.1</a> demonstrates signal processing to the audio file saved under <code>path2wav</code>, while Section <a href="chap-wrassp.html#subsec:wrassp-RMS">8.5.2</a> adresses processing all the audio files belonging to the <em>ae</em> <code>emuDB</code>.</p>
 </div>
 <div id="subsec:wrassp-wrasspOutputInfos" class="section level2">
 <h2><span class="header-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</h2>
@@ -608,7 +608,7 @@ Figure 8.1: Oscillogram generated from samples stored in the <code>audio</code> 
 Figure 8.2: Matrix plot of formant values stored in the <code>fm</code> track of <code>fmBwVals</code> object.
 </p>
 </div>
-<div id="subsec:wrassp_f0" class="section level3">
+<div id="subsec:wrassp-f0" class="section level3">
 <h3><span class="header-section-number">8.5.1</span> Fundamental frequency contour</h3>
 <p>The <code>wrassp</code> package includes two fundamental frequency estimation functions called <code>ksvF0()</code> and <code>mhsF0()</code>. The R code snippet below shows the usage of the <code>ksvF0()</code> function, this time not utilizing the <code>toFile</code> parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by <code>wrassp</code> creates a result file in the same directory as the audio file it was processing (except if the <code>outputDirectory</code> parameter is set otherwise). The default extension given by the <code>ksvF0()</code> is stored in <code>wrasspOutputInfos$ksvF0$ext</code>, which is used in the R code snippet below to create the newly generated file’s path.</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="chap-wrassp.html#cb193-1"></a><span class="co"># calculate the fundamental frequency contour</span></span>
@@ -673,7 +673,7 @@ Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rms
 </div>
 </div>
 </div>
-<div id="sec:wrassp_logging" class="section level2">
+<div id="sec:wrassp-logging" class="section level2">
 <h2><span class="header-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</h2>
 <p>As it can be extremely important to keep track of information about how certain files are created and calculated, every signal processing function provided by the <code>wrassp</code> package comes with the ability to log its function calls to a specified log file. The R code snippet below shows a call to the <code>ksvF0()</code> function where a single parameter was changed from its default value (<code>windowShift = 10</code>). The content of the created log files (shown by the call to <code>readLines()</code>) contains the function name, time stamp, parameters that were altered and processed file path information. It is worth noting that a log file can be reused for multiple function calls as the log function does not overwrite an existing file but merely appends new log information to it.</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="chap-wrassp.html#cb197-1"></a><span class="co"># create path to log file in root dir of ae emuDB</span></span>
@@ -689,7 +689,7 @@ Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rms
 <span id="cb199-2"><a href="chap-wrassp.html#cb199-2"></a><span class="kw">readLines</span>(path2logFile)[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;&quot;                                   &quot;##################################&quot;
 ## [3] &quot;##################################&quot; &quot;######## ksvF0 performed ########&quot; 
-## [5] &quot;Timestamp:  2020-12-16 20:57:12 &quot;   &quot;windowShift : 10 &quot;                 
+## [5] &quot;Timestamp:  2020-12-17 18:29:23 &quot;   &quot;windowShift : 10 &quot;                 
 ## [7] &quot;forceToLog : T &quot;                    &quot; =&gt; on files:&quot;</code></pre>
 </div>
 <div id="sec:wrassp-emu-sdms" class="section level2">
@@ -744,7 +744,7 @@ Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rms
 <span id="cb204-25"><a href="chap-wrassp.html#cb204-25"></a>                        <span class="dt">onTheFlyParams =</span> zcranaParams,</span>
 <span id="cb204-26"><a href="chap-wrassp.html#cb204-26"></a>                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 </div>
-<div id="sec:wrassp_genSSFF" class="section level2">
+<div id="sec:wrassp-genSSFF" class="section level2">
 <h2><span class="header-section-number">8.8</span> Storing data in the SSFF file format</h2>
 <p>One of the benefits gained by having the <code>AsspDataObj</code> in-memory object is that these objects can be constructed from scratch in R, as they are basically simple <code>list</code> objects. This means, for example, that any set of n-dimensional samples over time can be placed in a <code>AsspDataObj</code> and then stored as an SSFF file using the <code>write.AsspDataObj()</code> function. To show how this can be done, the R code snippet below creates an arbitrary data sample in the form of a single cycle sine wave between <span class="math inline">\(0\)</span> and <span class="math inline">\(2*pi\)</span> that is made up of 16000 samples and displays it in Figure <a href="chap-wrassp.html#fig:wrassp-genSin">8.5</a>.</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="chap-wrassp.html#cb205-1"></a>x =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">length.out =</span> <span class="dv">16000</span>)</span>
@@ -858,18 +858,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/wrassp.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/blob/master/wrassp.Rmd",
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
 "toc": {
 "collapse": "subsection"
 }

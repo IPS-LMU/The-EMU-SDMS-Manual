@@ -210,12 +210,12 @@ img {
 <li><a href="8-3-signal-processing.html#signal-processing"><span class="toc-section-number">8.3</span> Signal processing</a></li>
 <li><a href="8-4-subsec-wrassp-wrasspOutputInfos.html#subsec:wrassp-wrasspOutputInfos"><span class="toc-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="has-sub"><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a><ul>
-<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp_f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
+<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS"><span class="toc-section-number">8.5.2</span> RMS energy contour</a></li>
 </ul></li>
-<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp_logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
+<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp-logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
 <li><a href="8-7-sec-wrassp-emu-sdms.html#sec:wrassp-emu-sdms"><span class="toc-section-number">8.7</span> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp_genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
+<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
 <li><a href="8-9-conclusion-4.html#conclusion-4"><span class="toc-section-number">8.9</span> Conclusion</a></li>
 </ul></li>
 <li class="has-sub"><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a><ul>
@@ -382,7 +382,7 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="sec:wrassp_logging" class="section level2">
+<div id="sec:wrassp-logging" class="section level2">
 <h2><span class="header-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</h2>
 <p>As it can be extremely important to keep track of information about how certain files are created and calculated, every signal processing function provided by the <code>wrassp</code> package comes with the ability to log its function calls to a specified log file. The R code snippet below shows a call to the <code>ksvF0()</code> function where a single parameter was changed from its default value (<code>windowShift = 10</code>). The content of the created log files (shown by the call to <code>readLines()</code>) contains the function name, time stamp, parameters that were altered and processed file path information. It is worth noting that a log file can be reused for multiple function calls as the log function does not overwrite an existing file but merely appends new log information to it.</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="8-6-sec-wrassp-logging.html#cb197-1"></a><span class="co"># create path to log file in root dir of ae emuDB</span></span>
@@ -398,11 +398,12 @@ img {
 <span id="cb199-2"><a href="8-6-sec-wrassp-logging.html#cb199-2"></a><span class="kw">readLines</span>(path2logFile)[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;&quot;                                   &quot;##################################&quot;
 ## [3] &quot;##################################&quot; &quot;######## ksvF0 performed ########&quot; 
-## [5] &quot;Timestamp:  2020-12-16 20:45:40 &quot;   &quot;windowShift : 10 &quot;                 
+## [5] &quot;Timestamp:  2020-12-17 18:20:57 &quot;   &quot;windowShift : 10 &quot;                 
 ## [7] &quot;forceToLog : T &quot;                    &quot; =&gt; on files:&quot;</code></pre>
 </div>
 <p style="text-align: center;">
 <a href="8-5-subsec-wrassp-formants.html"><button class="btn btn-default">Previous</button></a>
+<a href="https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/wrassp.Rmd"><button class="btn btn-default">Edit</button></a>
 <a href="8-7-sec-wrassp-emu-sdms.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>

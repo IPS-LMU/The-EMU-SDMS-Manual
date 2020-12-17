@@ -152,13 +152,13 @@ list_files(ae, fileExtension = "f0")
 ## # A tibble: 7 x 4
 ##   session bundle   file     absolute_file_path                                  
 ##   <chr>   <chr>    <chr>    <chr>                                               
-## 1 0000    msajc003 msajc00~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 2 0000    msajc010 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 3 0000    msajc012 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 4 0000    msajc015 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 5 0000    msajc022 msajc02~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 6 0000    msajc023 msajc02~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 7 0000    msajc057 msajc05~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
+## 1 0000    msajc003 msajc00~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 2 0000    msajc010 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 3 0000    msajc012 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 4 0000    msajc015 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 5 0000    msajc022 msajc02~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 6 0000    msajc023 msajc02~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 7 0000    msajc057 msajc05~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
 ```
 
 ```r

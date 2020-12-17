@@ -202,12 +202,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
 <li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
 <li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
@@ -496,13 +496,13 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 <pre><code>## # A tibble: 7 x 4
 ##   session bundle   file     absolute_file_path                                  
 ##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;                                               
-## 1 0000    msajc003 msajc00~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 2 0000    msajc010 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 3 0000    msajc012 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 4 0000    msajc015 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 5 0000    msajc022 msajc02~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 6 0000    msajc023 msajc02~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~
-## 7 0000    msajc057 msajc05~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp4GS8J4~</code></pre>
+## 1 0000    msajc003 msajc00~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 2 0000    msajc010 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 3 0000    msajc012 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 4 0000    msajc015 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 5 0000    msajc022 msajc02~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 6 0000    msajc023 msajc02~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+## 7 0000    msajc057 msajc05~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~</code></pre>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="chap-sigDataExtr.html#cb145-1"></a><span class="co"># extract newly added trackdata</span></span>
 <span id="cb145-2"><a href="chap-sigDataExtr.html#cb145-2"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
 <span id="cb145-3"><a href="chap-sigDataExtr.html#cb145-3"></a>ai_td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</span>
@@ -641,18 +641,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/sigDataExtr.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/blob/master/sigDataExtr.Rmd",
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -210,12 +210,12 @@ img {
 <li><a href="8-3-signal-processing.html#signal-processing"><span class="toc-section-number">8.3</span> Signal processing</a></li>
 <li><a href="8-4-subsec-wrassp-wrasspOutputInfos.html#subsec:wrassp-wrasspOutputInfos"><span class="toc-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="has-sub"><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a><ul>
-<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp_f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
+<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS"><span class="toc-section-number">8.5.2</span> RMS energy contour</a></li>
 </ul></li>
-<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp_logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
+<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp-logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
 <li><a href="8-7-sec-wrassp-emu-sdms.html#sec:wrassp-emu-sdms"><span class="toc-section-number">8.7</span> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp_genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
+<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
 <li><a href="8-9-conclusion-4.html#conclusion-4"><span class="toc-section-number">8.9</span> Conclusion</a></li>
 </ul></li>
 <li class="has-sub"><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a><ul>
@@ -386,7 +386,7 @@ img {
 <h2><span class="header-section-number">15.2</span> Example files</h2>
 <div id="subsec:app-chapExampleFilesBundleList" class="section level3">
 <h3><span class="header-section-number">15.2.1</span> <code>_bundleList.json</code></h3>
-<p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport information about all the available bundles to the <code>EMU-webApp</code>. It is not meant as an on-disk file format but rather should be generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in Listing <a href="#lst:bndlListJSON"><strong>??</strong></a>.</p>
+<p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport information about all the available bundles to the <code>EMU-webApp</code>. It is not meant as an on-disk file format but rather should be generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in the listing below.</p>
 <!-- caption="Schematic example of a \_bundleList.json file" language="json" label="lst:bndlListJSON" startFrom="1" -->
 <div class="sourceCode" id="cb294"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb294-1"><a href="15-2-example-files.html#cb294-1"></a><span class="ot">[</span></span>
 <span id="cb294-2"><a href="15-2-example-files.html#cb294-2"></a>  <span class="fu">{</span></span>
@@ -411,7 +411,7 @@ img {
 </div>
 <div id="subsec:app-chapExampleFilesBndlJSON" class="section level3">
 <h3><span class="header-section-number">15.2.2</span> <code>_bndl.json</code></h3>
-<p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport all the data belonging to a single bundle to the <code>EMU-webApp</code>. It is not meant as an on-disk file format by rather should generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in Listing <a href="#lst:bndlJSON"><strong>??</strong></a>.</p>
+<p>Compared to the <code>_DBconfig.json</code> and <code>_annot.json</code> files, the <code>_bndl.json</code> format is not part of the <code>emuDB</code> database specification. Rather, it is part of the <code>EMU-webApp-websocket-protocol</code> and is used as a standardized format to transport all the data belonging to a single bundle to the <code>EMU-webApp</code>. It is not meant as an on-disk file format by rather should generated on-demand by the server implementing the <code>EMU-webApp-websocket-protocol</code>. A schematic example of a <code>_bndl.json</code> file is displayed in the listing below.</p>
 <!-- lst:bndlJSON caption="Schematic example of a _bndl.json file" language="json" startFrom="1" -->
 <div class="sourceCode" id="cb295"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb295-1"><a href="15-2-example-files.html#cb295-1"></a><span class="fu">{</span></span>
 <span id="cb295-2"><a href="15-2-example-files.html#cb295-2"></a> <span class="dt">&quot;ssffFiles&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
@@ -427,13 +427,14 @@ img {
 <span id="cb295-12"><a href="15-2-example-files.html#cb295-12"></a> <span class="fu">},</span></span>
 <span id="cb295-13"><a href="15-2-example-files.html#cb295-13"></a> <span class="dt">&quot;annotation&quot;</span><span class="fu">:</span> <span class="er">contentOfAnnot.json</span></span>
 <span id="cb295-14"><a href="15-2-example-files.html#cb295-14"></a><span class="fu">}</span></span></code></pre></div>
-<p><code>contentOfAnnot.json</code> in Listing <a href="#lst:bndlJSON"><strong>??</strong></a> refers to the content of a <code>_annot.json</code> file.</p>
+<p><code>contentOfAnnot.json</code> in the listing above refers to the content of a <code>_annot.json</code> file.</p>
 
 </div>
 </div>
 <!-- </div> -->
 <p style="text-align: center;">
 <a href="15-1-file-descriptions.html"><button class="btn btn-default">Previous</button></a>
+<a href="https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/app_chap-fileFormats.Rmd"><button class="btn btn-default">Edit</button></a>
 <a href="16-app-chap-wsProtocol.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>

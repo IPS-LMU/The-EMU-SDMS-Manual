@@ -202,12 +202,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
 <li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
 <li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
@@ -417,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb462-3"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb462-3"></a><span class="co"># and commit</span></span>
 <span id="cb462-4"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb462-4"></a>git2r<span class="op">::</span><span class="kw">commit</span>(db<span class="op">$</span>basePath, </span>
 <span id="cb462-5"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb462-5"></a>              <span class="dt">message =</span> <span class="st">&quot;initial commit&quot;</span>)</span></code></pre></div>
-<pre><code>## [2a35313] 2020-12-16: initial commit</code></pre>
+<pre><code>## [2a93cb7] 2020-12-17: initial commit</code></pre>
 <p>This is it for the initial local setup of Git. If you just wish to work locally, simply repeat the above two commands every time you wish to commit the current state of the emuDB to the repository (don’t forget to use a concise commit message).</p>
 <div id="using-gitlab-to-host-the-emudb" class="section level3">
 <h3><span class="header-section-number">23.1.1</span> Using GitLab to host the emuDB</h3>
@@ -494,7 +494,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb472-6"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb472-6"></a><span class="kw">write_bundleList</span>(db, </span>
 <span id="cb472-7"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb472-7"></a>                 <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>, </span>
 <span id="cb472-8"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb472-8"></a>                 bndls)</span></code></pre></div>
-<pre><code>## [1] &quot;INFO: No bundleList dir found in emuDB (path: C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmpy4MX7q\\emuR_demoData\\ae_emuDB/bundleLists)! Creating directory...&quot;</code></pre>
+<pre><code>## [1] &quot;INFO: No bundleList dir found in emuDB (path: C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpoFYFsb\\emuR_demoData\\ae_emuDB/bundleLists)! Creating directory...&quot;</code></pre>
 <div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb474-1"></a><span class="co"># and read that bundle list to check its content</span></span>
 <span id="cb474-2"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb474-2"></a><span class="kw">read_bundleList</span>(db, </span>
 <span id="cb474-3"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#cb474-3"></a>                <span class="dt">name =</span> <span class="st">&quot;raphael.winkelmann&quot;</span>)</span></code></pre></div>
@@ -587,18 +587,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/recipe-emuDBgitLab.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/blob/master/recipe-emuDBgitLab.Rmd",
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
 "toc": {
 "collapse": "subsection"
 }

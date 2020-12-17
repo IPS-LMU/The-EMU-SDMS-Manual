@@ -106,7 +106,7 @@ combining-simple-queries
 sequence-queries
 result-modifier
 conjunction-queries
-subsubsec:query_dominationQueries
+subsubsec:query-dominationQueries
 subsec:query-positionQueries
 subsec:query-countQueries
 subsec:query-moreComplexQueries
@@ -125,11 +125,11 @@ file-i0-and-the-asspdataobj
 signal-processing
 subsec:wrassp-wrasspOutputInfos
 subsec:wrassp-formants
-subsec:wrassp_f0
+subsec:wrassp-f0
 subsec:wrassp-RMS
-sec:wrassp_logging
+sec:wrassp-logging
 sec:wrassp-emu-sdms
-sec:wrassp_genSSFF
+sec:wrassp-genSSFF
 conclusion-4
 chap:emu-webApp
 sec:emu-webApp-mainLayout

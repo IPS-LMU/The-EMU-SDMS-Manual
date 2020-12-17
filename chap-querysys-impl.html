@@ -202,12 +202,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
 <li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
 <li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
@@ -666,7 +666,7 @@ Figure 11.2: Example of how the query expression parser parses and evaluates an 
 </p>
 </div>
 <p>The result modifier symbol (<code>#</code>) is noteworthy for its extra treatment by the query engine as it places an exact copy of the items marked by it into its own intermediary result storage (see #<em>s</em><sub>items</sub> node on S7 in Figure <a href="chap-querysys-impl.html#fig:query-queryParserExample1">11.2</a>). After performing the database operations necessary to do the various merging operation which are performed on the intermediary results, this storage is updated by removing items from it that are no longer present due to the merging operation. As a final step, the query engine evaluates if there are items present in the intermediary result storage created by the presence of the result modifier symbol. If so, these items are used to create an <code>emuRsegs</code> object by deriving the time information and extracting the necessary information from the intermediate result storage. If no items are present in the result modifier storage, the query engine uses the items provided by the final merging procedure in S3 instead (which is not the case in the example used in Figure <a href="chap-querysys-impl.html#fig:query-queryParserExample1">11.2</a>).</p>
-<p>A detailed description of how this query expression parser functions is presented in a pseudo code representation in Algorithms <a href="#alg:query-implQueryEnginePC-p1"><strong>??</strong></a> and <a href="#alg:query-implQueryEnginePC-p2"><strong>??</strong></a><a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. For simplicity, this representation ignores the treatment of the result modifier symbol (#) and focuses on the parsing and evaluation strategy of the query expression parser. As stated previously, the presence of the result modifier before an SQ triggers the query engine to place a copy of the result of that SQ into an additional result table, which is then updated throughout the rest of the query. The starting point for every query is the <code>query()</code> function (see line <a href="#alg:query-implQueryEnginePC-p2:line:query"><strong>??</strong></a> in Algorithm <a href="#alg:query-implQueryEnginePC-p2"><strong>??</strong></a>). This function places the filtered items, links and labels entries that are relevant for the current query into temporary tables. Depending on which query terms and operators are found, the EQL query engine uses the various sub-routines displayed in Algorithms <a href="#alg:query-implQueryEnginePC-p1"><strong>??</strong></a> and <a href="#alg:query-implQueryEnginePC-p2"><strong>??</strong></a> to parse and evaluate the EQL expression.</p>
+<p>A detailed description of how this query expression parser functions is presented in a pseudo code representation in Algorithms <a href="chap-querysys-impl.html#fig:query-implQueryEnginePC-p1">11.3</a> and <a href="chap-querysys-impl.html#fig:query-implQueryEnginePC-p2">11.4</a><a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. For simplicity, this representation ignores the treatment of the result modifier symbol (#) and focuses on the parsing and evaluation strategy of the query expression parser. As stated previously, the presence of the result modifier before an SQ triggers the query engine to place a copy of the result of that SQ into an additional result table, which is then updated throughout the rest of the query. The starting point for every query is the <code>query()</code> function (see Algorithm <a href="chap-querysys-impl.html#fig:query-implQueryEnginePC-p2">11.4</a>). This function places the filtered items, links and labels entries that are relevant for the current query into temporary tables. Depending on which query terms and operators are found, the EQL query engine uses the various sub-routines displayed in Algorithms <a href="chap-querysys-impl.html#fig:query-implQueryEnginePC-p1">11.3</a> and <a href="chap-querysys-impl.html#fig:query-implQueryEnginePC-p2">11.4</a> to parse and evaluate the EQL expression.</p>
 <!-- \begin{algorithm} -->
 <!--     \caption{Pseudo Code for Query Engine Algorithm - Part 1} -->
 <!--     \begin{algorithmic}[1] % The number tells where the line numbering should start -->
@@ -938,18 +938,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/query_impl.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/blob/master/query_impl.Rmd",
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
 "toc": {
 "collapse": "subsection"
 }
