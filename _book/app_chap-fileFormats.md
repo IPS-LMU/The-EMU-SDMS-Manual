@@ -605,7 +605,7 @@ The binary data block of the SSFF file format stores its data in a so-called int
 
 ### `_bundleList.json` {#subsec:app-chapExampleFilesBundleList}
 
-Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` format is not part of the `emuDB` database specification. Rather, it is part of the `EMU-webApp-websocket-protocol` and is used as a standardized format to transport information about all the available bundles to the `EMU-webApp`. It is not meant as an on-disk file format but rather should be generated on-demand by the server implementing the `EMU-webApp-websocket-protocol`. A schematic example of a `_bndl.json` file is displayed in Listing \@ref(lst:bndlListJSON).
+Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` format is not part of the `emuDB` database specification. Rather, it is part of the `EMU-webApp-websocket-protocol` and is used as a standardized format to transport information about all the available bundles to the `EMU-webApp`. It is not meant as an on-disk file format but rather should be generated on-demand by the server implementing the `EMU-webApp-websocket-protocol`. A schematic example of a `_bndl.json` file is displayed in the listing below.
 
 <!-- caption="Schematic example of a \_bundleList.json file" language="json" label="lst:bndlListJSON" startFrom="1" -->
 
@@ -634,7 +634,7 @@ Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` forma
 
 ### `_bndl.json` {#subsec:app-chapExampleFilesBndlJSON}
 
-Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` format is not part of the `emuDB` database specification. Rather, it is part of the `EMU-webApp-websocket-protocol` and is used as a standardized format to transport all the data belonging to a single bundle to the `EMU-webApp`. It is not meant as an on-disk file format by rather should generated on-demand by the server implementing the `EMU-webApp-websocket-protocol`. A schematic example of a `_bndl.json` file is displayed in Listing \@ref(lst:bndlJSON).
+Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` format is not part of the `emuDB` database specification. Rather, it is part of the `EMU-webApp-websocket-protocol` and is used as a standardized format to transport all the data belonging to a single bundle to the `EMU-webApp`. It is not meant as an on-disk file format by rather should generated on-demand by the server implementing the `EMU-webApp-websocket-protocol`. A schematic example of a `_bndl.json` file is displayed in the listing below.
 
 <!-- lst:bndlJSON caption="Schematic example of a _bndl.json file" language="json" startFrom="1" -->
 
@@ -655,6 +655,6 @@ Compared to the `_DBconfig.json` and `_annot.json` files, the `_bndl.json` forma
 }
 ```
 
-`contentOfAnnot.json` in Listing \@ref(lst:bndlJSON) refers to the content of a `_annot.json` file.
+`contentOfAnnot.json` in the listing above refers to the content of a `_annot.json` file.
 
 

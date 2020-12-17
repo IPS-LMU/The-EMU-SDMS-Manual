@@ -140,7 +140,7 @@ query(ae, "[Text == always & Accent == S]")
 The above R code snippet does not make use of the result modifier symbol. However, only the annotation items of the left simple query term (*Text == always*) are returned. This behavior is true for all EQL operators that combine simple query terms except for the sequence operator. As it is more explicit to use the result modifier to express the desired result, we recommend using the result modifier where possible. The more explicit variant of the above query which yields the same result is *"[#Text == always & Word == C]"*.
 
 
-#### Domination/hierarchical queries {#subsubsec:query_dominationQueries}
+#### Domination/hierarchical queries {#subsubsec:query-dominationQueries}
 
 Compared to sequence and conjunction queries, a domination query using the operator *^* is not bound to a single level. Instead, it allows users to query annotation items that are directly or indirectly linked over one or more levels. Queries using the domination operator are often referred to as hierarchical queries as they provide the ability to query the hierarchical annotations in a vertical or inter-level manner. Figure \@ref(fig:amongstHierDomintation) shows the same partial hierarchy as Figure \@ref(fig:amongstHier) but highlights the annotational items that are dominated by the strong syllable (*S*) of the *Syllable* level. Such linked hierarchical sub-structures can be queried using hierarchical/domination queries.
 

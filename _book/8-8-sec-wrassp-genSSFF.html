@@ -210,12 +210,12 @@ img {
 <li><a href="8-3-signal-processing.html#signal-processing"><span class="toc-section-number">8.3</span> Signal processing</a></li>
 <li><a href="8-4-subsec-wrassp-wrasspOutputInfos.html#subsec:wrassp-wrasspOutputInfos"><span class="toc-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="has-sub"><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a><ul>
-<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp_f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
+<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS"><span class="toc-section-number">8.5.2</span> RMS energy contour</a></li>
 </ul></li>
-<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp_logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
+<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp-logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
 <li><a href="8-7-sec-wrassp-emu-sdms.html#sec:wrassp-emu-sdms"><span class="toc-section-number">8.7</span> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp_genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
+<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
 <li><a href="8-9-conclusion-4.html#conclusion-4"><span class="toc-section-number">8.9</span> Conclusion</a></li>
 </ul></li>
 <li class="has-sub"><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a><ul>
@@ -382,7 +382,7 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="sec:wrassp_genSSFF" class="section level2">
+<div id="sec:wrassp-genSSFF" class="section level2">
 <h2><span class="header-section-number">8.8</span> Storing data in the SSFF file format</h2>
 <p>One of the benefits gained by having the <code>AsspDataObj</code> in-memory object is that these objects can be constructed from scratch in R, as they are basically simple <code>list</code> objects. This means, for example, that any set of n-dimensional samples over time can be placed in a <code>AsspDataObj</code> and then stored as an SSFF file using the <code>write.AsspDataObj()</code> function. To show how this can be done, the R code snippet below creates an arbitrary data sample in the form of a single cycle sine wave between <span class="math inline">\(0\)</span> and <span class="math inline">\(2*pi\)</span> that is made up of 16000 samples and displays it in Figure <a href="8-8-sec-wrassp-genSSFF.html#fig:wrassp-genSin">8.5</a>.</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="8-8-sec-wrassp-genSSFF.html#cb205-1"></a>x =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">length.out =</span> <span class="dv">16000</span>)</span>
@@ -449,6 +449,7 @@ Figure 8.5: A single cycle sine wave consisting of 16000 samples.
 </div>
 <p style="text-align: center;">
 <a href="8-7-sec-wrassp-emu-sdms.html"><button class="btn btn-default">Previous</button></a>
+<a href="https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/wrassp.Rmd"><button class="btn btn-default">Edit</button></a>
 <a href="8-9-conclusion-4.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>

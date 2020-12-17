@@ -202,12 +202,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
 <li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp_f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
+<li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
+<li class="chapter" data-level="8.6" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-logging"><i class="fa fa-check"></i><b>8.6</b> Logging <code>wrassp</code>’s function calls</a></li>
 <li class="chapter" data-level="8.7" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-emu-sdms"><i class="fa fa-check"></i><b>8.7</b> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp_genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
@@ -411,7 +411,7 @@ Figure 6.1: Simple partial hierarchy of an annotation of the word <em>amongst</e
 <span id="cb101-13"><a href="chap-querysys.html#cb101-13"></a>ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2ae, <span class="dt">verbose =</span> F)</span></code></pre></div>
 <div id="sec:query-emuRsegs" class="section level2">
 <h2><span class="header-section-number">6.1</span> The resulting object of a query</h2>
-<p>In <code>emuR</code> the result of a query or requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) is an object of the popular type <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> (see also <a href="https://tidyverse.org/" class="uri">https://tidyverse.org/</a>) which is a superclass of the common <code>data.frame</code>. R code snippet below shows the result of a slightly expanded version of the above query (<code>"Syllable == S"</code>), which additionally uses the dominates operator (i.e., the <code>^</code> operator; for further information see Section <a href="#subsubsec:query-dominationQueries"><strong>??</strong></a>) to reduce the queried annotations to the partial hierarchy depicted in Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a> in the <em>ae</em> demo <code>emuDB</code>. In this example, the classes of the resulting object including its printed output are displayed. The printed output provides information about the labels, start and end times (in milliseconds), session, bundle, level and attribute among other information which is predominantly used to store information about what the exact items or sequence of items were retrieved from the <code>emuDB</code>. This information is needed to know which items to start from in a requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) and is also the reason why the resulting object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an <code>emuDB</code>.</p>
+<p>In <code>emuR</code> the result of a query or requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) is an object of the popular type <a href="https://tibble.tidyverse.org/"><code>tibble</code></a> (see also <a href="https://tidyverse.org/" class="uri">https://tidyverse.org/</a>) which is a superclass of the common <code>data.frame</code>. R code snippet below shows the result of a slightly expanded version of the above query (<code>"Syllable == S"</code>), which additionally uses the dominates operator (i.e., the <code>^</code> operator; for further information see Section <a href="chap-querysys.html#subsubsec:query-dominationQueries">6.2.2.4</a>) to reduce the queried annotations to the partial hierarchy depicted in Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a> in the <em>ae</em> demo <code>emuDB</code>. In this example, the classes of the resulting object including its printed output are displayed. The printed output provides information about the labels, start and end times (in milliseconds), session, bundle, level and attribute among other information which is predominantly used to store information about what the exact items or sequence of items were retrieved from the <code>emuDB</code>. This information is needed to know which items to start from in a requery (see Section <a href="chap-querysys.html#subsec:requery">6.2.7</a>) and is also the reason why the resulting object should be viewed as a reference of sequences of annotation items that belong to a single level in all annotation files of an <code>emuDB</code>.</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="chap-querysys.html#cb102-1"></a><span class="co"># query database</span></span>
 <span id="cb102-2"><a href="chap-querysys.html#cb102-2"></a>sl =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;[Syllable == S ^ Text == amongst]&quot;</span>)</span>
 <span id="cb102-3"><a href="chap-querysys.html#cb102-3"></a></span>
@@ -618,7 +618,7 @@ All syllables that dominate an n segment of the Phonetic level
 ## #   sample_rate &lt;int&gt;</code></pre>
 <p>The above R code snippet does not make use of the result modifier symbol. However, only the annotation items of the left simple query term (<em>Text == always</em>) are returned. This behavior is true for all EQL operators that combine simple query terms except for the sequence operator. As it is more explicit to use the result modifier to express the desired result, we recommend using the result modifier where possible. The more explicit variant of the above query which yields the same result is <em>“[#Text == always &amp; Word == C]”</em>.</p>
 </div>
-<div id="subsubsec:query_dominationQueries" class="section level4">
+<div id="subsubsec:query-dominationQueries" class="section level4">
 <h4><span class="header-section-number">6.2.2.4</span> Domination/hierarchical queries</h4>
 <p>Compared to sequence and conjunction queries, a domination query using the operator <em>^</em> is not bound to a single level. Instead, it allows users to query annotation items that are directly or indirectly linked over one or more levels. Queries using the domination operator are often referred to as hierarchical queries as they provide the ability to query the hierarchical annotations in a vertical or inter-level manner. Figure <a href="chap-querysys.html#fig:amongstHierDomintation">6.2</a> shows the same partial hierarchy as Figure <a href="chap-querysys.html#fig:amongstHier">6.1</a> but highlights the annotational items that are dominated by the strong syllable (<em>S</em>) of the <em>Syllable</em> level. Such linked hierarchical sub-structures can be queried using hierarchical/domination queries.</p>
 <div class="figure" style="text-align: center"><span id="fig:amongstHierDomintation"></span>
@@ -874,18 +874,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/query.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
 "view": {
-"link": null,
+"link": "https://github.com/IPS-LMU/The-EMU-SDMS-Manual/blob/master/query.Rmd",
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["The-EMU-SDMS-Manual.pdf", "The-EMU-SDMS-Manual.epub"],
 "toc": {
 "collapse": "subsection"
 }

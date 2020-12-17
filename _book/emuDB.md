@@ -81,8 +81,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 a25054ef-b27e-4792-9ae6-ed9c6f3baefe 
-## Directory:	 C:\Users\rapha\AppData\Local\Temp\RtmpScMzlw\fromScratch_emuDB 
+## UUID:	 df7357ac-fd77-4efb-81ad-430835d3e6a2 
+## Directory:	 C:\Users\rapha\AppData\Local\Temp\Rtmp4aYKfY\fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 

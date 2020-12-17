@@ -103,7 +103,7 @@ au
 ```
 
 ```
-## Assp Data Object of file C:\Users\rapha\AppData\Local\Temp\Rtmp2pa03l\emuR_demoData\ae_emuDB\0000_ses\msajc003_bndl\msajc003.wav.
+## Assp Data Object of file C:\Users\rapha\AppData\Local\Temp\Rtmp0gRJMh\emuR_demoData\ae_emuDB\0000_ses\msajc003_bndl\msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -158,7 +158,7 @@ attributes(au)
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp2pa03l\\emuR_demoData\\ae_emuDB\\0000_ses\\msajc003_bndl\\msajc003.wav"
+## [1] "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp0gRJMh\\emuR_demoData\\ae_emuDB\\0000_ses\\msajc003_bndl\\msajc003.wav"
 ## 
 ## $origFreq
 ## [1] 0
@@ -373,7 +373,7 @@ legend("topright",
 </div>
 
 
-### Fundamental frequency contour {#subsec:wrassp_f0}
+### Fundamental frequency contour {#subsec:wrassp-f0}
 
 The `wrassp` package includes two fundamental frequency estimation functions called `ksvF0()` and `mhsF0()`. The R code snippet below shows the usage of the `ksvF0()` function, this time not utilizing the `toFile` parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by `wrassp` creates a result file in the same directory as the audio file it was processing (except if the `outputDirectory` parameter is set otherwise). The default extension given by the `ksvF0()` is stored in `wrasspOutputInfos$ksvF0$ext`, which is used in the R code snippet below to create the newly generated file's path.
 
@@ -458,7 +458,7 @@ plot(seq(0, numRecs.AsspDataObj(rmsvals) - 1)
 </div>
 
 
-## Logging `wrassp`'s function calls {#sec:wrassp_logging}
+## Logging `wrassp`'s function calls {#sec:wrassp-logging}
 
 As it can be extremely important to keep track of information about how certain files are created and calculated, every signal processing function provided by the `wrassp` package comes with the ability to log its function calls to a specified log file. The R code snippet below shows a call to the `ksvF0()` function where a single parameter was changed from its default value (`windowShift = 10`). The content of the created log files (shown by the call to `readLines()`) contains the function name, time stamp, parameters that were altered and processed file path information. It is worth noting that a log file can be reused for multiple function calls as the log function does not overwrite an existing file but merely appends new log information to it.
 
@@ -487,7 +487,7 @@ readLines(path2logFile)[1:8]
 ```
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2020-12-16 20:57:12 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2020-12-17 18:29:23 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 ```
 
@@ -558,7 +558,7 @@ add_ssffTrackDefinition(ae,
                         verbose = FALSE)
 ```
 
-## Storing data in the SSFF file format {#sec:wrassp_genSSFF}
+## Storing data in the SSFF file format {#sec:wrassp-genSSFF}
 
 One of the benefits gained by having the `AsspDataObj` in-memory object is that these objects can be constructed from scratch in R, as they are basically simple `list` objects. This means, for example, that any set of n-dimensional samples over time can be placed in a `AsspDataObj` and then stored as an SSFF file using the `write.AsspDataObj()` function. To show how this can be done, the R code snippet below creates an arbitrary data sample in the form of a single cycle sine wave between $0$ and $2*pi$ that is made up of 16000 samples and displays it in Figure \@ref(fig:wrassp-genSin).
 

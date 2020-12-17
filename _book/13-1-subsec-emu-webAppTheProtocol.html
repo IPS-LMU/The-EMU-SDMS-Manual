@@ -210,12 +210,12 @@ img {
 <li><a href="8-3-signal-processing.html#signal-processing"><span class="toc-section-number">8.3</span> Signal processing</a></li>
 <li><a href="8-4-subsec-wrassp-wrasspOutputInfos.html#subsec:wrassp-wrasspOutputInfos"><span class="toc-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="has-sub"><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a><ul>
-<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp_f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
+<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS"><span class="toc-section-number">8.5.2</span> RMS energy contour</a></li>
 </ul></li>
-<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp_logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
+<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp-logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
 <li><a href="8-7-sec-wrassp-emu-sdms.html#sec:wrassp-emu-sdms"><span class="toc-section-number">8.7</span> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp_genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
+<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
 <li><a href="8-9-conclusion-4.html#conclusion-4"><span class="toc-section-number">8.9</span> Conclusion</a></li>
 </ul></li>
 <li class="has-sub"><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a><ul>
@@ -384,7 +384,7 @@ img {
 <div class="col-sm-12">
 <div id="subsec:emu-webAppTheProtocol" class="section level2">
 <h2><span class="header-section-number">13.1</span> Communication protocol<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a></h2>
-<p>A large benefit gained by choosing the browser as the user interface is the ability to easily interact with a server using standard web protocols, such as http, https or websockets. In order to standardize the data exchange with a server, we have developed a simple request-response communication protocol on top of the websocket standard. This decision was strongly guided by the availability of the <code>httpuv</code> R package <span class="citation">(RStudio and Inc. <a href="#ref-rstudio:2015a" role="doc-biblioref">2015</a>)</span>. Our protocol defines a set of JSON objects for both the requests and responses. A subset of the request-response actions, most of them triggered by the client after connection, are displayed in Table <a href="#table:protocol-commands"><strong>??</strong></a>.</p>
+<p>A large benefit gained by choosing the browser as the user interface is the ability to easily interact with a server using standard web protocols, such as http, https or websockets. In order to standardize the data exchange with a server, we have developed a simple request-response communication protocol on top of the websocket standard. This decision was strongly guided by the availability of the <code>httpuv</code> R package <span class="citation">(RStudio and Inc. <a href="#ref-rstudio:2015a" role="doc-biblioref">2015</a>)</span>. Our protocol defines a set of JSON objects for both the requests and responses. A subset of the request-response actions, most of them triggered by the client after connection, are displayed in the table below.</p>
 <!-- \begin{table}[ht!] -->
 <!-- \centering -->
 <!-- \small -->
@@ -482,6 +482,7 @@ Save data belonging to a specific bundle name
 </div>
 <p style="text-align: center;">
 <a href="13-chap-emu-webAppImplementation.html"><button class="btn btn-default">Previous</button></a>
+<a href="https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/emu-webApp_impl.Rmd"><button class="btn btn-default">Edit</button></a>
 <a href="13-2-url-parameters.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>

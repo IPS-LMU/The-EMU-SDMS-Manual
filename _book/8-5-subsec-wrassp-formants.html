@@ -210,12 +210,12 @@ img {
 <li><a href="8-3-signal-processing.html#signal-processing"><span class="toc-section-number">8.3</span> Signal processing</a></li>
 <li><a href="8-4-subsec-wrassp-wrasspOutputInfos.html#subsec:wrassp-wrasspOutputInfos"><span class="toc-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="has-sub"><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a><ul>
-<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp_f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
+<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS"><span class="toc-section-number">8.5.2</span> RMS energy contour</a></li>
 </ul></li>
-<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp_logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
+<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp-logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
 <li><a href="8-7-sec-wrassp-emu-sdms.html#sec:wrassp-emu-sdms"><span class="toc-section-number">8.7</span> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp_genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
+<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
 <li><a href="8-9-conclusion-4.html#conclusion-4"><span class="toc-section-number">8.9</span> Conclusion</a></li>
 </ul></li>
 <li class="has-sub"><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a><ul>
@@ -423,7 +423,7 @@ img {
 Figure 8.2: Matrix plot of formant values stored in the <code>fm</code> track of <code>fmBwVals</code> object.
 </p>
 </div>
-<div id="subsec:wrassp_f0" class="section level3">
+<div id="subsec:wrassp-f0" class="section level3">
 <h3><span class="header-section-number">8.5.1</span> Fundamental frequency contour</h3>
 <p>The <code>wrassp</code> package includes two fundamental frequency estimation functions called <code>ksvF0()</code> and <code>mhsF0()</code>. The R code snippet below shows the usage of the <code>ksvF0()</code> function, this time not utilizing the <code>toFile</code> parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by <code>wrassp</code> creates a result file in the same directory as the audio file it was processing (except if the <code>outputDirectory</code> parameter is set otherwise). The default extension given by the <code>ksvF0()</code> is stored in <code>wrasspOutputInfos$ksvF0$ext</code>, which is used in the R code snippet below to create the newly generated file’s path.</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="8-5-subsec-wrassp-formants.html#cb193-1"></a><span class="co"># calculate the fundamental frequency contour</span></span>
@@ -490,6 +490,7 @@ Figure 8.4: Plot of RMS values stored in <code>rms</code> track of the <code>rms
 </div>
 <p style="text-align: center;">
 <a href="8-4-subsec-wrassp-wrasspOutputInfos.html"><button class="btn btn-default">Previous</button></a>
+<a href="https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/wrassp.Rmd"><button class="btn btn-default">Edit</button></a>
 <a href="8-6-sec-wrassp-logging.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>

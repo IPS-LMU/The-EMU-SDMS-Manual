@@ -210,12 +210,12 @@ img {
 <li><a href="8-3-signal-processing.html#signal-processing"><span class="toc-section-number">8.3</span> Signal processing</a></li>
 <li><a href="8-4-subsec-wrassp-wrasspOutputInfos.html#subsec:wrassp-wrasspOutputInfos"><span class="toc-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</a></li>
 <li class="has-sub"><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a><ul>
-<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp_f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
+<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS"><span class="toc-section-number">8.5.2</span> RMS energy contour</a></li>
 </ul></li>
-<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp_logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
+<li><a href="8-6-sec-wrassp-logging.html#sec:wrassp-logging"><span class="toc-section-number">8.6</span> Logging <code>wrassp</code>’s function calls</a></li>
 <li><a href="8-7-sec-wrassp-emu-sdms.html#sec:wrassp-emu-sdms"><span class="toc-section-number">8.7</span> Using <code>wrassp</code> in the EMU-SDMS</a></li>
-<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp_genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
+<li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
 <li><a href="8-9-conclusion-4.html#conclusion-4"><span class="toc-section-number">8.9</span> Conclusion</a></li>
 </ul></li>
 <li class="has-sub"><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a><ul>
@@ -399,7 +399,7 @@ img {
 <pre><code>## [1] &quot;AsspDataObj&quot;</code></pre>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="8-2-file-i0-and-the-asspdataobj.html#cb160-1"></a><span class="co"># show print() output of object</span></span>
 <span id="cb160-2"><a href="8-2-file-i0-and-the-asspdataobj.html#cb160-2"></a>au</span></code></pre></div>
-<pre><code>## Assp Data Object of file C:\Users\rapha\AppData\Local\Temp\RtmpSgoO3Z\emuR_demoData\ae_emuDB\0000_ses\msajc003_bndl\msajc003.wav.
+<pre><code>## Assp Data Object of file C:\Users\rapha\AppData\Local\Temp\RtmpqolVrx\emuR_demoData\ae_emuDB\0000_ses\msajc003_bndl\msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -427,7 +427,7 @@ img {
 ## [1] 20000
 ## 
 ## $filePath
-## [1] &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpSgoO3Z\\emuR_demoData\\ae_emuDB\\0000_ses\\msajc003_bndl\\msajc003.wav&quot;
+## [1] &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqolVrx\\emuR_demoData\\ae_emuDB\\0000_ses\\msajc003_bndl\\msajc003.wav&quot;
 ## 
 ## $origFreq
 ## [1] 0
@@ -481,7 +481,7 @@ img {
 Figure 8.1: Oscillogram generated from samples stored in the <code>audio</code> track of the object <code>au</code>.
 </p>
 </div>
-<p>The export counterpart to <code>read.AsspDataObj()</code> function is <code>write.AsspDataObj()</code>. It is used to store in-memory <code>AsspDataObj</code> objects to disk and is particularly useful for converting other formats to or storing data in the SSFF file format as described in Section <a href="#sec:wrassp-genSSFF"><strong>??</strong></a>. To show how this function can be used to write a slightly altered version of the <code>au</code> object to a file, the R code snippet below initially multiplies all the sample values of <code>au$audio</code> by a factor of <code>0.5</code>. The resulting <code>AsspDataObj</code> is then written to an audio file in a temporary directory provided by <code>R</code>’s <code>tempdir()</code> function.</p>
+<p>The export counterpart to <code>read.AsspDataObj()</code> function is <code>write.AsspDataObj()</code>. It is used to store in-memory <code>AsspDataObj</code> objects to disk and is particularly useful for converting other formats to or storing data in the SSFF file format as described in Section <a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF">8.8</a>. To show how this function can be used to write a slightly altered version of the <code>au</code> object to a file, the R code snippet below initially multiplies all the sample values of <code>au$audio</code> by a factor of <code>0.5</code>. The resulting <code>AsspDataObj</code> is then written to an audio file in a temporary directory provided by <code>R</code>’s <code>tempdir()</code> function.</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="8-2-file-i0-and-the-asspdataobj.html#cb179-1"></a><span class="co"># manipulate the audio samples</span></span>
 <span id="cb179-2"><a href="8-2-file-i0-and-the-asspdataobj.html#cb179-2"></a>au<span class="op">$</span>audio =<span class="st"> </span>au<span class="op">$</span>audio <span class="op">*</span><span class="st"> </span><span class="fl">0.5</span></span>
 <span id="cb179-3"><a href="8-2-file-i0-and-the-asspdataobj.html#cb179-3"></a><span class="co"># write to file in directory</span></span>
@@ -490,6 +490,7 @@ Figure 8.1: Oscillogram generated from samples stored in the <code>audio</code> 
 </div>
 <p style="text-align: center;">
 <a href="8-1-introduction.html"><button class="btn btn-default">Previous</button></a>
+<a href="https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/wrassp.Rmd"><button class="btn btn-default">Edit</button></a>
 <a href="8-3-signal-processing.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>

@@ -117,8 +117,8 @@ summary(db_handle)
 
 ```
 ## Name:	 my-first 
-## UUID:	 a2eb092b-2b28-4778-b059-19c1c234a4dd 
-## Directory:	 C:\Users\rapha\AppData\Local\Temp\Rtmpk3rBme\my-first_emuDB 
+## UUID:	 351bd861-79f5-47dc-bcfe-3087c283574e 
+## Directory:	 C:\Users\rapha\AppData\Local\Temp\RtmpyyOfVN\my-first_emuDB 
 ## Session count: 1 
 ## Bundle count: 7 
 ## Annotation item count:  664 
@@ -221,18 +221,18 @@ sl_phonetic
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 n      1032. 1196. a2eb09~ 0000    msajc~            98          98 Phon~
-##  2 n      1741. 1791. a2eb09~ 0000    msajc~           108         108 Phon~
-##  3 n      1515. 1554. a2eb09~ 0000    msajc~           113         113 Phon~
-##  4 n      2431. 2528. a2eb09~ 0000    msajc~           127         127 Phon~
-##  5 n       895. 1023. a2eb09~ 0000    msajc~            98          98 Phon~
-##  6 n      2402. 2475. a2eb09~ 0000    msajc~           122         122 Phon~
-##  7 n      2227. 2271. a2eb09~ 0000    msajc~           132         132 Phon~
-##  8 n      3046. 3068. a2eb09~ 0000    msajc~           145         145 Phon~
-##  9 n      1435. 1495. a2eb09~ 0000    msajc~            91          91 Phon~
-## 10 n      1775. 1834. a2eb09~ 0000    msajc~            96          96 Phon~
-## 11 n       509.  544. a2eb09~ 0000    msajc~            97          97 Phon~
-## 12 n      2448. 2480. a2eb09~ 0000    msajc~           130         130 Phon~
+##  1 n      1032. 1196. 351bd8~ 0000    msajc~            98          98 Phon~
+##  2 n      1741. 1791. 351bd8~ 0000    msajc~           108         108 Phon~
+##  3 n      1515. 1554. 351bd8~ 0000    msajc~           113         113 Phon~
+##  4 n      2431. 2528. 351bd8~ 0000    msajc~           127         127 Phon~
+##  5 n       895. 1023. 351bd8~ 0000    msajc~            98          98 Phon~
+##  6 n      2402. 2475. 351bd8~ 0000    msajc~           122         122 Phon~
+##  7 n      2227. 2271. 351bd8~ 0000    msajc~           132         132 Phon~
+##  8 n      3046. 3068. 351bd8~ 0000    msajc~           145         145 Phon~
+##  9 n      1435. 1495. 351bd8~ 0000    msajc~            91          91 Phon~
+## 10 n      1775. 1834. 351bd8~ 0000    msajc~            96          96 Phon~
+## 11 n       509.  544. 351bd8~ 0000    msajc~            97          97 Phon~
+## 12 n      2448. 2480. 351bd8~ 0000    msajc~           130         130 Phon~
 ## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
@@ -379,16 +379,16 @@ sl_vowels
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 @      1506. 1548. a2eb09~ 0000    msajc~           103         103 Phon~
-##  2 @      1715. 1741. a2eb09~ 0000    msajc~           107         107 Phon~
-##  3 @      1967. 2034. a2eb09~ 0000    msajc~           112         112 Phon~
-##  4 @      2303. 2362. a2eb09~ 0000    msajc~           117         117 Phon~
-##  5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119 Phon~
-##  6 @      1917. 1958. a2eb09~ 0000    msajc~           118         118 Phon~
-##  7 @      2022. 2078. a2eb09~ 0000    msajc~           120         120 Phon~
-##  8 @      2382. 2431. a2eb09~ 0000    msajc~           126         126 Phon~
-##  9 @       330.  380. a2eb09~ 0000    msajc~            91          91 Phon~
-## 10 @      1472. 1490. a2eb09~ 0000    msajc~           108         108 Phon~
+##  1 @      1506. 1548. 351bd8~ 0000    msajc~           103         103 Phon~
+##  2 @      1715. 1741. 351bd8~ 0000    msajc~           107         107 Phon~
+##  3 @      1967. 2034. 351bd8~ 0000    msajc~           112         112 Phon~
+##  4 @      2303. 2362. 351bd8~ 0000    msajc~           117         117 Phon~
+##  5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119 Phon~
+##  6 @      1917. 1958. 351bd8~ 0000    msajc~           118         118 Phon~
+##  7 @      2022. 2078. 351bd8~ 0000    msajc~           120         120 Phon~
+##  8 @      2382. 2431. 351bd8~ 0000    msajc~           126         126 Phon~
+##  9 @       330.  380. 351bd8~ 0000    msajc~            91          91 Phon~
+## 10 @      1472. 1490. 351bd8~ 0000    msajc~           108         108 Phon~
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -413,16 +413,16 @@ sl_word_type
 ## # A tibble: 28 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 F         NA    NA a2eb09~ 0000    msajc~            16          16 Word 
-##  2 C         NA    NA a2eb09~ 0000    msajc~            17          17 Word 
-##  3 C         NA    NA a2eb09~ 0000    msajc~            17          17 Word 
-##  4 C         NA    NA a2eb09~ 0000    msajc~            18          18 Word 
-##  5 C         NA    NA a2eb09~ 0000    msajc~            18          18 Word 
-##  6 C         NA    NA a2eb09~ 0000    msajc~            19          19 Word 
-##  7 C         NA    NA a2eb09~ 0000    msajc~            20          20 Word 
-##  8 C         NA    NA a2eb09~ 0000    msajc~            20          20 Word 
-##  9 F         NA    NA a2eb09~ 0000    msajc~            13          13 Word 
-## 10 F         NA    NA a2eb09~ 0000    msajc~            17          17 Word 
+##  1 F         NA    NA 351bd8~ 0000    msajc~            16          16 Word 
+##  2 C         NA    NA 351bd8~ 0000    msajc~            17          17 Word 
+##  3 C         NA    NA 351bd8~ 0000    msajc~            17          17 Word 
+##  4 C         NA    NA 351bd8~ 0000    msajc~            18          18 Word 
+##  5 C         NA    NA 351bd8~ 0000    msajc~            18          18 Word 
+##  6 C         NA    NA 351bd8~ 0000    msajc~            19          19 Word 
+##  7 C         NA    NA 351bd8~ 0000    msajc~            20          20 Word 
+##  8 C         NA    NA 351bd8~ 0000    msajc~            20          20 Word 
+##  9 F         NA    NA 351bd8~ 0000    msajc~            13          13 Word 
+## 10 F         NA    NA 351bd8~ 0000    msajc~            17          17 Word 
 ## # ... with 18 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
@@ -491,18 +491,18 @@ td_vowels %>% filter(sl_rowIdx == 5)
 ## # A tibble: 12 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  2         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  3         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  4         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  5         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  6         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  7         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  8         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-##  9         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-## 10         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-## 11         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
-## 12         5 @      2447. 2506. a2eb09~ 0000    msajc~           119         119
+##  1         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  2         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  3         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  4         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  5         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  6         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  7         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  8         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+##  9         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+## 10         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+## 11         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
+## 12         5 @      2447. 2506. 351bd8~ 0000    msajc~           119         119
 ## # ... with 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,

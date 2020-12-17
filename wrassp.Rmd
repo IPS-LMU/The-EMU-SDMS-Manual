@@ -253,7 +253,7 @@ legend("topright",
 ```
 
 
-### Fundamental frequency contour {#subsec:wrassp_f0}
+### Fundamental frequency contour {#subsec:wrassp-f0}
 
 The `wrassp` package includes two fundamental frequency estimation functions called `ksvF0()` and `mhsF0()`. The R code snippet below shows the usage of the `ksvF0()` function, this time not utilizing the `toFile` parameter but rather to show an alternative procedure, reading the resulting SSFF file produced by it. It is worth noting that every signal processing function provided by `wrassp` creates a result file in the same directory as the audio file it was processing (except if the `outputDirectory` parameter is set otherwise). The default extension given by the `ksvF0()` is stored in `wrasspOutputInfos$ksvF0$ext`, which is used in the R code snippet below to create the newly generated file's path.
 
@@ -346,7 +346,7 @@ plot(seq(0, numRecs.AsspDataObj(rmsvals) - 1)
 ```
 
 
-## Logging `wrassp`'s function calls {#sec:wrassp_logging}
+## Logging `wrassp`'s function calls {#sec:wrassp-logging}
 
 As it can be extremely important to keep track of information about how certain files are created and calculated, every signal processing function provided by the `wrassp` package comes with the ability to log its function calls to a specified log file. The R code snippet below shows a call to the `ksvF0()` function where a single parameter was changed from its default value (`windowShift = 10`). The content of the created log files (shown by the call to `readLines()`) contains the function name, time stamp, parameters that were altered and processed file path information. It is worth noting that a log file can be reused for multiple function calls as the log function does not overwrite an existing file but merely appends new log information to it.
 
@@ -422,7 +422,7 @@ add_ssffTrackDefinition(ae,
                         verbose = FALSE)
 ```
 
-## Storing data in the SSFF file format {#sec:wrassp_genSSFF}
+## Storing data in the SSFF file format {#sec:wrassp-genSSFF}
 
 One of the benefits gained by having the `AsspDataObj` in-memory object is that these objects can be constructed from scratch in R, as they are basically simple `list` objects. This means, for example, that any set of n-dimensional samples over time can be placed in a `AsspDataObj` and then stored as an SSFF file using the `write.AsspDataObj()` function. To show how this can be done, the R code snippet below creates an arbitrary data sample in the form of a single cycle sine wave between $0$ and $2*pi$ that is made up of 16000 samples and displays it in Figure \@ref(fig:wrassp-genSin).
 

@@ -1,5 +1,8 @@
 new_session: yes
 
+book_filename: "The-EMU-SDMS-Manual.Rmd"
+view: https://github.com/IPS-LMU/The-EMU-SDMS-Manual/blob/master/%s
+edit: https://github.com/IPS-LMU/The-EMU-SDMS-Manual/edit/master/%s
 rmd_files: [
   "index.Rmd",
 
