@@ -1,50 +1,61 @@
-###################################
-# uncomment and execute the next
-# two lines to install PraatR
-# library(devtools)
-# install_github('usagi5886/PraatR')
-library(PraatR)
+######################################################################
+# The script uses speakr::praat_run()
+# The following will install speakr if not already installed
+if (!require("speakr", character.only = TRUE)) {
+  install.packages("speakr", dependences = TRUE)
+}
 
-##' Call Praat's To Formant (burg)... function and
-##' convert the output to an AsspDataObj object
-##' @param path path to wav file
-##' @param command Praat command to use
-##' @param arguments arguments passed to \code{PraatR::praat()} arguments argument
-##' @param columnNames specify column names of AsspDataObj
-praatToFormants2AsspDataObj <- function(path,
-                                        command = "To Formant (burg)...",
-                                        arguments = list(0.0,
-                                                         5,
-                                                         5500,
-                                                         0.025,
-                                                         50),
-                                        columnNames = c("fm", "bw")){
+#' Convert the output of a Praat procedure to a ASSP data object
+#'
+#' This function creates a Praat object from a sound file (available outputs:
+#' "formants") and converts it into an ASSP data object which can be read by
+#' wrassp.
+#'
+#' @param path Path to the .wav file.
+#' @param object Praat object to generate (`"formant"`).
+#' @param time_step Praat argument: The time between the centres of consecutive analysis frames.
+#' @param max_fm Praat argument: Maximum number of formants per frames.
+#' @param ceiling Praat argument: The maximum frequency of the formant search range in Hz.
+#' @param window Praat argument: The effective duration of the analysis window in seconds.
+#' @param pre_emph Praat argument: The +3 dB point for an inverted low-pass filter with a slope of +6 dB/octave.
+#' @param columnNames Specify column names of the `AsspDataObj`.
+praat2AsspDataObj <- function(
+  path,
+  object = "formant",
+  time_step = 0.0,
+  max_fm = 5,
+  ceiling = 5500.0,
+  window = 0.025,
+  pre_emph = 50.0,
+  columnNames = c("fm", "bw")
+) {
 
-  tmp1FileName = "tmp.ooTextFile"
-  tmp2FileName = "tmp.table"
-
-  tmp1FilePath = file.path(tempdir(), tmp1FileName)
-  tmp2FilePath = file.path(tempdir(), tmp2FileName)
+  # Praat script path
+  tmpPraatScript = file.path(tempdir(), "script.praat")
+  # tmp Praat output path
+  tmpPraatOut = file.path(tempdir(), "out.table")
 
   # remove tmp files if they already exist
-  unlink(file.path(tempdir(), tmp1FileName))
-  unlink(file.path(tempdir(), tmp2FileName))
+  unlink(tmpPraatScript)
+  unlink(tmpPraatOut)
 
-  # generate ooTextFile
-  PraatR::praat(command = command,
-                input=path,
-                arguments = arguments,
-                output = tmp1FilePath)
+  # write Praat script to tmp location
+  write_praat_script(object, tmpPraatScript)
 
-  # convert to Table
-  PraatR::praat("Down to Table...",
-                input = tmp1FilePath,
-                arguments = list(F, T, 6, F, 3, T, 3, T),
-                output = tmp2FilePath,
-                filetype="comma-separated")
+  # run Praat script
+  speakr::praat_run(
+    tmpPraatScript,
+    path,
+    time_step,
+    max_fm,
+    ceiling,
+    window,
+    pre_emph,
+    tmpPraatOut
+  )
 
   # get vals
-  df = read.csv(tmp2FilePath, stringsAsFactors=FALSE)
+  df = read.csv(tmpPraatOut, stringsAsFactors = FALSE)
   df[df == '--undefined--'] = 0
 
   fmVals = df[,c(3, 5, 7, 9, 11)]
@@ -66,10 +77,10 @@ praatToFormants2AsspDataObj <- function(path,
 
   attr(ado, "trackFormats") =c("INT16", "INT16")
 
-  if(arguments[[1]] == 0){
-    sR = 1 / (0.25 * arguments[[4]])
+  if(time_step == 0){
+    sR = 1 / (0.25 * window)
   }else{
-    sR = 1 / arguments[[1]]
+    sR = 1 / time_step
   }
 
   attr(ado, "sampleRate") = sR
@@ -118,4 +129,34 @@ praatToFormants2AsspDataObj <- function(path,
 
 
   return(ado)
+}
+
+write_praat_script <- function(script, tmp_out) {
+  if (script == "formant") {
+    text = "# To Formant (burg)
+
+form To formants
+  text path ./
+  real time_step 0.0
+  integer max_fm 5
+  real ceiling 5500.0
+  real window 0.025
+  real pre_emph 50.0
+  text out ./
+endform
+
+sound = Read from file: path$
+
+formant = To Formant (burg): time_step, max_fm, ceiling, window, pre_emph
+
+table = Down to Table: \"no\", \"yes\", 6, \"no\", 3, \"yes\", 3, \"yes\"
+
+Save as comma-separated file: out$
+
+    "
+
+    readr::write_lines(text, tmp_out)
+  } else {
+    stop()
+  }
 }
