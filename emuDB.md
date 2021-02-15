@@ -81,8 +81,8 @@ summary(dbHandle)
 
 ```
 ## Name:	 fromScratch 
-## UUID:	 df7357ac-fd77-4efb-81ad-430835d3e6a2 
-## Directory:	 C:\Users\rapha\AppData\Local\Temp\Rtmp4aYKfY\fromScratch_emuDB 
+## UUID:	 95ab2da0-62d0-4281-95b7-57d3890cfcb6 
+## Directory:	 /tmp/RtmpToUWeQ/fromScratch_emuDB 
 ## Session count: 0 
 ## Bundle count: 0 
 ## Annotation item count:  0 
@@ -299,7 +299,7 @@ query(dbHandle, "Phonetic == shortVowels")
 
 ```
 ## # A tibble: 0 x 16
-## # ... with 16 variables: labels <chr>, start <dbl>, end <dbl>, db_uuid <chr>,
+## # … with 16 variables: labels <chr>, start <dbl>, end <dbl>, db_uuid <chr>,
 ## #   session <chr>, bundle <chr>, start_item_id <int>, end_item_id <int>,
 ## #   level <chr>, attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
@@ -407,20 +407,20 @@ list_files(dbHandle)
 ## # A tibble: 14 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  2 fromWavFi~ msajc0~ msajc003_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  3 fromWavFi~ msajc0~ msajc010.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  4 fromWavFi~ msajc0~ msajc010_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  5 fromWavFi~ msajc0~ msajc012.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  6 fromWavFi~ msajc0~ msajc012_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  7 fromWavFi~ msajc0~ msajc015.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  8 fromWavFi~ msajc0~ msajc015_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  9 fromWavFi~ msajc0~ msajc022.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-## 10 fromWavFi~ msajc0~ msajc022_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-## 11 fromWavFi~ msajc0~ msajc023.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-## 12 fromWavFi~ msajc0~ msajc023_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-## 13 fromWavFi~ msajc0~ msajc057.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-## 14 fromWavFi~ msajc0~ msajc057_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc010_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc012_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc012.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc015_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc015.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc022_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc022.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+## 11 fromWavFi… msajc0… msajc023_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+## 12 fromWavFi… msajc0… msajc023.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+## 13 fromWavFi… msajc0… msajc057_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+## 14 fromWavFi… msajc0… msajc057.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
 ```
 
 The `import_mediaFiles()` call above added a new session called `fromWavFiles` to the *fromScratch* `emuDB` containing a new bundle for each of the imported media files. The annotations of every bundle, despite containing empty levels, adhere to the structure specified above. This means that every `_annot.json` file created contains an empty `Word` and `Phonetic` level array and the links array is also empty.
@@ -470,17 +470,17 @@ list_files(dbHandle)
 ## # A tibble: 21 x 4
 ##    session    bundle  file         absolute_file_path                           
 ##    <chr>      <chr>   <chr>        <chr>                                        
-##  1 fromWavFi~ msajc0~ msajc003.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  2 fromWavFi~ msajc0~ msajc003.zcr "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  3 fromWavFi~ msajc0~ msajc003_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  4 fromWavFi~ msajc0~ msajc010.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  5 fromWavFi~ msajc0~ msajc010.zcr "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  6 fromWavFi~ msajc0~ msajc010_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  7 fromWavFi~ msajc0~ msajc012.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  8 fromWavFi~ msajc0~ msajc012.zcr "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-##  9 fromWavFi~ msajc0~ msajc012_an~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-## 10 fromWavFi~ msajc0~ msajc015.wav "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtm~
-## # ... with 11 more rows
+##  1 fromWavFi… msajc0… msajc003_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  2 fromWavFi… msajc0… msajc003.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  3 fromWavFi… msajc0… msajc003.zcr /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  4 fromWavFi… msajc0… msajc010_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  5 fromWavFi… msajc0… msajc010.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  6 fromWavFi… msajc0… msajc010.zcr /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  7 fromWavFi… msajc0… msajc012_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  8 fromWavFi… msajc0… msajc012.wav /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+##  9 fromWavFi… msajc0… msajc012.zcr /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+## 10 fromWavFi… msajc0… msajc015_an… /tmp/RtmpToUWeQ/fromScratch_emuDB/fromWavFil…
+## # … with 11 more rows
 ```
 
 

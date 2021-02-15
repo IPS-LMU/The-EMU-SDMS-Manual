@@ -20,12 +20,13 @@ MathJax.Hub.Config({
   TeX: { equationNumbers: { autoNumber: "AMS" } }
 });
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="description" content="8.3 Signal processing | The EMU-SDMS Manual">
 
 <title>8.3 Signal processing | The EMU-SDMS Manual</title>
 
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
@@ -33,26 +34,23 @@ MathJax.Hub.Config({
 <script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="libs/navigation-1.1/tabsets.js"></script>
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,7 +70,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -140,24 +138,29 @@ img {
 <div id="TOC">
 <ul>
 <li><a href="index.html#welcome">Welcome</a></li>
-<li class="has-sub"><a href="1-installing-the-emu-sdms.html#installing-the-emu-sdms"><span class="toc-section-number">1</span> Installing the EMU-SDMS</a><ul>
+<li><a href="1-installing-the-emu-sdms.html#installing-the-emu-sdms"><span class="toc-section-number">1</span> Installing the EMU-SDMS</a>
+<ul>
 <li><a href="1-1-version-disclaimer.html#version-disclaimer"><span class="toc-section-number">1.1</span> Version disclaimer</a></li>
 <li><a href="1-2-for-developers-and-people-interested-in-the-source-code.html#for-developers-and-people-interested-in-the-source-code"><span class="toc-section-number">1.2</span> For developers and people interested in the source code</a></li>
 </ul></li>
 <li class="part"><span><b>I Overview and tutorial</b></span></li>
-<li class="has-sub"><a href="2-chap-overview.html#chap:overview"><span class="toc-section-number">2</span> An overview of the EMU-SDMS</a><ul>
+<li><a href="2-chap-overview.html#chap:overview"><span class="toc-section-number">2</span> An overview of the EMU-SDMS</a>
+<ul>
 <li><a href="2-1-the-evolution-of-the-emu-sdms.html#the-evolution-of-the-emu-sdms"><span class="toc-section-number">2.1</span> The evolution of the EMU-SDMS</a></li>
 <li><a href="2-2-sec-overview-sysArch.html#sec:overview-sysArch"><span class="toc-section-number">2.2</span> EMU-SDMS: System architecture and default workflow</a></li>
 <li><a href="2-3-emu-sdms-is-it-something-for-you.html#emu-sdms-is-it-something-for-you"><span class="toc-section-number">2.3</span> EMU-SDMS: Is it something for you?</a></li>
 </ul></li>
-<li class="has-sub"><a href="3-chap-tutorial.html#chap:tutorial"><span class="toc-section-number">3</span> A tutorial on how to use the EMU-SDMS</a><ul>
+<li><a href="3-chap-tutorial.html#chap:tutorial"><span class="toc-section-number">3</span> A tutorial on how to use the EMU-SDMS</a>
+<ul>
 <li><a href="3-1-converting-the-textgrid-collection.html#converting-the-textgrid-collection"><span class="toc-section-number">3.1</span> Converting the TextGrid collection</a></li>
-<li class="has-sub"><a href="3-2-loading-and-inspecting-the-database.html#loading-and-inspecting-the-database"><span class="toc-section-number">3.2</span> Loading and inspecting the database</a><ul>
+<li><a href="3-2-loading-and-inspecting-the-database.html#loading-and-inspecting-the-database"><span class="toc-section-number">3.2</span> Loading and inspecting the database</a>
+<ul>
 <li><a href="3-2-loading-and-inspecting-the-database.html#overview"><span class="toc-section-number">3.2.1</span> Overview</a></li>
 <li><a href="3-2-loading-and-inspecting-the-database.html#database-annotation-and-visual-inspection"><span class="toc-section-number">3.2.2</span> Database annotation and visual inspection</a></li>
 </ul></li>
 <li><a href="3-3-querying-and-autobuilding-the-annotation-structure.html#querying-and-autobuilding-the-annotation-structure"><span class="toc-section-number">3.3</span> Querying and autobuilding the annotation structure</a></li>
-<li class="has-sub"><a href="3-4-autobuilding.html#autobuilding"><span class="toc-section-number">3.4</span> Autobuilding</a><ul>
+<li><a href="3-4-autobuilding.html#autobuilding"><span class="toc-section-number">3.4</span> Autobuilding</a>
+<ul>
 <li><a href="3-4-autobuilding.html#querying-the-hierarchical-annotations"><span class="toc-section-number">3.4.1</span> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li><a href="3-5-section-tutorial-sigExtrAndExpl.html#section:tutorial-sigExtrAndExpl"><span class="toc-section-number">3.5</span> Signal extraction and exploration</a></li>
@@ -165,15 +168,18 @@ img {
 <li><a href="3-7-conclusion.html#conclusion"><span class="toc-section-number">3.7</span> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
-<li class="has-sub"><a href="4-chap-annot-struct-mod.html#chap:annot-struct-mod"><span class="toc-section-number">4</span> Annotation Structure Modeling</a><ul>
+<li><a href="4-chap-annot-struct-mod.html#chap:annot-struct-mod"><span class="toc-section-number">4</span> Annotation Structure Modeling</a>
+<ul>
 <li><a href="4-1-per-database-annotation-structure-definition.html#per-database-annotation-structure-definition"><span class="toc-section-number">4.1</span> Per database annotation structure definition</a></li>
 <li><a href="4-2-parallel-labels-and-multiple-attributes.html#parallel-labels-and-multiple-attributes"><span class="toc-section-number">4.2</span> Parallel labels and multiple attributes</a></li>
 <li><a href="4-3-metadata-strategy-using-single-bundle-root-nodes.html#metadata-strategy-using-single-bundle-root-nodes"><span class="toc-section-number">4.3</span> Metadata strategy using single bundle root nodes</a></li>
 <li><a href="4-4-conclusion-1.html#conclusion-1"><span class="toc-section-number">4.4</span> Conclusion</a></li>
 </ul></li>
-<li class="has-sub"><a href="5-chap-emuDB.html#chap:emuDB"><span class="toc-section-number">5</span> The <code>emuDB</code> Format</a><ul>
+<li><a href="5-chap-emuDB.html#chap:emuDB"><span class="toc-section-number">5</span> The <code>emuDB</code> Format</a>
+<ul>
 <li><a href="5-1-database-design.html#database-design"><span class="toc-section-number">5.1</span> Database design</a></li>
-<li class="has-sub"><a href="5-2-creating-an-emudb.html#creating-an-emudb"><span class="toc-section-number">5.2</span> Creating an <code>emuDB</code></a><ul>
+<li><a href="5-2-creating-an-emudb.html#creating-an-emudb"><span class="toc-section-number">5.2</span> Creating an <code>emuDB</code></a>
+<ul>
 <li><a href="5-2-creating-an-emudb.html#creating-an-emudb-from-scratch"><span class="toc-section-number">5.2.1</span> Creating an <code>emuDB</code> from scratch</a></li>
 <li><a href="5-2-creating-an-emudb.html#loading-and-editing-an-empty-database"><span class="toc-section-number">5.2.2</span> Loading and editing an empty database</a></li>
 <li><a href="5-2-creating-an-emudb.html#level-definitions"><span class="toc-section-number">5.2.3</span> Level definitions</a></li>
@@ -184,9 +190,11 @@ img {
 </ul></li>
 <li><a href="5-3-conclusion-2.html#conclusion-2"><span class="toc-section-number">5.3</span> Conclusion</a></li>
 </ul></li>
-<li class="has-sub"><a href="6-chap-querysys.html#chap:querysys"><span class="toc-section-number">6</span> The query system</a><ul>
+<li><a href="6-chap-querysys.html#chap:querysys"><span class="toc-section-number">6</span> The query system</a>
+<ul>
 <li><a href="6-1-sec-query-emuRsegs.html#sec:query-emuRsegs"><span class="toc-section-number">6.1</span> The resulting object of a query</a></li>
-<li class="has-sub"><a href="6-2-eql-the-emu-query-language-version-2.html#eql-the-emu-query-language-version-2"><span class="toc-section-number">6.2</span> <code>EQL</code>: The EMU Query Language version 2</a><ul>
+<li><a href="6-2-eql-the-emu-query-language-version-2.html#eql-the-emu-query-language-version-2"><span class="toc-section-number">6.2</span> <code>EQL</code>: The EMU Query Language version 2</a>
+<ul>
 <li><a href="6-2-eql-the-emu-query-language-version-2.html#simple-queries"><span class="toc-section-number">6.2.1</span> Simple queries</a></li>
 <li><a href="6-2-eql-the-emu-query-language-version-2.html#combining-simple-queries"><span class="toc-section-number">6.2.2</span> Combining simple queries</a></li>
 <li><a href="6-2-eql-the-emu-query-language-version-2.html#subsec:query-positionQueries"><span class="toc-section-number">6.2.3</span> Position queries</a></li>
@@ -197,19 +205,22 @@ img {
 </ul></li>
 <li><a href="6-3-discussion.html#discussion"><span class="toc-section-number">6.3</span> Discussion</a></li>
 </ul></li>
-<li class="has-sub"><a href="7-chap-sigDataExtr.html#chap:sigDataExtr"><span class="toc-section-number">7</span> Signal data extraction</a><ul>
+<li><a href="7-chap-sigDataExtr.html#chap:sigDataExtr"><span class="toc-section-number">7</span> Signal data extraction</a>
+<ul>
 <li><a href="7-1-extracting-pre-defined-tracks.html#extracting-pre-defined-tracks"><span class="toc-section-number">7.1</span> Extracting pre-defined tracks</a></li>
 <li><a href="7-2-adding-new-tracks.html#adding-new-tracks"><span class="toc-section-number">7.2</span> Adding new tracks</a></li>
 <li><a href="7-3-calculating-tracks-on-the-fly.html#calculating-tracks-on-the-fly"><span class="toc-section-number">7.3</span> Calculating tracks on-the-fly</a></li>
 <li><a href="7-4-the-resulting-object-tibble.html#the-resulting-object-tibble"><span class="toc-section-number">7.4</span> The resulting object: <code>tibble</code></a></li>
 <li><a href="7-5-conclusion-3.html#conclusion-3"><span class="toc-section-number">7.5</span> Conclusion</a></li>
 </ul></li>
-<li class="has-sub"><a href="8-chap-wrassp.html#chap:wrassp"><span class="toc-section-number">8</span> The R package <code>wrassp</code></a><ul>
+<li><a href="8-chap-wrassp.html#chap:wrassp"><span class="toc-section-number">8</span> The R package <code>wrassp</code></a>
+<ul>
 <li><a href="8-1-introduction.html#introduction"><span class="toc-section-number">8.1</span> Introduction</a></li>
 <li><a href="8-2-file-i0-and-the-asspdataobj.html#file-i0-and-the-asspdataobj"><span class="toc-section-number">8.2</span> File I/0 and the <code>AsspDataObj</code></a></li>
 <li><a href="8-3-signal-processing.html#signal-processing"><span class="toc-section-number">8.3</span> Signal processing</a></li>
 <li><a href="8-4-subsec-wrassp-wrasspOutputInfos.html#subsec:wrassp-wrasspOutputInfos"><span class="toc-section-number">8.4</span> The <code>wrasspOutputInfos</code> object</a></li>
-<li class="has-sub"><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a><ul>
+<li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants"><span class="toc-section-number">8.5</span> Formants and their bandwidths</a>
+<ul>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0"><span class="toc-section-number">8.5.1</span> Fundamental frequency contour</a></li>
 <li><a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS"><span class="toc-section-number">8.5.2</span> RMS energy contour</a></li>
 </ul></li>
@@ -218,13 +229,16 @@ img {
 <li><a href="8-8-sec-wrassp-genSSFF.html#sec:wrassp-genSSFF"><span class="toc-section-number">8.8</span> Storing data in the SSFF file format</a></li>
 <li><a href="8-9-conclusion-4.html#conclusion-4"><span class="toc-section-number">8.9</span> Conclusion</a></li>
 </ul></li>
-<li class="has-sub"><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a><ul>
+<li><a href="9-chap-emu-webApp.html#chap:emu-webApp"><span class="toc-section-number">9</span> The <code>EMU-webApp</code></a>
+<ul>
 <li><a href="9-1-sec-emu-webApp-mainLayout.html#sec:emu-webApp-mainLayout"><span class="toc-section-number">9.1</span> Main layout</a></li>
-<li class="has-sub"><a href="9-2-sec-webApp-generalUsage.html#sec:webApp-generalUsage"><span class="toc-section-number">9.2</span> General usage</a><ul>
+<li><a href="9-2-sec-webApp-generalUsage.html#sec:webApp-generalUsage"><span class="toc-section-number">9.2</span> General usage</a>
+<ul>
 <li><a href="9-2-sec-webApp-generalUsage.html#annotating-levels-containing-time-information"><span class="toc-section-number">9.2.1</span> Annotating levels containing time information</a></li>
 <li><a href="9-2-sec-webApp-generalUsage.html#working-with-hierarchical-annotations-2-chapemu-webapp"><span class="toc-section-number">9.2.2</span> Working with hierarchical annotations</a></li>
 </ul></li>
-<li class="has-sub"><a href="9-3-configuring-the-emu-webapp.html#configuring-the-emu-webapp"><span class="toc-section-number">9.3</span> Configuring the <code>EMU-webApp</code></a><ul>
+<li><a href="9-3-configuring-the-emu-webapp.html#configuring-the-emu-webapp"><span class="toc-section-number">9.3</span> Configuring the <code>EMU-webApp</code></a>
+<ul>
 <li><a href="9-3-configuring-the-emu-webapp.html#subsec:emu-webAppConfigWithEmuR"><span class="toc-section-number">9.3.1</span> Basic configurations using <code>emuR</code></a></li>
 <li><a href="9-3-configuring-the-emu-webapp.html#signal-canvas-and-level-canvas-order"><span class="toc-section-number">9.3.2</span> Signal canvas and level canvas order</a></li>
 <li><a href="9-3-configuring-the-emu-webapp.html#subsec:emu-webAppAdvancedConfig"><span class="toc-section-number">9.3.3</span> Advanced configurations made by editing the <code>_DBconfig.json</code></a></li>
@@ -233,8 +247,10 @@ img {
 <li><a href="9-4-conclusion-5.html#conclusion-5"><span class="toc-section-number">9.4</span> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>III Main <code>emuR</code> function and object index</b></span></li>
-<li class="has-sub"><a href="10-chap-emuRpackageDetails.html#chap:emuRpackageDetails"><span class="toc-section-number">10</span> <code>emuR</code> - package functions</a><ul>
-<li class="has-sub"><a href="10-1-sec-emuRpackageDetails-importRoutines.html#sec:emuRpackageDetails-importRoutines"><span class="toc-section-number">10.1</span> Import and conversion routines</a><ul>
+<li><a href="10-chap-emuRpackageDetails.html#chap:emuRpackageDetails"><span class="toc-section-number">10</span> <code>emuR</code> - package functions</a>
+<ul>
+<li><a href="10-1-sec-emuRpackageDetails-importRoutines.html#sec:emuRpackageDetails-importRoutines"><span class="toc-section-number">10.1</span> Import and conversion routines</a>
+<ul>
 <li><a href="10-1-sec-emuRpackageDetails-importRoutines.html#legacy-emu-databases"><span class="toc-section-number">10.1.1</span> Legacy EMU databases</a></li>
 <li><a href="10-1-sec-emuRpackageDetails-importRoutines.html#textgrid-collections"><span class="toc-section-number">10.1.2</span> TextGrid collections</a></li>
 <li><a href="10-1-sec-emuRpackageDetails-importRoutines.html#bpf-collections"><span class="toc-section-number">10.1.3</span> BPF collections</a></li>
@@ -248,16 +264,20 @@ img {
 <li><a href="10-7-conclusion-6.html#conclusion-6"><span class="toc-section-number">10.7</span> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>IV Implementation</b></span></li>
-<li class="has-sub"><a href="11-chap-querysys-impl.html#chap:querysys-impl"><span class="toc-section-number">11</span> Implementation of the query system</a><ul>
+<li><a href="11-chap-querysys-impl.html#chap:querysys-impl"><span class="toc-section-number">11</span> Implementation of the query system</a>
+<ul>
 <li><a href="11-1-sec-query-queryExpressionParser.html#sec:query-queryExpressionParser"><span class="toc-section-number">11.1</span> Query expression parser</a></li>
 <li><a href="11-2-subsec-query-redundantLinks.html#subsec:query-redundantLinks"><span class="toc-section-number">11.2</span> Redundant links</a></li>
 </ul></li>
-<li class="has-sub"><a href="12-chap-wrassp-impl.html#chap:wrassp_impl"><span class="toc-section-number">12</span> <code>wrassp</code> implementation</a><ul>
+<li><a href="12-chap-wrassp-impl.html#chap:wrassp_impl"><span class="toc-section-number">12</span> <code>wrassp</code> implementation</a>
+<ul>
 <li><a href="12-1-the-libassp-port.html#the-libassp-port"><span class="toc-section-number">12.1</span> The <code>libassp</code> port</a></li>
 </ul></li>
-<li class="has-sub"><a href="13-chap-emu-webAppImplementation.html#chap:emu-webAppImplementation"><span class="toc-section-number">13</span> <code>EMU-webApp</code> implementation</a><ul>
+<li><a href="13-chap-emu-webAppImplementation.html#chap:emu-webAppImplementation"><span class="toc-section-number">13</span> <code>EMU-webApp</code> implementation</a>
+<ul>
 <li><a href="13-1-subsec-emu-webAppTheProtocol.html#subsec:emu-webAppTheProtocol"><span class="toc-section-number">13.1</span> Communication protocol</a></li>
-<li class="has-sub"><a href="13-2-url-parameters.html#url-parameters"><span class="toc-section-number">13.2</span> URL parameters</a><ul>
+<li><a href="13-2-url-parameters.html#url-parameters"><span class="toc-section-number">13.2</span> URL parameters</a>
+<ul>
 <li><a href="13-2-url-parameters.html#websocket-server-parameters"><span class="toc-section-number">13.2.1</span> Websocket server parameters</a></li>
 <li><a href="13-2-url-parameters.html#examples"><span class="toc-section-number">13.2.2</span> Examples</a></li>
 <li><a href="13-2-url-parameters.html#label-file-preview-parameters"><span class="toc-section-number">13.2.3</span> Label file preview parameters</a></li>
@@ -265,28 +285,35 @@ img {
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Appendices</b></span></li>
-<li class="has-sub"><a href="14-app-chap-useCases.html#app-chap:useCases"><span class="toc-section-number">14</span> Use cases</a><ul>
+<li><a href="14-app-chap-useCases.html#app-chap:useCases"><span class="toc-section-number">14</span> Use cases</a>
+<ul>
 <li><a href="14-1-sec-app-chap-useCases-q1.html#sec:app-chap-useCases-q1"><span class="toc-section-number">14.1</span> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
 <li><a href="14-2-sec-app-chap-useCases-q2.html#sec:app-chap-useCases-q2"><span class="toc-section-number">14.2</span> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
 <li><a href="14-3-sec-app-chap-useCases-q3.html#sec:app-chap-useCases-q3"><span class="toc-section-number">14.3</span> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
-<li class="has-sub"><a href="14-4-sec-app-chap-useCases-q4.html#sec:app-chap-useCases-q4"><span class="toc-section-number">14.4</span> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a><ul>
+<li><a href="14-4-sec-app-chap-useCases-q4.html#sec:app-chap-useCases-q4"><span class="toc-section-number">14.4</span> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a>
+<ul>
 <li><a href="14-4-sec-app-chap-useCases-q4.html#note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis"><span class="toc-section-number">14.4.1</span> NOTE: See @ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="has-sub"><a href="15-app-chap-fileFormats.html#app-chap:fileFormats"><span class="toc-section-number">15</span> File Formats</a><ul>
-<li class="has-sub"><a href="15-1-file-descriptions.html#file-descriptions"><span class="toc-section-number">15.1</span> File descriptions</a><ul>
+<li><a href="15-app-chap-fileFormats.html#app-chap:fileFormats"><span class="toc-section-number">15</span> File Formats</a>
+<ul>
+<li><a href="15-1-file-descriptions.html#file-descriptions"><span class="toc-section-number">15.1</span> File descriptions</a>
+<ul>
 <li><a href="15-1-file-descriptions.html#subsec:app-chapFileFormatsDBconfig"><span class="toc-section-number">15.1.1</span> <code>_DBconfig.json</code></a></li>
 <li><a href="15-1-file-descriptions.html#subsec:app-chapFileFormatsAnnotJSON"><span class="toc-section-number">15.1.2</span> <code>_annot.json</code></a></li>
 <li><a href="15-1-file-descriptions.html#subsec:app-chapFileFormatsSSFF"><span class="toc-section-number">15.1.3</span> The SSFF file format</a></li>
 </ul></li>
-<li class="has-sub"><a href="15-2-example-files.html#example-files"><span class="toc-section-number">15.2</span> Example files</a><ul>
+<li><a href="15-2-example-files.html#example-files"><span class="toc-section-number">15.2</span> Example files</a>
+<ul>
 <li><a href="15-2-example-files.html#subsec:app-chapExampleFilesBundleList"><span class="toc-section-number">15.2.1</span> <code>_bundleList.json</code></a></li>
 <li><a href="15-2-example-files.html#subsec:app-chapExampleFilesBndlJSON"><span class="toc-section-number">15.2.2</span> <code>_bndl.json</code></a></li>
 </ul></li>
 </ul></li>
-<li class="has-sub"><a href="16-app-chap-wsProtocol.html#app-chap:wsProtocol"><span class="toc-section-number">16</span> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a><ul>
+<li><a href="16-app-chap-wsProtocol.html#app-chap:wsProtocol"><span class="toc-section-number">16</span> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a>
+<ul>
 <li><a href="16-1-protocol-overview.html#protocol-overview"><span class="toc-section-number">16.1</span> Protocol overview</a></li>
-<li class="has-sub"><a href="16-2-protocol-commands.html#protocol-commands"><span class="toc-section-number">16.2</span> Protocol commands</a><ul>
+<li><a href="16-2-protocol-commands.html#protocol-commands"><span class="toc-section-number">16.2</span> Protocol commands</a>
+<ul>
 <li><a href="16-2-protocol-commands.html#getprotocol"><span class="toc-section-number">16.2.1</span> <code>GETPROTOCOL</code></a></li>
 <li><a href="16-2-protocol-commands.html#getdousermanagement"><span class="toc-section-number">16.2.2</span> <code>GETDOUSERMANAGEMENT</code></a></li>
 <li><a href="16-2-protocol-commands.html#logonuser"><span class="toc-section-number">16.2.3</span> <code>LOGONUSER</code></a></li>
@@ -298,42 +325,49 @@ img {
 <li><a href="16-2-protocol-commands.html#error-handling"><span class="toc-section-number">16.2.9</span> Error handling</a></li>
 </ul></li>
 </ul></li>
-<li class="has-sub"><a href="17-app-chap-EQL-EBNF.html#app-chap:EQL-EBNF"><span class="toc-section-number">17</span> EQL EBNF</a><ul>
+<li><a href="17-app-chap-EQL-EBNF.html#app-chap:EQL-EBNF"><span class="toc-section-number">17</span> EQL EBNF</a>
+<ul>
 <li><a href="17-1-terminal-symbols-of-eql2-operators-and-their-meaning.html#terminal-symbols-of-eql2-operators-and-their-meaning"><span class="toc-section-number">17.1</span> Terminal symbols of EQL2 (operators) and their meaning</a></li>
 <li><a href="17-2-terminal-symbols-of-eql2-brackets-and-their-meanings-.html#terminal-symbols-of-eql2-brackets-and-their-meanings."><span class="toc-section-number">17.2</span> Terminal symbols of EQL2 (brackets) and their meanings.</a></li>
 <li><a href="17-3-terminal-symbols-of-eql2-functions-and-their-meanings-.html#terminal-symbols-of-eql2-functions-and-their-meanings."><span class="toc-section-number">17.3</span> Terminal symbols of EQL2 (functions) and their meanings.</a></li>
 <li><a href="17-4-formal-description-of-emu-query-language-version-2.html#formal-description-of-emu-query-language-version-2"><span class="toc-section-number">17.4</span> Formal description of EMU Query Language Version 2</a></li>
 <li><a href="17-5-restrictions.html#restrictions"><span class="toc-section-number">17.5</span> Restrictions</a></li>
 </ul></li>
-<li class="has-sub"><a href="18-app-chap-eql.html#app-chap:eql"><span class="toc-section-number">18</span> EQL: further examples</a><ul>
+<li><a href="18-app-chap-eql.html#app-chap:eql"><span class="toc-section-number">18</span> EQL: further examples</a>
+<ul>
 <li><a href="18-1-simple-equality-inequality-matching-non-matching-queries-single-argument.html#simple-equality-inequality-matching-non-matching-queries-single-argument"><span class="toc-section-number">18.1</span> Simple equality, inequality, matching and non-matching queries (single-argument)</a></li>
 <li><a href="18-2-sequence-queries-using-the-sequence-operator.html#sequence-queries-using-the---sequence-operator"><span class="toc-section-number">18.2</span> Sequence queries using the -&gt; sequence operator</a></li>
 <li><a href="18-3-subsequent-sequence-queries-using-nesting-of-the-sequence-operator.html#subsequent-sequence-queries-using-nesting-of-the---sequence-operator"><span class="toc-section-number">18.3</span> Subsequent sequence queries using nesting of the <code>-&gt;</code> sequence operator</a></li>
 <li><a href="18-4-conjunction-operator.html#conjunction-operator"><span class="toc-section-number">18.4</span> Conjunction operator &amp;</a></li>
-<li class="has-sub"><a href="18-5-domination-operator-hierarchical-queries.html#domination-operator-hierarchical-queries"><span class="toc-section-number">18.5</span> Domination operator ^ (hierarchical queries)</a><ul>
+<li><a href="18-5-domination-operator-hierarchical-queries.html#domination-operator-hierarchical-queries"><span class="toc-section-number">18.5</span> Domination operator ^ (hierarchical queries)</a>
+<ul>
 <li><a href="18-5-domination-operator-hierarchical-queries.html#simple-domination"><span class="toc-section-number">18.5.1</span> Simple domination</a></li>
 <li><a href="18-5-domination-operator-hierarchical-queries.html#multiple-domination"><span class="toc-section-number">18.5.2</span> Multiple domination</a></li>
 </ul></li>
-<li class="has-sub"><a href="18-6-position.html#position"><span class="toc-section-number">18.6</span> Position</a><ul>
+<li><a href="18-6-position.html#position"><span class="toc-section-number">18.6</span> Position</a>
+<ul>
 <li><a href="18-6-position.html#simple-usage-of-start-end-and-medial"><span class="toc-section-number">18.6.1</span> Simple usage of <code>Start()</code>, <code>End()</code> and <code>Medial()</code></a></li>
 <li><a href="18-6-position.html#position-and-boolean"><span class="toc-section-number">18.6.2</span> Position and boolean &amp;</a></li>
 <li><a href="18-6-position.html#position-and-boolean-1"><span class="toc-section-number">18.6.3</span> Position and boolean ^</a></li>
 <li><a href="18-6-position.html#count-and-boolean"><span class="toc-section-number">18.6.4</span> Count and boolean <code>&amp;</code></a></li>
 <li><a href="18-6-position.html#count-and"><span class="toc-section-number">18.6.5</span> Count and ^</a></li>
 </ul></li>
-<li class="has-sub"><a href="18-7-combinations.html#combinations"><span class="toc-section-number">18.7</span> Combinations</a><ul>
+<li><a href="18-7-combinations.html#combinations"><span class="toc-section-number">18.7</span> Combinations</a>
+<ul>
 <li><a href="18-7-combinations.html#and---domination-and-sequence"><span class="toc-section-number">18.7.1</span> ^ and -&gt; (domination and sequence)</a></li>
 <li><a href="18-7-combinations.html#and---and-domination-and-sequence-and-boolean"><span class="toc-section-number">18.7.2</span> ^ and -&gt; and &amp; (domination and sequence and boolean &amp;)</a></li>
 </ul></li>
 <li><a href="18-8-a-few-more-questions-and-answers.html#a-few-more-questions-and-answers"><span class="toc-section-number">18.8</span> A few more questions and answers</a></li>
-<li class="has-sub"><a href="18-9-differences-to-the-legacy-emu-query-language.html#differences-to-the-legacy-emu-query-language"><span class="toc-section-number">18.9</span> Differences to the legacy EMU query language</a><ul>
+<li><a href="18-9-differences-to-the-legacy-emu-query-language.html#differences-to-the-legacy-emu-query-language"><span class="toc-section-number">18.9</span> Differences to the legacy EMU query language</a>
+<ul>
 <li><a href="18-9-differences-to-the-legacy-emu-query-language.html#function-call-syntax"><span class="toc-section-number">18.9.1</span> Function call syntax</a></li>
 <li><a href="18-9-differences-to-the-legacy-emu-query-language.html#empty-result"><span class="toc-section-number">18.9.2</span> Empty result</a></li>
 <li><a href="18-9-differences-to-the-legacy-emu-query-language.html#the-result-modifier-hash-tag"><span class="toc-section-number">18.9.3</span> The result modifier hash tag <code>#</code></a></li>
 <li><a href="18-9-differences-to-the-legacy-emu-query-language.html#interpretation-of-the-hash-tag-in-conjunction-operator-queries"><span class="toc-section-number">18.9.4</span> Interpretation of the hash tag <code>#</code> in conjunction operator queries</a></li>
 <li><a href="18-9-differences-to-the-legacy-emu-query-language.html#legacy-emu"><span class="toc-section-number">18.9.5</span> legacy EMU</a></li>
 </ul></li>
-<li class="has-sub"><a href="18-10-bugs-in-legacy-emu-function-emu-query.html#bugs-in-legacy-emu-function-emu.query"><span class="toc-section-number">18.10</span> Bugs in legacy EMU function <code>emu.query()</code></a><ul>
+<li><a href="18-10-bugs-in-legacy-emu-function-emu-query.html#bugs-in-legacy-emu-function-emu.query"><span class="toc-section-number">18.10</span> Bugs in legacy EMU function <code>emu.query()</code></a>
+<ul>
 <li><a href="18-10-bugs-in-legacy-emu-function-emu-query.html#alternative-labels-in-inequality-queries"><span class="toc-section-number">18.10.1</span> Alternative labels in inequality queries</a></li>
 <li><a href="18-10-bugs-in-legacy-emu-function-emu-query.html#legacy-emu-1"><span class="toc-section-number">18.10.2</span> legacy EMU</a></li>
 <li><a href="18-10-bugs-in-legacy-emu-function-emu-query.html#emur-1"><span class="toc-section-number">18.10.3</span> emuR</a></li>
@@ -342,33 +376,40 @@ img {
 <li><a href="18-10-bugs-in-legacy-emu-function-emu-query.html#additional-features"><span class="toc-section-number">18.10.6</span> Additional features</a></li>
 </ul></li>
 </ul></li>
-<li class="has-sub"><a href="19-app-chap-wrassp.html#app-chap:wrassp"><span class="toc-section-number">19</span> <code>wrassp</code></a><ul>
-<li class="has-sub"><a href="19-1-sec-app-chap-wrassp-praatsSigProc.html#sec:app-chap-wrassp-praatsSigProc"><span class="toc-section-number">19.1</span> Using Praat’s signal processing routines in the EMU-SDMS</a><ul>
-<li><a href="19-1-sec-app-chap-wrassp-praatsSigProc.html#to-formant-burg...-to-ssff-files"><span class="toc-section-number">19.1.1</span> <code>To Formant (burg)...</code> to SSFF files</a></li>
-<li><a href="19-1-sec-app-chap-wrassp-praatsSigProc.html#to-pitch...-to-ssff-files"><span class="toc-section-number">19.1.2</span> <code>To Pitch...</code> to SSFF files</a></li>
+<li><a href="19-app-chap-wrassp.html#app-chap:wrassp"><span class="toc-section-number">19</span> <code>wrassp</code></a>
+<ul>
+<li><a href="19-1-sec-app-chap-wrassp-praatsSigProc.html#sec:app-chap-wrassp-praatsSigProc"><span class="toc-section-number">19.1</span> Using Praat’s signal processing routines in the EMU-SDMS</a>
+<ul>
+<li><a href="19-1-sec-app-chap-wrassp-praatsSigProc.html#to-formant-burg-to-ssff-files"><span class="toc-section-number">19.1.1</span> <code>To Formant (burg)</code> to SSFF files</a></li>
 </ul></li>
 <li><a href="19-2-sec-app-chap-wrassp-opensmileSigProc.html#sec:app-chap-wrassp-opensmileSigProc"><span class="toc-section-number">19.2</span> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
 </ul></li>
 <li class="part"><span><b>VI Recipes</b></span></li>
 <li><a href="20-about.html#about"><span class="toc-section-number">20</span> About</a></li>
-<li class="has-sub"><a href="21-recipe-spectralAnalysis.html#recipe:spectralAnalysis"><span class="toc-section-number">21</span> Spectral analysis</a><ul>
+<li><a href="21-recipe-spectralAnalysis.html#recipe:spectralAnalysis"><span class="toc-section-number">21</span> Spectral analysis</a>
+<ul>
 <li><a href="21-1-how-to-quantify-differences-between-spectra.html#how-to-quantify-differences-between-spectra"><span class="toc-section-number">21.1</span> How to quantify differences between spectra?</a></li>
 <li><a href="21-2-discrete-cosine-transform-dct.html#discrete-cosine-transform-dct"><span class="toc-section-number">21.2</span> Discrete Cosine Transform (DCT)</a></li>
-<li class="has-sub"><a href="21-3-dct-coefficients.html#dct-coefficients"><span class="toc-section-number">21.3</span> DCT coefficients</a><ul>
+<li><a href="21-3-dct-coefficients.html#dct-coefficients"><span class="toc-section-number">21.3</span> DCT coefficients</a>
+<ul>
 <li><a href="21-3-dct-coefficients.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><span class="toc-section-number">21.3.1</span> P.S.: Use DCT in order to smooth formant trajectories</a></li>
 </ul></li>
 <li><a href="21-4-spectral-moments.html#spectral-moments"><span class="toc-section-number">21.4</span> Spectral moments</a></li>
 </ul></li>
-<li class="has-sub"><a href="22-recipe-plottingSnippets.html#recipe:plottingSnippets"><span class="toc-section-number">22</span> Plotting snippets</a><ul>
+<li><a href="22-recipe-plottingSnippets.html#recipe:plottingSnippets"><span class="toc-section-number">22</span> Plotting snippets</a>
+<ul>
 <li><a href="22-1-formant-trajectory-plots-equivalent-to-the-legacy-dplot-normalise-tf-average-tf-.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><span class="toc-section-number">22.1</span> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
 <li><a href="22-2-f1f2-plots-equivalent-to-the-legacy-eplot-dopoints-tf-doellipse-tf-centroid-tf-.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><span class="toc-section-number">22.2</span> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
 <li><a href="22-3-f1f2-plot-separated-by-speaker.html#f1f2-plot-separated-by-speaker"><span class="toc-section-number">22.3</span> F1/F2 plot separated by speaker</a></li>
 </ul></li>
-<li class="has-sub"><a href="23-version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab"><span class="toc-section-number">23</span> Version control of emuDBs including collaborative annotation with Git and GitLab</a><ul>
-<li class="has-sub"><a href="23-1-setup.html#setup"><span class="toc-section-number">23.1</span> Setup</a><ul>
+<li><a href="23-version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab"><span class="toc-section-number">23</span> Version control of emuDBs including collaborative annotation with Git and GitLab</a>
+<ul>
+<li><a href="23-1-setup.html#setup"><span class="toc-section-number">23.1</span> Setup</a>
+<ul>
 <li><a href="23-1-setup.html#using-gitlab-to-host-the-emudb"><span class="toc-section-number">23.1.1</span> Using GitLab to host the emuDB</a></li>
 </ul></li>
-<li class="has-sub"><a href="23-2-collaborating-with-others.html#collaborating-with-others"><span class="toc-section-number">23.2</span> Collaborating with others</a><ul>
+<li><a href="23-2-collaborating-with-others.html#collaborating-with-others"><span class="toc-section-number">23.2</span> Collaborating with others</a>
+<ul>
 <li><a href="23-2-collaborating-with-others.html#default-work-flow"><span class="toc-section-number">23.2.1</span> Default work-flow</a></li>
 <li><a href="23-2-collaborating-with-others.html#assigning-bundles-to-annotators"><span class="toc-section-number">23.2.2</span> Assigning bundles to annotators</a></li>
 <li><a href="23-2-collaborating-with-others.html#pointing-the-emu-webapp-to-the-gitlab-repository"><span class="toc-section-number">23.2.3</span> Pointing the EMU-webApp to the GitLab repository</a></li>
@@ -382,7 +423,7 @@ img {
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="signal-processing" class="section level2">
+<div id="signal-processing" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Signal processing</h2>
 <p>As mentioned in the introduction to this chapter, the <code>wrassp</code> package is capable of more than just the mere importing and exporting of specific signal file formats. This section will focus on demonstrating three of <code>wrassp</code>’s signal processing functions that calculate formant values, their corresponding bandwidths, the fundamental frequency contour and the RMS energy contour. Section <a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-formants">8.5</a> and <a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-f0">8.5.1</a> demonstrates signal processing to the audio file saved under <code>path2wav</code>, while Section <a href="8-5-subsec-wrassp-formants.html#subsec:wrassp-RMS">8.5.2</a> adresses processing all the audio files belonging to the <em>ae</em> <code>emuDB</code>.</p>
 </div>
