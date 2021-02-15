@@ -55,8 +55,8 @@ sl
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -82,14 +82,14 @@ query(ae, "Phonetic == m")
 ## # A tibble: 7 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 m       257.  340. 0fc618~ 0000    msajc~           148         148 Phon~
-## 2 m      1490. 1565. 0fc618~ 0000    msajc~           169         169 Phon~
-## 3 m       497.  559. 0fc618~ 0000    msajc~           188         188 Phon~
-## 4 m      1587. 1656. 0fc618~ 0000    msajc~           149         149 Phon~
-## 5 m       819.  903. 0fc618~ 0000    msajc~           120         120 Phon~
-## 6 m      1630. 1709. 0fc618~ 0000    msajc~           185         185 Phon~
-## 7 m      2173. 2233. 0fc618~ 0000    msajc~           194         194 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 m       257.  340. 0fc618… 0000    msajc…           148         148 Phon…
+## 2 m      1490. 1565. 0fc618… 0000    msajc…           169         169 Phon…
+## 3 m       497.  559. 0fc618… 0000    msajc…           188         188 Phon…
+## 4 m      1587. 1656. 0fc618… 0000    msajc…           149         149 Phon…
+## 5 m       819.  903. 0fc618… 0000    msajc…           120         120 Phon…
+## 6 m      1630. 1709. 0fc618… 0000    msajc…           185         185 Phon…
+## 7 m      2173. 2233. 0fc618… 0000    msajc…           194         194 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -104,17 +104,17 @@ query(ae, "Tone != H*")
 ## # A tibble: 34 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 L-     1107      0 0fc618~ 0000    msajc~           183         183 Tone 
-##  2 L-     2543.     0 0fc618~ 0000    msajc~           186         186 Tone 
-##  3 L%     2578.     0 0fc618~ 0000    msajc~           187         187 Tone 
-##  4 L-     1012.     0 0fc618~ 0000    msajc~           187         187 Tone 
-##  5 L-     2459.     0 0fc618~ 0000    msajc~           190         190 Tone 
-##  6 L%     2490.     0 0fc618~ 0000    msajc~           191         191 Tone 
-##  7 !H*     836.     0 0fc618~ 0000    msajc~           188         188 Tone 
-##  8 L-      973.     0 0fc618~ 0000    msajc~           189         189 Tone 
-##  9 L-     1558.     0 0fc618~ 0000    msajc~           191         191 Tone 
-## 10 !H*    2151.     0 0fc618~ 0000    msajc~           193         193 Tone 
-## # ... with 24 more rows, and 7 more variables: attribute <chr>,
+##  1 L-     1107      0 0fc618… 0000    msajc…           183         183 Tone 
+##  2 L-     2543.     0 0fc618… 0000    msajc…           186         186 Tone 
+##  3 L%     2578.     0 0fc618… 0000    msajc…           187         187 Tone 
+##  4 L-     1012.     0 0fc618… 0000    msajc…           187         187 Tone 
+##  5 L-     2459.     0 0fc618… 0000    msajc…           190         190 Tone 
+##  6 L%     2490.     0 0fc618… 0000    msajc…           191         191 Tone 
+##  7 !H*     836.     0 0fc618… 0000    msajc…           188         188 Tone 
+##  8 L-      973.     0 0fc618… 0000    msajc…           189         189 Tone 
+##  9 L-     1558.     0 0fc618… 0000    msajc…           191         191 Tone 
+## 10 !H*    2151.     0 0fc618… 0000    msajc…           193         193 Tone 
+## # … with 24 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
@@ -132,17 +132,17 @@ query(ae, "Syllable == S")
 ## # A tibble: 37 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
-##  2 S       674.  740. 0fc618~ 0000    msajc~           104         104 Syll~
-##  3 S       740. 1289. 0fc618~ 0000    msajc~           105         105 Syll~
-##  4 S      1791. 1945. 0fc618~ 0000    msajc~           109         109 Syll~
-##  5 S      2034. 2284. 0fc618~ 0000    msajc~           111         111 Syll~
-##  6 S       572.  798. 0fc618~ 0000    msajc~           107         107 Syll~
-##  7 S       798. 1091. 0fc618~ 0000    msajc~           108         108 Syll~
-##  8 S      1222. 1391. 0fc618~ 0000    msajc~           110         110 Syll~
-##  9 S      1437. 1515. 0fc618~ 0000    msajc~           112         112 Syll~
-## 10 S      1628. 1864. 0fc618~ 0000    msajc~           114         114 Syll~
-## # ... with 27 more rows, and 7 more variables: attribute <chr>,
+##  1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+##  2 S       674.  740. 0fc618… 0000    msajc…           104         104 Syll…
+##  3 S       740. 1289. 0fc618… 0000    msajc…           105         105 Syll…
+##  4 S      1791. 1945. 0fc618… 0000    msajc…           109         109 Syll…
+##  5 S      2034. 2284. 0fc618… 0000    msajc…           111         111 Syll…
+##  6 S       572.  798. 0fc618… 0000    msajc…           107         107 Syll…
+##  7 S       798. 1091. 0fc618… 0000    msajc…           108         108 Syll…
+##  8 S      1222. 1391. 0fc618… 0000    msajc…           110         110 Syll…
+##  9 S      1437. 1515. 0fc618… 0000    msajc…           112         112 Syll…
+## 10 S      1628. 1864. 0fc618… 0000    msajc…           114         114 Syll…
+## # … with 27 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
@@ -202,13 +202,13 @@ query(ae, "[Phonetic == @ -> Phonetic == n]")
 ## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @->n   1715. 1791. 0fc618~ 0000    msajc~           167         168 Phon~
-## 2 @->n   2382. 2528. 0fc618~ 0000    msajc~           183         184 Phon~
-## 3 @->n   2356. 2475. 0fc618~ 0000    msajc~           181         182 Phon~
-## 4 @->n   2201. 2271. 0fc618~ 0000    msajc~           215         216 Phon~
-## 5 @->n   1422. 1495. 0fc618~ 0000    msajc~           126         127 Phon~
-## 6 @->n   2407. 2480. 0fc618~ 0000    msajc~           198         199 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 @->n   1715. 1791. 0fc618… 0000    msajc…           167         168 Phon…
+## 2 @->n   2382. 2528. 0fc618… 0000    msajc…           183         184 Phon…
+## 3 @->n   2356. 2475. 0fc618… 0000    msajc…           181         182 Phon…
+## 4 @->n   2201. 2271. 0fc618… 0000    msajc…           215         216 Phon…
+## 5 @->n   1422. 1495. 0fc618… 0000    msajc…           126         127 Phon…
+## 6 @->n   2407. 2480. 0fc618… 0000    msajc…           198         199 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -227,13 +227,13 @@ query(ae, "[#Phonetic == @ -> Phonetic == n]")
 ## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 @      1715. 1741. 0fc618~ 0000    msajc~           167         167 Phon~
-## 2 @      2382. 2431. 0fc618~ 0000    msajc~           183         183 Phon~
-## 3 @      2356. 2402. 0fc618~ 0000    msajc~           181         181 Phon~
-## 4 @      2201. 2227. 0fc618~ 0000    msajc~           215         215 Phon~
-## 5 @      1422. 1435. 0fc618~ 0000    msajc~           126         126 Phon~
-## 6 @      2407. 2448. 0fc618~ 0000    msajc~           198         198 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 @      1715. 1741. 0fc618… 0000    msajc…           167         167 Phon…
+## 2 @      2382. 2431. 0fc618… 0000    msajc…           183         183 Phon…
+## 3 @      2356. 2402. 0fc618… 0000    msajc…           181         181 Phon…
+## 4 @      2201. 2227. 0fc618… 0000    msajc…           215         215 Phon…
+## 5 @      1422. 1435. 0fc618… 0000    msajc…           126         126 Phon…
+## 6 @      2407. 2448. 0fc618… 0000    msajc…           198         198 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -247,13 +247,13 @@ query(ae, "[Phonetic == @ -> #Phonetic == n]")
 ## # A tibble: 6 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 n      1741. 1791. 0fc618~ 0000    msajc~           168         168 Phon~
-## 2 n      2431. 2528. 0fc618~ 0000    msajc~           184         184 Phon~
-## 3 n      2402. 2475. 0fc618~ 0000    msajc~           182         182 Phon~
-## 4 n      2227. 2271. 0fc618~ 0000    msajc~           216         216 Phon~
-## 5 n      1435. 1495. 0fc618~ 0000    msajc~           127         127 Phon~
-## 6 n      2448. 2480. 0fc618~ 0000    msajc~           199         199 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 n      1741. 1791. 0fc618… 0000    msajc…           168         168 Phon…
+## 2 n      2431. 2528. 0fc618… 0000    msajc…           184         184 Phon…
+## 3 n      2402. 2475. 0fc618… 0000    msajc…           182         182 Phon…
+## 4 n      2227. 2271. 0fc618… 0000    msajc…           216         216 Phon…
+## 5 n      1435. 1495. 0fc618… 0000    msajc…           127         127 Phon…
+## 6 n      2448. 2480. 0fc618… 0000    msajc…           199         199 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -278,8 +278,8 @@ query(ae, "[Text == always & Accent == S]")
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 always  775. 1280. 0fc618~ 0000    msajc~            28          28 Word 
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 always  775. 1280. 0fc618… 0000    msajc…            28          28 Word 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -309,10 +309,10 @@ query(ae, "[Phoneme == p ^ Syllable == S]")
 ## # A tibble: 3 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 p       559.  640. 0fc618~ 0000    msajc~           147         147 Phon~
-## 2 p      1656. 1699. 0fc618~ 0000    msajc~           122         122 Phon~
-## 3 p       864.  970. 0fc618~ 0000    msajc~           136         136 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 p       559.  640. 0fc618… 0000    msajc…           147         147 Phon…
+## 2 p      1656. 1699. 0fc618… 0000    msajc…           122         122 Phon…
+## 3 p       864.  970. 0fc618… 0000    msajc…           136         136 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -341,17 +341,17 @@ query(ae, "[Start(Syllable, Phoneme) == TRUE]")
 ## # A tibble: 83 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 V       187.  257. 0fc618~ 0000    msajc~           114         114 Phon~
-##  2 m       257.  340. 0fc618~ 0000    msajc~           115         115 Phon~
-##  3 @:      674.  740. 0fc618~ 0000    msajc~           120         120 Phon~
-##  4 f       740.  893. 0fc618~ 0000    msajc~           121         121 Phon~
-##  5 S      1289. 1420. 0fc618~ 0000    msajc~           126         126 Phon~
-##  6 w      1463. 1506. 0fc618~ 0000    msajc~           128         128 Phon~
-##  7 k      1634. 1715. 0fc618~ 0000    msajc~           131         131 Phon~
-##  8 s      1791. 1893. 0fc618~ 0000    msajc~           134         134 Phon~
-##  9 d      1945. 1967. 0fc618~ 0000    msajc~           136         136 Phon~
-## 10 b      2034. 2150. 0fc618~ 0000    msajc~           139         139 Phon~
-## # ... with 73 more rows, and 7 more variables: attribute <chr>,
+##  1 V       187.  257. 0fc618… 0000    msajc…           114         114 Phon…
+##  2 m       257.  340. 0fc618… 0000    msajc…           115         115 Phon…
+##  3 @:      674.  740. 0fc618… 0000    msajc…           120         120 Phon…
+##  4 f       740.  893. 0fc618… 0000    msajc…           121         121 Phon…
+##  5 S      1289. 1420. 0fc618… 0000    msajc…           126         126 Phon…
+##  6 w      1463. 1506. 0fc618… 0000    msajc…           128         128 Phon…
+##  7 k      1634. 1715. 0fc618… 0000    msajc…           131         131 Phon…
+##  8 s      1791. 1893. 0fc618… 0000    msajc…           134         134 Phon…
+##  9 d      1945. 1967. 0fc618… 0000    msajc…           136         136 Phon…
+## 10 b      2034. 2150. 0fc618… 0000    msajc…           139         139 Phon…
+## # … with 73 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```
@@ -379,12 +379,12 @@ query(ae, "[Num(Syllable, Phoneme) == 5]")
 ## # A tibble: 5 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 S       257.  674. 0fc618~ 0000    msajc~           103         103 Syll~
-## 2 S       740. 1289. 0fc618~ 0000    msajc~           105         105 Syll~
-## 3 W      2228. 2754. 0fc618~ 0000    msajc~           118         118 Syll~
-## 4 S      1890. 2470. 0fc618~ 0000    msajc~           105         105 Syll~
-## 5 S      1964. 2554. 0fc618~ 0000    msajc~            90          90 Syll~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 S       257.  674. 0fc618… 0000    msajc…           103         103 Syll…
+## 2 S       740. 1289. 0fc618… 0000    msajc…           105         105 Syll…
+## 3 W      2228. 2754. 0fc618… 0000    msajc…           118         118 Syll…
+## 4 S      1890. 2470. 0fc618… 0000    msajc…           105         105 Syll…
+## 5 S      1964. 2554. 0fc618… 0000    msajc…            90          90 Syll…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -414,8 +414,8 @@ query(ae, paste0("[[[Num(Text, Syllable) == 3] ",
 ## # A tibble: 1 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 his    2694. 2781. 0fc618~ 0000    msajc~           101         101 Word 
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 his    2694. 2781. 0fc618… 0000    msajc…           101         101 Word 
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -436,14 +436,14 @@ query(ae, "Intonational =~ .*", calcTimes = F)
 ## # A tibble: 7 x 16
 ##   labels start   end db_uuid session bundle start_item_id end_item_id level
 ##   <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-## 1 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## 2 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## 3 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## 4 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## 5 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## 6 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## 7 L%        NA    NA 0fc618~ 0000    msajc~             7           7 Into~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+## 1 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 2 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 3 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 4 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 5 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 6 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## 7 L%        NA    NA 0fc618… 0000    msajc…             7           7 Into…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -481,19 +481,19 @@ requery_seq(ae,
 ## # A tibble: 12 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 E       950. 1032. 0fc618~ 0000    msajc~           157         157 Phon~
-##  2 @      1715. 1741. 0fc618~ 0000    msajc~           167         167 Phon~
-##  3 E      1437. 1515. 0fc618~ 0000    msajc~           169         169 Phon~
-##  4 @      2382. 2431. 0fc618~ 0000    msajc~           183         183 Phon~
-##  5 I       812.  895. 0fc618~ 0000    msajc~           157         157 Phon~
-##  6 @      2356. 2402. 0fc618~ 0000    msajc~           181         181 Phon~
-##  7 @      2201. 2227. 0fc618~ 0000    msajc~           215         215 Phon~
-##  8 H      3027. 3046. 0fc618~ 0000    msajc~           228         228 Phon~
-##  9 @      1422. 1435. 0fc618~ 0000    msajc~           126         126 Phon~
-## 10 k      1705. 1775. 0fc618~ 0000    msajc~           131         131 Phon~
-## 11 On      476.  509. 0fc618~ 0000    msajc~           165         165 Phon~
-## 12 @      2407. 2448. 0fc618~ 0000    msajc~           198         198 Phon~
-## # ... with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
+##  1 E       950. 1032. 0fc618… 0000    msajc…           157         157 Phon…
+##  2 @      1715. 1741. 0fc618… 0000    msajc…           167         167 Phon…
+##  3 E      1437. 1515. 0fc618… 0000    msajc…           169         169 Phon…
+##  4 @      2382. 2431. 0fc618… 0000    msajc…           183         183 Phon…
+##  5 I       812.  895. 0fc618… 0000    msajc…           157         157 Phon…
+##  6 @      2356. 2402. 0fc618… 0000    msajc…           181         181 Phon…
+##  7 @      2201. 2227. 0fc618… 0000    msajc…           215         215 Phon…
+##  8 H      3027. 3046. 0fc618… 0000    msajc…           228         228 Phon…
+##  9 @      1422. 1435. 0fc618… 0000    msajc…           126         126 Phon…
+## 10 k      1705. 1775. 0fc618… 0000    msajc…           131         131 Phon…
+## 11 On      476.  509. 0fc618… 0000    msajc…           165         165 Phon…
+## 12 @      2407. 2448. 0fc618… 0000    msajc…           198         198 Phon…
+## # … with 7 more variables: attribute <chr>, start_item_seq_idx <int>,
 ## #   end_item_seq_idx <int>, type <chr>, sample_start <int>, sample_end <int>,
 ## #   sample_rate <int>
 ```
@@ -515,17 +515,17 @@ requery_hier(ae,
 ## # A tibble: 37 x 16
 ##    labels start   end db_uuid session bundle start_item_id end_item_id level
 ##    <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int> <chr>
-##  1 m->V-~  257.  674. 0fc618~ 0000    msajc~           148         153 Phon~
-##  2 @:      674.  740. 0fc618~ 0000    msajc~           154         154 Phon~
-##  3 f->r-~  740. 1289. 0fc618~ 0000    msajc~           155         159 Phon~
-##  4 s->I   1791. 1945. 0fc618~ 0000    msajc~           169         170 Phon~
-##  5 db->j~ 2034. 2284. 0fc618~ 0000    msajc~           173         175 Phon~
-##  6 f->j-~  572.  798. 0fc618~ 0000    msajc~           156         158 Phon~
-##  7 t->H-~  798. 1091. 0fc618~ 0000    msajc~           159         162 Phon~
-##  8 O->f   1222. 1391. 0fc618~ 0000    msajc~           166         167 Phon~
-##  9 E      1437. 1515. 0fc618~ 0000    msajc~           169         169 Phon~
-## 10 f->@:  1628. 1864. 0fc618~ 0000    msajc~           172         173 Phon~
-## # ... with 27 more rows, and 7 more variables: attribute <chr>,
+##  1 m->V-…  257.  674. 0fc618… 0000    msajc…           148         153 Phon…
+##  2 @:      674.  740. 0fc618… 0000    msajc…           154         154 Phon…
+##  3 f->r-…  740. 1289. 0fc618… 0000    msajc…           155         159 Phon…
+##  4 s->I   1791. 1945. 0fc618… 0000    msajc…           169         170 Phon…
+##  5 db->j… 2034. 2284. 0fc618… 0000    msajc…           173         175 Phon…
+##  6 f->j-…  572.  798. 0fc618… 0000    msajc…           156         158 Phon…
+##  7 t->H-…  798. 1091. 0fc618… 0000    msajc…           159         162 Phon…
+##  8 O->f   1222. 1391. 0fc618… 0000    msajc…           166         167 Phon…
+##  9 E      1437. 1515. 0fc618… 0000    msajc…           169         169 Phon…
+## 10 f->@:  1628. 1864. 0fc618… 0000    msajc…           172         173 Phon…
+## # … with 27 more rows, and 7 more variables: attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>
 ```

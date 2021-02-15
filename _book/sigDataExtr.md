@@ -67,17 +67,17 @@ ai_td_fm
 ## # A tibble: 183 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 15 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 15 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <int>, T2 <int>, T3 <int>, T4 <int>
@@ -102,20 +102,20 @@ ai_td_mfs
 ## # A tibble: 18,386 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 18,376 more rows, and 12 more variables: level <chr>,
-## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
-## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, T1 <int>
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 18,376 more rows, and 12 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, T1 <int>
 ```
 
 ## Adding new tracks
@@ -150,15 +150,15 @@ list_files(ae, fileExtension = "f0")
 
 ```
 ## # A tibble: 7 x 4
-##   session bundle   file     absolute_file_path                                  
-##   <chr>   <chr>    <chr>    <chr>                                               
-## 1 0000    msajc003 msajc00~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 2 0000    msajc010 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 3 0000    msajc012 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 4 0000    msajc015 msajc01~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 5 0000    msajc022 msajc02~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 6 0000    msajc023 msajc02~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 7 0000    msajc057 msajc05~ "C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
+##   session bundle   file      absolute_file_path                                 
+##   <chr>   <chr>    <chr>     <chr>                                              
+## 1 0000    msajc003 msajc003… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 2 0000    msajc010 msajc010… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 3 0000    msajc012 msajc012… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 4 0000    msajc015 msajc015… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 5 0000    msajc022 msajc022… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 6 0000    msajc023 msajc023… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 7 0000    msajc057 msajc057… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
 ```
 
 ```r
@@ -177,17 +177,17 @@ ai_td
 ## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
@@ -215,17 +215,17 @@ ai_td_pit
 ## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>
@@ -254,17 +254,17 @@ ai_td_pit
 ## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level <chr>, attribute <chr>,
 ## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
 ## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
 ## #   times_rel <dbl>, times_norm <dbl>, T1 <dbl>

@@ -223,21 +223,21 @@ sS.dftlong
 ## # A tibble: 5,397 x 23
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        <int> <chr>  <dbl> <dbl> <chr>   <chr>   <chr>          <int>       <int>
-##  1         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  2         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  3         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  4         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  5         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  6         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  7         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  8         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-##  9         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-## 10         1 s       483.  567. 0fc618~ 0000    msajc~           151         151
-## # ... with 5,387 more rows, and 14 more variables: level <chr>,
-## #   attribute <chr>, start_item_seq_idx <int>, end_item_seq_idx <int>,
-## #   type <chr>, sample_start <int>, sample_end <int>, sample_rate <int>,
-## #   times_orig <dbl>, times_rel <dbl>, times_norm <dbl>, track_name <chr>,
-## #   track_value <dbl>, freq <dbl>
+##  1         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  2         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  3         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  4         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  5         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  6         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  7         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  8         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+##  9         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+## 10         1 s       483.  567. 0fc618… 0000    msajc…           151         151
+## # … with 5,387 more rows, and 14 more variables: level <chr>, attribute <chr>,
+## #   start_item_seq_idx <int>, end_item_seq_idx <int>, type <chr>,
+## #   sample_start <int>, sample_end <int>, sample_rate <int>, times_orig <dbl>,
+## #   times_rel <dbl>, times_norm <dbl>, track_name <chr>, track_value <dbl>,
+## #   freq <dbl>
 ```
 
 So, instead of columns named T1, T2, ... Tn, we now have three other columns: 
@@ -523,7 +523,7 @@ sS.dctCoefficients
 ##  8 s             11  42.4  -9.84 -5.85 -0.190 -0.131 5.35 
 ##  9 s             13  46.4  -9.95 -7.75 -0.655  0.909 4.43 
 ## 10 s             15  48.0 -11.1  -7.09  0.728  0.608 2.54 
-## # ... with 11 more rows
+## # … with 11 more rows
 ```
 
 After this quite complicated procedure, we can finally have a look at the importance of the first three coefficients as far as the power to divide categories is concerned. Let do it in reverse order:
@@ -774,7 +774,7 @@ sS.moments
 ##  8 s             11   5653. 7033307.  -0.301  -0.845
 ##  9 s             13   5606. 6847687.  -0.258  -0.867
 ## 10 s             15   5653. 6923524.  -0.281  -0.868
-## # ... with 11 more rows
+## # … with 11 more rows
 ```
 
 
@@ -807,7 +807,7 @@ sS.moments
 ##  8 s             11   5688. 6938212.  -0.314  -0.816
 ##  9 s             13   5484. 7217595.  -0.215  -0.955
 ## 10 s             15   5551. 7211331.  -0.244  -0.941
-## # ... with 11 more rows
+## # … with 11 more rows
 ```
 
 We can now check, which of the moments could be good separators between [s] and [ʃ]:

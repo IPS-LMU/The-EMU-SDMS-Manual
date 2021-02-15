@@ -18,7 +18,7 @@ This document describes the following versions of the software components:
 
 - `wrassp`
     - Package version: 0.1.9
-    - Git tag name: 0.1.9 (on master branch)
+    - Git tag name: v1.0.0 (on master branch)
 
 - `emuR`
     - Package version: 2.1.1

@@ -232,8 +232,7 @@ order-of-result-segment-list
 additional-features
 app-chap:wrassp
 sec:app-chap-wrassp-praatsSigProc
-to-formant-burg...-to-ssff-files
-to-pitch...-to-ssff-files
+to-formant-burg-to-ssff-files
 sec:app-chap-wrassp-opensmileSigProc
 about
 recipe:spectralAnalysis
