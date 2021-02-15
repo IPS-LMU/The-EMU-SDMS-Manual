@@ -5,6 +5,8 @@ if (!require("speakr", character.only = TRUE)) {
   install.packages("speakr", dependences = TRUE)
 }
 
+library(speakr) # this is currently necessary to find the Praat executable
+
 #' Convert the output of a Praat procedure to a ASSP data object
 #'
 #' This function creates a Praat object from a sound file (available outputs:

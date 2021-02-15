@@ -63,8 +63,8 @@ list.files(path2bndl)
 ```
 
 ```
-## [1] "msajc003.dft"        "msajc003.fms"        "msajc003.wav"       
-## [4] "msajc003_annot.json"
+## [1] "msajc003_annot.json" "msajc003.dft"        "msajc003.fms"       
+## [4] "msajc003.wav"
 ```
 
 
@@ -103,7 +103,7 @@ au
 ```
 
 ```
-## Assp Data Object of file C:\Users\rapha\AppData\Local\Temp\Rtmp0gRJMh\emuR_demoData\ae_emuDB\0000_ses\msajc003_bndl\msajc003.wav.
+## Assp Data Object of file /tmp/RtmpObIFse/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav.
 ## Format: WAVE (binary)
 ## 58089 records at 20000 Hz
 ## Duration: 2.904450 s
@@ -158,7 +158,7 @@ attributes(au)
 ## [1] 20000
 ## 
 ## $filePath
-## [1] "C:\\Users\\rapha\\AppData\\Local\\Temp\\Rtmp0gRJMh\\emuR_demoData\\ae_emuDB\\0000_ses\\msajc003_bndl\\msajc003.wav"
+## [1] "/tmp/RtmpObIFse/emuR_demoData/ae_emuDB/0000_ses/msajc003_bndl/msajc003.wav"
 ## 
 ## $origFreq
 ## [1] 0
@@ -487,7 +487,7 @@ readLines(path2logFile)[1:8]
 ```
 ## [1] ""                                   "##################################"
 ## [3] "##################################" "######## ksvF0 performed ########" 
-## [5] "Timestamp:  2020-12-17 18:29:23 "   "windowShift : 10 "                 
+## [5] "Timestamp:  2021-02-15 17:14:05 "   "windowShift : 10 "                 
 ## [7] "forceToLog : T "                    " => on files:"
 ```
 

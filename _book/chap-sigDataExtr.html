@@ -32,6 +32,7 @@
   
 <link rel="prev" href="chap-querysys.html"/>
 <link rel="next" href="chap-wrassp.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,24 +50,21 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -86,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -132,24 +130,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
-<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a><ul>
+<li class="chapter" data-level="1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html"><i class="fa fa-check"></i><b>1</b> Installing the EMU-SDMS</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#version-disclaimer"><i class="fa fa-check"></i><b>1.1</b> Version disclaimer</a></li>
 <li class="chapter" data-level="1.2" data-path="installing-the-emu-sdms.html"><a href="installing-the-emu-sdms.html#for-developers-and-people-interested-in-the-source-code"><i class="fa fa-check"></i><b>1.2</b> For developers and people interested in the source code</a></li>
 </ul></li>
 <li class="part"><span><b>I Overview and tutorial</b></span></li>
-<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a><ul>
+<li class="chapter" data-level="2" data-path="chap-overview.html"><a href="chap-overview.html"><i class="fa fa-check"></i><b>2</b> An overview of the EMU-SDMS</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="chap-overview.html"><a href="chap-overview.html#the-evolution-of-the-emu-sdms"><i class="fa fa-check"></i><b>2.1</b> The evolution of the EMU-SDMS</a></li>
 <li class="chapter" data-level="2.2" data-path="chap-overview.html"><a href="chap-overview.html#sec:overview-sysArch"><i class="fa fa-check"></i><b>2.2</b> EMU-SDMS: System architecture and default workflow</a></li>
 <li class="chapter" data-level="2.3" data-path="chap-overview.html"><a href="chap-overview.html#emu-sdms-is-it-something-for-you"><i class="fa fa-check"></i><b>2.3</b> EMU-SDMS: Is it something for you?</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a><ul>
+<li class="chapter" data-level="3" data-path="chap-tutorial.html"><a href="chap-tutorial.html"><i class="fa fa-check"></i><b>3</b> A tutorial on how to use the EMU-SDMS</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#converting-the-textgrid-collection"><i class="fa fa-check"></i><b>3.1</b> Converting the TextGrid collection</a></li>
-<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.2</b> Loading and inspecting the database</a><ul>
+<li class="chapter" data-level="3.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#loading-and-inspecting-the-database"><i class="fa fa-check"></i><b>3.2</b> Loading and inspecting the database</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#overview"><i class="fa fa-check"></i><b>3.2.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2.2" data-path="chap-tutorial.html"><a href="chap-tutorial.html#database-annotation-and-visual-inspection"><i class="fa fa-check"></i><b>3.2.2</b> Database annotation and visual inspection</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-and-autobuilding-the-annotation-structure"><i class="fa fa-check"></i><b>3.3</b> Querying and autobuilding the annotation structure</a></li>
-<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.4</b> Autobuilding</a><ul>
+<li class="chapter" data-level="3.4" data-path="chap-tutorial.html"><a href="chap-tutorial.html#autobuilding"><i class="fa fa-check"></i><b>3.4</b> Autobuilding</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="chap-tutorial.html"><a href="chap-tutorial.html#querying-the-hierarchical-annotations"><i class="fa fa-check"></i><b>3.4.1</b> Querying the hierarchical annotations</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="chap-tutorial.html"><a href="chap-tutorial.html#section:tutorial-sigExtrAndExpl"><i class="fa fa-check"></i><b>3.5</b> Signal extraction and exploration</a></li>
@@ -157,15 +160,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="chap-tutorial.html"><a href="chap-tutorial.html#conclusion"><i class="fa fa-check"></i><b>3.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>II Main components and concepts</b></span></li>
-<li class="chapter" data-level="4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html"><i class="fa fa-check"></i><b>4</b> Annotation Structure Modeling</a><ul>
+<li class="chapter" data-level="4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html"><i class="fa fa-check"></i><b>4</b> Annotation Structure Modeling</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#per-database-annotation-structure-definition"><i class="fa fa-check"></i><b>4.1</b> Per database annotation structure definition</a></li>
 <li class="chapter" data-level="4.2" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#parallel-labels-and-multiple-attributes"><i class="fa fa-check"></i><b>4.2</b> Parallel labels and multiple attributes</a></li>
 <li class="chapter" data-level="4.3" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#metadata-strategy-using-single-bundle-root-nodes"><i class="fa fa-check"></i><b>4.3</b> Metadata strategy using single bundle root nodes</a></li>
 <li class="chapter" data-level="4.4" data-path="chap-annot-struct-mod.html"><a href="chap-annot-struct-mod.html#conclusion-1"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chap-emuDB.html"><a href="chap-emuDB.html"><i class="fa fa-check"></i><b>5</b> The <code>emuDB</code> Format</a><ul>
+<li class="chapter" data-level="5" data-path="chap-emuDB.html"><a href="chap-emuDB.html"><i class="fa fa-check"></i><b>5</b> The <code>emuDB</code> Format</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#database-design"><i class="fa fa-check"></i><b>5.1</b> Database design</a></li>
-<li class="chapter" data-level="5.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb"><i class="fa fa-check"></i><b>5.2</b> Creating an <code>emuDB</code></a><ul>
+<li class="chapter" data-level="5.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb"><i class="fa fa-check"></i><b>5.2</b> Creating an <code>emuDB</code></a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="chap-emuDB.html"><a href="chap-emuDB.html#creating-an-emudb-from-scratch"><i class="fa fa-check"></i><b>5.2.1</b> Creating an <code>emuDB</code> from scratch</a></li>
 <li class="chapter" data-level="5.2.2" data-path="chap-emuDB.html"><a href="chap-emuDB.html#loading-and-editing-an-empty-database"><i class="fa fa-check"></i><b>5.2.2</b> Loading and editing an empty database</a></li>
 <li class="chapter" data-level="5.2.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#level-definitions"><i class="fa fa-check"></i><b>5.2.3</b> Level definitions</a></li>
@@ -176,9 +182,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="chap-emuDB.html"><a href="chap-emuDB.html#conclusion-2"><i class="fa fa-check"></i><b>5.3</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a><ul>
+<li class="chapter" data-level="6" data-path="chap-querysys.html"><a href="chap-querysys.html"><i class="fa fa-check"></i><b>6</b> The query system</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="chap-querysys.html"><a href="chap-querysys.html#sec:query-emuRsegs"><i class="fa fa-check"></i><b>6.1</b> The resulting object of a query</a></li>
-<li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a><ul>
+<li class="chapter" data-level="6.2" data-path="chap-querysys.html"><a href="chap-querysys.html#eql-the-emu-query-language-version-2"><i class="fa fa-check"></i><b>6.2</b> <code>EQL</code>: The EMU Query Language version 2</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="chap-querysys.html"><a href="chap-querysys.html#simple-queries"><i class="fa fa-check"></i><b>6.2.1</b> Simple queries</a></li>
 <li class="chapter" data-level="6.2.2" data-path="chap-querysys.html"><a href="chap-querysys.html#combining-simple-queries"><i class="fa fa-check"></i><b>6.2.2</b> Combining simple queries</a></li>
 <li class="chapter" data-level="6.2.3" data-path="chap-querysys.html"><a href="chap-querysys.html#subsec:query-positionQueries"><i class="fa fa-check"></i><b>6.2.3</b> Position queries</a></li>
@@ -189,19 +197,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="chap-querysys.html"><a href="chap-querysys.html#discussion"><i class="fa fa-check"></i><b>6.3</b> Discussion</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html"><i class="fa fa-check"></i><b>7</b> Signal data extraction</a><ul>
+<li class="chapter" data-level="7" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html"><i class="fa fa-check"></i><b>7</b> Signal data extraction</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#extracting-pre-defined-tracks"><i class="fa fa-check"></i><b>7.1</b> Extracting pre-defined tracks</a></li>
 <li class="chapter" data-level="7.2" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#adding-new-tracks"><i class="fa fa-check"></i><b>7.2</b> Adding new tracks</a></li>
 <li class="chapter" data-level="7.3" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#calculating-tracks-on-the-fly"><i class="fa fa-check"></i><b>7.3</b> Calculating tracks on-the-fly</a></li>
 <li class="chapter" data-level="7.4" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#the-resulting-object-tibble"><i class="fa fa-check"></i><b>7.4</b> The resulting object: <code>tibble</code></a></li>
 <li class="chapter" data-level="7.5" data-path="chap-sigDataExtr.html"><a href="chap-sigDataExtr.html#conclusion-3"><i class="fa fa-check"></i><b>7.5</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a><ul>
+<li class="chapter" data-level="8" data-path="chap-wrassp.html"><a href="chap-wrassp.html"><i class="fa fa-check"></i><b>8</b> The R package <code>wrassp</code></a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#introduction"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
 <li class="chapter" data-level="8.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#file-i0-and-the-asspdataobj"><i class="fa fa-check"></i><b>8.2</b> File I/0 and the <code>AsspDataObj</code></a></li>
 <li class="chapter" data-level="8.3" data-path="chap-wrassp.html"><a href="chap-wrassp.html#signal-processing"><i class="fa fa-check"></i><b>8.3</b> Signal processing</a></li>
 <li class="chapter" data-level="8.4" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-wrasspOutputInfos"><i class="fa fa-check"></i><b>8.4</b> The <code>wrasspOutputInfos</code> object</a></li>
-<li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a><ul>
+<li class="chapter" data-level="8.5" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-formants"><i class="fa fa-check"></i><b>8.5</b> Formants and their bandwidths</a>
+<ul>
 <li class="chapter" data-level="8.5.1" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-f0"><i class="fa fa-check"></i><b>8.5.1</b> Fundamental frequency contour</a></li>
 <li class="chapter" data-level="8.5.2" data-path="chap-wrassp.html"><a href="chap-wrassp.html#subsec:wrassp-RMS"><i class="fa fa-check"></i><b>8.5.2</b> RMS energy contour</a></li>
 </ul></li>
@@ -210,13 +221,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.8" data-path="chap-wrassp.html"><a href="chap-wrassp.html#sec:wrassp-genSSFF"><i class="fa fa-check"></i><b>8.8</b> Storing data in the SSFF file format</a></li>
 <li class="chapter" data-level="8.9" data-path="chap-wrassp.html"><a href="chap-wrassp.html#conclusion-4"><i class="fa fa-check"></i><b>8.9</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html"><i class="fa fa-check"></i><b>9</b> The <code>EMU-webApp</code></a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:emu-webApp-mainLayout"><i class="fa fa-check"></i><b>9.1</b> Main layout</a></li>
-<li class="chapter" data-level="9.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:webApp-generalUsage"><i class="fa fa-check"></i><b>9.2</b> General usage</a><ul>
+<li class="chapter" data-level="9.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#sec:webApp-generalUsage"><i class="fa fa-check"></i><b>9.2</b> General usage</a>
+<ul>
 <li class="chapter" data-level="9.2.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#annotating-levels-containing-time-information"><i class="fa fa-check"></i><b>9.2.1</b> Annotating levels containing time information</a></li>
 <li class="chapter" data-level="9.2.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#working-with-hierarchical-annotations-2-chapemu-webapp"><i class="fa fa-check"></i><b>9.2.2</b> Working with hierarchical annotations</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#configuring-the-emu-webapp"><i class="fa fa-check"></i><b>9.3</b> Configuring the <code>EMU-webApp</code></a><ul>
+<li class="chapter" data-level="9.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#configuring-the-emu-webapp"><i class="fa fa-check"></i><b>9.3</b> Configuring the <code>EMU-webApp</code></a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppConfigWithEmuR"><i class="fa fa-check"></i><b>9.3.1</b> Basic configurations using <code>emuR</code></a></li>
 <li class="chapter" data-level="9.3.2" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#signal-canvas-and-level-canvas-order"><i class="fa fa-check"></i><b>9.3.2</b> Signal canvas and level canvas order</a></li>
 <li class="chapter" data-level="9.3.3" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#subsec:emu-webAppAdvancedConfig"><i class="fa fa-check"></i><b>9.3.3</b> Advanced configurations made by editing the <code>_DBconfig.json</code></a></li>
@@ -225,8 +239,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="chap-emu-webApp.html"><a href="chap-emu-webApp.html#conclusion-5"><i class="fa fa-check"></i><b>9.4</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>III Main <code>emuR</code> function and object index</b></span></li>
-<li class="chapter" data-level="10" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html"><i class="fa fa-check"></i><b>10</b> <code>emuR</code> - package functions</a><ul>
-<li class="chapter" data-level="10.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-importRoutines"><i class="fa fa-check"></i><b>10.1</b> Import and conversion routines</a><ul>
+<li class="chapter" data-level="10" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html"><i class="fa fa-check"></i><b>10</b> <code>emuR</code> - package functions</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#sec:emuRpackageDetails-importRoutines"><i class="fa fa-check"></i><b>10.1</b> Import and conversion routines</a>
+<ul>
 <li class="chapter" data-level="10.1.1" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#legacy-emu-databases"><i class="fa fa-check"></i><b>10.1.1</b> Legacy EMU databases</a></li>
 <li class="chapter" data-level="10.1.2" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#textgrid-collections"><i class="fa fa-check"></i><b>10.1.2</b> TextGrid collections</a></li>
 <li class="chapter" data-level="10.1.3" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#bpf-collections"><i class="fa fa-check"></i><b>10.1.3</b> BPF collections</a></li>
@@ -240,16 +256,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.7" data-path="chap-emuRpackageDetails.html"><a href="chap-emuRpackageDetails.html#conclusion-6"><i class="fa fa-check"></i><b>10.7</b> Conclusion</a></li>
 </ul></li>
 <li class="part"><span><b>IV Implementation</b></span></li>
-<li class="chapter" data-level="11" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html"><i class="fa fa-check"></i><b>11</b> Implementation of the query system</a><ul>
+<li class="chapter" data-level="11" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html"><i class="fa fa-check"></i><b>11</b> Implementation of the query system</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#sec:query-queryExpressionParser"><i class="fa fa-check"></i><b>11.1</b> Query expression parser</a></li>
 <li class="chapter" data-level="11.2" data-path="chap-querysys-impl.html"><a href="chap-querysys-impl.html#subsec:query-redundantLinks"><i class="fa fa-check"></i><b>11.2</b> Redundant links</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html"><i class="fa fa-check"></i><b>12</b> <code>wrassp</code> implementation</a><ul>
+<li class="chapter" data-level="12" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html"><i class="fa fa-check"></i><b>12</b> <code>wrassp</code> implementation</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="chap-wrassp-impl.html"><a href="chap-wrassp-impl.html#the-libassp-port"><i class="fa fa-check"></i><b>12.1</b> The <code>libassp</code> port</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html"><i class="fa fa-check"></i><b>13</b> <code>EMU-webApp</code> implementation</a><ul>
+<li class="chapter" data-level="13" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html"><i class="fa fa-check"></i><b>13</b> <code>EMU-webApp</code> implementation</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#subsec:emu-webAppTheProtocol"><i class="fa fa-check"></i><b>13.1</b> Communication protocol</a></li>
-<li class="chapter" data-level="13.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#url-parameters"><i class="fa fa-check"></i><b>13.2</b> URL parameters</a><ul>
+<li class="chapter" data-level="13.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#url-parameters"><i class="fa fa-check"></i><b>13.2</b> URL parameters</a>
+<ul>
 <li class="chapter" data-level="13.2.1" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#websocket-server-parameters"><i class="fa fa-check"></i><b>13.2.1</b> Websocket server parameters</a></li>
 <li class="chapter" data-level="13.2.2" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#examples"><i class="fa fa-check"></i><b>13.2.2</b> Examples</a></li>
 <li class="chapter" data-level="13.2.3" data-path="chap-emu-webAppImplementation.html"><a href="chap-emu-webAppImplementation.html#label-file-preview-parameters"><i class="fa fa-check"></i><b>13.2.3</b> Label file preview parameters</a></li>
@@ -257,28 +277,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>V Appendices</b></span></li>
-<li class="chapter" data-level="14" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html"><i class="fa fa-check"></i><b>14</b> Use cases</a><ul>
+<li class="chapter" data-level="14" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html"><i class="fa fa-check"></i><b>14</b> Use cases</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q1"><i class="fa fa-check"></i><b>14.1</b> What is the average length of all <em>n</em> phonetic segments in the <em>ae</em> <code>emuDB</code>?</a></li>
 <li class="chapter" data-level="14.2" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q2"><i class="fa fa-check"></i><b>14.2</b> What does the F1 and F2 distribution of all phonetic segments that contain the labels <em>I</em>, <em>o:</em>, <em>u:</em>, <em>V</em> or <em>@</em> look like?</a></li>
 <li class="chapter" data-level="14.3" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q3"><i class="fa fa-check"></i><b>14.3</b> What words do the phonetic segments that carry the labels <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> occur in and what is their phonetic context?</a></li>
-<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a><ul>
+<li class="chapter" data-level="14.4" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#sec:app-chap-useCases-q4"><i class="fa fa-check"></i><b>14.4</b> Do the phonetic segments labeled <em>s</em>, <em>z</em>, <em>S</em> or <em>Z</em> in the <em>ae</em> <code>emuDB</code> differ with respect to their first spectral moment?\footnote{The original version of this use case was written by Florian Schiel as part of the <code>emuR_intro</code> vignette that is part of the <code>emuR</code> package.</a>
+<ul>
 <li class="chapter" data-level="14.4.1" data-path="app-chap-useCases.html"><a href="app-chap-useCases.html#note-see-refrecipespectralanalysis-for-more-up-to-date-methods-of-performing-spectral-analysis"><i class="fa fa-check"></i><b>14.4.1</b> NOTE: See @ref(recipe:spectralAnalysis) for more up to date methods of performing spectral analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a><ul>
-<li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a><ul>
+<li class="chapter" data-level="15" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html"><i class="fa fa-check"></i><b>15</b> File Formats</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#file-descriptions"><i class="fa fa-check"></i><b>15.1</b> File descriptions</a>
+<ul>
 <li class="chapter" data-level="15.1.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsDBconfig"><i class="fa fa-check"></i><b>15.1.1</b> <code>_DBconfig.json</code></a></li>
 <li class="chapter" data-level="15.1.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsAnnotJSON"><i class="fa fa-check"></i><b>15.1.2</b> <code>_annot.json</code></a></li>
 <li class="chapter" data-level="15.1.3" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapFileFormatsSSFF"><i class="fa fa-check"></i><b>15.1.3</b> The SSFF file format</a></li>
 </ul></li>
-<li class="chapter" data-level="15.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#example-files"><i class="fa fa-check"></i><b>15.2</b> Example files</a><ul>
+<li class="chapter" data-level="15.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#example-files"><i class="fa fa-check"></i><b>15.2</b> Example files</a>
+<ul>
 <li class="chapter" data-level="15.2.1" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBundleList"><i class="fa fa-check"></i><b>15.2.1</b> <code>_bundleList.json</code></a></li>
 <li class="chapter" data-level="15.2.2" data-path="app-chap-fileFormats.html"><a href="app-chap-fileFormats.html#subsec:app-chapExampleFilesBndlJSON"><i class="fa fa-check"></i><b>15.2.2</b> <code>_bndl.json</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html"><i class="fa fa-check"></i><b>16</b> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a><ul>
+<li class="chapter" data-level="16" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html"><i class="fa fa-check"></i><b>16</b> The <code>EMU-webApp-websocket-protocol</code> Version 2.0</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-overview"><i class="fa fa-check"></i><b>16.1</b> Protocol overview</a></li>
-<li class="chapter" data-level="16.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-commands"><i class="fa fa-check"></i><b>16.2</b> Protocol commands</a><ul>
+<li class="chapter" data-level="16.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#protocol-commands"><i class="fa fa-check"></i><b>16.2</b> Protocol commands</a>
+<ul>
 <li class="chapter" data-level="16.2.1" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getprotocol"><i class="fa fa-check"></i><b>16.2.1</b> <code>GETPROTOCOL</code></a></li>
 <li class="chapter" data-level="16.2.2" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#getdousermanagement"><i class="fa fa-check"></i><b>16.2.2</b> <code>GETDOUSERMANAGEMENT</code></a></li>
 <li class="chapter" data-level="16.2.3" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#logonuser"><i class="fa fa-check"></i><b>16.2.3</b> <code>LOGONUSER</code></a></li>
@@ -290,42 +317,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.2.9" data-path="app-chap-wsProtocol.html"><a href="app-chap-wsProtocol.html#error-handling"><i class="fa fa-check"></i><b>16.2.9</b> Error handling</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html"><i class="fa fa-check"></i><b>17</b> EQL EBNF</a><ul>
+<li class="chapter" data-level="17" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html"><i class="fa fa-check"></i><b>17</b> EQL EBNF</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-operators-and-their-meaning"><i class="fa fa-check"></i><b>17.1</b> Terminal symbols of EQL2 (operators) and their meaning</a></li>
 <li class="chapter" data-level="17.2" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-brackets-and-their-meanings."><i class="fa fa-check"></i><b>17.2</b> Terminal symbols of EQL2 (brackets) and their meanings.</a></li>
 <li class="chapter" data-level="17.3" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#terminal-symbols-of-eql2-functions-and-their-meanings."><i class="fa fa-check"></i><b>17.3</b> Terminal symbols of EQL2 (functions) and their meanings.</a></li>
 <li class="chapter" data-level="17.4" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#formal-description-of-emu-query-language-version-2"><i class="fa fa-check"></i><b>17.4</b> Formal description of EMU Query Language Version 2</a></li>
 <li class="chapter" data-level="17.5" data-path="app-chap-EQL-EBNF.html"><a href="app-chap-EQL-EBNF.html#restrictions"><i class="fa fa-check"></i><b>17.5</b> Restrictions</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="app-chap-eql.html"><a href="app-chap-eql.html"><i class="fa fa-check"></i><b>18</b> EQL: further examples</a><ul>
+<li class="chapter" data-level="18" data-path="app-chap-eql.html"><a href="app-chap-eql.html"><i class="fa fa-check"></i><b>18</b> EQL: further examples</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-equality-inequality-matching-non-matching-queries-single-argument"><i class="fa fa-check"></i><b>18.1</b> Simple equality, inequality, matching and non-matching queries (single-argument)</a></li>
 <li class="chapter" data-level="18.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#sequence-queries-using-the---sequence-operator"><i class="fa fa-check"></i><b>18.2</b> Sequence queries using the -&gt; sequence operator</a></li>
 <li class="chapter" data-level="18.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#subsequent-sequence-queries-using-nesting-of-the---sequence-operator"><i class="fa fa-check"></i><b>18.3</b> Subsequent sequence queries using nesting of the <code>-&gt;</code> sequence operator</a></li>
 <li class="chapter" data-level="18.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#conjunction-operator"><i class="fa fa-check"></i><b>18.4</b> Conjunction operator &amp;</a></li>
-<li class="chapter" data-level="18.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#domination-operator-hierarchical-queries"><i class="fa fa-check"></i><b>18.5</b> Domination operator ^ (hierarchical queries)</a><ul>
+<li class="chapter" data-level="18.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#domination-operator-hierarchical-queries"><i class="fa fa-check"></i><b>18.5</b> Domination operator ^ (hierarchical queries)</a>
+<ul>
 <li class="chapter" data-level="18.5.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-domination"><i class="fa fa-check"></i><b>18.5.1</b> Simple domination</a></li>
 <li class="chapter" data-level="18.5.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#multiple-domination"><i class="fa fa-check"></i><b>18.5.2</b> Multiple domination</a></li>
 </ul></li>
-<li class="chapter" data-level="18.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position"><i class="fa fa-check"></i><b>18.6</b> Position</a><ul>
+<li class="chapter" data-level="18.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position"><i class="fa fa-check"></i><b>18.6</b> Position</a>
+<ul>
 <li class="chapter" data-level="18.6.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#simple-usage-of-start-end-and-medial"><i class="fa fa-check"></i><b>18.6.1</b> Simple usage of <code>Start()</code>, <code>End()</code> and <code>Medial()</code></a></li>
 <li class="chapter" data-level="18.6.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean"><i class="fa fa-check"></i><b>18.6.2</b> Position and boolean &amp;</a></li>
 <li class="chapter" data-level="18.6.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#position-and-boolean-1"><i class="fa fa-check"></i><b>18.6.3</b> Position and boolean ^</a></li>
 <li class="chapter" data-level="18.6.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and-boolean"><i class="fa fa-check"></i><b>18.6.4</b> Count and boolean <code>&amp;</code></a></li>
 <li class="chapter" data-level="18.6.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#count-and"><i class="fa fa-check"></i><b>18.6.5</b> Count and ^</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="app-chap-eql.html"><a href="app-chap-eql.html#combinations"><i class="fa fa-check"></i><b>18.7</b> Combinations</a><ul>
+<li class="chapter" data-level="18.7" data-path="app-chap-eql.html"><a href="app-chap-eql.html#combinations"><i class="fa fa-check"></i><b>18.7</b> Combinations</a>
+<ul>
 <li class="chapter" data-level="18.7.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---domination-and-sequence"><i class="fa fa-check"></i><b>18.7.1</b> ^ and -&gt; (domination and sequence)</a></li>
 <li class="chapter" data-level="18.7.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#and---and-domination-and-sequence-and-boolean"><i class="fa fa-check"></i><b>18.7.2</b> ^ and -&gt; and &amp; (domination and sequence and boolean &amp;)</a></li>
 </ul></li>
 <li class="chapter" data-level="18.8" data-path="app-chap-eql.html"><a href="app-chap-eql.html#a-few-more-questions-and-answers"><i class="fa fa-check"></i><b>18.8</b> A few more questions and answers</a></li>
-<li class="chapter" data-level="18.9" data-path="app-chap-eql.html"><a href="app-chap-eql.html#differences-to-the-legacy-emu-query-language"><i class="fa fa-check"></i><b>18.9</b> Differences to the legacy EMU query language</a><ul>
+<li class="chapter" data-level="18.9" data-path="app-chap-eql.html"><a href="app-chap-eql.html#differences-to-the-legacy-emu-query-language"><i class="fa fa-check"></i><b>18.9</b> Differences to the legacy EMU query language</a>
+<ul>
 <li class="chapter" data-level="18.9.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#function-call-syntax"><i class="fa fa-check"></i><b>18.9.1</b> Function call syntax</a></li>
 <li class="chapter" data-level="18.9.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#empty-result"><i class="fa fa-check"></i><b>18.9.2</b> Empty result</a></li>
 <li class="chapter" data-level="18.9.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#the-result-modifier-hash-tag"><i class="fa fa-check"></i><b>18.9.3</b> The result modifier hash tag <code>#</code></a></li>
 <li class="chapter" data-level="18.9.4" data-path="app-chap-eql.html"><a href="app-chap-eql.html#interpretation-of-the-hash-tag-in-conjunction-operator-queries"><i class="fa fa-check"></i><b>18.9.4</b> Interpretation of the hash tag <code>#</code> in conjunction operator queries</a></li>
 <li class="chapter" data-level="18.9.5" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu"><i class="fa fa-check"></i><b>18.9.5</b> legacy EMU</a></li>
 </ul></li>
-<li class="chapter" data-level="18.10" data-path="app-chap-eql.html"><a href="app-chap-eql.html#bugs-in-legacy-emu-function-emu.query"><i class="fa fa-check"></i><b>18.10</b> Bugs in legacy EMU function <code>emu.query()</code></a><ul>
+<li class="chapter" data-level="18.10" data-path="app-chap-eql.html"><a href="app-chap-eql.html#bugs-in-legacy-emu-function-emu.query"><i class="fa fa-check"></i><b>18.10</b> Bugs in legacy EMU function <code>emu.query()</code></a>
+<ul>
 <li class="chapter" data-level="18.10.1" data-path="app-chap-eql.html"><a href="app-chap-eql.html#alternative-labels-in-inequality-queries"><i class="fa fa-check"></i><b>18.10.1</b> Alternative labels in inequality queries</a></li>
 <li class="chapter" data-level="18.10.2" data-path="app-chap-eql.html"><a href="app-chap-eql.html#legacy-emu-1"><i class="fa fa-check"></i><b>18.10.2</b> legacy EMU</a></li>
 <li class="chapter" data-level="18.10.3" data-path="app-chap-eql.html"><a href="app-chap-eql.html#emur-1"><i class="fa fa-check"></i><b>18.10.3</b> emuR</a></li>
@@ -334,33 +368,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.10.6" data-path="app-chap-eql.html"><a href="app-chap-eql.html#additional-features"><i class="fa fa-check"></i><b>18.10.6</b> Additional features</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a><ul>
-<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a><ul>
-<li class="chapter" data-level="19.1.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-formant-burg...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.1</b> <code>To Formant (burg)...</code> to SSFF files</a></li>
-<li class="chapter" data-level="19.1.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-pitch...-to-ssff-files"><i class="fa fa-check"></i><b>19.1.2</b> <code>To Pitch...</code> to SSFF files</a></li>
+<li class="chapter" data-level="19" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html"><i class="fa fa-check"></i><b>19</b> <code>wrassp</code></a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-praatsSigProc"><i class="fa fa-check"></i><b>19.1</b> Using Praat’s signal processing routines in the EMU-SDMS</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#to-formant-burg-to-ssff-files"><i class="fa fa-check"></i><b>19.1.1</b> <code>To Formant (burg)</code> to SSFF files</a></li>
 </ul></li>
 <li class="chapter" data-level="19.2" data-path="app-chap-wrassp.html"><a href="app-chap-wrassp.html#sec:app-chap-wrassp-opensmileSigProc"><i class="fa fa-check"></i><b>19.2</b> Using OpenSMILE signal processing routines in the EMU-SDMS</a></li>
 </ul></li>
 <li class="part"><span><b>VI Recipes</b></span></li>
 <li class="chapter" data-level="20" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>20</b> About</a></li>
-<li class="chapter" data-level="21" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a><ul>
+<li class="chapter" data-level="21" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html"><i class="fa fa-check"></i><b>21</b> Spectral analysis</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#how-to-quantify-differences-between-spectra"><i class="fa fa-check"></i><b>21.1</b> How to quantify differences between spectra?</a></li>
 <li class="chapter" data-level="21.2" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#discrete-cosine-transform-dct"><i class="fa fa-check"></i><b>21.2</b> Discrete Cosine Transform (DCT)</a></li>
-<li class="chapter" data-level="21.3" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a><ul>
+<li class="chapter" data-level="21.3" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#dct-coefficients"><i class="fa fa-check"></i><b>21.3</b> DCT coefficients</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#p.s.-use-dct-in-order-to-smooth-formant-trajectories"><i class="fa fa-check"></i><b>21.3.1</b> P.S.: Use DCT in order to smooth formant trajectories</a></li>
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="recipe-spectralAnalysis.html"><a href="recipe-spectralAnalysis.html#spectral-moments"><i class="fa fa-check"></i><b>21.4</b> Spectral moments</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a><ul>
+<li class="chapter" data-level="22" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html"><i class="fa fa-check"></i><b>22</b> Plotting snippets</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#formant-trajectory-plots-equivalent-to-the-legacy-dplot...-normalise-tf-average-tf..."><i class="fa fa-check"></i><b>22.1</b> Formant trajectory plots (equivalent to the legacy <code>dplot(..., normalise = T/F, average = T/F,...)</code>)</a></li>
 <li class="chapter" data-level="22.2" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plots-equivalent-to-the-legacy-eplot...-dopoints-tf-doellipse-tf-centroid-tf-..."><i class="fa fa-check"></i><b>22.2</b> F1/F2 plots (equivalent to the legacy <code>eplot(..., dopoints = T/F, doellipse = T/F, centroid = T/F, ...)</code>)</a></li>
 <li class="chapter" data-level="22.3" data-path="recipe-plottingSnippets.html"><a href="recipe-plottingSnippets.html#f1f2-plot-separated-by-speaker"><i class="fa fa-check"></i><b>22.3</b> F1/F2 plot separated by speaker</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs including collaborative annotation with Git and GitLab</a><ul>
-<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a><ul>
+<li class="chapter" data-level="23" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><i class="fa fa-check"></i><b>23</b> Version control of emuDBs including collaborative annotation with Git and GitLab</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#setup"><i class="fa fa-check"></i><b>23.1</b> Setup</a>
+<ul>
 <li class="chapter" data-level="23.1.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#using-gitlab-to-host-the-emudb"><i class="fa fa-check"></i><b>23.1.1</b> Using GitLab to host the emuDB</a></li>
 </ul></li>
-<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a><ul>
+<li class="chapter" data-level="23.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#collaborating-with-others"><i class="fa fa-check"></i><b>23.2</b> Collaborating with others</a>
+<ul>
 <li class="chapter" data-level="23.2.1" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#default-work-flow"><i class="fa fa-check"></i><b>23.2.1</b> Default work-flow</a></li>
 <li class="chapter" data-level="23.2.2" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#assigning-bundles-to-annotators"><i class="fa fa-check"></i><b>23.2.2</b> Assigning bundles to annotators</a></li>
 <li class="chapter" data-level="23.2.3" data-path="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html"><a href="version-control-of-emudbs-including-collaborative-annotation-with-git-and-gitlab.html#pointing-the-emu-webapp-to-the-gitlab-repository"><i class="fa fa-check"></i><b>23.2.3</b> Pointing the EMU-webApp to the GitLab repository</a></li>
@@ -385,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap:sigDataExtr" class="section level1">
+<div id="chap:sigDataExtr" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Signal data extraction<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a></h1>
 <p><img src="pics/EMU-webAppEmu_sigDataExtr.png" width="65%" style="display: block; margin: auto;" /></p>
 <p>As mentioned in the default workflow of Chapter <a href="chap-overview.html#chap:overview">2</a>, after querying the symbolic annotation structure and dereferencing its time information, the result is a set of items with associated time stamps. It was necessary that the <code>emuR</code> package contain a mechanism for extracting signal data corresponding to this set of items. As illustrated in Chapter <a href="chap-wrassp.html#chap:wrassp">8</a>, <code>wrassp</code> provides the R ecosystem with signal data file handling capabilities as well as numerous signal processing routines. <code>emuR</code> can use this functionality to either obtain pre-stored signal data or calculate derived signal data that correspond to the result of a query. Figure <a href="chap-sigDataExtr.html#fig:sigDataExtr">7.1</a>A shows a snippet of speech with overlaid annotations where the resulting <code>SEGMENT</code> of an example query (e.g., <code>"Phonetic == ai"</code>) is highlighted in yellow. Figure <a href="chap-sigDataExtr.html#fig:sigDataExtr">7.1</a>B displays a time parallel derived signal data contour as would be returned by one of <code>wrassp</code>’s file handling or signal processing routines. The yellow segment in Figure <a href="chap-sigDataExtr.html#fig:sigDataExtr">7.1</a>B marks the corresponding samples that belong to the <code>ai</code> segment of Figure <a href="chap-sigDataExtr.html#fig:sigDataExtr">7.1</a>A.</p>
@@ -396,212 +437,206 @@ Figure 7.1: Segment of speech with overlaid annotations and time parallel derive
 </p>
 </div>
 <p>The R code snippet below shows how to create the demo data that will be used throughout this chapter.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="chap-sigDataExtr.html#cb134-1"></a><span class="co"># load the package</span></span>
-<span id="cb134-2"><a href="chap-sigDataExtr.html#cb134-2"></a><span class="kw">library</span>(emuR)</span>
-<span id="cb134-3"><a href="chap-sigDataExtr.html#cb134-3"></a></span>
-<span id="cb134-4"><a href="chap-sigDataExtr.html#cb134-4"></a><span class="co"># create demo data in directory provided by the tempdir() function</span></span>
-<span id="cb134-5"><a href="chap-sigDataExtr.html#cb134-5"></a><span class="kw">create_emuRdemoData</span>(<span class="dt">dir =</span> <span class="kw">tempdir</span>())</span>
-<span id="cb134-6"><a href="chap-sigDataExtr.html#cb134-6"></a></span>
-<span id="cb134-7"><a href="chap-sigDataExtr.html#cb134-7"></a><span class="co"># get the path to a emuDB called &quot;ae&quot; that is part of the demo data</span></span>
-<span id="cb134-8"><a href="chap-sigDataExtr.html#cb134-8"></a>path2directory =<span class="st"> </span><span class="kw">file.path</span>(<span class="kw">tempdir</span>(), </span>
-<span id="cb134-9"><a href="chap-sigDataExtr.html#cb134-9"></a>                           <span class="st">&quot;emuR_demoData&quot;</span>, </span>
-<span id="cb134-10"><a href="chap-sigDataExtr.html#cb134-10"></a>                           <span class="st">&quot;ae_emuDB&quot;</span>)</span>
-<span id="cb134-11"><a href="chap-sigDataExtr.html#cb134-11"></a></span>
-<span id="cb134-12"><a href="chap-sigDataExtr.html#cb134-12"></a><span class="co"># load emuDB into current R session</span></span>
-<span id="cb134-13"><a href="chap-sigDataExtr.html#cb134-13"></a>ae =<span class="st"> </span><span class="kw">load_emuDB</span>(path2directory)</span></code></pre></div>
-<div id="extracting-pre-defined-tracks" class="section level2">
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="chap-sigDataExtr.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the package</span></span>
+<span id="cb134-2"><a href="chap-sigDataExtr.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emuR)</span>
+<span id="cb134-3"><a href="chap-sigDataExtr.html#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="chap-sigDataExtr.html#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create demo data in directory provided by the tempdir() function</span></span>
+<span id="cb134-5"><a href="chap-sigDataExtr.html#cb134-5" aria-hidden="true" tabindex="-1"></a><span class="fu">create_emuRdemoData</span>(<span class="at">dir =</span> <span class="fu">tempdir</span>())</span>
+<span id="cb134-6"><a href="chap-sigDataExtr.html#cb134-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-7"><a href="chap-sigDataExtr.html#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="co"># get the path to a emuDB called &quot;ae&quot; that is part of the demo data</span></span>
+<span id="cb134-8"><a href="chap-sigDataExtr.html#cb134-8" aria-hidden="true" tabindex="-1"></a>path2directory <span class="ot">=</span> <span class="fu">file.path</span>(<span class="fu">tempdir</span>(), </span>
+<span id="cb134-9"><a href="chap-sigDataExtr.html#cb134-9" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;emuR_demoData&quot;</span>, </span>
+<span id="cb134-10"><a href="chap-sigDataExtr.html#cb134-10" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;ae_emuDB&quot;</span>)</span>
+<span id="cb134-11"><a href="chap-sigDataExtr.html#cb134-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-12"><a href="chap-sigDataExtr.html#cb134-12" aria-hidden="true" tabindex="-1"></a><span class="co"># load emuDB into current R session</span></span>
+<span id="cb134-13"><a href="chap-sigDataExtr.html#cb134-13" aria-hidden="true" tabindex="-1"></a>ae <span class="ot">=</span> <span class="fu">load_emuDB</span>(path2directory)</span></code></pre></div>
+<div id="extracting-pre-defined-tracks" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Extracting pre-defined tracks</h2>
 <p>To access data that are stored in files, the user has to define tracks for a database that point to sequences of samples in files that match a user-specified file extension. The user-defined name of such a track can then be used to reference the track in the signal data extraction process. Internally, <code>emuR</code> uses <code>wrassp</code> to read the appropriate files from disk, extract the sample sequences that match the result of a query and return values to the user for further inspection and evaluation. The R code snippet below shows how a signal track that is already defined in the <code>ae</code> demo database can be extracted for all annotation items on the <code>Phonetic</code> level containing the label <em>ai</em>.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="chap-sigDataExtr.html#cb135-1"></a><span class="co"># list currently available tracks</span></span>
-<span id="cb135-2"><a href="chap-sigDataExtr.html#cb135-2"></a><span class="kw">list_ssffTrackDefinitions</span>(ae)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="chap-sigDataExtr.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list currently available tracks</span></span>
+<span id="cb135-2"><a href="chap-sigDataExtr.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list_ssffTrackDefinitions</span>(ae)</span></code></pre></div>
 <pre><code>##   name columnName fileExtension
 ## 1  dft        dft           dft
 ## 2   fm         fm           fms</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="chap-sigDataExtr.html#cb137-1"></a><span class="co"># query all &quot;ai&quot; phonetic segments</span></span>
-<span id="cb137-2"><a href="chap-sigDataExtr.html#cb137-2"></a>ai_segs =<span class="st"> </span><span class="kw">query</span>(ae, <span class="st">&quot;Phonetic == ai&quot;</span>)</span>
-<span id="cb137-3"><a href="chap-sigDataExtr.html#cb137-3"></a></span>
-<span id="cb137-4"><a href="chap-sigDataExtr.html#cb137-4"></a><span class="co"># get &quot;fm&quot; track data for these segments</span></span>
-<span id="cb137-5"><a href="chap-sigDataExtr.html#cb137-5"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
-<span id="cb137-6"><a href="chap-sigDataExtr.html#cb137-6"></a>ai_td_fm =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</span>
-<span id="cb137-7"><a href="chap-sigDataExtr.html#cb137-7"></a>                         <span class="dt">seglist =</span> ai_segs,</span>
-<span id="cb137-8"><a href="chap-sigDataExtr.html#cb137-8"></a>                         <span class="dt">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>,</span>
-<span id="cb137-9"><a href="chap-sigDataExtr.html#cb137-9"></a>                         <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb137-10"><a href="chap-sigDataExtr.html#cb137-10"></a></span>
-<span id="cb137-11"><a href="chap-sigDataExtr.html#cb137-11"></a><span class="co"># show ai_td_fm (F1-F4 in columns T1-T4)</span></span>
-<span id="cb137-12"><a href="chap-sigDataExtr.html#cb137-12"></a>ai_td_fm</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="chap-sigDataExtr.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># query all &quot;ai&quot; phonetic segments</span></span>
+<span id="cb137-2"><a href="chap-sigDataExtr.html#cb137-2" aria-hidden="true" tabindex="-1"></a>ai_segs <span class="ot">=</span> <span class="fu">query</span>(ae, <span class="st">&quot;Phonetic == ai&quot;</span>)</span>
+<span id="cb137-3"><a href="chap-sigDataExtr.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="chap-sigDataExtr.html#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get &quot;fm&quot; track data for these segments</span></span>
+<span id="cb137-5"><a href="chap-sigDataExtr.html#cb137-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
+<span id="cb137-6"><a href="chap-sigDataExtr.html#cb137-6" aria-hidden="true" tabindex="-1"></a>ai_td_fm <span class="ot">=</span> <span class="fu">get_trackdata</span>(ae,</span>
+<span id="cb137-7"><a href="chap-sigDataExtr.html#cb137-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">seglist =</span> ai_segs,</span>
+<span id="cb137-8"><a href="chap-sigDataExtr.html#cb137-8" aria-hidden="true" tabindex="-1"></a>                         <span class="at">ssffTrackName =</span> <span class="st">&quot;fm&quot;</span>,</span>
+<span id="cb137-9"><a href="chap-sigDataExtr.html#cb137-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb137-10"><a href="chap-sigDataExtr.html#cb137-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-11"><a href="chap-sigDataExtr.html#cb137-11" aria-hidden="true" tabindex="-1"></a><span class="co"># show ai_td_fm (F1-F4 in columns T1-T4)</span></span>
+<span id="cb137-12"><a href="chap-sigDataExtr.html#cb137-12" aria-hidden="true" tabindex="-1"></a>ai_td_fm</span></code></pre></div>
 <pre><code>## # A tibble: 183 x 24
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 15 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 15 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;, T2 &lt;int&gt;, T3 &lt;int&gt;, T4 &lt;int&gt;</code></pre>
-<p>Being able to access data that is stored in files is important for two main reasons. Firstly, it is possible to generate files using external programs such as VoiceSauce <span class="citation">(Shue et al. <a href="#ref-shue:2011a" role="doc-biblioref">2011</a>)</span>, which can export its calculated output to the general purpose SSFF file format. This file mechanism is also used to access data produced by EMA, EPG or many other forms of signal data recordings. Secondly, it is possible to track, save and access manipulated data such as formant values that have been manually corrected. It is also worth noting that the <code>get_trackdata()</code> function has a predefined track which is always available without it having to be defined. The name of this track is <code>MEDIAFILE_SAMPLES</code> which references the actual samples of the audio files of the database. The R code snippet below shows how this predefined track can be used to access the audio samples belonging to the segments in <code>ai_segs</code>.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="chap-sigDataExtr.html#cb139-1"></a><span class="co"># get media file samples</span></span>
-<span id="cb139-2"><a href="chap-sigDataExtr.html#cb139-2"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
-<span id="cb139-3"><a href="chap-sigDataExtr.html#cb139-3"></a>ai_td_mfs =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</span>
-<span id="cb139-4"><a href="chap-sigDataExtr.html#cb139-4"></a>                          <span class="dt">seglist =</span> ai_segs,</span>
-<span id="cb139-5"><a href="chap-sigDataExtr.html#cb139-5"></a>                          <span class="dt">ssffTrackName =</span> <span class="st">&quot;MEDIAFILE_SAMPLES&quot;</span>,</span>
-<span id="cb139-6"><a href="chap-sigDataExtr.html#cb139-6"></a>                          <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb139-7"><a href="chap-sigDataExtr.html#cb139-7"></a></span>
-<span id="cb139-8"><a href="chap-sigDataExtr.html#cb139-8"></a><span class="co"># ai_td_mfs (sample values in column T1)</span></span>
-<span id="cb139-9"><a href="chap-sigDataExtr.html#cb139-9"></a>ai_td_mfs</span></code></pre></div>
+<p>Being able to access data that is stored in files is important for two main reasons. Firstly, it is possible to generate files using external programs such as VoiceSauce <span class="citation">(<a href="references.html#ref-shue:2011a" role="doc-biblioref">Shue et al. 2011</a>)</span>, which can export its calculated output to the general purpose SSFF file format. This file mechanism is also used to access data produced by EMA, EPG or many other forms of signal data recordings. Secondly, it is possible to track, save and access manipulated data such as formant values that have been manually corrected. It is also worth noting that the <code>get_trackdata()</code> function has a predefined track which is always available without it having to be defined. The name of this track is <code>MEDIAFILE_SAMPLES</code> which references the actual samples of the audio files of the database. The R code snippet below shows how this predefined track can be used to access the audio samples belonging to the segments in <code>ai_segs</code>.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="chap-sigDataExtr.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get media file samples</span></span>
+<span id="cb139-2"><a href="chap-sigDataExtr.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
+<span id="cb139-3"><a href="chap-sigDataExtr.html#cb139-3" aria-hidden="true" tabindex="-1"></a>ai_td_mfs <span class="ot">=</span> <span class="fu">get_trackdata</span>(ae,</span>
+<span id="cb139-4"><a href="chap-sigDataExtr.html#cb139-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">seglist =</span> ai_segs,</span>
+<span id="cb139-5"><a href="chap-sigDataExtr.html#cb139-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ssffTrackName =</span> <span class="st">&quot;MEDIAFILE_SAMPLES&quot;</span>,</span>
+<span id="cb139-6"><a href="chap-sigDataExtr.html#cb139-6" aria-hidden="true" tabindex="-1"></a>                          <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb139-7"><a href="chap-sigDataExtr.html#cb139-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-8"><a href="chap-sigDataExtr.html#cb139-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_td_mfs (sample values in column T1)</span></span>
+<span id="cb139-9"><a href="chap-sigDataExtr.html#cb139-9" aria-hidden="true" tabindex="-1"></a>ai_td_mfs</span></code></pre></div>
 <pre><code>## # A tibble: 18,386 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 18,376 more rows, and 12 more variables: level &lt;chr&gt;,
-## #   attribute &lt;chr&gt;, start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;,
-## #   type &lt;chr&gt;, sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;,
-## #   times_orig &lt;dbl&gt;, times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;</code></pre>
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 18,376 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
+## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
+## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;int&gt;</code></pre>
 </div>
-<div id="adding-new-tracks" class="section level2">
+<div id="adding-new-tracks" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Adding new tracks</h2>
 <p>As described in detail in Section <a href="chap-wrassp.html#sec:wrassp-emu-sdms">8.7</a>, the signal processing routines provided by the <code>wrassp</code> package can be used to produce SSFF files containing various derived signal data (e.g., formants, fundamental frequency, etc.). The R code snippet below shows how the <code>add_ssffTrackDefinition()</code> can be used to add a new track to the <code>ae</code> <code>emuDB</code>. Using the <code>onTheFlyFunctionName</code> parameter, the <code>add_ssffTrackDefinition()</code> function automatically executes the <code>wrassp</code> signal processing function <code>ksvF0</code> (<code>onTheFlyFunctionName = "ksvF0"</code>) and stores the results in SSFF files in the bundle directories.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="chap-sigDataExtr.html#cb141-1"></a><span class="co"># add new track and calculate</span></span>
-<span id="cb141-2"><a href="chap-sigDataExtr.html#cb141-2"></a><span class="co"># .f0 files on-the-fly using wrassp::ksvF0()</span></span>
-<span id="cb141-3"><a href="chap-sigDataExtr.html#cb141-3"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
-<span id="cb141-4"><a href="chap-sigDataExtr.html#cb141-4"></a><span class="kw">add_ssffTrackDefinition</span>(ae,</span>
-<span id="cb141-5"><a href="chap-sigDataExtr.html#cb141-5"></a>                        <span class="dt">name =</span> <span class="st">&quot;F0&quot;</span>,</span>
-<span id="cb141-6"><a href="chap-sigDataExtr.html#cb141-6"></a>                        <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;ksvF0&quot;</span>,</span>
-<span id="cb141-7"><a href="chap-sigDataExtr.html#cb141-7"></a>                        <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb141-8"><a href="chap-sigDataExtr.html#cb141-8"></a></span>
-<span id="cb141-9"><a href="chap-sigDataExtr.html#cb141-9"></a><span class="co"># show newly added track</span></span>
-<span id="cb141-10"><a href="chap-sigDataExtr.html#cb141-10"></a><span class="kw">list_ssffTrackDefinitions</span>(ae)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="chap-sigDataExtr.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add new track and calculate</span></span>
+<span id="cb141-2"><a href="chap-sigDataExtr.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="co"># .f0 files on-the-fly using wrassp::ksvF0()</span></span>
+<span id="cb141-3"><a href="chap-sigDataExtr.html#cb141-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
+<span id="cb141-4"><a href="chap-sigDataExtr.html#cb141-4" aria-hidden="true" tabindex="-1"></a><span class="fu">add_ssffTrackDefinition</span>(ae,</span>
+<span id="cb141-5"><a href="chap-sigDataExtr.html#cb141-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">name =</span> <span class="st">&quot;F0&quot;</span>,</span>
+<span id="cb141-6"><a href="chap-sigDataExtr.html#cb141-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">onTheFlyFunctionName =</span> <span class="st">&quot;ksvF0&quot;</span>,</span>
+<span id="cb141-7"><a href="chap-sigDataExtr.html#cb141-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb141-8"><a href="chap-sigDataExtr.html#cb141-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-9"><a href="chap-sigDataExtr.html#cb141-9" aria-hidden="true" tabindex="-1"></a><span class="co"># show newly added track</span></span>
+<span id="cb141-10"><a href="chap-sigDataExtr.html#cb141-10" aria-hidden="true" tabindex="-1"></a><span class="fu">list_ssffTrackDefinitions</span>(ae)</span></code></pre></div>
 <pre><code>##   name columnName fileExtension
 ## 1  dft        dft           dft
 ## 2   fm         fm           fms
 ## 3   F0         F0            f0</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="chap-sigDataExtr.html#cb143-1"></a><span class="co"># show newly added files</span></span>
-<span id="cb143-2"><a href="chap-sigDataExtr.html#cb143-2"></a><span class="kw">list_files</span>(ae, <span class="dt">fileExtension =</span> <span class="st">&quot;f0&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="chap-sigDataExtr.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show newly added files</span></span>
+<span id="cb143-2"><a href="chap-sigDataExtr.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list_files</span>(ae, <span class="at">fileExtension =</span> <span class="st">&quot;f0&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 7 x 4
-##   session bundle   file     absolute_file_path                                  
-##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;                                               
-## 1 0000    msajc003 msajc00~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 2 0000    msajc010 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 3 0000    msajc012 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 4 0000    msajc015 msajc01~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 5 0000    msajc022 msajc02~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 6 0000    msajc023 msajc02~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~
-## 7 0000    msajc057 msajc05~ &quot;C:\\Users\\rapha\\AppData\\Local\\Temp\\RtmpqoJ4uz~</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="chap-sigDataExtr.html#cb145-1"></a><span class="co"># extract newly added trackdata</span></span>
-<span id="cb145-2"><a href="chap-sigDataExtr.html#cb145-2"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
-<span id="cb145-3"><a href="chap-sigDataExtr.html#cb145-3"></a>ai_td =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</span>
-<span id="cb145-4"><a href="chap-sigDataExtr.html#cb145-4"></a>                      <span class="dt">seglist =</span> ai_segs,</span>
-<span id="cb145-5"><a href="chap-sigDataExtr.html#cb145-5"></a>                      <span class="dt">ssffTrackName =</span> <span class="st">&quot;F0&quot;</span>,</span>
-<span id="cb145-6"><a href="chap-sigDataExtr.html#cb145-6"></a>                      <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb145-7"><a href="chap-sigDataExtr.html#cb145-7"></a></span>
-<span id="cb145-8"><a href="chap-sigDataExtr.html#cb145-8"></a><span class="co"># show ai_td (F0 values in column T1)</span></span>
-<span id="cb145-9"><a href="chap-sigDataExtr.html#cb145-9"></a>ai_td</span></code></pre></div>
+##   session bundle   file      absolute_file_path                                 
+##   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;                                              
+## 1 0000    msajc003 msajc003… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 2 0000    msajc010 msajc010… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 3 0000    msajc012 msajc012… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 4 0000    msajc015 msajc015… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 5 0000    msajc022 msajc022… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 6 0000    msajc023 msajc023… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…
+## 7 0000    msajc057 msajc057… /tmp/Rtmpns5ycU/emuR_demoData/ae_emuDB/0000_ses/ms…</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="chap-sigDataExtr.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract newly added trackdata</span></span>
+<span id="cb145-2"><a href="chap-sigDataExtr.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
+<span id="cb145-3"><a href="chap-sigDataExtr.html#cb145-3" aria-hidden="true" tabindex="-1"></a>ai_td <span class="ot">=</span> <span class="fu">get_trackdata</span>(ae,</span>
+<span id="cb145-4"><a href="chap-sigDataExtr.html#cb145-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">seglist =</span> ai_segs,</span>
+<span id="cb145-5"><a href="chap-sigDataExtr.html#cb145-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ssffTrackName =</span> <span class="st">&quot;F0&quot;</span>,</span>
+<span id="cb145-6"><a href="chap-sigDataExtr.html#cb145-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb145-7"><a href="chap-sigDataExtr.html#cb145-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-8"><a href="chap-sigDataExtr.html#cb145-8" aria-hidden="true" tabindex="-1"></a><span class="co"># show ai_td (F0 values in column T1)</span></span>
+<span id="cb145-9"><a href="chap-sigDataExtr.html#cb145-9" aria-hidden="true" tabindex="-1"></a>ai_td</span></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;dbl&gt;</code></pre>
 </div>
-<div id="calculating-tracks-on-the-fly" class="section level2">
+<div id="calculating-tracks-on-the-fly" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Calculating tracks on-the-fly</h2>
 <p>With the <code>wrassp</code> package, we were able to implement a new form of signal data extraction which was not available in the legacy system. The user is now able to select one of the signal processing routines provided by <code>wrassp</code> and pass it on to the signal data extraction function. The signal data extraction function can then apply this <code>wrassp</code> function to each audio file as part of the signal data extraction process. This means that the user can quickly manipulate function parameters and evaluate the result without having to store to disk the files that would usually be generated by the various parameter experiments. In many cases this new functionality eliminates the need for defining a track definition for the entire database for temporary data analysis purposes. The R code snippet below shows how the <code>onTheFlyFunctionName</code> parameter of the <code>get_trackdata()</code> function is used.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="chap-sigDataExtr.html#cb147-1"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
-<span id="cb147-2"><a href="chap-sigDataExtr.html#cb147-2"></a>ai_td_pit =<span class="st"> </span><span class="kw">get_trackdata</span>(ae,</span>
-<span id="cb147-3"><a href="chap-sigDataExtr.html#cb147-3"></a>                          <span class="dt">seglist =</span> ai_segs,</span>
-<span id="cb147-4"><a href="chap-sigDataExtr.html#cb147-4"></a>                          <span class="dt">onTheFlyFunctionName =</span> <span class="st">&quot;mhsF0&quot;</span>,</span>
-<span id="cb147-5"><a href="chap-sigDataExtr.html#cb147-5"></a>                          <span class="dt">verbose =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb147-6"><a href="chap-sigDataExtr.html#cb147-6"></a></span>
-<span id="cb147-7"><a href="chap-sigDataExtr.html#cb147-7"></a><span class="co"># show ai_td_pit (F0 values in column T1)</span></span>
-<span id="cb147-8"><a href="chap-sigDataExtr.html#cb147-8"></a>ai_td_pit</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="chap-sigDataExtr.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (verbose = F is only set to avoid additional output in manual)</span></span>
+<span id="cb147-2"><a href="chap-sigDataExtr.html#cb147-2" aria-hidden="true" tabindex="-1"></a>ai_td_pit <span class="ot">=</span> <span class="fu">get_trackdata</span>(ae,</span>
+<span id="cb147-3"><a href="chap-sigDataExtr.html#cb147-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">seglist =</span> ai_segs,</span>
+<span id="cb147-4"><a href="chap-sigDataExtr.html#cb147-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">onTheFlyFunctionName =</span> <span class="st">&quot;mhsF0&quot;</span>,</span>
+<span id="cb147-5"><a href="chap-sigDataExtr.html#cb147-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb147-6"><a href="chap-sigDataExtr.html#cb147-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-7"><a href="chap-sigDataExtr.html#cb147-7" aria-hidden="true" tabindex="-1"></a><span class="co"># show ai_td_pit (F0 values in column T1)</span></span>
+<span id="cb147-8"><a href="chap-sigDataExtr.html#cb147-8" aria-hidden="true" tabindex="-1"></a>ai_td_pit</span></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;dbl&gt;</code></pre>
 </div>
-<div id="the-resulting-object-tibble" class="section level2">
+<div id="the-resulting-object-tibble" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> The resulting object: <code>tibble</code></h2>
 <p>As of version 2.0.0 of <code>emuR</code> the default resulting object of a call to <code>get_trackdata()</code> is of class <code>tibble</code> (see R code snippet below).</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="chap-sigDataExtr.html#cb149-1"></a><span class="co"># show class vector of ai_td_pit</span></span>
-<span id="cb149-2"><a href="chap-sigDataExtr.html#cb149-2"></a><span class="kw">class</span>(ai_td_pit)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="chap-sigDataExtr.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show class vector of ai_td_pit</span></span>
+<span id="cb149-2"><a href="chap-sigDataExtr.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ai_td_pit)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="chap-sigDataExtr.html#cb151-1"></a><span class="co"># show ai_td_pit (F0 values in column T1)</span></span>
-<span id="cb151-2"><a href="chap-sigDataExtr.html#cb151-2"></a>ai_td_pit</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="chap-sigDataExtr.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show ai_td_pit (F0 values in column T1)</span></span>
+<span id="cb151-2"><a href="chap-sigDataExtr.html#cb151-2" aria-hidden="true" tabindex="-1"></a>ai_td_pit</span></code></pre></div>
 <pre><code>## # A tibble: 183 x 21
 ##    sl_rowIdx labels start   end db_uuid session bundle start_item_id end_item_id
 ##        &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;int&gt;       &lt;int&gt;
-##  1         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  2         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  3         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  4         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  5         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  6         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  7         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  8         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-##  9         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## 10         1 ai      863. 1016. 0fc618~ 0000    msajc~           161         161
-## # ... with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
+##  1         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  2         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  3         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  4         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  5         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  6         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  7         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  8         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+##  9         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## 10         1 ai      863. 1016. 0fc618… 0000    msajc…           161         161
+## # … with 173 more rows, and 12 more variables: level &lt;chr&gt;, attribute &lt;chr&gt;,
 ## #   start_item_seq_idx &lt;int&gt;, end_item_seq_idx &lt;int&gt;, type &lt;chr&gt;,
 ## #   sample_start &lt;int&gt;, sample_end &lt;int&gt;, sample_rate &lt;int&gt;, times_orig &lt;dbl&gt;,
 ## #   times_rel &lt;dbl&gt;, times_norm &lt;dbl&gt;, T1 &lt;dbl&gt;</code></pre>
 <p>As can be seen by the first row output of the R code snippet above, the <code>tibble</code> object is an amalgamation of both a segment list and the actual signal data. The first <code>sl_rowIdx</code> column of the <code>ai_emuRtd_pit</code> object indicates the row index of the segment list the current row belongs to, the <code>times_rel</code> and <code>times_orig</code> columns represent the relative time and the original time of the samples contained in the current row (see above R code snippet) and T1 (to Tn in n-dimensional tracks) contains the actual signal sample values. As is often the case with tabular data, the <code>tibble</code> object carries certain redundant information (e.g. segment start and end times). However, the benefit of having a <code>data.frame</code> object that contains all the information needed to process the data is the ability to replace package specific functions (e.g. the legacy <code>eplot()</code> etc.) with standardized <code>data.frame</code> processing and visualization procedures that can be applied to any <code>data.frame</code> object independent of the package that generated it. Therefore, the knowledge that is necessary to process a <code>tibble</code> object can be transferred to/from other packages which was not the case for the legacy <code>trackdata</code> object. For examples on how functions provided by packages belonging to the <a href="https://www.tidyverse.org/">tidyverse</a> can be used to replace the legacy <code>eplot()</code> and <code>dplot()</code> functions see <a href="recipe-plottingSnippets.html#recipe:plottingSnippets">22</a>. The legacy <code>dcut()</code> can simply be replaced using <code>normalize_length()</code> in combination with <code>dplyr::filter()</code>. Finally, it is worth noting that for backward compatibility the legacy <code>trackdata</code> object is still available by explicitly setting the <code>resultType</code> parameter of <code>get_trackdata()</code>.</p>
 </div>
-<div id="conclusion-3" class="section level2">
+<div id="conclusion-3" class="section level2" number="7.5">
 <h2><span class="header-section-number">7.5</span> Conclusion</h2>
 <p>This chapter introduced the signal data extraction mechanics of the <code>emuR</code> package. The combination of the <code>get_trackdata()</code> function and the file handling and signal processing abilities of the <code>wrassp</code> package (see Chapter <a href="chap-wrassp.html#chap:wrassp">8</a> for further details) provide the user with a flexible system for extracting derived or complementary signal data belonging to their queried annotation items.</p>
 
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-shue:2011a">
-<p>Shue, Y.-L, Keating P., Vicenik C., and Yu K. 2011. “VoiceSauce: A Program for Voice Analysis.” In <em>Proceedings of the Icphs</em>, XVII:1846–9.</p>
-</div>
-</div>
 <div class="footnotes">
 <hr />
 <ol start="14">
-<li id="fn14"><p>Parts of this chapter have been published in <span class="citation">Winkelmann, Harrington, and Jänsch (<a href="#ref-winkelmann:2017aa" role="doc-biblioref">2017</a>)</span>.<a href="chap-sigDataExtr.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Parts of this chapter have been published in <span class="citation"><a href="references.html#ref-winkelmann:2017aa" role="doc-biblioref">Winkelmann, Harrington, and Jänsch</a> (<a href="references.html#ref-winkelmann:2017aa" role="doc-biblioref">2017</a>)</span>.<a href="chap-sigDataExtr.html#fnref14" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

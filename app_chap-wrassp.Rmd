@@ -12,7 +12,7 @@ The R code snippet below shows how to generate `AsspDataObj` objects from scratc
 source("https://raw.githubusercontent.com/IPS-LMU/The-EMU-SDMS-Manual/master/R/praat2AsspDataObj.R")
 ```
 
-```{r, eval=F, code=readLines("R/praatToFormants2AsspDataObj.R")}
+```{r, eval=F, code=readLines("R/praat2AsspDataObj.R")}
 ```
 
 The following code chunk shows how this function can be applied to `.wav` files of an emuDB.
