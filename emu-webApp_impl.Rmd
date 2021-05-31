@@ -83,5 +83,5 @@ This mechanism is, for example, currently being used by the WebMAUS web-services
 
 ### Examples
 
-- TextGrid example: http://ips-lmu.github.io/EMU-webApp/?audioGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/oldFormat/msajc003/msajc003.wav&labelGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/oldFormat/msajc003/msajc003.TextGrid&labelType=TEXTGRID
-- annotJSON example: http://ips-lmu.github.io/EMU-webApp/?audioGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003.wav&labelGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/app/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003_annot.json&labelType=annotJSON
+- TextGrid example: https://ips-lmu.github.io/EMU-webApp/?audioGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/src/testData/oldFormat/msajc003/msajc003.wav&labelGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/src/testData/oldFormat/msajc003/msajc003.TextGrid&labelType=TEXTGRID
+- annotJSON example: https://ips-lmu.github.io/EMU-webApp/?audioGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/src/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003.wav&labelGetUrl=https://raw.githubusercontent.com/IPS-LMU/EMU-webApp/master/src/testData/newFormat/ae/0000_ses/msajc003_bndl/msajc003_annot.json&labelType=annotJSON
