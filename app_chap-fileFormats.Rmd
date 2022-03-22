@@ -220,6 +220,8 @@ The `_DBconfig.json` file contains the following fields:
 
             -   `"minVal"`: The minimum value which defines the lower y-axis limit. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
             
+            -   `"maxVal"`: The maximum value which defines the upper y-axis limit. (NOTE: indentation level reduced by 1 to avoid max indentation problems)
+  
             -   `"horizontalLines"`: Add horizontal lines to ssffTrack
             
             -   `"ssffTrackName"`: The name of the SSFF track to draw horizontal lines on. (NOTE: indentation level reduced by 1 to avoid max indentation problems) 
